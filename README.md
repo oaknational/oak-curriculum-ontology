@@ -1,13 +1,11 @@
 # Oak Curriculum Ontology
 
-<div align="center">
-
 ![Version](https://img.shields.io/badge/version-0.1.0-orange)
-![Status](https://img.shields.io/badge/status-early_release-yellow)
+![Status](https://img.shields.io/badge/status-early--release-yellow)
 ![License](https://img.shields.io/badge/license-OGL--3.0-blue)
-![Development Status](https://img.shields.io/badge/status-alpha-red)
 
-**A machine-readable semantic representation of the Oak Curriculum and linkage to the National Curriculum for England (2014)**
+**A machine-readable semantic representation of the Oak Curriculum  
+and linkage to the National Curriculum for England (2014)**
 
 Developed by [Oak National Academy](https://thenational.academy)
 
