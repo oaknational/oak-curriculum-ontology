@@ -1,8 +1,8 @@
 # Oak Curriculum Ontology
 
-![Version](https://img.shields.io/badge/version-0.1.0-orange)
-![Status](https://img.shields.io/badge/status-early_release-yellow)
-![License](https://img.shields.io/badge/license-OGL_3.0-blue)
+![Version](https://img.shields.io/badge?label=version&message=0.1.0&color=orange)
+![Status](https://img.shields.io/badge?label=status&message=early-release&color=yellow)
+![License](https://img.shields.io/badge?label=license&message=OGL-3.0&color=blue)
 
 **A machine-readable semantic representation of the Oak Curriculum  
 and linkage to the National Curriculum for England (2014)**
