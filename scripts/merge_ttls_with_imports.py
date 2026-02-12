@@ -70,6 +70,27 @@ def resolve_import_uri(import_uri, repo_root):
         if local_path.exists():
             return local_path
 
+    # Handle /ontology (without oak- prefix)
+    # e.g., https://w3id.org/oak/curriculum/ontology -> ontology/oak-curriculum-ontology.ttl
+    if import_uri_str.rstrip("/").endswith("w3id.org/oak/curriculum/ontology"):
+        local_path = repo_root / "ontology" / "oak-curriculum-ontology.ttl"
+        if local_path.exists():
+            return local_path
+
+    # Handle oakcurriculum/programme-structure
+    # e.g., https://w3id.org/oak/curriculum/oakcurriculum/programme-structure -> data/programme-structure.ttl
+    if "w3id.org/oak/curriculum/oakcurriculum/programme-structure" in import_uri_str:
+        local_path = repo_root / "data" / "programme-structure.ttl"
+        if local_path.exists():
+            return local_path
+
+    # Handle oakcurriculum/threads
+    # e.g., https://w3id.org/oak/curriculum/oakcurriculum/threads -> data/threads.ttl
+    if "w3id.org/oak/curriculum/oakcurriculum/threads" in import_uri_str:
+        local_path = repo_root / "data" / "threads.ttl"
+        if local_path.exists():
+            return local_path
+
     # Handle nationalcurriculum/temporal-structure or just nationalcurriculum/
     # e.g., https://w3id.org/oak/curriculum/nationalcurriculum/temporal-structure -> data/temporal-structure.ttl
     if "w3id.org/oak/curriculum/nationalcurriculum/temporal-structure" in import_uri_str:

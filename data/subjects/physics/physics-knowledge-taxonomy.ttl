@@ -44,7 +44,7 @@
 
   owl:imports <https://w3id.org/oak/curriculum/ontology> ;
   owl:imports <https://w3id.org/oak/curriculum/core/> ;
-  owl:imports <https://w3id.org/oak/curriculum/nationalcurriculum/science-programme-structure> .
+  owl:imports <https://w3id.org/oak/curriculum/nationalcurriculum/physics-programme-structure> .
 
 # ----------------------------------------------------------------------
 # Knowledge Taxonomy
