@@ -152,21 +152,30 @@ def parse_with_imports(file_path_or_uri, repo_root):
             print(f"⚠️ Warning: Cannot resolve import URI: {import_uri_str}")
             return
 
+        # If resolved to a local file, check if already parsed
+        if isinstance(resolved, Path):
+            resolved_path = resolved.resolve()
+            if resolved_path in seen_files:
+                return
+            print(f"🌐 Fetching: {import_uri_str}")
+            print(f"   → from: {resolved}")
+            seen_files.add(resolved_path)
+            try:
+                g.parse(str(resolved_path), format="turtle")
+            except Exception as e:
+                print(f"❌ Error parsing {resolved_path}: {e}")
+            return
+
+        # Remote URL - fetch and parse
         print(f"🌐 Fetching: {import_uri_str}")
         print(f"   → from: {resolved}")
 
         try:
-            if isinstance(resolved, Path):
-                g.parse(str(resolved), format="turtle")
-            else:
-                # Fetch remote URL with SSL context (handles certificate issues)
-                import ssl
-                import urllib.request
-                ssl_context = ssl.create_default_context()
-                ssl_context.check_hostname = False
-                ssl_context.verify_mode = ssl.CERT_NONE
-                with urllib.request.urlopen(resolved, context=ssl_context) as response:
-                    g.parse(data=response.read(), format="turtle")
+            ssl_context = ssl.create_default_context()
+            ssl_context.check_hostname = False
+            ssl_context.verify_mode = ssl.CERT_NONE
+            with urllib.request.urlopen(resolved, context=ssl_context) as response:
+                g.parse(data=response.read(), format="turtle")
         except Exception as e:
             print(f"❌ Error parsing {resolved}: {e}")
             return
