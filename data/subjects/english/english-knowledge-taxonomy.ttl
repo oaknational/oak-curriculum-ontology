@@ -1,0 +1,2445 @@
+@prefix curric: <https://w3id.org/oak/curriculum/ontology/> .
+@prefix natcurric: <https://w3id.org/oak/curriculum/nationalcurriculum/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ======================================================================
+# National Curriculum for England - English Knowledge Taxonomy 
+# ======================================================================
+
+# ----------------------------------------------------------------------
+# Ontology Declaration
+# ----------------------------------------------------------------------
+
+<https://w3id.org/oak/curriculum/nationalcurriculum/english-knowledge-taxonomy>
+  rdf:type owl:Ontology ;
+
+  rdfs:label "National Curriculum for England - English Knowledge Taxonomy"@en ;
+  dc:title "National Curriculum for England - English Knowledge Taxonomy"@en ;
+  rdfs:comment """English knowledge taxonomy for the National Curriculum in England, 
+  organizing content through strands, sub-strands, content descriptors, and sub-content 
+  descriptors."""@en ;
+
+  owl:versionInfo "0.1.0" ;
+  owl:versionIRI <https://w3id.org/oak/curriculum/nationalcurriculum/english-knowledge-taxonomy/0.1.0> ;
+  
+  dcterms:description """English knowledge taxonomy for the National Curriculum in England, 
+  organizing content through strands, sub-strands, content descriptors, and sub-content 
+  descriptors."""@en ;
+  dcterms:created "2025-11-24T12:33:32Z"^^xsd:dateTime ;
+  dcterms:modified "2025-12-03T12:33:32Z"^^xsd:dateTime ;
+  dcterms:issued "2025-12-03T12:33:32Z"^^xsd:dateTime ;
+  
+  # OGL 3.0 License
+  dcterms:license <http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/> ;
+  dcterms:rights "Crown Copyright"@en ;
+
+  vann:preferredNamespacePrefix "natcurric" ;
+  vann:preferredNamespaceUri "https://w3id.org/oak/curriculum/nationalcurriculum/" ;
+
+  owl:imports <https://w3id.org/oak/curriculum/ontology> ;
+  owl:imports <https://w3id.org/oak/curriculum/core/> ;
+  owl:imports <https://w3id.org/oak/curriculum/nationalcurriculum/english-programme-structure> .
+
+# ----------------------------------------------------------------------
+# Knowledge Taxonomy
+# ----------------------------------------------------------------------
+
+natcurric:knowledge-taxonomy
+  a skos:ConceptScheme ;
+  skos:prefLabel "National Curriculum for England Knowledge Taxonomy"@en ;
+  skos:hasTopConcept natcurric:discipline-english ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+  
+# ----------------------------------------------------------------------
+# Disciplines
+# ----------------------------------------------------------------------
+
+natcurric:discipline-english
+  a skos:Concept, curric:Discipline ;
+  skos:prefLabel "English"@en ;
+  skos:topConceptOf natcurric:knowledge-taxonomy ;
+  skos:narrower
+    natcurric:strand-reading ,
+    natcurric:strand-writing ,
+    natcurric:strand-grammar-and-vocabulary ,
+    natcurric:strand-spoken-english ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+# ----------------------------------------------------------------------
+# Strands
+# ----------------------------------------------------------------------
+
+natcurric:strand-reading
+  a skos:Concept, curric:Strand ;
+  skos:prefLabel "Reading"@en ;
+  skos:definition "Description of strand..." ;
+  curric:displayOrder "1"^^xsd:positiveInteger ;
+  skos:broader natcurric:discipline-english ;
+  skos:narrower natcurric:substrand-word-reading ,
+                natcurric:substrand-comprehension ,
+                natcurric:substrand-appreciation-and-love-of-reading ,
+                natcurric:substrand-increasingly-challenging-texts ,
+                natcurric:substrand-read-critically ,
+                natcurric:substrand-english-literary-heritage ,
+                natcurric:substrand-critically-evaluate-texts ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:strand-writing
+  a skos:Concept, curric:Strand ;
+  skos:prefLabel "Writing"@en ;
+  skos:definition "Description of strand..." ;
+  curric:displayOrder "2"^^xsd:positiveInteger ;
+  skos:broader natcurric:discipline-english ;
+  skos:narrower natcurric:substrand-transcription ,
+                natcurric:substrand-handwriting ,
+                natcurric:substrand-composition ,
+                natcurric:substrand-write-accurately-fluently-effectively ,
+                natcurric:substrand-plan-draft-edit-and-proofread ,
+                natcurric:substrand-revise-edit-and-proof-read ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:strand-grammar-and-vocabulary
+  a skos:Concept, curric:Strand ;
+  skos:prefLabel "Grammar and Vocabulary"@en ;
+  skos:definition "Description of strand..." ;
+  curric:displayOrder "3"^^xsd:positiveInteger ;
+  skos:broader natcurric:discipline-english ;
+  skos:narrower natcurric:substrand-vocabulary-grammar-punctuation ,
+                natcurric:substrand-consolidate-knowledge-grammar-vocabulary ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:strand-spoken-english
+  a skos:Concept, curric:Strand ;
+  skos:prefLabel "Spoken English"@en ;
+  skos:definition "Description of strand..." ;
+  curric:displayOrder "4"^^xsd:positiveInteger ;
+  skos:broader natcurric:discipline-english ;
+  skos:narrower natcurric:substrand-speak-confidently-effectively ,
+                natcurric:substrand-speak-confidently-audibly-effectively ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+# ----------------------------------------------------------------------
+# Sub-Strands
+# ----------------------------------------------------------------------
+
+natcurric:substrand-word-reading
+  a skos:Concept, curric:SubStrand ;
+  skos:prefLabel "Word Reading"@en ;
+  skos:definition "Description of sub-strand..." ;
+  curric:displayOrder "1"^^xsd:positiveInteger ;
+  skos:broader natcurric:strand-reading ;
+  skos:narrower 
+    natcurric:contentdescriptor-phonic-knowledge-to-decode-words ,
+    natcurric:contentdescriptor-correct-sound-to-graphemes ,
+    natcurric:contentdescriptor-blending-sounds-in-unfamiliar-words ,
+    natcurric:contentdescriptor-common-exception-words ,
+    natcurric:contentdescriptor-words-containing-gpcs ,
+    natcurric:contentdescriptor-words-containing-gpcs-more-syllables ,
+    natcurric:contentdescriptor-words-with-contractions ,
+    natcurric:contentdescriptor-read-books-aloud-accurately ,
+    natcurric:contentdescriptor-fluency-confidence-word-reading ,
+    natcurric:contentdescriptor-phonic-knowledge-automatic-decoding-embedded ,
+    natcurric:contentdescriptor-blending-sounds-that-contain-graphemes ,
+    natcurric:contentdescriptor-two-more-syllables-contain-graphemes ,
+    natcurric:contentdescriptor-words-containing-common-suffixes ,
+    natcurric:contentdescriptor-further-common-exception-words ,
+    natcurric:contentdescriptor-quickly-accurately-without-sounding-blending ,
+    natcurric:contentdescriptor-sounding-out-unfamiliar-words-accurately ,
+    natcurric:contentdescriptor-build-fluency-confidence-word-reading ,
+    natcurric:contentdescriptor-knowledge-root-words-prefixes-suffixes ,
+    natcurric:contentdescriptor-further-exception-words-unusual-correspondence ,
+    natcurric:contentdescriptor-further-root-words-prefixes-suffixes ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:substrand-comprehension
+  a skos:Concept, curric:SubStrand ;
+  skos:prefLabel "Comprehension"@en ;
+  skos:definition "Description of sub-strand..." ;
+  curric:displayOrder "2"^^xsd:positiveInteger ;
+  skos:broader natcurric:strand-reading ;
+  skos:narrower 
+    natcurric:contentdescriptor-discussing-poems-stories-non-fiction ,
+    natcurric:contentdescriptor-linking-to-own-experiences ,
+    natcurric:contentdescriptor-key-fairy-stories-traditional-tales ,
+    natcurric:contentdescriptor-recognising-predictable-phrases ,
+    natcurric:contentdescriptor-appreciate-rhymes-and-poems ,
+    natcurric:contentdescriptor-discussing-word-meanings ,
+    natcurric:contentdescriptor-background-information-and-vocabulary-provided ,
+    natcurric:contentdescriptor-checking-the-text-makes-sense ,
+    natcurric:contentdescriptor-discussing-significance-of-title-events ,
+    natcurric:contentdescriptor-inferences-what-is-said-done ,
+    natcurric:contentdescriptor-predicting-what-might-happen ,
+    natcurric:contentdescriptor-discussion-about-what-is-read ,
+    natcurric:contentdescriptor-explain-understanding-what-is-read ,
+    natcurric:contentdescriptor-pleasured-reading-motivation-to-read ,
+    natcurric:contentdescriptor-understand-books-read-listen ,
+    natcurric:contentdescriptor-discussion-books-poems-other-works ,
+    natcurric:contentdescriptor-discuss-understanding-books-poems-other ,
+    natcurric:contentdescriptor-develop-positive-attitudes-and-understanding ,
+    natcurric:contentdescriptor-understand-books-read-independently ,
+    natcurric:contentdescriptor-retrieve-record-information-from-nonfiction ,
+    natcurric:contentdescriptor-discussion-about-books-read-listening ,
+    natcurric:contentdescriptor-maintain-positive-attitudes-and-understanding ,
+    natcurric:contentdescriptor-checking-asking-inferring-predicting-summarising ,
+    natcurric:contentdescriptor-evaluate-how-authors-use-language ,
+    natcurric:contentdescriptor-distinguish-statements-fact-and-opinion ,
+    natcurric:contentdescriptor-retrieve-record-present-information-nonfiction ,
+    natcurric:contentdescriptor-discussion-about-books-read-challenging ,
+    natcurric:contentdescriptor-explain-understanding-about-books-read ,
+    natcurric:contentdescriptor-provide-reasoned-justifications-for-views ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:substrand-transcription
+  a skos:Concept, curric:SubStrand ;
+  skos:prefLabel "Transcription"@en ;
+  skos:definition "Description of sub-strand..." ;
+  curric:displayOrder "3"^^xsd:positiveInteger ;
+  skos:broader natcurric:strand-writing ;
+  skos:narrower 
+    natcurric:contentdescriptor-spell-words-40-phonemes ,
+    natcurric:contentdescriptor-segmenting-spoken-words-into-phonemes ,
+    natcurric:contentdescriptor-new-ways-of-spelling-phonemes ,
+    natcurric:contentdescriptor-spell-common-exception-words ,
+    natcurric:contentdescriptor-spell-more-words-contracted-forms ,
+    natcurric:contentdescriptor-learning-the-possessive-apostrophe ,
+    natcurric:contentdescriptor-distinguishing-homophones-and-near-homophones ,
+    natcurric:contentdescriptor-add-suffixes-spell-longer-words ,
+    natcurric:contentdescriptor-apply-spelling-rules-and-guidance ,
+    natcurric:contentdescriptor-spell-days-of-the-week ,
+    natcurric:contentdescriptor-naming-letters-alphabet-in-order ,
+    natcurric:contentdescriptor-distinguished-alternative-spellings-same-sound ,
+    natcurric:contentdescriptor-spelling-rule-adding-s-es ,
+    natcurric:contentdescriptor-using-the-prefix-un ,
+    natcurric:contentdescriptor-using-ing-ed-er-est ,
+    natcurric:contentdescriptor-apply-simple-spelling-rules-guidance ,
+    natcurric:contentdescriptor-further-prefixes-suffixes-understand-add ,
+    natcurric:contentdescriptor-spell-further-homophones ,
+    natcurric:contentdescriptor-spell-words-often-misspelt ,
+    natcurric:contentdescriptor-possessive-apostrophe-with-regular-plurals ,
+    natcurric:contentdescriptor-first-letters-check-spelling-dictionary ,
+    natcurric:contentdescriptor-write-from-memory-simple-sentences ,
+    natcurric:contentdescriptor-further-prefixes-suffixes-understand-guidance ,
+    natcurric:contentdescriptor-spell-words-with-silent-letters ,
+    natcurric:contentdescriptor-distinguish-homophones-other-words-confused ,
+    natcurric:contentdescriptor-knowledge-morphology-etymology-in-spelling ,
+    natcurric:contentdescriptor-use-dictionaries-check-spelling-meaning ,
+    natcurric:contentdescriptor-check-spelling-meaning-in-dictionary ,
+    natcurric:contentdescriptor-use-a-thesaurus ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:substrand-handwriting
+  a skos:Concept, curric:SubStrand ;
+  skos:prefLabel "Handwriting"@en ;
+  skos:definition "Description of sub-strand..." ;
+  curric:displayOrder "4"^^xsd:positiveInteger ;
+  skos:broader natcurric:strand-writing ;
+  skos:narrower 
+    natcurric:contentdescriptor-sit-correctly-holding-pencil-correctly ,
+    natcurric:contentdescriptor-form-lowercase-letters-correct-direction ,
+    natcurric:contentdescriptor-form-capital-letters ,
+    natcurric:contentdescriptor-form-digits-0-9 ,
+    natcurric:contentdescriptor-letters-belong-to-handwriting-families ,
+    natcurric:contentdescriptor-form-lowercase-letters-correct-size ,
+    natcurric:contentdescriptor-diagonal-horizontal-strokes-join-letters ,
+    natcurric:contentdescriptor-capital-letters-digits-correct-size ,
+    natcurric:contentdescriptor-spacing-reflects-size-of-letters ,
+    natcurric:contentdescriptor-diagonal-horizontal-strokes-and-unjoined ,
+    natcurric:contentdescriptor-increase-legibility-consistency-quality ,
+    natcurric:contentdescriptor-choosing-shape-of-letter ,
+    natcurric:contentdescriptor-choosing-writing-implement ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:substrand-composition
+  a skos:Concept, curric:SubStrand ;
+  skos:prefLabel "Composition"@en ;
+  skos:definition "Description of sub-strand..." ;
+  curric:displayOrder "5"^^xsd:positiveInteger ;
+  skos:broader natcurric:strand-writing ;
+  skos:narrower 
+    natcurric:contentdescriptor-out-loud-what-write-about ,
+    natcurric:contentdescriptor-composing-sentence-orally-before-writing ,
+    natcurric:contentdescriptor-sequencing-sentences-form-short-narratives ,
+    natcurric:contentdescriptor-rereading-written-check-makes-sense ,
+    natcurric:contentdescriptor-discuss-written-with-teacher-pupils ,
+    natcurric:contentdescriptor-read-writing-aloud ,
+    natcurric:contentdescriptor-positive-attitudes-stamina-for-writing ,
+    natcurric:contentdescriptor-consider-write-before-beginning ,
+    natcurric:contentdescriptor-simple-additions-revisions-corrections ,
+    natcurric:contentdescriptor-read-aloud-with-appropriate-intonation ,    
+    natcurric:contentdescriptor-plan-writing ,
+    natcurric:contentdescriptor-draft-and-write ,
+    natcurric:contentdescriptor-evaluate-and-edit ,
+    natcurric:contentdescriptor-proofread-spelling-punctuation-errors ,
+    natcurric:contentdescriptor-read-own-writing-aloud-group ,
+    natcurric:contentdescriptor-perform-own-compositions ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:substrand-vocabulary-grammar-punctuation
+  a skos:Concept, curric:SubStrand ;
+  skos:prefLabel "Vocabulary Grammar Punctuation"@en ;
+  skos:definition "Description of sub-strand..." ;
+  curric:displayOrder "6"^^xsd:positiveInteger ;
+  skos:broader natcurric:strand-grammar-and-vocabulary ;
+  skos:narrower 
+    natcurric:contentdescriptor-leaving-spaces-between-words ,
+    natcurric:contentdescriptor-joining-words-clauses-using-and ,
+    natcurric:contentdescriptor-punctuate-capital-fullstop-question-exclamation ,
+    natcurric:contentdescriptor-capital-letter-for-names ,
+    natcurric:contentdescriptor-learning-grammar-year-1 ,
+    natcurric:contentdescriptor-use-grammatical-terminology-in-english ,
+    natcurric:contentdescriptor-use-familiar-and-new-punctuation ,
+    natcurric:contentdescriptor-sentences-with-different-forms ,
+    natcurric:contentdescriptor-expanded-noun-phrases-describe-specify ,
+    natcurric:contentdescriptor-present-past-tenses-correctly-consistently ,
+    natcurric:contentdescriptor-subordination-and-coordination ,
+    natcurric:contentdescriptor-learning-grammar-year-2 ,
+    natcurric:contentdescriptor-features-of-written-standard-english ,
+    natcurric:contentdescriptor-using-wider-range-of-conjunctions ,
+    natcurric:contentdescriptor-present-perfect-form-of-verbs ,
+    natcurric:contentdescriptor-choosing-nouns-or-pronouns-appropriately ,
+    natcurric:contentdescriptor-using-conjunctions-adverbs-prepositions ,
+    natcurric:contentdescriptor-using-fronted-adverbials ,
+    natcurric:contentdescriptor-learning-grammar-years-3-4 ,
+    natcurric:contentdescriptor-using-commas-after-fronted-adverbials ,
+    natcurric:contentdescriptor-possessive-apostrophe-with-plural-nouns , 
+    natcurric:contentdescriptor-using-and-punctuating-direct-speech , 
+    natcurric:contentdescriptor-vocabulary-structures-formal-speech-writing ,
+    natcurric:contentdescriptor-passive-verbs-affect-presentation-information  ,
+    natcurric:contentdescriptor-perfect-form-relationships-time-cause ,
+    natcurric:contentdescriptor-expanded-noun-phrases-complicated-information ,
+    natcurric:contentdescriptor-modal-verbs-adverbs-degrees-possibility ,
+    natcurric:contentdescriptor-who-which-where-when-whose ,
+    natcurric:contentdescriptor-learning-grammar-years-5-6 ,
+    natcurric:contentdescriptor-using-commas-meaning-avoid-ambiguity ,
+    natcurric:contentdescriptor-using-hyphens-to-avoid-ambiguity , 
+    natcurric:contentdescriptor-brackets-dashes-commas-indicate-parenthesis , 
+    natcurric:contentdescriptor-semicolons-colons-dashes-mark-boundaries ,
+    natcurric:contentdescriptor-using-colon-to-introduce-list ,
+    natcurric:contentdescriptor-punctuating-bullet-points-consistently ,
+    natcurric:contentdescriptor-use-understand-grammatical-terminology ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:substrand-appreciation-and-love-of-reading
+  a skos:Concept, curric:SubStrand ;
+  skos:prefLabel "Appreciation and Love of Reading"@en ;
+  skos:definition "Description of sub-strand..." ;
+  curric:displayOrder "7"^^xsd:positiveInteger ;
+  skos:broader natcurric:strand-reading ;
+  skos:narrower 
+    natcurric:contentdescriptor-reading-wide-range-fiction-nonfiction ,
+    natcurric:contentdescriptor-choosing-and-reading-books-independently ,
+    natcurric:contentdescriptor-rereading-books-to-increase-familiarity ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:substrand-increasingly-challenging-texts
+  a skos:Concept, curric:SubStrand ;
+  skos:prefLabel "Increasingly Challenging Texts"@en ;
+  skos:definition "Description of sub-strand..." ;
+  curric:displayOrder "8"^^xsd:positiveInteger ;
+  skos:broader natcurric:strand-reading ;
+  skos:narrower 
+    natcurric:contentdescriptor-new-vocabulary-with-context-dictionaries ,
+    natcurric:contentdescriptor-inferences-and-referring-to-evidence ,
+    natcurric:contentdescriptor-purpose-audience-context-of-writing ,
+    natcurric:contentdescriptor-checking-understanding ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:substrand-read-critically
+  a skos:Concept, curric:SubStrand ;
+  skos:prefLabel "Read Critically"@en ;
+  skos:definition "Description of sub-strand..." ;
+  curric:displayOrder "9"^^xsd:positiveInteger ;
+  skos:broader natcurric:strand-reading ;
+  skos:narrower 
+    natcurric:contentdescriptor-how-language-presents-meaning ,
+    natcurric:contentdescriptor-poetic-conventions ,
+    natcurric:contentdescriptor-setting-plot-characterisation ,
+    natcurric:contentdescriptor-dramatists-performance-alternative-staging ,
+    natcurric:contentdescriptor-critical-comparisons-across-texts ,
+    natcurric:contentdescriptor-studying-range-of-authors ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:substrand-write-accurately-fluently-effectively
+  a skos:Concept, curric:SubStrand ;
+  skos:prefLabel "Write Accurately Fluently Effectively"@en ;
+  skos:definition "Description of sub-strand..." ;
+  curric:displayOrder "10"^^xsd:positiveInteger ;
+  skos:broader natcurric:strand-writing ;
+  skos:narrower 
+    natcurric:contentdescriptor-writing-for-range-purposes-audiences ,
+    natcurric:contentdescriptor-summarising-and-organising-material ,
+    natcurric:contentdescriptor-applying-vocabulary-grammar-text-structure ,
+    natcurric:contentdescriptor-literary-and-rhetorical-devices ,
+    natcurric:contentdescriptor-adapting-writing-range-purposes-audiences ,
+    natcurric:contentdescriptor-selecting-organising-for-support-emphasis ,
+    natcurric:contentdescriptor-vocabulary-grammar-form-structural-organisational ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:substrand-plan-draft-edit-and-proofread
+  a skos:Concept, curric:SubStrand ;
+  skos:prefLabel "Plan Draft Edit and Proofread"@en ;
+  skos:definition "Description of sub-strand..." ;
+  curric:displayOrder "11"^^xsd:positiveInteger ;
+  skos:broader natcurric:strand-writing ;
+  skos:narrower 
+    natcurric:contentdescriptor-how-writing-reflects-audiences-purposes ,
+    natcurric:contentdescriptor-amending-vocabulary-grammar-structure ,
+    natcurric:contentdescriptor-accurate-grammar-punctuation-and-spelling ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:substrand-speak-confidently-effectively
+  a skos:Concept, curric:SubStrand ;
+  skos:prefLabel "Speak Confidently Effectively"@en ;
+  skos:definition "Description of sub-strand..." ;
+  curric:displayOrder "12"^^xsd:positiveInteger ;
+  skos:broader natcurric:strand-spoken-english ;
+  skos:narrower 
+    natcurric:contentdescriptor-standard-english-formal-informal-contexts ,
+    natcurric:contentdescriptor-giving-short-speeches-and-presentations ,
+    natcurric:contentdescriptor-participating-formal-debates-structured-discussions ,
+    natcurric:contentdescriptor-speak-confidently-effectively-performing-play-scripts-and-poetry ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:substrand-english-literary-heritage
+  a skos:Concept, curric:SubStrand ;
+  skos:prefLabel "English Literary Heritage"@en ;
+  skos:definition "Description of sub-strand..." ;
+  curric:displayOrder "13"^^xsd:positiveInteger ;
+  skos:broader natcurric:strand-reading ;
+  skos:narrower 
+    natcurric:contentdescriptor-classic-literature-extended-literary-nonfiction ,
+    natcurric:contentdescriptor-rereading-literature-for-making-comparisons ,
+    natcurric:contentdescriptor-reading-for-challenge-interest-enjoyment ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:substrand-critically-evaluate-texts
+  a skos:Concept, curric:SubStrand ;
+  skos:prefLabel "Critically Evaluate Texts"@en ;
+  skos:definition "Description of sub-strand..." ;
+  curric:displayOrder "14"^^xsd:positiveInteger ;
+  skos:broader natcurric:strand-reading ;
+  skos:narrower 
+    natcurric:contentdescriptor-reading-in-different-ways ,
+    natcurric:contentdescriptor-knowledge-of-purpose-audience-context ,
+    natcurric:contentdescriptor-identifying-interpreting-themes-ideas-information ,
+    natcurric:contentdescriptor-exploring-plot-characterisation-events-settings ,
+    natcurric:contentdescriptor-evidence-to-support-point-view ,
+    natcurric:contentdescriptor-statements-supported-by-evidence ,
+    natcurric:contentdescriptor-vocabulary-form-grammatical-structural-features ,
+    natcurric:contentdescriptor-contexts-themes-characterisation-style-quality ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:substrand-revise-edit-and-proof-read
+  a skos:Concept, curric:SubStrand ;
+  skos:prefLabel "Revise Edit and Proof-Read"@en ;
+  skos:definition "Description of sub-strand..." ;
+  curric:displayOrder "15"^^xsd:positiveInteger ;
+  skos:broader natcurric:strand-writing ;
+  skos:narrower 
+    natcurric:contentdescriptor-whether-draft-achieves-intended-impact ,
+    natcurric:contentdescriptor-improve-coherence-consistency-clarity-effectiveness ,
+    natcurric:contentdescriptor-accuracy-effectiveness-grammar-punctuation-spelling ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:substrand-consolidate-knowledge-grammar-vocabulary
+  a skos:Concept, curric:SubStrand ;
+  skos:prefLabel "Consolidate Knowledge Grammar Vocabulary"@en ;
+  skos:definition "Description of sub-strand..." ;
+  curric:displayOrder "16"^^xsd:positiveInteger ;
+  skos:broader natcurric:strand-grammar-and-vocabulary ;
+  skos:narrower 
+    natcurric:contentdescriptor-effectiveness-and-impact-in-texts ,
+    natcurric:contentdescriptor-using-new-vocabulary-grammatical-constructions ,
+    natcurric:contentdescriptor-analysing-differences-spoken-written-language ,
+    natcurric:contentdescriptor-using-linguistic-literary-terminology-accurately ,
+    natcurric:contentdescriptor-extending-applying-grammatical-knowledge ,
+    natcurric:contentdescriptor-effectiveness-impact-of-grammatical-features ,
+    natcurric:contentdescriptor-understanding-differences-spoken-written-language ,
+    natcurric:contentdescriptor-standard-english-own-writing-speech ,
+    natcurric:contentdescriptor-precise-confident-linguistic-literary-terminology ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:substrand-speak-confidently-audibly-effectively
+  a skos:Concept, curric:SubStrand ;
+  skos:prefLabel "Speak Confidently Audibly Effectively"@en ;
+  skos:definition "Description of sub-strand..." ;
+  curric:displayOrder "17"^^xsd:positiveInteger ;
+  skos:broader natcurric:strand-spoken-english ;
+  skos:narrower 
+    natcurric:contentdescriptor-standard-english-context-and-audience ,
+    natcurric:contentdescriptor-working-effectively-groups-different-sizes ,
+    natcurric:contentdescriptor-listening-building-on-contributions-others ,
+    natcurric:contentdescriptor-planning-for-different-purposes-audiences ,
+    natcurric:contentdescriptor-listening-responding-variety-different-contexts ,
+    natcurric:contentdescriptor-speak-confidently-audibly-effectively-performing-play-scripts-and-poetry ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+# ----------------------------------------------------------------------
+# Content Descriptors
+# ----------------------------------------------------------------------
+
+ natcurric:contentdescriptor-phonic-knowledge-to-decode-words
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Apply phonic knowledge and skills as the route to decode words."@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "1"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-word-reading ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-correct-sound-to-graphemes
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Respond speedily with the correct sound to graphemes (letters or groups of 
+  letters) for all 40+ phonemes, including, where applicable, alternative sounds for 
+  graphemes."""@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "2"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-word-reading ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-blending-sounds-in-unfamiliar-words
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Read accurately by blending sounds in unfamiliar words containing GPCs that 
+  have been taught."""@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "3"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-word-reading ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-common-exception-words
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Read common exception words, noting unusual correspondences between spelling 
+  and sound and where these occur in the word."""@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "4"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-word-reading ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-words-containing-gpcs
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Read words containing taught GPCs and –s, –es, –ing, –ed, –er and –est 
+  endings."""@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "5"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-word-reading ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-words-containing-gpcs-more-syllables
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Read other words of more than one syllable that contain taught GPCs."@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "6"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-word-reading ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-words-with-contractions
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Read words with contractions [for example, I’m, I’ll, we’ll], and understand 
+  that the apostrophe represents the omitted letter(s)."""@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "7"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-word-reading ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-read-books-aloud-accurately
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Read books aloud, accurately, that are consistent with their developing phonic 
+  knowledge and that do not require them to use other strategies to work out words."""@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "8"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-word-reading ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-fluency-confidence-word-reading
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Reread these books to build up their fluency and confidence in word reading."@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "9"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-word-reading ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-phonic-knowledge-automatic-decoding-embedded
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Continue to apply phonic knowledge and skills as the route to decode words 
+  until automatic decoding has become embedded and reading is fluent."""@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "10"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-word-reading ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-blending-sounds-that-contain-graphemes
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Read accurately by blending the sounds in words that contain the graphemes 
+  taught so far, especially recognising alternative sounds for graphemes."""@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "11"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-word-reading ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-two-more-syllables-contain-graphemes
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Read accurately words of two or more syllables that contain the same graphemes 
+  as above."""@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "12"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-word-reading ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-words-containing-common-suffixes
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Read words containing common suffixes."@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "13"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-word-reading ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-further-common-exception-words
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Read further common exception words, noting unusual correspondences between 
+  spelling and sound and where these occur in the word."""@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "14"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-word-reading ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-quickly-accurately-without-sounding-blending
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Read most words quickly and accurately, without overt sounding and blending, 
+  when they have been frequently encountered."""@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "15"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-word-reading ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-sounding-out-unfamiliar-words-accurately
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Read aloud books closely matched to their improving phonic knowledge, sounding 
+  out unfamiliar words accurately, automatically and without undue hesitation."""@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "16"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-word-reading ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-build-fluency-confidence-word-reading
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Reread these books to build up their fluency and confidence in word reading."@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "17"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-word-reading ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-knowledge-root-words-prefixes-suffixes
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Apply their growing knowledge of root words, prefixes and suffixes (etymology 
+  and morphology) as listed in - see English appendix 1 , both to read aloud and to understand the 
+  meaning of new words they meet."""@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "18"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-word-reading ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-further-exception-words-unusual-correspondence
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Read further exception words, noting the unusual correspondences between 
+  spelling and sound, and where these occur in the word."""@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "19"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-word-reading ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-further-root-words-prefixes-suffixes
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Apply their growing knowledge of root words, prefixes and suffixes (morphology 
+  and etymology), as listed in English appendix 1, both to read aloud and to understand the meaning 
+  of new words that they meet."""@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "20"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-word-reading ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-discussing-poems-stories-non-fiction
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Listening to and discussing a wide range of poems, stories and non-fiction at a 
+  level beyond that at which they can read independently."""@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "1"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-comprehension ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-linking-to-own-experiences
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Being encouraged to link what they read or hear to their own experiences."@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "2"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-comprehension ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-key-fairy-stories-traditional-tales
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Becoming very familiar with key stories, fairy stories and traditional tales, 
+  retelling them and considering their particular characteristics."""@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "3"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-comprehension ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-recognising-predictable-phrases
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Recognising and joining in with predictable phrases."@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "4"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-comprehension ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-appreciate-rhymes-and-poems
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Learning to appreciate rhymes and poems, and to recite some by heart."@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "5"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-comprehension ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-discussing-word-meanings
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Discussing word meanings, linking new meanings to those already known."@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "6"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-comprehension ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-background-information-and-vocabulary-provided
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Drawing on what they already know or on background information and vocabulary 
+  provided by the teacher."""@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "7"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-comprehension ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-checking-the-text-makes-sense
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Checking that the text makes sense to them as they read, and correcting 
+  inaccurate reading."""@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "8"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-comprehension ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-discussing-significance-of-title-events
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Discussing the significance of the title and events."@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "9"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-comprehension ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-inferences-what-is-said-done
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Making inferences on the basis of what is being said and done."@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "10"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-comprehension ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-predicting-what-might-happen
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Predicting what might happen on the basis of what has been read so far."@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "11"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-comprehension ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-discussion-about-what-is-read
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Participate in discussion about what is read to them, taking turns and 
+  listening to what others say."""@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "12"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-comprehension ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-explain-understanding-what-is-read
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Explain clearly their understanding of what is read to them."@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "13"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-comprehension ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-pleasured-reading-motivation-to-read
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Develop pleasure in reading, motivation to read, vocabulary and 
+  understanding."""@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "14"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-comprehension ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-understand-books-read-listen
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Understand both the books that they can already read accurately and fluently 
+  and those that they listen to."""@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "15"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-comprehension ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-discussion-books-poems-other-works
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Participate in discussion about books, poems and other works that are read to 
+  them and those that they can read for themselves, taking turns and listening to what others 
+  say."""@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "16"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-comprehension ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-discuss-understanding-books-poems-other
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Explain and discuss their understanding of books, poems and other material, 
+  both those that they listen to and those that they read for themselves."""@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "17"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-comprehension ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-develop-positive-attitudes-and-understanding
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Develop positive attitudes to reading, and an understanding of what they 
+  read."""@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "18"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-comprehension ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-understand-books-read-independently
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Understand what they read, in books they can read independently."@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "19"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-comprehension ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-retrieve-record-information-from-nonfiction
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Retrieve and record information from non-fiction."@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "20"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-comprehension ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-discussion-about-books-read-listening
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Participate in discussion about both books that are read to them and those they 
+  can read for themselves, taking turns and listening to what others say."""@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "21"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-comprehension ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-maintain-positive-attitudes-and-understanding
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Maintain positive attitudes to reading and an understanding of what they 
+  read."""@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "22"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-comprehension ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-checking-asking-inferring-predicting-summarising
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Checking that the book makes sense to them, discussing their understanding and 
+  exploring the meaning of words in context."""@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "23"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-comprehension ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-evaluate-how-authors-use-language
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Discuss and evaluate how authors use language, including figurative language, 
+  considering the impact on the reader."""@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "24"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-comprehension ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-distinguish-statements-fact-and-opinion
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Distinguish between statements of fact and opinion."@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "25"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-comprehension ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+  
+natcurric:contentdescriptor-retrieve-record-present-information-nonfiction
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Retrieve, record and present information from non-fiction."@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "26"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-comprehension ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-discussion-about-books-read-challenging
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Participate in discussions about books that are read to them and those they can 
+  read for themselves, building on their own and others’ ideas and challenging views 
+  courteously."""@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "27"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-comprehension ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-explain-understanding-about-books-read
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Explain and discuss their understanding of what they have read, including 
+  through formal presentations and debates, maintaining a focus on the topic and using notes where 
+  necessary."""@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "28"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-comprehension ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+  
+natcurric:contentdescriptor-provide-reasoned-justifications-for-views
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Provide reasoned justifications for their views."@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "29"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-comprehension ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-spell-words-40-phonemes
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Spell words containing each of the 40+ phonemes already taught."@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "1"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-transcription ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-segmenting-spoken-words-into-phonemes
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Segmenting spoken words into phonemes and representing these by graphemes, 
+  spelling many correctly."""@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "2"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-transcription ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-new-ways-of-spelling-phonemes
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Learning new ways of spelling phonemes for which 1 or more spellings are 
+  already known, and learn some words with each spelling, including a few common homophones."""@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "3"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-transcription ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-spell-common-exception-words
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Learning to spell common exception words."@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "4"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-transcription ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-spell-more-words-contracted-forms
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Learning to spell more words with contracted forms."@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "5"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-transcription ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-learning-the-possessive-apostrophe
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Learning the possessive apostrophe (singular) [for example, the girl’s 
+  book]."""@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "6"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-transcription ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-distinguishing-homophones-and-near-homophones
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Distinguishing between homophones and near-homophones."@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "7"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-transcription ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-add-suffixes-spell-longer-words
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Acquiredd suffixes to spell longer words including –ment, –ness, –ful, –less, –ly."@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "8"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-transcription ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-apply-spelling-rules-and-guidance
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Apply spelling rules and guidance, as listed in English appendix 1."@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "9"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-transcription ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-spell-days-of-the-week
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Spell the days of the week."@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "10"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-transcription ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-naming-letters-alphabet-in-order
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Naming the letters of the alphabet in order."@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "11"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-transcription ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-distinguished-alternative-spellings-same-sound
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Using letter names to distinguish between alternative spellings of the same 
+  sound."""@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "12"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-transcription ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-spelling-rule-adding-s-es
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Using the spelling rule for adding –s or –es as the plural marker for nouns and 
+  the third person singular marker for verbs."""@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "13"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-transcription ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-using-the-prefix-un
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Using the prefix un–."@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "14"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-transcription ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-using-ing-ed-er-est
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Using –ing, –ed, –er and –est where no change is needed in the spelling of root 
+  words [for example, helping, helped, helper, eating, quicker, quickest]."""@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "15"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-transcription ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-apply-simple-spelling-rules-guidance
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Apply simple spelling rules and guidance, as listed in English appendix 1."@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "16"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-transcription ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-further-prefixes-suffixes-understand-add
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Use further prefixes and suffixes and understand how to add them - see English 
+  appendix 1."""@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "17"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-transcription ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-spell-further-homophones
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Spell further homophones."@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "18"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-transcription ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-spell-words-often-misspelt
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Spell words that are often misspelt - see English appendix 1."@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "19"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-transcription ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-possessive-apostrophe-with-regular-plurals
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Place the possessive apostrophe accurately in words with regular plurals [for 
+  example, girls’, boys’] and in words with irregular plurals [for example, children’s]."""@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "20"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-transcription ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-first-letters-check-spelling-dictionary
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Use the first 2 or 3 letters of a word to check its spelling in a 
+  dictionary."""@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "21"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-transcription ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-write-from-memory-simple-sentences
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Write from memory simple sentences, dictated by the teacher, that include words 
+  and punctuation taught so far."""@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "22"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-transcription ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-further-prefixes-suffixes-understand-guidance
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Use further prefixes and suffixes and understand the guidance for adding 
+  them."""@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "23"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-transcription ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-spell-words-with-silent-letters
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Spell some words with ‘silent’ letters [for example, knight, psalm, solemn]."@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "24"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-transcription ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-distinguish-homophones-other-words-confused
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Continue to distinguish between homophones and other words which are often 
+  confused."""@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "25"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-transcription ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-knowledge-morphology-etymology-in-spelling
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Use knowledge of morphology and etymology in spelling and understand that the 
+  spelling of some words needs to be learnt specifically, as listed in English appendix 1."""@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "26"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-transcription ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-use-dictionaries-check-spelling-meaning
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Use dictionaries to check the spelling and meaning of words."@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "27"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-transcription ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-check-spelling-meaning-in-dictionary
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Use the first 3 or 4 letters of a word to check spelling, meaning or both of 
+  these in a dictionary."""@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "28"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-transcription ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-use-a-thesaurus
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Use a thesaurus."@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "29"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-transcription ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-sit-correctly-holding-pencil-correctly
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Sit correctly at a table, holding a pencil comfortably and correctly."@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "1"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-handwriting ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-form-lowercase-letters-correct-direction
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Begin to form lower-case letters in the correct direction, starting and 
+  finishing in the right place."""@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "2"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-handwriting ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-form-capital-letters
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Form capital letters."@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "3"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-handwriting ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-form-digits-0-9
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Form digits 0-9."@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "4"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-handwriting ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-letters-belong-to-handwriting-families
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Understand which letters belong to which handwriting ‘families’ (ie letters 
+  that are formed in similar ways) and to practise these."""@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "5"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-handwriting ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-form-lowercase-letters-correct-size
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Form lower-case letters of the correct size relative to one another."@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "6"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-handwriting ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-diagonal-horizontal-strokes-join-letters
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Start using some of the diagonal and horizontal strokes needed to join letters 
+  and understand which letters, when adjacent to one another, are best left unjoined."""@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "7"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-handwriting ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-capital-letters-digits-correct-size
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Write capital letters and digits of the correct size, orientation and 
+  relationship to one another and to lower-case letters."""@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "8"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-handwriting ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-spacing-reflects-size-of-letters
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Use spacing between words that reflects the size of the letters."@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "9"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-handwriting ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-diagonal-horizontal-strokes-and-unjoined
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Use the diagonal and horizontal strokes that are needed to join letters and 
+  understand which letters, when adjacent to one another, are best left unjoined."""@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "10"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-handwriting ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-increase-legibility-consistency-quality
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Increase the legibility, consistency and quality of their handwriting, [for 
+  example, by ensuring that the downstrokes of letters are parallel and equidistant, and that lines 
+  of writing are spaced sufficiently so that the ascenders and descenders of letters do not 
+  touch]."""@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "11"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-handwriting ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-choosing-shape-of-letter
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Choosing which shape of a letter to use when given choices and deciding whether 
+  or not to join specific letters."""@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "12"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-handwriting ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-choosing-writing-implement
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Choosing the writing implement that is best suited for a task."@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "13"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-handwriting ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-out-loud-what-write-about
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Saying out loud what they are going to write about."@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "1"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-composition ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-composing-sentence-orally-before-writing
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Composing a sentence orally before writing it."@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "2"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-composition ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-sequencing-sentences-form-short-narratives
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Sequencing sentences to form short narratives."@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "3"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-composition ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-rereading-written-check-makes-sense
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Re-reading what they have written to check that it makes sense."@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "4"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-composition ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-discuss-written-with-teacher-pupils
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Discuss what they have written with the teacher or other pupils."@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "5"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-composition ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-read-writing-aloud
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Read their writing aloud, clearly enough to be heard by their peers and the 
+  teacher."""@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "6"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-composition ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-positive-attitudes-stamina-for-writing
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Develop positive attitudes towards and stamina for writing."@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "7"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-composition ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-consider-write-before-beginning
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Consider what they are going to write before beginning."@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "8"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-composition ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-simple-additions-revisions-corrections
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Make simple additions, revisions and corrections to their own writing."@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "9"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-composition ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-read-aloud-with-appropriate-intonation
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Read aloud what they have written with appropriate intonation to make the 
+  meaning clear."""@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "10"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-composition ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-plan-writing
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Plan their writing."@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "11"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-composition ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-draft-and-write
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Draft and write."@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "12"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-composition ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-evaluate-and-edit
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Evaluate and edit."@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "13"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-composition ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-proofread-spelling-punctuation-errors
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Proofread for spelling and punctuation errors."@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "14"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-composition ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-read-own-writing-aloud-group
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Read their own writing aloud to a group or the whole class, using appropriate 
+  intonation and controlling the tone and volume so that the meaning is clear."""@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "15"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-composition ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-perform-own-compositions
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Perform their own compositions, using appropriate intonation, volume, and 
+  movement so that meaning is clear."""@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "16"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-composition ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-leaving-spaces-between-words
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Leaving spaces between words."@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "1"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-vocabulary-grammar-punctuation ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-joining-words-clauses-using-and
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Joining words and joining clauses using ‘and’."@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "2"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-vocabulary-grammar-punctuation ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-punctuate-capital-fullstop-question-exclamation
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Beginning to punctuate sentences using a capital letter and a full stop, 
+  question mark or exclamation mark."""@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "3"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-vocabulary-grammar-punctuation ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-capital-letter-for-names
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Using a capital letter for names of people, places, the days of the week, and 
+  the personal pronoun ‘I’."""@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "4"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-vocabulary-grammar-punctuation ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-learning-grammar-year-1
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Learning the grammar for year 1 in English appendix 2."@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "5"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-vocabulary-grammar-punctuation ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-use-grammatical-terminology-in-english
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Use the grammatical terminology in English English appendix 2 in discussing 
+  their writing."""@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "6"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-vocabulary-grammar-punctuation ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-use-familiar-and-new-punctuation
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Learning how to use both familiar and new punctuation correctly - see English 
+  appendix 2, including full stops, capital letters, exclamation marks, question marks, commas for 
+  lists and apostrophes for contracted forms and the possessive (singular)."""@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "7"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-vocabulary-grammar-punctuation ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-sentences-with-different-forms
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Sentences with different forms: statement, question, exclamation, command."@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "8"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-vocabulary-grammar-punctuation ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-expanded-noun-phrases-describe-specify
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Expanded noun phrases to describe and specify [for example, the blue 
+  butterfly]."""@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "9"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-vocabulary-grammar-punctuation ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-present-past-tenses-correctly-consistently
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """The present and past tenses correctly and consistently, including the 
+  progressive form."""@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "10"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-vocabulary-grammar-punctuation ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-subordination-and-coordination
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Subordination (using when, if, that, or because) and co-ordination (using or, 
+  and, or but)."""@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "11"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-vocabulary-grammar-punctuation ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-learning-grammar-year-2
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "The grammar for year 2 in English appendix 2."@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "12"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-vocabulary-grammar-punctuation ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-features-of-written-standard-english
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Some features of written Standard English."@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "13"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-vocabulary-grammar-punctuation ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-using-wider-range-of-conjunctions
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Extending the range of sentences with more than one clause by using a wider 
+  range of conjunctions, including: when, if, because, although."""@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "14"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-vocabulary-grammar-punctuation ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-present-perfect-form-of-verbs
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Using the present perfect form of verbs in contrast to the past tense."@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "15"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-vocabulary-grammar-punctuation ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-choosing-nouns-or-pronouns-appropriately
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Choosing nouns or pronouns appropriately for clarity and cohesion and to avoid 
+  repetition."""@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "16"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-vocabulary-grammar-punctuation ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+  
+natcurric:contentdescriptor-using-conjunctions-adverbs-prepositions
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Using conjunctions, adverbs and prepositions to express time and cause."@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "17"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-vocabulary-grammar-punctuation ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-using-fronted-adverbials
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Using fronted adverbials."@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "18"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-vocabulary-grammar-punctuation ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-learning-grammar-years-3-4
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Learning the grammar for years 3 and 4 in [English appendix 2]."@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "19"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-vocabulary-grammar-punctuation ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-using-commas-after-fronted-adverbials
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Using commas after fronted adverbials."@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "20"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-vocabulary-grammar-punctuation ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-possessive-apostrophe-with-plural-nouns
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Indicating possession by using the possessive apostrophe with plural nouns."@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "21"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-vocabulary-grammar-punctuation ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-using-and-punctuating-direct-speech
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Using and punctuating direct speech."@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "22"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-vocabulary-grammar-punctuation ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+  
+natcurric:contentdescriptor-vocabulary-structures-formal-speech-writing
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Recognising vocabulary and structures that are appropriate for formal speech 
+  and writing, including subjunctive forms."""@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "23"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-vocabulary-grammar-punctuation ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-passive-verbs-affect-presentation-information
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Using passive verbs to affect the presentation of information in a sentence."@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "24"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-vocabulary-grammar-punctuation ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-perfect-form-relationships-time-cause
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Using the perfect form of verbs to mark relationships of time and cause."@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "25"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-vocabulary-grammar-punctuation ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-expanded-noun-phrases-complicated-information
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Using expanded noun phrases to convey complicated information concisely."@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "26"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-vocabulary-grammar-punctuation ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-modal-verbs-adverbs-degrees-possibility
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Using modal verbs or adverbs to indicate degrees of possibility."@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "27"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-vocabulary-grammar-punctuation ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-who-which-where-when-whose
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Using relative clauses beginning with who, which, where, when, whose, that or 
+  with an implied (ie omitted) relative pronoun."""@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "28"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-vocabulary-grammar-punctuation ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+  
+natcurric:contentdescriptor-learning-grammar-years-5-6
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Learning the grammar for years 5 and 6 in English appendix 2."@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "29"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-vocabulary-grammar-punctuation ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-using-commas-meaning-avoid-ambiguity
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Using commas to clarify meaning or avoid ambiguity in writing."@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "30"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-vocabulary-grammar-punctuation ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-using-hyphens-to-avoid-ambiguity
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Using hyphens to avoid ambiguity."@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "31"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-vocabulary-grammar-punctuation ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-brackets-dashes-commas-indicate-parenthesis
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Using brackets, dashes or commas to indicate parenthesis."@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "32"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-vocabulary-grammar-punctuation ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-semicolons-colons-dashes-mark-boundaries
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Using semicolons, colons or dashes to mark boundaries between independent 
+  clauses."""@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "33"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-vocabulary-grammar-punctuation ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-using-colon-to-introduce-list
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Using a colon to introduce a list."@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "34"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-vocabulary-grammar-punctuation ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+  
+natcurric:contentdescriptor-punctuating-bullet-points-consistently
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Punctuating bullet points consistently."@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "35"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-vocabulary-grammar-punctuation ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-use-understand-grammatical-terminology
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Use and understand the grammatical terminology in English appendix 2 accurately 
+  and appropriately in discussing their writing and reading."""@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "36"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-vocabulary-grammar-punctuation ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-reading-wide-range-fiction-nonfiction
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Reading a wide range of fiction and non-fiction, including in particular whole 
+  books, short stories, poems and plays with a wide coverage of genres, historical periods, forms 
+  and authors, including high-quality works from English literature, both pre-1914 and 
+  contemporary, including prose, poetry and drama; Shakespeare (2 plays) and seminal world 
+  literature."""@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "1"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-appreciation-and-love-of-reading ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-choosing-and-reading-books-independently
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Choosing and reading books independently for challenge, interest and 
+  enjoyment."""@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "2"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-appreciation-and-love-of-reading ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-rereading-books-to-increase-familiarity
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Rereading books encountered earlier to increase familiarity with them and 
+  provide a basis for making comparisons."""@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "3"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-appreciation-and-love-of-reading ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-new-vocabulary-with-context-dictionaries
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Learning new vocabulary, relating it explicitly to known vocabulary and 
+  understanding it with the help of context and dictionaries."""@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "1"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-increasingly-challenging-texts ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-inferences-and-referring-to-evidence
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Making inferences and referring to evidence in the text."@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "2"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-increasingly-challenging-texts ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-purpose-audience-context-of-writing
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Knowing the purpose, audience for and context of the writing and drawing on this 
+  knowledge to support comprehension."""@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "3"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-increasingly-challenging-texts ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-checking-understanding
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Checking their understanding to make sure that what they have read makes 
+  sense."""@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "4"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-increasingly-challenging-texts ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-how-language-presents-meaning
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Knowing how language, including figurative language, vocabulary choice, 
+  grammar, text structure and organisational features, presents meaning."""@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "1"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-read-critically ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-poetic-conventions
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Recognising a range of poetic conventions and understanding how these have been 
+  used."""@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "2"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-read-critically ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-setting-plot-characterisation
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Studying setting, plot, and characterisation, and the effects of these."@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "3"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-read-critically ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-dramatists-performance-alternative-staging
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Understanding how the work of dramatists is communicated effectively through 
+  performance and how alternative staging allows for different interpretations of a play."""@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "4"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-read-critically ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-critical-comparisons-across-texts
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Making critical comparisons across texts."@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "5"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-read-critically ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-studying-range-of-authors
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Studying a range of authors, including at least 2 authors in depth each 
+  year."""@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "6"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-read-critically ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-writing-for-range-purposes-audiences
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Writing for a wide range of purposes and audiences, including: well-structured 
+  formal expository and narrative essays; stories, scripts, poetry and other imaginative writing; 
+  notes and polished scripts for talks and presentations and a range of other narrative and 
+  non-narrative texts, including arguments, and personal and formal letters."""@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "1"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-write-accurately-fluently-effectively ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-summarising-and-organising-material
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Summarising and organising material, and supporting ideas and arguments with 
+  any necessary factual detail."""@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "2"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-write-accurately-fluently-effectively ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-applying-vocabulary-grammar-text-structure
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Applying their growing knowledge of vocabulary, grammar and text structure to 
+  their writing and selecting the appropriate form."""@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "3"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-write-accurately-fluently-effectively ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-literary-and-rhetorical-devices
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Drawing on knowledge of literary and rhetorical devices from their reading and 
+  listening to enhance the impact of their writing."""@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "4"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-write-accurately-fluently-effectively ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-how-writing-reflects-audiences-purposes
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Considering how their writing reflects the audiences and purposes for which it 
+  was intended."""@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "1"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-plan-draft-edit-and-proofread ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-amending-vocabulary-grammar-structure
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Amending the vocabulary, grammar and structure of their writing to improve its 
+  coherence and overall effectiveness."""@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "2"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-plan-draft-edit-and-proofread ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-accurate-grammar-punctuation-and-spelling
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Paying attention to accurate grammar, punctuation and spelling; applying the 
+  spelling patterns and rules set out in English appendix 1 to the key stage 1 and 2 programmes of 
+  study for English."""@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "3"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-plan-draft-edit-and-proofread ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-standard-english-formal-informal-contexts
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Using Standard English confidently in a range of formal and informal contexts, 
+  including classroom discussion."""@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "1"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-speak-confidently-effectively ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-giving-short-speeches-and-presentations
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Giving short speeches and presentations, expressing their own ideas and keeping 
+  to the point."""@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "2"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-speak-confidently-effectively ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-participating-formal-debates-structured-discussions
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Participating in formal debates and structured discussions, summarising and/or 
+  building on what has been said."""@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "3"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-speak-confidently-effectively ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-speak-confidently-effectively-performing-play-scripts-and-poetry
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Improvising, rehearsing and performing play scripts and poetry in order to 
+  generate languages and discuss language use and meaning, using role, intonation, tone, volume, 
+  mood, silence, stillness and action to add impact."""@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "4"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-speak-confidently-effectively ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-classic-literature-extended-literary-nonfiction
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Reading a wide range of high-quality, challenging, classic literature and 
+  extended literary non-fiction, such as essays, reviews and journalism. This writing should 
+  include whole texts."""@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "1"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-english-literary-heritage ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-rereading-literature-for-making-comparisons
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Re-reading literature and other writing as a basis for making comparisons."@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "2"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-english-literary-heritage ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-reading-for-challenge-interest-enjoyment
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Choosing and reading books independently for challenge, interest and 
+  enjoyment."""@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "3"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-english-literary-heritage ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-reading-in-different-ways
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Reading in different ways for different purposes, summarising and synthesising 
+  ideas and information, and evaluating their usefulness for particular purposes."""@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "1"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-critically-evaluate-texts ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-knowledge-of-purpose-audience-context
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Drawing on knowledge of the purpose, audience for and context of the writing, 
+  including its social, historical and cultural context and the literary tradition to which it 
+  belongs, to inform evaluation."""@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "2"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-critically-evaluate-texts ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-identifying-interpreting-themes-ideas-information
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Identifying and interpreting themes, ideas and information."@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "3"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-critically-evaluate-texts ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-exploring-plot-characterisation-events-settings
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Exploring aspects of plot, characterisation, events and settings, the 
+  relationships between them and their effects."""@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "4"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-critically-evaluate-texts ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-evidence-to-support-point-view
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Seeking evidence in the text to support a point of view, including justifying 
+  inferences with evidence."""@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "5"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-critically-evaluate-texts ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-statements-supported-by-evidence
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Distinguishing between statements that are supported by evidence and those that 
+  are not, and identifying bias and misuse of evidence."""@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "6"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-critically-evaluate-texts ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-vocabulary-form-grammatical-structural-features
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Analysing a writer's choice of vocabulary, form, grammatical and structural 
+  features, and evaluating their effectiveness and impact."""@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "7"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-critically-evaluate-texts ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-contexts-themes-characterisation-style-quality
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Making critical comparisons, referring to the contexts, themes, 
+  characterisation, style and literary quality of texts, and drawing on knowledge and skills from 
+  wider reading."""@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "8"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-critically-evaluate-texts ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-adapting-writing-range-purposes-audiences
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Adapting their writing for a wide range of purposes and audiences: to describe, 
+  narrate, explain, instruct, give and respond to information, and argue."""@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "1"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-write-accurately-fluently-effectively ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-selecting-organising-for-support-emphasis
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Selecting and organising ideas, facts and key points, and citing evidence, 
+  details and quotation effectively and pertinently for support and emphasis."""@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "2"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-write-accurately-fluently-effectively ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-vocabulary-grammar-form-structural-organisational
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Selecting, and using judiciously, vocabulary, grammar, form, and structural and 
+  organisational features, including rhetorical devices, to reflect audience, purpose and context, 
+  and using Standard English where appropriate."""@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "3"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-write-accurately-fluently-effectively ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-whether-draft-achieves-intended-impact
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Reflecting on whether their draft achieves the intended impact."@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "1"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-revise-edit-and-proof-read ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-improve-coherence-consistency-clarity-effectiveness
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Restructuring their writing, and amending its grammar and vocabulary to improve 
+  coherence, consistency, clarity and overall effectiveness."""@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "2"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-revise-edit-and-proof-read ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-accuracy-effectiveness-grammar-punctuation-spelling
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Paying attention to the accuracy and effectiveness of grammar, punctuation and 
+  spelling."""@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "3"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-revise-edit-and-proof-read ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-effectiveness-and-impact-in-texts
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Studying their effectiveness and impact in the texts they read."@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "1"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-consolidate-knowledge-grammar-vocabulary ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-using-new-vocabulary-grammatical-constructions
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Drawing on new vocabulary and grammatical constructions from their reading and 
+  listening, and using these consciously in their writing and speech to achieve particular 
+  effects."""@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "2"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-consolidate-knowledge-grammar-vocabulary ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-analysing-differences-spoken-written-language
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Analysing some of the differences between spoken and written language, 
+  including differences associated with formal and informal registers, and between Standard English 
+  and other varieties of English."""@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "3"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-consolidate-knowledge-grammar-vocabulary ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-using-linguistic-literary-terminology-accurately
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Using linguistic and literary terminology accurately and confidently in 
+  discussing reading, writing and spoken language."""@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "4"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-consolidate-knowledge-grammar-vocabulary ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-extending-applying-grammatical-knowledge
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Extending and applying the grammatical knowledge set out in English appendix 2 
+  to the key stage 1 and 2 programmes of study to analyse more challenging texts."""@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "5"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-consolidate-knowledge-grammar-vocabulary ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-effectiveness-impact-of-grammatical-features
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Studying the effectiveness and impact of the grammatical features of the texts 
+  they read."""@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "6"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-consolidate-knowledge-grammar-vocabulary ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-understanding-differences-spoken-written-language
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Knowing and understanding the differences between spoken and written language, 
+  including differences associated with formal and informal registers, and between Standard English 
+  and other varieties of English."""@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "7"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-consolidate-knowledge-grammar-vocabulary ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-standard-english-own-writing-speech
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Using Standard English confidently in their own writing and speech."@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "8"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-consolidate-knowledge-grammar-vocabulary ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-precise-confident-linguistic-literary-terminology
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Discussing reading, writing and spoken language with precise and confident use 
+  of linguistic and literary terminolog."""@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "9"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-consolidate-knowledge-grammar-vocabulary ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-standard-english-context-and-audience
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Using Standard English when the context and audience require it."@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "1"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-speak-confidently-audibly-effectively ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-working-effectively-groups-different-sizes
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Working effectively in groups of different sizes and taking on required roles, 
+  including leading and managing discussions, involving others productively, reviewing and 
+  summarising, and contributing to meeting goals/deadlines."""@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "2"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-speak-confidently-audibly-effectively ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-listening-building-on-contributions-others
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Listening to and building on the contributions of others, asking questions to 
+  clarify and inform, and challenging courteously when necessary."""@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "3"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-speak-confidently-audibly-effectively ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-planning-for-different-purposes-audiences
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Planning for different purposes and audiences, including selecting and 
+  organising information and ideas effectively and persuasively for formal spoken presentations and 
+  debates."""@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "4"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-speak-confidently-audibly-effectively ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-listening-responding-variety-different-contexts
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Listening and responding in a variety of different contexts, both formal and 
+  informal, and evaluating content, viewpoints, evidence and aspects of presentation."""@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "5"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-speak-confidently-audibly-effectively ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-speak-confidently-audibly-effectively-performing-play-scripts-and-poetry
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Improvising, rehearsing and performing play scripts and poetry in order to 
+  generate language and discuss language use and meaning, using role, intonation, tone, volume, 
+  mood, silence, stillness and action to add impact."""@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "6"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-speak-confidently-audibly-effectively ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+# ----------------------------------------------------------------------
+# Sub-Content Descriptors
+# ----------------------------------------------------------------------

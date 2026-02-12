@@ -1,0 +1,401 @@
+@prefix curric: <https://w3id.org/oak/curriculum/ontology/> .
+@prefix natcurric: <https://w3id.org/oak/curriculum/nationalcurriculum/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ======================================================================
+# National Curriculum for England - Physics Programme Structure
+# ======================================================================
+
+# ----------------------------------------------------------------------
+# Ontology Declaration
+# ----------------------------------------------------------------------
+
+<https://w3id.org/oak/curriculum/nationalcurriculum/physics-programme-structure>
+  rdf:type owl:Ontology ;
+
+  rdfs:label "National Curriculum for England - Physics Programme Structure"@en ;
+  dc:title "National Curriculum for England - Physics Programme Structure"@en ;
+  rdfs:comment """Physics programme structure that specifies schemes and progressions, and a 
+  mapping to strands and content descriptors within the knowledge taxonomy."""@en ;
+
+  owl:versionInfo "0.1.0" ;
+  owl:versionIRI <https://w3id.org/oak/curriculum/nationalcurriculum/physics-programme-structure/0.1.0> ;
+  
+  dcterms:description """Physics programme structure that specifies schemes and progressions, and a 
+  mapping to strands and content descriptors within the knowledge taxonomy."""@en ;
+  dcterms:created "2025-11-24T12:33:32Z"^^xsd:dateTime ;
+  dcterms:modified "2025-12-03T12:33:32Z"^^xsd:dateTime ;
+  dcterms:issued "2025-12-03T12:33:32Z"^^xsd:dateTime ;
+  
+  # OGL 3.0 License
+  dcterms:license <http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/> ;
+  dcterms:rights "Crown Copyright"@en ;
+
+  vann:preferredNamespacePrefix "natcurric" ;
+  vann:preferredNamespaceUri "https://w3id.org/oak/curriculum/nationalcurriculum/" ;
+
+  owl:imports <https://w3id.org/oak/curriculum/ontology> ;
+  owl:imports <https://w3id.org/oak/curriculum/nationalcurriculum/temporal-structure> ;
+  owl:imports <https://w3id.org/oak/curriculum/nationalcurriculum/physics-knowledge-taxonomy> .
+
+# ----------------------------------------------------------------------
+# Subject Group
+# ----------------------------------------------------------------------
+
+natcurric:subjectgroup-science
+  a curric:SubjectGroup ;
+  rdfs:label "Science"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:coversDiscipline natcurric:discipline-science .
+  
+# ----------------------------------------------------------------------
+# Subject
+# ----------------------------------------------------------------------
+
+  natcurric:subject-physics
+  a curric:Subject ;
+  rdfs:label "Physics"@en ;
+  curric:aims (
+    """Develop scientific knowledge and conceptual understanding through the specific disciplines 
+    of biology, chemistry and physics."""@en
+    """Develop understanding of the nature, processes and methods of science through different 
+    types of science enquiries that help them to answer scientific questions about the world around 
+    them."""@en
+    """Are equipped with the scientific knowledge required to understand the uses and implications 
+    of science, today and for the future."""@en
+  ) ;
+  curric:rationale """A high-quality science education provides the foundations for understanding 
+  the world through the specific disciplines of biology, chemistry and physics. Science has changed 
+  our lives and is vital to the world’s future prosperity, and all pupils should be taught 
+  essential aspects of the knowledge, methods, processes and uses of science. Through building up a 
+  body of key foundational knowledge and concepts, pupils should be encouraged to recognise the 
+  power of rational explanation and develop a sense of excitement and curiosity about natural 
+  phenomena. They should be encouraged to understand how science can be used to explain what is 
+  occurring, predict how things will behave, and analyse causes.
+
+  The programmes of study describe a sequence of knowledge and concepts. While it is important that 
+  pupils make progress, it is also vitally important that they develop secure understanding of each 
+  key block of knowledge and concepts in order to progress to the next stage. Insecure, superficial 
+  understanding will not allow genuine progression: pupils may struggle at key points of transition 
+  (such as between primary and secondary school), build up serious misconceptions, and/or have 
+  significant difficulties in understanding higher-order content.
+  
+  Pupils should be able to describe associated processes and key characteristics in common 
+  language, but they should also be familiar with, and use, technical terminology accurately and 
+  precisely. They should build up an extended specialist vocabulary. They should also apply their 
+  mathematical knowledge to their understanding of science, including collecting, presenting and 
+  analysing data. The social and economic implications of science are important but, generally, 
+  they are taught most appropriately within the wider school curriculum: teachers will wish to use 
+  different contexts to maximise their pupils’ engagement with and motivation to study science.
+
+  ‘Working scientifically’ specifies the understanding of the nature, processes and methods of 
+  science for each year group. It should not be taught as a separate strand. The notes and guidance 
+  give examples of how ‘working scientifically’ might be embedded within the content of biology, 
+  chemistry and physics, focusing on the key features of scientific enquiry, so that pupils learn 
+  to use a variety of approaches to answer relevant scientific questions. These types of scientific 
+  enquiry should include: observing over time; pattern seeking; identifying, classifying and 
+  grouping; comparative and fair testing (controlled investigations); and researching using 
+  secondary sources. Pupils should seek answers to questions through collecting, analysing and 
+  presenting data. ‘Working scientifically’ will be developed further at key stages 3 and 4, once 
+  pupils have built up sufficient understanding of science to engage meaningfully in more 
+  sophisticated discussion of experimental design and control."""@en ;
+  curric:structure "Text for structure..."@en ;
+  curric:schoolCurriculum """The programmes of study for science are set out year-by-year for key 
+  stages 1 and 2. Schools are, however, only required to teach the relevant programme of study by 
+  the end of the key stage. Within each key stage, schools therefore have the flexibility to 
+  introduce content earlier or later than set out in the programme of study. In addition, schools 
+  can introduce key stage content during an earlier key stage if appropriate. All schools are also 
+  required to set out their school curriculum for science on a year-by-year basis and make this 
+  information available online."""@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isSubjectOf natcurric:subjectgroup-science ;
+  curric:coversStrand natcurric:strand-working-scientifically ,
+                      natcurric:strand-physical-science .
+
+# ----------------------------------------------------------------------
+# Schemes 
+# ----------------------------------------------------------------------
+
+natcurric:scheme-physics-key-stage-1
+  a curric:Scheme ;
+  rdfs:label "Physics Key Stage 1"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isSchemeOf natcurric:subject-physics ;
+  curric:coversKeyStage natcurric:key-stage-1 .
+
+natcurric:scheme-physics-key-stage-2
+  a curric:Scheme ;
+  rdfs:label "Physics Key Stage 2"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isSchemeOf natcurric:subject-physics ;
+  curric:coversKeyStage natcurric:key-stage-2 .
+
+natcurric:scheme-physics-key-stage-3
+  a curric:Scheme ;
+  rdfs:label "Physics Key Stage 3"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isSchemeOf natcurric:subject-physics ;
+  curric:coversKeyStage natcurric:key-stage-3 .
+
+natcurric:scheme-physics-key-stage-4
+  a curric:Scheme ;
+  rdfs:label "Physics Key Stage 4"@en ;
+  dcterms:description """Physics is the science of the fundamental concepts of field, force, 
+  radiation and particle structures, which are inter-linked to form unified models of the behaviour 
+  of the material universe. From such models, a wide range of ideas, from the broadest issue of the 
+  development of the universe over time to the numerous and detailed ways in which new technologies 
+  may be invented, have emerged. These have enriched both our basic understanding of, and our many 
+  adaptations to, our material environment.
+  
+  Students should be helped to understand how, through the ideas of physics, the complex and 
+  diverse phenomena of the natural world can be described in terms of a number of key ideas which 
+  are of universal application and which can be illustrated in the separate topics set out below. 
+  These ideas include:
+
+  - the use of models, as in the particle model of matter or the wave models of light and of sound
+
+  - the concept of cause and effect in explaining such links as those between force and acceleration, 
+  or between changes in atomic nuclei and radioactive emissions
+
+  - the phenomena of ‘action at a distance’ and the related concept of the field as the key to 
+  analysing electrical, magnetic and gravitational effects
+  
+  - that differences, for example between pressures or temperatures or electrical potentials, are the 
+  drivers of change
+  
+  - that proportionality, for example between weight and mass of an object or between force and 
+  extension in a spring, is an important aspect of many models in science"""@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isSchemeOf natcurric:subject-physics ;
+  curric:coversKeyStage natcurric:key-stage-4 .
+
+# ----------------------------------------------------------------------
+# Progressions
+# ----------------------------------------------------------------------
+
+#natcurric:progression-physics-key-stage-1-xxx
+#  a curric:Progression ;
+#  rdfs:label "Physics Key Stage 1 xxx"@en ;
+#  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+#  curric:isProgressionOf natcurric:scheme-physics-key-stage-1 ;
+#  curric:coversContent
+#    natcurric:contentdescriptor-xxx ,
+
+#natcurric:progression-physics-key-stage-2-xxx
+#  a curric:Progression ;
+#  rdfs:label "Physics Key Stage 2 xxx"@en ;
+#  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+#  curric:isProgressionOf natcurric:scheme-physics-key-stage-2 ;
+#  curric:coversContent
+#    natcurric:contentdescriptor-xxx ,
+
+natcurric:progression-physics-key-stage-3-scientific-attitudes
+  a curric:Progression ;
+  rdfs:label "Physics Key Stage 3 Scientific Attitudes"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-physics-key-stage-3 ;
+  curric:coversContent
+    natcurric:contentdescriptor-objectivity-concern-for-accuracy-precision ,
+    natcurric:contentdescriptor-scientific-methods-and-theories-develop ,
+    natcurric:contentdescriptor-evaluate-risks .
+
+natcurric:progression-physics-key-stage-3-experimental-skills-and-investigations
+  a curric:Progression ;
+  rdfs:label "Physics Key Stage 3 Experimental Skills and Investigations"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-physics-key-stage-3 ;
+  curric:coversContent
+    natcurric:contentdescriptor-enquiry-observations-of-real-world ,
+    natcurric:contentdescriptor-predictions-using-scientific-knowledge-understanding ,
+    natcurric:contentdescriptor-scientific-enquiries-to-test-predictions ,
+    natcurric:contentdescriptor-use-appropriate-techniques-apparatus-materials ,
+    natcurric:contentdescriptor-make-record-observations-measurements ,
+    natcurric:contentdescriptor-apply-sampling-techniques .
+
+natcurric:progression-physics-key-stage-3-analysis-and-evaluation
+  a curric:Progression ;
+  rdfs:label "Physics Key Stage 3 Analysis and Evaluation"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-physics-key-stage-3 ;
+  curric:coversContent
+    natcurric:contentdescriptor-apply-mathematical-concepts-calculate-results ,
+    natcurric:contentdescriptor-present-observations-and-data ,
+    natcurric:contentdescriptor-interpret-observations-and-data ,
+    natcurric:contentdescriptor-present-reasoned-explanations ,
+    natcurric:contentdescriptor-evaluate-data-random-systematic-error ,
+    natcurric:contentdescriptor-identify-questions-arising-from-results .
+
+natcurric:progression-physics-key-stage-3-measurement
+  a curric:Progression ;
+  rdfs:label "Physics Key Stage 3 Measurement"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-physics-key-stage-3 ;
+  curric:coversContent
+    natcurric:contentdescriptor-si-units-iupac-chemical-nomenclature ,
+    natcurric:contentdescriptor-simple-equations-and-calculations ,
+    natcurric:contentdescriptor-basic-data-analysis-statistical-techniques .
+    
+natcurric:progression-physics-key-stage-4-development-of-scientific-thinking
+  a curric:Progression ;
+  rdfs:label "Physics Key Stage 4 Development of Scientific Thinking"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-physics-key-stage-4 ;
+  curric:coversContent
+    natcurric:contentdescriptor-scientific-methods-theories-over-time ,
+    natcurric:contentdescriptor-concepts-models-scientific-explanations ,
+    natcurric:contentdescriptor-power-limitations-ethical-issues ,
+    natcurric:contentdescriptor-explaining-technological-applications-science ,
+    natcurric:contentdescriptor-evaluating-risks-in-practical-science ,
+    natcurric:contentdescriptor-peer-review-and-communication-of-results .
+
+natcurric:progression-physics-key-stage-4-experimental-skills-and-strategies
+  a curric:Progression ;
+  rdfs:label "Physics Key Stage 4 Experimental Skills and Strategies"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-physics-key-stage-4 ;
+  curric:coversContent
+    natcurric:contentdescriptor-theories-explanations-hypotheses ,
+    natcurric:contentdescriptor-experiments-observations-hypotheses-phenomena ,
+    natcurric:contentdescriptor-techniques-apparatus-materials ,
+    natcurric:contentdescriptor-carrying-out-experiments ,
+    natcurric:contentdescriptor-knowledge-of-sampling-techniques ,
+    natcurric:contentdescriptor-observations-measurements-using-apparatus-methods ,
+    natcurric:contentdescriptor-evaluating-methods-and-suggesting-improvements .
+
+natcurric:progression-physics-key-stage-4-analysis-and-evaluation
+  a curric:Progression ;
+  rdfs:label "Physics Key Stage 4 Analysis and Evaluation"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-physics-key-stage-4 ;
+  curric:coversContent
+    natcurric:contentdescriptor-presenting-observations-and-other-data ,
+    natcurric:contentdescriptor-translating-data ,
+    natcurric:contentdescriptor-mathematical-and-statistical-analysis ,
+    natcurric:contentdescriptor-representing-distributions-uncertainty ,
+    natcurric:contentdescriptor-patterns-trends-inferences-conclusions ,
+    natcurric:contentdescriptor-explanations-relating-data-to-hypotheses ,
+    natcurric:contentdescriptor-objective-evaluating-data-accuracy-precision ,
+    natcurric:contentdescriptor-communicating-scientific-rationale .
+
+natcurric:progression-physics-key-stage-4-vocabulary-units-symbols-nomenclature
+  a curric:Progression ;
+  rdfs:label "Physics Key Stage 4 Vocabulary Units Symbols Nomenclature"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-physics-key-stage-4 ;
+  curric:coversContent
+    natcurric:contentdescriptor-developing-scientific-vocabulary-nomenclature ,
+    natcurric:contentdescriptor-importance-of-scientific-quantities ,
+    natcurric:contentdescriptor-si-units-and-iupac-chemical-nomenclature ,
+    natcurric:contentdescriptor-prefixes-powers-orders-of-magnitude ,
+    natcurric:contentdescriptor-interconverting-units ,
+    natcurric:contentdescriptor-significant-figures-in-calculations .
+
+natcurric:progression-physics-key-stage-4-energy
+  a curric:Progression ;
+  rdfs:label "Physics Key Stage 4 Energy"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-physics-key-stage-4 ;
+  curric:coversContent
+    natcurric:contentdescriptor-energy-changes-in-a-system ,
+    natcurric:contentdescriptor-power-as-rate-transfer-energy ,
+    natcurric:contentdescriptor-conservation-of-energy-closed-system ,
+    natcurric:contentdescriptor-energy-efficiency-for-energy-transfers ,
+    natcurric:contentdescriptor-renewable-non-renewable-energy-sources .
+
+natcurric:progression-physics-key-stage-4-forces
+  a curric:Progression ;
+  rdfs:label "Physics Key Stage 4 Forces"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-physics-key-stage-4 ;
+  curric:coversContent
+    natcurric:contentdescriptor-forces-and-fields ,
+    natcurric:contentdescriptor-forces-as-vectors ,
+    natcurric:contentdescriptor-calculating-work-done ,
+    natcurric:contentdescriptor-pressure-in-fluids .
+
+natcurric:progression-physics-key-stage-4-forces-and-motion
+  a curric:Progression ;
+  rdfs:label "Physics Key Stage 4 Forces and Motion"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-physics-key-stage-4 ;
+  curric:coversContent
+    natcurric:contentdescriptor-speed-of-sound ,
+    natcurric:contentdescriptor-graphs-of-distance-time-speed ,
+    natcurric:contentdescriptor-acceleration-caused-by-forces ,
+    natcurric:contentdescriptor-weight-and-gravitational-field-strength ,
+    natcurric:contentdescriptor-decelerations-and-braking-distances .
+
+natcurric:progression-physics-key-stage-4-wave-motion
+  a curric:Progression ;
+  rdfs:label "Physics Key Stage 4 Wave Motion"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-physics-key-stage-4 ;
+  curric:coversContent
+    natcurric:contentdescriptor-amplitude-wavelength-frequency ,
+    natcurric:contentdescriptor-transverse-and-longitudinal-waves ,
+    natcurric:contentdescriptor-electromagnetic-waves ,
+    natcurric:contentdescriptor-velocities-differing-between-media ,
+    natcurric:contentdescriptor-production-detection-by-electrical-circuits ,
+    natcurric:contentdescriptor-electromagnetic-spectrum-uses-and-hazards .
+
+natcurric:progression-physics-key-stage-4-electricity
+  a curric:Progression ;
+  rdfs:label "Physics Key Stage 4 Electricity"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-physics-key-stage-4 ;
+  curric:coversContent
+    natcurric:contentdescriptor-measuring-resistance ,
+    natcurric:contentdescriptor-current-resistance-voltage-relationships ,
+    natcurric:contentdescriptor-quantity-of-charge-flowing ,
+    natcurric:contentdescriptor-drawing-circuit-diagrams ,
+    natcurric:contentdescriptor-domestic-ac-supply ,
+    natcurric:contentdescriptor-power-transfer .
+
+natcurric:progression-physics-key-stage-4-magnetism-and-electromagnetism
+  a curric:Progression ;
+  rdfs:label "Physics Key Stage 4 Magnetism and Electromagnetism"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-physics-key-stage-4 ;
+  curric:coversContent
+    natcurric:contentdescriptor-exploring-magnetic-fields ,
+    natcurric:contentdescriptor-magnetic-effects-of-currents ,
+    natcurric:contentdescriptor-transformers-in-national-grid .
+
+natcurric:progression-physics-key-stage-4-structure-of-matter
+  a curric:Progression ;
+  rdfs:label "Physics Key Stage 4 Structure of Matter"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-physics-key-stage-4 ;
+  curric:coversContent
+    natcurric:contentdescriptor-molecules-in-solid-liquid-gas ,
+    natcurric:contentdescriptor-melting-evaporation-sublimation ,
+    natcurric:contentdescriptor-energy-changes-involved-on-heating ,
+    natcurric:contentdescriptor-pressure-temperature-gas-constant-volume .
+
+natcurric:progression-physics-key-stage-4-atomic-structure
+  a curric:Progression ;
+  rdfs:label "Physics Key Stage 4 Atomic Structure"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-physics-key-stage-4 ;
+  curric:coversContent
+    natcurric:contentdescriptor-nuclear-model ,
+    natcurric:contentdescriptor-masses-sizes-nuclei-atoms-molecules ,
+    natcurric:contentdescriptor-protons-neutrons-isotopes ,
+    natcurric:contentdescriptor-ionisation-absorption-emission-radiation ,
+    natcurric:contentdescriptor-radioactive-nuclei ,
+    natcurric:contentdescriptor-radioactive-materials-halflife-irradiation ,
+    natcurric:contentdescriptor-nuclear-fission-fusion-sun-energy .
+
+natcurric:progression-physics-key-stage-4-space-physics
+  a curric:Progression ;
+  rdfs:label "Physics Key Stage 4 Space Physics"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-physics-key-stage-4 ;
+  curric:coversContent natcurric:contentdescriptor-main-features-of-solar-system .

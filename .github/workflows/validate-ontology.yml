@@ -1,0 +1,92 @@
+name: Validate Ontology
+
+on:
+  push:
+    branches: [ main, develop ]
+    paths:
+      - '**/*.ttl'
+      - '.github/workflows/validate-ontology.yml'
+      - 'scripts/merge_ttls_with_imports.py'
+  pull_request:
+    branches: [ main ]
+    paths:
+      - '**/*.ttl'
+      - '.github/workflows/validate-ontology.yml'
+      - 'scripts/merge_ttls_with_imports.py'
+  workflow_dispatch:
+
+jobs:
+  validate-ontology:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: |
+          pip install rdflib pyshacl
+      
+      - name: Merge TTLs and resolve owl:imports (exclude "versions")
+        run: |
+          python scripts/merge_ttls_with_imports.py
+        
+      - name: Check Turtle syntax
+        id: syntax-check
+        run: |
+          python - <<'EOF'
+          from rdflib import Graph
+          try:
+              g = Graph()
+              g.parse("/tmp/combined-data.ttl", format="turtle")
+              print("✅ Merged Turtle syntax is valid")
+          except Exception as e:
+              print(f"❌ Turtle syntax error: {e}")
+              exit(1)
+          EOF
+
+      - name: Run SHACL validation
+        id: shacl-validation
+        run: |
+          echo "Running SHACL validation..."
+
+          # Run SHACL validation and capture output
+          if pyshacl \
+            --shacl ontology/oak-curriculum-constraints.ttl \
+            --ont-graph ontology/oak-curriculum-ontology.ttl \
+            --inference rdfs \
+            --abort \
+            --format human \
+            /tmp/combined-data.ttl > /tmp/shacl-output.txt 2>&1; then
+
+            echo "✅ Validation passed"
+            echo "conforms=true" >> $GITHUB_OUTPUT
+            cat /tmp/shacl-output.txt
+          else
+            echo "❌ Validation failed"
+            echo "conforms=false" >> $GITHUB_OUTPUT
+            cat /tmp/shacl-output.txt
+            exit 1
+          fi
+
+      - name: Display SHACL validation summary
+        if: always()
+        run: |
+          echo "### SHACL Validation" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "Validates all curriculum data instances against the ontology schema:" >> $GITHUB_STEP_SUMMARY
+          echo "- Required properties and cardinalities" >> $GITHUB_STEP_SUMMARY
+          echo "- Property value types and patterns" >> $GITHUB_STEP_SUMMARY
+          echo "- Relationships between entities" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+
+          if [ "${{ steps.shacl-validation.outcome }}" == "success" ]; then
+            echo "✅ **Result:** All curriculum data conforms to validation constraints" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "❌ **Result:** Validation failed - see logs for constraint violations" >> $GITHUB_STEP_SUMMARY
+          fi
+          echo "" >> $GITHUB_STEP_SUMMARY

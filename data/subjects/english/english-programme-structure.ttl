@@ -1,0 +1,811 @@
+@prefix curric: <https://w3id.org/oak/curriculum/ontology/> .
+@prefix natcurric: <https://w3id.org/oak/curriculum/nationalcurriculum/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ======================================================================
+# National Curriculum for England - English Programme Structure
+# ======================================================================
+
+# ----------------------------------------------------------------------
+# Ontology Declaration
+# ----------------------------------------------------------------------
+
+<https://w3id.org/oak/curriculum/nationalcurriculum/english-programme-structure>
+  rdf:type owl:Ontology ;
+
+  rdfs:label "National Curriculum for England - English Programme Structure"@en ;
+  dc:title "National Curriculum for England - English Programme Structure"@en ;
+  rdfs:comment """English programme structure that specifies schemes and progressions, and a 
+  mapping to strands and content descriptors within the knowledge taxonomy."""@en ;
+
+  owl:versionInfo "0.1.0" ;
+  owl:versionIRI <https://w3id.org/oak/curriculum/nationalcurriculum/english-programme-structure/0.1.0> ;
+  
+  dcterms:description """English programme structure that specifies schemes and progressions, and a 
+  mapping to strands and content descriptors within the knowledge taxonomy"""@en ;
+  dcterms:created "2025-11-24T12:33:32Z"^^xsd:dateTime ;
+  dcterms:modified "2025-12-03T12:33:32Z"^^xsd:dateTime ;
+  dcterms:issued "2025-12-03T12:33:32Z"^^xsd:dateTime ;
+  
+  # OGL 3.0 License
+  dcterms:license <http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/> ;
+  dcterms:rights "Crown Copyright"@en ;
+
+  rdfs:seeAlso <https://www.gov.uk/government/collections/national-curriculum> ;
+  vann:preferredNamespacePrefix "natcurric" ;
+  vann:preferredNamespaceUri "https://w3id.org/oak/curriculum/nationalcurriculum/" ;
+
+  owl:imports <https://w3id.org/oak/curriculum/ontology> ;
+  owl:imports <https://w3id.org/oak/curriculum/nationalcurriculum/temporal-structure> ;
+  owl:imports <https://w3id.org/oak/curriculum/nationalcurriculum/english-knowledge-taxonomy> .
+
+# ----------------------------------------------------------------------
+# Subject Group
+# ----------------------------------------------------------------------
+
+natcurric:subjectgroup-english
+  a curric:SubjectGroup ;
+  rdfs:label "English"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:coversDiscipline natcurric:discipline-english .
+  
+# ----------------------------------------------------------------------
+# Subject
+# ----------------------------------------------------------------------
+
+natcurric:subject-english
+  a curric:Subject ;
+  rdfs:label "English"@en ;
+  curric:aims (
+    "Read easily, fluently and with good understanding."@en
+    "Develop the habit of reading widely and often, for both pleasure and information."@en
+    """Acquire a wide vocabulary, an understanding of grammar and knowledge of linguistic 
+    conventions for reading, writing and spoken language."""@en
+    "Appreciate our rich and varied literary heritage."@en
+    """Write clearly, accurately and coherently, adapting their language and style in and for a 
+    range of contexts, purposes and audiences."""@en
+    """Use discussion in order to learn; they should be able to elaborate and explain clearly their 
+    understanding and ideas."""@en
+    """Are competent in the arts of speaking and listening, making formal presentations, 
+    demonstrating to others and participating in debate."""@en
+  ) ;
+  curric:rationale """English has a pre-eminent place in education and in society. A high-quality 
+  education in English will teach pupils to speak and write fluently so that they can communicate 
+  their ideas and emotions to others, and through their reading and listening, others can 
+  communicate with them. Through reading in particular, pupils have a chance to develop culturally, 
+  emotionally, intellectually, socially and spiritually. Literature, especially, plays a key role 
+  in such development. Reading also enables pupils both to acquire knowledge and to build on what 
+  they already know. All the skills of language are essential to participating fully as a member of 
+  society; pupils who do not learn to speak, read and write fluently and confidently are 
+  effectively disenfranchised."""@en ;
+  curric:structure "Text for structure..."@en ;
+  curric:schoolCurriculum """The programmes of study for English are set out year-by-year for key 
+  stage 1 and two-yearly for key stage 2. The single year blocks at key stage 1 reflect the rapid 
+  pace of development in word reading during these 2 years. Schools are, however, only required to 
+  teach the relevant programme of study by the end of the key stage. Within each key stage, schools 
+  therefore have the flexibility to introduce content earlier or later than set out in the 
+  programme of study. In addition, schools can introduce key stage content during an earlier key 
+  stage if appropriate. All schools are also required to set out their school curriculum for 
+  English on a year-by-year basis and make this information available online."""@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isSubjectOf natcurric:subjectgroup-english ;
+  curric:coversStrand 
+    natcurric:strand-reading ,
+    natcurric:strand-writing ,
+    natcurric:strand-grammar-and-vocabulary ,
+    natcurric:strand-spoken-english .
+  
+# ----------------------------------------------------------------------
+# Schemes
+# ----------------------------------------------------------------------
+
+natcurric:scheme-english-key-stage-1
+  a curric:Scheme ;
+  rdfs:label "English Key Stage 1"@en ;
+  dcterms:description """During year 1, teachers should build on work from the early years 
+  foundation stage, making sure that pupils can sound and blend unfamiliar printed words quickly 
+  and accurately using the phonic knowledge and skills that they have already learnt. Teachers 
+  should also ensure that pupils continue to learn new grapheme-phoneme correspondences (GPCs) and 
+  revise and consolidate those learnt earlier. The understanding that the letter(s) on the page 
+  represent the sounds in spoken words should underpin pupils’ reading and spelling of all words. 
+  This includes common words containing unusual GPCs. The term ‘common exception words’ is used 
+  throughout the programmes of study for such words.
+  
+  Alongside this knowledge of GPCs, pupils need to develop the skill of blending the sounds into 
+  words for reading and establish the habit of applying this skill whenever they encounter new 
+  words. This will be supported by practice in reading books consistent with their developing 
+  phonic knowledge and skill and their knowledge of common exception words. At the same time they 
+  will need to hear, share and discuss a wide range of high-quality books to develop a love of 
+  reading and broaden their vocabulary.
+  
+  Pupils should be helped to read words without overt sounding and blending after a few encounters. 
+  Those who are slow to develop this skill should have extra practice.
+  
+  Pupils’ writing during year 1 will generally develop at a slower pace than their reading. This is 
+  because they need to encode the sounds they hear in words (spelling skills), develop the physical 
+  skill needed for handwriting, and learn how to organise their ideas in writing.
+  
+  Pupils entering year 1 who have not yet met the early learning goals for literacy should continue 
+  to follow their school’s curriculum for the Early Years Foundation Stage to develop their word 
+  reading, spelling and language skills. However, these pupils should follow the year 1 programme 
+  of study in terms of the books they listen to and discuss, so that they develop their vocabulary 
+  and understanding of grammar, as well as their knowledge more generally across the curriculum. If 
+  they are still struggling to decode and spell, they need to be taught to do this urgently through 
+  a rigorous and systematic phonics programme so that they catch up rapidly.
+  
+  Teachers should ensure that their teaching develops pupils’ oral vocabulary as well as their 
+  ability to understand and use a variety of grammatical structures, giving particular support to 
+  pupils whose oral language skills are insufficiently developed.
+  
+  By the beginning of year 2, pupils should be able to read all common graphemes. They should be 
+  able to read unfamiliar words containing these graphemes, accurately and without undue 
+  hesitation, by sounding them out in books that are matched closely to each pupil’s level of 
+  word-reading knowledge. They should also be able to read many common words containing GPCs taught 
+  so far [for example, shout, hand, stop, or dream], without needing to blend the sounds out loud 
+  first. Pupils’ reading of common exception words [for example, you, could, many, or people], 
+  should be secure. Pupils will increase their fluency by being able to read these words easily and 
+  automatically. Finally, pupils should be able to retell some familiar stories that have been read 
+  to and discussed with them or that they have acted out during year 1.
+  
+  During year 2, teachers should continue to focus on establishing pupils’ accurate and speedy 
+  word-reading skills. They should also make sure that pupils listen to and discuss a wide range of 
+  stories, poems, plays and information books; this should include whole books. The sooner that 
+  pupils can read well and do so frequently, the sooner they will be able to increase their 
+  vocabulary, comprehension and their knowledge across the wider curriculum.
+  
+  In writing, pupils at the beginning of year 2 should be able to compose individual sentences 
+  orally and then write them down. They should be able to spell many of the words covered in year 1 
+  correctly - see English appendix 1. They should also be able to make phonically plausible 
+  attempts to spell words they have not yet learnt. Finally, they should be able to form individual 
+  letters correctly, establishing good handwriting habits from the beginning.
+  
+  It is important to recognise that pupils begin to meet extra challenges in terms of spelling 
+  during year 2. Increasingly, they should learn that there is not always an obvious connection 
+  between the way a word is said and the way it is spelt. Variations include different ways of 
+  spelling the same sound, the use of so-called silent letters and groups of letters in some words 
+  and, sometimes, spelling that has become separated from the way that words are now pronounced, 
+  such as the ‘le’ ending in table. Pupils’ motor skills also need to be sufficiently advanced for 
+  them to write down ideas that they may be able to compose orally. In addition, writing is 
+  intrinsically harder than reading: pupils are likely to be able to read and understand more 
+  complex writing (in terms of its vocabulary and structure) than they are capable of producing 
+  themselves.
+  
+  For pupils who do not have the phonic knowledge and skills they need for year 2, teachers should 
+  use the year 1 programmes of study for word reading and spelling so that pupils’ word-reading 
+  skills catch up. However, teachers should use the year 2 programme of study for comprehension so 
+  that these pupils hear and talk about new books, poems, other writing, and vocabulary with the 
+  rest of the class."""@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isSchemeOf natcurric:subject-english ;
+  curric:coversKeyStage natcurric:key-stage-1 .
+
+natcurric:scheme-english-key-stage-2
+  a curric:Scheme ;
+  rdfs:label "English Key Stage 2"@en ;
+  dcterms:description """By the beginning of year 3, pupils should be able to read books written at 
+  an age-appropriate interest level. They should be able to read them accurately and at a speed 
+  that is sufficient for them to focus on understanding what they read rather than on decoding 
+  individual words. They should be able to decode most new words outside their spoken vocabulary, 
+  making a good approximation to the word’s pronunciation. As their decoding skills become 
+  increasingly secure, teaching should be directed more towards developing their vocabulary and the 
+  breadth and depth of their reading, making sure that they become independent, fluent and 
+  enthusiastic readers who read widely and frequently. They should be developing their 
+  understanding and enjoyment of stories, poetry, plays and non-fiction, and learning to read 
+  silently. They should also be developing their knowledge and skills in reading non-fiction about 
+  a wide range of subjects. They should be learning to justify their views about what they have 
+  read: with support at the start of year 3 and increasingly independently by the end of year 4.
+  
+  Pupils should be able to write down their ideas with a reasonable degree of accuracy and with 
+  good sentence punctuation. Teachers should therefore be consolidating pupils’ writing skills, 
+  their vocabulary, their grasp of sentence structure and their knowledge of linguistic 
+  terminology. Teaching them to develop as writers involves teaching them to enhance the 
+  effectiveness of what they write as well as increasing their competence. Teachers should make 
+  sure that pupils build on what they have learnt, particularly in terms of the range of their 
+  writing and the more varied grammar, vocabulary and narrative structures from which they can draw 
+  to express their ideas. Pupils should be beginning to understand how writing can be different 
+  from speech. Joined handwriting should be the norm; pupils should be able to use it fast enough 
+  to keep pace with what they want to say.
+
+  Pupils’ spelling of common words should be correct, including common exception words and other 
+  words that they have learnt - see English appendix 1. Pupils should spell words as accurately as 
+  possible using their phonic knowledge and other knowledge of spelling, such as morphology and 
+  etymology.
+  
+  Most pupils will not need further direct teaching of word reading skills: they are able to decode 
+  unfamiliar words accurately, and need very few repeated experiences of this before the word is 
+  stored in such a way that they can read it without overt sound-blending. They should demonstrate 
+  understanding of figurative language, distinguish shades of meaning among related words and use 
+  age-appropriate, academic vocabulary.
+  
+  As in key stage 1, however, pupils who are still struggling to decode need to be taught to do 
+  this urgently through a rigorous and systematic phonics programme so that they catch up rapidly 
+  with their peers. If they cannot decode independently and fluently, they will find it 
+  increasingly difficult to understand what they read and to write down what they want to say. As 
+  far as possible, however, these pupils should follow the year 3 and 4 programme of study in terms 
+  of listening to new books, hearing and learning new vocabulary and grammatical structures, and 
+  discussing these.
+  
+  Specific requirements for pupils to discuss what they are learning and to develop their wider 
+  skills in spoken language form part of this programme of study. In years 3 and 4, pupils should 
+  become more familiar with and confident in using language in a greater variety of situations, for 
+  a variety of audiences and purposes, including through drama, formal presentations and debate.
+  
+  By the beginning of year 5, pupils should be able to read aloud a wider range of poetry and books 
+  written at an age-appropriate interest level with accuracy and at a reasonable speaking pace. 
+  They should be able to read most words effortlessly and to work out how to pronounce unfamiliar 
+  written words with increasing automaticity. If the pronunciation sounds unfamiliar, they should 
+  ask for help in determining both the meaning of the word and how to pronounce it correctly.
+  
+  They should be able to prepare readings, with appropriate intonation to show their understanding, 
+  and should be able to summarise and present a familiar story in their own words. They should be 
+  reading widely and frequently, outside as well as in school, for pleasure and information. They 
+  should be able to read silently, with good understanding, inferring the meanings of unfamiliar 
+  words, and then discuss what they have read.
+  
+  Pupils should be able to write down their ideas quickly. Their grammar and punctuation should be 
+  broadly accurate. Pupils’ spelling of most words taught so far should be accurate and they should 
+  be able to spell words that they have not yet been taught by using what they have learnt about 
+  how spelling works in English.
+  
+  During years 5 and 6, teachers should continue to emphasise pupils’ enjoyment and understanding 
+  of language, especially vocabulary, to support their reading and writing. Pupils’ knowledge of 
+  language, gained from stories, plays, poetry, non-fiction and textbooks, will support their 
+  increasing fluency as readers, their facility as writers, and their comprehension. As in years 3 
+  and 4, pupils should be taught to enhance the effectiveness of their writing as well as their 
+  competence.
+  
+  It is essential that pupils whose decoding skills are poor are taught through a rigorous and 
+  systematic phonics programme so that they catch up rapidly with their peers in terms of their 
+  decoding and spelling. However, as far as possible, these pupils should follow the upper key 
+  stage 2 programme of study in terms of listening to books and other writing that they have not 
+  come across before, hearing and learning new vocabulary and grammatical structures, and having a 
+  chance to talk about all of these.
+  
+  By the end of year 6, pupils’ reading and writing should be sufficiently fluent and effortless 
+  for them to manage the general demands of the curriculum in year 7, across all subjects and not 
+  just in English, but there will continue to be a need for pupils to learn subject-specific 
+  vocabulary. They should be able to reflect their understanding of the audience for and purpose of 
+  their writing by selecting appropriate vocabulary and grammar. Teachers should prepare pupils for 
+  secondary education by ensuring that they can consciously control sentence structure in their 
+  writing and understand why sentences are constructed as they are. Pupils should understand 
+  nuances in vocabulary choice and age-appropriate, academic vocabulary. This involves 
+  consolidation, practice and discussion of language.
+  
+  Specific requirements for pupils to discuss what they are learning and to develop their wider 
+  skills in spoken language form part of this programme of study. In years 5 and 6, pupils’ 
+  confidence, enjoyment and mastery of language should be extended through public speaking, 
+  performance and debate."""@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isSchemeOf natcurric:subject-english ;
+  curric:coversKeyStage natcurric:key-stage-2 .
+
+natcurric:scheme-english-key-stage-3
+  a curric:Scheme ;
+  rdfs:label "English Key Stage 3"@en ;
+  dcterms:description """English Key Stage 3 description..."""@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isSchemeOf natcurric:subject-english ;
+  curric:coversKeyStage natcurric:key-stage-3 .
+
+natcurric:scheme-english-key-stage-4
+  a curric:Scheme ;
+  rdfs:label "English Key Stage 4"@en ;
+  dcterms:description """The national curriculum for English reflects the importance of spoken 
+  language in pupils’ development across the whole curriculum - cognitively, socially and 
+  linguistically. Spoken language continues to underpin the development of pupils’ reading and 
+  writing during key stage 4 and teachers should therefore ensure pupils’ confidence and competence 
+  in this area continue to develop. Pupils should be taught to understand and use the conventions 
+  for discussion and debate, as well as continuing to develop their skills in working 
+  collaboratively with their peers to discuss reading, writing and speech across the curriculum.
+  
+  Reading at key stage 4 should be wide, varied and challenging. Pupils should be expected to read 
+  whole books, to read in depth and to read for pleasure and information.
+  
+  Pupils should continue to develop their knowledge of and skills in writing, refining their 
+  drafting skills and developing resilience to write at length. They should be taught to write 
+  formal and academic essays as well as writing imaginatively. They should be taught to write for a 
+  variety of purposes and audiences across a range of contexts. This requires an increasingly wide 
+  knowledge of vocabulary and grammar.
+  
+  Opportunities for teachers to enhance pupils’ vocabulary will arise naturally from their reading 
+  and writing. Teachers should show pupils how to understand the relationships between words, how 
+  to understand nuances in meaning, and how to develop their understanding of, and ability to use, 
+  figurative language.
+  
+  Pupils should be taught to control their speaking and writing consciously, understand why 
+  sentences are constructed as they are and to use Standard English. They should understand and use 
+  age-appropriate vocabulary, including linguistic and literary terminology, for discussing their 
+  reading, writing and spoken language. This involves consolidation, practice and discussion of 
+  language. It is important that pupils learn the correct grammatical terms in English and that 
+  these terms are integrated within teaching.
+  
+  Teachers should build on the knowledge and skills that pupils have been taught at key stage 3. 
+  Decisions about progression should be based on the security of pupils’ linguistic knowledge, 
+  skills and understanding and their readiness to progress to the next stage. Pupils whose 
+  linguistic development is more advanced should be challenged through being offered opportunities 
+  for increased breadth and depth in reading and writing. Those who are less fluent should 
+  consolidate their knowledge, understanding and skills, including through additional 
+  practice."""@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isSchemeOf natcurric:subject-english ;
+  curric:coversKeyStage natcurric:key-stage-4 .
+
+# ----------------------------------------------------------------------
+# Progressions
+# ----------------------------------------------------------------------
+
+natcurric:progression-english-year-group-1-word-reading
+  a curric:Progression ;
+  rdfs:label "English Year Group 1 Word Reading"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-english-key-stage-1 ;
+  curric:coversContent
+    natcurric:contentdescriptor-phonic-knowledge-to-decode-words ,
+    natcurric:contentdescriptor-correct-sound-to-graphemes ,
+    natcurric:contentdescriptor-blending-sounds-in-unfamiliar-words ,
+    natcurric:contentdescriptor-common-exception-words ,
+    natcurric:contentdescriptor-words-containing-gpcs ,
+    natcurric:contentdescriptor-words-containing-gpcs-more-syllables ,
+    natcurric:contentdescriptor-words-with-contractions ,
+    natcurric:contentdescriptor-read-books-aloud-accurately ,
+    natcurric:contentdescriptor-fluency-confidence-word-reading .
+
+natcurric:progression-english-year-group-1-comprehension
+  a curric:Progression ;
+  rdfs:label "English Year Group 1 Comprehension"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-english-key-stage-1 ;
+  curric:coversContent
+    natcurric:contentdescriptor-discussing-poems-stories-non-fiction ,
+    natcurric:contentdescriptor-linking-to-own-experiences ,
+    natcurric:contentdescriptor-key-fairy-stories-traditional-tales ,
+    natcurric:contentdescriptor-recognising-predictable-phrases ,
+    natcurric:contentdescriptor-appreciate-rhymes-and-poems ,
+    natcurric:contentdescriptor-discussing-word-meanings ,
+    natcurric:contentdescriptor-background-information-and-vocabulary-provided ,
+    natcurric:contentdescriptor-checking-the-text-makes-sense ,
+    natcurric:contentdescriptor-discussing-significance-of-title-events ,
+    natcurric:contentdescriptor-inferences-what-is-said-done ,
+    natcurric:contentdescriptor-predicting-what-might-happen ,
+    natcurric:contentdescriptor-discussion-about-what-is-read ,
+    natcurric:contentdescriptor-explain-understanding-what-is-read .
+
+natcurric:progression-english-year-group-1-transcription
+  a curric:Progression ;
+  rdfs:label "English Year Group 1 Transcription"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-english-key-stage-1 ;
+  curric:coversContent
+    natcurric:contentdescriptor-spell-words-40-phonemes ,
+    natcurric:contentdescriptor-spell-common-exception-words ,
+    natcurric:contentdescriptor-spell-days-of-the-week ,
+    natcurric:contentdescriptor-naming-letters-alphabet-in-order ,
+    natcurric:contentdescriptor-distinguished-alternative-spellings-same-sound ,
+    natcurric:contentdescriptor-spelling-rule-adding-s-es ,
+    natcurric:contentdescriptor-using-the-prefix-un ,
+    natcurric:contentdescriptor-using-ing-ed-er-est ,
+    natcurric:contentdescriptor-apply-simple-spelling-rules-guidance ,
+    natcurric:contentdescriptor-write-from-memory-simple-sentences .
+
+natcurric:progression-english-year-group-1-handwriting
+  a curric:Progression ;
+  rdfs:label "English Year Group 1 Handwriting"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-english-key-stage-1 ;
+  curric:coversContent
+    natcurric:contentdescriptor-sit-correctly-holding-pencil-correctly ,
+    natcurric:contentdescriptor-form-lowercase-letters-correct-direction ,
+    natcurric:contentdescriptor-form-capital-letters ,
+    natcurric:contentdescriptor-form-digits-0-9 ,
+    natcurric:contentdescriptor-letters-belong-to-handwriting-families .
+
+natcurric:progression-english-year-group-1-composition
+  a curric:Progression ;
+  rdfs:label "English Year Group 1 Composition"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-english-key-stage-1 ;
+  curric:coversContent
+    natcurric:contentdescriptor-out-loud-what-write-about ,
+    natcurric:contentdescriptor-composing-sentence-orally-before-writing ,
+    natcurric:contentdescriptor-sequencing-sentences-form-short-narratives ,
+    natcurric:contentdescriptor-rereading-written-check-makes-sense ,
+    natcurric:contentdescriptor-discuss-written-with-teacher-pupils ,
+    natcurric:contentdescriptor-read-writing-aloud .
+
+natcurric:progression-english-year-group-1-vocabulary-grammar-punctuation
+  a curric:Progression ;
+  rdfs:label "English Year Group 1 Vocabulary Grammar Punctuation"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-english-key-stage-1 ;
+  curric:coversContent
+    natcurric:contentdescriptor-leaving-spaces-between-words ,
+    natcurric:contentdescriptor-joining-words-clauses-using-and ,
+    natcurric:contentdescriptor-punctuate-capital-fullstop-question-exclamation ,
+    natcurric:contentdescriptor-capital-letter-for-names ,
+    natcurric:contentdescriptor-learning-grammar-year-1 ,
+    natcurric:contentdescriptor-use-grammatical-terminology-in-english .
+
+natcurric:progression-english-year-group-2-word-reading
+  a curric:Progression ;
+  rdfs:label "English Year Group 2 Word Reading"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-english-key-stage-1 ;
+  curric:coversContent
+    natcurric:contentdescriptor-phonic-knowledge-automatic-decoding-embedded ,
+    natcurric:contentdescriptor-blending-sounds-that-contain-graphemes ,
+    natcurric:contentdescriptor-two-more-syllables-contain-graphemes ,
+    natcurric:contentdescriptor-words-containing-common-suffixes ,
+    natcurric:contentdescriptor-further-common-exception-words ,
+    natcurric:contentdescriptor-quickly-accurately-without-sounding-blending ,
+    natcurric:contentdescriptor-sounding-out-unfamiliar-words-accurately ,
+    natcurric:contentdescriptor-build-fluency-confidence-word-reading .
+
+natcurric:progression-english-year-group-2-comprehension
+  a curric:Progression ;
+  rdfs:label "English Year Group 2 Comprehension"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-english-key-stage-1 ;
+  curric:coversContent
+    natcurric:contentdescriptor-pleasured-reading-motivation-to-read ,
+    natcurric:contentdescriptor-understand-books-read-listen ,
+    natcurric:contentdescriptor-discussion-books-poems-other-works ,
+    natcurric:contentdescriptor-discuss-understanding-books-poems-other .
+
+natcurric:progression-english-year-group-2-transcription
+  a curric:Progression ;
+  rdfs:label "English Year Group 2 Transcription"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-english-key-stage-1 ;
+  curric:coversContent
+    natcurric:contentdescriptor-segmenting-spoken-words-into-phonemes ,
+    natcurric:contentdescriptor-new-ways-of-spelling-phonemes ,
+    natcurric:contentdescriptor-spell-common-exception-words ,
+    natcurric:contentdescriptor-spell-more-words-contracted-forms ,
+    natcurric:contentdescriptor-learning-the-possessive-apostrophe ,
+    natcurric:contentdescriptor-distinguishing-homophones-and-near-homophones ,
+    natcurric:contentdescriptor-add-suffixes-spell-longer-words ,
+    natcurric:contentdescriptor-apply-spelling-rules-and-guidance ,
+    natcurric:contentdescriptor-apply-simple-spelling-rules-guidance ,
+    natcurric:contentdescriptor-write-from-memory-simple-sentences .
+
+natcurric:progression-english-year-group-2-handwriting
+  a curric:Progression ;
+  rdfs:label "English Year Group 2 Handwriting"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-english-key-stage-1 ;
+  curric:coversContent
+    natcurric:contentdescriptor-form-lowercase-letters-correct-size ,
+    natcurric:contentdescriptor-diagonal-horizontal-strokes-join-letters ,
+    natcurric:contentdescriptor-capital-letters-digits-correct-size ,
+    natcurric:contentdescriptor-spacing-reflects-size-of-letters .
+
+natcurric:progression-english-year-group-2-composition
+  a curric:Progression ;
+  rdfs:label "English Year Group 2 Composition"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-english-key-stage-1 ;
+  curric:coversContent
+    natcurric:contentdescriptor-positive-attitudes-stamina-for-writing ,
+    natcurric:contentdescriptor-consider-write-before-beginning ,
+    natcurric:contentdescriptor-simple-additions-revisions-corrections ,
+    natcurric:contentdescriptor-read-aloud-with-appropriate-intonation .
+
+natcurric:progression-english-year-group-2-vocabulary-grammar-punctuation
+  a curric:Progression ;
+  rdfs:label "English Year Group 2 Vocabulary Grammar Punctuation"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-english-key-stage-1 ;
+  curric:coversContent
+    natcurric:contentdescriptor-use-familiar-and-new-punctuation ,
+    natcurric:contentdescriptor-sentences-with-different-forms ,
+    natcurric:contentdescriptor-expanded-noun-phrases-describe-specify ,
+    natcurric:contentdescriptor-present-past-tenses-correctly-consistently ,
+    natcurric:contentdescriptor-subordination-and-coordination ,
+    natcurric:contentdescriptor-learning-grammar-year-2 ,
+    natcurric:contentdescriptor-features-of-written-standard-english ,
+    natcurric:contentdescriptor-use-understand-grammatical-terminology . 
+
+natcurric:progression-english-lower-key-stage-2-word-reading
+  a curric:Progression ;
+  rdfs:label "English Lower Key Stage 2 Word Reading"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-english-key-stage-2 ;
+  curric:coversContent
+    natcurric:contentdescriptor-knowledge-root-words-prefixes-suffixes ,
+    natcurric:contentdescriptor-further-exception-words-unusual-correspondence .
+
+natcurric:progression-english-lower-key-stage-2-comprehension
+  a curric:Progression ;
+  rdfs:label "English Lower Key Stage 2 Comprehension"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-english-key-stage-2 ;
+  curric:coversContent
+    natcurric:contentdescriptor-develop-positive-attitudes-and-understanding ,
+    natcurric:contentdescriptor-understand-books-read-independently ,
+    natcurric:contentdescriptor-retrieve-record-information-from-nonfiction ,
+    natcurric:contentdescriptor-discussion-about-books-read-listening .
+
+natcurric:progression-english-lower-key-stage-2-transcription
+  a curric:Progression ;
+  rdfs:label "English Lower Key Stage 2 Transcription"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-english-key-stage-2 ;
+  curric:coversContent
+    natcurric:contentdescriptor-further-prefixes-suffixes-understand-add ,
+    natcurric:contentdescriptor-spell-further-homophones ,
+    natcurric:contentdescriptor-spell-words-often-misspelt ,
+    natcurric:contentdescriptor-possessive-apostrophe-with-regular-plurals ,
+    natcurric:contentdescriptor-first-letters-check-spelling-dictionary ,
+    natcurric:contentdescriptor-write-from-memory-simple-sentences .
+
+natcurric:progression-english-lower-key-stage-2-handwriting
+  a curric:Progression ;
+  rdfs:label "English Lower Key Stage 2 Handwriting"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-english-key-stage-2 ;
+  curric:coversContent
+    natcurric:contentdescriptor-diagonal-horizontal-strokes-and-unjoined ,
+    natcurric:contentdescriptor-increase-legibility-consistency-quality .
+
+natcurric:progression-english-lower-key-stage-2-composition
+  a curric:Progression ;
+  rdfs:label "English Lower Key Stage 2 Composition"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-english-key-stage-2 ;
+  curric:coversContent
+    natcurric:contentdescriptor-plan-writing ,
+    natcurric:contentdescriptor-draft-and-write ,
+    natcurric:contentdescriptor-evaluate-and-edit ,
+    natcurric:contentdescriptor-proofread-spelling-punctuation-errors ,
+    natcurric:contentdescriptor-read-own-writing-aloud-group .
+
+natcurric:progression-english-lower-key-stage-2-vocabulary-grammar-punctuation
+  a curric:Progression ;
+  rdfs:label "English Lower Key Stage 2 Vocabulary Grammar Punctuation"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-english-key-stage-2 ;
+  curric:coversContent
+    natcurric:contentdescriptor-using-wider-range-of-conjunctions ,
+    natcurric:contentdescriptor-present-perfect-form-of-verbs ,
+    natcurric:contentdescriptor-choosing-nouns-or-pronouns-appropriately ,
+    natcurric:contentdescriptor-using-conjunctions-adverbs-prepositions ,
+    natcurric:contentdescriptor-using-fronted-adverbials ,
+    natcurric:contentdescriptor-learning-grammar-years-3-4 ,
+    natcurric:contentdescriptor-using-commas-after-fronted-adverbials ,
+    natcurric:contentdescriptor-possessive-apostrophe-with-plural-nouns , 
+    natcurric:contentdescriptor-using-and-punctuating-direct-speech , 
+    natcurric:contentdescriptor-use-understand-grammatical-terminology .
+
+natcurric:progression-english-upper-key-stage-2-word-reading
+  a curric:Progression ;
+  rdfs:label "English Upper Key Stage 2 Word Reading"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-english-key-stage-2 ;
+  curric:coversContent
+    natcurric:contentdescriptor-further-root-words-prefixes-suffixes .
+
+natcurric:progression-english-upper-key-stage-2-comprehension
+  a curric:Progression ;
+  rdfs:label "English Upper Key Stage 2 Comprehension"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-english-key-stage-2 ;
+  curric:coversContent
+    natcurric:contentdescriptor-maintain-positive-attitudes-and-understanding ,
+    natcurric:contentdescriptor-checking-asking-inferring-predicting-summarising ,
+    natcurric:contentdescriptor-evaluate-how-authors-use-language ,
+    natcurric:contentdescriptor-distinguish-statements-fact-and-opinion ,
+    natcurric:contentdescriptor-retrieve-record-present-information-nonfiction ,
+    natcurric:contentdescriptor-discussion-about-books-read-challenging ,
+    natcurric:contentdescriptor-explain-understanding-about-books-read ,
+    natcurric:contentdescriptor-provide-reasoned-justifications-for-views .
+
+natcurric:progression-english-upper-key-stage-2-transcription
+  a curric:Progression ;
+  rdfs:label "English Upper Key Stage 2 Transcription"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-english-key-stage-2 ;
+  curric:coversContent
+    natcurric:contentdescriptor-further-prefixes-suffixes-understand-guidance ,
+    natcurric:contentdescriptor-spell-words-with-silent-letters ,
+    natcurric:contentdescriptor-distinguish-homophones-other-words-confused ,
+    natcurric:contentdescriptor-knowledge-morphology-etymology-in-spelling ,
+    natcurric:contentdescriptor-use-dictionaries-check-spelling-meaning ,
+    natcurric:contentdescriptor-check-spelling-meaning-in-dictionary ,
+    natcurric:contentdescriptor-use-a-thesaurus .
+
+natcurric:progression-english-upper-key-stage-2-handwriting
+  a curric:Progression ;
+  rdfs:label "English Upper Key Stage 2 Handwriting"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-english-key-stage-2 ;
+  curric:coversContent
+    natcurric:contentdescriptor-choosing-shape-of-letter ,
+    natcurric:contentdescriptor-choosing-writing-implement .
+
+natcurric:progression-english-upper-key-stage-2-composition
+  a curric:Progression ;
+  rdfs:label "English Upper Key Stage 2 Composition"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-english-key-stage-2 ;
+  curric:coversContent
+    natcurric:contentdescriptor-plan-writing ,
+    natcurric:contentdescriptor-draft-and-write ,
+    natcurric:contentdescriptor-evaluate-and-edit ,
+    natcurric:contentdescriptor-proofread-spelling-punctuation-errors ,
+    natcurric:contentdescriptor-perform-own-compositions .
+
+natcurric:progression-english-upper-key-stage-2-vocabulary-grammar-punctuation
+  a curric:Progression ;
+  rdfs:label "English Upper Key Stage 2 Vocabulary Grammar Punctuation"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-english-key-stage-2 ;
+  curric:coversContent
+    natcurric:contentdescriptor-vocabulary-structures-formal-speech-writing ,
+    natcurric:contentdescriptor-passive-verbs-affect-presentation-information  ,
+    natcurric:contentdescriptor-perfect-form-relationships-time-cause ,
+    natcurric:contentdescriptor-expanded-noun-phrases-complicated-information ,
+    natcurric:contentdescriptor-modal-verbs-adverbs-degrees-possibility ,
+    natcurric:contentdescriptor-who-which-where-when-whose ,
+    natcurric:contentdescriptor-learning-grammar-years-5-6 ,
+    natcurric:contentdescriptor-using-commas-meaning-avoid-ambiguity ,
+    natcurric:contentdescriptor-using-hyphens-to-avoid-ambiguity , 
+    natcurric:contentdescriptor-brackets-dashes-commas-indicate-parenthesis , 
+    natcurric:contentdescriptor-semicolons-colons-dashes-mark-boundaries ,
+    natcurric:contentdescriptor-using-colon-to-introduce-list ,
+    natcurric:contentdescriptor-punctuating-bullet-points-consistently ,
+    natcurric:contentdescriptor-use-understand-grammatical-terminology .
+
+natcurric:progression-english-key-stage-3-appreciation-and-love-of-reading
+  a curric:Progression ;
+  rdfs:label "English Key Stage 3 Appreciation and Love of Reading"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-english-key-stage-3 ;
+  curric:coversContent
+    natcurric:contentdescriptor-reading-wide-range-fiction-nonfiction ,
+    natcurric:contentdescriptor-choosing-and-reading-books-independently ,
+    natcurric:contentdescriptor-rereading-books-to-increase-familiarity .
+
+natcurric:progression-english-key-stage-3-increasingly-challenging-texts
+  a curric:Progression ;
+  rdfs:label "English Key Stage 3 Increasingly Challenging Texts"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-english-key-stage-3 ;
+  curric:coversContent
+    natcurric:contentdescriptor-new-vocabulary-with-context-dictionaries ,
+    natcurric:contentdescriptor-inferences-and-referring-to-evidence ,
+    natcurric:contentdescriptor-purpose-audience-context-of-writing ,
+    natcurric:contentdescriptor-checking-understanding .
+
+natcurric:progression-english-key-stage-3-read-critically
+  a curric:Progression ;
+  rdfs:label "English Key Stage 3 Read Critically"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-english-key-stage-3 ;
+  curric:coversContent
+    natcurric:contentdescriptor-how-language-presents-meaning ,
+    natcurric:contentdescriptor-poetic-conventions ,
+    natcurric:contentdescriptor-setting-plot-characterisation ,
+    natcurric:contentdescriptor-dramatists-performance-alternative-staging ,
+    natcurric:contentdescriptor-critical-comparisons-across-texts ,
+    natcurric:contentdescriptor-studying-range-of-authors .
+
+natcurric:progression-english-key-stage-3-write-accurately-fluently-effectively
+  a curric:Progression ;
+  rdfs:label "English Key Stage 3 Write Accurately Fluently Effectively"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-english-key-stage-3 ;
+  curric:coversContent
+    natcurric:contentdescriptor-writing-for-range-purposes-audiences ,
+    natcurric:contentdescriptor-summarising-and-organising-material ,
+    natcurric:contentdescriptor-applying-vocabulary-grammar-text-structure ,
+    natcurric:contentdescriptor-literary-and-rhetorical-devices .
+
+natcurric:progression-english-key-stage-3-plan-draft-edit-and-proofread
+  a curric:Progression ;
+  rdfs:label "English Key Stage 3 Plan Draft Edit and Proofread"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-english-key-stage-3 ;
+  curric:coversContent
+    natcurric:contentdescriptor-how-writing-reflects-audiences-purposes ,
+    natcurric:contentdescriptor-amending-vocabulary-grammar-structure ,
+    natcurric:contentdescriptor-accurate-grammar-punctuation-and-spelling .
+
+natcurric:progression-english-key-stage-3-consolidate-knowledge-grammar-vocabulary
+  a curric:Progression ;
+  rdfs:label "English Key Stage 3 Consolidate Knowledge Grammar Vocabulary"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-english-key-stage-3 ;
+  curric:coversContent
+    natcurric:contentdescriptor-extending-applying-grammatical-knowledge ,
+    natcurric:contentdescriptor-effectiveness-impact-of-grammatical-features ,
+    natcurric:contentdescriptor-using-new-vocabulary-grammatical-constructions ,
+    natcurric:contentdescriptor-understanding-differences-spoken-written-language ,
+    natcurric:contentdescriptor-standard-english-own-writing-speech ,
+    natcurric:contentdescriptor-precise-confident-linguistic-literary-terminology .
+
+natcurric:progression-english-key-stage-3-speak-confidently-effectively
+  a curric:Progression ;
+  rdfs:label "English Key Stage 3 Speak Confidently Effectively"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-english-key-stage-3 ;
+  curric:coversContent
+    natcurric:contentdescriptor-standard-english-formal-informal-contexts ,
+    natcurric:contentdescriptor-giving-short-speeches-and-presentations ,
+    natcurric:contentdescriptor-participating-formal-debates-structured-discussions ,
+    natcurric:contentdescriptor-speak-confidently-effectively-performing-play-scripts-and-poetry .
+
+natcurric:progression-english-key-stage-4-english-literary-heritage
+  a curric:Progression ;
+  rdfs:label "English Key Stage 4 English Literary Heritage"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-english-key-stage-4 ;
+  curric:coversContent
+    natcurric:contentdescriptor-classic-literature-extended-literary-nonfiction ,
+    natcurric:contentdescriptor-rereading-literature-for-making-comparisons ,
+    natcurric:contentdescriptor-reading-for-challenge-interest-enjoyment .
+
+natcurric:progression-english-key-stage-4-critically-evaluate-texts
+  a curric:Progression ;
+  rdfs:label "English Key Stage 4 Critically Evaluate Texts"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-english-key-stage-4 ;
+  curric:coversContent
+    natcurric:contentdescriptor-reading-in-different-ways ,
+    natcurric:contentdescriptor-knowledge-of-purpose-audience-context ,
+    natcurric:contentdescriptor-identifying-interpreting-themes-ideas-information ,
+    natcurric:contentdescriptor-exploring-plot-characterisation-events-settings ,
+    natcurric:contentdescriptor-evidence-to-support-point-view ,
+    natcurric:contentdescriptor-statements-supported-by-evidence ,
+    natcurric:contentdescriptor-vocabulary-form-grammatical-structural-features ,
+    natcurric:contentdescriptor-contexts-themes-characterisation-style-quality .
+
+natcurric:progression-english-key-stage-4-write-accurately-fluently-effectively
+  a curric:Progression ;
+  rdfs:label "English Key Stage 4 Write Accurately Fluently Effectively"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-english-key-stage-4 ;
+  curric:coversContent
+    natcurric:contentdescriptor-adapting-writing-range-purposes-audiences ,
+    natcurric:contentdescriptor-selecting-organising-for-support-emphasis ,
+    natcurric:contentdescriptor-vocabulary-grammar-form-structural-organisational .
+
+natcurric:progression-english-key-stage-4-revise-edit-and-proof-read
+  a curric:Progression ;
+  rdfs:label "English Key Stage 4 Revise Edit and Proof-Read"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-english-key-stage-4 ;
+  curric:coversContent
+    natcurric:contentdescriptor-whether-draft-achieves-intended-impact ,
+    natcurric:contentdescriptor-improve-coherence-consistency-clarity-effectiveness ,
+    natcurric:contentdescriptor-accuracy-effectiveness-grammar-punctuation-spelling .
+
+natcurric:progression-english-key-stage-4-consolidate-knowledge-grammar-vocabulary
+  a curric:Progression ;
+  rdfs:label "English Key Stage 4 Consolidate Knowledge Grammar Vocabulary"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-english-key-stage-4 ;
+  curric:coversContent
+    natcurric:contentdescriptor-effectiveness-and-impact-in-texts ,
+    natcurric:contentdescriptor-using-new-vocabulary-grammatical-constructions ,
+    natcurric:contentdescriptor-analysing-differences-spoken-written-language ,
+    natcurric:contentdescriptor-using-linguistic-literary-terminology-accurately .
+
+natcurric:progression-english-key-stage-4-speak-confidently-audibly-effectively
+  a curric:Progression ;
+  rdfs:label "English Key Stage 4 Speak Confidently Audibly Effectively"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-english-key-stage-4 ;
+  curric:coversContent
+    natcurric:contentdescriptor-standard-english-context-and-audience ,
+    natcurric:contentdescriptor-working-effectively-groups-different-sizes ,
+    natcurric:contentdescriptor-listening-building-on-contributions-others ,
+    natcurric:contentdescriptor-planning-for-different-purposes-audiences ,
+    natcurric:contentdescriptor-listening-responding-variety-different-contexts ,
+    natcurric:contentdescriptor-speak-confidently-audibly-effectively-performing-play-scripts-and-poetry .

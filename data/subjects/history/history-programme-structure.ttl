@@ -1,0 +1,301 @@
+@prefix curric: <https://w3id.org/oak/curriculum/ontology/> .
+@prefix natcurric: <https://w3id.org/oak/curriculum/nationalcurriculum/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ======================================================================
+# National Curriculum for England - History Programme Structure
+# ======================================================================
+
+# ----------------------------------------------------------------------
+# Ontology Declaration
+# ----------------------------------------------------------------------
+
+<https://w3id.org/oak/curriculum/nationalcurriculum/history-programme-structure>
+  rdf:type owl:Ontology ;
+
+  rdfs:label "National Curriculum for England - History Programme Structure"@en ;
+  dc:title "National Curriculum for England - History Programme Structure"@en ;
+  rdfs:comment """History programme structure that specifies schemes and progressions, and a 
+  mapping to strands and content descriptors within the knowledge taxonomy."""@en ;
+
+  owl:versionInfo "0.1.0" ;
+  owl:versionIRI <https://w3id.org/oak/curriculum/nationalcurriculum/history-programme-structure/0.1.0> ;
+  
+  dcterms:description """History programme structure that specifies schemes and progressions, and a 
+  mapping to strands and content descriptors within the knowledge taxonomy"""@en ;
+  dcterms:created "2025-11-24T12:33:32Z"^^xsd:dateTime ;
+  dcterms:modified "2025-12-03T12:33:32Z"^^xsd:dateTime ;
+  dcterms:issued "2025-12-03T12:33:32Z"^^xsd:dateTime ;
+  
+  # OGL 3.0 License
+  dcterms:license <http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/> ;
+  dcterms:rights "Crown Copyright"@en ;
+
+  vann:preferredNamespacePrefix "natcurric" ;
+  vann:preferredNamespaceUri "https://w3id.org/oak/curriculum/nationalcurriculum/" ;
+
+  owl:imports <https://w3id.org/oak/curriculum/ontology> ;
+  owl:imports <https://w3id.org/oak/curriculum/nationalcurriculum/temporal-structure> ;
+  owl:imports <https://w3id.org/oak/curriculum/nationalcurriculum/history-knowledge-taxonomy> .
+
+# ----------------------------------------------------------------------
+# Subject Group
+# ----------------------------------------------------------------------
+
+natcurric:subjectgroup-history
+  a curric:SubjectGroup ;
+  rdfs:label "History"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:coversDiscipline natcurric:discipline-history .
+  
+# ----------------------------------------------------------------------
+# Subject
+# ----------------------------------------------------------------------
+
+natcurric:subject-history
+  a curric:Subject ;
+  rdfs:label "History"@en ;
+  curric:aims (
+    "Know and understand the history of these islands as a coherent, chronological narrative, from the earliest times to the present day: how people’s lives have shaped this nation and how Britain has influenced and been influenced by the wider world."@en
+    "Know and understand significant aspects of the history of the wider world: the nature of ancient civilisations; the expansion and dissolution of empires; characteristic features of past non-European societies; achievements and follies of mankind."@en
+    "Gain and deploy a historically grounded understanding of abstract terms such as ‘empire’, ‘civilisation’, ‘parliament’ and ‘peasantry’."@en
+    "Understand historical concepts such as continuity and change, cause and consequence, similarity, difference and significance, and use them to make connections, draw contrasts, analyse trends, frame historically valid questions and create their own structured accounts, including written narratives and analyses."@en
+    "Understand the methods of historical enquiry, including how evidence is used rigorously to make historical claims, and discern how and why contrasting arguments and interpretations of the past have been constructed."@en
+    "Gain historical perspective by placing their growing knowledge into different contexts: understanding the connections between local, regional, national and international history; between cultural, economic, military, political, religious and social history; and between short- and long-term timescales."@en
+  ) ;
+  curric:rationale "Text for rationale..."@en ;
+  curric:structure "Text for structure..."@en ;
+  curric:schoolCurriculum "Text for school curriculum..."@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isSubjectOf natcurric:subjectgroup-history ;
+  curric:coversStrand natcurric:strand-knowledge-of-past ,
+                   natcurric:strand-knowledge-of-history .
+  
+# ----------------------------------------------------------------------
+# Schemes
+# ----------------------------------------------------------------------
+
+natcurric:scheme-history-key-stage-1
+  a curric:Scheme ;
+  rdfs:label "History Key Stage 1"@en ;
+  dcterms:description """Pupils should develop an awareness of the past, using common words and 
+  phrases relating to the passing of time. They should know where the people and events they study 
+  fit within a chronological framework and identify similarities and differences between ways of 
+  life in different periods. They should use a wide vocabulary of everyday historical terms. They 
+  should ask and answer questions, choosing and using parts of stories and other sources to show 
+  that they know and understand key features of events. They should understand some of the ways in 
+  which we find out about the past and identify different ways in which it is represented.
+  
+  In planning to ensure the progression described above through teaching about the people, events 
+  and changes outlined below, teachers are often introducing pupils to historical periods that they 
+  will study more fully at key stages 2 and 3."""@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isSchemeOf natcurric:subject-history ;
+  curric:coversKeyStage natcurric:key-stage-1 .
+
+natcurric:scheme-history-key-stage-2
+  a curric:Scheme ;
+  rdfs:label "History Key Stage 2"@en ;
+  dcterms:description """Pupils should continue to develop a chronologically secure knowledge and 
+  understanding of British, local and world history, establishing clear narratives within and 
+  across the periods they study. They should note connections, contrasts and trends over time and 
+  develop the appropriate use of historical terms. They should regularly address and sometimes 
+  devise historically valid questions about change, cause, similarity and difference, and 
+  significance. They should construct informed responses that involve thoughtful selection and 
+  organisation of relevant historical information. They should understand how our knowledge of the 
+  past is constructed from a range of sources.
+  
+  In planning to ensure the progression described above through teaching the British, local and 
+  world history outlined below, teachers should combine overview and depth studies to help pupils 
+  understand both the long arc of development and the complexity of specific aspects of the 
+  content."""@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isSchemeOf natcurric:subject-history ;
+  curric:coversKeyStage natcurric:key-stage-2 .
+
+natcurric:scheme-history-key-stage-3
+  a curric:Scheme ;
+  rdfs:label "History Key Stage 3"@en ;
+  dcterms:description """Pupils should extend and deepen their chronologically secure knowledge and 
+  understanding of British, local and world history, so that it provides a well-informed context 
+  for wider learning. Pupils should identify significant events, make connections, draw contrasts, 
+  and analyse trends within periods and over long arcs of time. They should use historical terms 
+  and concepts in increasingly sophisticated ways. They should pursue historically valid enquiries 
+  including some they have framed themselves, and create relevant, structured and evidentially 
+  supported accounts in response. They should understand how different types of historical sources 
+  are used rigorously to make historical claims and discern how and why contrasting arguments and 
+  interpretations of the past have been constructed.
+  
+  In planning to ensure the progression described above through teaching the British, local 
+  and world history outlined below, teachers should combine overview and depth studies to help 
+  pupils understand both the long arc of development and the complexity of specific aspects of the 
+  content."""@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isSchemeOf natcurric:subject-history ;
+  curric:coversKeyStage natcurric:key-stage-3 .
+
+natcurric:scheme-history-key-stage-4
+  a curric:Scheme ;
+  rdfs:label "History Key Stage 4"@en ;
+  dcterms:modified "2026-01-05T12:50:00Z"^^xsd:dateTime ;
+  curric:isSchemeOf natcurric:subject-history ;
+  curric:coversKeyStage natcurric:key-stage-4 .
+
+# ----------------------------------------------------------------------
+# Progressions
+# ----------------------------------------------------------------------
+
+natcurric:progression-history-key-stage-1-second-order-concepts
+  a curric:Progression ;
+  rdfs:label "History Key Stage 1 Second Order Concepts"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-history-key-stage-1 ;
+  curric:coversContent
+    natcurric:contentdescriptor-narratives-analyses-accounts ,
+    natcurric:contentdescriptor-narratives-analyses-accounts-consequence ,
+    natcurric:contentdescriptor-narratives-analyses-accounts-change-and-continuity ,
+    natcurric:contentdescriptor-narratives-analyses-accounts-similarity-and-difference ,
+    natcurric:contentdescriptor-narratives-analyses-accounts-historical-significance ,
+    natcurric:contentdescriptor-narratives-analyses-accounts-sources-and-evidence ,
+    natcurric:contentdescriptor-narratives-analyses-accounts-historical-interpretations .
+
+natcurric:progression-history-key-stage-1-nature-of-historical-enquiry
+  a curric:Progression ;
+  rdfs:label "History Key Stage 1 Nature of Historical Enquiry"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-history-key-stage-1 ;
+  curric:coversContent
+    natcurric:contentdescriptor-historians-investigate-the-past ,
+    natcurric:contentdescriptor-historians-construct-arguments .
+
+natcurric:progression-history-key-stage-1-substantive-concepts
+  a curric:Progression ;
+  rdfs:label "History Key Stage 1 Substantive Concepts"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-history-key-stage-1 ;
+  curric:coversContent
+    natcurric:contentdescriptor-abstract-terms-historically-grounded .
+
+natcurric:progression-history-key-stage-1-history-of-diverse-britain
+  a curric:Progression ;
+  rdfs:label "History Key Stage 1 History of Diverse Britain"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-history-key-stage-1 ;
+  curric:coversContent
+    natcurric:contentdescriptor-changes-within-living-memory ,
+    natcurric:contentdescriptor-events-beyond-living-memory ,
+    natcurric:contentdescriptor-lives-of-significant-individuals ,
+    natcurric:contentdescriptor-significant-historical-events-own-locality .
+
+natcurric:progression-history-key-stage-2-second-order-concepts
+  a curric:Progression ;
+  rdfs:label "History Key Stage 2 Second Order Concepts"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-history-key-stage-2 ;
+  curric:coversContent
+    natcurric:contentdescriptor-narratives-analyses-accounts ,
+    natcurric:contentdescriptor-narratives-analyses-accounts-consequence ,
+    natcurric:contentdescriptor-narratives-analyses-accounts-change-and-continuity ,
+    natcurric:contentdescriptor-narratives-analyses-accounts-similarity-and-difference ,
+    natcurric:contentdescriptor-narratives-analyses-accounts-historical-significance ,
+    natcurric:contentdescriptor-narratives-analyses-accounts-sources-and-evidence ,
+    natcurric:contentdescriptor-narratives-analyses-accounts-historical-interpretations .
+
+natcurric:progression-history-key-stage-2-nature-of-historical-enquiry
+  a curric:Progression ;
+  rdfs:label "History Key Stage 2 Nature of Historical Enquiry"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-history-key-stage-2 ;
+  curric:coversContent
+    natcurric:contentdescriptor-historians-investigate-the-past ,
+    natcurric:contentdescriptor-historians-construct-arguments .
+
+natcurric:progression-history-key-stage-2-substantive-concepts
+  a curric:Progression ;
+  rdfs:label "History Key Stage 2 Substantive Concepts"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-history-key-stage-2 ;
+  curric:coversContent
+    natcurric:contentdescriptor-abstract-terms-historically-grounded .
+
+natcurric:progression-history-key-stage-2-history-of-diverse-britain
+  a curric:Progression ;
+  rdfs:label "History Key Stage 2 History of Diverse Britain"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-history-key-stage-2 ;
+  curric:coversContent
+    natcurric:contentdescriptor-changes-in-britain-stone-age-to-iron-age ,
+    natcurric:contentdescriptor-roman-empire-impact-on-britain ,
+    natcurric:contentdescriptor-settlement-by-anglo-saxons-and-scots ,
+    natcurric:contentdescriptor-viking-and-anglo-saxon-struggle ,
+    natcurric:contentdescriptor-local-history-study ,
+    natcurric:contentdescriptor-aspect-british-history-beyond-1066 .
+
+natcurric:progression-history-key-stage-2-significant-aspects-of-world-history
+  a curric:Progression ;
+  rdfs:label "History Key Stage 2 Significant Aspects of World History"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-history-key-stage-2 ;
+  curric:coversContent
+    natcurric:contentdescriptor-earliest-civilizations ,
+    natcurric:contentdescriptor-ancient-greece ,
+    natcurric:contentdescriptor-non-european-society .
+
+natcurric:progression-history-key-stage-3-second-order-concepts
+  a curric:Progression ;
+  rdfs:label "History Key Stage 3 Second Order Concepts"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-history-key-stage-3 ;
+  curric:coversContent
+    natcurric:contentdescriptor-narratives-analyses-accounts ,
+    natcurric:contentdescriptor-narratives-analyses-accounts-consequence ,
+    natcurric:contentdescriptor-narratives-analyses-accounts-change-and-continuity ,
+    natcurric:contentdescriptor-narratives-analyses-accounts-similarity-and-difference ,
+    natcurric:contentdescriptor-narratives-analyses-accounts-historical-significance ,
+    natcurric:contentdescriptor-narratives-analyses-accounts-sources-and-evidence ,
+    natcurric:contentdescriptor-narratives-analyses-accounts-historical-interpretations .
+
+natcurric:progression-history-key-stage-3-nature-of-historical-enquiry
+  a curric:Progression ;
+  rdfs:label "History Key Stage 3 Nature of Historical Enquiry"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-history-key-stage-3 ;
+  curric:coversContent
+    natcurric:contentdescriptor-historians-investigate-the-past ,
+    natcurric:contentdescriptor-historians-construct-arguments .
+
+natcurric:progression-history-key-stage-3-substantive-concepts
+  a curric:Progression ;
+  rdfs:label "History Key Stage 3 Substantive Concepts"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-history-key-stage-3 ;
+  curric:coversContent
+    natcurric:contentdescriptor-abstract-terms-historically-grounded .
+
+natcurric:progression-history-key-stage-3-history-of-diverse-britain
+  a curric:Progression ;
+  rdfs:label "History Key Stage 3 History of Diverse Britain"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-history-key-stage-3 ;
+  curric:coversContent
+    natcurric:contentdescriptor-local-history-study ,
+    natcurric:contentdescriptor-church-state-society-1066-1509 ,
+    natcurric:contentdescriptor-church-state-society-1509-1745 ,
+    natcurric:contentdescriptor-ideas-power-industry-empire-1745-1901 ,
+    natcurric:contentdescriptor-challenges-britain-europe-world-1901-present ,
+    natcurric:contentdescriptor-aspect-british-history-before-1066 .
+
+natcurric:progression-history-key-stage-3-significant-aspects-of-world-history
+  a curric:Progression ;
+  rdfs:label "History Key Stage 3 Significant Aspects of World History"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-history-key-stage-3 ;
+  curric:coversContent
+    natcurric:contentdescriptor-significant-society-or-issue .

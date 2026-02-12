@@ -1,0 +1,123 @@
+@prefix curric: <https://w3id.org/uk/curriculum/core/> .
+@prefix eng: <https://w3id.org/uk/curriculum/england/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ======================================================================
+# National Curriculum for England - Mathematics Knowledge Taxonomy 
+# ======================================================================
+
+# ----------------------------------------------------------------------
+# Ontology Declaration
+# ----------------------------------------------------------------------
+
+<https://w3id.org/uk/curriculum/england/mathematics-knowledge-taxonomy>
+  rdf:type owl:Ontology ;
+
+  rdfs:label "National Curriculum for England - Mathematics Knowledge Taxonomy"@en ;
+  dc:title "National Curriculum for England - Mathematics Knowledge Taxonomy"@en ;
+  rdfs:comment """Mathematics knowledge taxonomy defining the hierarchical organization of historical 
+  content from strands through to sub-content descriptors."""@en ;
+
+  owl:versionInfo "0.1.0" ;
+  owl:versionIRI <https://w3id.org/uk/curriculum/england/mathematics-knowledge-taxonomy/0.1.0> ;
+  owl:priorVersion <https://w3id.org/uk/curriculum/england/mathematics-knowledge-taxonomy/0.0.9> ;
+  
+  dcterms:description """This file defines the Mathematics knowledge taxonomy for the National 
+  Curriculum in England, organizing content through strands, sub-strands, content descriptors, 
+  and sub-content descriptors."""@en ;
+  dc:creator "Department for Education" ;
+  dcterms:created "2025-11-24T12:33:32Z"^^xsd:dateTime ;
+  dcterms:modified "2025-12-03T12:33:32Z"^^xsd:dateTime ;
+  dcterms:issued "2025-12-03T12:33:32Z"^^xsd:dateTime ;
+  
+  dcterms:license <http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/> ;
+  dcterms:rights "Crown Copyright"@en ;
+
+  rdfs:seeAlso <https://www.gov.uk/government/collections/national-curriculum> ;
+  vann:preferredNamespacePrefix "eng" ;
+  vann:preferredNamespaceUri "https://w3id.org/uk/curriculum/england/" ;
+
+  owl:imports <https://w3id.org/uk/curriculum/core/> ;
+  owl:imports <https://w3id.org/uk/curriculum/england/mathematics-programme-structure> .
+
+# ----------------------------------------------------------------------
+# Knowledge Taxonomy
+# ----------------------------------------------------------------------
+
+eng:knowledge-taxonomy
+  a skos:ConceptScheme ;
+  skos:prefLabel "National Curriculum for England Knowledge Structure"@en ;
+  skos:hasTopConcept eng:discipline-mathematics ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+  
+# ----------------------------------------------------------------------
+# Disciplines
+# ----------------------------------------------------------------------
+
+eng:discipline-mathematics
+  a skos:Concept, curric:Discipline ;
+  skos:prefLabel "Mathematics"@en ;
+  skos:topConceptOf eng:knowledge-taxonomy ;
+  skos:narrower eng:strand-XXXXX ,
+                eng:strand-XXXXX ;
+  skos:inScheme eng:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+# ----------------------------------------------------------------------
+# Strands
+# ----------------------------------------------------------------------
+
+eng:XXXXX
+  a skos:Concept, curric:Strand ;
+  skos:prefLabel "XXXXX"@en ;
+  skos:definition "Description of strand..." ;
+  curric:displayOrder "1"^^xsd:positiveInteger ;
+  skos:broader eng:discipline-mathematics ;
+  skos:narrower eng:substrand-XXXXX ,
+                eng:substrand-XXXXX ,
+                eng:substrand-XXXXX ;
+  skos:inScheme eng:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+
+# ----------------------------------------------------------------------
+# Sub-Strands
+# ----------------------------------------------------------------------
+
+eng:substrand-XXXXX
+  a skos:Concept, curric:SubStrand ;
+  skos:prefLabel "XXXXX"@en ;
+  skos:definition "Description of sub-strand..." ;
+  curric:displayOrder "1"^^xsd:positiveInteger ;
+  skos:broader eng:strand-XXXXX ;
+  skos:narrower eng:contentdescriptor-XXXXX ,
+                eng:contentdescriptor-XXXXX ,
+                eng:contentdescriptor-XXXXX ;
+  skos:inScheme eng:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+
+# ----------------------------------------------------------------------
+# Content Descriptors
+# ----------------------------------------------------------------------
+
+eng:contentdescriptor-XXXXX
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "XXXXX"@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "1"^^xsd:positiveInteger ;
+  skos:broader eng:substrand-XXXXX ;
+  skos:inScheme eng:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+
+# ----------------------------------------------------------------------
+# Sub-Content Descriptors
+# ----------------------------------------------------------------------

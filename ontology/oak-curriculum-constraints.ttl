@@ -1,0 +1,1417 @@
+@prefix curric: <https://w3id.org/oak/curriculum/ontology/> .
+@prefix shapes: <https://w3id.org/oak/curriculum/ontology/shapes/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ======================================================================
+# Oak Curriculum Ontology - SHACL Constraints
+# ======================================================================
+
+# ----------------------------------------------------------------------
+# Ontology Declaration
+# ----------------------------------------------------------------------
+
+<https://w3id.org/oak/curriculum/ontology/shapes>
+  rdf:type owl:Ontology ;
+
+  rdfs:label "Oak Curriculum Ontology - SHACL Constraints"@en ;
+  dc:title "Oak Curriculum Ontology - SHACL Constraints"@en ;
+  rdfs:comment "SHACL validation constraints for the Oak Curriculum Ontology."@en ;
+
+  owl:versionInfo "0.1.0" ;
+  owl:versionIRI <https://w3id.org/oak/curriculum/ontology/shapes/0.1.0> ;
+
+  dcterms:description """These SHACL constraints represent current rules and policies that may 
+  evolve over time, separate from the core ontology definitions."""@en ;
+  dc:creator "Oak National Academy" ;
+  dcterms:created "2025-12-01T12:33:32Z"^^xsd:dateTime ;
+  dcterms:modified "2025-12-01T12:33:32Z"^^xsd:dateTime ;
+  dcterms:issued "2025-12-01T12:33:32Z"^^xsd:dateTime ;
+
+  # CC0 License
+  dcterms:license <https://creativecommons.org/publicdomain/zero/1.0/> ;
+  dcterms:rights """To the extent possible under law, Oak National Academy has 
+  waived all copyright and related or neighboring rights to this work."""@en ;
+  
+  vann:preferredNamespacePrefix "shapes" ;
+  vann:preferredNamespaceUri "https://w3id.org/oak/curriculum/ontology/shapes/" .
+  
+# ----------------------------------------------------------------------
+# Shape: Phase
+# ----------------------------------------------------------------------
+
+shapes:PhaseShape
+  a sh:NodeShape ;
+  sh:targetClass curric:Phase ;
+
+  sh:property [
+    sh:path rdfs:label ;
+    sh:datatype rdf:langString ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:name "label" ;
+    sh:description "Every phase must have exactly one rdfs:label." ;
+    sh:message "Phases must have exactly one rdfs:label." ;
+  ] ;
+
+  sh:property [
+    sh:path curric:lowerAgeBoundary ;
+    sh:datatype xsd:nonNegativeInteger ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:name "lower age boundary" ;
+    sh:description "A phase must have exactly one lower age boundary." ;
+    sh:message "Every phase must specify exactly one lower age boundary." ;
+  ] ;
+
+  sh:property [
+    sh:path curric:upperAgeBoundary ;
+    sh:datatype xsd:positiveInteger ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:name "upper age boundary" ;
+    sh:description "A phase must have exactly one upper age boundary." ;
+    sh:message "Every phase must specify exactly one upper age boundary." ;
+  ] ;
+
+  sh:sparql [
+    sh:message "Lower age boundary must be less than upper age boundary" ;
+    sh:select """
+      PREFIX curric: <https://w3id.org/oak/curriculum/ontology/>
+      SELECT $this WHERE {
+        $this curric:lowerAgeBoundary ?lower ;
+              curric:upperAgeBoundary ?upper .
+        FILTER (?lower >= ?upper)
+      }
+    """ ;
+  ] ;
+
+  sh:sparql [
+    sh:message "Age boundaries must be in reasonable range (0-25 years)" ;
+    sh:select """
+      PREFIX curric: <https://w3id.org/oak/curriculum/ontology/>
+      SELECT $this WHERE {
+        $this curric:lowerAgeBoundary ?lower ;
+              curric:upperAgeBoundary ?upper .
+        FILTER (?lower < 0 || ?upper > 25)
+      }
+    """ ;
+  ] .
+
+# ----------------------------------------------------------------------
+# Shape: KeyStage
+# ----------------------------------------------------------------------
+
+shapes:KeyStageShape
+  a sh:NodeShape ;
+  sh:targetClass curric:KeyStage ;
+
+  sh:property [
+    sh:path rdfs:label ;
+    sh:datatype rdf:langString ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:name "label" ;
+    sh:description "Every key stage must have exactly one rdfs:label." ;
+    sh:message "Key stages must have exactly one rdfs:label." ;
+  ] ;
+
+  sh:property [
+    sh:path curric:isKeyStageOf ;
+    sh:class curric:Phase ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:name "is key stage of" ;
+    sh:description "Every key stage must be part of exactly one phase." ;
+    sh:message "Key stages must specify which phase they belong to." ;
+  ] ;
+
+  sh:property [
+    sh:path curric:lowerAgeBoundary ;
+    sh:datatype xsd:nonNegativeInteger ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:name "lower age boundary" ;
+    sh:description "A key stage must have exactly one lower age boundary." ;
+    sh:message "Every key stage must specify exactly one lower age boundary." ;
+  ] ;
+
+  sh:property [
+    sh:path curric:upperAgeBoundary ;
+    sh:datatype xsd:positiveInteger ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:name "upper age boundary" ;
+    sh:description "A key stage must have exactly one upper age boundary." ;
+    sh:message "Every key stage must specify exactly one upper age boundary." ;
+  ] ;
+
+  sh:sparql [
+    sh:message "Lower age boundary must be less than upper age boundary" ;
+    sh:select """
+      PREFIX curric: <https://w3id.org/oak/curriculum/ontology/>
+      SELECT $this WHERE {
+        $this curric:lowerAgeBoundary ?lower ;
+              curric:upperAgeBoundary ?upper .
+        FILTER (?lower >= ?upper)
+      }
+    """ ;
+  ] ;
+
+  sh:sparql [
+    sh:message "Key stage age boundaries must fall within parent phase boundaries" ;
+    sh:select """
+      PREFIX curric: <https://w3id.org/oak/curriculum/ontology/>
+      SELECT $this WHERE {
+        $this curric:isKeyStageOf ?phase ;
+              curric:lowerAgeBoundary ?childLower ;
+              curric:upperAgeBoundary ?childUpper .
+        
+        ?phase curric:lowerAgeBoundary ?parentLower ;
+               curric:upperAgeBoundary ?parentUpper .
+        
+        FILTER (?childLower < ?parentLower || ?childUpper > ?parentUpper)
+      }
+    """ ;
+  ] .
+
+# ----------------------------------------------------------------------
+# Shape: YearGroup
+# ----------------------------------------------------------------------
+
+shapes:YearGroupShape
+  a sh:NodeShape ;
+  sh:targetClass curric:YearGroup ;
+
+  sh:property [
+    sh:path rdfs:label ;
+    sh:datatype rdf:langString ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:name "label" ;
+    sh:description "Every year group must have exactly one rdfs:label." ;
+    sh:message "Year groups must have exactly one rdfs:label." ;
+  ] ;
+
+  sh:property [
+    sh:path curric:isYearGroupOf ;
+    sh:class curric:KeyStage ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:name "is year group of" ;
+    sh:description "Every year group must be part of exactly one key stage." ;
+    sh:message "Year groups must specify which key stage they belong to." ;
+  ] ;
+
+  sh:property [
+    sh:path curric:lowerAgeBoundary ;
+    sh:datatype xsd:nonNegativeInteger ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:name "lower age boundary" ;
+    sh:description "A year group must have exactly one lower age boundary." ;
+    sh:message "Every year group must specify exactly one lower age boundary." ;
+  ] ;
+
+  sh:property [
+    sh:path curric:upperAgeBoundary ;
+    sh:datatype xsd:positiveInteger ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:name "upper age boundary" ;
+    sh:description "A year group must have exactly one upper age boundary." ;
+    sh:message "Every year group must specify exactly one upper age boundary." ;
+  ] ;
+
+  sh:sparql [
+    sh:message "Lower age boundary must be less than upper age boundary" ;
+    sh:select """
+      PREFIX curric: <https://w3id.org/oak/curriculum/ontology/>
+      SELECT $this WHERE {
+        $this curric:lowerAgeBoundary ?lower ;
+              curric:upperAgeBoundary ?upper .
+        FILTER (?lower >= ?upper)
+      }
+    """ ;
+  ] ;
+
+  sh:sparql [
+    sh:message "Year group age boundaries must fall within parent key stage boundaries" ;
+    sh:select """
+      PREFIX curric: <https://w3id.org/oak/curriculum/ontology/>
+      SELECT $this WHERE {
+        $this curric:isYearGroupOf ?keystage ;
+              curric:lowerAgeBoundary ?childLower ;
+              curric:upperAgeBoundary ?childUpper .
+        
+        ?keystage curric:lowerAgeBoundary ?parentLower ;
+                  curric:upperAgeBoundary ?parentUpper .
+        
+        FILTER (?childLower < ?parentLower || ?childUpper > ?parentUpper)
+      }
+    """ ;
+  ] .
+
+# ----------------------------------------------------------------------
+# Shape: SubjectGroup
+# ----------------------------------------------------------------------
+
+shapes:SubjectGroupShape
+  a sh:NodeShape ;
+  sh:targetClass curric:SubjectGroup ;
+
+  sh:property [
+    sh:path rdfs:label ;
+    sh:datatype rdf:langString ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:name "label" ;
+    sh:description "Every subject group must have exactly one rdfs:label." ;
+    sh:message "Subject groups must have exactly one rdfs:label." ;
+  ] ;
+
+  sh:property [
+    sh:path curric:coversDiscipline ;
+    sh:class curric:Discipline ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:name "covers discipline" ;
+    sh:description "Every subject group must relate to exactly one discipline." ;
+    sh:message "Subject groups must specify which discipline they relate to." ;
+  ] ;
+
+  sh:sparql [
+    sh:message "Subject group label must match its discipline's preferred label" ;
+    sh:select """
+      PREFIX curric: <https://w3id.org/oak/curriculum/ontology/>
+      PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+      PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+      
+      SELECT $this WHERE {
+        $this a curric:SubjectGroup ;
+              curric:coversDiscipline ?discipline ;
+              rdfs:label ?subjectGroupLabel .
+        
+        ?discipline skos:prefLabel ?disciplineLabel .
+        
+        FILTER (?subjectGroupLabel != ?disciplineLabel)
+      }
+    """ ;
+  ] ;
+
+  sh:sparql [
+    sh:severity sh:Warning ;
+    sh:message "Subject group is not used in any subject (WARNING - orphaned)" ;
+    sh:select """
+      PREFIX curric: <https://w3id.org/oak/curriculum/ontology/>
+      SELECT $this WHERE {
+        $this a curric:SubjectGroup .
+        FILTER NOT EXISTS {
+          ?subject a curric:Subject ;
+                      curric:isSubjectOf $this .
+        }
+      }
+    """ ;
+  ] .
+
+# ----------------------------------------------------------------------
+# Shape: Subject
+# ----------------------------------------------------------------------
+
+shapes:SubjectShape
+  a sh:NodeShape ;
+  sh:targetClass curric:Subject ;
+
+  sh:property [
+    sh:path rdfs:label ;
+    sh:datatype rdf:langString ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:name "label" ;
+    sh:description "Every subject must have exactly one rdfs:label." ;
+    sh:message "Subjects must have exactly one rdfs:label." ;
+  ] ;
+
+  sh:property [
+    sh:path curric:aims ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:name "aims" ;
+    sh:description "Every subject must have an ordered list of aims." ;
+    sh:message "Subjects must have exactly one ordered list of aims with language-tagged string values." ;
+    sh:node [
+      sh:property [
+        sh:path ( [ sh:zeroOrMorePath rdf:rest ] rdf:first ) ;
+        sh:datatype rdf:langString ;
+        sh:minCount 1 ;
+        sh:description "Each aim in the list must be a language-tagged string." ;
+        sh:message "The aims list must contain at least one language-tagged string value." ;
+      ]
+    ]
+  ] ;
+
+  sh:property [
+    sh:path curric:isSubjectOf ;
+    sh:class curric:SubjectGroup ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:name "is subject of" ;
+    sh:description "Every subject must be part of exactly one subject group." ;
+    sh:message "Subjects must specify which subject group they belong to." ;
+  ] ;
+
+  sh:property [
+    sh:path curric:coversStrand ;
+    sh:class curric:Strand ;
+    sh:minCount 1 ;
+    sh:severity sh:Warning ;
+    sh:name "covers strand" ;
+    sh:description "Every subject should cover at least one strand." ;
+    sh:message "Subject should cover at least one strand (WARNING)." ;
+  ] ;
+
+  sh:sparql [
+    sh:severity sh:Warning ;
+    sh:message "Subject is not used in any scheme (WARNING - orphaned)" ;
+    sh:select """
+      PREFIX curric: <https://w3id.org/oak/curriculum/ontology/>
+      SELECT $this WHERE {
+        $this a curric:Subject .
+        FILTER NOT EXISTS {
+          ?scheme a curric:Scheme ;
+                  curric:isSchemeOf $this .
+        }
+      }
+    """ ;
+  ] .
+
+# ----------------------------------------------------------------------
+# Shape: Scheme
+# ----------------------------------------------------------------------
+
+shapes:SchemeShape
+  a sh:NodeShape ;
+  sh:targetClass curric:Scheme ;
+
+  sh:property [
+    sh:path rdfs:label ;
+    sh:datatype rdf:langString ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:name "label" ;
+    sh:description "Every scheme must have exactly one rdfs:label." ;
+    sh:message "Schemes must have exactly one rdfs:label." ;
+  ] ;
+
+  sh:property [
+    sh:path curric:isSchemeOf ;
+    sh:class curric:Subject ;
+    sh:minCount 1 ;
+    sh:name "is scheme of" ;
+    sh:description "Every scheme must be part of at least one subject." ;
+    sh:message "Schemes must specify which subject(s) they belong to." ;
+  ] ;
+
+  sh:property [
+    sh:path curric:coversKeyStage ;
+    sh:class curric:KeyStage ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:name "covers key stage" ;
+    sh:description "A scheme must cover exactly one key stage." ;
+    sh:message "Schemes must specify exactly which key stage they cover." ;
+  ] ;
+
+  sh:sparql [
+    sh:message "Scheme's subjects must all belong to the same subject group." ;
+    sh:select """
+      PREFIX curric: <https://w3id.org/oak/curriculum/ontology/>
+      SELECT $this WHERE {
+        $this curric:isSchemeOf ?subject1 , ?subject2 .
+        
+        ?subject1 curric:isSubjectOf ?subjectGroup1 .
+        ?subject2 curric:isSubjectOf ?subjectGroup2 .
+        
+        FILTER (?subject1 != ?subject2)
+        FILTER (?subjectGroup1 != ?subjectGroup2)
+      }
+    """ ;
+  ] .
+
+# ----------------------------------------------------------------------
+# Shape: Progression
+# ----------------------------------------------------------------------
+
+shapes:ProgressionShape
+  a sh:NodeShape ;
+  sh:targetClass curric:Progression ;
+
+  sh:property [
+    sh:path rdfs:label ;
+    sh:datatype rdf:langString ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:name "label" ;
+    sh:description "Every progression must have exactly one rdfs:label." ;
+    sh:message "Progressions must have exactly one rdfs:label." ;
+  ] ;
+
+  sh:property [
+    sh:path curric:isProgressionOf ;
+    sh:class curric:Scheme ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:name "is progression of" ;
+    sh:description "Every progression must be part of exactly one scheme." ;
+    sh:message "Progressions must specify which scheme they belong to." ;
+  ] ;
+
+  sh:property [
+    sh:path curric:coversContent ;
+    sh:class curric:ContentDescriptor ;
+    sh:minCount 1 ;
+    sh:severity sh:Warning ;
+    sh:name "has content descriptor" ;
+    sh:description "Every progression should relate to at least one content descriptor." ;
+    sh:message "Progressions should relate to at least one content descriptor (WARNING)." ;
+  ] .
+
+# ----------------------------------------------------------------------
+# Shape: ConceptScheme
+# ----------------------------------------------------------------------
+
+shapes:ConceptSchemeShape
+  a sh:NodeShape ;
+  sh:targetClass skos:ConceptScheme ;
+  
+  sh:property [
+    sh:path skos:prefLabel ;
+    sh:datatype rdf:langString ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:name "preferred label" ;
+    sh:description "Every concept scheme must have exactly one skos:prefLabel." ;
+    sh:message "Concept schemes must have exactly one skos:prefLabel for SKOS taxonomy." ;
+  ] ;
+
+  sh:property [
+      sh:path skos:hasTopConcept ;
+      sh:class skos:Concept ;
+      sh:minCount 1 ;
+      sh:name "has top concept" ;
+      sh:description "Every concept scheme must reference at least one skos:Concept." ;
+      sh:message "ConceptScheme must have at least one hasTopConcept, and each must reference a valid skos:Concept" ;
+    ] .
+
+# ----------------------------------------------------------------------
+# Shape: Discipline
+# ----------------------------------------------------------------------
+
+shapes:DisciplineShape
+  a sh:NodeShape ;
+  sh:targetClass curric:Discipline ;
+
+  sh:property [
+    sh:path skos:prefLabel ;
+    sh:datatype rdf:langString ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:name "preferred label" ;
+    sh:description "Every discipline must have exactly one skos:prefLabel." ;
+    sh:message "Disciplines must have exactly one skos:prefLabel for SKOS taxonomy." ;
+  ] ;
+
+  sh:property [
+    sh:path skos:inScheme ;
+    sh:class skos:ConceptScheme ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:name "in scheme" ;
+    sh:description "Every discipline must be part of exactly one concept scheme." ;
+    sh:message "Disciplines must specify which concept scheme they belong to." ;
+  ] ;
+
+  sh:property [
+    sh:path skos:narrower ;
+    sh:class curric:Strand ;
+    sh:minCount 1 ;
+    sh:name "narrower" ;
+    sh:description "A discipline must have at least one child strand." ;
+    sh:message "Disciplines must have at least one strand." ;
+  ] .
+
+# ----------------------------------------------------------------------
+# Shape: Strand
+# ----------------------------------------------------------------------
+
+shapes:StrandShape
+  a sh:NodeShape ;
+  sh:targetClass curric:Strand ;
+
+  sh:property [
+    sh:path skos:prefLabel ;
+    sh:datatype rdf:langString ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:name "preferred label" ;
+    sh:description "Every strand must have exactly one skos:prefLabel." ;
+    sh:message "Strands must have exactly one skos:prefLabel for SKOS taxonomy." ;
+  ] ;
+
+  sh:property [
+    sh:path curric:displayOrder ;
+    sh:datatype xsd:positiveInteger ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:name "display order" ;
+    sh:description "Every strand must have a numeric display order." ;
+    sh:message "Strands must have exactly one positive integer display order value." ;
+  ] ;
+
+  sh:property [
+    sh:path skos:inScheme ;
+    sh:class skos:ConceptScheme ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:name "in scheme" ;
+    sh:description "Every strand must be part of exactly one concept scheme." ;
+    sh:message "Strands must specify which concept scheme they belong to." ;
+  ] ;
+
+  sh:property [
+    sh:path skos:broader ;
+    sh:class curric:Discipline ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:name "broader" ;
+    sh:description "Every strand must belong to exactly one discipline." ;
+    sh:message "Strands must specify which discipline they belong to via skos:broader." ;
+  ] ;
+
+  sh:property [
+    sh:path skos:narrower ;
+    sh:class curric:SubStrand ;
+    sh:minCount 1 ;
+    sh:name "narrower" ;
+    sh:description "A strand must have at least one child sub-strand." ;
+    sh:message "Strands must have at least one sub-strand." ;
+  ] ;
+
+  sh:sparql [
+    sh:severity sh:Warning ;
+    sh:message "Strand is not referenced by any subject (WARNING - orphaned)" ;
+    sh:select """
+      PREFIX curric: <https://w3id.org/oak/curriculum/ontology/>
+      SELECT $this WHERE {
+        $this a curric:Strand .
+        FILTER NOT EXISTS {
+          ?subject a curric:Subject ;
+                      curric:coversStrand $this .
+        }
+      }
+    """ ;
+  ] ;
+
+  sh:sparql [
+    sh:severity sh:Warning ;
+    sh:message "Strand is not referenced by any discipline via skos:narrower (WARNING - orphaned)" ;
+    sh:select """
+      PREFIX curric: <https://w3id.org/oak/curriculum/ontology/>
+      PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+      SELECT $this WHERE {
+        $this a curric:Strand .
+        FILTER NOT EXISTS {
+          ?discipline a curric:Discipline ;
+                      skos:narrower $this .
+        }
+      }
+    """ ;
+  ] .
+
+# ----------------------------------------------------------------------
+# Shape: SubStrand
+# ----------------------------------------------------------------------
+
+shapes:SubStrandShape
+  a sh:NodeShape ;
+  sh:targetClass curric:SubStrand ;
+
+  sh:property [
+    sh:path skos:prefLabel ;
+    sh:datatype rdf:langString ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:name "preferred label" ;
+    sh:description "Every sub-strand must have exactly one skos:prefLabel." ;
+    sh:message "Sub-strands must have exactly one skos:prefLabel for SKOS taxonomy." ;
+  ] ;
+
+  sh:property [
+    sh:path curric:displayOrder ;
+    sh:datatype xsd:positiveInteger ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:name "display order" ;
+    sh:description "Every sub-strand must have a numeric display order." ;
+    sh:message "Sub-strands must have exactly one positive integer display order value." ;
+  ] ;
+
+  sh:property [
+    sh:path skos:inScheme ;
+    sh:class skos:ConceptScheme ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:name "in scheme" ;
+    sh:description "Every sub-strand must be part of exactly one concept scheme." ;
+    sh:message "Sub-strands must specify which concept scheme they belong to." ;
+  ] ;
+
+  sh:property [
+    sh:path skos:broader ;
+    sh:class curric:Strand ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:name "broader" ;
+    sh:description "Every sub-strand must belong to exactly one strand." ;
+    sh:message "Sub-strands must specify which strand they belong to via skos:broader." ;
+  ] ;
+
+  sh:property [
+    sh:path skos:narrower ;
+    sh:class curric:ContentDescriptor ;
+    sh:minCount 1 ;
+    sh:name "narrower" ;
+    sh:description "A sub-strand must have at least one child content descriptor." ;
+    sh:message "Sub-strands must have at least one content descriptor." ;
+  ] ;
+
+  sh:sparql [
+    sh:severity sh:Warning ;
+    sh:message "Sub-strand is not referenced by any strand via skos:narrower (WARNING - orphaned)" ;
+    sh:select """
+      PREFIX curric: <https://w3id.org/oak/curriculum/ontology/>
+      PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+      SELECT $this WHERE {
+        $this a curric:SubStrand .
+        FILTER NOT EXISTS {
+          ?strand a curric:Strand ;
+                  skos:narrower $this .
+        }
+      }
+    """ ;
+  ] .
+
+# ----------------------------------------------------------------------
+# Shape: ContentDescriptor
+# ----------------------------------------------------------------------
+
+shapes:ContentDescriptorShape
+  a sh:NodeShape ;
+  sh:targetClass curric:ContentDescriptor ;
+
+  sh:property [
+    sh:path skos:prefLabel ;
+    sh:datatype rdf:langString ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:name "preferred label" ;
+    sh:description "Every content descriptor must have exactly one skos:prefLabel." ;
+    sh:message "Content descriptors must have exactly one skos:prefLabel for SKOS taxonomy." ;
+  ] ;
+
+  sh:property [
+    sh:path curric:displayOrder ;
+    sh:datatype xsd:positiveInteger ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:name "display order" ;
+    sh:description "Every content descriptor must have a numeric display order." ;
+    sh:message "Content descriptors must have exactly one positive integer display order value." ;
+  ] ;
+
+  sh:property [
+    sh:path skos:inScheme ;
+    sh:class skos:ConceptScheme ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:name "in scheme" ;
+    sh:description "Every content descriptor must be part of exactly one concept scheme." ;
+    sh:message "Content descriptors must specify which concept scheme they belong to." ;
+  ] ;
+
+  sh:property [
+    sh:path skos:broader ;
+    sh:class curric:SubStrand ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:name "broader" ;
+    sh:description "Every content descriptor must belong to exactly one sub-strand." ;
+    sh:message "Content descriptors must specify which sub-strand they belong to via skos:broader." ;
+  ] ;
+
+  sh:sparql [
+    sh:severity sh:Warning ;
+    sh:message "Content descriptor is not referenced by any sub-strand via skos:narrower (WARNING - orphaned)" ;
+    sh:select """
+      PREFIX curric: <https://w3id.org/oak/curriculum/ontology/>
+      PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+      SELECT $this WHERE {
+        $this a curric:ContentDescriptor .
+        FILTER NOT EXISTS {
+          ?substrand a curric:SubStrand ;
+                     skos:narrower $this .
+        }
+      }
+    """ ;
+  ] ;
+
+  sh:sparql [
+    sh:severity sh:Warning ;
+    sh:message "Content descriptor is not used in any progression (WARNING - orphaned)" ;
+    sh:select """
+      PREFIX curric: <https://w3id.org/oak/curriculum/ontology/>
+      SELECT $this WHERE {
+        $this a curric:ContentDescriptor .
+        FILTER NOT EXISTS {
+          ?progression a curric:Progression ;
+                  curric:coversContent $this .
+        }
+      }
+    """ ;
+  ] .
+
+# ----------------------------------------------------------------------
+# Shape: Programme
+# ----------------------------------------------------------------------
+
+shapes:ProgrammeShape
+  a sh:NodeShape ;
+  sh:targetClass curric:Programme ;
+
+  sh:property [
+    sh:path curric:coversYearGroup ;
+    sh:class curric:YearGroup ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:name "covers year group" ;
+    sh:description "A programme must cover exactly one year group." ;
+    sh:message "Every programme must specify exactly one year group." ;
+  ] ;
+
+  sh:property [
+    sh:path curric:hasExamBoard ;
+    sh:class curric:ExamBoard ;
+    sh:maxCount 1 ;
+    sh:name "has exam board" ;
+    sh:description "A programme may have at most one exam board." ;
+    sh:message "A programme can specify at most one exam board." ;
+  ] ;
+
+  sh:property [
+    sh:path curric:hasTier ;
+    sh:class curric:Tier ;
+    sh:maxCount 1 ;
+    sh:name "has tier" ;
+    sh:description "A programme may have at most one tier." ;
+    sh:message "A programme can specify at most one tier." ;
+  ] ;
+
+  sh:property [
+    sh:path curric:hasUnitVariantInclusion ;
+    sh:class curric:UnitVariantInclusion ;
+    sh:minCount 1 ;
+    sh:name "has unit variant inclusion" ;
+    sh:description "A programme must have at least one unit variant inclusion." ;
+    sh:message "A programme must include at least one unit variant inclusion to define its content." ;
+  ] ;
+
+  sh:property [
+    sh:path curric:isNationalCurriculum ;
+    sh:datatype xsd:boolean ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:name "is national curriculum" ;
+    sh:description "Whether the programme delivers National Curriculum content." ;
+  ] ;
+
+  sh:property [
+    sh:path curric:isRequired ;
+    sh:datatype xsd:boolean ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:name "is required" ;
+    sh:description "Whether the programme content is legally required for maintained schools." ;
+  ] ;
+
+  sh:property [
+    sh:path curric:isExamined ;
+    sh:datatype xsd:boolean ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:name "is examined" ;
+    sh:description "Whether the programme is examined." ;
+  ] ;
+
+  sh:property [
+    sh:path curric:examType ;
+    sh:datatype xsd:string ;
+    sh:maxCount 1 ;
+    sh:name "exam type" ;
+    sh:description "Type of examination qualification. Present only for examined programmes." ;
+  ] ;
+
+  sh:property [
+    sh:path curric:isProgrammeOf ;
+    sh:class curric:Scheme ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:name "is programme of" ;
+    sh:description "Every programme must be part of exactly one scheme (subject/key stage)." ;
+    sh:message "Programmes must specify which scheme (e.g., English Key Stage 2) they belong to." ;
+  ] ;
+
+  sh:sparql [
+    sh:message "isExamined=true → examType required" ;
+    sh:select """
+      PREFIX curric: <https://w3id.org/oak/curriculum/ontology/>
+      SELECT $this WHERE {
+        $this curric:isExamined true .
+        FILTER NOT EXISTS { $this curric:examType ?type }
+      }
+    """ ;
+  ] ;
+
+  sh:sparql [
+    sh:message "examType → isExamined=true" ;
+    sh:select """
+      PREFIX curric: <https://w3id.org/oak/curriculum/ontology/>
+      SELECT $this WHERE {
+        $this curric:examType ?type .
+        {
+          $this curric:isExamined false .
+        } UNION {
+          FILTER NOT EXISTS { $this curric:isExamined ?examined }
+        }
+      }
+    """ ;
+  ] ;
+
+  sh:sparql [
+    sh:message "hasExamBoard → isExamined=true" ;
+    sh:select """
+      PREFIX curric: <https://w3id.org/oak/curriculum/ontology/>
+      SELECT $this WHERE {
+        $this curric:hasExamBoard ?board .
+        {
+          $this curric:isExamined false .
+        } UNION {
+          FILTER NOT EXISTS { $this curric:isExamined ?examined }
+        }
+      }
+    """ ;
+  ] ;
+
+  sh:sparql [
+    sh:message "hasTier → isExamined=true" ;
+    sh:select """
+      PREFIX curric: <https://w3id.org/oak/curriculum/ontology/>
+      SELECT $this WHERE {
+        $this curric:hasTier ?tier .
+        {
+          $this curric:isExamined false .
+        } UNION {
+          FILTER NOT EXISTS { $this curric:isExamined ?examined }
+        }
+      }
+    """ ;
+  ] ;
+
+  sh:sparql [
+    sh:message "isExamined=false → examType not permitted" ;
+    sh:select """
+      PREFIX curric: <https://w3id.org/oak/curriculum/ontology/>
+      SELECT $this WHERE {
+        $this curric:isExamined false .
+        $this curric:examType ?type .
+      }
+    """ ;
+  ] ;
+
+  sh:sparql [
+    sh:message "isExamined=false → hasExamBoard not permitted" ;
+    sh:select """
+      PREFIX curric: <https://w3id.org/oak/curriculum/ontology/>
+      SELECT $this WHERE {
+        $this curric:isExamined false .
+        $this curric:hasExamBoard ?board .
+      }
+    """ ;
+  ] .
+
+# ----------------------------------------------------------------------
+# Shape: ExamBoard
+# ----------------------------------------------------------------------
+
+shapes:ExamBoardShape
+  a sh:NodeShape ;
+  sh:targetClass curric:ExamBoard ;
+
+  sh:property [
+    sh:path rdfs:label ;
+    sh:datatype rdf:langString ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:name "label" ;
+    sh:description "Every exam board must have exactly one rdfs:label." ;
+    sh:message "Exam boards must have exactly one rdfs:label." ;
+  ] .
+
+# ----------------------------------------------------------------------
+# Shape: Tier
+# ----------------------------------------------------------------------
+
+shapes:TierShape
+  a sh:NodeShape ;
+  sh:targetClass curric:Tier ;
+
+  sh:property [
+    sh:path rdfs:label ;
+    sh:datatype rdf:langString ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:name "label" ;
+    sh:description "Every tier must have exactly one rdfs:label." ;
+    sh:message "Tiers must have exactly one rdfs:label." ;
+  ] .
+
+# ----------------------------------------------------------------------
+# Shape: Unit
+# ----------------------------------------------------------------------
+
+shapes:UnitShape
+  a sh:NodeShape ;
+  sh:targetClass curric:Unit ;
+
+  sh:property [
+    sh:path curric:isUnitOf ;
+    sh:class curric:Scheme ;
+    sh:minCount 1 ;
+    sh:name "is unit of" ;
+    sh:description "Every unit must be part of at least one scheme (subject/key stage)." ;
+    sh:message "Units must specify which scheme(s) they belong to." ;
+  ] ;
+ 
+  sh:property [
+    sh:path [ sh:inversePath curric:isUnitVariantOf ] ;
+    sh:class curric:UnitVariant ;
+    sh:minCount 1 ;
+    sh:name "has unit variant (via inverse)" ;
+    sh:description "A unit must have at least one unit variant." ;
+    sh:message "Every unit must have at least one unit variant to be teachable." ;
+  ] ;
+
+  sh:property [
+    sh:path curric:includesThread ;
+    sh:class curric:Thread ;
+    sh:name "includes thread" ;
+    sh:description "A unit may develop zero or more cross-cutting threads." ;
+  ] ;
+
+  sh:property [
+    sh:path curric:includesContent ;
+    sh:class curric:ContentDescriptor ;
+    sh:name "includes content" ;
+    sh:description "A unit may include zero or more content descriptors." ;
+  ] ;
+
+  sh:property [
+    sh:path curric:whyThisWhyNow ;
+    sh:datatype xsd:string ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:name "why this why now" ;
+    sh:description "Every unit must explain its pedagogical rationale." ;
+    sh:message "Units must include a 'why this why now' explanation." ;
+  ] ;
+
+  sh:sparql [
+    sh:message "Unit is not used in any programme (all its unit variants are orphaned)" ;
+    sh:select """
+      PREFIX curric: <https://w3id.org/oak/curriculum/ontology/>
+      SELECT $this WHERE {
+        $this curric:hasUnitVariant ?unitvariant .
+        FILTER NOT EXISTS {
+          {
+            ?inclusion curric:includesUnitVariant ?unitvariant .
+          } UNION {
+            ?choice curric:hasUnitVariantOption ?unitvariant .
+          }
+        }
+      }
+    """ ;
+  ] .
+
+# ----------------------------------------------------------------------
+# Shape: UnitVariant
+# ----------------------------------------------------------------------
+
+shapes:UnitVariantShape
+  a sh:NodeShape ;
+  sh:targetClass curric:UnitVariant ;
+
+  sh:property [
+    sh:path curric:isUnitVariantOf ;
+    sh:class curric:Unit ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:name "is unit variant of" ;
+    sh:description "A unit variant must reference its parent unit." ;
+  ] ;
+
+  sh:property [
+    sh:path curric:hasLessonInclusion ;
+    sh:class curric:LessonInclusion ;
+    sh:minCount 1 ;
+    sh:name "has lesson inclusion" ;
+    sh:description "A unit variant must have at least one lesson inclusion." ;
+    sh:message "Every unit variant must include at least one lesson to be teachable." ;
+  ] ;
+
+  sh:sparql [
+    sh:message "Unit variant is not used in any programme (not referenced by UnitVariantInclusion or UnitVariantChoice)" ;
+    sh:select """
+      PREFIX curric: <https://w3id.org/oak/curriculum/ontology/>
+      SELECT $this WHERE {
+        $this a curric:UnitVariant .
+        FILTER NOT EXISTS {
+          {
+            ?inclusion curric:includesUnitVariant $this .
+          } UNION {
+            ?choice curric:hasUnitVariantOption $this .
+          }
+        }
+      }
+    """ ;
+  ] .
+
+# ----------------------------------------------------------------------
+# Shape: UnitVariantInclusion
+# ----------------------------------------------------------------------
+
+shapes:UnitVariantInclusionShape
+  a sh:NodeShape ;
+  sh:targetClass curric:UnitVariantInclusion ;
+
+  sh:property [
+    sh:path curric:includesUnitVariant ;
+    sh:class curric:UnitVariant ;
+    sh:maxCount 1 ;
+    sh:name "includes unit variant" ;
+    sh:description "A unit variant inclusion may directly include at most one unit variant." ;
+    sh:message "Use includesUnitVariant for single unit variants or includesUnitVariantChoice for multiple options, not both." ;
+  ] ;
+
+  sh:property [
+    sh:path curric:includesUnitVariantChoice ;
+    sh:class curric:UnitVariantChoice ;
+    sh:maxCount 1 ;
+    sh:name "includes unit variant choice" ;
+    sh:description "A unit variant inclusion may include at most one unit variant choice group." ;
+    sh:message "Use includesUnitVariantChoice for multiple options or includesUnitVariant for single unit variants, not both." ;
+  ] ;
+
+  sh:property [
+    sh:path curric:sequencePosition ;
+    sh:datatype xsd:positiveInteger ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:name "sequence position" ;
+    sh:description "Every unit variant inclusion must have exactly one sequence position." ;
+    sh:message "A unit variant inclusion must specify exactly one sequence position as a positive integer." ;
+  ] ;
+
+  sh:sparql [
+    sh:message "Sequence positions must be unique within a programme" ;
+    sh:select """
+      PREFIX curric: <https://w3id.org/oak/curriculum/ontology/>
+      SELECT $this WHERE {
+        $this curric:sequencePosition ?pos .
+        
+        # Find the programme that contains this inclusion
+        ?programme curric:hasUnitVariantInclusion $this .
+        
+        # Check if another inclusion in the same programme has the same position
+        ?programme curric:hasUnitVariantInclusion ?other .
+        ?other curric:sequencePosition ?pos .
+        
+        FILTER ($this != ?other)
+      }
+    """ ;
+  ] ;
+
+  sh:property [
+    sh:path curric:minChoices ;
+    sh:datatype xsd:nonNegativeInteger ;
+    sh:name "minimum choices" ;
+    sh:description """Minimum number of unit variants to select from a choice. Only used with 
+    includesUnitVariantChoice.""" ;
+  ] ;
+
+  sh:property [
+    sh:path curric:maxChoices ;
+    sh:datatype xsd:positiveInteger ;
+    sh:name "maximum choices" ;
+    sh:description """Maximum number of unit variants to select from a choice. Only used with 
+    includesUnitVariantChoice.""" ;
+  ] ;
+
+  sh:sparql [
+    sh:message "A unit variant inclusion must have either includesUnitVariant OR includesUnitVariantChoice, but not both" ;
+    sh:select """
+      PREFIX curric: <https://w3id.org/oak/curriculum/ontology/>
+      SELECT $this WHERE {
+        $this a curric:UnitVariantInclusion .
+        
+        # Count how many inclusion properties exist
+        BIND(
+          (IF(EXISTS { $this curric:includesUnitVariant ?v }, 1, 0) +
+           IF(EXISTS { $this curric:includesUnitVariantChoice ?c }, 1, 0))
+          AS ?count
+        )
+        
+        # Must be exactly 1
+        FILTER (?count != 1)
+      }
+    """ ;
+  ] ;
+
+  sh:sparql [
+    sh:message "minChoices should only be used when includesUnitVariantChoice is present" ;
+    sh:select """
+      PREFIX curric: <https://w3id.org/oak/curriculum/ontology/>
+      SELECT $this WHERE {
+        $this curric:minChoices ?min .
+        FILTER NOT EXISTS { $this curric:includesUnitVariantChoice ?choice }
+      }
+    """ ;
+  ] ;
+
+  sh:sparql [
+    sh:message "maxChoices should only be used when includesUnitVariantChoice is present" ;
+    sh:select """
+      PREFIX curric: <https://w3id.org/oak/curriculum/ontology/>
+      SELECT $this WHERE {
+        $this curric:maxChoices ?max .
+        FILTER NOT EXISTS { $this curric:includesUnitVariantChoice ?choice }
+      }
+    """ ;
+  ] ;
+
+  sh:sparql [
+    sh:message "When using includesUnitVariantChoice, minChoices is required" ;
+    sh:select """
+      PREFIX curric: <https://w3id.org/oak/curriculum/ontology/>
+      SELECT $this WHERE {
+        $this curric:includesUnitVariantChoice ?choice .
+        FILTER NOT EXISTS { $this curric:minChoices ?min }
+      }
+    """ ;
+  ] ;
+
+  sh:sparql [
+    sh:message "When using includesUnitVariantChoice, maxChoices is required" ;
+    sh:select """
+      PREFIX curric: <https://w3id.org/oak/curriculum/ontology/>
+      SELECT $this WHERE {
+        $this curric:includesUnitVariantChoice ?choice .
+        FILTER NOT EXISTS { $this curric:maxChoices ?max }
+      }
+    """ ;
+  ] ;
+
+  sh:sparql [
+    sh:message "minChoices cannot be greater than maxChoices" ;
+    sh:select """
+      PREFIX curric: <https://w3id.org/oak/curriculum/ontology/>
+      SELECT $this WHERE {
+        $this curric:minChoices ?min ;
+              curric:maxChoices ?max .
+        FILTER (?min > ?max)
+      }
+    """ ;
+  ] ;
+
+  sh:sparql [
+    sh:message "minChoices cannot exceed the number of available unit variant options" ;
+    sh:select """
+      PREFIX curric: <https://w3id.org/oak/curriculum/ontology/>
+      SELECT $this WHERE {
+        $this curric:includesUnitVariantChoice ?choice ;
+              curric:minChoices ?min .
+        
+        # Count options in the choice, including $this
+        {
+          SELECT $this ?choice (COUNT(?option) AS ?numOptions) WHERE {
+            $this curric:includesUnitVariantChoice ?choice .
+            ?choice curric:hasUnitVariantOption ?option .
+          }
+          GROUP BY $this ?choice
+        }
+        
+        FILTER (?min > ?numOptions)
+      }
+    """ ;
+  ] ;
+
+  sh:sparql [
+    sh:message "Unit variant inclusion is not used in any programme (orphaned)" ;
+    sh:select """
+      PREFIX curric: <https://w3id.org/oak/curriculum/ontology/>
+      SELECT $this WHERE {
+        $this a curric:UnitVariantInclusion .
+        FILTER NOT EXISTS {
+          ?programme curric:hasUnitVariantInclusion $this .
+        }
+      }
+    """ ;
+  ] .
+
+# ----------------------------------------------------------------------
+# Shape: LessonInclusion
+# ----------------------------------------------------------------------
+
+shapes:LessonInclusionShape
+  a sh:NodeShape ;
+  sh:targetClass curric:LessonInclusion ;
+
+  sh:property [
+    sh:path curric:includesLesson ;
+    sh:class curric:Lesson ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:name "includes lesson" ;
+    sh:description "A lesson inclusion must reference exactly one Lesson resource." ;
+    sh:message "Every lesson inclusion must specify exactly one lesson." ;
+  ] ;
+
+  sh:property [
+    sh:path curric:sequencePosition ;
+    sh:datatype xsd:positiveInteger ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:name "sequence position" ;
+    sh:description "Every lesson inclusion must have exactly one sequence position." ;
+    sh:message "A lesson inclusion must specify exactly one sequence position as a positive integer." ;
+  ] ;
+
+  sh:sparql [
+    sh:message "Sequence positions must be unique within a unit variant" ;
+    sh:select """
+      PREFIX curric: <https://w3id.org/oak/curriculum/ontology/>
+      SELECT $this WHERE {
+        $this curric:includesLesson ?lesson ;
+            curric:sequencePosition ?pos .
+        
+        # Find the unit variant that contains this inclusion
+        ?unitvariant curric:hasLessonInclusion $this .
+        
+        # Check if another inclusion in the same unit variant has the same position
+        ?unitvariant curric:hasLessonInclusion ?other .
+        ?other curric:sequencePosition ?pos .
+        
+        FILTER ($this != ?other)
+      }
+    """ ;
+  ] ;
+
+  sh:sparql [
+    sh:message "Lesson inclusion is not used in any unit variant (orphaned)" ;
+    sh:select """
+      PREFIX curric: <https://w3id.org/oak/curriculum/ontology/>
+      SELECT $this WHERE {
+        $this a curric:LessonInclusion .
+        FILTER NOT EXISTS {
+          ?unitvariant curric:hasLessonInclusion $this .
+        }
+      }
+    """ ;
+  ] .
+
+# ----------------------------------------------------------------------
+# Shape: UnitVariantChoice
+# ----------------------------------------------------------------------
+
+shapes:UnitVariantChoiceShape
+  a sh:NodeShape ;
+  sh:targetClass curric:UnitVariantChoice ;
+
+  sh:property [
+    sh:path curric:hasUnitVariantOption ;
+    sh:class curric:UnitVariant ;
+    sh:minCount 2 ;
+    sh:name "unit variant option" ;
+    sh:description "A unit variant choice must have at least two unit variant options." ;
+    sh:message "A unit variant choice must provide at least two options for selection." ;
+  ] ;
+
+  sh:sparql [
+    sh:message "Unit variant choice is not used in any unit variant inclusion (orphaned)" ;
+    sh:select """
+      PREFIX curric: <https://w3id.org/oak/curriculum/ontology/>
+      SELECT $this WHERE {
+        $this a curric:UnitVariantChoice .
+        FILTER NOT EXISTS {
+          ?inclusion curric:includesUnitVariantChoice $this .
+        }
+      }
+    """ ;
+  ] .
+
+# ----------------------------------------------------------------------
+# Shape: Thread
+# ----------------------------------------------------------------------
+
+shapes:ThreadShape
+  a sh:NodeShape ;
+  sh:targetClass curric:Thread ;
+
+  sh:sparql [
+    sh:message "Thread is not included by any unit (orphaned resource)" ;
+    sh:select """
+      PREFIX curric: <https://w3id.org/oak/curriculum/ontology/>
+      SELECT $this WHERE {
+        $this a curric:Thread .
+        FILTER NOT EXISTS { 
+          ?unit curric:includesThread $this 
+        }
+      }
+    """ ;
+  ] .
+
+# ----------------------------------------------------------------------
+# Shape: Lesson
+# ----------------------------------------------------------------------
+
+shapes:LessonShape
+  a sh:NodeShape ;
+  sh:targetClass curric:Lesson ;
+
+  sh:sparql [
+    sh:message "Lesson is not referenced by any lesson inclusion (orphaned resource)" ;
+    sh:select """
+      PREFIX curric: <https://w3id.org/oak/curriculum/ontology/>
+      SELECT $this WHERE {
+        $this a curric:Lesson .
+        FILTER NOT EXISTS { 
+          ?inclusion curric:includesLesson $this 
+        }
+      }
+    """ ;
+  ] .

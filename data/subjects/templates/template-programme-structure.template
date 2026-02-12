@@ -1,0 +1,168 @@
+@prefix curric: <https://w3id.org/uk/curriculum/core/> .
+@prefix eng: <https://w3id.org/uk/curriculum/england/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ======================================================================
+# National Curriculum for England - Mathematics Programme Structure
+# ======================================================================
+
+# ----------------------------------------------------------------------
+# Ontology Declaration
+# ----------------------------------------------------------------------
+
+<https://w3id.org/uk/curriculum/england/mathematics-programme-structure>
+  rdf:type owl:Ontology ;
+
+  rdfs:label "National Curriculum for England - Mathematics Programme Structure"@en ;
+  dc:title "National Curriculum for England - Mathematics Programme Structure"@en ;
+  rdfs:comment """Mathematics programme structure that specifies schemes and progressions, and a 
+  mapping to strands and content descriptors within the knowledge taxonomy."""@en ;
+
+  owl:versionInfo "0.1.0" ;
+  owl:versionIRI <https://w3id.org/uk/curriculum/england/mathematics-programme-structure/0.1.0> ;
+  owl:priorVersion <https://w3id.org/uk/curriculum/england/mathematics-programme-structure/0.0.9> ;
+  
+  dcterms:description """Mathematics programme structure that specifies schemes and progressions, and a 
+  mapping to strands and content descriptors within the knowledge taxonomy"""@en ;
+  dc:creator "Department for Education" ;
+  dcterms:created "2025-11-24T12:33:32Z"^^xsd:dateTime ;
+  dcterms:modified "2025-12-03T12:33:32Z"^^xsd:dateTime ;
+  dcterms:issued "2025-12-03T12:33:32Z"^^xsd:dateTime ;
+  
+  dcterms:license <http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/> ;
+  dcterms:rights "Crown Copyright"@en ;
+
+  rdfs:seeAlso <https://www.gov.uk/government/collections/national-curriculum> ;
+  vann:preferredNamespacePrefix "eng" ;
+  vann:preferredNamespaceUri "https://w3id.org/uk/curriculum/england/" ;
+
+  owl:imports <https://w3id.org/uk/curriculum/core/> ;
+  owl:imports <https://w3id.org/uk/curriculum/england/temporal-structure> ;
+  owl:imports <https://w3id.org/uk/curriculum/england/mathematics-knowledge-taxonomy> .
+
+# ----------------------------------------------------------------------
+# Subject Group
+# ----------------------------------------------------------------------
+
+eng:subjectgroup-mathematics
+  a curric:SubjectGroup ;
+  rdfs:label "Mathematics"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:coversDiscipline eng:discipline-mathematics .
+  
+# ----------------------------------------------------------------------
+# Subject
+# ----------------------------------------------------------------------
+
+eng:subject-mathematics
+  a curric:Subject ;
+  rdfs:label "Mathematics"@en ;
+  curric:aims (
+    "XXXXX."@en
+    "XXXXX."@en
+    "XXXXX."@en
+    "XXXXX."@en
+  ) ;
+  curric:rationale "Text for rationale..."@en ;
+  curric:structure "Text for structure..."@en ;
+  curric:schoolCurriculum "Text for school curriculum..."@en ;
+  dcterms:source <https://www.gov.uk/government/publications/national-curriculum-in-england-mathematics-programmes-of-study> ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isSubjectOf eng:subjectgroup-mathematics ;
+  curric:coversStrand eng:strand-XXXXX ,
+                      eng:strand-XXXXX .
+  
+# ----------------------------------------------------------------------
+# Schemes
+# ----------------------------------------------------------------------
+
+eng:scheme-mathematics-key-stage-1
+  a curric:Scheme ;
+  rdfs:label "Mathematics Key Stage 1"@en ;
+  dcterms:description """Mathematics KS1 scheme description..."""@en ;
+  dcterms:source <https://www.gov.uk/government/publications/national-curriculum-in-england-mathematics-programmes-of-study> ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isSchemeOf eng:subject-mathematics ;
+  curric:coversKeyStage eng:key-stage-1 .
+
+eng:scheme-mathematics-key-stage-2
+  a curric:Scheme ;
+  rdfs:label "Mathematics Key Stage 2"@en ;
+  dcterms:description """Mathematics KS2 scheme description..."""@en ;
+  dcterms:source <https://www.gov.uk/government/publications/national-curriculum-in-england-mathematics-programmes-of-study> ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isSchemeOf eng:subject-mathematics ;
+  curric:coversKeyStage eng:key-stage-2 .
+
+eng:scheme-mathematics-key-stage-3
+  a curric:Scheme ;
+  rdfs:label "Mathematics Key Stage 3"@en ;
+  dcterms:description """Mathematics KS3 scheme description..."""@en ;
+  dcterms:source <https://www.gov.uk/government/publications/national-curriculum-in-england-mathematics-programmes-of-study> ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isSchemeOf eng:subject-mathematics ;
+  curric:coversKeyStage eng:key-stage-3 .
+
+eng:scheme-mathematics-key-stage-4
+  a curric:Scheme ;
+  rdfs:label "Mathematics Key Stage 4"@en ;
+  dcterms:description """Mathematics KS4 scheme description..."""@en ;
+  dcterms:source <https://www.gov.uk/government/publications/national-curriculum-in-england-mathematics-programmes-of-study> ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isSchemeOf eng:subject-mathematics ;
+  curric:coversKeyStage eng:key-stage-4 .
+
+# ----------------------------------------------------------------------
+# Progressions
+# ----------------------------------------------------------------------
+
+eng:progression-mathematics-key-stage-1-XXXXX
+  a curric:Progression ;
+  rdfs:label "Mathematics Key Stage 1 XXXXX"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf eng:scheme-mathematics-key-stage-1 ;
+  curric:coversContent
+    eng:contentdescriptor-XXXXX ,
+    eng:contentdescriptor-XXXXX ,
+    eng:contentdescriptor-XXXXX ,
+    eng:contentdescriptor-XXXXX .
+
+eng:progression-mathematics-key-stage-2-XXXXX
+  a curric:Progression ;
+  rdfs:label "Mathematics Key Stage 2 XXXXX"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf eng:scheme-mathematics-key-stage-2 ;
+  curric:coversContent
+    eng:contentdescriptor-XXXXX ,
+    eng:contentdescriptor-XXXXX ,
+    eng:contentdescriptor-XXXXX ,
+    eng:contentdescriptor-XXXXX .
+
+eng:progression-mathematics-key-stage-3-XXXXX
+  a curric:Progression ;
+  rdfs:label "Mathematics Key Stage 3 XXXXX"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf eng:scheme-mathematics-key-stage-3 ;
+  curric:coversContent
+    eng:contentdescriptor-XXXXX ,
+    eng:contentdescriptor-XXXXX ,
+    eng:contentdescriptor-XXXXX ,
+    eng:contentdescriptor-XXXXX .
+
+eng:progression-mathematics-key-stage-4-XXXXX
+  a curric:Progression ;
+  rdfs:label "Mathematics Key Stage 4 XXXXX"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf eng:scheme-mathematics-key-stage-4 ;
+  curric:coversContent
+    eng:contentdescriptor-XXXXX ,
+    eng:contentdescriptor-XXXXX ,
+    eng:contentdescriptor-XXXXX ,
+    eng:contentdescriptor-XXXXX .

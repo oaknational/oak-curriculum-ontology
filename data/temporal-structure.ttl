@@ -1,0 +1,251 @@
+@prefix curric: <https://w3id.org/oak/curriculum/ontology/> .
+@prefix natcurric: <https://w3id.org/oak/curriculum/nationalcurriculum/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ======================================================================
+# National Curriculum for England - Temporal Structure Instance Data
+# ======================================================================
+
+# ----------------------------------------------------------------------
+# Ontology Declaration
+# ----------------------------------------------------------------------
+
+<https://w3id.org/oak/curriculum/nationalcurriculum/temporal-structure>
+  rdf:type owl:Ontology ;
+
+  rdfs:label "National Curriculum for England - Temporal Structure"@en ;
+  dc:title "National Curriculum for England - Temporal Structure"@en ;
+  rdfs:comment """Temporal structure defining the organizational framework of education 
+  in England: phases, key stages, and year groups."""@en ;
+
+  owl:versionInfo "0.1.0" ;
+  owl:versionIRI <https://w3id.org/oak/curriculum/nationalcurriculum/temporal-structure/0.1.0> ;
+  
+  dcterms:description """This ontology defines the organizational structure of education in 
+  England, including phases (Primary, Secondary), key stages (KS1-4), and year groups (Year 1 - 
+  Year 11) that provide the framework for curriculum delivery."""@en ;
+  dcterms:created "2025-11-24T12:33:32Z"^^xsd:dateTime ;
+  dcterms:modified "2025-12-03T12:33:32Z"^^xsd:dateTime ;
+  dcterms:issued "2025-12-03T12:33:32Z"^^xsd:dateTime ;
+  
+  # OGL 3.0 License
+  dcterms:license <http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/> ;
+  dcterms:rights "Crown Copyright"@en ;
+
+  vann:preferredNamespacePrefix "natcurric" ;
+  vann:preferredNamespaceUri "https://w3id.org/oak/curriculum/nationalcurriculum/" ;
+
+  owl:imports <https://w3id.org/oak/curriculum/ontology> .
+
+# ----------------------------------------------------------------------
+# Phases
+# ----------------------------------------------------------------------
+
+natcurric:phase-primary
+  a curric:Phase ;
+  rdfs:label "Primary"@en ;
+  rdfs:comment "Primary education phase covering years 1-6."@en ;
+  curric:lowerAgeBoundary "5"^^xsd:nonNegativeInteger ;
+  curric:upperAgeBoundary "11"^^xsd:positiveInteger ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:phase-secondary
+  a curric:Phase ;
+  rdfs:label "Secondary"@en ;
+  rdfs:comment "Secondary education phase covering years 7-11."@en ;
+  curric:lowerAgeBoundary "11"^^xsd:nonNegativeInteger ;
+  curric:upperAgeBoundary "16"^^xsd:positiveInteger ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:education-phases
+  a skos:OrderedCollection ;
+  rdfs:label "Education Phases"@en ;
+  skos:memberList (natcurric:phase-primary natcurric:phase-secondary) ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+# ----------------------------------------------------------------------
+# Key Stages
+# ----------------------------------------------------------------------
+
+natcurric:key-stage-1
+  a curric:KeyStage ;
+  rdfs:label "Key Stage 1"@en ;
+  rdfs:comment "Key Stage 1 covering years 1-2."@en ;
+  curric:lowerAgeBoundary "5"^^xsd:nonNegativeInteger ;
+  curric:upperAgeBoundary "7"^^xsd:positiveInteger ;
+  curric:isKeyStageOf natcurric:phase-primary ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:key-stage-2
+  a curric:KeyStage ;
+  rdfs:label "Key Stage 2"@en ;
+  rdfs:comment "Key Stage 2 covering years 3-6."@en ;
+  curric:lowerAgeBoundary "7"^^xsd:nonNegativeInteger ;
+  curric:upperAgeBoundary "11"^^xsd:positiveInteger ;
+  curric:isKeyStageOf natcurric:phase-primary ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:key-stage-3
+  a curric:KeyStage ;
+  rdfs:label "Key Stage 3"@en ;
+  rdfs:comment "Key Stage 3 covering years 7-9."@en ;
+  curric:lowerAgeBoundary "11"^^xsd:nonNegativeInteger ;
+  curric:upperAgeBoundary "14"^^xsd:positiveInteger ;
+  curric:isKeyStageOf natcurric:phase-secondary ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:key-stage-4
+  a curric:KeyStage ;
+  rdfs:label "Key Stage 4"@en ;
+  rdfs:comment "Key Stage 4 covering years 10-11 (GCSE years)."@en ;
+  curric:lowerAgeBoundary "14"^^xsd:nonNegativeInteger ;
+  curric:upperAgeBoundary "16"^^xsd:positiveInteger ;
+  curric:isKeyStageOf natcurric:phase-secondary ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:primary-key-stages
+  a skos:OrderedCollection ;
+  rdfs:label "Primary Key Stages"@en ;
+  skos:memberList (natcurric:key-stage-1 natcurric:key-stage-2) ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:secondary-key-stages
+  a skos:OrderedCollection ;
+  rdfs:label "Secondary Key Stages"@en ;
+  skos:memberList (natcurric:key-stage-3 natcurric:key-stage-4) ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+# ----------------------------------------------------------------------
+# Year Groups
+# ----------------------------------------------------------------------
+
+natcurric:year-group-1
+  a curric:YearGroup ;
+  rdfs:label "Year Group 1"@en ;
+  rdfs:comment "Year Group 1 (age 5-6)."@en ;
+  curric:lowerAgeBoundary "5"^^xsd:nonNegativeInteger ;
+  curric:upperAgeBoundary "6"^^xsd:positiveInteger ;
+  curric:isYearGroupOf natcurric:key-stage-1 ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:year-group-2
+  a curric:YearGroup ;
+  rdfs:label "Year Group 2"@en ;
+  rdfs:comment "Year Group 2 (age 6-7)."@en ;
+  curric:lowerAgeBoundary "6"^^xsd:nonNegativeInteger ;
+  curric:upperAgeBoundary "7"^^xsd:positiveInteger ;
+  curric:isYearGroupOf natcurric:key-stage-1 ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:year-group-3
+  a curric:YearGroup ;
+  rdfs:label "Year Group 3"@en ;
+  rdfs:comment "Year Group 3 (age 7-8)."@en ;
+  curric:lowerAgeBoundary "7"^^xsd:nonNegativeInteger ;
+  curric:upperAgeBoundary "8"^^xsd:positiveInteger ;
+  curric:isYearGroupOf natcurric:key-stage-2 ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:year-group-4
+  a curric:YearGroup ;
+  rdfs:label "Year Group 4"@en ;
+  rdfs:comment "Year Group 4 (age 8-9)."@en ;
+  curric:lowerAgeBoundary "8"^^xsd:nonNegativeInteger ;
+  curric:upperAgeBoundary "9"^^xsd:positiveInteger ;
+  curric:isYearGroupOf natcurric:key-stage-2 ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:year-group-5
+  a curric:YearGroup ;
+  rdfs:label "Year Group 5"@en ;
+  rdfs:comment "Year Group 5 (age 9-10)."@en ;
+  curric:lowerAgeBoundary "9"^^xsd:nonNegativeInteger ;
+  curric:upperAgeBoundary "10"^^xsd:positiveInteger ;
+  curric:isYearGroupOf natcurric:key-stage-2 ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:year-group-6
+  a curric:YearGroup ;
+  rdfs:label "Year Group 6"@en ;
+  rdfs:comment "Year Group 6 (age 10-11)."@en ;
+  curric:lowerAgeBoundary "10"^^xsd:nonNegativeInteger ;
+  curric:upperAgeBoundary "11"^^xsd:positiveInteger ;
+  curric:isYearGroupOf natcurric:key-stage-2 ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:year-group-7
+  a curric:YearGroup ;
+  rdfs:label "Year Group 7"@en ;
+  rdfs:comment "Year Group 7 (age 11-12)."@en ;
+  curric:lowerAgeBoundary "11"^^xsd:nonNegativeInteger ;
+  curric:upperAgeBoundary "12"^^xsd:positiveInteger ;
+  curric:isYearGroupOf natcurric:key-stage-3 ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:year-group-8
+  a curric:YearGroup ;
+  rdfs:label "Year Group 8"@en ;
+  rdfs:comment "Year Group 8 (age 12-13)."@en ;
+  curric:lowerAgeBoundary "12"^^xsd:nonNegativeInteger ;
+  curric:upperAgeBoundary "13"^^xsd:positiveInteger ;
+  curric:isYearGroupOf natcurric:key-stage-3 ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:year-group-9
+  a curric:YearGroup ;
+  rdfs:label "Year Group 9"@en ;
+  rdfs:comment "Year Group 9 (age 13-14)."@en ;
+  curric:lowerAgeBoundary "13"^^xsd:nonNegativeInteger ;
+  curric:upperAgeBoundary "14"^^xsd:positiveInteger ;
+  curric:isYearGroupOf natcurric:key-stage-3 ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:year-group-10
+  a curric:YearGroup ;
+  rdfs:label "Year Group 10"@en ;
+  rdfs:comment "Year Group 10 (age 14-15), first year of GCSE study."@en ;
+  curric:lowerAgeBoundary "14"^^xsd:nonNegativeInteger ;
+  curric:upperAgeBoundary "15"^^xsd:positiveInteger ;
+  curric:isYearGroupOf natcurric:key-stage-4 ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:year-group-11
+  a curric:YearGroup ;
+  rdfs:label "Year Group 11"@en ;
+  rdfs:comment "Year Group 11 (age 15-16), final year of GCSE study."@en ;
+  curric:lowerAgeBoundary "15"^^xsd:nonNegativeInteger ;
+  curric:upperAgeBoundary "16"^^xsd:positiveInteger ;
+  curric:isYearGroupOf natcurric:key-stage-4 ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:key-stage-1-year-groups
+  a skos:OrderedCollection ;
+  rdfs:label "Key Stage 1 Year Groups"@en ;
+  skos:memberList (natcurric:year-group-1 natcurric:year-group-2) ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:key-stage-2-year-groups
+  a skos:OrderedCollection ;
+  rdfs:label "Key Stage 2 Year Groups"@en ;
+  skos:memberList (natcurric:year-group-3 natcurric:year-group-4 natcurric:year-group-5 natcurric:year-group-6) ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:key-stage-3-year-groups
+  a skos:OrderedCollection ;
+  rdfs:label "Key Stage 3 Year Groups"@en ;
+  skos:memberList (natcurric:year-group-7 natcurric:year-group-8 natcurric:year-group-9) ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:key-stage-4-year-groups
+  a skos:OrderedCollection ;
+  rdfs:label "Key Stage 4 Year Groups"@en ;
+  skos:memberList (natcurric:year-group-10 natcurric:year-group-11) ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+  

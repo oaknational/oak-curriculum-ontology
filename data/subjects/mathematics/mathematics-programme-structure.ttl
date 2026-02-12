@@ -1,0 +1,1089 @@
+@prefix curric: <https://w3id.org/oak/curriculum/ontology/> .
+@prefix natcurric: <https://w3id.org/oak/curriculum/nationalcurriculum/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ======================================================================
+# National Curriculum for England - Mathematics Programme Structure
+# ======================================================================
+
+# ----------------------------------------------------------------------
+# Ontology Declaration
+# ----------------------------------------------------------------------
+
+<https://w3id.org/oak/curriculum/nationalcurriculum/mathematics-programme-structure>
+  rdf:type owl:Ontology ;
+
+  rdfs:label "National Curriculum for England - Mathematics Programme Structure"@en ;
+  dc:title "National Curriculum for England - Mathematics Programme Structure"@en ;
+  rdfs:comment """Mathematics programme structure that specifies schemes and progressions, and a 
+  mapping to strands and content descriptors within the knowledge taxonomy."""@en ;
+
+  owl:versionInfo "0.1.0" ;
+  owl:versionIRI <https://w3id.org/oak/curriculum/nationalcurriculum/mathematics-programme-structure/0.1.0> ;
+  
+  dcterms:description """Mathematics programme structure that specifies schemes and progressions, and a 
+  mapping to strands and content descriptors within the knowledge taxonomy"""@en ;
+  dcterms:created "2025-11-24T12:33:32Z"^^xsd:dateTime ;
+  dcterms:modified "2025-12-03T12:33:32Z"^^xsd:dateTime ;
+  dcterms:issued "2025-12-03T12:33:32Z"^^xsd:dateTime ;
+  
+  # OGL 3.0 License
+  dcterms:license <http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/> ;
+  dcterms:rights "Crown Copyright"@en ;
+
+  vann:preferredNamespacePrefix "natcurric" ;
+  vann:preferredNamespaceUri "https://w3id.org/oak/curriculum/nationalcurriculum/" ;
+
+  owl:imports <https://w3id.org/oak/curriculum/ontology> ;
+  owl:imports <https://w3id.org/oak/curriculum/nationalcurriculum/temporal-structure> ;
+  owl:imports <https://w3id.org/oak/curriculum/nationalcurriculum/mathematics-knowledge-taxonomy> .
+
+# ----------------------------------------------------------------------
+# Subject Group
+# ----------------------------------------------------------------------
+
+natcurric:subjectgroup-mathematics
+  a curric:SubjectGroup ;
+  rdfs:label "Mathematics"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:coversDiscipline natcurric:discipline-mathematics .
+  
+# ----------------------------------------------------------------------
+# Subject
+# ----------------------------------------------------------------------
+
+natcurric:subject-mathematics
+  a curric:Subject ;
+  rdfs:label "Mathematics"@en ;
+  curric:aims (
+    """Become fluent in the fundamentals of mathematics, including through varied and frequent 
+    practice with increasingly complex problems over time, so that pupils develop conceptual 
+    understanding and the ability to recall and apply knowledge rapidly and accurately."""@en
+    """Reason mathematically by following a line of enquiry, conjecturing relationships and 
+    generalisations, and developing an argument, justification or proof using mathematical 
+    language."""@en
+    """Can solve problems by applying their mathematics to a variety of routine and non-routine 
+    problems with increasing sophistication, including breaking down problems into a series of 
+    simpler steps and persevering in seeking solutions."""@en
+  ) ;
+  curric:rationale """Mathematics is a creative and highly interconnected discipline that has been 
+  developed over centuries, providing the solution to some of history’s most intriguing problems. 
+  It is essential to everyday life, critical to science, technology and engineering, and necessary 
+  for financial literacy and most forms of employment. A high-quality mathematics education 
+  therefore provides a foundation for understanding the world, the ability to reason 
+  mathematically, an appreciation of the beauty and power of mathematics, and a sense of enjoyment 
+  and curiosity about the subject.
+  
+  Mathematics is an interconnected subject in which pupils need to be able to move fluently between 
+  representations of mathematical ideas. The programmes of study are, by necessity, organised into 
+  apparently distinct domains, but pupils should make rich connections across mathematical ideas to 
+  develop fluency, mathematical reasoning and competence in solving increasingly sophisticated 
+  problems. They should also apply their mathematical knowledge to science and other subjects.
+  
+  The expectation is that the majority of pupils will move through the programmes of study at 
+  broadly the same pace. However, decisions about when to progress should always be based on the 
+  security of pupils’ understanding and their readiness to progress to the next stage. Pupils who 
+  grasp concepts rapidly should be challenged through being offered rich and sophisticated problems 
+  before any acceleration through new content. Those who are not sufficiently fluent with earlier 
+  material should consolidate their understanding, including through additional practice, before 
+  moving on."""@en ;
+  curric:structure "Text for structure..."@en ;
+  curric:schoolCurriculum """The programmes of study for mathematics are set out year-by-year for 
+  key stages 1 and 2. Schools are, however, only required to teach the relevant programme of study 
+  by the end of the key stage. Within each key stage, schools therefore have the flexibility to 
+  introduce content earlier or later than set out in the programme of study. In addition, schools 
+  can introduce key stage content during an earlier key stage, if appropriate. All schools are also 
+  required to set out their school curriculum for mathematics on a year-by-year basis and make this 
+  information available online."""@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isSubjectOf natcurric:subjectgroup-mathematics ;
+  curric:coversStrand 
+    natcurric:strand-working-mathematically,
+    natcurric:strand-number ,
+    natcurric:strand-algebra ,
+    natcurric:strand-multiplicative-reasoning ,
+    natcurric:strand-geometry-measurement-spacial-reasoning ,
+    natcurric:strand-data-literacy .
+  
+# ----------------------------------------------------------------------
+# Schemes
+# ----------------------------------------------------------------------
+
+natcurric:scheme-mathematics-key-stage-1
+  a curric:Scheme ;
+  rdfs:label "Mathematics Key Stage 1"@en ;
+  dcterms:description """The principal focus of mathematics teaching in key stage 1 is to ensure 
+  that pupils develop confidence and mental fluency with whole numbers, counting and place value. 
+  This should involve working with numerals, words and the 4 operations, including with practical 
+  resources [for example, concrete objects and measuring tools].
+  
+  At this stage, pupils should develop their ability to recognise, describe, draw, compare and sort 
+  different shapes and use the related vocabulary. Teaching should also involve using a range of 
+  measures to describe and compare different quantities such as length, mass, capacity/volume, time 
+  and money.
+  
+  By the end of year 2, pupils should know the number bonds to 20 and be precise in using and 
+  understanding place value. An emphasis on practice at this early stage will aid fluency.
+  
+  Pupils should read and spell mathematical vocabulary, at a level consistent with their increasing 
+  word reading and spelling knowledge at key stage 1."""@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isSchemeOf natcurric:subject-mathematics ;
+  curric:coversKeyStage natcurric:key-stage-1 .
+
+natcurric:scheme-mathematics-key-stage-2
+  a curric:Scheme ;
+  rdfs:label "Mathematics Key Stage 2"@en ;
+  dcterms:description """The principal focus of mathematics teaching in lower key stage 2 is to 
+  ensure that pupils become increasingly fluent with whole numbers and the 4 operations, including 
+  number facts and the concept of place value. This should ensure that pupils develop efficient 
+  written and mental methods and perform calculations accurately with increasingly large whole 
+  numbers.
+  
+  At this stage, pupils should develop their ability to solve a range of problems, including with 
+  simple fractions and decimal place value. Teaching should also ensure that pupils draw with 
+  increasing accuracy and develop mathematical reasoning so they can analyse shapes and their 
+  properties, and confidently describe the relationships between them. It should ensure that they 
+  can use measuring instruments with accuracy and make connections between measure and number.
+  
+  By the end of year 4, pupils should have memorised their multiplication tables up to and 
+  including the 12 multiplication table and show precision and fluency in their work.
+  
+  Pupils should read and spell mathematical vocabulary correctly and confidently, using their 
+  growing word-reading knowledge and their knowledge of spelling.
+  
+  The principal focus of mathematics teaching in upper key stage 2 is to ensure that pupils extend 
+  their understanding of the number system and place value to include larger integers. This should 
+  develop the connections that pupils make between multiplication and division with fractions, 
+  decimals, percentages and ratio.
+  
+  At this stage, pupils should develop their ability to solve a wider range of problems, including 
+  increasingly complex properties of numbers and arithmetic, and problems demanding efficient 
+  written and mental methods of calculation. With this foundation in arithmetic, pupils are 
+  introduced to the language of algebra as a means for solving a variety of problems. Teaching in 
+  geometry and measures should consolidate and extend knowledge developed in number. Teaching 
+  should also ensure that pupils classify shapes with increasingly complex geometric properties and 
+  that they learn the vocabulary they need to describe them.
+  
+  By the end of year 6, pupils should be fluent in written methods for all 4 operations, including 
+  long multiplication and division, and in working with fractions, decimals and percentages.
+  
+  Pupils should read, spell and pronounce mathematical vocabulary correctly."""@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isSchemeOf natcurric:subject-mathematics ;
+  curric:coversKeyStage natcurric:key-stage-2 .
+
+natcurric:scheme-mathematics-key-stage-3
+  a curric:Scheme ;
+  rdfs:label "Mathematics Key Stage 3"@en ;
+  dcterms:description """Mathematics is an interconnected subject in which pupils need to be able 
+  to move fluently between representations of mathematical ideas. The programme of study for key 
+  stage 3 is organised into apparently distinct domains, but pupils should build on key stage 2 and 
+  connections across mathematical ideas to develop fluency, mathematical reasoning and competence 
+  in solving increasingly sophisticated problems. They should also apply their mathematical 
+  knowledge in science, geography, computing and other subjects.
+  
+  Decisions about progression should be based on the security of pupils’ understanding and their 
+  readiness to progress to the next stage. Pupils who grasp concepts rapidly should be challenged 
+  through being offered rich and sophisticated problems before any acceleration through new content 
+  in preparation for key stage 4. Those who are not sufficiently fluent should consolidate their 
+  understanding, including through additional practice, before moving on."""@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isSchemeOf natcurric:subject-mathematics ;
+  curric:coversKeyStage natcurric:key-stage-3 .
+
+natcurric:scheme-mathematics-key-stage-4
+  a curric:Scheme ;
+  rdfs:label "Mathematics Key Stage 4"@en ;
+  dcterms:description """This programme of study specifies:
+  - the mathematical content that should be taught to all pupils, in standard type
+  - additional mathematical content to be taught to more highly attaining pupils, in braces { }
+  Together, the mathematical content set out in the key stage 3 and key stage 4 programmes of study 
+  covers the full range of material contained in the GCSE Mathematics qualification. Wherever it is 
+  appropriate, given pupils’ security of understanding and readiness to progress, pupils should be 
+  taught the full content set out in this programme of study."""@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isSchemeOf natcurric:subject-mathematics ;
+  curric:coversKeyStage natcurric:key-stage-4 .
+
+# ----------------------------------------------------------------------
+# Progressions
+# ----------------------------------------------------------------------
+
+natcurric:progression-mathematics-year-group-1-place-value
+  a curric:Progression ;
+  rdfs:label "Mathematics Year Group 1 Place Value"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-mathematics-key-stage-1 ;
+  curric:coversContent
+    natcurric:contentdescriptor-count-to-100-forwards-backwards ,
+    natcurric:contentdescriptor-count-read-write-to-100 ,
+    natcurric:contentdescriptor-identify-one-more-less ,
+    natcurric:contentdescriptor-represent-numbers-comparison-language ,
+    natcurric:contentdescriptor-read-write-numbers-to-20 .
+
+natcurric:progression-mathematics-year-group-1-addition-and-subtraction
+  a curric:Progression ;
+  rdfs:label "Mathematics Year Group 1 Addition and Subtraction"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-mathematics-key-stage-1 ;
+  curric:coversContent
+    natcurric:contentdescriptor-interpret-addition-subtraction-statements ,
+    natcurric:contentdescriptor-number-bonds-within-20 ,
+    natcurric:contentdescriptor-add-subtract-to-20 ,
+    natcurric:contentdescriptor-one-step-addition-subtraction-problems .
+
+natcurric:progression-mathematics-year-group-1-multiplication-and-division
+  a curric:Progression ;
+  rdfs:label "Mathematics Year Group 1 Multiplication and Division"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-mathematics-key-stage-1 ;
+  curric:coversContent
+    natcurric:contentdescriptor-one-step-multiplication-division-problems .
+
+natcurric:progression-mathematics-year-group-1-fractions
+  a curric:Progression ;
+  rdfs:label "Mathematics Year Group 1 Fractions"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-mathematics-key-stage-1 ;
+  curric:coversContent
+    natcurric:contentdescriptor-recognise-half ,
+    natcurric:contentdescriptor-recognise-quarter .
+
+natcurric:progression-mathematics-year-group-1-measurement
+  a curric:Progression ;
+  rdfs:label "Mathematics Year Group 1 Measurement"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-mathematics-key-stage-1 ;
+  curric:coversContent
+    natcurric:contentdescriptor-compare-lengths-heights ,
+    natcurric:contentdescriptor-compare-mass-weight ,
+    natcurric:contentdescriptor-compare-capacity-volume ,
+    natcurric:contentdescriptor-compare-time ,
+    natcurric:contentdescriptor-measure-lengths-heights ,
+    natcurric:contentdescriptor-measure-mass-weight ,
+    natcurric:contentdescriptor-measure-capacity-volume ,
+    natcurric:contentdescriptor-measure-time ,
+    natcurric:contentdescriptor-recognise-money-value ,
+    natcurric:contentdescriptor-sequence-events-chronologically ,
+    natcurric:contentdescriptor-recognise-dates-language ,
+    natcurric:contentdescriptor-tell-time-hour-half .
+
+natcurric:progression-mathematics-year-group-1-properties-of-shape
+  a curric:Progression ;
+  rdfs:label "Mathematics Year Group 1 Properties of Shape"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-mathematics-key-stage-1 ;
+  curric:coversContent
+    natcurric:contentdescriptor-recognise-2d-shapes ,
+    natcurric:contentdescriptor-recognise-3d-shapes .
+
+natcurric:progression-mathematics-year-group-1-position-and-direction
+  a curric:Progression ;
+  rdfs:label "Mathematics Year Group 1 Position and Direction"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-mathematics-key-stage-1 ;
+  curric:coversContent
+    natcurric:contentdescriptor-describe-position-direction-movement .
+
+natcurric:progression-mathematics-year-group-2-place-value
+  a curric:Progression ;
+  rdfs:label "Mathematics Year Group 2 Place Value"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-mathematics-key-stage-1 ;
+  curric:coversContent
+    natcurric:contentdescriptor-count-in-steps-2-3-5-10 ,
+    natcurric:contentdescriptor-recognise-place-value ,
+    natcurric:contentdescriptor-estimate-numbers-number-line ,
+    natcurric:contentdescriptor-compare-order-numbers-100 ,
+    natcurric:contentdescriptor-read-write-numbers-100 ,
+    natcurric:contentdescriptor-place-value-solve-problems .
+
+natcurric:progression-mathematics-year-group-2-addition-and-subtraction
+  a curric:Progression ;
+  rdfs:label "Mathematics Year Group 2 Addition and Subtraction"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-mathematics-key-stage-1 ;
+  curric:coversContent
+    natcurric:contentdescriptor-addition-subtraction-numbers-quantities-measures ,
+    natcurric:contentdescriptor-addition-subtraction-mental-written-methods ,
+    natcurric:contentdescriptor-recall-addition-subtraction-facts ,
+    natcurric:contentdescriptor-add-subtract-mentally ,
+    natcurric:contentdescriptor-addition-commutative-property ,
+    natcurric:contentdescriptor-inverse-addition-subtraction .
+
+natcurric:progression-mathematics-year-group-2-multiplication-and-division
+  a curric:Progression ;
+  rdfs:label "Mathematics Year Group 2 Multiplication and Division"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-mathematics-key-stage-1 ;
+  curric:coversContent
+    natcurric:contentdescriptor-multiplication-tables-2-5-10 ,
+    natcurric:contentdescriptor-calculate-multiplication-division-statements ,
+    natcurric:contentdescriptor-multiplication-commutative-property ,
+    natcurric:contentdescriptor-solve-multiplication-division-problems .
+
+natcurric:progression-mathematics-year-group-2-fractions
+  a curric:Progression ;
+  rdfs:label "Mathematics Year Group 2 Fractions"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-mathematics-key-stage-1 ;
+  curric:coversContent
+    natcurric:contentdescriptor-recognise-fractions ,
+    natcurric:contentdescriptor-write-simple-fractions .
+
+natcurric:progression-mathematics-year-group-2-measurement
+  a curric:Progression ;
+  rdfs:label "Mathematics Year Group 2 Measurement"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-mathematics-key-stage-1 ;
+  curric:coversContent
+    natcurric:contentdescriptor-measure-standard-units ,
+    natcurric:contentdescriptor-compare-order-measures ,
+    natcurric:contentdescriptor-recognise-money-symbols ,
+    natcurric:contentdescriptor-coin-combinations ,
+    natcurric:contentdescriptor-solve-money-problems ,
+    natcurric:contentdescriptor-compare-sequence-time ,
+    natcurric:contentdescriptor-tell-time-five-minutes ,
+    natcurric:contentdescriptor-minutes-hours .
+
+natcurric:progression-mathematics-year-group-2-properties-of-shape
+  a curric:Progression ;
+  rdfs:label "Mathematics Year Group 2 Properties of Shape"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-mathematics-key-stage-1 ;
+  curric:coversContent
+    natcurric:contentdescriptor-properties-2d-shapes ,
+    natcurric:contentdescriptor-properties-3d-shapes ,
+    natcurric:contentdescriptor-2d-shapes-on-3d ,
+    natcurric:contentdescriptor-compare-sort-shapes .
+
+natcurric:progression-mathematics-year-group-2-position-and-direction
+  a curric:Progression ;
+  rdfs:label "Mathematics Year Group 2 Position and Direction"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-mathematics-key-stage-1 ;
+  curric:coversContent
+    natcurric:contentdescriptor-arrange-patterns-sequences ,
+    natcurric:contentdescriptor-mathematical-vocabulary-describe-position-direction .
+
+natcurric:progression-mathematics-year-group-2-statistics
+  a curric:Progression ;
+  rdfs:label "Mathematics Year Group 2 Statistics"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-mathematics-key-stage-1 ;
+  curric:coversContent
+    natcurric:contentdescriptor-interpret-construct-data-representations ,
+    natcurric:contentdescriptor-ask-answer-counting-questions ,
+    natcurric:contentdescriptor-questions-comparing-categorical-data .
+
+natcurric:progression-mathematics-year-group-3-place-value
+  a curric:Progression ;
+  rdfs:label "Mathematics Year Group 3 Place Value"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-mathematics-key-stage-2 ;
+  curric:coversContent
+    natcurric:contentdescriptor-count-in-multiples-4-8-50-100 ,
+    natcurric:contentdescriptor-recognise-place-value-3-digit-numbers ,
+    natcurric:contentdescriptor-compare-order-numbers-to-1000 ,
+    natcurric:contentdescriptor-identify-represent-estimate-numbers ,
+    natcurric:contentdescriptor-read-write-numbers-to-1000 ,
+    natcurric:contentdescriptor-place-value-solve-problems .
+
+natcurric:progression-mathematics-year-group-3-addition-and-subtraction
+  a curric:Progression ;
+  rdfs:label "Mathematics Year Group 3 Addition and Subtraction"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-mathematics-key-stage-2 ;
+  curric:coversContent
+    natcurric:contentdescriptor-add-subtract-3-digit-numbers ,
+    natcurric:contentdescriptor-columnar-addition-subtraction-3-digits ,
+    natcurric:contentdescriptor-estimate-answer-inverse-operations ,
+    natcurric:contentdescriptor-missing-number-complex-problems .
+
+natcurric:progression-mathematics-year-group-3-multiplication-and-division
+  a curric:Progression ;
+  rdfs:label "Mathematics Year Group 3 Multiplication and Division"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-mathematics-key-stage-2 ;
+  curric:coversContent
+    natcurric:contentdescriptor-multiplication-tables-3-4-8 ,
+    natcurric:contentdescriptor-calculate-multiplication-division-statements-2-digit ,
+    natcurric:contentdescriptor-solve-multiplication-division-missing-problems .
+
+natcurric:progression-mathematics-year-group-3-fractions
+  a curric:Progression ;
+  rdfs:label "Mathematics Year Group 3 Fractions"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-mathematics-key-stage-2 ;
+  curric:coversContent
+    natcurric:contentdescriptor-count-recognise-tenths ,
+    natcurric:contentdescriptor-fractions-discrete-sets ,
+    natcurric:contentdescriptor-fractions-as-numbers ,
+    natcurric:contentdescriptor-equivalent-fractions-small-denominators ,
+    natcurric:contentdescriptor-add-subtract-within-one-whole ,
+    natcurric:contentdescriptor-compare-order-fractions ,
+    natcurric:contentdescriptor-solve-fraction-problems .
+
+natcurric:progression-mathematics-year-group-3-measurement
+  a curric:Progression ;
+  rdfs:label "Mathematics Year Group 3 Measurement"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-mathematics-key-stage-2 ;
+  curric:coversContent
+    natcurric:contentdescriptor-measure-compare-add-subtract ,
+    natcurric:contentdescriptor-measure-perimeter ,
+    natcurric:contentdescriptor-money-give-change ,
+    natcurric:contentdescriptor-tell-time-analogue-clock ,
+    natcurric:contentdescriptor-estimate-read-time-minute ,
+    natcurric:contentdescriptor-time-units-calendar ,
+    natcurric:contentdescriptor-compare-durations .
+
+natcurric:progression-mathematics-year-group-3-properties-of-shape
+  a curric:Progression ;
+  rdfs:label "Mathematics Year Group 3 Properties of Shape"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-mathematics-key-stage-2 ;
+  curric:coversContent
+    natcurric:contentdescriptor-draw-make-shapes ,
+    natcurric:contentdescriptor-recognise-angles ,
+    natcurric:contentdescriptor-identify-right-angles ,
+    natcurric:contentdescriptor-identify-lines .
+
+natcurric:progression-mathematics-year-group-3-statistics
+  a curric:Progression ;
+  rdfs:label "Mathematics Year Group 3 Statistics"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-mathematics-key-stage-2 ;
+  curric:coversContent
+    natcurric:contentdescriptor-interpret-present-data ,
+    natcurric:contentdescriptor-solve-scaled-chart-questions .
+
+natcurric:progression-mathematics-year-group-4-place-value
+  a curric:Progression ;
+  rdfs:label "Mathematics Year Group 4 Place Value"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-mathematics-key-stage-2 ;
+  curric:coversContent
+    natcurric:contentdescriptor-count-multiples-6-7-9 ,
+    natcurric:contentdescriptor-find-1000-more-less ,
+    natcurric:contentdescriptor-count-backwards-negative-numbers ,
+    natcurric:contentdescriptor-place-value-4-digit ,
+    natcurric:contentdescriptor-order-compare-beyond-1000 ,
+    natcurric:contentdescriptor-identify-represent-estimate-numbers ,
+    natcurric:contentdescriptor-round-to-nearest ,
+    natcurric:contentdescriptor-solve-large-number-problems ,
+    natcurric:contentdescriptor-roman-numerals-to-100 .
+
+natcurric:progression-mathematics-year-group-4-addition-and-subtraction
+  a curric:Progression ;
+  rdfs:label "Mathematics Year Group 4 Addition and Subtraction"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-mathematics-key-stage-2 ;
+  curric:coversContent
+    natcurric:contentdescriptor-columnar-addition-subtraction-4-digit ,
+    natcurric:contentdescriptor-estimate-answer-inverse-operations ,
+    natcurric:contentdescriptor-addition-subtraction-two-step-problems .
+
+natcurric:progression-mathematics-year-group-4-multiplication-and-division
+  a curric:Progression ;
+  rdfs:label "Mathematics Year Group 4 Multiplication and Division"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-mathematics-key-stage-2 ;
+  curric:coversContent
+    natcurric:contentdescriptor-multiplication-tables-to-12 ,
+    natcurric:contentdescriptor-multiply-divide-mentally-complex ,
+    natcurric:contentdescriptor-factor-pairs-commutativity ,
+    natcurric:contentdescriptor-multiply-formal-written-layout ,
+    natcurric:contentdescriptor-solve-distributive-law-problems .
+
+natcurric:progression-mathematics-year-group-4-fractions
+  a curric:Progression ;
+  rdfs:label "Mathematics Year Group 4 Fractions"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-mathematics-key-stage-2 ;
+  curric:coversContent
+    natcurric:contentdescriptor-equivalent-fractions-families ,
+    natcurric:contentdescriptor-count-recognise-hundredths ,
+    natcurric:contentdescriptor-solve-harder-fraction-problems ,
+    natcurric:contentdescriptor-add-subtract-same-denominators ,
+    natcurric:contentdescriptor-decimal-equivalents-tenths-hundredths ,
+    natcurric:contentdescriptor-decimal-equivalents-quarters-half .
+
+natcurric:progression-mathematics-year-group-4-decimals-and-percentages
+  a curric:Progression ;
+  rdfs:label "Mathematics Year Group 4 Decimals and Percentages"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-mathematics-key-stage-2 ;
+  curric:coversContent
+    natcurric:contentdescriptor-divide-by-10-100 ,
+    natcurric:contentdescriptor-round-decimals-with-1-dp ,
+    natcurric:contentdescriptor-compare-decimal-places ,
+    natcurric:contentdescriptor-solve-measure-money-problems .
+
+natcurric:progression-mathematics-year-group-4-measurement
+  a curric:Progression ;
+  rdfs:label "Mathematics Year Group 4 Measurement"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-mathematics-key-stage-2 ;
+  curric:coversContent
+    natcurric:contentdescriptor-convert-units-measure ,
+    natcurric:contentdescriptor-perimeter-rectilinear-figures ,
+    natcurric:contentdescriptor-area-by-counting-squares ,
+    natcurric:contentdescriptor-estimate-compare-calculate-measures ,
+    natcurric:contentdescriptor-convert-analogue-digital-time ,
+    natcurric:contentdescriptor-convert-between-units-of-time .
+
+natcurric:progression-mathematics-year-group-4-properties-of-shape
+  a curric:Progression ;
+  rdfs:label "Mathematics Year Group 4 Properties of Shape"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-mathematics-key-stage-2 ;
+  curric:coversContent
+    natcurric:contentdescriptor-classify-geometric-shapes ,
+    natcurric:contentdescriptor-identify-compare-angles ,
+    natcurric:contentdescriptor-identify-lines-symmetry ,
+    natcurric:contentdescriptor-complete-symmetric-figure .
+
+natcurric:progression-mathematics-year-group-4-position-and-direction
+  a curric:Progression ;
+  rdfs:label "Mathematics Year Group 4 Position and Direction"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-mathematics-key-stage-2 ;
+  curric:coversContent
+    natcurric:contentdescriptor-coordinates-first-quadrant ,
+    natcurric:contentdescriptor-describe-translations ,
+    natcurric:contentdescriptor-plot-points-complete-polygon .
+
+natcurric:progression-mathematics-year-group-4-statistics
+  a curric:Progression ;
+  rdfs:label "Mathematics Year Group 4 Statistics"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-mathematics-key-stage-2 ;
+  curric:coversContent
+    natcurric:contentdescriptor-interpret-present-graphical-data ,
+    natcurric:contentdescriptor-comparison-sum-difference-graphs-tables .
+
+natcurric:progression-mathematics-year-group-5-place-value
+  a curric:Progression ;
+  rdfs:label "Mathematics Year Group 5 Place Value"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-mathematics-key-stage-2 ;
+  curric:coversContent
+    natcurric:contentdescriptor-read-write-compare-to-1000000 ,
+    natcurric:contentdescriptor-count-powers-of-10 ,
+    natcurric:contentdescriptor-interpret-negative-numbers ,
+    natcurric:contentdescriptor-round-to-1000000 ,
+    natcurric:contentdescriptor-solve-number-problems ,
+    natcurric:contentdescriptor-roman-numerals-to-1000 .
+
+natcurric:progression-mathematics-year-group-5-addition-and-subtraction
+  a curric:Progression ;
+  rdfs:label "Mathematics Year Group 5 Addition and Subtraction"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-mathematics-key-stage-2 ;
+  curric:coversContent
+    natcurric:contentdescriptor-add-subtract-more-4-digits ,
+    natcurric:contentdescriptor-add-subtract-mentally-large-numbers ,
+    natcurric:contentdescriptor-use-rounding-check-accuracy ,
+    natcurric:contentdescriptor-addition-and-subtraction-multi-step-problems .
+
+natcurric:progression-mathematics-year-group-5-multiplication-and-division
+  a curric:Progression ;
+  rdfs:label "Mathematics Year Group 5 Multiplication and Division"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-mathematics-key-stage-2 ;
+  curric:coversContent
+    natcurric:contentdescriptor-identify-multiples-factors ,
+    natcurric:contentdescriptor-prime-numbers-vocabulary ,
+    natcurric:contentdescriptor-establish-prime-numbers ,
+    natcurric:contentdescriptor-multiply-long-multiplication ,
+    natcurric:contentdescriptor-multiply-divide-mentally ,
+    natcurric:contentdescriptor-divide-short-division ,
+    natcurric:contentdescriptor-multiply-divide-by-powers-10 ,
+    natcurric:contentdescriptor-square-cube-numbers ,
+    natcurric:contentdescriptor-solve-factors-multiples-problems ,
+    natcurric:contentdescriptor-four-operations-problems-and-equals ,
+    natcurric:contentdescriptor-solve-scaling-rates-problems .
+
+natcurric:progression-mathematics-year-group-5-fractions
+  a curric:Progression ;
+  rdfs:label "Mathematics Year Group 5 Fractions"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-mathematics-key-stage-2 ;
+  curric:coversContent
+    natcurric:contentdescriptor-compare-order-fractions-multiples-same ,
+    natcurric:contentdescriptor-equivalent-fractions-visually ,
+    natcurric:contentdescriptor-mixed-improper-fractions ,
+    natcurric:contentdescriptor-add-subtract-denominators-are-multiples ,
+    natcurric:contentdescriptor-multiply-fractions-whole-numbers ,
+    natcurric:contentdescriptor-decimals-as-fractions .
+
+natcurric:progression-mathematics-year-group-5-decimals-and-percentages
+  a curric:Progression ;
+  rdfs:label "Mathematics Year Group 5 Decimals and Percentages"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-mathematics-key-stage-2 ;
+  curric:coversContent
+    natcurric:contentdescriptor-recognise-use-thousandths ,
+    natcurric:contentdescriptor-round-decimals-with-2-dps ,
+    natcurric:contentdescriptor-compare-3-decimal-places ,
+    natcurric:contentdescriptor-solve-3-decimal-problems ,
+    natcurric:contentdescriptor-recognise-percent-symbol ,
+    natcurric:contentdescriptor-percentage-decimal-equivalents .
+
+natcurric:progression-mathematics-year-group-5-measurement
+  a curric:Progression ;
+  rdfs:label "Mathematics Year Group 5 Measurement"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-mathematics-key-stage-2 ;
+  curric:coversContent
+    natcurric:contentdescriptor-convert-metric-units ,
+    natcurric:contentdescriptor-metric-imperial-equivalences ,
+    natcurric:contentdescriptor-perimeter-composite-shapes ,
+    natcurric:contentdescriptor-calculate-area-rectangles ,
+    natcurric:contentdescriptor-estimate-volume-capacity ,
+    natcurric:contentdescriptor-problems-with-units-of-time ,
+    natcurric:contentdescriptor-four-operations-measure-problems .
+
+natcurric:progression-mathematics-year-group-5-properties-of-shape
+  a curric:Progression ;
+  rdfs:label "Mathematics Year Group 5 Properties of Shape"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-mathematics-key-stage-2 ;
+  curric:coversContent
+    natcurric:contentdescriptor-identify-3d-from-2d ,
+    natcurric:contentdescriptor-angles-measured-degrees ,
+    natcurric:contentdescriptor-draw-measure-angles ,
+    natcurric:contentdescriptor-identify-angle-types ,
+    natcurric:contentdescriptor-rectangle-properties ,
+    natcurric:contentdescriptor-regular-irregular-polygons .
+
+natcurric:progression-mathematics-year-group-5-position-and-direction
+  a curric:Progression ;
+  rdfs:label "Mathematics Year Group 5 Position and Direction"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-mathematics-key-stage-2 ;
+  curric:coversContent
+    natcurric:contentdescriptor-reflection-translation-position .
+
+natcurric:progression-mathematics-year-group-5-statistics
+  a curric:Progression ;
+  rdfs:label "Mathematics Year Group 5 Statistics"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-mathematics-key-stage-2 ;
+  curric:coversContent
+    natcurric:contentdescriptor-comparison-sum-difference-line-graph ,
+    natcurric:contentdescriptor-interpret-tables-timetables .
+
+natcurric:progression-mathematics-year-group-6-place-value
+  a curric:Progression ;
+  rdfs:label "Mathematics Year Group 6 Place Value"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-mathematics-key-stage-2 ;
+  curric:coversContent
+    natcurric:contentdescriptor-read-write-to-10000000 ,
+    natcurric:contentdescriptor-round-required-accuracy ,
+    natcurric:contentdescriptor-negative-numbers-intervals ,
+    natcurric:contentdescriptor-solve-number-problems .
+
+natcurric:progression-mathematics-year-group-6-addition-subtraction-multiplication-division
+  a curric:Progression ;
+  rdfs:label "Mathematics Year Group 6 Addition and Subtraction"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-mathematics-key-stage-2 ;
+  curric:coversContent
+    natcurric:contentdescriptor-addition-subtraction-multiplication-division-multi-step-problems ,
+    natcurric:contentdescriptor-long-multiplication-two-digit ,
+    natcurric:contentdescriptor-long-division-two-digit ,
+    natcurric:contentdescriptor-short-division-two-digit ,
+    natcurric:contentdescriptor-mental-calculations-mixed-operations ,
+    natcurric:contentdescriptor-common-factors-multiples-primes ,
+    natcurric:contentdescriptor-order-of-operations ,
+    natcurric:contentdescriptor-solve-four-operations-problems ,
+    natcurric:contentdescriptor-estimation-check-accuracy .
+
+natcurric:progression-mathematics-year-group-6-fractions
+  a curric:Progression ;
+  rdfs:label "Mathematics Year Group 6 Fractions"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-mathematics-key-stage-2 ;
+  curric:coversContent
+    natcurric:contentdescriptor-simplify-fractions ,
+    natcurric:contentdescriptor-compare-order-fractions-greater-1 ,
+    natcurric:contentdescriptor-add-subtract-different-denominators ,
+    natcurric:contentdescriptor-multiply-proper-fractions ,
+    natcurric:contentdescriptor-divide-fractions-whole-numbers ,
+    natcurric:contentdescriptor-fraction-decimal-equivalents .
+
+natcurric:progression-mathematics-year-group-6-decimals-and-percentages
+  a curric:Progression ;
+  rdfs:label "Mathematics Year Group 6 Decimals and Percentages"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-mathematics-key-stage-2 ;
+  curric:coversContent
+    natcurric:contentdescriptor-decimal-places-multiply-divide ,
+    natcurric:contentdescriptor-multiply-decimals-whole-numbers ,
+    natcurric:contentdescriptor-written-division-decimal-answers ,
+    natcurric:contentdescriptor-round-specified-accuracy ,
+    natcurric:contentdescriptor-fractions-decimals-percentages-equivalences .
+
+natcurric:progression-mathematics-year-group-6-measurement
+  a curric:Progression ;
+  rdfs:label "Mathematics Year Group 6 Measurement"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-mathematics-key-stage-2 ;
+  curric:coversContent
+    natcurric:contentdescriptor-convert-units-3-decimals ,
+    natcurric:contentdescriptor-convert-standard-units ,
+    natcurric:contentdescriptor-miles-kilometres ,
+    natcurric:contentdescriptor-area-perimeter-relationship ,
+    natcurric:contentdescriptor-formulae-area-volume ,
+    natcurric:contentdescriptor-area-parallelograms-triangles ,
+    natcurric:contentdescriptor-volume-cubes-cuboids .
+
+natcurric:progression-mathematics-year-group-6-ratio-progression
+  a curric:Progression ;
+  rdfs:label "Mathematics Year Group 6 Ratio and Progression"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-mathematics-key-stage-2 ;
+  curric:coversContent
+    natcurric:contentdescriptor-relative-sizes-quantities ,
+    natcurric:contentdescriptor-calculate-percentages ,
+    natcurric:contentdescriptor-similar-shapes-scale-factor ,
+    natcurric:contentdescriptor-unequal-sharing-grouping .
+
+natcurric:progression-mathematics-year-group-6-algebra
+  a curric:Progression ;
+  rdfs:label "Mathematics Year Group 6 Algebra"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-mathematics-key-stage-2 ;
+  curric:coversContent
+    natcurric:contentdescriptor-use-simple-formulae ,
+    natcurric:contentdescriptor-linear-number-sequences ,
+    natcurric:contentdescriptor-express-problems-algebraically ,
+    natcurric:contentdescriptor-pairs-satisfy-equations ,
+    natcurric:contentdescriptor-enumerate-combinations .
+
+natcurric:progression-mathematics-year-group-6-properties-of-shape
+  a curric:Progression ;
+  rdfs:label "Mathematics Year Group 6 Properties of Shape"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-mathematics-key-stage-2 ;
+  curric:coversContent
+    natcurric:contentdescriptor-draw-2d-dimensions-angles ,
+    natcurric:contentdescriptor-build-3d-shapes-nets ,
+    natcurric:contentdescriptor-classify-shapes-find-angles ,
+    natcurric:contentdescriptor-parts-of-circles ,
+    natcurric:contentdescriptor-angles-meeting-points .
+
+natcurric:progression-mathematics-year-group-6-position-and-direction
+  a curric:Progression ;
+  rdfs:label "Mathematics Year Group 6 Position and Direction"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-mathematics-key-stage-2 ;
+  curric:coversContent
+    natcurric:contentdescriptor-coordinate-grid-four-quadrants ,
+    natcurric:contentdescriptor-translate-reflect-shapes .
+
+natcurric:progression-mathematics-year-group-6-statistics
+  a curric:Progression ;
+  rdfs:label "Mathematics Year Group 6 Statistics"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-mathematics-key-stage-2 ;
+  curric:coversContent
+    natcurric:contentdescriptor-pie-charts-line-graphs ,
+    natcurric:contentdescriptor-calculate-mean-average .
+
+natcurric:progression-mathematics-key-stage-3-develop-fluency
+  a curric:Progression ;
+  rdfs:label "Mathematics Key Stage 3 Develop Fluency"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-mathematics-key-stage-3 ;
+  curric:coversContent
+    natcurric:contentdescriptor-extend-number-system-place-value ,
+    natcurric:contentdescriptor-calculation-strategies-complex-problems ,
+    natcurric:contentdescriptor-algebra-generalise-arithmetic ,
+    natcurric:contentdescriptor-substitute-rearrange-solve-equations ,
+    natcurric:contentdescriptor-representations-fractions-decimals-equations-graphs ,
+    natcurric:contentdescriptor-algebraic-graphical-fluency ,
+    natcurric:contentdescriptor-analyse-mathematical-properties .
+
+natcurric:progression-mathematics-key-stage-3-reason-mathematically
+  a curric:Progression ;
+  rdfs:label "Mathematics Key Stage 3 Reason Mathematically"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-mathematics-key-stage-3 ;
+  curric:coversContent
+    natcurric:contentdescriptor-extend-number-system-connections ,
+    natcurric:contentdescriptor-ratio-proportion-algebraic-relations ,
+    natcurric:contentdescriptor-identify-variables-express-relations ,
+    natcurric:contentdescriptor-conjectures-patterns-relationships ,
+    natcurric:contentdescriptor-deductive-reasoning-geometrical-constructions ,
+    natcurric:contentdescriptor-interpret-reasoning-problem-structure ,
+    natcurric:contentdescriptor-statistical-probabilistic-inference .
+
+natcurric:progression-mathematics-key-stage-3-solve-problems
+  a curric:Progression ;
+  rdfs:label "Mathematics Key Stage 3 Solve Problems"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-mathematics-key-stage-3 ;
+  curric:coversContent
+    natcurric:contentdescriptor-develop-knowledge-solving-problems ,
+    natcurric:contentdescriptor-formal-knowledge-financial-mathematics ,
+    natcurric:contentdescriptor-model-situations-mathematical-representations ,
+    natcurric:contentdescriptor-methods-unfamiliar-problems .
+
+natcurric:progression-mathematics-key-stage-3-number
+  a curric:Progression ;
+  rdfs:label "Mathematics Key Stage 3 Number"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-mathematics-key-stage-3 ;
+  curric:coversContent
+    natcurric:contentdescriptor-place-value-any-size ,
+    natcurric:contentdescriptor-order-compare-real-numbers ,
+    natcurric:contentdescriptor-prime-factors-factorisation ,
+    natcurric:contentdescriptor-four-operations-all-numbers ,
+    natcurric:contentdescriptor-priority-of-operations ,
+    natcurric:contentdescriptor-inverse-operations ,
+    natcurric:contentdescriptor-integer-powers-real-roots ,
+    natcurric:contentdescriptor-standard-form ,
+    natcurric:contentdescriptor-decimals-fractions-interchangeably ,
+    natcurric:contentdescriptor-percentages-multiplicative-interpretation ,
+    natcurric:contentdescriptor-fractions-percentages-operators ,
+    natcurric:contentdescriptor-standard-units-measures ,
+    natcurric:contentdescriptor-round-appropriate-accuracy ,
+    natcurric:contentdescriptor-approximation-estimate-errors ,
+    natcurric:contentdescriptor-calculator-interpret-results ,
+    natcurric:contentdescriptor-infinite-number-sets .
+
+natcurric:progression-mathematics-key-stage-3-algebra
+  a curric:Progression ;
+  rdfs:label "Mathematics Key Stage 3 Algebra"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-mathematics-key-stage-3 ;
+  curric:coversContent
+    natcurric:contentdescriptor-algebraic-notation ,
+    natcurric:contentdescriptor-substitute-formulae-expressions ,
+    natcurric:contentdescriptor-algebraic-vocabulary ,
+    natcurric:contentdescriptor-simplify-manipulate-expressions ,
+    natcurric:contentdescriptor-rearrange-formulae ,
+    natcurric:contentdescriptor-model-algebraic-graphical ,
+    natcurric:contentdescriptor-solve-linear-equations ,
+    natcurric:contentdescriptor-coordinates-four-quadrants ,
+    natcurric:contentdescriptor-graphs-linear-quadratic-functions ,
+    natcurric:contentdescriptor-interpret-relationships-algebraically-graphically ,
+    natcurric:contentdescriptor-linear-equations-gradients-intercepts ,
+    natcurric:contentdescriptor-estimate-simultaneous-equations ,
+    natcurric:contentdescriptor-solutions-variety-functions ,
+    natcurric:contentdescriptor-generate-sequence-terms ,
+    natcurric:contentdescriptor-arithmetic-sequences-nth-term ,
+    natcurric:contentdescriptor-geometric-sequences .
+
+natcurric:progression-mathematics-key-stage-3-ratio-proportion-rates-of-change
+  a curric:Progression ;
+  rdfs:label "Mathematics Key Stage 3 Ratio, Proportion and Rates of Change"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-mathematics-key-stage-3 ;
+  curric:coversContent
+    natcurric:contentdescriptor-convert-standard-units-freely ,
+    natcurric:contentdescriptor-scale-factors-diagrams-maps ,
+    natcurric:contentdescriptor-express-quantity-as-fraction ,
+    natcurric:contentdescriptor-ratio-notation-simplest-form ,
+    natcurric:contentdescriptor-divide-quantity-into-ratio ,
+    natcurric:contentdescriptor-multiplicative-relationship-ratio-fraction ,
+    natcurric:contentdescriptor-relate-ratios-fractions-functions ,
+    natcurric:contentdescriptor-percentage-change-simple-interest ,
+    natcurric:contentdescriptor-direct-inverse-proportion ,
+    natcurric:contentdescriptor-compound-units-problems .
+
+natcurric:progression-mathematics-key-stage-3-geometry-and-measures
+  a curric:Progression ;
+  rdfs:label "Mathematics Key Stage 3 Geometry and Measures"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-mathematics-key-stage-3 ;
+  curric:coversContent
+    natcurric:contentdescriptor-formulae-perimeter-area-volume ,
+    natcurric:contentdescriptor-perimeters-areas-circles-composite ,
+    natcurric:contentdescriptor-draw-measure-scale-drawings ,
+    natcurric:contentdescriptor-ruler-compass-constructions ,
+    natcurric:contentdescriptor-sketch-geometric-conventional-notation ,
+    natcurric:contentdescriptor-triangle-labelling-congruence-criteria ,
+    natcurric:contentdescriptor-derive-properties-plane-figures ,
+    natcurric:contentdescriptor-transformations-translations-rotations-reflections ,
+    natcurric:contentdescriptor-congruent-similar-shapes-enlargement ,
+    natcurric:contentdescriptor-angle-properties-points-lines ,
+    natcurric:contentdescriptor-parallel-lines-angles ,
+    natcurric:contentdescriptor-angle-sum-polygons ,
+    natcurric:contentdescriptor-angle-facts-pythagoras-proofs ,
+    natcurric:contentdescriptor-pythagoras-trigonometry-right-triangles ,
+    natcurric:contentdescriptor-3d-shapes-properties-problems ,
+    natcurric:contentdescriptor-interpret-algebraic-geometric-relationships .
+
+natcurric:progression-mathematics-key-stage-3-probability
+  a curric:Progression ;
+  rdfs:label "Mathematics Key Stage 3 Probability"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-mathematics-key-stage-3 ;
+  curric:coversContent
+    natcurric:contentdescriptor-probability-experiments-frequency-outcomes ,
+    natcurric:contentdescriptor-probabilities-sum-to-one ,
+    natcurric:contentdescriptor-enumerate-sets-venn-diagrams ,
+    natcurric:contentdescriptor-theoretical-sample-spaces-probabilities .
+
+natcurric:progression-mathematics-key-stage-3-statistics
+  a curric:Progression ;
+  rdfs:label "Mathematics Key Stage 3 Statistics"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-mathematics-key-stage-3 ;
+  curric:coversContent
+    natcurric:contentdescriptor-distributions-central-tendency-spread ,
+    natcurric:contentdescriptor-construct-interpret-tables-charts ,
+    natcurric:contentdescriptor-bivariate-data-scatter-graphs .
+
+natcurric:progression-mathematics-key-stage-4-develop-fluency
+  a curric:Progression ;
+  rdfs:label "Mathematics Key Stage 4 Develop Fluency"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-mathematics-key-stage-4 ;
+  curric:coversContent
+    natcurric:contentdescriptor-extend-number-system-powers-roots ,
+    natcurric:contentdescriptor-calculation-strategies-complex-problems-exact ,
+    natcurric:contentdescriptor-algebraic-simplification-quadratic-expressions ,
+    natcurric:contentdescriptor-quadratic-simultaneous-equations-inequalities ,
+    natcurric:contentdescriptor-representations-linear-quadratic-reciprocal-functions ,
+    natcurric:contentdescriptor-mathematical-language-properties-precisely .
+
+natcurric:progression-mathematics-key-stage-4-reason-mathematically
+  a curric:Progression ;
+  rdfs:label "Mathematics Key Stage 4 Reason Mathematically"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-mathematics-key-stage-4 ;
+  curric:coversContent
+    natcurric:contentdescriptor-ratio-proportion-trigonometric-ratios ,
+    natcurric:contentdescriptor-extend-identify-variables-express-relations ,
+    natcurric:contentdescriptor-conjectures-proofs-arguments ,
+    natcurric:contentdescriptor-deductive-reasoning-constructions ,
+    natcurric:contentdescriptor-interpret-reasoning-problem-structure ,
+    natcurric:contentdescriptor-statistical-probabilistic-inference ,
+    natcurric:contentdescriptor-assess-validity-accuracy-arguments .
+
+natcurric:progression-mathematics-key-stage-4-solve-problems
+  a curric:Progression ;
+  rdfs:label "Mathematics Key Stage 4 Solve Problems"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-mathematics-key-stage-4 ;
+  curric:coversContent
+    natcurric:contentdescriptor-develop-knowledge-solving-problems ,
+    natcurric:contentdescriptor-formal-knowledge-financial-contexts ,
+    natcurric:contentdescriptor-connections-between-mathematics ,
+    natcurric:contentdescriptor-model-situations-modelling-assumptions ,
+    natcurric:contentdescriptor-methods-unfamiliar-problems-interpret-solutions .
+
+natcurric:progression-mathematics-key-stage-4-number
+  a curric:Progression ;
+  rdfs:label "Mathematics Key Stage 4 Number"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-mathematics-key-stage-4 ;
+  curric:coversContent
+    natcurric:contentdescriptor-systematic-listing-product-rule ,
+    natcurric:contentdescriptor-estimate-powers-roots ,
+    natcurric:contentdescriptor-calculate-roots-fractional-indices ,
+    natcurric:contentdescriptor-calculate-fractions-surds-multiples-pi ,
+    natcurric:contentdescriptor-simplify-surds-rationalise-denominators ,
+    natcurric:contentdescriptor-calculate-standard-form ,
+    natcurric:contentdescriptor-recurring-decimals-fractions ,
+    natcurric:contentdescriptor-fractions-ratio-problems .
+
+natcurric:progression-mathematics-key-stage-4-algebra
+  a curric:Progression ;
+  rdfs:label "Mathematics Key Stage 4 Algebra"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-mathematics-key-stage-4 ;
+  curric:coversContent
+    natcurric:contentdescriptor-limits-accuracy-upper-lower-bounds ,
+    natcurric:contentdescriptor-factorise-quadratic-all-forms ,
+    natcurric:contentdescriptor-simplify-expressions-laws-indices ,
+    natcurric:contentdescriptor-equations-identities-arguments-proofs ,
+    natcurric:contentdescriptor-functions-inverse-composite ,
+    natcurric:contentdescriptor-parallel-perpendicular-lines-equations ,
+    natcurric:contentdescriptor-quadratic-roots-turning-points-completing-square ,
+    natcurric:contentdescriptor-graphs-all-function-types ,
+    natcurric:contentdescriptor-sketch-transformations-functions ,
+    natcurric:contentdescriptor-interpret-graphs-real-contexts ,
+    natcurric:contentdescriptor-gradients-areas-graphs-interpret ,
+    natcurric:contentdescriptor-circle-equations-tangents ,
+    natcurric:contentdescriptor-solve-quadratics-all-methods ,
+    natcurric:contentdescriptor-simultaneous-equations-linear-quadratic ,
+    natcurric:contentdescriptor-numerical-iteration-solutions ,
+    natcurric:contentdescriptor-translate-derive-interpret-equations ,
+    natcurric:contentdescriptor-solve-all-inequalities ,
+    natcurric:contentdescriptor-recognise-all-sequence-types ,
+    natcurric:contentdescriptor-nth-term-linear-quadratic .
+
+natcurric:progression-mathematics-key-stage-4-ratio-proportion-rates-of-change
+  a curric:Progression ;
+  rdfs:label "Mathematics Key Stage 4 Ratio, Proportion and Rates of Change"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-mathematics-key-stage-4 ;
+  curric:coversContent
+    natcurric:contentdescriptor-compare-ratio-scale-similarity ,
+    natcurric:contentdescriptor-convert-compound-units ,
+    natcurric:contentdescriptor-construct-interpret-proportion-equations ,
+    natcurric:contentdescriptor-gradient-rate-of-change ,
+    natcurric:contentdescriptor-instantaneous-average-rate-change ,
+    natcurric:contentdescriptor-growth-decay-iterative-processes .
+
+natcurric:progression-mathematics-key-stage-4-geometry-and-measures
+  a curric:Progression ;
+  rdfs:label "Mathematics Key Stage 4 Geometry and Measures"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-mathematics-key-stage-4 ;
+  curric:coversContent
+    natcurric:contentdescriptor-fractional-negative-scale-factors ,
+    natcurric:contentdescriptor-combinations-transformations-invariance ,
+    natcurric:contentdescriptor-circle-definitions-properties ,
+    natcurric:contentdescriptor-prove-circle-theorems ,
+    natcurric:contentdescriptor-plans-elevations-3d-shapes ,
+    natcurric:contentdescriptor-interpret-use-bearings ,
+    natcurric:contentdescriptor-arc-lengths-sectors ,
+    natcurric:contentdescriptor-surface-areas-volumes-solids ,
+    natcurric:contentdescriptor-congruence-similarity-relationships ,
+    natcurric:contentdescriptor-pythagoras-trigonometry-all-triangles ,
+    natcurric:contentdescriptor-exact-trigonometric-values ,
+    natcurric:contentdescriptor-sine-cosine-rule ,
+    natcurric:contentdescriptor-area-formula-any-triangle ,
+    natcurric:contentdescriptor-translations-2d-vectors ,
+    natcurric:contentdescriptor-vector-operations-geometric-proofs .
+
+natcurric:progression-mathematics-key-stage-4-probability
+  a curric:Progression ;
+  rdfs:label "Mathematics Key Stage 4 Probability"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-mathematics-key-stage-4 ;
+  curric:coversContent
+    natcurric:contentdescriptor-exhaustive-mutually-exclusive-events ,
+    natcurric:contentdescriptor-probability-model-empirical-theoretical ,
+    natcurric:contentdescriptor-independent-dependent-combined-events ,
+    natcurric:contentdescriptor-conditional-probabilities .
+
+natcurric:progression-mathematics-key-stage-4-statistics
+  a curric:Progression ;
+  rdfs:label "Mathematics Key Stage 4 Statistics"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-mathematics-key-stage-4 ;
+  curric:coversContent
+    natcurric:contentdescriptor-infer-populations-sampling-limitations ,
+    natcurric:contentdescriptor-time-series-tables-graphs ,
+    natcurric:contentdescriptor-histograms-cumulative-frequency-graphs ,
+    natcurric:contentdescriptor-discrete-continuous-grouped-data ,
+    natcurric:contentdescriptor-central-tendency-spread ,
+    natcurric:contentdescriptor-apply-statistics-describe-population ,
+    natcurric:contentdescriptor-scatter-graphs-correlation-predictions .

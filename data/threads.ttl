@@ -1,0 +1,500 @@
+@prefix curric: <https://w3id.org/oak/curriculum/ontology/> .
+@prefix oakcurric: <https://w3id.org/oak/curriculum/oakcurriculum/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ======================================================================
+# Oak Curriculum Data - Threads Instance Data
+# ======================================================================
+
+# ----------------------------------------------------------------------
+# Ontology Declaration
+# ----------------------------------------------------------------------
+
+<https://w3id.org/oak/curriculum/oakcurriculum/threads>
+  rdf:type owl:Ontology ;
+
+  rdfs:label "Oak Curriculum Ontology - Threads Instance Data"@en ;
+  dc:title "Oak Curriculum Ontology - Threads Instance Data"@en ;
+  rdfs:comment """Instance data defining the threads used to navigate content in Oak National 
+  Academy curriculum programmes."""@en ;
+
+  owl:versionInfo "0.1.0" ;
+  owl:versionIRI <https://w3id.org/oak/curriculum/oakcurriculum/threads/0.1.0> ;
+
+  dcterms:description """This file contains instances of Thread classes defined in the Oak 
+  Curriculum Ontology."""@en ;
+  dc:creator "Oak National Academy" ;
+  dcterms:created "2025-12-01T12:33:32Z"^^xsd:dateTime ;
+  dcterms:modified "2025-12-01T12:33:32Z"^^xsd:dateTime ;
+  dcterms:issued "2025-12-01T12:33:32Z"^^xsd:dateTime ;
+
+  # CC BY 4.0 License
+  dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+  dcterms:rights "Copyright © 2026 Oak National Academy. Licensed under CC BY 4.0."@en ;
+  
+  vann:preferredNamespacePrefix "oakcurric" ; 
+  vann:preferredNamespaceUri "https://w3id.org/oak/curriculum/oakcurriculum/" ;
+
+  owl:imports <https://w3id.org/oak/curriculum/ontology> .
+
+# ----------------------------------------------------------------------
+# Threads
+# ----------------------------------------------------------------------
+
+oakcurric:thread-empire-persecution-and-resistance
+  a curric:Thread ;
+  rdfs:label "Empire, persecution and resistance"@en ;
+  dcterms:modified "2026-01-04T20:33:37.294978Z"^^xsd:dateTime .
+
+oakcurric:thread-invasion-migration-and-settlement
+  a curric:Thread ;
+  rdfs:label "Invasion, migration and settlement"@en ;
+  dcterms:modified "2026-01-04T20:33:37.295037Z"^^xsd:dateTime .
+
+oakcurric:thread-power-government-and-religion
+  a curric:Thread ;
+  rdfs:label "Power, government and religion"@en ;
+  dcterms:modified "2026-01-04T20:33:37.295050Z"^^xsd:dateTime .
+
+oakcurric:thread-trade-ideas-and-communication
+  a curric:Thread ;
+  rdfs:label "Trade, ideas and communication"@en ;
+  dcterms:modified "2026-01-04T20:33:37.295061Z"^^xsd:dateTime .
+
+oakcurric:thread-warfare-and-conflict
+  a curric:Thread ;
+  rdfs:label "Warfare and conflict"@en ;
+  dcterms:modified "2026-01-04T20:33:37.295070Z"^^xsd:dateTime .
+
+oakcurric:thread-algebra
+  a curric:Thread ;
+  rdfs:label "Algebra"@en ;
+  rdfs:comment "[TO BE ADDED]"@en ;
+  dcterms:modified "2026-01-08T16:37:04.426141Z"^^xsd:dateTime .
+
+oakcurric:thread-geometry-and-measure
+  a curric:Thread ;
+  rdfs:label "Geometry and Measure"@en ;
+  rdfs:comment "[TO BE ADDED]"@en ;
+  dcterms:modified "2026-01-08T16:37:04.426169Z"^^xsd:dateTime .
+
+oakcurric:thread-number
+  a curric:Thread ;
+  rdfs:label "Number"@en ;
+  dcterms:modified "2026-01-08T16:37:04.426175Z"^^xsd:dateTime .
+
+oakcurric:thread-number-addition-and-subtraction
+  a curric:Thread ;
+  rdfs:label "Number: Addition and Subtraction"@en ;
+  dcterms:modified "2026-01-08T16:37:04.426180Z"^^xsd:dateTime .
+
+oakcurric:thread-number-fractions
+  a curric:Thread ;
+  rdfs:label "Number: Fractions"@en ;
+  dcterms:modified "2026-01-08T16:37:04.426184Z"^^xsd:dateTime .
+
+oakcurric:thread-number-multiplication-and-division
+  a curric:Thread ;
+  rdfs:label "Number: Multiplication and division"@en ;
+  dcterms:modified "2026-01-08T16:37:04.426193Z"^^xsd:dateTime .
+
+oakcurric:thread-number-place-value
+  a curric:Thread ;
+  rdfs:label "Number: Place value"@en ;
+  dcterms:modified "2026-01-08T16:37:04.426197Z"^^xsd:dateTime .
+
+oakcurric:thread-probability
+  a curric:Thread ;
+  rdfs:label "Probability"@en ;
+  dcterms:modified "2026-01-08T16:37:04.426201Z"^^xsd:dateTime .
+
+oakcurric:thread-ratio-and-proportion
+  a curric:Thread ;
+  rdfs:label "Ratio and Proportion"@en ;
+  dcterms:modified "2026-01-08T16:37:04.426205Z"^^xsd:dateTime .
+
+oakcurric:thread-statistics
+  a curric:Thread ;
+  rdfs:label "Statistics"@en ;
+  dcterms:modified "2026-01-08T16:37:04.426209Z"^^xsd:dateTime .
+
+oakcurric:thread-bq01-biology-what-are-living-things-and-what-are-they-made-of
+  a curric:Thread ;
+  rdfs:label "BQ01 Biology: What are living things and what are they made of?"@en ;
+  dcterms:modified "2026-01-08T16:38:01.179761Z"^^xsd:dateTime .
+
+oakcurric:thread-bq02-biology-how-do-living-things-grow-and-reproduce
+  a curric:Thread ;
+  rdfs:label "BQ02 Biology: How do living things grow and reproduce?"@en ;
+  dcterms:modified "2026-01-08T16:38:01.179792Z"^^xsd:dateTime .
+
+oakcurric:thread-bq03-biology-how-do-living-things-live-together-in-their-environments
+  a curric:Thread ;
+  rdfs:label "BQ03 Biology: How do living things live together in their environments?"@en ;
+  dcterms:modified "2026-01-08T16:38:01.179798Z"^^xsd:dateTime .
+
+oakcurric:thread-bq04-biology-why-are-there-similarities-and-differences-between-living-things
+  a curric:Thread ;
+  rdfs:label "BQ04 Biology: Why are there similarities and differences between living things?"@en ;
+  dcterms:modified "2026-01-08T16:38:01.179803Z"^^xsd:dateTime .
+
+oakcurric:thread-bq05-biology-how-do-living-things-stay-healthy
+  a curric:Thread ;
+  rdfs:label "BQ05 Biology: How do living things stay healthy?"@en ;
+  dcterms:modified "2026-01-08T16:38:01.179807Z"^^xsd:dateTime .
+
+oakcurric:thread-bq06-chemistry-how-do-we-explain-how-substances-behave
+  a curric:Thread ;
+  rdfs:label "BQ06 Chemistry: How do we explain how substances behave?"@en ;
+  dcterms:modified "2026-01-08T16:38:01.179815Z"^^xsd:dateTime .
+
+oakcurric:thread-bq07-chemistry-what-are-things-made-of
+  a curric:Thread ;
+  rdfs:label "BQ07 Chemistry: What are things made of?"@en ;
+  dcterms:modified "2026-01-08T16:38:01.179818Z"^^xsd:dateTime .
+
+oakcurric:thread-bq08-chemistry-how-can-substances-be-made-and-changed
+  a curric:Thread ;
+  rdfs:label "BQ08 Chemistry: How can substances be made and changed?"@en ;
+  dcterms:modified "2026-01-08T16:38:01.179826Z"^^xsd:dateTime .
+
+oakcurric:thread-bq09-chemistry-how-can-we-explain-changes-in-the-air-land-and-oceans
+  a curric:Thread ;
+  rdfs:label "BQ09 Chemistry: How can we explain changes in the air, land and oceans?"@en ;
+  dcterms:modified "2026-01-08T16:38:01.179829Z"^^xsd:dateTime .
+
+oakcurric:thread-bq11-physics-how-do-forces-make-things-happen
+  a curric:Thread ;
+  rdfs:label "BQ11 Physics: How do forces make things happen?"@en ;
+  dcterms:modified "2026-01-08T16:38:01.179833Z"^^xsd:dateTime .
+
+oakcurric:thread-bq12-physics-how-do-we-see-hear-and-communicate
+  a curric:Thread ;
+  rdfs:label "BQ12 Physics: How do we see, hear and communicate?"@en ;
+  dcterms:modified "2026-01-08T16:38:01.179838Z"^^xsd:dateTime .
+
+oakcurric:thread-bq13-physics-how-do-electricity-and-magnetism-work
+  a curric:Thread ;
+  rdfs:label "BQ13 Physics: How do electricity and magnetism work?"@en ;
+  dcterms:modified "2026-01-08T16:38:01.179842Z"^^xsd:dateTime .
+
+oakcurric:thread-bq14-physics-how-does-the-earth-fit-into-the-universe
+  a curric:Thread ;
+  rdfs:label "BQ14 Physics: How does the Earth fit into the Universe?"@en ;
+  dcterms:modified "2026-01-08T16:38:01.179848Z"^^xsd:dateTime .
+
+oakcurric:thread-bq15-how-can-we-live-sustainably-to-protect-earth-for-a-better-future
+  a curric:Thread ;
+  rdfs:label "BQ15 How can we live sustainably to protect Earth for a better future?"@en ;
+  dcterms:modified "2026-01-08T16:38:01.179851Z"^^xsd:dateTime .
+
+oakcurric:thread-physics-why-do-materials-have-different-properties
+  a curric:Thread ;
+  rdfs:label "BQ10 Physics: Why do materials have different properties?"@en ;
+  dcterms:modified "2026-01-08T16:38:01.179855Z"^^xsd:dateTime .
+
+oakcurric:thread-active-citizenship-making-a-positive-difference
+  a curric:Thread ;
+  rdfs:label "Active citizenship, making a positive difference"@en ;
+  rdfs:comment "[TO BE ADDED]"@en ;
+  dcterms:modified "2026-01-19T21:16:32.258888Z"^^xsd:dateTime .
+
+oakcurric:thread-appreciation-of-poetry
+  a curric:Thread ;
+  rdfs:label "Appreciation of poetry"@en ;
+  rdfs:comment "[TO BE ADDED]"@en ;
+  dcterms:modified "2026-01-19T21:16:32.258936Z"^^xsd:dateTime .
+
+oakcurric:thread-book-club
+  a curric:Thread ;
+  rdfs:label "Book Club"@en ;
+  rdfs:comment "[TO BE ADDED]"@en ;
+  dcterms:modified "2026-01-19T21:16:32.258941Z"^^xsd:dateTime .
+
+oakcurric:thread-developing-essay-writing
+  a curric:Thread ;
+  rdfs:label "Developing essay writing"@en ;
+  rdfs:comment "[TO BE ADDED]"@en ;
+  dcterms:modified "2026-01-19T21:16:32.259011Z"^^xsd:dateTime .
+
+oakcurric:thread-developing-fiction-writing
+  a curric:Thread ;
+  rdfs:label "Developing fiction writing"@en ;
+  rdfs:comment "[TO BE ADDED]"@en ;
+  dcterms:modified "2026-01-19T21:16:32.259015Z"^^xsd:dateTime .
+
+oakcurric:thread-developing-grammatical-knowledge
+  a curric:Thread ;
+  rdfs:label "Developing grammatical knowledge"@en ;
+  rdfs:comment "[TO BE ADDED]"@en ;
+  dcterms:modified "2026-01-19T21:16:32.259019Z"^^xsd:dateTime .
+
+oakcurric:thread-developing-handwriting-fluency
+  a curric:Thread ;
+  rdfs:label "Developing handwriting fluency"@en ;
+  rdfs:comment "[TO BE ADDED]"@en ;
+  dcterms:modified "2026-01-19T21:16:32.259022Z"^^xsd:dateTime .
+
+oakcurric:thread-developing-reading-preferences
+  a curric:Thread ;
+  rdfs:label "Developing reading preferences"@en ;
+  rdfs:comment "[TO BE ADDED]"@en ;
+  dcterms:modified "2026-01-19T21:16:32.259029Z"^^xsd:dateTime .
+
+oakcurric:thread-developing-spelling-accuracy
+  a curric:Thread ;
+  rdfs:label "Developing spelling accuracy"@en ;
+  rdfs:comment "[TO BE ADDED]"@en ;
+  dcterms:modified "2026-01-19T21:16:32.259033Z"^^xsd:dateTime .
+
+oakcurric:thread-developing-spoken-language
+  a curric:Thread ;
+  rdfs:label "Developing spoken language"@en ;
+  rdfs:comment "[TO BE ADDED]"@en ;
+  dcterms:modified "2026-01-19T21:16:32.259037Z"^^xsd:dateTime .
+
+oakcurric:thread-developing-vocabulary-knowledge
+  a curric:Thread ;
+  rdfs:label "Developing vocabulary knowledge"@en ;
+  rdfs:comment "[TO BE ADDED]"@en ;
+  dcterms:modified "2026-01-19T21:16:32.259041Z"^^xsd:dateTime .
+
+oakcurric:thread-english-language-gcse
+  a curric:Thread ;
+  rdfs:label "English Language GCSE"@en ;
+  rdfs:comment "[TO BE ADDED]"@en ;
+  dcterms:modified "2026-01-19T21:16:32.259049Z"^^xsd:dateTime .
+
+oakcurric:thread-exploring-the-gothic
+  a curric:Thread ;
+  rdfs:label "Exploring the Gothic"@en ;
+  rdfs:comment "[TO BE ADDED]"@en ;
+  dcterms:modified "2026-01-19T21:16:32.259053Z"^^xsd:dateTime .
+
+oakcurric:thread-fiction-reading-spine
+  a curric:Thread ;
+  rdfs:label "Fiction reading spine"@en ;
+  rdfs:comment "[TO BE ADDED]"@en ;
+  dcterms:modified "2026-01-19T21:16:32.259057Z"^^xsd:dateTime .
+
+oakcurric:thread-finance-and-the-economy
+  a curric:Thread ;
+  rdfs:label "Finance and the economy"@en ;
+  rdfs:comment "[TO BE ADDED]"@en ;
+  dcterms:modified "2026-01-19T21:16:32.259061Z"^^xsd:dateTime .
+
+oakcurric:thread-identities-and-communities
+  a curric:Thread ;
+  rdfs:label "Identities and communities"@en ;
+  rdfs:comment "[TO BE ADDED]"@en ;
+  dcterms:modified "2026-01-19T21:16:32.259068Z"^^xsd:dateTime .
+
+oakcurric:thread-modern-literature-strand-1-identity-belonging-and-community
+  a curric:Thread ;
+  rdfs:label "Modern literature strand 1: identity, belonging and community"@en ;
+  rdfs:comment "[TO BE ADDED]"@en ;
+  dcterms:modified "2026-01-19T21:16:32.259079Z"^^xsd:dateTime .
+
+oakcurric:thread-modern-literature-strand-2-power-control-and-oppressive-regimes
+  a curric:Thread ;
+  rdfs:label "Modern literature strand 2: power, control and oppressive regimes"@en ;
+  rdfs:comment "[TO BE ADDED]"@en ;
+  dcterms:modified "2026-01-19T21:16:32.259083Z"^^xsd:dateTime .
+
+oakcurric:thread-nineteenth-century-literature
+  a curric:Thread ;
+  rdfs:label "Nineteenth century literature"@en ;
+  rdfs:comment "[TO BE ADDED]"@en ;
+  dcterms:modified "2026-01-19T21:16:32.259087Z"^^xsd:dateTime .
+
+oakcurric:thread-non-fiction-reading-and-writing
+  a curric:Thread ;
+  rdfs:label "Non-fiction reading and writing"@en ;
+  rdfs:comment "[TO BE ADDED]"@en ;
+  dcterms:modified "2026-01-19T21:16:32.259090Z"^^xsd:dateTime .
+
+oakcurric:thread-nouns-and-determiners
+  a curric:Thread ;
+  rdfs:label "Nouns and determiners"@en ;
+  rdfs:comment "[TO BE ADDED]"@en ;
+  dcterms:modified "2026-01-19T21:16:32.259094Z"^^xsd:dateTime .
+
+oakcurric:thread-politics-parliament-and-government
+  a curric:Thread ;
+  rdfs:label "Politics, parliament and government"@en ;
+  rdfs:comment "[TO BE ADDED]"@en ;
+  dcterms:modified "2026-01-19T21:16:32.259190Z"^^xsd:dateTime .
+
+oakcurric:thread-reading-and-writing-texts-that-inform
+  a curric:Thread ;
+  rdfs:label "Reading and writing texts that inform"@en ;
+  rdfs:comment "[TO BE ADDED]"@en ;
+  dcterms:modified "2026-01-19T21:16:32.259206Z"^^xsd:dateTime .
+
+oakcurric:thread-rights-justice-and-the-law
+  a curric:Thread ;
+  rdfs:label "Rights, justice and the law"@en ;
+  rdfs:comment "[TO BE ADDED]"@en ;
+  dcterms:modified "2026-01-19T21:16:32.259210Z"^^xsd:dateTime .
+
+oakcurric:thread-role-of-media-and-digital-democracy
+  a curric:Thread ;
+  rdfs:label "Role of media and digital democracy"@en ;
+  rdfs:comment "[TO BE ADDED]"@en ;
+  dcterms:modified "2026-01-19T21:16:32.259213Z"^^xsd:dateTime .
+
+oakcurric:thread-shakespeare-and-the-outsider
+  a curric:Thread ;
+  rdfs:label "Shakespeare and the outsider"@en ;
+  rdfs:comment "[TO BE ADDED]"@en ;
+  dcterms:modified "2026-01-19T21:16:32.259217Z"^^xsd:dateTime .
+
+oakcurric:thread-traditional-tales
+  a curric:Thread ;
+  rdfs:label "Traditional tales"@en ;
+  rdfs:comment "[TO BE ADDED]"@en ;
+  dcterms:modified "2026-01-19T21:16:32.259293Z"^^xsd:dateTime .
+
+oakcurric:thread-uk-and-the-wider-world
+  a curric:Thread ;
+  rdfs:label "UK and the wider world"@en ;
+  rdfs:comment "[TO BE ADDED]"@en ;
+  dcterms:modified "2026-01-19T21:16:32.259297Z"^^xsd:dateTime .
+
+oakcurric:thread-americas-and-regions
+  a curric:Thread ;
+  rdfs:label "Americas and regions"@en ;
+  rdfs:comment "[TO BE ADDED]"@en ;
+  dcterms:modified "2026-01-19T21:36:15.229412Z"^^xsd:dateTime .
+
+oakcurric:thread-climate-and-weather
+  a curric:Thread ;
+  rdfs:label "Climate and weather"@en ;
+  rdfs:comment "[TO BE ADDED]"@en ;
+  dcterms:modified "2026-01-19T21:36:15.229807Z"^^xsd:dateTime .
+
+oakcurric:thread-diversity
+  a curric:Thread ;
+  rdfs:label "Diversity"@en ;
+  rdfs:comment "[TO BE ADDED]"@en ;
+  dcterms:modified "2026-01-19T21:36:15.229881Z"^^xsd:dateTime .
+
+oakcurric:thread-earth-geometry
+  a curric:Thread ;
+  rdfs:label "Earth geometry"@en ;
+  rdfs:comment "[TO BE ADDED]"@en ;
+  dcterms:modified "2026-01-19T21:36:15.229887Z"^^xsd:dateTime .
+
+oakcurric:thread-economic-activity
+  a curric:Thread ;
+  rdfs:label "Economic activity"@en ;
+  rdfs:comment "[TO BE ADDED]"@en ;
+  dcterms:modified "2026-01-19T21:36:15.229896Z"^^xsd:dateTime .
+
+oakcurric:thread-europe-and-regions
+  a curric:Thread ;
+  rdfs:label "Europe and regions"@en ;
+  rdfs:comment "[TO BE ADDED]"@en ;
+  dcterms:modified "2026-01-19T21:36:15.229917Z"^^xsd:dateTime .
+
+oakcurric:thread-globalisation-and-interconnection
+  a curric:Thread ;
+  rdfs:label "Globalisation and interconnection"@en ;
+  rdfs:comment "[TO BE ADDED]"@en ;
+  dcterms:modified "2026-01-19T21:36:15.229943Z"^^xsd:dateTime .
+
+oakcurric:thread-human-processes
+  a curric:Thread ;
+  rdfs:label "Human processes"@en ;
+  rdfs:comment "[TO BE ADDED]"@en ;
+  dcterms:modified "2026-01-19T21:36:15.229950Z"^^xsd:dateTime .
+
+oakcurric:thread-human-systems-and-processes
+  a curric:Thread ;
+  rdfs:label "Human systems and processes"@en ;
+  rdfs:comment "[TO BE ADDED]"@en ;
+  dcterms:modified "2026-01-19T21:36:15.229958Z"^^xsd:dateTime .
+
+oakcurric:thread-inequality
+  a curric:Thread ;
+  rdfs:label "Inequality"@en ;
+  rdfs:comment "[TO BE ADDED]"@en ;
+  dcterms:modified "2026-01-19T21:36:15.229976Z"^^xsd:dateTime .
+
+oakcurric:thread-interconnection
+  a curric:Thread ;
+  rdfs:label "Interconnection"@en ;
+  rdfs:comment "[TO BE ADDED]"@en ;
+  dcterms:modified "2026-01-19T21:36:15.229981Z"^^xsd:dateTime .
+
+oakcurric:thread-land-use-and-settlement
+  a curric:Thread ;
+  rdfs:label "Land use and settlement"@en ;
+  rdfs:comment "[TO BE ADDED]"@en ;
+  dcterms:modified "2026-01-19T21:36:15.229990Z"^^xsd:dateTime .
+
+oakcurric:thread-local-area
+  a curric:Thread ;
+  rdfs:label "Local area"@en ;
+  rdfs:comment "[TO BE ADDED]"@en ;
+  dcterms:modified "2026-01-19T21:36:15.229995Z"^^xsd:dateTime .
+
+oakcurric:thread-mountains-volcanoes-and-earthquakes
+  a curric:Thread ;
+  rdfs:label "Mountains, volcanoes and earthquakes"@en ;
+  rdfs:comment "[TO BE ADDED]"@en ;
+  dcterms:modified "2026-01-19T21:36:15.230013Z"^^xsd:dateTime .
+
+oakcurric:thread-natural-resources
+  a curric:Thread ;
+  rdfs:label "Natural resources"@en ;
+  rdfs:comment "[TO BE ADDED]"@en ;
+  dcterms:modified "2026-01-19T21:36:15.230017Z"^^xsd:dateTime .
+
+oakcurric:thread-physical-processes
+  a curric:Thread ;
+  rdfs:label "Physical processes"@en ;
+  rdfs:comment "[TO BE ADDED]"@en ;
+  dcterms:modified "2026-01-19T21:36:15.230060Z"^^xsd:dateTime .
+
+oakcurric:thread-physical-systems-and-processes
+  a curric:Thread ;
+  rdfs:label "Physical systems and processes"@en ;
+  rdfs:comment "[TO BE ADDED]"@en ;
+  dcterms:modified "2026-01-19T21:36:15.230065Z"^^xsd:dateTime .
+
+oakcurric:thread-representation-and-identity
+  a curric:Thread ;
+  rdfs:label "Representation and identity"@en ;
+  rdfs:comment "[TO BE ADDED]"@en ;
+  dcterms:modified "2026-01-19T21:36:15.230106Z"^^xsd:dateTime .
+
+oakcurric:thread-risk-and-resilience
+  a curric:Thread ;
+  rdfs:label "Risk and resilience"@en ;
+  rdfs:comment "[TO BE ADDED]"@en ;
+  dcterms:modified "2026-01-19T21:36:15.230118Z"^^xsd:dateTime .
+
+oakcurric:thread-sustainability-and-climate-change
+  a curric:Thread ;
+  rdfs:label "Sustainability and climate change"@en ;
+  rdfs:comment "[TO BE ADDED]"@en ;
+  dcterms:modified "2026-01-19T21:36:15.230142Z"^^xsd:dateTime .
+
+oakcurric:thread-the-uk-and-regions
+  a curric:Thread ;
+  rdfs:label "The UK and regions"@en ;
+  rdfs:comment "[TO BE ADDED]"@en ;
+  dcterms:modified "2026-01-19T21:36:15.230146Z"^^xsd:dateTime .
+
+oakcurric:thread-water-and-rivers
+  a curric:Thread ;
+  rdfs:label "Water and rivers"@en ;
+  rdfs:comment "[TO BE ADDED]"@en ;
+  dcterms:modified "2026-01-19T21:36:15.230177Z"^^xsd:dateTime .

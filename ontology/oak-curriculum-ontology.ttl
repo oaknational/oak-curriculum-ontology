@@ -1,0 +1,891 @@
+  @prefix curric: <https://w3id.org/oak/curriculum/ontology/> .
+  @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+  @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+  @prefix owl: <http://www.w3.org/2002/07/owl#> .
+  @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+  @prefix dc: <http://purl.org/dc/elements/1.1/> .
+  @prefix dcterms: <http://purl.org/dc/terms/> .
+  @prefix vann: <http://purl.org/vocab/vann/> .
+  @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+  @prefix schema: <http://schema.org/> .
+  @prefix bibo: <http://purl.org/ontology/bibo/> .
+
+  # ======================================================================
+  # Oak Curriculum Ontology
+  # ======================================================================
+
+  # ----------------------------------------------------------------------
+  # Ontology Declaration
+  # ----------------------------------------------------------------------
+
+  <https://w3id.org/oak/curriculum/ontology>
+    rdf:type owl:Ontology ;
+
+    rdfs:label "Oak Curriculum Ontology"@en ;
+    dc:title "Oak Curriculum Ontology"@en ;
+    rdfs:comment """This ontology defines the structure and content of the Oak Curriculum Ontology. 
+    It is a machine-readable semantic representation of the Oak Curriculum and linkage to the 
+    National Curriculum for England (2014)."""@en ;
+
+    owl:versionInfo "0.1.0" ;
+    owl:versionIRI <https://w3id.org/oak/curriculum/oak-ontology/0.1.0> ;
+
+    bibo:status "Oak Curriculum Ontology" ;
+    dcterms:abstract """This ontology defines the structure of programmes, units, unit variants, and 
+    lessons for the Oak Curriculum. It provides a framework for representing curriculum sequencing, 
+    optionality, and exam board variations."""@en ;
+    dcterms:description """This ontology defines the structure of programmes, units, unit variants, 
+    and lessons for the Oak Curriculum. It provides a framework for representing curriculum 
+    sequencing, optionality, and exam board variations."""@en ;
+    dcterms:creator "Oak National Academy" ;
+    dcterms:publisher "Oak National Academy" ;
+    dcterms:created "2026-02-12T12:33:32Z"^^xsd:dateTime ;
+    dcterms:modified "2026-02-12T12:33:32Z"^^xsd:dateTime ;
+    dcterms:issued "2026-02-12T12:33:32Z"^^xsd:dateTime ;
+
+    # CC0 License
+    dcterms:license <https://creativecommons.org/publicdomain/zero/1.0/> ;
+    dcterms:rights """To the extent possible under law, Oak National Academy has 
+    waived all copyright and related or neighboring rights to this work."""@en ;
+    
+    vann:preferredNamespacePrefix "curric" ;
+    vann:preferredNamespaceUri "https://w3id.org/oak/curriculum/ontology/" ;
+
+    owl:imports <http://www.w3.org/2004/02/skos/core> ;
+    owl:imports <https://schema.org/> .
+
+  # ----------------------------------------------------------------------
+  # Classes: Programme Structure
+  # (Phase, KeyStage, YearGroup, SubjectGroup, Subject, Scheme, Programme, 
+  # ExamBoard, Tier, Unit, UnitVariant, Lesson, Thread, Keyword, 
+  # Misconception, KeyLearningPoint, PupilLessonOutcome) 
+  # ----------------------------------------------------------------------
+
+  curric:Phase 
+    rdf:type owl:Class ;
+    rdfs:label "Phase"@en ;
+    rdfs:comment "A phase of study in the education system."@en ;
+    rdfs:isDefinedBy <https://w3id.org/oak/curriculum/ontology> .
+      
+  curric:KeyStage 
+    rdf:type owl:Class ;
+    rdfs:label "Key Stage"@en ;
+    rdfs:comment "A key stage that structures learning for specific age groups."@en ;
+    rdfs:isDefinedBy <https://w3id.org/oak/curriculum/ontology> .
+
+  curric:YearGroup 
+    rdf:type owl:Class ;
+    rdfs:label "Year Group"@en ;
+    rdfs:comment "A year group within a key stage."@en ;
+    rdfs:isDefinedBy <https://w3id.org/oak/curriculum/ontology> .
+
+  curric:SubjectGroup
+    rdf:type owl:Class ;
+    rdfs:label "Subject Group"@en ;
+    rdfs:comment "Subject group (e.g. science, history, physical education)."@en ;
+    rdfs:isDefinedBy <https://w3id.org/oak/curriculum/ontology> .
+
+  curric:Subject
+    rdf:type owl:Class ;
+    rdfs:label "Subject"@en ;
+    rdfs:comment "Subject (e.g. biology, history, physical education)."@en ;
+    rdfs:isDefinedBy <https://w3id.org/oak/curriculum/ontology> .
+
+  curric:Scheme
+    rdf:type owl:Class ;
+    rdfs:label "Scheme"@en ;
+    rdfs:comment "A scheme defines one or more progressions for a subject and a key stage."@en ;
+    rdfs:isDefinedBy <https://w3id.org/oak/curriculum/ontology> .
+
+  curric:Progression
+    rdf:type owl:Class ;
+    rdfs:label "Progression"@en ;
+    rdfs:comment """A progression defines curriculum content relating to a single sub-strand, for a 
+    scheme."""@en ;
+    rdfs:isDefinedBy <https://w3id.org/oak/curriculum/ontology> .
+
+  curric:Programme 
+    rdf:type owl:Class ;
+    rdfs:label "Programme"@en ;
+    rdfs:comment """A structured sequence of units designed for a specific year group, and optionally 
+    for a specific exam board and tier. A programme defines the curriculum pathway for a subject 
+    that students follow during an academic year."""@en ;
+    rdfs:isDefinedBy <https://w3id.org/oak/curriculum/ontology> .
+
+  curric:ExamBoard 
+    rdf:type owl:Class ;
+    rdfs:label "Exam Board"@en ;
+    rdfs:comment """An awarding organization that creates, assesses, and awards qualifications in 
+    England. Exam boards develop specifications for qualifications such as GCSEs and A-levels, which 
+    are regulated by Ofqual."""@en ;
+    rdfs:isDefinedBy <https://w3id.org/oak/curriculum/ontology> .
+
+  curric:Tier 
+    rdf:type owl:Class ;
+    rdfs:label "Tier"@en ;
+    rdfs:comment """A level of difficulty within a tiered qualification, typically used in GCSE 
+    subjects. Foundation tier covers grades 1-5, while Higher tier covers grades 4-9, with grade 4 as 
+    the overlap."""@en ;
+    rdfs:isDefinedBy <https://w3id.org/oak/curriculum/ontology> .
+
+  curric:Unit 
+    rdf:type owl:Class ;
+    rdfs:label "Unit"@en ;
+    rdfs:comment """A unit of study representing a coherent body of knowledge and skills. 
+    A unit may have multiple unit variants for different tiers and/or exam boards."""@en ;
+    rdfs:isDefinedBy <https://w3id.org/oak/curriculum/ontology> .
+
+  curric:UnitVariant 
+    rdf:type owl:Class ;
+    rdfs:label "Unit Variant"@en ;
+    rdfs:comment """A specific version of a unit, potentially adapted for different exam boards, tiers, 
+    or pedagogical approaches. Unit variants share the same learning objectives but may differ in content, 
+    examples, or assessment focus."""@en ;
+    rdfs:isDefinedBy <https://w3id.org/oak/curriculum/ontology> .
+
+  curric:Lesson 
+    rdf:type owl:Class ;
+    rdfs:label "Lesson"@en ;
+    rdfs:comment """A single teaching session within a unit variant. A lesson includes learning activities, 
+    resources, and formative assessment designed to achieve specific learning outcomes."""@en ;
+    rdfs:isDefinedBy <https://w3id.org/oak/curriculum/ontology> .
+
+  curric:Thread 
+    rdf:type owl:Class ;
+    rdfs:label "Thread"@en ;
+    rdfs:comment """A conceptual thread that weaves through multiple units or lessons, representing a 
+    recurring theme, skill, or big idea."""@en ;
+    rdfs:isDefinedBy <https://w3id.org/oak/curriculum/ontology> .
+
+  curric:Keyword 
+    rdf:type owl:Class ;
+    rdfs:subClassOf schema:DefinedTerm ;
+    rdfs:label "Keyword"@en ;
+    rdfs:comment """Description of a keyword."""@en ;
+    rdfs:isDefinedBy <https://w3id.org/oak/curriculum/ontology> .
+
+  curric:Misconception 
+    rdf:type owl:Class ;
+    rdfs:label "Misconceptions and common mistakes"@en ;
+    rdfs:comment """Description of a misconception or common mistake."""@en ;
+    rdfs:isDefinedBy <https://w3id.org/oak/curriculum/ontology> .
+
+  curric:KeyLearningPoint
+    rdf:type owl:Class ;
+    rdfs:label "Key Learning Point"@en ;
+    rdfs:comment """A specific learning objective or outcome that pupils should achieve in a lesson.
+    Key learning points are specific to individual lessons and represent the core knowledge or
+    skills that students should acquire."""@en ;
+    rdfs:isDefinedBy <https://w3id.org/oak/curriculum/ontology> .
+
+  curric:PupilLessonOutcome
+    rdf:type owl:Class ;
+    rdfs:label "Pupil Lesson Outcome"@en ;
+    rdfs:comment """The expected outcome that pupils should be able to demonstrate by the end of a lesson.
+    This describes what pupils should be able to do or understand after completing the lesson."""@en ;
+    rdfs:isDefinedBy <https://w3id.org/oak/curriculum/ontology> .
+
+  # ----------------------------------------------------------------------
+  # Classes: Knowledge Taxonomy
+  # (Discipline, Strand, SubStrand, ContentDescriptor)
+  # ----------------------------------------------------------------------
+
+  curric:Discipline
+    rdf:type owl:Class ;
+    rdfs:subClassOf skos:Concept ;
+    rdfs:label "Discipline"@en ;
+    rdfs:comment "A domain of knowledge (e.g. mathematics, english, history)."@en ;
+    rdfs:isDefinedBy <https://w3id.org/oak/curriculum/ontology> .
+
+  curric:Strand
+    rdf:type owl:Class ;
+    rdfs:subClassOf skos:Concept ;
+    rdfs:label "Strand"@en ;
+    rdfs:comment "An area of knowledge within a discipline (e.g. number, algebra)."@en ;
+    rdfs:isDefinedBy <https://w3id.org/oak/curriculum/ontology> .
+
+  curric:SubStrand
+    rdf:type owl:Class ;
+    rdfs:subClassOf skos:Concept ;
+    rdfs:label "Sub-Strand"@en ;
+    rdfs:comment "A sub-division of a strand (e.g. place value, addition and subtraction)."@en ;
+    rdfs:isDefinedBy <https://w3id.org/oak/curriculum/ontology> .
+
+  curric:ContentDescriptor
+    rdf:type owl:Class ;
+    rdfs:subClassOf skos:Concept ;
+    rdfs:label "Content Descriptor"@en ;
+    rdfs:comment "A statement of knowledge (a concept, fact or skill) within a sub-strand."@en ;
+    rdfs:isDefinedBy <https://w3id.org/oak/curriculum/ontology> .
+
+  # ----------------------------------------------------------------------
+  # Classes for Sequencing and Optionality
+  # (Inclusion, UnitVariantInclusion, LessonInclusion, UnitVariantChoice)
+  # ----------------------------------------------------------------------
+
+  curric:Inclusion
+    rdf:type owl:Class ;
+    rdfs:label "Inclusion"@en ;
+    rdfs:comment "An abstract superclass for UnitVariantInclusion and LessonInclusion."@en ;
+    rdfs:isDefinedBy <https://w3id.org/oak/curriculum/ontology> .
+
+  curric:UnitVariantInclusion
+    rdf:type owl:Class ;
+    rdfs:subClassOf curric:Inclusion ;
+    rdfs:label "Unit Variant Inclusion"@en ;
+    rdfs:comment """Represents the inclusion of a unit variant in a programme, including sequencing and 
+    optional metadata such as whether the unit variant is required or optional."""@en ;
+    rdfs:isDefinedBy <https://w3id.org/oak/curriculum/ontology> .
+
+  curric:LessonInclusion
+    rdf:type owl:Class ;
+    rdfs:subClassOf curric:Inclusion ;
+    rdfs:label "Lesson Inclusion"@en ;
+    rdfs:comment """Represents the inclusion of a lesson in a unit variant, including sequencing and 
+    optional metadata such as whether the lesson is required or optional."""@en ;
+    rdfs:isDefinedBy <https://w3id.org/oak/curriculum/ontology> .
+
+  curric:UnitVariantChoice
+    rdf:type owl:Class ;
+    rdfs:label "Unit Variant Choice"@en ;
+    rdfs:comment """A choice between multiple unit variants at a given sequence position. One unit 
+    variant should be selected from the available options."""@en ;
+    rdfs:isDefinedBy <https://w3id.org/oak/curriculum/ontology> .
+
+  # ----------------------------------------------------------------------
+  # Object Properties
+  # (hasKeyStage, isKeyStageOf, hasYearGroup, isYearGroupOf, 
+  # coversKeyStage, isCoveredByScheme, coversDiscipline, 
+  # isCoveredBySubjectGroup, coversStrand, isCoveredBySubject, 
+  # coversContent, isIncludedByProgression, hasSubject, isSubjectOf, 
+  # hasScheme, isSchemeOf, hasProgression, isProgressionOf, aims, hasProgramme, isProgrammeOf, hasUnit, 
+  # isUnitOf, coversYearGroup, isCoveredByProgramme, hasExamBoard, 
+  # isExamBoardOf, hasTier, isTierOf, hasUnitVariant, isUnitVariantOf, 
+  # includesThread, isThreadOf, includesContent, isContentOf, hasKeyword, 
+  # isKeywordOf, hasMisconception, isMisconceptionOf, hasKeyLearningPoint, 
+  # isKeyLearningPointOf, hasPupilLessonOutcome, isPupilLessonOutcomeOf)
+  # ----------------------------------------------------------------------
+
+  curric:hasKeyStage
+    rdf:type owl:ObjectProperty ;
+    rdfs:label "has key stage"@en ;
+    rdfs:comment "Indicates that a phase contains a key stage as a subdivision."@en ;
+    rdfs:domain curric:Phase ;
+    rdfs:range curric:KeyStage ;
+    owl:inverseOf curric:isKeyStageOf ;
+    rdfs:isDefinedBy <https://w3id.org/oak/curriculum/ontology> .
+
+  curric:isKeyStageOf
+    rdf:type owl:ObjectProperty ;
+    rdfs:label "is key stage of"@en ;
+    rdfs:comment "Indicates that a key stage is a subdivision of a phase."@en ;
+    rdfs:domain curric:KeyStage ;
+    rdfs:range curric:Phase ;
+    owl:inverseOf curric:hasKeyStage ;
+    rdfs:isDefinedBy <https://w3id.org/oak/curriculum/ontology> .
+
+  curric:hasYearGroup
+    rdf:type owl:ObjectProperty ;
+    rdfs:label "has year group"@en ;
+    rdfs:comment "Indicates that a key stage contains a year group as a subdivision."@en ;
+    rdfs:domain curric:KeyStage ;
+    rdfs:range curric:YearGroup ;
+    owl:inverseOf curric:isYearGroupOf ;
+    rdfs:isDefinedBy <https://w3id.org/oak/curriculum/ontology> .
+
+  curric:isYearGroupOf
+    rdf:type owl:ObjectProperty ;
+    rdfs:label "is year group of"@en ;
+    rdfs:comment "Indicates that a year group is a subdivision of a key stage."@en ;
+    rdfs:domain curric:YearGroup ;
+    rdfs:range curric:KeyStage ;
+    owl:inverseOf curric:hasYearGroup ;
+    rdfs:isDefinedBy <https://w3id.org/oak/curriculum/ontology> .
+
+  curric:coversKeyStage
+    rdf:type owl:ObjectProperty ;
+    rdfs:label "covers key stage"@en ;
+    rdfs:comment "Indicates that a scheme covers a specific key stage."@en ;
+    rdfs:domain curric:Scheme ;
+    rdfs:range curric:KeyStage ;
+    owl:inverseOf curric:isCoveredByScheme ;
+    rdfs:isDefinedBy <https://w3id.org/oak/curriculum/ontology> .
+
+  curric:isCoveredByScheme
+    rdf:type owl:ObjectProperty ;
+    rdfs:label "is covered by scheme"@en ;
+    rdfs:comment "Indicates that a key stage is covered by a specific scheme."@en ;
+    rdfs:domain curric:KeyStage ;
+    rdfs:range curric:Scheme ;
+    owl:inverseOf curric:coversKeyStage ;
+    rdfs:isDefinedBy <https://w3id.org/oak/curriculum/ontology> .
+
+  curric:coversDiscipline
+    rdf:type owl:ObjectProperty ;
+    rdfs:label "covers discipline"@en ;
+    rdfs:comment "Indicates that a subject group covers content from a discipline."@en ;
+    rdfs:domain curric:SubjectGroup ;
+    rdfs:range curric:Discipline ;
+    owl:inverseOf curric:isCoveredBySubjectGroup ;
+    rdfs:isDefinedBy <https://w3id.org/oak/curriculum/ontology> .
+
+  curric:isCoveredBySubjectGroup
+    rdf:type owl:ObjectProperty ;
+    rdfs:label "is covered by subject group"@en ;
+    rdfs:comment "Indicates that content from a discipline is covered by a subject group."@en ;
+    rdfs:domain curric:Discipline ;
+    rdfs:range curric:SubjectGroup ;
+    owl:inverseOf curric:coversDiscipline ;
+    rdfs:isDefinedBy <https://w3id.org/oak/curriculum/ontology> .
+
+  curric:coversStrand
+    rdf:type owl:ObjectProperty ;
+    rdfs:label "covers strand"@en ;
+    rdfs:comment "Indicates that a subject covers content from a strand of knowledge."@en ;
+    rdfs:domain curric:Subject ;
+    rdfs:range curric:Strand ;
+    owl:inverseOf curric:isCoveredBySubject ;
+    rdfs:isDefinedBy <https://w3id.org/oak/curriculum/ontology> .
+
+  curric:isCoveredBySubject
+    rdf:type owl:ObjectProperty ;
+    rdfs:label "is covered by subject"@en ;
+    rdfs:comment "Indicates that content from a strand of knowledge is covered by a subject."@en ;
+    rdfs:domain curric:Strand ;
+    rdfs:range curric:Subject ;
+    owl:inverseOf curric:coversStrand ;
+    rdfs:isDefinedBy <https://w3id.org/oak/curriculum/ontology> .
+
+  curric:coversContent
+    rdf:type owl:ObjectProperty ;
+    rdfs:label "includes content descriptor"@en ;
+    rdfs:comment "Indicates that a progression includes a specific content descriptor."@en ;
+    rdfs:domain curric:Progression ;
+    rdfs:range curric:ContentDescriptor ;
+    owl:inverseOf curric:isIncludedByProgression ;
+    rdfs:isDefinedBy <https://w3id.org/oak/curriculum/ontology> .
+
+  curric:isIncludedByProgression
+    rdf:type owl:ObjectProperty ;
+    rdfs:label "is included by progression"@en ;
+    rdfs:comment "Indicates that a content descriptor is included in a specific progression."@en ;
+    rdfs:domain curric:ContentDescriptor ;
+    rdfs:range curric:Progression ;
+    owl:inverseOf curric:coversContent ;
+    rdfs:isDefinedBy <https://w3id.org/oak/curriculum/ontology> .
+
+  curric:hasSubject
+    rdf:type owl:ObjectProperty ;
+    rdfs:label "has subject"@en ;
+    rdfs:comment "Indicates that a subject group contains a subject."@en ;
+    rdfs:domain curric:SubjectGroup ;
+    rdfs:range curric:Subject ;
+    owl:inverseOf curric:isSubjectOf ;
+    rdfs:isDefinedBy <https://w3id.org/oak/curriculum/ontology> .
+
+  curric:isSubjectOf
+    rdf:type owl:ObjectProperty ;
+    rdfs:label "is subject of"@en ;
+    rdfs:comment "Indicates that a subject is part of a subject group."@en ;
+    rdfs:domain curric:Subject ;
+    rdfs:range curric:SubjectGroup ;
+    owl:inverseOf curric:hasSubject ;
+    rdfs:isDefinedBy <https://w3id.org/oak/curriculum/ontology> .
+
+  curric:hasScheme
+    rdf:type owl:ObjectProperty ;
+    rdfs:label "has scheme"@en ;
+    rdfs:comment "Indicates that a subject contains a scheme."@en ;
+    rdfs:domain curric:Subject ;
+    rdfs:range curric:Scheme ;
+    owl:inverseOf curric:isSchemeOf ;
+    rdfs:isDefinedBy <https://w3id.org/oak/curriculum/ontology> .
+
+  curric:isSchemeOf
+    rdf:type owl:ObjectProperty ;
+    rdfs:label "is scheme of"@en ;
+    rdfs:comment "Indicates that a scheme is part of a subject."@en ;
+    rdfs:domain curric:Scheme ;
+    rdfs:range curric:Subject ;
+    owl:inverseOf curric:hasScheme ;
+    rdfs:isDefinedBy <https://w3id.org/oak/curriculum/ontology> .
+
+  curric:hasProgression
+    rdf:type owl:ObjectProperty ;
+    rdfs:label "has progression"@en ;
+    rdfs:comment "Indicates that a scheme contains a progression."@en ;
+    rdfs:domain curric:Scheme ;
+    rdfs:range curric:Progression ;
+    owl:inverseOf curric:isProgressionOf ;
+    rdfs:isDefinedBy <https://w3id.org/oak/curriculum/ontology> .
+
+  curric:isProgressionOf
+    rdf:type owl:ObjectProperty ;
+    rdfs:label "is progression of"@en ;
+    rdfs:comment "Indicates that a progression is part of a scheme."@en ;
+    rdfs:domain curric:Progression ;
+    rdfs:range curric:Scheme ;
+    owl:inverseOf curric:hasProgression ;
+    rdfs:isDefinedBy <https://w3id.org/oak/curriculum/ontology> .
+
+  curric:aims
+    rdf:type owl:ObjectProperty ;
+    rdfs:label "aims"@en ;
+    rdfs:comment "Ordered list of educational aims for this subject as stated in the National Curriculum."@en ;
+    rdfs:domain curric:Subject ;
+    rdfs:range rdf:List ;
+    rdfs:isDefinedBy <https://w3id.org/oak/curriculum/ontology> .
+
+  curric:hasProgramme
+    rdf:type owl:ObjectProperty ;
+    rdfs:label "has programme"@en ;
+    rdfs:comment "Indicates that an Oak programme is specified for a National Curriculum scheme."@en ;
+    rdfs:domain curric:Scheme ;
+    rdfs:range curric:Programme ;
+    owl:inverseOf curric:isProgrammeOf ;
+    rdfs:isDefinedBy <https://w3id.org/oak/curriculum/ontology> .
+
+  curric:isProgrammeOf
+    rdf:type owl:ObjectProperty ;
+    rdfs:label "is programme of"@en ;
+    rdfs:comment "Indicates that a National Curriculum scheme includes an Oak programme."@en ;
+    rdfs:domain curric:Programme ;
+    rdfs:range curric:Scheme ;
+    owl:inverseOf curric:hasProgramme ;
+    rdfs:isDefinedBy <https://w3id.org/oak/curriculum/ontology> .
+
+  curric:hasUnit
+    rdf:type owl:ObjectProperty ;
+    rdfs:label "has unit"@en ;
+    rdfs:comment "Indicates that an Oak unit is specified for a National Curriculum scheme."@en ;
+    rdfs:domain curric:Scheme ;
+    rdfs:range curric:Unit ;
+    owl:inverseOf curric:isUnitOf ;
+    rdfs:isDefinedBy <https://w3id.org/oak/curriculum/ontology> .
+
+  curric:isUnitOf
+    rdf:type owl:ObjectProperty ;
+    rdfs:label "is unit of"@en ;
+    rdfs:comment "Indicates that a National Curriculum scheme includes an Oak unit."@en ;
+    rdfs:domain curric:Unit ;
+    rdfs:range curric:Scheme ;
+    owl:inverseOf curric:hasUnit ;
+    rdfs:isDefinedBy <https://w3id.org/oak/curriculum/ontology> .
+
+  curric:coversYearGroup
+    rdf:type owl:ObjectProperty ;
+    rdfs:label "covers year group"@en ;
+    rdfs:comment "Indicates that a programme covers a specific year group."@en ;
+    rdfs:domain curric:Programme ;
+    rdfs:range curric:YearGroup ;
+    owl:inverseOf curric:isCoveredByProgramme ;
+    rdfs:isDefinedBy <https://w3id.org/oak/curriculum/ontology> .
+
+  curric:isCoveredByProgramme
+    rdf:type owl:ObjectProperty ;
+    rdfs:label "is covered by programme"@en ;
+    rdfs:comment "Indicates that a year group is covered by a specific programme."@en ;
+    rdfs:domain curric:YearGroup ;
+    rdfs:range curric:Programme ;
+    owl:inverseOf curric:coversYearGroup ;
+    rdfs:isDefinedBy <https://w3id.org/oak/curriculum/ontology> .
+
+  curric:hasExamBoard
+    rdf:type owl:ObjectProperty ;
+    rdfs:label "has exam board"@en ;
+    rdfs:comment "Indicates that a programme is specified by an exam board."@en ;
+    rdfs:domain curric:Programme ;
+    rdfs:range curric:ExamBoard ;
+    owl:inverseOf curric:isExamBoardOf ;
+    rdfs:isDefinedBy <https://w3id.org/oak/curriculum/ontology> .
+
+  curric:isExamBoardOf
+    rdf:type owl:ObjectProperty ;
+    rdfs:label "is exam board of"@en ;
+    rdfs:comment "Indicates that an exam board is specifying a programme."@en ;
+    rdfs:domain curric:ExamBoard ;
+    rdfs:range curric:Programme ;
+    owl:inverseOf curric:hasExamBoard ;
+    rdfs:isDefinedBy <https://w3id.org/oak/curriculum/ontology> .
+
+  curric:hasTier
+    rdf:type owl:ObjectProperty ;
+    rdfs:label "has tier"@en ;
+    rdfs:comment "Indicates that a programme is specified for a tier."@en ;
+    rdfs:domain curric:Programme ;
+    rdfs:range curric:Tier ;
+    owl:inverseOf curric:isTierOf ;
+    rdfs:isDefinedBy <https://w3id.org/oak/curriculum/ontology> .
+
+  curric:isTierOf
+    rdf:type owl:ObjectProperty ;
+    rdfs:label "is tier of"@en ;
+    rdfs:comment "Indicates that a tier includes a programme."@en ;
+    rdfs:domain curric:Tier ;
+    rdfs:range curric:Programme ;
+    owl:inverseOf curric:hasTier ;
+    rdfs:isDefinedBy <https://w3id.org/oak/curriculum/ontology> .
+
+  curric:hasUnitVariant
+    rdf:type owl:ObjectProperty ;
+    rdfs:label "has unit variant"@en ;
+    rdfs:comment "Indicates that a unit has a specific unit variant."@en ;
+    rdfs:domain curric:Unit ;
+    rdfs:range curric:UnitVariant ;
+    owl:inverseOf curric:isUnitVariantOf ;
+    rdfs:isDefinedBy <https://w3id.org/oak/curriculum/ontology> .
+
+  curric:isUnitVariantOf
+    rdf:type owl:ObjectProperty ;
+    rdfs:label "is unit variant of"@en ;
+    rdfs:comment "Indicates a unit variant of a unit."@en ;
+    rdfs:domain curric:UnitVariant ;
+    rdfs:range curric:Unit ;
+    owl:inverseOf curric:hasUnitVariant ;
+    rdfs:isDefinedBy <https://w3id.org/oak/curriculum/ontology> .
+
+  curric:includesThread
+    rdf:type owl:ObjectProperty ;
+    rdfs:label "includes thread"@en ;
+    rdfs:comment "Indicates that a unit includes development of a cross-cutting thread."@en ;
+    rdfs:domain curric:Unit ;
+    rdfs:range curric:Thread ;
+    owl:inverseOf curric:isThreadOf ;
+    rdfs:isDefinedBy <https://w3id.org/oak/curriculum/ontology> .
+
+  curric:isThreadOf
+    rdf:type owl:ObjectProperty ;
+    rdfs:label "is thread of"@en ;
+    rdfs:comment "Indicates a cross-cutting thread that is developed by a specific unit."@en ;
+    rdfs:domain curric:Thread ;
+    rdfs:range curric:Unit ;
+    owl:inverseOf curric:includesThread ;
+    rdfs:isDefinedBy <https://w3id.org/oak/curriculum/ontology> .
+
+  curric:includesContent
+    rdf:type owl:ObjectProperty ;
+    rdfs:label "includes content"@en ;
+    rdfs:comment "Indicates that a unit includes a specific content descriptor."@en ;
+    rdfs:domain curric:Unit ;
+    rdfs:range curric:ContentDescriptor ;
+    owl:inverseOf curric:isContentOf ;
+    rdfs:isDefinedBy <https://w3id.org/oak/curriculum/ontology> .
+
+  curric:isContentOf
+    rdf:type owl:ObjectProperty ;
+    rdfs:label "is content of"@en ;
+    rdfs:comment "Indicates that a content descriptor is included by a specific unit."@en ;
+    rdfs:domain curric:ContentDescriptor ;
+    rdfs:range curric:Unit ;
+    owl:inverseOf curric:includesContent ;
+    rdfs:isDefinedBy <https://w3id.org/oak/curriculum/ontology> .
+
+  curric:hasKeyword
+    rdf:type owl:ObjectProperty ;
+    rdfs:label "has keyword"@en ;
+    rdfs:comment "Indicates that a lesson has a specific keyword."@en ;
+    rdfs:domain curric:Lesson ;
+    rdfs:range curric:Keyword ;
+    owl:inverseOf curric:isKeywordOf ;
+    rdfs:isDefinedBy <https://w3id.org/oak/curriculum/ontology> .
+
+  curric:isKeywordOf
+    rdf:type owl:ObjectProperty ;
+    rdfs:label "is keyword of"@en ;
+    rdfs:comment "Indicates a keyword of a lesson."@en ;
+    rdfs:domain curric:Keyword ;
+    rdfs:range curric:Lesson ;
+    owl:inverseOf curric:hasKeyword ;
+    rdfs:isDefinedBy <https://w3id.org/oak/curriculum/ontology> .
+
+  curric:hasMisconception
+    rdf:type owl:ObjectProperty ;
+    rdfs:label "has misconception"@en ;
+    rdfs:comment "Indicates that a lesson's content relates to a specific misconception."@en ;
+    rdfs:domain curric:Lesson ;
+    rdfs:range curric:Misconception ;
+    owl:inverseOf curric:isMisconceptionOf ;
+    rdfs:isDefinedBy <https://w3id.org/oak/curriculum/ontology> .
+
+  curric:isMisconceptionOf
+    rdf:type owl:ObjectProperty ;
+    rdfs:label "is misconception of"@en ;
+    rdfs:comment "Indicates a misconception is related to a lesson's content."@en ;
+    rdfs:domain curric:Misconception ;
+    rdfs:range curric:Lesson ;
+    owl:inverseOf curric:hasMisconception ;
+    rdfs:isDefinedBy <https://w3id.org/oak/curriculum/ontology> .
+
+  curric:hasKeyLearningPoint
+    rdf:type owl:ObjectProperty ;
+    rdfs:label "has key learning point"@en ;
+    rdfs:comment "Indicates that a lesson has a specific key learning point."@en ;
+    rdfs:domain curric:Lesson ;
+    rdfs:range curric:KeyLearningPoint ;
+    owl:inverseOf curric:isKeyLearningPointOf ;
+    rdfs:isDefinedBy <https://w3id.org/oak/curriculum/ontology> .
+
+  curric:isKeyLearningPointOf
+    rdf:type owl:ObjectProperty ;
+    rdfs:label "is key learning point of"@en ;
+    rdfs:comment "Indicates that a key learning point belongs to a specific lesson."@en ;
+    rdfs:domain curric:KeyLearningPoint ;
+    rdfs:range curric:Lesson ;
+    owl:inverseOf curric:hasKeyLearningPoint ;
+    rdfs:isDefinedBy <https://w3id.org/oak/curriculum/ontology> .
+
+  curric:hasPupilLessonOutcome
+    rdf:type owl:ObjectProperty ;
+    rdfs:label "has pupil lesson outcome"@en ;
+    rdfs:comment "Indicates that a lesson has a specific pupil learning outcome."@en ;
+    rdfs:domain curric:Lesson ;
+    rdfs:range curric:PupilLessonOutcome ;
+    owl:inverseOf curric:isPupilLessonOutcomeOf ;
+    rdfs:isDefinedBy <https://w3id.org/oak/curriculum/ontology> .
+
+  curric:isPupilLessonOutcomeOf
+    rdf:type owl:ObjectProperty ;
+    rdfs:label "is pupil lesson outcome of"@en ;
+    rdfs:comment "Indicates that a pupil lesson outcome belongs to a specific lesson."@en ;
+    rdfs:domain curric:PupilLessonOutcome ;
+    rdfs:range curric:Lesson ;
+    owl:inverseOf curric:hasPupilLessonOutcome ;
+    rdfs:isDefinedBy <https://w3id.org/oak/curriculum/ontology> .
+
+  # ----------------------------------------------------------------------
+  # Properties for Sequencing
+  # (hasUnitVariantInclusion, includesUnitVariant, hasLessonInclusion,
+  # includesLesson, sequencePosition)
+  # ----------------------------------------------------------------------
+
+  curric:hasUnitVariantInclusion
+    rdf:type owl:ObjectProperty ;
+    rdfs:label "has unit variant inclusion"@en ;
+    rdfs:comment "Links a programme to a unit variant inclusion relationship."@en ;
+    rdfs:domain curric:Programme ;
+    rdfs:range curric:UnitVariantInclusion ;
+    rdfs:isDefinedBy <https://w3id.org/oak/curriculum/ontology> .
+
+  curric:includesUnitVariant
+    rdf:type owl:ObjectProperty ;
+    rdfs:label "includes unit variant"@en ;
+    rdfs:comment "Specifies which unit variant is included."@en ;
+    rdfs:domain curric:UnitVariantInclusion ;
+    rdfs:range curric:UnitVariant ;
+    rdfs:isDefinedBy <https://w3id.org/oak/curriculum/ontology> .
+
+  curric:hasLessonInclusion
+    rdf:type owl:ObjectProperty ;
+    rdfs:label "has lesson inclusion"@en ;
+    rdfs:comment "Links a unit variant to a lesson inclusion relationship."@en ;
+    rdfs:domain curric:UnitVariant ;
+    rdfs:range curric:LessonInclusion ;
+    rdfs:isDefinedBy <https://w3id.org/oak/curriculum/ontology> .
+
+  curric:includesLesson
+    rdf:type owl:ObjectProperty ;
+    rdfs:label "includes lesson"@en ;
+    rdfs:comment "Specifies which lesson is included."@en ;
+    rdfs:domain curric:LessonInclusion ;
+    rdfs:range curric:Lesson ;
+    rdfs:isDefinedBy <https://w3id.org/oak/curriculum/ontology> .
+
+  curric:sequencePosition
+    rdf:type owl:DatatypeProperty , owl:FunctionalProperty ;
+    rdfs:label "sequence position"@en ;
+    rdfs:comment "The position within a sequence. Each inclusion has exactly one position."@en ;
+    rdfs:domain curric:Inclusion ;
+    rdfs:range xsd:positiveInteger ;
+    rdfs:isDefinedBy <https://w3id.org/oak/curriculum/ontology> .
+
+  # ----------------------------------------------------------------------
+  # Properties for Optionality
+  # (includesUnitVariantChoice, hasUnitVariantOption)
+  # ----------------------------------------------------------------------
+
+  curric:includesUnitVariantChoice
+    rdf:type owl:ObjectProperty ;
+    rdfs:label "includes unit variant choice"@en ;
+    rdfs:comment """Links a unit inclusion to a choice group. Use this instead of includesUnitVariant 
+    when multiple options are available."""@en ;
+    rdfs:domain curric:UnitVariantInclusion ;
+    rdfs:range curric:UnitVariantChoice ;
+    rdfs:isDefinedBy <https://w3id.org/oak/curriculum/ontology> .
+
+  curric:hasUnitVariantOption
+    rdf:type owl:ObjectProperty ;
+    rdfs:label "has unit variant option"@en ;
+    rdfs:comment "One of the available unit variant options in a choice."@en ;
+    rdfs:domain curric:UnitVariantChoice ;
+    rdfs:range curric:UnitVariant ;
+    rdfs:isDefinedBy <https://w3id.org/oak/curriculum/ontology> .
+
+  # ----------------------------------------------------------------------
+  # Datatype Properties
+  # (lowerAgeBoundary, upperAgeBoundary, rationale, schoolCurriculum, 
+  # supportingGuidance, isNationalCurriculum, isRequired, isExamined, 
+  # examType, website, accreditationBody, whyThisWhyNow, minChoices, 
+  # maxChoices, unitPriorKnowledgeRequirements, statement, correction)
+  # ----------------------------------------------------------------------
+
+  curric:lowerAgeBoundary
+    rdf:type owl:DatatypeProperty ;
+    rdfs:label "lower age boundary"@en ;
+    rdfs:comment "Lower age boundary of an educational level."@en ;
+    rdfs:domain [ owl:unionOf (curric:Phase curric:KeyStage curric:YearGroup) ] ;
+    rdfs:range xsd:nonNegativeInteger ;
+    rdfs:isDefinedBy <https://w3id.org/oak/curriculum/ontology> .
+
+  curric:upperAgeBoundary
+    rdf:type owl:DatatypeProperty ;
+    rdfs:label "upper age boundary"@en ;
+    rdfs:comment "Upper age boundary of an educational level."@en ;
+    rdfs:domain [ owl:unionOf (curric:Phase curric:KeyStage curric:YearGroup) ] ;
+    rdfs:range xsd:positiveInteger ;
+    rdfs:isDefinedBy <https://w3id.org/oak/curriculum/ontology> .
+
+  curric:rationale
+    rdf:type owl:DatatypeProperty ;
+    rdfs:label "rationale"@en ;
+    rdfs:comment "Specific text relating to rationale."@en ;
+    rdfs:domain curric:Subject ;
+    rdfs:range rdf:langString ;
+    rdfs:isDefinedBy <https://w3id.org/oak/curriculum/ontology> .
+
+  curric:schoolCurriculum
+    rdf:type owl:DatatypeProperty ;
+    rdfs:label "school curriculum"@en ;
+    rdfs:comment "Specific text relating to school curriculum."@en ;
+    rdfs:domain curric:Subject ;
+    rdfs:range rdf:langString ;
+    rdfs:isDefinedBy <https://w3id.org/oak/curriculum/ontology> .
+
+  curric:supportingGuidance
+    rdf:type owl:DatatypeProperty ;
+    rdfs:subPropertyOf skos:note ;
+    rdfs:label "supporting guidance"@en ;
+    rdfs:comment "Supporting guidance for a content descriptor."@en ;
+    rdfs:domain curric:ContentDescriptor ;
+    rdfs:range rdf:langString ;
+    rdfs:isDefinedBy <https://w3id.org/oak/curriculum/ontology> .
+
+  curric:displayOrder
+    rdf:type owl:DatatypeProperty ;
+    rdfs:label "display order"@en ;
+    rdfs:comment "Numeric position for ordered display of curriculum concepts."@en ;
+    rdfs:domain skos:Concept ;
+    rdfs:range xsd:integer ;
+    rdfs:isDefinedBy <https://w3id.org/oak/curriculum/ontology> .
+
+  curric:isNationalCurriculum
+    rdf:type owl:DatatypeProperty ;
+    rdfs:label "is national curriculum"@en ;
+    rdfs:comment """Indicates whether the programme delivers content that is specified in the National 
+    Curriculum."""@en ;
+    rdfs:domain curric:Programme ;
+    rdfs:range xsd:boolean ;
+    rdfs:isDefinedBy <https://w3id.org/oak/curriculum/ontology> .
+
+  curric:isRequired
+    rdf:type owl:DatatypeProperty ;
+    rdfs:label "is required"@en ;
+    rdfs:comment """Indicates whether the programme delivers content that maintained schools are 
+    legally required to teach (whether specified in the National Curriculum or not)."""@en ;
+    rdfs:domain curric:Programme ;
+    rdfs:range xsd:boolean ;
+    rdfs:isDefinedBy <https://w3id.org/oak/curriculum/ontology> .
+
+  curric:isExamined
+    rdf:type owl:DatatypeProperty ;
+    rdfs:label "is examined"@en ;
+    rdfs:comment """Indicates whether the programme is examined."""@en ;
+    rdfs:domain curric:Programme ;
+    rdfs:range xsd:boolean ;
+    rdfs:isDefinedBy <https://w3id.org/oak/curriculum/ontology> .
+
+  curric:examType
+    rdf:type owl:DatatypeProperty ;
+    rdfs:label "exam type"@en ;
+    rdfs:comment "Type of exam qualification."@en ;
+    rdfs:domain curric:Programme ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy <https://w3id.org/oak/curriculum/ontology> .
+
+  curric:website
+    rdf:type owl:DatatypeProperty ;
+    rdfs:label "website"@en ;
+    rdfs:comment "The official website URL of an exam board."@en ;
+    rdfs:domain curric:ExamBoard ;
+    rdfs:range xsd:anyURI ;
+    rdfs:isDefinedBy <https://w3id.org/oak/curriculum/ontology> .
+
+  curric:accreditationBody
+    rdf:type owl:DatatypeProperty ;
+    rdfs:label "accreditation body"@en ;
+    rdfs:comment "The body that accredits this exam board."@en ;
+    rdfs:domain curric:ExamBoard ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy <https://w3id.org/oak/curriculum/ontology> .
+
+  curric:whyThisWhyNow
+    rdf:type owl:DatatypeProperty ;
+    rdfs:label "why this why now"@en ;
+    rdfs:comment """Explains the pedagogical rationale for teaching this unit at this point in the 
+    curriculum sequence, including what prior learning it builds upon and how it prepares pupils for 
+    subsequent units."""@en ;
+    rdfs:domain curric:Unit ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy <https://w3id.org/oak/curriculum/ontology> .
+
+  curric:minChoices
+    rdf:type owl:DatatypeProperty ;
+    rdfs:label "minimum choices"@en ;
+    rdfs:comment """The minimum number of unit variant options that must be selected from a unit variant 
+    choice. Used with includesUnitVariantChoice to specify selection constraints. For example, 
+    minChoices=1 means at least one option must be chosen."""@en ;
+    rdfs:domain curric:UnitVariantInclusion ;
+    rdfs:range xsd:nonNegativeInteger ;
+    rdfs:isDefinedBy <https://w3id.org/oak/curriculum/ontology> .
+
+  curric:maxChoices
+    rdf:type owl:DatatypeProperty ;
+    rdfs:label "maximum choices"@en ;
+    rdfs:comment """The maximum number of unit variant options that can be selected from a unit variant choice. 
+    Used with includesUnitVariantChoice to specify selection constraints. For example, maxChoices=1 means 
+    only one option can be chosen (pick one of many). If not specified, defaults to the number of 
+    available options (can pick all)."""@en ;
+    rdfs:domain curric:UnitVariantInclusion ;
+    rdfs:range xsd:positiveInteger ;
+    rdfs:isDefinedBy <https://w3id.org/oak/curriculum/ontology> .
+
+  curric:unitPriorKnowledgeRequirements
+    rdf:type owl:DatatypeProperty ;
+    rdfs:label "unit prior knowledge requirements"@en ;
+    rdfs:comment "Description."@en ;
+    rdfs:domain curric:Unit ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy <https://w3id.org/oak/curriculum/ontology> .
+
+  curric:statement
+    rdf:type owl:DatatypeProperty ;
+    rdfs:label "statement"@en ;
+    rdfs:comment "A textual statement expressing a misconception."@en ;
+    rdfs:domain curric:Misconception ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy <https://w3id.org/oak/curriculum/ontology> .
+
+  curric:correction
+    rdf:type owl:DatatypeProperty ;
+    rdfs:label "correction"@en ;
+    rdfs:comment "A correct explanation that addresses and fixes the misconception."@en ;
+    rdfs:domain curric:Misconception ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy <https://w3id.org/oak/curriculum/ontology> .
+
+  curric:id
+    rdf:type owl:DatatypeProperty ;
+    rdfs:label "identifier"@en ;
+    rdfs:comment """A numeric identifier."""@en ;
+    rdfs:domain owl:Thing ;
+    rdfs:range xsd:positiveInteger ;
+    rdfs:isDefinedBy <https://w3id.org/oak/curriculum/ontology> .

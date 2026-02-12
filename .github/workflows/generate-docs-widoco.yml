@@ -1,0 +1,91 @@
+name: Generate GH Pages with Widoco
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:  # Allow manual triggers for testing
+
+# Sets permissions for GitHub Pages deployment
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow only one concurrent deployment
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  generate-docs:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Create output directory
+        run: |
+          mkdir -p docs-output
+          chmod -R 777 docs-output
+
+      - name: Generate documentation with Widoco
+        run: |
+          docker run --rm \
+            -v ${{ github.workspace }}:/data \
+            ghcr.io/dgarijo/widoco:v1.4.25 \
+            -ontFile /data/ontology/oak-curriculum-ontology.ttl \
+            -outFolder /data/docs-output \
+            -htaccess \
+            -uniteSections \
+            -includeAnnotationProperties \
+            -webVowl \
+            -noPlaceHolderText \
+            -excludeProvenance \
+            -rewriteAll
+
+      - name: Fix permissions
+        run: |
+          sudo chown -R runner:runner docs-output/
+          chmod -R u+w docs-output/
+
+      - name: Create index.html
+        run: cp docs-output/doc/index-en.html docs-output/doc/index.html
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: './docs-output/doc'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+      - name: Display summary
+        if: always()
+        run: |
+          echo "### Ontology Documentation Generated with Widoco" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Source Ontology:** \`ontology/oak-curriculum-ontology.ttl\`" >> $GITHUB_STEP_SUMMARY
+          echo "**Generator:** Widoco v1.4.25" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+
+          if [ "${{ steps.deployment.outcome }}" == "success" ]; then
+            echo "✅ **Status:** Documentation deployed successfully" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "**Live Documentation:** ${{ steps.deployment.outputs.page_url }}" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "#### Features Included" >> $GITHUB_STEP_SUMMARY
+            echo "- HTML documentation with cross-references" >> $GITHUB_STEP_SUMMARY
+            echo "- WebVOWL interactive visualization" >> $GITHUB_STEP_SUMMARY
+            echo "- Class and property definitions" >> $GITHUB_STEP_SUMMARY
+            echo "- Annotation properties" >> $GITHUB_STEP_SUMMARY
+            echo "- .htaccess file for content negotiation" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "❌ **Status:** Documentation generation or deployment failed" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "Please review the logs above for error details." >> $GITHUB_STEP_SUMMARY
+          fi
