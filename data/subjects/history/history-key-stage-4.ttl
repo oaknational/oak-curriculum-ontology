@@ -36,9 +36,9 @@
   dcterms:modified "2026-02-12T08:59:43.989821Z"^^xsd:dateTime ;
   dcterms:issued "2026-01-08T00:00:00Z"^^xsd:dateTime ;
 
-  # CC BY 4.0 License
-  dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
-  dcterms:rights "Copyright © 2026 Oak National Academy. Licensed under CC BY 4.0."@en ;
+  # OGL 3.0 License
+  dcterms:license <http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/> ;
+  dcterms:rights "Copyright © 2026 Oak National Academy."@en ;
   
   vann:preferredNamespacePrefix "oakcurric" ; 
   vann:preferredNamespaceUri "https://w3id.org/oak/curriculum/oakcurriculum/" ;

@@ -1,0 +1,97 @@
+name: Generate Static Distribution Files
+
+on:
+  push:
+    branches: [ main ]
+  release:
+    types: [ published ]
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install Apache Jena
+        run: |
+          wget -q https://dlcdn.apache.org/jena/binaries/apache-jena-5.6.0.tar.gz
+          tar xzf apache-jena-5.6.0.tar.gz
+          echo "$PWD/apache-jena-5.6.0/bin" >> $GITHUB_PATH
+
+      - name: Generate distribution files
+        run: ./scripts/build-static-data.sh
+
+      - name: Validate RDF outputs
+        run: |
+          echo "Validating generated RDF files..."
+
+          # Validate Turtle files
+          echo "Checking Turtle files..."
+          for file in distributions/**/*.ttl; do
+            if [ -f "$file" ]; then
+              echo "  Validating $file..."
+              riot --validate "$file" && echo "    ✓ Valid Turtle"
+            fi
+          done
+
+          # Validate JSON-LD files
+          echo "Checking JSON-LD files..."
+          for file in distributions/**/*.jsonld; do
+            if [ -f "$file" ]; then
+              echo "  Validating $file..."
+              riot --validate "$file" && echo "    ✓ Valid JSON-LD"
+            fi
+          done
+
+          # Validate RDF/XML files
+          echo "Checking RDF/XML files..."
+          for file in distributions/**/*.rdf; do
+            if [ -f "$file" ]; then
+              echo "  Validating $file..."
+              riot --validate "$file" && echo "    ✓ Valid RDF/XML"
+            fi
+          done
+
+      - name: Upload distribution artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: curriculum-distributions-${{ github.sha }}
+          path: distributions/
+          retention-days: 30
+
+      - name: Upload files to release
+        if: github.event_name == 'release'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          echo "Uploading distribution files to release ${{ github.event.release.tag_name }}"
+          gh release upload ${{ github.event.release.tag_name }} \
+            distributions/curriculum-full.* \
+            distributions/subjects/*.* \
+            --clobber
+
+      - name: Display summary
+        run: |
+          echo "### Generated RDF Distribution Files" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "Three RDF serialization formats for semantic web consumers:" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+
+          echo "#### Turtle (RDF)" >> $GITHUB_STEP_SUMMARY
+          echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
+          find distributions -name "*.ttl" -exec ls -lh {} \; >> $GITHUB_STEP_SUMMARY
+          echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
+
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "#### JSON-LD (RDF)" >> $GITHUB_STEP_SUMMARY
+          echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
+          find distributions -name "*.jsonld" -exec ls -lh {} \; >> $GITHUB_STEP_SUMMARY
+          echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
+
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "#### RDF/XML" >> $GITHUB_STEP_SUMMARY
+          echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
+          find distributions -name "*.rdf" -exec ls -lh {} \; >> $GITHUB_STEP_SUMMARY
+          echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
