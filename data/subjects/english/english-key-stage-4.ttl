@@ -24571,7 +24571,7 @@ oakcurric:keylearningpoint-lesson-2460-5
 
 oakcurric:keylearningpoint-lesson-2466-1
   a curric:KeyLearningPoint ;
-  rdfs:label """In Stave 4, Scrooge meets the Ghost of Christmas Yet to Come, who shows Scrooge the shadows of things that "may be""""@en ;
+  rdfs:label "In Stave 4, Scrooge meets the Ghost of Christmas Yet to Come, who shows Scrooge the shadows of things that \"may be\""@en ;
   dcterms:modified "2026-02-12T08:59:21.629711Z"^^xsd:dateTime .
 
 oakcurric:keylearningpoint-lesson-2466-2

@@ -36167,7 +36167,7 @@ oakcurric:misconception-pupils-resort-procedure-little-understanding
 oakcurric:misconception-pupils-write-negative-numbers-beginning
   a curric:Misconception ;
   curric:statement """Pupils do not write negative numbers beginning with the negative symbol e.g. writing 3- and not -3."""@en ;
-  curric:correction """Take time to model the writing of a negative number. "I know it is negative so I begin with the negative symbol.""""@en ;
+  curric:correction "Take time to model the writing of a negative number. \"I know it is negative so I begin with the negative symbol.\""@en ;
   dcterms:modified "2026-02-12T08:59:18.679678Z"^^xsd:dateTime .
 
 oakcurric:misconception-pupils-struggle-visualise-considering-3d

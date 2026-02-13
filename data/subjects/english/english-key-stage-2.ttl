@@ -37282,7 +37282,7 @@ oakcurric:keylearningpoint-lesson-28384-5
 
 oakcurric:keylearningpoint-lesson-7891-1
   a curric:KeyLearningPoint ;
-  rdfs:label """Walter de la Mare uses a range of poetic devices to create atmosphere in "The Listeners""""@en ;
+  rdfs:label "Walter de la Mare uses a range of poetic devices to create atmosphere in \"The Listeners\""@en ;
   dcterms:modified "2026-02-12T08:59:21.622522Z"^^xsd:dateTime .
 
 oakcurric:keylearningpoint-lesson-7891-2

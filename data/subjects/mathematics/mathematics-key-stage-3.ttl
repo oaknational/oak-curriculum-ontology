@@ -22501,7 +22501,7 @@ oakcurric:misconception-confusion-factors-multiples
 oakcurric:misconception-sequence-6-11-16-21
   a curric:Misconception ;
   curric:statement """That the sequence 6,11,16,21, ... is 5n+6 because it goes up by 5 and starts at 6."""@en ;
-  curric:correction """Compare 6,11,16,21, ... to 5,10,15,20, ... "What is the shift? The translation? If that is 5n then this is 5n with how much more?""""@en ;
+  curric:correction "Compare 6,11,16,21, ... to 5,10,15,20, ... \"What is the shift? The translation? If that is 5n then this is 5n with how much more?\""@en ;
   dcterms:modified "2026-02-12T08:59:18.689999Z"^^xsd:dateTime .
 
 oakcurric:misconception-dividing-amount-sum-parts-ratio

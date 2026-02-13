@@ -24391,7 +24391,7 @@ oakcurric:misconception-pupils-measure-angle-north-simply
 
 oakcurric:misconception-one-shape-area-21-larger
   a curric:Misconception ;
-  curric:statement """"One shape has an area that is 21% larger than another shape. I can't find the area scale factor between the shapes, since I don't know the actual area of either shape.""""@en ;
+  curric:statement "\"One shape has an area that is 21% larger than another shape. I can't find the area scale factor between the shapes, since I don't know the actual area of either shape.\""@en ;
   curric:correction """It is possible to find scale factors, even if only a percentage that describes their areas is given. One shape will have an area of 100%, so the other shape will have an area 21% larger, at 121%. The scale factor is 1.21 because 100% × 1.21 = 121%."""@en ;
   dcterms:modified "2026-02-12T08:59:18.689089Z"^^xsd:dateTime .
 
