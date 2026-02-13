@@ -3,6 +3,7 @@
 ![Version](https://img.shields.io/badge/version-0.1.0-orange)
 ![Status](https://img.shields.io/badge/status-early_release-yellow)
 ![License](https://img.shields.io/badge/license-OGL_3.0-blue)
+![License](https://img.shields.io/badge/license-MIT-blue)
 
 **A machine-readable semantic representation of the Oak Curriculum  
 and linkage to the National Curriculum for England (2014)**
