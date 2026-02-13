@@ -1,105 +1,83 @@
 #!/bin/bash
 # Generate static distribution files from RDF data
-# Outputs: Turtle, JSON-LD, RDF/XML
+# Outputs: Turtle, JSON-LD, RDF/XML, N-Triples
 
 set -e
 
 echo "=========================================="
-echo "🏗️  Building Static Distribution Files"
+echo "Building Static Distribution Files"
 echo "=========================================="
 echo ""
-
-# Colors
-GREEN='\033[0;32m'
-BLUE='\033[0;34m'
-YELLOW='\033[0;33m'
-NC='\033[0m'
 
 # Output directory
 OUTPUT_DIR="distributions"
 rm -rf "$OUTPUT_DIR"
-mkdir -p "$OUTPUT_DIR/subjects" "$OUTPUT_DIR/keystages" "$OUTPUT_DIR/themes"
+mkdir -p "$OUTPUT_DIR"
 
-# Build common data file list
-echo -e "${BLUE}📦 Collecting data files...${NC}"
-DATA_FILES=""
-DATA_FILES="$DATA_FILES --data=ontology/dfe-curriculum-ontology.ttl"
-DATA_FILES="$DATA_FILES --data=data/national-curriculum-for-england/temporal-structure.ttl"
+# Collect all source TTL files
+echo "Collecting source files..."
 
-# Check if themes file exists
-if [ -f "data/national-curriculum-for-england/themes.ttl" ]; then
-    DATA_FILES="$DATA_FILES --data=data/national-curriculum-for-england/themes.ttl"
-fi
+# Build list of all TTL files to merge
+SOURCE_FILES=""
 
-# Add all subject files
-for file in data/national-curriculum-for-england/subjects/**/*.ttl; do
+# Ontology files
+for file in ontology/*.ttl; do
     if [ -f "$file" ]; then
-        DATA_FILES="$DATA_FILES --data=$file"
+        SOURCE_FILES="$SOURCE_FILES $file"
+        echo "  + $file"
     fi
 done
 
-echo -e "${GREEN}✓${NC} Data files collected"
+# Core data files
+for file in data/*.ttl; do
+    if [ -f "$file" ]; then
+        SOURCE_FILES="$SOURCE_FILES $file"
+        echo "  + $file"
+    fi
+done
+
+# Subject data files (all subjects, all key stages)
+for file in data/subjects/**/*.ttl; do
+    if [ -f "$file" ]; then
+        SOURCE_FILES="$SOURCE_FILES $file"
+        echo "  + $file"
+    fi
+done
+
 echo ""
+echo "Generating distribution formats..."
 
-# Helper function to generate RDF formats from CONSTRUCT query
-generate_rdf_formats() {
-    local name=$1
-    local construct_query=$2
-    local output_base=$3
+# Generate merged Turtle file (canonical format)
+echo "  Generating Turtle (.ttl)..."
+riot --output=TTL $SOURCE_FILES > "$OUTPUT_DIR/oak-curriculum-full.ttl"
+echo "    Created oak-curriculum-full.ttl"
 
-    echo -e "${BLUE}📋 Generating $name...${NC}"
+# Generate JSON-LD from merged Turtle
+echo "  Generating JSON-LD (.jsonld)..."
+riot --output=JSONLD "$OUTPUT_DIR/oak-curriculum-full.ttl" > "$OUTPUT_DIR/oak-curriculum-full.jsonld"
+echo "    Created oak-curriculum-full.jsonld"
 
-    # Generate Turtle (native format)
-    arq $DATA_FILES \
-        --query="$construct_query" \
-        --results=TTL > "${output_base}.ttl"
-    echo -e "${GREEN}  ✓${NC} $(basename ${output_base}).ttl"
+# Generate RDF/XML from merged Turtle
+echo "  Generating RDF/XML (.rdf)..."
+riot --output=RDFXML "$OUTPUT_DIR/oak-curriculum-full.ttl" > "$OUTPUT_DIR/oak-curriculum-full.rdf"
+echo "    Created oak-curriculum-full.rdf"
 
-    # Convert Turtle to JSON-LD
-    riot --formatted=JSONLD "${output_base}.ttl" > "${output_base}.jsonld"
-    echo -e "${GREEN}  ✓${NC} $(basename ${output_base}).jsonld"
+# Generate N-Triples from merged Turtle
+echo "  Generating N-Triples (.nt)..."
+riot --output=NTRIPLES "$OUTPUT_DIR/oak-curriculum-full.ttl" > "$OUTPUT_DIR/oak-curriculum-full.nt"
+echo "    Created oak-curriculum-full.nt"
 
-    # Convert Turtle to RDF/XML
-    riot --formatted=RDFXML "${output_base}.ttl" > "${output_base}.rdf"
-    echo -e "${GREEN}  ✓${NC} $(basename ${output_base}).rdf"
-}
-
-# Generate subjects index in all RDF formats
-generate_rdf_formats \
-    "subjects index" \
-    "queries/subjects-index.sparql" \
-    "$OUTPUT_DIR/subjects/index"
-
-# Generate Science KS3 in all RDF formats
-generate_rdf_formats \
-    "Science KS3" \
-    "queries/science-ks3.sparql" \
-    "$OUTPUT_DIR/subjects/science-ks3"
-
-# Generate full curriculum in all RDF formats
-generate_rdf_formats \
-    "full curriculum dataset" \
-    "queries/full-curriculum.sparql" \
-    "$OUTPUT_DIR/curriculum-full"
-
-# Calculate statistics
 echo ""
 echo "=========================================="
-TOTAL_FILES=$(find "$OUTPUT_DIR" -type f | wc -l | tr -d ' ')
-TOTAL_SIZE=$(du -sh "$OUTPUT_DIR" | cut -f1)
-echo -e "${GREEN}✅ Generated $TOTAL_FILES distribution files ($TOTAL_SIZE)${NC}"
+echo "Distribution Summary"
 echo "=========================================="
 echo ""
 
-# List files by format
+# Show file sizes
 echo "Generated files:"
+ls -lh "$OUTPUT_DIR"/* | awk '{print "  " $9 " (" $5 ")"}'
+
 echo ""
-echo -e "${BLUE}Turtle (RDF):${NC}"
-find "$OUTPUT_DIR" -name "*.ttl" -exec echo "  - {}" \;
-echo ""
-echo -e "${BLUE}JSON-LD (RDF):${NC}"
-find "$OUTPUT_DIR" -name "*.jsonld" -exec echo "  - {}" \;
-echo ""
-echo -e "${BLUE}RDF/XML:${NC}"
-find "$OUTPUT_DIR" -name "*.rdf" -exec echo "  - {}" \;
+TOTAL_SIZE=$(du -sh "$OUTPUT_DIR" | cut -f1)
+echo "Total distribution size: $TOTAL_SIZE"
 echo ""

@@ -1,8 +1,7 @@
 name: Generate Static Distribution Files
 
 on:
-  push:
-    branches: [ main ]
+  workflow_dispatch:  # Manual trigger via GitHub UI
   release:
     types: [ published ]
 
@@ -29,35 +28,44 @@ jobs:
 
           # Validate Turtle files
           echo "Checking Turtle files..."
-          for file in distributions/**/*.ttl; do
+          for file in distributions/*.ttl; do
             if [ -f "$file" ]; then
               echo "  Validating $file..."
-              riot --validate "$file" && echo "    ✓ Valid Turtle"
+              riot --validate "$file" && echo "    Valid Turtle"
             fi
           done
 
           # Validate JSON-LD files
           echo "Checking JSON-LD files..."
-          for file in distributions/**/*.jsonld; do
+          for file in distributions/*.jsonld; do
             if [ -f "$file" ]; then
               echo "  Validating $file..."
-              riot --validate "$file" && echo "    ✓ Valid JSON-LD"
+              riot --validate "$file" && echo "    Valid JSON-LD"
             fi
           done
 
           # Validate RDF/XML files
           echo "Checking RDF/XML files..."
-          for file in distributions/**/*.rdf; do
+          for file in distributions/*.rdf; do
             if [ -f "$file" ]; then
               echo "  Validating $file..."
-              riot --validate "$file" && echo "    ✓ Valid RDF/XML"
+              riot --validate "$file" && echo "    Valid RDF/XML"
+            fi
+          done
+
+          # Validate N-Triples files
+          echo "Checking N-Triples files..."
+          for file in distributions/*.nt; do
+            if [ -f "$file" ]; then
+              echo "  Validating $file..."
+              riot --validate "$file" && echo "    Valid N-Triples"
             fi
           done
 
       - name: Upload distribution artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: curriculum-distributions-${{ github.sha }}
+          name: oak-curriculum-distributions-${{ github.sha }}
           path: distributions/
           retention-days: 30
 
@@ -68,30 +76,34 @@ jobs:
         run: |
           echo "Uploading distribution files to release ${{ github.event.release.tag_name }}"
           gh release upload ${{ github.event.release.tag_name }} \
-            distributions/curriculum-full.* \
-            distributions/subjects/*.* \
+            distributions/oak-curriculum-full.ttl \
+            distributions/oak-curriculum-full.jsonld \
+            distributions/oak-curriculum-full.rdf \
+            distributions/oak-curriculum-full.nt \
             --clobber
 
       - name: Display summary
         run: |
           echo "### Generated RDF Distribution Files" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
-          echo "Three RDF serialization formats for semantic web consumers:" >> $GITHUB_STEP_SUMMARY
+          echo "Four RDF serialization formats for semantic web consumers:" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
 
-          echo "#### Turtle (RDF)" >> $GITHUB_STEP_SUMMARY
-          echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
-          find distributions -name "*.ttl" -exec ls -lh {} \; >> $GITHUB_STEP_SUMMARY
-          echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
+          echo "| Format | File | Size |" >> $GITHUB_STEP_SUMMARY
+          echo "|--------|------|------|" >> $GITHUB_STEP_SUMMARY
+          for file in distributions/oak-curriculum-full.*; do
+            SIZE=$(ls -lh "$file" | awk '{print $5}')
+            BASENAME=$(basename "$file")
+            EXT="${BASENAME##*.}"
+            case $EXT in
+              ttl) FORMAT="Turtle" ;;
+              jsonld) FORMAT="JSON-LD" ;;
+              rdf) FORMAT="RDF/XML" ;;
+              nt) FORMAT="N-Triples" ;;
+            esac
+            echo "| $FORMAT | $BASENAME | $SIZE |" >> $GITHUB_STEP_SUMMARY
+          done
 
           echo "" >> $GITHUB_STEP_SUMMARY
-          echo "#### JSON-LD (RDF)" >> $GITHUB_STEP_SUMMARY
-          echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
-          find distributions -name "*.jsonld" -exec ls -lh {} \; >> $GITHUB_STEP_SUMMARY
-          echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
-
-          echo "" >> $GITHUB_STEP_SUMMARY
-          echo "#### RDF/XML" >> $GITHUB_STEP_SUMMARY
-          echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
-          find distributions -name "*.rdf" -exec ls -lh {} \; >> $GITHUB_STEP_SUMMARY
-          echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
+          TOTAL=$(du -sh distributions | cut -f1)
+          echo "**Total size:** $TOTAL" >> $GITHUB_STEP_SUMMARY
