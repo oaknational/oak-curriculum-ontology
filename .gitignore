@@ -6,6 +6,18 @@ __pycache__/
 venv/
 .python-version
 
+# Environment variables (secrets)
+.env
+.env.local
+.env.*.local
+.env.development
+.env.production
+.env.staging
+.env.test
+
+# Keep example files (these are safe to commit)
+!.env.example
+
 # uv
 uv.lock
 
