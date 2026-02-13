@@ -18,7 +18,7 @@
 # Ontology Declaration
 # ----------------------------------------------------------------------
 
-<https://w3id.org/uk/oak/curriculum/oakcurriculum/english-ks1>
+<https://w3id.org/uk/oak/curriculum/oakcurriculum/english-key-stage-1>
   rdf:type owl:Ontology ;
 
   rdfs:label "Oak Curriculum Data - English KS1 Instance Data"@en ;
@@ -27,7 +27,7 @@
   programmes for English KS1."""@en ;
 
   owl:versionInfo "0.1.0" ;
-  owl:versionIRI <https://w3id.org/uk/oak/curriculum/oakcurriculum/english-ks1/0.1.0> ;
+  owl:versionIRI <https://w3id.org/uk/oak/curriculum/oakcurriculum/english-key-stage-1/0.1.0> ;
 
   dcterms:description """This file contains Programme, Unit, Unit Variant, and Lesson instances for
   English KS1, including exam board-specific unit variants and lesson sequences."""@en ;

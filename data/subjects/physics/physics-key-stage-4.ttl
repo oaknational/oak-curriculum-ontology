@@ -18,7 +18,7 @@
 # Ontology Declaration
 # ----------------------------------------------------------------------
 
-<https://w3id.org/uk/oak/curriculum/oakcurriculum/physics-ks4>
+<https://w3id.org/uk/oak/curriculum/oakcurriculum/physics-key-stage-4>
   rdf:type owl:Ontology ;
 
   rdfs:label "Oak Curriculum Data - Physics KS4 Instance Data"@en ;
@@ -27,7 +27,7 @@
   programmes for Physics KS4."""@en ;
 
   owl:versionInfo "0.1.0" ;
-  owl:versionIRI <https://w3id.org/uk/oak/curriculum/oakcurriculum/physics-ks4/0.1.0> ;
+  owl:versionIRI <https://w3id.org/uk/oak/curriculum/oakcurriculum/physics-key-stage-4/0.1.0> ;
 
   dcterms:description """This file contains Programme, Unit, Unit Variant, and Lesson instances for
   Physics KS4, including exam board-specific unit variants and lesson sequences."""@en ;
