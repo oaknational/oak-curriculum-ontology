@@ -1,0 +1,272 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description": "Comprehensive configuration for Neo4j export from RDF/TTL files. All settings are defined here - no hard-coded values in Python.",
+
+  "rdf_source": {
+    "namespaces": {
+      "oakcurric": "https://w3id.org/uk/curriculum/oak-ontology/",
+      "oak": "https://w3id.org/uk/curriculum/oak-data/",
+      "curric": "https://w3id.org/uk/curriculum/core/",
+      "eng": "https://w3id.org/uk/curriculum/england/",
+      "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+      "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+      "owl": "http://www.w3.org/2002/07/owl#",
+      "dcterms": "http://purl.org/dc/terms/",
+      "schema": "http://schema.org/"
+    },
+    "file_discovery": {
+      "base_dir": "data",
+      "include_files": [
+        "oak-curriculum/programme-structure.ttl",
+        "oak-curriculum/threads.ttl"
+      ],
+      "include_patterns": [
+        "oak-curriculum/programmes/**/*.ttl",
+        "oak-curriculum/resources/**/*.ttl"
+      ],
+      "exclude_patterns": [
+        "**/versions/**"
+      ]
+    },
+    "filters": {
+      "exclude_entities_by_type": [
+        "owl:Ontology"
+      ],
+      "exclude_predicates": [
+        "rdf:first",
+        "rdf:rest"
+      ],
+      "exclude_properties_by_type": {
+        "curric:exampleClass": ["rdfs:exampleProperty"],
+        "*": ["curric:exampleProperty"]
+      }
+    }
+  },
+ 
+  "neo4j_connection": {
+    "database": "neo4j",
+    "batching": true,
+    "batch_size": 5000
+  },
+
+  "label_mapping": {
+      "source_label": "Resource",
+      "target_label": "Oak",
+      "uri_pattern": "https://w3id.org/uk/curriculum/oak-data",
+      "description": "Replaces source_label with target_label for nodes matching uri_pattern"
+  },
+
+  "uri_slug_extraction": {
+    "Tier": "tierSlug",
+    "ExamBoard": "examBoardSlug",
+    "Programme": "programmeSlug",
+    "Unit": "unitSlug",
+    "UnitVariant": "unitVariantSlug",
+    "UnitVariantChoice": "unitVariantChoiceSlug",
+    "Lesson": "lessonSlug",
+    "Thread": "threadSlug",
+    "Scheme": "schemeSlug",
+    "Video": "videoSlug",
+    "Article": "articleSlug",
+    "Website": "websiteSlug",
+    "Keyword": "keywordSlug",
+    "Misconception": "misconceptionSlug",
+    "KeyLearningPoint": "keyLearningPointSlug",
+    "PupilLessonOutcome": "pupilLessonOutcomeSlug"
+  },
+
+  "multi_valued_properties": {
+  },
+
+  "property_mappings": {
+    "Tier": {
+      "label": "tierTitle",
+      "comment": "tierDescription",
+      "id": "tierId",
+      "modified": "lastUpdated"
+    },
+    "ExamBoard": {
+      "label": "examBoardTitle",
+      "comment": "examBoardDescription",
+      "id": "examBoardId",
+      "modified": "lastUpdated"
+    },
+    "Thread": {
+      "label": "threadTitle",
+      "id": "threadId",
+      "modified": "lastUpdated"
+    },
+    "Programme": {
+      "label": "programmeTitle",
+      "modified": "lastUpdated"
+    },
+    "UnitVariantChoice": {
+      "label": "unitVariantChoiceTitle",
+      "modified": "lastUpdated"
+    },
+    "UnitVariant": {
+      "label": "unitVariantTitle",
+      "id": "unitVariantId",
+      "modified": "lastUpdated"
+    },
+    "Unit": {
+      "label": "unitTitle",
+      "comment": "unitDescription",
+      "id": "unitId",
+      "modified": "lastUpdated"
+    },
+    "Lesson": {
+      "label": "lessonTitle",
+      "id": "lessonId",
+      "modified": "lastUpdated"
+    },
+    "Scheme": {
+      "label": "schemeTitle",
+      "comment": "schemeDescription",
+      "modified": "lastUpdated"
+    },
+    "Video": {
+      "name": "videoTitle",
+      "modified": "lastUpdated"
+    },
+    "Article": {
+      "name": "articleTitle",
+      "modified": "lastUpdated"
+    },
+    "Website": {
+      "name": "websiteTitle",
+      "modified": "lastUpdated"
+    },
+    "Keyword": {
+      "name": "keyword",
+      "description": "keywordDefinition",
+      "modified": "lastUpdated"
+    },
+    "Misconception": {
+      "statement": "misconceptionStatement",
+      "correction": "misconceptionCorrection",
+      "modified": "lastUpdated"
+    },
+    "KeyLearningPoint": {
+      "label": "keyLearningPoint",
+      "modified": "lastUpdated"
+    },
+    "PupilLessonOutcome": {
+      "label": "pupilLessonOutcome",
+      "modified": "lastUpdated"
+    }
+  },
+
+  "relationship_type_mappings": {
+  },
+
+  "reverse_relationships": {
+    "isUnitVariantOf": "HAS_UNIT_VARIANT",
+    "isProgrammeOf": "HAS_PROGRAMME",
+    "isUnitOf": "HAS_UNIT",
+    "isSchemeOf": "HAS_SCHEME",
+    "isPartOf": "HAS_RESOURCE"
+  },
+
+  "inclusion_flattening": [
+    {
+      "description": "Flatten LessonInclusion into direct UnitVariant→Lesson relationship",
+      "inclusion_node_label": "LessonInclusion",
+      "source_node_label": "UnitVariant",
+      "target_node_label": "Lesson",
+      "relationship_type": "HAS_LESSON",
+      "relationship_property_mappings": {
+        "sequencePosition": "lessonOrder"
+      }
+    },
+    {
+      "description": "Flatten UnitVariantInclusion into direct Programme→UnitVariant relationship",
+      "inclusion_node_label": "UnitVariantInclusion",
+      "source_node_label": "Programme",
+      "target_node_label": "UnitVariant",
+      "relationship_type": "INCLUDES",
+      "relationship_property_mappings": {
+        "sequencePosition": "unitVariantOrder"
+      }
+    },
+    {
+      "description": "Flatten UnitVariantInclusion into direct Programme→UnitVariantChoice relationship (keep choice node)",
+      "inclusion_node_label": "UnitVariantInclusion",
+      "source_node_label": "Programme",
+      "target_node_label": "UnitVariantChoice",
+      "relationship_type": "INCLUDES",
+      "relationship_property_mappings": {
+        "sequencePosition": "unitVariantOrder",
+        "minChoices": "minChoices",
+        "maxChoices": "maxChoices"
+      }
+    }
+  ],
+
+  "_notes": {
+    "description": "This configuration file drives the entire RDF-to-Neo4j export process",
+    "reusability": "To use this for another RDF repository, modify the following sections:",
+    "reusability_steps": [
+      "1. Update 'rdf_source.namespaces' with your ontology's namespaces",
+      "2. Update 'rdf_source.file_discovery' to point to your TTL files",
+      "3. Adjust 'label_mapping' to use your preferred node label and URI pattern",
+      "4. Customize 'property_mappings' for your entity types",
+      "5. Define 'inclusion_flattening' rules if your ontology uses inclusion patterns",
+      "6. Add any 'reverse_relationships' or 'relationship_type_mappings' as needed"
+    ],
+    "label_mapping": {
+      "source_label": "The label assigned by rdflib-neo4j (typically 'Resource')",
+      "target_label": "The new label to apply (e.g., 'Oak', 'DfE', 'Custom')",
+      "uri_pattern": "URI prefix to match nodes for relabeling"
+    },
+    "uri_slug_extraction": {
+      "description": "Extract the last segment of the URI (after final '/') as a property",
+      "format": "{ 'NodeLabel': 'property_name' }",
+      "example": "For Tier with URI 'https://w3id.org/uk/curriculum/oak-data/tier-higher', creates property tierSlug='tier-higher'",
+      "processing": "Extracts from uri property, only applies to nodes with target_label"
+    },
+    "property_mappings": {
+      "format": "Node type label (key) maps to an object of property renames",
+      "syntax": "{ 'NodeLabel': { 'old_property_name': 'new_property_name' } }",
+      "example": "For Tier nodes, 'label' property will be renamed to 'tierTitle'",
+      "processing": "Only applies to nodes with target_label from label_mapping",
+      "safety": "Properties are only renamed if they exist on the node"
+    },
+    "relationship_type_mappings": {
+      "description": "Explicitly rename specific relationship types",
+      "format": "{ 'oldType': 'NEW_TYPE' }",
+      "note": "Any camelCase relationships not listed here will be auto-converted to UPPER_CASE"
+    },
+    "reverse_relationships": {
+      "description": "Reverse relationship direction and rename",
+      "format": "{ 'oldType': 'NEW_TYPE' }",
+      "example": "'isUnitVariantOf' becomes 'HAS_UNIT_VARIANT' with reversed direction (a)-[isUnitVariantOf]->(b) becomes (b)-[HAS_UNIT_VARIANT]->(a)"
+    },
+    "inclusion_flattening": {
+      "description": "Transforms RDF reified relationships into direct Neo4j relationships with properties",
+      "purpose": "Converts inclusion pattern (source→inclusion_node→target) into direct relationship (source)-[REL]→(target)",
+      "format": "Array of flattening configurations",
+      "example": "LessonInclusion nodes become HAS_LESSON relationships with lessonOrder property",
+      "processing": [
+        "1. Finds pattern: (source)-[]->(inclusion)-[]->(target)",
+        "2. Extracts properties from inclusion node",
+        "3. Applies relationship_property_mappings to rename properties",
+        "4. Creates direct relationship with mapped properties",
+        "5. Deletes inclusion node and its relationships"
+      ],
+      "benefit": "Optimizes graph for Neo4j traversals while preserving sequence and other metadata on relationships"
+    },
+    "rdf_source": {
+      "namespaces": "Define all RDF namespace prefixes used in your ontology",
+      "file_discovery": {
+        "base_dir": "Base directory containing TTL files (relative to project root)",
+        "include_files": "Specific files to include (relative to base_dir)",
+        "include_patterns": "Glob patterns for discovering files (supports **/ for recursive)",
+        "exclude_patterns": "Patterns to exclude (e.g., version directories)"
+      },
+      "filters": {
+        "exclude_subjects_by_type": "RDF types whose subjects (and all their triples) should be filtered out (e.g., ontology metadata)"
+      }
+    }
+  }
+}

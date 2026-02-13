@@ -26,7 +26,7 @@ jobs:
           echo "$PWD/apache-jena-6.0.0/bin" >> $GITHUB_PATH
 
       - name: Generate distribution files
-        run: ./scripts/build-static-data.sh
+        run: ./scripts/build_static_data.sh
 
       - name: Validate RDF outputs
         run: |
