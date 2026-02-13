@@ -1,28 +1,31 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "description": "Comprehensive configuration for Neo4j export from RDF/TTL files. All settings are defined here - no hard-coded values in Python.",
+  "description": "Comprehensive configuration for Neo4j export from RDF/TTL files.",
 
   "rdf_source": {
     "namespaces": {
-      "oakcurric": "https://w3id.org/uk/curriculum/oak-ontology/",
-      "oak": "https://w3id.org/uk/curriculum/oak-data/",
-      "curric": "https://w3id.org/uk/curriculum/core/",
-      "eng": "https://w3id.org/uk/curriculum/england/",
+      "curric": "https://w3id.org/uk/oak/curriculum/ontology/",
+      "natcurric": "https://w3id.org/uk/oak/curriculum/nationalcurriculum/",
+      "oakcurric": "https://w3id.org/uk/oak/curriculum/oakcurriculum/",
       "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
       "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
       "owl": "http://www.w3.org/2002/07/owl#",
+      "skos": "http://www.w3.org/2004/02/skos/core#",
+      "dc": "http://purl.org/dc/elements/1.1/",
       "dcterms": "http://purl.org/dc/terms/",
+      "vann": "http://purl.org/vocab/vann/",
+      "xsd": "http://www.w3.org/2001/XMLSchema#",
       "schema": "http://schema.org/"
     },
     "file_discovery": {
       "base_dir": "data",
       "include_files": [
-        "oak-curriculum/programme-structure.ttl",
-        "oak-curriculum/threads.ttl"
+        "temporal-structure.ttl",
+        "programme-structure.ttl",
+        "threads.ttl"
       ],
       "include_patterns": [
-        "oak-curriculum/programmes/**/*.ttl",
-        "oak-curriculum/resources/**/*.ttl"
+        "subjects/**/*.ttl"
       ],
       "exclude_patterns": [
         "**/versions/**"
@@ -30,9 +33,14 @@
     },
     "filters": {
       "exclude_entities_by_type": [
-        "owl:Ontology"
+        "owl:Ontology",
+        "skos:OrderedCollection",
+        "rdf:List"
       ],
       "exclude_predicates": [
+        "skos:broader", 
+        "skos:inScheme",
+        "skos:topConceptOf",
         "rdf:first",
         "rdf:rest"
       ],
@@ -49,14 +57,34 @@
     "batch_size": 5000
   },
 
-  "label_mapping": {
+  "label_mappings": [
+    {
       "source_label": "Resource",
-      "target_label": "Oak",
-      "uri_pattern": "https://w3id.org/uk/curriculum/oak-data",
-      "description": "Replaces source_label with target_label for nodes matching uri_pattern"
-  },
+      "target_label": "OakCurric",
+      "uri_pattern": "https://w3id.org/uk/oak/curriculum/oakcurriculum",
+      "description": "Replaces Resource with Oak Curriculum nodes"
+    },
+    {
+      "source_label": "Resource",
+      "target_label": "NatCurric",
+      "uri_pattern": "https://w3id.org/uk/oak/curriculum/nationalcurriculum/",
+      "description": "Replaces Resource with National Curriculum nodes"
+    }
+  ],
 
   "uri_slug_extraction": {
+    "Phase": "phaseSlug",
+    "KeyStage": "keyStageSlug",
+    "YearGroup": "yearGroupSlug",
+    "SubjectGroup": "subjectGroupSlug",
+    "Subject": "subjectSlug",
+    "Scheme": "schemeSlug",
+    "Progression": "progressionSlug",
+    "ConceptScheme": "conceptSchemeSlug",
+    "Discipline": "disciplineSlug",
+    "Strand": "strandSlug",
+    "SubStrand": "subStrandSlug",
+    "ContentDescriptor": "contentDescriptorSlug",
     "Tier": "tierSlug",
     "ExamBoard": "examBoardSlug",
     "Programme": "programmeSlug",
@@ -65,7 +93,6 @@
     "UnitVariantChoice": "unitVariantChoiceSlug",
     "Lesson": "lessonSlug",
     "Thread": "threadSlug",
-    "Scheme": "schemeSlug",
     "Video": "videoSlug",
     "Article": "articleSlug",
     "Website": "websiteSlug",
@@ -76,9 +103,68 @@
   },
 
   "multi_valued_properties": {
+    "Subject": ["aims"]
   },
 
   "property_mappings": {
+    "Phase": {
+      "label": "phaseTitle",
+      "comment": "phaseDescription",
+      "id": "phaseId",
+      "modified": "lastUpdated"
+    },
+    "KeyStage": {
+      "label": "keyStageTitle",
+      "comment": "keyStageDescription",
+      "id": "keyStageId",
+      "modified": "lastUpdated"
+    },
+    "YearGroup": {
+      "label": "yearGroupTitle",
+      "comment": "yearGroupDescription",
+      "id": "yearGroupId",
+      "modified": "lastUpdated"
+    },
+    "SubjectGroup": {
+      "label": "subjectGroupTitle",
+      "modified": "lastUpdated"
+    },
+    "Subject": {
+      "label": "subjectTitle",
+      "modified": "lastUpdated"
+    },
+    "Scheme": {
+      "label": "schemeTitle",
+      "description": "schemeDescription",
+      "modified": "lastUpdated"
+    },
+    "Progression": {
+      "label": "progressionTitle",
+      "modified": "lastUpdated"
+    },
+    "ConceptScheme": {
+      "prefLabel": "conceptSchemeTitle",
+      "description": "conceptSchemeDescription",
+      "modified": "lastUpdated"
+    },
+    "Discipline": {
+      "prefLabel": "disciplineTitle",
+      "modified": "lastUpdated"
+    },
+    "Strand": {
+      "prefLabel": "strandTitle",
+      "definition": "strandDescription",
+      "modified": "lastUpdated"
+    },
+    "SubStrand": {
+      "prefLabel": "subStrandTitle",
+      "definition": "subStrandDescription",
+      "modified": "lastUpdated"
+    },
+    "ContentDescriptor": {
+      "prefLabel": "contentDescriptorTitle",
+      "modified": "lastUpdated"
+    },
     "Tier": {
       "label": "tierTitle",
       "comment": "tierDescription",
@@ -120,11 +206,6 @@
       "id": "lessonId",
       "modified": "lastUpdated"
     },
-    "Scheme": {
-      "label": "schemeTitle",
-      "comment": "schemeDescription",
-      "modified": "lastUpdated"
-    },
     "Video": {
       "name": "videoTitle",
       "modified": "lastUpdated"
@@ -157,14 +238,33 @@
     }
   },
 
+  "extract_object_uris_as_properties": {
+  },
+
   "relationship_type_mappings": {
+    "narrower": "NARROWER",
+    "related": "INCLUDES_THEME",
+    "hasTopConcept": [
+      {
+        "when_target_label": "Discipline",
+        "new_type": "HAS_DISCIPLINE"
+      },
+      {
+        "when_target_label": "Theme",
+        "new_type": "HAS_THEME"
+      }
+    ]
   },
 
   "reverse_relationships": {
+    "isKeyStageOf": "HAS_KEY_STAGE",
+    "isYearGroupOf": "HAS_YEAR_GROUP",
+    "isSubjectOf": "HAS_SUBJECT",
+    "isSchemeOf": "HAS_SCHEME",
+    "isProgressionOf": "HAS_PROGRESSION",
     "isUnitVariantOf": "HAS_UNIT_VARIANT",
     "isProgrammeOf": "HAS_PROGRAMME",
     "isUnitOf": "HAS_UNIT",
-    "isSchemeOf": "HAS_SCHEME",
     "isPartOf": "HAS_RESOURCE"
   },
 

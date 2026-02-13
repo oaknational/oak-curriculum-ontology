@@ -26,7 +26,7 @@ from rdflib import Graph, Namespace, URIRef, BNode
 from rdflib.collection import Collection
 from rdflib_neo4j import Neo4jStoreConfig, Neo4jStore, HANDLE_VOCAB_URI_STRATEGY
 from dotenv import load_dotenv
-from pydantic import BaseModel, Field, validator
+from pydantic import BaseModel, Field, field_validator
 from neo4j import GraphDatabase
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -97,7 +97,7 @@ class Neo4jExportConfig(BaseModel):
 
     rdf_source: RDFSourceConfig
     neo4j_connection: Neo4jConnectionConfig = Neo4jConnectionConfig()
-    label_mapping: Union[LabelMappingConfig, List[LabelMappingConfig]]
+    label_mapping: Union[LabelMappingConfig, List[LabelMappingConfig]] = Field(validation_alias="label_mappings")
     remove_labels: List[str] = []  # Labels to remove from main_label nodes
     uri_slug_extraction: Dict[str, str] = {}
     property_mappings: Dict[str, Dict[str, str]] = {}
