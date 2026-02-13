@@ -166,7 +166,7 @@
 
   curric:Misconception 
     rdf:type owl:Class ;
-    rdfs:label "Misconceptions and common mistakes"@en ;
+    rdfs:label "Misconceptions"@en ;
     rdfs:comment """Description of a misconception or common mistake."""@en ;
     rdfs:isDefinedBy <https://w3id.org/oak/curriculum/ontology> .
 
