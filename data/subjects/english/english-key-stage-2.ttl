@@ -1,6 +1,6 @@
-@prefix curric: <https://w3id.org/oak/curriculum/ontology/> .
-@prefix natcurric: <https://w3id.org/oak/curriculum/nationalcurriculum/> .
-@prefix oakcurric: <https://w3id.org/oak/curriculum/oakcurriculum/> .
+@prefix curric: <https://w3id.org/uk/oak/curriculum/ontology/> .
+@prefix natcurric: <https://w3id.org/uk/oak/curriculum/nationalcurriculum/> .
+@prefix oakcurric: <https://w3id.org/uk/oak/curriculum/oakcurriculum/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
@@ -18,7 +18,7 @@
 # Ontology Declaration
 # ----------------------------------------------------------------------
 
-<https://w3id.org/oak/curriculum/oakcurriculum/english-ks2>
+<https://w3id.org/uk/oak/curriculum/oakcurriculum/english-ks2>
   rdf:type owl:Ontology ;
 
   rdfs:label "Oak Curriculum Data - English KS2 Instance Data"@en ;
@@ -27,7 +27,7 @@
   programmes for English KS2."""@en ;
 
   owl:versionInfo "0.1.0" ;
-  owl:versionIRI <https://w3id.org/oak/curriculum/oakcurriculum/english-ks2/0.1.0> ;
+  owl:versionIRI <https://w3id.org/uk/oak/curriculum/oakcurriculum/english-ks2/0.1.0> ;
 
   dcterms:description """This file contains Programme, Unit, Unit Variant, and Lesson instances for
   English KS2, including exam board-specific unit variants and lesson sequences."""@en ;
@@ -41,12 +41,12 @@
   dcterms:rights "Copyright © 2026 Oak National Academy."@en ;
   
   vann:preferredNamespacePrefix "oakcurric" ; 
-  vann:preferredNamespaceUri "https://w3id.org/oak/curriculum/oakcurriculum/" ;
+  vann:preferredNamespaceUri "https://w3id.org/uk/oak/curriculum/oakcurriculum/" ;
 
- owl:imports <https://w3id.org/oak/curriculum/ontology> ,
-             <https://w3id.org/oak/curriculum/nationalcurriculum/english-programme-structure> ,
-             <https://w3id.org/oak/curriculum/oakcurriculum/programme-structure> ,
-             <https://w3id.org/oak/curriculum/oakcurriculum/threads> .
+ owl:imports <https://w3id.org/uk/oak/curriculum/ontology> ,
+             <https://w3id.org/uk/oak/curriculum/nationalcurriculum/english-programme-structure> ,
+             <https://w3id.org/uk/oak/curriculum/oakcurriculum/programme-structure> ,
+             <https://w3id.org/uk/oak/curriculum/oakcurriculum/threads> .
 
 
 # ----------------------------------------------------------------------

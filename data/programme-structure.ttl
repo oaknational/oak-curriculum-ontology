@@ -1,6 +1,6 @@
-@prefix curric: <https://w3id.org/oak/curriculum/ontology/> .
-@prefix oakcurric: <https://w3id.org/oak/curriculum/oakcurriculum/> .
-@prefix eng: <https://w3id.org/oak/curriculum/england/> .
+@prefix curric: <https://w3id.org/uk/oak/curriculum/ontology/> .
+@prefix oakcurric: <https://w3id.org/uk/oak/curriculum/oakcurriculum/> .
+@prefix eng: <https://w3id.org/uk/oak/curriculum/england/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
@@ -17,7 +17,7 @@
 # Ontology Declaration
 # ----------------------------------------------------------------------
 
-<https://w3id.org/oak/curriculum/oakcurriculum/programme-structure>
+<https://w3id.org/uk/oak/curriculum/oakcurriculum/programme-structure>
   rdf:type owl:Ontology ;
 
   rdfs:label "Oak Curriculum Ontology - Programme Structure Instance Data"@en ;
@@ -26,7 +26,7 @@
   curriculum programmes."""@en ;
 
   owl:versionInfo "0.1.0" ;
-  owl:versionIRI <https://w3id.org/oak/curriculum/oakcurriculum/programme-structure/0.1.0> ;
+  owl:versionIRI <https://w3id.org/uk/oak/curriculum/oakcurriculum/programme-structure/0.1.0> ;
 
   dcterms:description """This file contains instances of ExamBoard and Tier classes defined in the 
   Oak Curriculum Ontology."""@en ;
@@ -40,9 +40,9 @@
   dcterms:rights "Copyright © 2026 Oak National Academy. Licensed under CC BY 4.0."@en ;
   
   vann:preferredNamespacePrefix "oakcurric" ; 
-  vann:preferredNamespaceUri "https://w3id.org/oak/curriculum/oakcurriculum/" ;
+  vann:preferredNamespaceUri "https://w3id.org/uk/oak/curriculum/oakcurriculum/" ;
 
-  owl:imports <https://w3id.org/oak/curriculum/ontology> .
+  owl:imports <https://w3id.org/uk/oak/curriculum/ontology> .
 
 # ----------------------------------------------------------------------
 # Exam Boards

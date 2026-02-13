@@ -1,5 +1,5 @@
-@prefix curric: <https://w3id.org/oak/curriculum/ontology/> .
-@prefix natcurric: <https://w3id.org/oak/curriculum/nationalcurriculum/> .
+@prefix curric: <https://w3id.org/uk/oak/curriculum/ontology/> .
+@prefix natcurric: <https://w3id.org/uk/oak/curriculum/nationalcurriculum/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
@@ -17,7 +17,7 @@
 # Ontology Declaration
 # ----------------------------------------------------------------------
 
-<https://w3id.org/oak/curriculum/nationalcurriculum/english-knowledge-taxonomy>
+<https://w3id.org/uk/oak/curriculum/nationalcurriculum/english-knowledge-taxonomy>
   rdf:type owl:Ontology ;
 
   rdfs:label "National Curriculum for England - English Knowledge Taxonomy"@en ;
@@ -27,7 +27,7 @@
   descriptors."""@en ;
 
   owl:versionInfo "0.1.0" ;
-  owl:versionIRI <https://w3id.org/oak/curriculum/nationalcurriculum/english-knowledge-taxonomy/0.1.0> ;
+  owl:versionIRI <https://w3id.org/uk/oak/curriculum/nationalcurriculum/english-knowledge-taxonomy/0.1.0> ;
   
   dcterms:description """English knowledge taxonomy for the National Curriculum in England, 
   organizing content through strands, sub-strands, content descriptors, and sub-content 
@@ -41,11 +41,11 @@
   dcterms:rights "Crown Copyright"@en ;
 
   vann:preferredNamespacePrefix "natcurric" ;
-  vann:preferredNamespaceUri "https://w3id.org/oak/curriculum/nationalcurriculum/" ;
+  vann:preferredNamespaceUri "https://w3id.org/uk/oak/curriculum/nationalcurriculum/" ;
 
-  owl:imports <https://w3id.org/oak/curriculum/ontology> ;
-  owl:imports <https://w3id.org/oak/curriculum/core/> ;
-  owl:imports <https://w3id.org/oak/curriculum/nationalcurriculum/english-programme-structure> .
+  owl:imports <https://w3id.org/uk/oak/curriculum/ontology> ;
+  owl:imports <https://w3id.org/uk/oak/curriculum/core/> ;
+  owl:imports <https://w3id.org/uk/oak/curriculum/nationalcurriculum/english-programme-structure> .
 
 # ----------------------------------------------------------------------
 # Knowledge Taxonomy

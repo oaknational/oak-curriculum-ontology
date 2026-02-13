@@ -1,5 +1,5 @@
-@prefix curric: <https://w3id.org/oak/curriculum/ontology/> .
-@prefix natcurric: <https://w3id.org/oak/curriculum/nationalcurriculum/> .
+@prefix curric: <https://w3id.org/uk/oak/curriculum/ontology/> .
+@prefix natcurric: <https://w3id.org/uk/oak/curriculum/nationalcurriculum/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
@@ -17,7 +17,7 @@
 # Ontology Declaration
 # ----------------------------------------------------------------------
 
-<https://w3id.org/oak/curriculum/nationalcurriculum/geography-programme-structure>
+<https://w3id.org/uk/oak/curriculum/nationalcurriculum/geography-programme-structure>
   rdf:type owl:Ontology ;
 
   rdfs:label "National Curriculum for England - Geography Programme Structure"@en ;
@@ -26,7 +26,7 @@
   mapping to strands and content descriptors within the knowledge taxonomy."""@en ;
 
   owl:versionInfo "0.1.0" ;
-  owl:versionIRI <https://w3id.org/oak/curriculum/nationalcurriculum/geography-programme-structure/0.1.0> ;
+  owl:versionIRI <https://w3id.org/uk/oak/curriculum/nationalcurriculum/geography-programme-structure/0.1.0> ;
   
   dcterms:description """Geography programme structure that specifies schemes and progressions, and a 
   mapping to strands and content descriptors within the knowledge taxonomy"""@en ;
@@ -39,11 +39,11 @@
   dcterms:rights "Crown Copyright"@en ;
 
   vann:preferredNamespacePrefix "natcurric" ;
-  vann:preferredNamespaceUri "https://w3id.org/oak/curriculum/nationalcurriculum/" ;
+  vann:preferredNamespaceUri "https://w3id.org/uk/oak/curriculum/nationalcurriculum/" ;
 
-  owl:imports <https://w3id.org/oak/curriculum/ontology> ;
-  owl:imports <https://w3id.org/oak/curriculum/nationalcurriculum/temporal-structure> ;
-  owl:imports <https://w3id.org/oak/curriculum/nationalcurriculum/geography-knowledge-taxonomy> .
+  owl:imports <https://w3id.org/uk/oak/curriculum/ontology> ;
+  owl:imports <https://w3id.org/uk/oak/curriculum/nationalcurriculum/temporal-structure> ;
+  owl:imports <https://w3id.org/uk/oak/curriculum/nationalcurriculum/geography-knowledge-taxonomy> .
 
 # ----------------------------------------------------------------------
 # Subject Group
