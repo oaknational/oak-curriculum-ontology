@@ -27,6 +27,8 @@ The ontology structure, URIs, and data are under active development and **subjec
 A semantic web ontology representing the Oak Curriculum and linkage to the National Curriculum for 
 England (2014).
 
+https://oaknational.github.io/oak-curriculum-ontology-public/
+
 **What's included in v0.1:**
 - ✅ Temporal Structure: Phases, Key Stages, Year Groups
 - ✅ Programme Structure: English, Mathematics, Science, History, Geography, Citizenship
