@@ -15,9 +15,9 @@ jobs:
 
       - name: Install Apache Jena
         run: |
-          wget -q https://dlcdn.apache.org/jena/binaries/apache-jena-5.6.0.tar.gz
-          tar xzf apache-jena-5.6.0.tar.gz
-          echo "$PWD/apache-jena-5.6.0/bin" >> $GITHUB_PATH
+          wget -q https://dlcdn.apache.org/jena/binaries/apache-jena-6.0.0.tar.gz
+          tar xzf apache-jena-6.0.0.tar.gz
+          echo "$PWD/apache-jena-6.0.0/bin" >> $GITHUB_PATH
 
       - name: Generate distribution files
         run: ./scripts/build-static-data.sh
