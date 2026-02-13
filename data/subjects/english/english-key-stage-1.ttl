@@ -15739,7 +15739,7 @@ oakcurric:keylearningpoint-lesson-8688-2
 
 oakcurric:keylearningpoint-lesson-8688-3
   a curric:KeyLearningPoint ;
-  rdfs:label """If a noun has a specific name of someone or something, it needs a capital letter, such as "Lily" or "England""""@en ;
+  rdfs:label "If a noun has a specific name of someone or something, it needs a capital letter, such as \"Lily\" or \"England\""@en ;
   dcterms:modified "2026-02-12T08:59:21.706569Z"^^xsd:dateTime .
 
 oakcurric:keylearningpoint-lesson-8688-4
@@ -18344,12 +18344,12 @@ oakcurric:keylearningpoint-lesson-8903-1
 
 oakcurric:keylearningpoint-lesson-8903-2
   a curric:KeyLearningPoint ;
-  rdfs:label """describing your personality is about what you are like on the inside and how you feel, such as "curious", "resilient""""@en ;
+  rdfs:label "describing your personality is about what you are like on the inside and how you feel, such as \"curious\", \"resilient\""@en ;
   dcterms:modified "2026-02-12T08:59:21.730189Z"^^xsd:dateTime .
 
 oakcurric:keylearningpoint-lesson-8903-3
   a curric:KeyLearningPoint ;
-  rdfs:label """describing your appearance is about what you look like such as "curly, brown hair""""@en ;
+  rdfs:label "describing your appearance is about what you look like such as \"curly, brown hair\""@en ;
   dcterms:modified "2026-02-12T08:59:21.730193Z"^^xsd:dateTime .
 
 oakcurric:keylearningpoint-lesson-8903-4
@@ -24073,7 +24073,7 @@ oakcurric:keyword-adaptations
 oakcurric:keyword-split-diagraph
   a curric:Keyword ;
   schema:name "split diagraph"@en ;
-  schema:description """has a letter that comes between the two letters in a digraph like in "make" where the "k" separates the digraph "ae""""@en ;
+  schema:description "has a letter that comes between the two letters in a digraph like in \"make\" where the \"k\" separates the digraph \"ae\""@en ;
   dcterms:modified "2026-02-12T08:59:15.797559Z"^^xsd:dateTime .
 
 oakcurric:keyword-digraph
@@ -24265,7 +24265,7 @@ oakcurric:keyword-sequencing
 oakcurric:keyword-split-digraph
   a curric:Keyword ;
   schema:name "split digraph"@en ;
-  schema:description """has a letter that comes between the two letters in a digraph like in "make" where the "k" separates the digraph "ae""""@en ;
+  schema:description "has a letter that comes between the two letters in a digraph like in \"make\" where the \"k\" separates the digraph \"ae\""@en ;
   dcterms:modified "2026-02-12T08:59:15.798961Z"^^xsd:dateTime .
 
 oakcurric:keyword-trigraph
@@ -24277,7 +24277,7 @@ oakcurric:keyword-trigraph
 oakcurric:keyword-long-vowel-sound
   a curric:Keyword ;
   schema:name "long vowel sound"@en ;
-  schema:description """a vowel sound spoken for longer than its short version like "a" in "cake" not "a" in "bat""""@en ;
+  schema:description "a vowel sound spoken for longer than its short version like \"a\" in \"cake\" not \"a\" in \"bat\""@en ;
   dcterms:modified "2026-02-12T08:59:15.798972Z"^^xsd:dateTime .
 
 oakcurric:keyword-volume
@@ -24625,7 +24625,7 @@ oakcurric:keyword-ascender-line
 oakcurric:keyword-pronoun
   a curric:Keyword ;
   schema:name "pronoun"@en ;
-  schema:description """a word that we use in place of a noun to avoid repetition, such as "he," "she," or "it""""@en ;
+  schema:description "a word that we use in place of a noun to avoid repetition, such as \"he,\" \"she,\" or \"it\""@en ;
   dcterms:modified "2026-02-12T08:59:15.803197Z"^^xsd:dateTime .
 
 oakcurric:keyword-proper-noun
@@ -25417,7 +25417,7 @@ oakcurric:keyword-puntuation
 oakcurric:keyword-short-vowel
   a curric:Keyword ;
   schema:name "short vowel"@en ;
-  schema:description """a vowel sound that sounds short when spoken like "a" in "cat" or "o" sound in "hot""""@en ;
+  schema:description "a vowel sound that sounds short when spoken like \"a\" in \"cat\" or \"o\" sound in \"hot\""@en ;
   dcterms:modified "2026-02-12T08:59:15.823700Z"^^xsd:dateTime .
 
 oakcurric:keyword-soft-c
@@ -25867,7 +25867,7 @@ oakcurric:keyword-omitted-letters
 oakcurric:keyword-expanded-form
   a curric:Keyword ;
   schema:name "expanded form"@en ;
-  schema:description """the full version of a contraction, for example, "you're" in expanded form is "you are""""@en ;
+  schema:description "the full version of a contraction, for example, \"you're\" in expanded form is \"you are\""@en ;
   dcterms:modified "2026-02-12T08:59:15.828873Z"^^xsd:dateTime .
 
 # ----------------------------------------------------------------------
@@ -25895,7 +25895,7 @@ oakcurric:misconception-pupils-struggle-speak-correctly-past
 oakcurric:misconception-pupils-struggle-link-their-predictions
   a curric:Misconception ;
   curric:statement """Pupils may struggle to link their predictions to their own knowledge or experience."""@en ;
-  curric:correction """Support pupils by contextualising prior learning (books they have read that may be similar, learning about animals, pets they may have at home etc.) Alternatively, provide them with some context e.g. "I know that cats are difficult to look after.""""@en ;
+  curric:correction "Support pupils by contextualising prior learning (books they have read that may be similar, learning about animals, pets they may have at home etc.) Alternatively, provide them with some context e.g. \"I know that cats are difficult to look after.\""@en ;
   dcterms:modified "2026-02-12T08:59:18.676111Z"^^xsd:dateTime .
 
 oakcurric:misconception-pupils-struggle-understand-others-perspectives
@@ -26225,7 +26225,7 @@ oakcurric:misconception-children-get-confused-direction-take
 oakcurric:misconception-letters-get-reversed
   a curric:Misconception ;
   curric:statement "Sometimes these letters get reversed."@en ;
-  curric:correction """Emphasise the starting position and direction for each letter.  You could use 'landmarks' in your classroom, such as "Start by the window.""""@en ;
+  curric:correction "Emphasise the starting position and direction for each letter.  You could use 'landmarks' in your classroom, such as \"Start by the window.\""@en ;
   dcterms:modified "2026-02-12T08:59:18.690825Z"^^xsd:dateTime .
 
 oakcurric:misconception-pupils-find-difficult-agree-word
@@ -27449,7 +27449,7 @@ oakcurric:misconception-pupils-struggle-present-their-information
 oakcurric:misconception-pupils-struggle-identify-similarities-differences
   a curric:Misconception ;
   curric:statement "Pupils may struggle to identify similarities and differences."@en ;
-  curric:correction """Repeating the two nursery rhymes again is useful to support. Additionally, you can scaffold the discussion by asking questions and modelling your thought process, such as "Do both nursery rhymes have animals?" or "Are both nursery rhymes set inside?""""@en ;
+  curric:correction "Repeating the two nursery rhymes again is useful to support. Additionally, you can scaffold the discussion by asking questions and modelling your thought process, such as \"Do both nursery rhymes have animals?\" or \"Are both nursery rhymes set inside?\""@en ;
   dcterms:modified "2026-02-12T08:59:18.706602Z"^^xsd:dateTime .
 
 oakcurric:misconception-pupils-struggle-rhyming-words
@@ -27629,7 +27629,7 @@ oakcurric:misconception-children-confuse-pairs-words-against
 oakcurric:misconception-pupils-struggle-scan
   a curric:Misconception ;
   curric:statement "Pupils may struggle to scan."@en ;
-  curric:correction """Model the process for them, narrating your strategies. For example, "I've found a capital letter in the middle of the sentence - it must be a proper noun." or "I am searching for the word river. I will look for words beginning with 'r'.""""@en ;
+  curric:correction "Model the process for them, narrating your strategies. For example, \"I've found a capital letter in the middle of the sentence - it must be a proper noun.\" or \"I am searching for the word river. I will look for words beginning with 'r'.\""@en ;
   dcterms:modified "2026-02-12T08:59:18.708241Z"^^xsd:dateTime .
 
 oakcurric:misconception-pupils-find-hard-remember-action

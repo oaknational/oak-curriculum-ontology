@@ -23485,7 +23485,7 @@ oakcurric:misconception-want-find-radius-semicircle-its
 oakcurric:misconception-n-term-sequence-n-10
   a curric:Misconception ;
   curric:statement "That $$n$$ is a term in the sequence. That $$n=10$$ means 10 is in the sequence."@en ;
-  curric:correction """Reiterate that $$n$$ is the term number. "$$n=10$$ means the 10th term. What is the 10th term number?""""@en ;
+  curric:correction "Reiterate that $$n$$ is the term number. \"$$n=10$$ means the 10th term. What is the 10th term number?\""@en ;
   dcterms:modified "2026-02-12T08:59:18.695368Z"^^xsd:dateTime .
 
 oakcurric:misconception-small-number-trials-experiment-enough
@@ -23682,7 +23682,7 @@ oakcurric:misconception-using-venn-diagram-students-mix
 
 oakcurric:misconception-adding-removing-data-point-dataset
   a curric:Misconception ;
-  curric:statement """"Adding or removing a data point from a dataset will always change the value of the range""""@en ;
+  curric:statement "\"Adding or removing a data point from a dataset will always change the value of the range\""@en ;
   curric:correction """The range only changes if: the data point added becomes a new max or min value, or the data point removed is the current max or min value."""@en ;
   dcterms:modified "2026-02-12T08:59:18.697202Z"^^xsd:dateTime .
 

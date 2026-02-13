@@ -69351,7 +69351,7 @@ oakcurric:keyword-ascender-line
 oakcurric:keyword-pronoun
   a curric:Keyword ;
   schema:name "pronoun"@en ;
-  schema:description """a word that we use in place of a noun to avoid repetition, such as "he," "she," or "it""""@en ;
+  schema:description "a word that we use in place of a noun to avoid repetition, such as \"he,\" \"she,\" or \"it\""@en ;
   dcterms:modified "2026-02-12T08:59:15.803197Z"^^xsd:dateTime .
 
 oakcurric:keyword-anaphora
@@ -71947,7 +71947,7 @@ oakcurric:misconception-children-include-unnecessary-details-summarising
 oakcurric:misconception-children-find-hard-infer-justify
   a curric:Misconception ;
   curric:statement "Children may find it hard to infer or justify an appropriate moral for the tale."@en ;
-  curric:correction """Ask the children to consider what they think is 'right vs wrong' in the story. Use prompt questions such as, "Do you think that girls should be allowed to do the same things as boys?" or "Do you think that lying is always the wrong thing?""""@en ;
+  curric:correction "Ask the children to consider what they think is 'right vs wrong' in the story. Use prompt questions such as, \"Do you think that girls should be allowed to do the same things as boys?\" or \"Do you think that lying is always the wrong thing?\""@en ;
   dcterms:modified "2026-02-12T08:59:18.677138Z"^^xsd:dateTime .
 
 oakcurric:misconception-children-questions-genre-story-belongs
@@ -73554,7 +73554,7 @@ oakcurric:misconception-pupils-find-challenging-visualise-two
 
 oakcurric:misconception-children-accidentally-develop-rhetorical-questions
   a curric:Misconception ;
-  curric:statement """Children may accidentally develop rhetorical questions in present tense or first person when imagining what Arrietty is thinking. E.g. instead of "Was she safe?" they might write "Am I safe?""""@en ;
+  curric:statement "Children may accidentally develop rhetorical questions in present tense or first person when imagining what Arrietty is thinking. E.g. instead of \"Was she safe?\" they might write \"Am I safe?\""@en ;
   curric:correction """Gather ideas from students about what Arriety might have been thinking and model turning these into third person and past tense. Provide examples in a shared bank for children to refer to while writing."""@en ;
   dcterms:modified "2026-02-12T08:59:18.685642Z"^^xsd:dateTime .
 
@@ -77395,7 +77395,7 @@ oakcurric:misconception-pupils-able-spell-root-word
 oakcurric:misconception-students-find-hard-understand-different
   a curric:Misconception ;
   curric:statement """Students may find it hard to understand how different tenses can be used in one sentence."""@en ;
-  curric:correction """Analyse example e.g. "Currently, forensic officers are examining the crime scene and they have sent off pieces of evidence for testing.""""@en ;
+  curric:correction "Analyse example e.g. \"Currently, forensic officers are examining the crime scene and they have sent off pieces of evidence for testing.\""@en ;
   dcterms:modified "2026-02-12T08:59:18.710227Z"^^xsd:dateTime .
 
 oakcurric:misconception-students-think-use-fronted-adverbial

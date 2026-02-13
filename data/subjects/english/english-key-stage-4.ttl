@@ -57480,7 +57480,7 @@ oakcurric:misconception-women-slaves-patriarchal-societies
 
 oakcurric:misconception-students-become-reliant-quotation-dagger
   a curric:Misconception ;
-  curric:statement """Students become over-reliant on the quotation: "Is this a dagger which I see before me?""""@en ;
+  curric:statement "Students become over-reliant on the quotation: \"Is this a dagger which I see before me?\""@en ;
   curric:correction """Draw attention to other quotations which both illustrate Macbeth can see a dagger, but also demonstrate the flaws in his character."""@en ;
   dcterms:modified "2026-02-12T08:59:18.685278Z"^^xsd:dateTime .
 
@@ -58074,7 +58074,7 @@ oakcurric:misconception-pupils-get-mixed-noun-appositive
 
 oakcurric:misconception-characters-referred-real-people-example
   a curric:Misconception ;
-  curric:statement """The characters are referred to as real people. For example "Old Major describes himself as ...""""@en ;
+  curric:statement "The characters are referred to as real people. For example \"Old Major describes himself as ...\""@en ;
   curric:correction """Think about the purpose of the characters and why Orwell has constructed them the way he has."""@en ;
   dcterms:modified "2026-02-12T08:59:18.686323Z"^^xsd:dateTime .
 

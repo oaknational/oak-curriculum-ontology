@@ -24416,7 +24416,7 @@ oakcurric:misconception-pupils-use-pair-compasses-find
 oakcurric:misconception-matching-sketching-distance-time-speed
   a curric:Misconception ;
   curric:statement """When matching, or sketching, distance-time and speed-time graphs pupils may think these have a similar shape."""@en ;
-  curric:correction """Questioning helps. Ask pupils to explain what is happening on a variety of graphs. For example, "A diagonal line with positive gradient on a speed-time graph. What is happening?" "A horizontal line on distance-time graph. What is happening?""""@en ;
+  curric:correction "Questioning helps. Ask pupils to explain what is happening on a variety of graphs. For example, \"A diagonal line with positive gradient on a speed-time graph. What is happening?\" \"A horizontal line on distance-time graph. What is happening?\""@en ;
   dcterms:modified "2026-02-12T08:59:18.689345Z"^^xsd:dateTime .
 
 oakcurric:misconception-pupils-confuse-opposite-adjacent-sides
@@ -24529,7 +24529,7 @@ oakcurric:misconception-samples-represent-population-drawn-come
 
 oakcurric:misconception-graphs-two-straight-line-equations
   a curric:Misconception ;
-  curric:statement """"The graphs of two straight line equations should always intersect at integer points on a coordinate grid.""""@en ;
+  curric:statement "\"The graphs of two straight line equations should always intersect at integer points on a coordinate grid.\""@en ;
   curric:correction """The location with which the graphs of two straight line equations intersect can be found by simultaneously solving the pair of equations. The graphs of two straight line equations can intersect at either integer or non-integer values."""@en ;
   dcterms:modified "2026-02-12T08:59:18.690026Z"^^xsd:dateTime .
 
@@ -25471,7 +25471,7 @@ oakcurric:misconception-pupils-count-triangles-row-determine
 
 oakcurric:misconception-finding-perimeter-sector-need-multiply
   a curric:Misconception ;
-  curric:statement """"When finding the perimeter of a sector, I need to multiply the radius by a fraction of a full circle, just like I did with the circumference to find the arc length.""""@en ;
+  curric:statement "\"When finding the perimeter of a sector, I need to multiply the radius by a fraction of a full circle, just like I did with the circumference to find the arc length.\""@en ;
   curric:correction """Reminder that only part (the arc length) of the formula for perimeter of a sector varies with the angle. A desmos or geogebra model can help to show this."""@en ;
   dcterms:modified "2026-02-12T08:59:18.695948Z"^^xsd:dateTime .
 
@@ -26174,7 +26174,7 @@ oakcurric:misconception-average-speed-found-adding-speeds
 oakcurric:misconception-failing-understand-difference-simple-compound
   a curric:Misconception ;
   curric:statement """Failing to understand the difference between simple and compound interest.  And, therefore finding the interest for one time period and multiplying it by the number of time periods."""@en ;
-  curric:correction """Pupils can forget to transfer the year end balance as the starting balance of the next year.  Using repeated language can help.  E.g. "At the end of year 2 there was ... in the account, so, at the beginning of year 3 there was ... in the account.""""@en ;
+  curric:correction "Pupils can forget to transfer the year end balance as the starting balance of the next year.  Using repeated language can help.  E.g. \"At the end of year 2 there was ... in the account, so, at the beginning of year 3 there was ... in the account.\""@en ;
   dcterms:modified "2026-02-12T08:59:18.709665Z"^^xsd:dateTime .
 
 oakcurric:misconception-conjectures-correct-its-really-hard
