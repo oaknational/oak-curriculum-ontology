@@ -50,6 +50,17 @@
 
 
 # ----------------------------------------------------------------------
+# Schemes
+# ----------------------------------------------------------------------
+
+oakcurric:scheme-geography-key-stage-4
+  a curric:Scheme ;
+  rdfs:label "Geography Key Stage 4"@en ;
+  dcterms:modified "2026-01-05T12:50:00Z"^^xsd:dateTime ;
+  curric:isSchemeOf natcurric:subject-geography ;
+  curric:coversKeyStage natcurric:key-stage-4 .
+
+# ----------------------------------------------------------------------
 # Programmes
 # ----------------------------------------------------------------------
 
@@ -62,7 +73,7 @@ oakcurric:programme-geography-year-group-11-edexcelb
   dcterms:modified "2026-02-12T08:59:07.286764Z"^^xsd:dateTime ;
   curric:examType "GCSE" ;
   curric:hasExamBoard oakcurric:examboard-edexcelb ;
-  curric:isProgrammeOf natcurric:scheme-geography-key-stage-4 ;
+  curric:isProgrammeOf oakcurric:scheme-geography-key-stage-4 ;
   curric:coversYearGroup natcurric:year-group-11 ;
   curric:hasUnitVariantInclusion
     oakcurric:inclusion-programme-geography-year-group-11-edexcelb-pos-1 ,
@@ -81,7 +92,7 @@ oakcurric:programme-geography-year-group-10-edexcelb
   dcterms:modified "2026-02-12T08:59:07.287479Z"^^xsd:dateTime ;
   curric:examType "GCSE" ;
   curric:hasExamBoard oakcurric:examboard-edexcelb ;
-  curric:isProgrammeOf natcurric:scheme-geography-key-stage-4 ;
+  curric:isProgrammeOf oakcurric:scheme-geography-key-stage-4 ;
   curric:coversYearGroup natcurric:year-group-10 ;
   curric:hasUnitVariantInclusion
     oakcurric:inclusion-programme-geography-year-group-10-edexcelb-pos-1 ,
@@ -105,7 +116,7 @@ oakcurric:programme-geography-year-group-10-aqa
   dcterms:modified "2026-02-12T08:59:07.287680Z"^^xsd:dateTime ;
   curric:examType "GCSE" ;
   curric:hasExamBoard oakcurric:examboard-aqa ;
-  curric:isProgrammeOf natcurric:scheme-geography-key-stage-4 ;
+  curric:isProgrammeOf oakcurric:scheme-geography-key-stage-4 ;
   curric:coversYearGroup natcurric:year-group-10 ;
   curric:hasUnitVariantInclusion
     oakcurric:inclusion-programme-geography-year-group-10-aqa-pos-1 ,
@@ -130,7 +141,7 @@ oakcurric:programme-geography-year-group-11-aqa
   dcterms:modified "2026-02-12T08:59:07.288166Z"^^xsd:dateTime ;
   curric:examType "GCSE" ;
   curric:hasExamBoard oakcurric:examboard-aqa ;
-  curric:isProgrammeOf natcurric:scheme-geography-key-stage-4 ;
+  curric:isProgrammeOf oakcurric:scheme-geography-key-stage-4 ;
   curric:coversYearGroup natcurric:year-group-11 ;
   curric:hasUnitVariantInclusion
     oakcurric:inclusion-programme-geography-year-group-11-aqa-pos-1 ,
@@ -159,7 +170,7 @@ Pupils understand the meaning of the term 'globalisation'
 Pupils can assess different options and strategies to address an issue""" ;
   curric:id "3701"^^xsd:positiveInteger;
   dcterms:modified "2026-02-12T08:59:07.324191Z"^^xsd:dateTime ;
-  curric:isUnitOf natcurric:scheme-geography-key-stage-4 ;
+  curric:isUnitOf oakcurric:scheme-geography-key-stage-4 ;
   curric:includesThread
     oakcurric:thread-globalisation-and-interconnection ,
     oakcurric:thread-human-systems-and-processes ,
@@ -180,7 +191,7 @@ Pupils have an understanding of the factors leading to population change
 Pupils understand the difference between 'top-down' and 'bottom-up' policies""" ;
   curric:id "3704"^^xsd:positiveInteger;
   dcterms:modified "2026-02-12T08:59:07.327451Z"^^xsd:dateTime ;
-  curric:isUnitOf natcurric:scheme-geography-key-stage-4 ;
+  curric:isUnitOf oakcurric:scheme-geography-key-stage-4 ;
   curric:includesThread
     oakcurric:thread-inequality ,
     oakcurric:thread-globalisation-and-interconnection ,
@@ -198,7 +209,7 @@ Knowledge that nutrients cycle around ecosystems.
 Knowledge of the meaning of an ecosystems and biome.""" ;
   curric:id "3697"^^xsd:positiveInteger;
   dcterms:modified "2026-02-12T08:59:07.327975Z"^^xsd:dateTime ;
-  curric:isUnitOf natcurric:scheme-geography-key-stage-4 ;
+  curric:isUnitOf oakcurric:scheme-geography-key-stage-4 ;
   curric:includesThread
     oakcurric:thread-physical-systems-and-processes .
 
@@ -213,7 +224,7 @@ Knowledge that nutrients cycle around ecosystems.
 Knowledge of the meaning of an ecosystems and biome.""" ;
   curric:id "3071"^^xsd:positiveInteger;
   dcterms:modified "2026-02-12T08:59:07.328489Z"^^xsd:dateTime ;
-  curric:isUnitOf natcurric:scheme-geography-key-stage-4 ;
+  curric:isUnitOf oakcurric:scheme-geography-key-stage-4 ;
   curric:includesThread
     oakcurric:thread-risk-and-resilience ,
     oakcurric:thread-sustainability-and-climate-change ,
@@ -234,7 +245,7 @@ Pupils have an understanding of the key structure and functions of cities
 Pupils know that cities interact with the surrounding rural area""" ;
   curric:id "3698"^^xsd:positiveInteger;
   dcterms:modified "2026-02-12T08:59:07.330100Z"^^xsd:dateTime ;
-  curric:isUnitOf natcurric:scheme-geography-key-stage-4 ;
+  curric:isUnitOf oakcurric:scheme-geography-key-stage-4 ;
   curric:includesThread
     oakcurric:thread-inequality ,
     oakcurric:thread-globalisation-and-interconnection ,
@@ -254,7 +265,7 @@ Pupils understand the concept of risk assessment and can work safely in the fiel
 Pupils have knowledge and competence in the use of IT, including GIS""" ;
   curric:id "3298"^^xsd:positiveInteger;
   dcterms:modified "2026-02-12T08:59:07.330759Z"^^xsd:dateTime ;
-  curric:isUnitOf natcurric:scheme-geography-key-stage-4 ;
+  curric:isUnitOf oakcurric:scheme-geography-key-stage-4 ;
   curric:includesThread
     oakcurric:thread-physical-systems-and-processes ,
     oakcurric:thread-human-systems-and-processes .
@@ -273,7 +284,7 @@ Pupils understand the concept of risk assessment and can work safely in the fiel
 Pupils have knowledge and competence in the use of IT, including GIS""" ;
   curric:id "3699"^^xsd:positiveInteger;
   dcterms:modified "2026-02-12T08:59:07.332525Z"^^xsd:dateTime ;
-  curric:isUnitOf natcurric:scheme-geography-key-stage-4 ;
+  curric:isUnitOf oakcurric:scheme-geography-key-stage-4 ;
   curric:includesThread
     oakcurric:thread-physical-systems-and-processes ,
     oakcurric:thread-human-systems-and-processes .
@@ -290,7 +301,7 @@ Pupils understand that cities exhibit distinct urban land uses
 Pupils understand how economic development can affect the growth of cities""" ;
   curric:id "3703"^^xsd:positiveInteger;
   dcterms:modified "2026-02-12T08:59:07.336128Z"^^xsd:dateTime ;
-  curric:isUnitOf natcurric:scheme-geography-key-stage-4 ;
+  curric:isUnitOf oakcurric:scheme-geography-key-stage-4 ;
   curric:includesThread
     oakcurric:thread-inequality ,
     oakcurric:thread-globalisation-and-interconnection ,
@@ -312,7 +323,7 @@ Pupils have an understanding of the need for coastal management
 Pupils understand the issues associated with flooding and why it is considered a hazard""" ;
   curric:id "3288"^^xsd:positiveInteger;
   dcterms:modified "2026-02-12T08:59:07.336725Z"^^xsd:dateTime ;
-  curric:isUnitOf natcurric:scheme-geography-key-stage-4 ;
+  curric:isUnitOf oakcurric:scheme-geography-key-stage-4 ;
   curric:includesThread
     oakcurric:thread-risk-and-resilience ,
     oakcurric:thread-sustainability-and-climate-change ,
@@ -333,7 +344,7 @@ Pupils understand the meaning of 'quality of life'
 Students understand the meaning and application of costs and benefits""" ;
   curric:id "3296"^^xsd:positiveInteger;
   dcterms:modified "2026-02-12T08:59:07.339607Z"^^xsd:dateTime ;
-  curric:isUnitOf natcurric:scheme-geography-key-stage-4 ;
+  curric:isUnitOf oakcurric:scheme-geography-key-stage-4 ;
   curric:includesThread
     oakcurric:thread-inequality ,
     oakcurric:thread-globalisation-and-interconnection ,
@@ -354,7 +365,7 @@ Pupils understand the meaning of primary, secondary and tertiary economic sector
 Pupils know and understand the characteristics and role of TNCs""" ;
   curric:id "3292"^^xsd:positiveInteger;
   dcterms:modified "2026-02-12T08:59:07.340127Z"^^xsd:dateTime ;
-  curric:isUnitOf natcurric:scheme-geography-key-stage-4 ;
+  curric:isUnitOf oakcurric:scheme-geography-key-stage-4 ;
   curric:includesThread
     oakcurric:thread-inequality ,
     oakcurric:thread-globalisation-and-interconnection .
@@ -374,7 +385,7 @@ Pupils understand the principles of energy conservation and energy efficiency
 Pupils understand the concept of sustainability in the context of energy resources.""" ;
   curric:id "3306"^^xsd:positiveInteger;
   dcterms:modified "2026-02-12T08:59:07.340661Z"^^xsd:dateTime ;
-  curric:isUnitOf natcurric:scheme-geography-key-stage-4 ;
+  curric:isUnitOf oakcurric:scheme-geography-key-stage-4 ;
   curric:includesThread
     oakcurric:thread-risk-and-resilience ,
     oakcurric:thread-globalisation-and-interconnection ,
@@ -394,7 +405,7 @@ Pupils can understand why demand for resources is increasing
 Pupils can demonstrate use of numbers and manipulate statistics""" ;
   curric:id "3303"^^xsd:positiveInteger;
   dcterms:modified "2026-02-12T08:59:07.342283Z"^^xsd:dateTime ;
-  curric:isUnitOf natcurric:scheme-geography-key-stage-4 ;
+  curric:isUnitOf oakcurric:scheme-geography-key-stage-4 ;
   curric:includesThread
     oakcurric:thread-risk-and-resilience ,
     oakcurric:thread-sustainability-and-climate-change ,
@@ -416,7 +427,7 @@ Pupils have locational knowledge of the world, including continents and oceans
 Pupils understand that peoples' activities can lead to climate change""" ;
   curric:id "3286"^^xsd:positiveInteger;
   dcterms:modified "2026-02-12T08:59:07.412528Z"^^xsd:dateTime ;
-  curric:isUnitOf natcurric:scheme-geography-key-stage-4 ;
+  curric:isUnitOf oakcurric:scheme-geography-key-stage-4 ;
   curric:includesThread
     oakcurric:thread-risk-and-resilience ,
     oakcurric:thread-sustainability-and-climate-change ,
@@ -437,7 +448,7 @@ Pupils have an understanding of the need for management
 Pupils understand the issues associated with physical landscapes, such as flooding""" ;
   curric:id "3640"^^xsd:positiveInteger;
   dcterms:modified "2026-02-12T08:59:07.414132Z"^^xsd:dateTime ;
-  curric:isUnitOf natcurric:scheme-geography-key-stage-4 ;
+  curric:isUnitOf oakcurric:scheme-geography-key-stage-4 ;
   curric:includesThread
     oakcurric:thread-risk-and-resilience ,
     oakcurric:thread-physical-systems-and-processes .
@@ -456,7 +467,7 @@ Pupils are familiar with ground, aerial (vertical and oblique) and satellite pho
 Pupils understand the principles of GIS""" ;
   curric:id "3299"^^xsd:positiveInteger;
   dcterms:modified "2026-02-12T08:59:07.419280Z"^^xsd:dateTime ;
-  curric:isUnitOf natcurric:scheme-geography-key-stage-4 ;
+  curric:isUnitOf oakcurric:scheme-geography-key-stage-4 ;
   curric:includesThread
     oakcurric:thread-physical-systems-and-processes ,
     oakcurric:thread-human-systems-and-processes .
@@ -475,7 +486,7 @@ Pupils have locational knowledge of the world, including continents and oceans
 Pupils understand that peoples' activities can lead to climate change""" ;
   curric:id "3696"^^xsd:positiveInteger;
   dcterms:modified "2026-02-12T08:59:07.421980Z"^^xsd:dateTime ;
-  curric:isUnitOf natcurric:scheme-geography-key-stage-4 ;
+  curric:isUnitOf oakcurric:scheme-geography-key-stage-4 ;
   curric:includesThread
     oakcurric:thread-risk-and-resilience ,
     oakcurric:thread-physical-systems-and-processes .
@@ -493,7 +504,7 @@ Pupils understand the concept of interdependence and the importance of biodivers
 Pupils know that people living in extreme environments face challenges and opportunities""" ;
   curric:id "3264"^^xsd:positiveInteger;
   dcterms:modified "2026-02-12T08:59:07.460270Z"^^xsd:dateTime ;
-  curric:isUnitOf natcurric:scheme-geography-key-stage-4 ;
+  curric:isUnitOf oakcurric:scheme-geography-key-stage-4 ;
   curric:includesThread
     oakcurric:thread-risk-and-resilience ,
     oakcurric:thread-physical-systems-and-processes .
@@ -512,7 +523,7 @@ Pupils understand the meaning of developed, emerging and developing countries
 Pupils understand the meaning of 'sustainability' in the context of urban environments""" ;
   curric:id "3300"^^xsd:positiveInteger;
   dcterms:modified "2026-02-12T08:59:07.461279Z"^^xsd:dateTime ;
-  curric:isUnitOf natcurric:scheme-geography-key-stage-4 ;
+  curric:isUnitOf oakcurric:scheme-geography-key-stage-4 ;
   curric:includesThread
     oakcurric:thread-sustainability-and-climate-change ,
     oakcurric:thread-inequality ,
@@ -533,7 +544,7 @@ Pupils understand the term 'infrastructure' in the context of transport
 Pupils have global locational knowledge of continents, regions and countries""" ;
   curric:id "3297"^^xsd:positiveInteger;
   dcterms:modified "2026-02-12T08:59:07.461792Z"^^xsd:dateTime ;
-  curric:isUnitOf natcurric:scheme-geography-key-stage-4 ;
+  curric:isUnitOf oakcurric:scheme-geography-key-stage-4 ;
   curric:includesThread
     oakcurric:thread-inequality ,
     oakcurric:thread-globalisation-and-interconnection ,
@@ -553,7 +564,7 @@ Pupils are familiar with ground, aerial (vertical and oblique) and satellite pho
 Pupils understand the principles of GIS""" ;
   curric:id "3694"^^xsd:positiveInteger;
   dcterms:modified "2026-02-12T08:59:07.467195Z"^^xsd:dateTime ;
-  curric:isUnitOf natcurric:scheme-geography-key-stage-4 ;
+  curric:isUnitOf oakcurric:scheme-geography-key-stage-4 ;
   curric:includesThread
     oakcurric:thread-physical-systems-and-processes ,
     oakcurric:thread-human-systems-and-processes .
@@ -573,7 +584,7 @@ Pupils have an understanding of the factors leading to population change
 Pupils understand the difference between 'top-down' and 'bottom-up' policies""" ;
   curric:id "3301"^^xsd:positiveInteger;
   dcterms:modified "2026-02-12T08:59:07.468194Z"^^xsd:dateTime ;
-  curric:isUnitOf natcurric:scheme-geography-key-stage-4 ;
+  curric:isUnitOf oakcurric:scheme-geography-key-stage-4 ;
   curric:includesThread
     oakcurric:thread-inequality ,
     oakcurric:thread-globalisation-and-interconnection ,
@@ -596,7 +607,7 @@ Pupils understand the role of development (HIC/LIC) on hazard impacts and respon
 Pupils understand that management ca reduce the impacts of hazards""" ;
   curric:id "3284"^^xsd:positiveInteger;
   dcterms:modified "2026-02-12T08:59:07.471990Z"^^xsd:dateTime ;
-  curric:isUnitOf natcurric:scheme-geography-key-stage-4 ;
+  curric:isUnitOf oakcurric:scheme-geography-key-stage-4 ;
   curric:includesThread
     oakcurric:thread-risk-and-resilience ,
     oakcurric:thread-physical-systems-and-processes .
@@ -615,7 +626,7 @@ Pupils understand the meaning of the term 'globalisation'
 Pupils can assess different options and strategies to address an issue""" ;
   curric:id "3295"^^xsd:positiveInteger;
   dcterms:modified "2026-02-12T08:59:07.544877Z"^^xsd:dateTime ;
-  curric:isUnitOf natcurric:scheme-geography-key-stage-4 ;
+  curric:isUnitOf oakcurric:scheme-geography-key-stage-4 ;
   curric:includesThread
     oakcurric:thread-inequality ,
     oakcurric:thread-globalisation-and-interconnection ,
@@ -636,7 +647,7 @@ Pupils know the principles of supply and demand
 Pupils understand the term 'energy mix'""" ;
   curric:id "3302"^^xsd:positiveInteger;
   dcterms:modified "2026-02-12T08:59:07.546007Z"^^xsd:dateTime ;
-  curric:isUnitOf natcurric:scheme-geography-key-stage-4 ;
+  curric:isUnitOf oakcurric:scheme-geography-key-stage-4 ;
   curric:includesThread
     oakcurric:thread-inequality ,
     oakcurric:thread-globalisation-and-interconnection ,
@@ -657,7 +668,7 @@ Pupils understand the meaning of 'quality of life'
 Students understand the meaning and application of costs and benefits""" ;
   curric:id "3702"^^xsd:positiveInteger;
   dcterms:modified "2026-02-12T08:59:07.546918Z"^^xsd:dateTime ;
-  curric:isUnitOf natcurric:scheme-geography-key-stage-4 ;
+  curric:isUnitOf oakcurric:scheme-geography-key-stage-4 ;
   curric:includesThread
     oakcurric:thread-inequality ,
     oakcurric:thread-globalisation-and-interconnection ,
@@ -676,7 +687,7 @@ Pupils can make a decision and use supporting evidence to back it up
 Pupils have experience of debating and making judgements""" ;
   curric:id "3705"^^xsd:positiveInteger;
   dcterms:modified "2026-02-12T08:59:07.552309Z"^^xsd:dateTime ;
-  curric:isUnitOf natcurric:scheme-geography-key-stage-4 ;
+  curric:isUnitOf oakcurric:scheme-geography-key-stage-4 ;
   curric:includesThread
     oakcurric:thread-globalisation-and-interconnection .
 
@@ -692,7 +703,7 @@ Pupils can make a decision and use supporting evidence to back it up
 Pupils have experience of debating and making judgements""" ;
   curric:id "3307"^^xsd:positiveInteger;
   dcterms:modified "2026-02-12T08:59:07.552811Z"^^xsd:dateTime ;
-  curric:isUnitOf natcurric:scheme-geography-key-stage-4 ;
+  curric:isUnitOf oakcurric:scheme-geography-key-stage-4 ;
   curric:includesThread
     oakcurric:thread-globalisation-and-interconnection .
 
@@ -710,7 +721,7 @@ Pupils have an understanding of the concept of wilderness
 Pupils can appreciate that different groups of people can have opposing views""" ;
   curric:id "3073"^^xsd:positiveInteger;
   dcterms:modified "2026-02-12T08:59:07.607869Z"^^xsd:dateTime ;
-  curric:isUnitOf natcurric:scheme-geography-key-stage-4 ;
+  curric:isUnitOf oakcurric:scheme-geography-key-stage-4 ;
   curric:includesThread
     oakcurric:thread-physical-systems-and-processes .
 
@@ -728,7 +739,7 @@ Pupils can interpret graphs and maps showing rates of change
 Pupils can understand the importance of scale""" ;
   curric:id "3072"^^xsd:positiveInteger;
   dcterms:modified "2026-02-12T08:59:07.675393Z"^^xsd:dateTime ;
-  curric:isUnitOf natcurric:scheme-geography-key-stage-4 ;
+  curric:isUnitOf oakcurric:scheme-geography-key-stage-4 ;
   curric:includesThread
     oakcurric:thread-risk-and-resilience ,
     oakcurric:thread-sustainability-and-climate-change ,
@@ -749,7 +760,7 @@ Pupils have an understanding of the key structure and functions of cities
 Pupils know that cities interact with the surrounding rural area""" ;
   curric:id "3293"^^xsd:positiveInteger;
   dcterms:modified "2026-02-12T08:59:07.675914Z"^^xsd:dateTime ;
-  curric:isUnitOf natcurric:scheme-geography-key-stage-4 ;
+  curric:isUnitOf oakcurric:scheme-geography-key-stage-4 ;
   curric:includesThread
     oakcurric:thread-risk-and-resilience ,
     oakcurric:thread-inequality ,
@@ -770,7 +781,7 @@ Pupils can describe (geological) patterns on maps
 Pupils understand that physical and human processes interact to create landscapes""" ;
   curric:id "3287"^^xsd:positiveInteger;
   dcterms:modified "2026-02-12T08:59:07.676404Z"^^xsd:dateTime ;
-  curric:isUnitOf natcurric:scheme-geography-key-stage-4 ;
+  curric:isUnitOf oakcurric:scheme-geography-key-stage-4 ;
   curric:includesThread
     oakcurric:thread-physical-systems-and-processes .
 
@@ -789,7 +800,7 @@ Pupils have locational knowledge of the UK
 Pupils can describe change using graphs and extrapolate into the future""" ;
   curric:id "3285"^^xsd:positiveInteger;
   dcterms:modified "2026-02-12T08:59:07.681502Z"^^xsd:dateTime ;
-  curric:isUnitOf natcurric:scheme-geography-key-stage-4 ;
+  curric:isUnitOf oakcurric:scheme-geography-key-stage-4 ;
   curric:includesThread
     oakcurric:thread-risk-and-resilience ,
     oakcurric:thread-sustainability-and-climate-change ,
@@ -811,7 +822,7 @@ Pupils have an understanding of the need for river management
 Pupils understand the issues associated with flooding and why it is considered a hazard""" ;
   curric:id "3289"^^xsd:positiveInteger;
   dcterms:modified "2026-02-12T08:59:07.689891Z"^^xsd:dateTime ;
-  curric:isUnitOf natcurric:scheme-geography-key-stage-4 ;
+  curric:isUnitOf oakcurric:scheme-geography-key-stage-4 ;
   curric:includesThread
     oakcurric:thread-risk-and-resilience ,
     oakcurric:thread-physical-systems-and-processes .
@@ -832,7 +843,7 @@ Pupils understand the role of development (HIC/LIC) on hazard impacts and respon
 Pupils understand that management ca reduce the impacts of hazards""" ;
   curric:id "3695"^^xsd:positiveInteger;
   dcterms:modified "2026-02-12T08:59:07.720042Z"^^xsd:dateTime ;
-  curric:isUnitOf natcurric:scheme-geography-key-stage-4 ;
+  curric:isUnitOf oakcurric:scheme-geography-key-stage-4 ;
   curric:includesThread
     oakcurric:thread-risk-and-resilience ,
     oakcurric:thread-physical-systems-and-processes .
@@ -850,7 +861,7 @@ Pupils can describe (geological) patterns on maps
 Pupils understand that physical and human processes interact to create landscapes""" ;
   curric:id "3700"^^xsd:positiveInteger;
   dcterms:modified "2026-02-12T08:59:07.727670Z"^^xsd:dateTime ;
-  curric:isUnitOf natcurric:scheme-geography-key-stage-4 ;
+  curric:isUnitOf oakcurric:scheme-geography-key-stage-4 ;
   curric:includesThread
     oakcurric:thread-physical-systems-and-processes .
 

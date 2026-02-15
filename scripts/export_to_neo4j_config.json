@@ -19,13 +19,14 @@
     },
     "file_discovery": {
       "base_dir": "data",
-      "include_files": [
-        "temporal-structure.ttl",
-        "programme-structure.ttl",
-        "threads.ttl"
-      ],
+      "include_files": [],
       "include_patterns": [
-        "subjects/**/*.ttl"
+        "temporal-structure.ttl",
+        "subjects/*/*-knowledge-taxonomy.ttl",
+        "subjects/*/*-programme-structure.ttl",
+        "programme-structure.ttl",
+        "threads.ttl",
+        "subjects/*/*-key-stage-*.ttl"
       ],
       "exclude_patterns": [
         "**/versions/**"
@@ -60,17 +61,19 @@
   "label_mappings": [
     {
       "source_label": "Resource",
-      "target_label": "OakCurric",
-      "uri_pattern": "https://w3id.org/uk/oak/curriculum/oakcurriculum",
-      "description": "Replaces Resource with Oak Curriculum nodes"
-    },
-    {
-      "source_label": "Resource",
       "target_label": "NatCurric",
       "uri_pattern": "https://w3id.org/uk/oak/curriculum/nationalcurriculum/",
       "description": "Replaces Resource with National Curriculum nodes"
+    },
+    {
+      "source_label": "Resource",
+      "target_label": "OakCurric",
+      "uri_pattern": "https://w3id.org/uk/oak/curriculum/oakcurriculum",
+      "description": "Replaces Resource with Oak Curriculum nodes"
     }
   ],
+
+  "remove_labels": ["Concept"],
 
   "uri_slug_extraction": {
     "Phase": "phaseSlug",
@@ -316,7 +319,7 @@
     ],
     "label_mapping": {
       "source_label": "The label assigned by rdflib-neo4j (typically 'Resource')",
-      "target_label": "The new label to apply (e.g., 'Oak', 'DfE', 'Custom')",
+      "target_label": "The new label to apply (e.g., 'NatCurric', 'OakCurric')",
       "uri_pattern": "URI prefix to match nodes for relabeling"
     },
     "uri_slug_extraction": {

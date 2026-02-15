@@ -15,7 +15,7 @@
 # ======================================================================
 
 # ----------------------------------------------------------------------
-# Ontology Declaration
+# Ontology Declaration 
 # ----------------------------------------------------------------------
 
 <https://w3id.org/uk/oak/curriculum/oakcurriculum/history-key-stage-4>
@@ -50,6 +50,17 @@
 
 
 # ----------------------------------------------------------------------
+# Schemes
+# ----------------------------------------------------------------------
+
+oakcurric:scheme-history-key-stage-4
+  a curric:Scheme ;
+  rdfs:label "History Key Stage 4"@en ;
+  dcterms:modified "2026-01-05T12:50:00Z"^^xsd:dateTime ;
+  curric:isSchemeOf natcurric:subject-history ;
+  curric:coversKeyStage natcurric:key-stage-4 .
+
+# ----------------------------------------------------------------------
 # Programmes
 # ----------------------------------------------------------------------
 
@@ -62,7 +73,7 @@ oakcurric:programme-history-year-group-10-aqa
   dcterms:modified "2026-02-12T08:59:07.286151Z"^^xsd:dateTime ;
   curric:examType "GCSE" ;
   curric:hasExamBoard oakcurric:examboard-aqa ;
-  curric:isProgrammeOf natcurric:scheme-history-key-stage-4 ;
+  curric:isProgrammeOf oakcurric:scheme-history-key-stage-4 ;
   curric:coversYearGroup natcurric:year-group-10 ;
   curric:hasUnitVariantInclusion
     oakcurric:inclusion-programme-history-year-group-10-aqa-pos-1 ,
@@ -78,7 +89,7 @@ oakcurric:programme-history-year-group-10-edexcel
   dcterms:modified "2026-02-12T08:59:07.286963Z"^^xsd:dateTime ;
   curric:examType "GCSE" ;
   curric:hasExamBoard oakcurric:examboard-edexcel ;
-  curric:isProgrammeOf natcurric:scheme-history-key-stage-4 ;
+  curric:isProgrammeOf oakcurric:scheme-history-key-stage-4 ;
   curric:coversYearGroup natcurric:year-group-10 ;
   curric:hasUnitVariantInclusion
     oakcurric:inclusion-programme-history-year-group-10-edexcel-pos-1 ,
@@ -94,7 +105,7 @@ oakcurric:programme-history-year-group-11-edexcel
   dcterms:modified "2026-02-12T08:59:07.288914Z"^^xsd:dateTime ;
   curric:examType "GCSE" ;
   curric:hasExamBoard oakcurric:examboard-edexcel ;
-  curric:isProgrammeOf natcurric:scheme-history-key-stage-4 ;
+  curric:isProgrammeOf oakcurric:scheme-history-key-stage-4 ;
   curric:coversYearGroup natcurric:year-group-11 ;
   curric:hasUnitVariantInclusion
     oakcurric:inclusion-programme-history-year-group-11-edexcel-pos-1 ,
@@ -109,7 +120,7 @@ oakcurric:programme-history-year-group-11-aqa
   dcterms:modified "2026-02-12T08:59:07.289864Z"^^xsd:dateTime ;
   curric:examType "GCSE" ;
   curric:hasExamBoard oakcurric:examboard-aqa ;
-  curric:isProgrammeOf natcurric:scheme-history-key-stage-4 ;
+  curric:isProgrammeOf oakcurric:scheme-history-key-stage-4 ;
   curric:coversYearGroup natcurric:year-group-11 ;
   curric:hasUnitVariantInclusion
     oakcurric:inclusion-programme-history-year-group-11-aqa-pos-1 ,
@@ -129,7 +140,7 @@ Familiarity with the second order concepts of change and continuity
 Familiarity with the second order concepts of cause and consequence""" ;
   curric:id "3817"^^xsd:positiveInteger;
   dcterms:modified "2026-02-12T08:59:07.322829Z"^^xsd:dateTime ;
-  curric:isUnitOf natcurric:scheme-history-key-stage-4 ;
+  curric:isUnitOf oakcurric:scheme-history-key-stage-4 ;
   curric:includesThread
     oakcurric:thread-invasion-migration-and-settlement .
 
@@ -145,7 +156,7 @@ Pupils have a general understanding of the different roles people occupied in th
 Pupils have an understanding of the significance of castles and other fortified places.""" ;
   curric:id "786"^^xsd:positiveInteger;
   dcterms:modified "2026-02-12T08:59:07.324969Z"^^xsd:dateTime ;
-  curric:isUnitOf natcurric:scheme-history-key-stage-4 ;
+  curric:isUnitOf oakcurric:scheme-history-key-stage-4 ;
   curric:includesThread
     oakcurric:thread-invasion-migration-and-settlement .
 
@@ -159,7 +170,7 @@ Familiarity with the second order concepts of change and continuity
 Familiarity with the second order concepts of cause and consequence""" ;
   curric:id "3820"^^xsd:positiveInteger;
   dcterms:modified "2026-02-12T08:59:07.325724Z"^^xsd:dateTime ;
-  curric:isUnitOf natcurric:scheme-history-key-stage-4 ;
+  curric:isUnitOf oakcurric:scheme-history-key-stage-4 ;
   curric:includesThread
     oakcurric:thread-invasion-migration-and-settlement .
 
@@ -171,7 +182,7 @@ oakcurric:unit-3828
   curric:unitPriorKnowledgeRequirements """An overview knowledge of England between the 8th and 11th centuries, with a focus on the Anglo-Saxon kingdoms, Viking invasion and settlement, and the creation of Anglo-Saxon England.""" ;
   curric:id "3828"^^xsd:positiveInteger;
   dcterms:modified "2026-02-12T08:59:07.331985Z"^^xsd:dateTime ;
-  curric:isUnitOf natcurric:scheme-history-key-stage-4 ;
+  curric:isUnitOf oakcurric:scheme-history-key-stage-4 ;
   curric:includesThread
     oakcurric:thread-invasion-migration-and-settlement .
 
@@ -183,7 +194,7 @@ oakcurric:unit-3822
   curric:unitPriorKnowledgeRequirements """A strong working knowledge of the relevant thematic study with which this unit is paired""" ;
   curric:id "3822"^^xsd:positiveInteger;
   dcterms:modified "2026-02-12T08:59:07.334109Z"^^xsd:dateTime ;
-  curric:isUnitOf natcurric:scheme-history-key-stage-4 ;
+  curric:isUnitOf oakcurric:scheme-history-key-stage-4 ;
   curric:includesThread
     oakcurric:thread-invasion-migration-and-settlement .
 
@@ -195,7 +206,7 @@ oakcurric:unit-3824
   curric:unitPriorKnowledgeRequirements """A working knowledge of the broad local, national and international developments that occurred in the centuries preceding the period being studied.""" ;
   curric:id "3824"^^xsd:positiveInteger;
   dcterms:modified "2026-02-12T08:59:07.334908Z"^^xsd:dateTime ;
-  curric:isUnitOf natcurric:scheme-history-key-stage-4 ;
+  curric:isUnitOf oakcurric:scheme-history-key-stage-4 ;
   curric:includesThread
     oakcurric:thread-power-government-and-religion ,
     oakcurric:thread-empire-persecution-and-resistance .
@@ -208,7 +219,7 @@ oakcurric:unit-3819
   curric:unitPriorKnowledgeRequirements """A thorough grounding in substantive concepts commonly found across key stages 1, 2 and 3. For example, 'communism', 'ideology, 'international relations', 'conflict' and 'tension'.'.""" ;
   curric:id "3819"^^xsd:positiveInteger;
   dcterms:modified "2026-02-12T08:59:07.338481Z"^^xsd:dateTime ;
-  curric:isUnitOf natcurric:scheme-history-key-stage-4 ;
+  curric:isUnitOf oakcurric:scheme-history-key-stage-4 ;
   curric:includesThread
     oakcurric:thread-warfare-and-conflict .
 
@@ -220,7 +231,7 @@ oakcurric:unit-3823
   curric:unitPriorKnowledgeRequirements """A thorough grounding in substantive concepts commonly found across key stages 1, 2 and 3. For example, 'communism', 'ideology, 'international relations', 'conflict' and 'tension'.'.""" ;
   curric:id "3823"^^xsd:positiveInteger;
   dcterms:modified "2026-02-12T08:59:07.345554Z"^^xsd:dateTime ;
-  curric:isUnitOf natcurric:scheme-history-key-stage-4 ;
+  curric:isUnitOf oakcurric:scheme-history-key-stage-4 ;
   curric:includesThread
     oakcurric:thread-warfare-and-conflict .
 
@@ -232,7 +243,7 @@ oakcurric:unit-3816
   curric:unitPriorKnowledgeRequirements """An overview knowledge of England between the 8th and 11th centuries, with a focus on the Anglo-Saxon kingdoms, Viking invasion and settlement, and the creation of Anglo-Saxon England.""" ;
   curric:id "3816"^^xsd:positiveInteger;
   dcterms:modified "2026-02-12T08:59:07.351678Z"^^xsd:dateTime ;
-  curric:isUnitOf natcurric:scheme-history-key-stage-4 ;
+  curric:isUnitOf oakcurric:scheme-history-key-stage-4 ;
   curric:includesThread
     oakcurric:thread-invasion-migration-and-settlement .
 
@@ -244,7 +255,7 @@ oakcurric:unit-3818
   curric:unitPriorKnowledgeRequirements """A thorough grounding in substantive concepts commonly found across key stages 1, 2 and 3. For example, 'monarchy', 'empire', 'international relations', 'conflict' and 'faith'.""" ;
   curric:id "3818"^^xsd:positiveInteger;
   dcterms:modified "2026-02-12T08:59:07.379578Z"^^xsd:dateTime ;
-  curric:isUnitOf natcurric:scheme-history-key-stage-4 ;
+  curric:isUnitOf oakcurric:scheme-history-key-stage-4 ;
   curric:includesThread
     oakcurric:thread-power-government-and-religion ,
     oakcurric:thread-empire-persecution-and-resistance .

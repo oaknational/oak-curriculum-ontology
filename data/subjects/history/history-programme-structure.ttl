@@ -141,13 +141,6 @@ natcurric:scheme-history-key-stage-3
   curric:isSchemeOf natcurric:subject-history ;
   curric:coversKeyStage natcurric:key-stage-3 .
 
-natcurric:scheme-history-key-stage-4
-  a curric:Scheme ;
-  rdfs:label "History Key Stage 4"@en ;
-  dcterms:modified "2026-01-05T12:50:00Z"^^xsd:dateTime ;
-  curric:isSchemeOf natcurric:subject-history ;
-  curric:coversKeyStage natcurric:key-stage-4 .
-
 # ----------------------------------------------------------------------
 # Progressions
 # ----------------------------------------------------------------------

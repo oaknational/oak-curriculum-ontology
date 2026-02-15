@@ -139,13 +139,6 @@ natcurric:scheme-geography-key-stage-3
   curric:isSchemeOf natcurric:subject-geography ;
   curric:coversKeyStage natcurric:key-stage-3 .
 
-natcurric:scheme-geography-key-stage-4
-  a curric:Scheme ;
-  rdfs:label "Geography Key Stage 4"@en ;
-  dcterms:modified "2026-01-05T12:50:00Z"^^xsd:dateTime ;
-  curric:isSchemeOf natcurric:subject-geography ;
-  curric:coversKeyStage natcurric:key-stage-4 .
-
 # ----------------------------------------------------------------------
 # Progressions
 # ----------------------------------------------------------------------

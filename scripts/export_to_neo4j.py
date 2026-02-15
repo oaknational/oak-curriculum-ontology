@@ -2,13 +2,8 @@
 """
 Export RDF/TTL curriculum data to Neo4j AuraDB using rdflib-neo4j.
 
-This script is used for both DfE and Oak curriculum data exports.
 Configuration file specifies which data to export and how to transform it.
 
-This script uses rdflib-neo4j (not neosemantics) because n10s plugin
-is not available on AuraDB Professional.
-
-See: https://neo4j.com/labs/rdflib-neo4j/
 """
 
 import os
@@ -212,32 +207,41 @@ class RDFLoader:
         """
         Discover TTL files based on configuration.
 
+        Processes include_files and include_patterns in order, allowing
+        interleaving of specific files and glob patterns. This ensures
+        correct import order when relationships depend on nodes from earlier files.
+
         Returns:
-            List of paths to TTL files
+            List of paths to TTL files (in discovery order)
         """
         ttl_files = []
 
-        # Add explicitly listed files
+        # Process include_files first (in order)
         for file in self.config.file_discovery.include_files:
             file_path = self.data_dir / file
             if file_path.exists():
                 ttl_files.append(file_path)
+            else:
+                logger.warning(f"File not found: {file}")
 
-        # Add files matching patterns
+        # Process include_patterns (in order)
         for pattern in self.config.file_discovery.include_patterns:
-            # Handle patterns like "programmes/**/*.ttl"
-            if "**" in pattern:
-                base_path = pattern.split("**")[0].strip("/")
-                # Extract glob pattern from the part AFTER **
-                after_glob = pattern.split("**")[1].strip("/")
-                glob_pattern = after_glob if after_glob else "*.ttl"
-                search_dir = self.data_dir / base_path if base_path else self.data_dir
+            # Use glob directly on the data_dir
+            # Supports both ** (recursive) and * (single level) patterns
+            matched_files = sorted(self.data_dir.glob(pattern))
 
-                if search_dir.exists():
-                    for ttl_file in search_dir.rglob(glob_pattern):
-                        # Check exclude patterns
-                        if not self._is_excluded(ttl_file):
-                            ttl_files.append(ttl_file)
+            for ttl_file in matched_files:
+                # Only include .ttl files
+                if ttl_file.suffix != '.ttl':
+                    continue
+
+                # Check exclude patterns
+                if self._is_excluded(ttl_file):
+                    continue
+
+                # Avoid duplicates (file might already be in include_files)
+                if ttl_file not in ttl_files:
+                    ttl_files.append(ttl_file)
 
         return ttl_files
 
@@ -703,14 +707,14 @@ class Transformation(ABC):
         pass
 
     @abstractmethod
-    def execute(self, session, config: Neo4jExportConfig, main_label: str, **data) -> int:
+    def execute(self, session, config: Neo4jExportConfig, main_labels: List[str], **data) -> int:
         """
         Execute transformation.
 
         Args:
             session: Neo4j session
             config: Export configuration
-            main_label: Main node label (Oak, DfE, etc.)
+            main_labels: List of main node labels (e.g., ['OakCurric', 'NatCurric'])
             **data: Additional data (slug_data, multi_valued_data, etc.)
 
         Returns:
@@ -728,7 +732,7 @@ class LabelMappingTransformation(Transformation):
     def should_run(self, config: Neo4jExportConfig) -> bool:
         return config.label_mapping is not None
 
-    def execute(self, session, config: Neo4jExportConfig, main_label: str, **data) -> int:
+    def execute(self, session, config: Neo4jExportConfig, main_labels: List[str], **data) -> int:
         # Handle both single label mapping and list of label mappings
         label_configs = config.label_mapping if isinstance(config.label_mapping, list) else [config.label_mapping]
 
@@ -766,19 +770,20 @@ class RemoveLabelsTransformation(Transformation):
     def should_run(self, config: Neo4jExportConfig) -> bool:
         return bool(config.remove_labels)
 
-    def execute(self, session, config: Neo4jExportConfig, main_label: str, **data) -> int:
+    def execute(self, session, config: Neo4jExportConfig, main_labels: List[str], **data) -> int:
         total_removed = 0
-        for label_to_remove in config.remove_labels:
-            result = session.run(f"""
-                MATCH (n:{main_label}:{label_to_remove})
-                REMOVE n:{label_to_remove}
-                RETURN count(n) as count
-            """)
-            record = result.single()
-            count = record["count"] if record else 0
-            if count > 0:
-                logger.info(f"✓ Removed '{label_to_remove}' label from {count} nodes")
-                total_removed += count
+        for main_label in main_labels:
+            for label_to_remove in config.remove_labels:
+                result = session.run(f"""
+                    MATCH (n:{main_label}:{label_to_remove})
+                    REMOVE n:{label_to_remove}
+                    RETURN count(n) as count
+                """)
+                record = result.single()
+                count = record["count"] if record else 0
+                if count > 0:
+                    logger.info(f"✓ Removed '{label_to_remove}' label from {count} {main_label} nodes")
+                    total_removed += count
 
         return total_removed
 
@@ -796,7 +801,7 @@ class SlugExtractionTransformation(Transformation):
     def should_run(self, config: Neo4jExportConfig) -> bool:
         return bool(config.uri_slug_extraction)
 
-    def execute(self, session, config: Neo4jExportConfig, main_label: str, **data) -> int:
+    def execute(self, session, config: Neo4jExportConfig, main_labels: List[str], **data) -> int:
         slug_data = data.get('slug_data', {})
         if not slug_data:
             return 0
@@ -808,27 +813,28 @@ class SlugExtractionTransformation(Transformation):
         total_slugs = 0
         node_types_processed = []
 
-        for node_label, uri_slug_map in slug_data.items():
-            slug_property = config.uri_slug_extraction.get(node_label)
-            if not slug_property or not uri_slug_map:
-                continue
+        for main_label in main_labels:
+            for node_label, uri_slug_map in slug_data.items():
+                slug_property = config.uri_slug_extraction.get(node_label)
+                if not slug_property or not uri_slug_map:
+                    continue
 
-            # Batch all URIs for this node type
-            batch_data = [{"uri": uri, "slug": slug} for uri, slug in uri_slug_map.items()]
+                # Batch all URIs for this node type
+                batch_data = [{"uri": uri, "slug": slug} for uri, slug in uri_slug_map.items()]
 
-            result = session.run(f"""
-                UNWIND $data AS item
-                MATCH (n:{node_label}:{main_label})
-                WHERE n.uri = item.uri
-                SET n.{slug_property} = item.slug
-                RETURN count(n) as count
-            """, data=batch_data)
+                result = session.run(f"""
+                    UNWIND $data AS item
+                    MATCH (n:{node_label}:{main_label})
+                    WHERE n.uri = item.uri
+                    SET n.{slug_property} = item.slug
+                    RETURN count(n) as count
+                """, data=batch_data)
 
-            record = result.single()
-            count = record["count"] if record else 0
-            if count > 0:
-                node_types_processed.append(f"{node_label}({count})")
-                total_slugs += count
+                record = result.single()
+                count = record["count"] if record else 0
+                if count > 0:
+                    node_types_processed.append(f"{node_label}:{main_label}({count})")
+                    total_slugs += count
 
         if node_types_processed:
             logger.info(f"✓ Applied slugs: {', '.join(node_types_processed)}")
@@ -845,27 +851,28 @@ class ObjectUriPropertyTransformation(Transformation):
     def should_run(self, config: Neo4jExportConfig) -> bool:
         return bool(config.extract_object_uris_as_properties)
 
-    def execute(self, session, config: Neo4jExportConfig, main_label: str, **data) -> int:
+    def execute(self, session, config: Neo4jExportConfig, main_labels: List[str], **data) -> int:
         uri_property_data = data.get('uri_property_data', {})
         if not uri_property_data:
             return 0
 
         total_properties = 0
-        for node_label, prop_data in uri_property_data.items():
-            for property_name, uri_value_map in prop_data.items():
-                result = session.run(f"""
-                    UNWIND $data AS item
-                    MATCH (n:{node_label}:{main_label})
-                    WHERE n.uri = item.uri
-                    SET n.{property_name} = item.value
-                    RETURN count(n) as count
-                """, data=[{"uri": uri, "value": value} for uri, value in uri_value_map.items()])
+        for main_label in main_labels:
+            for node_label, prop_data in uri_property_data.items():
+                for property_name, uri_value_map in prop_data.items():
+                    result = session.run(f"""
+                        UNWIND $data AS item
+                        MATCH (n:{node_label}:{main_label})
+                        WHERE n.uri = item.uri
+                        SET n.{property_name} = item.value
+                        RETURN count(n) as count
+                    """, data=[{"uri": uri, "value": value} for uri, value in uri_value_map.items()])
 
-                record = result.single()
-                count = record["count"] if record else 0
-                if count > 0:
-                    logger.info(f"✓ {node_label}.{property_name} set ({count} nodes)")
-                    total_properties += count
+                    record = result.single()
+                    count = record["count"] if record else 0
+                    if count > 0:
+                        logger.info(f"✓ {node_label}:{main_label}.{property_name} set ({count} nodes)")
+                        total_properties += count
 
         return total_properties
 
@@ -882,41 +889,42 @@ class PropertyMappingTransformation(Transformation):
     def should_run(self, config: Neo4jExportConfig) -> bool:
         return bool(config.property_mappings)
 
-    def execute(self, session, config: Neo4jExportConfig, main_label: str, **data) -> int:
+    def execute(self, session, config: Neo4jExportConfig, main_labels: List[str], **data) -> int:
         total_renamed = 0
 
-        for node_label, mappings in config.property_mappings.items():
-            if not mappings:
-                continue
+        for main_label in main_labels:
+            for node_label, mappings in config.property_mappings.items():
+                if not mappings:
+                    continue
 
-            # Build consolidated SET and REMOVE clauses for all properties
-            set_clauses = []
-            remove_clauses = []
-            where_clauses = []
+                # Build consolidated SET and REMOVE clauses for all properties
+                set_clauses = []
+                remove_clauses = []
+                where_clauses = []
 
-            for old_prop, new_prop in mappings.items():
-                set_clauses.append(f"n.{new_prop} = n.{old_prop}")
-                remove_clauses.append(f"n.{old_prop}")
-                where_clauses.append(f"n.{old_prop} IS NOT NULL")
+                for old_prop, new_prop in mappings.items():
+                    set_clauses.append(f"n.{new_prop} = n.{old_prop}")
+                    remove_clauses.append(f"n.{old_prop}")
+                    where_clauses.append(f"n.{old_prop} IS NOT NULL")
 
-            # Combined query: rename all properties for this node type in one go
-            # Use CASE to handle properties that may not exist on all nodes
-            query = f"""
-                MATCH (n:{node_label}:{main_label})
-                WHERE {" OR ".join(where_clauses)}
-                SET {", ".join(set_clauses)}
-                REMOVE {", ".join(remove_clauses)}
-                RETURN count(n) as count
-            """
+                # Combined query: rename all properties for this node type in one go
+                # Use CASE to handle properties that may not exist on all nodes
+                query = f"""
+                    MATCH (n:{node_label}:{main_label})
+                    WHERE {" OR ".join(where_clauses)}
+                    SET {", ".join(set_clauses)}
+                    REMOVE {", ".join(remove_clauses)}
+                    RETURN count(n) as count
+                """
 
-            result = session.run(query)
-            record = result.single()
-            count = record["count"] if record else 0
+                result = session.run(query)
+                record = result.single()
+                count = record["count"] if record else 0
 
-            if count > 0:
-                props_str = ", ".join([f"'{old}'→'{new}'" for old, new in mappings.items()])
-                logger.info(f"✓ {node_label}: {props_str} ({count} nodes)")
-                total_renamed += count
+                if count > 0:
+                    props_str = ", ".join([f"'{old}'→'{new}'" for old, new in mappings.items()])
+                    logger.info(f"✓ {node_label}:{main_label}: {props_str} ({count} nodes)")
+                    total_renamed += count
 
         return total_renamed
 
@@ -930,27 +938,28 @@ class MultiValuedPropertiesTransformation(Transformation):
     def should_run(self, config: Neo4jExportConfig) -> bool:
         return bool(config.multi_valued_properties)
 
-    def execute(self, session, config: Neo4jExportConfig, main_label: str, **data) -> int:
+    def execute(self, session, config: Neo4jExportConfig, main_labels: List[str], **data) -> int:
         multi_valued_data = data.get('multi_valued_data', {})
         if not multi_valued_data:
             return 0
 
         total_consolidated = 0
-        for node_label, prop_data in multi_valued_data.items():
-            for prop, uri_values_map in prop_data.items():
-                result = session.run(f"""
-                    UNWIND $data AS item
-                    MATCH (n:{node_label}:{main_label})
-                    WHERE n.uri = item.uri
-                    SET n.{prop} = item.values
-                    RETURN count(n) as count
-                """, data=[{"uri": uri, "values": values} for uri, values in uri_values_map.items()])
+        for main_label in main_labels:
+            for node_label, prop_data in multi_valued_data.items():
+                for prop, uri_values_map in prop_data.items():
+                    result = session.run(f"""
+                        UNWIND $data AS item
+                        MATCH (n:{node_label}:{main_label})
+                        WHERE n.uri = item.uri
+                        SET n.{prop} = item.values
+                        RETURN count(n) as count
+                    """, data=[{"uri": uri, "values": values} for uri, values in uri_values_map.items()])
 
-                record = result.single()
-                count = record["count"] if record else 0
-                if count > 0:
-                    logger.info(f"✓ {node_label}.{prop} consolidated ({count} nodes)")
-                    total_consolidated += count
+                    record = result.single()
+                    count = record["count"] if record else 0
+                    if count > 0:
+                        logger.info(f"✓ {node_label}:{main_label}.{prop} consolidated ({count} nodes)")
+                        total_consolidated += count
 
         return total_consolidated
 
@@ -964,7 +973,7 @@ class RelationshipTypeMappingTransformation(Transformation):
     def should_run(self, config: Neo4jExportConfig) -> bool:
         return bool(config.relationship_type_mappings)
 
-    def execute(self, session, config: Neo4jExportConfig, main_label: str, **data) -> int:
+    def execute(self, session, config: Neo4jExportConfig, main_labels: List[str], **data) -> int:
         total_renamed = 0
 
         for old_type, mapping in config.relationship_type_mappings.items():
@@ -1017,7 +1026,7 @@ class ReverseRelationshipsTransformation(Transformation):
     def should_run(self, config: Neo4jExportConfig) -> bool:
         return bool(config.reverse_relationships)
 
-    def execute(self, session, config: Neo4jExportConfig, main_label: str, **data) -> int:
+    def execute(self, session, config: Neo4jExportConfig, main_labels: List[str], **data) -> int:
         total_reversed = 0
         for old_type, new_type in config.reverse_relationships.items():
             result = session.run(f"""
@@ -1046,7 +1055,7 @@ class InclusionFlatteningTransformation(Transformation):
     def should_run(self, config: Neo4jExportConfig) -> bool:
         return bool(config.inclusion_flattening)
 
-    def execute(self, session, config: Neo4jExportConfig, main_label: str, **data) -> int:
+    def execute(self, session, config: Neo4jExportConfig, main_labels: List[str], **data) -> int:
         total_flattened = 0
 
         for flattening_config in config.inclusion_flattening:
@@ -1090,7 +1099,7 @@ class CamelCaseConversionTransformation(Transformation):
     def should_run(self, config: Neo4jExportConfig) -> bool:
         return True  # Always run to standardize relationship names
 
-    def execute(self, session, config: Neo4jExportConfig, main_label: str, **data) -> int:
+    def execute(self, session, config: Neo4jExportConfig, main_labels: List[str], **data) -> int:
         # Get all relationship types
         result = session.run("CALL db.relationshipTypes() YIELD relationshipType RETURN relationshipType")
         rel_types = [record["relationshipType"] for record in result]
@@ -1132,7 +1141,7 @@ class CleanupOrphanedResourceNodesTransformation(Transformation):
     def should_run(self, config: Neo4jExportConfig) -> bool:
         return True  # Always cleanup
 
-    def execute(self, session, config: Neo4jExportConfig, main_label: str, **data) -> int:
+    def execute(self, session, config: Neo4jExportConfig, main_labels: List[str], **data) -> int:
         # Delete nodes that have ONLY the Resource label (garbage nodes from import)
         # After transformations, all legitimate nodes should have additional labels
         result = session.run("""
@@ -1159,7 +1168,7 @@ class DropResourceConstraintTransformation(Transformation):
     def should_run(self, config: Neo4jExportConfig) -> bool:
         return True  # Always drop
 
-    def execute(self, session, config: Neo4jExportConfig, main_label: str, **data) -> int:
+    def execute(self, session, config: Neo4jExportConfig, main_labels: List[str], **data) -> int:
         # Drop the n10s_unique_uri constraint if it exists
         try:
             session.run("DROP CONSTRAINT n10s_unique_uri IF EXISTS")
@@ -1179,7 +1188,7 @@ class AddExternalTypeLabelsTransformation(Transformation):
     def should_run(self, config: Neo4jExportConfig) -> bool:
         return True  # Always run to add missing type labels
 
-    def execute(self, session, config: Neo4jExportConfig, main_label: str, **data) -> int:
+    def execute(self, session, config: Neo4jExportConfig, main_labels: List[str], **data) -> int:
         """
         Add type labels for nodes using external ontology classes.
         rdflib-neo4j only creates labels for types in the local ontology (oakcurric:),
@@ -1200,30 +1209,31 @@ class AddExternalTypeLabelsTransformation(Transformation):
                 type_to_uris[type_label] = []
             type_to_uris[type_label].append(uri)
 
-        # Add each type label to its nodes
-        for type_label, uris in type_to_uris.items():
-            # Only add labels for types that aren't already added by rdflib-neo4j
-            # (rdflib-neo4j adds labels for oakcurric: types like Programme, Unit, Lesson)
-            # This handles external types like curric:Scheme
-            result = session.run(f"""
-                UNWIND $uris AS uri
-                MATCH (n:{main_label} {{uri: uri}})
-                WHERE NOT $type_label IN labels(n)
-                SET n:{type_label}
-                RETURN count(n) as count
-            """, uris=uris, type_label=type_label)
+        # Add each type label to its nodes - iterate over all main labels
+        for main_label in main_labels:
+            for type_label, uris in type_to_uris.items():
+                # Only add labels for types that aren't already added by rdflib-neo4j
+                # (rdflib-neo4j adds labels for oakcurric: types like Programme, Unit, Lesson)
+                # This handles external types like curric:Scheme
+                result = session.run(f"""
+                    UNWIND $uris AS uri
+                    MATCH (n:{main_label} {{uri: uri}})
+                    WHERE NOT $type_label IN labels(n)
+                    SET n:{type_label}
+                    RETURN count(n) as count
+                """, uris=uris, type_label=type_label)
 
-            record = result.single()
-            count = record["count"] if record else 0
-            if count > 0:
-                logger.info(f"✓ Added {type_label} label to {count} nodes")
-                total_labeled += count
+                record = result.single()
+                count = record["count"] if record else 0
+                if count > 0:
+                    logger.info(f"✓ Added {type_label} label to {count} {main_label} nodes")
+                    total_labeled += count
 
         return total_labeled
 
 
 class ExternalRelationshipsTransformation(Transformation):
-    """Create relationships to pre-existing external nodes (DfE/England data).
+    """Create relationships to pre-existing external nodes
 
     Optimized for performance:
     - Pre-caches all target node labels in a single query (Option 5)
@@ -1303,7 +1313,7 @@ class ExternalRelationshipsTransformation(Transformation):
         # No transformation needed
         return predicate_name, False
 
-    def execute(self, session, config: Neo4jExportConfig, main_label: str, **data) -> int:
+    def execute(self, session, config: Neo4jExportConfig, main_labels: List[str], **data) -> int:
         external_rels = data.get('external_relationships', [])
         if not external_rels:
             logger.info("No external relationships to create")
@@ -1423,20 +1433,21 @@ class TransformationPipeline:
         self.database = database
         self.transformations = transformations
 
-    def _ensure_uri_index(self, session, main_label: str):
+    def _ensure_uri_index(self, session, main_labels: List[str]):
         """
         Create index on uri property for fast lookups during transformations.
         This is CRITICAL for performance - without it, URI lookups are O(n) full scans.
         """
-        logger.info(f"Creating index on {main_label}.uri for fast lookups...")
-        try:
-            # Create index if it doesn't exist (Neo4j 4.x+ syntax)
-            session.run(f"CREATE INDEX idx_{main_label.lower()}_uri IF NOT EXISTS FOR (n:{main_label}) ON (n.uri)")
-            # Wait for index to be online
-            session.run("CALL db.awaitIndexes(300)")
-            logger.info(f"✓ Index on {main_label}.uri ready")
-        except Exception as e:
-            logger.warning(f"Could not create index (may already exist): {e}")
+        for main_label in main_labels:
+            logger.info(f"Creating index on {main_label}.uri for fast lookups...")
+            try:
+                # Create index if it doesn't exist (Neo4j 4.x+ syntax)
+                session.run(f"CREATE INDEX idx_{main_label.lower()}_uri IF NOT EXISTS FOR (n:{main_label}) ON (n.uri)")
+                # Wait for index to be online
+                session.run("CALL db.awaitIndexes(300)")
+                logger.info(f"✓ Index on {main_label}.uri ready")
+            except Exception as e:
+                logger.warning(f"Could not create index (may already exist): {e}")
 
     def execute(self, config: Neo4jExportConfig, **data):
         """
@@ -1450,22 +1461,24 @@ class TransformationPipeline:
         logger.info("Applying transformations...")
         logger.info("=" * 60)
 
-        # Get main label - use first target label if multiple label mappings
+        # Get all main labels from label mappings
         if isinstance(config.label_mapping, list):
-            main_label = config.label_mapping[0].target_label
+            main_labels = [lm.target_label for lm in config.label_mapping]
         else:
-            main_label = config.label_mapping.target_label
+            main_labels = [config.label_mapping.target_label]
+
+        logger.info(f"Processing nodes with labels: {', '.join(main_labels)}")
 
         with self.driver.session(database=self.database) as session:
-            # CRITICAL: Create index on uri FIRST for fast lookups
-            self._ensure_uri_index(session, main_label)
+            # CRITICAL: Create index on uri FIRST for fast lookups (for ALL labels)
+            self._ensure_uri_index(session, main_labels)
 
             for transformation in self.transformations:
                 if transformation.should_run(config):
                     logger.info("\n" + "=" * 60)
                     logger.info(f"Running: {transformation.name()}")
 
-                    count = transformation.execute(session, config, main_label, **data)
+                    count = transformation.execute(session, config, main_labels, **data)
 
                     if count == 0:
                         logger.info(f"  No changes made")
@@ -1495,11 +1508,12 @@ class TransformationPipeline:
 def clear_neo4j_data(auth_data: Dict[str, str], labels: Union[str, List[str]]) -> None:
     """
     Clear all nodes with the specified label(s) from Neo4j.
+    Uses batched deletion to prevent connection timeouts on large datasets.
 
     Args:
         auth_data: Dictionary with Neo4j connection credentials
                   (uri, database, user, pwd)
-        labels: The node label(s) to clear (e.g., 'Oak', 'DfE', or ['Oak', 'OakRes'])
+        labels: The node label(s) to clear (e.g., 'NatCurric', 'OakCurric')
     """
     # Normalize to list
     label_list = labels if isinstance(labels, list) else [labels]
@@ -1507,6 +1521,7 @@ def clear_neo4j_data(auth_data: Dict[str, str], labels: Union[str, List[str]]) -
 
     logger.info("\n" + "=" * 60)
     logger.info(f"Clearing existing {label_str} data from Neo4j...")
+    logger.info("IMPORTANT: Clearing ALL labels before building new data")
     logger.info("=" * 60)
 
     driver = GraphDatabase.driver(
@@ -1531,20 +1546,37 @@ def clear_neo4j_data(auth_data: Dict[str, str], labels: Union[str, List[str]]) -
                     continue
 
                 logger.info(f"Found {node_count:,} {label} nodes to delete")
+                logger.info(f"Deleting in batches to prevent connection timeout...")
 
-                # Delete all nodes with the label
-                # Use DETACH DELETE to also remove relationships
-                delete_result = session.run(
-                    f"MATCH (n:{label}) DETACH DELETE n RETURN count(n) as deleted"
-                )
-                delete_record = delete_result.single()
-                deleted_count = delete_record["deleted"] if delete_record else 0
+                # Delete in batches to prevent connection timeout
+                batch_size = 1000
+                deleted_count = 0
+
+                while True:
+                    # Delete one batch at a time
+                    result = session.run(f"""
+                        MATCH (n:{label})
+                        WITH n LIMIT {batch_size}
+                        DETACH DELETE n
+                        RETURN count(n) as deleted
+                    """)
+                    record = result.single()
+                    batch_deleted = record["deleted"] if record else 0
+
+                    if batch_deleted == 0:
+                        break
+
+                    deleted_count += batch_deleted
+                    logger.info(f"  Deleted {deleted_count:,} / {node_count:,} {label} nodes...")
 
                 logger.info(f"✓ Deleted {deleted_count:,} {label} nodes and their relationships")
                 total_deleted += deleted_count
 
             if total_deleted == 0:
                 logger.info(f"Database is already clear")
+            else:
+                logger.info(f"\n✓ Total deleted: {total_deleted:,} nodes across all labels")
+                logger.info("✓ Database cleared - ready for fresh import")
 
     finally:
         driver.close()
