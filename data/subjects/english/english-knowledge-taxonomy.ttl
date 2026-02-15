@@ -2045,6 +2045,37 @@ natcurric:contentdescriptor-literary-and-rhetorical-devices
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
 
+natcurric:contentdescriptor-adapting-writing-range-purposes-audiences
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Adapting their writing for a wide range of purposes and audiences: to describe, 
+  narrate, explain, instruct, give and respond to information, and argue."""@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "5"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-write-accurately-fluently-effectively ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-selecting-organising-for-support-emphasis
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Selecting and organising ideas, facts and key points, and citing evidence, 
+  details and quotation effectively and pertinently for support and emphasis."""@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "6"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-write-accurately-fluently-effectively ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-vocabulary-grammar-form-structural-organisational
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Selecting, and using judiciously, vocabulary, grammar, form, and structural and 
+  organisational features, including rhetorical devices, to reflect audience, purpose and context, 
+  and using Standard English where appropriate."""@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "7"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-write-accurately-fluently-effectively ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
 natcurric:contentdescriptor-how-writing-reflects-audiences-purposes
   a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel """Considering how their writing reflects the audiences and purposes for which it 
@@ -2225,37 +2256,6 @@ natcurric:contentdescriptor-contexts-themes-characterisation-style-quality
   curric:supportingGuidance "Supporting guidance text..."@en ;
   curric:displayOrder "8"^^xsd:positiveInteger ;
   skos:broader natcurric:substrand-critically-evaluate-texts ;
-  skos:inScheme natcurric:knowledge-taxonomy ;
-  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
-
-natcurric:contentdescriptor-adapting-writing-range-purposes-audiences
-  a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel """Adapting their writing for a wide range of purposes and audiences: to describe, 
-  narrate, explain, instruct, give and respond to information, and argue."""@en ;
-  curric:supportingGuidance "Supporting guidance text..."@en ;
-  curric:displayOrder "1"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-write-accurately-fluently-effectively ;
-  skos:inScheme natcurric:knowledge-taxonomy ;
-  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
-
-natcurric:contentdescriptor-selecting-organising-for-support-emphasis
-  a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel """Selecting and organising ideas, facts and key points, and citing evidence, 
-  details and quotation effectively and pertinently for support and emphasis."""@en ;
-  curric:supportingGuidance "Supporting guidance text..."@en ;
-  curric:displayOrder "2"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-write-accurately-fluently-effectively ;
-  skos:inScheme natcurric:knowledge-taxonomy ;
-  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
-
-natcurric:contentdescriptor-vocabulary-grammar-form-structural-organisational
-  a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel """Selecting, and using judiciously, vocabulary, grammar, form, and structural and 
-  organisational features, including rhetorical devices, to reflect audience, purpose and context, 
-  and using Standard English where appropriate."""@en ;
-  curric:supportingGuidance "Supporting guidance text..."@en ;
-  curric:displayOrder "3"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-write-accurately-fluently-effectively ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
 
