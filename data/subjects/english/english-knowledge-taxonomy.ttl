@@ -204,11 +204,85 @@ natcurric:substrand-comprehension
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
 
+natcurric:substrand-appreciation-and-love-of-reading
+  a skos:Concept, curric:SubStrand ;
+  skos:prefLabel "Appreciation and Love of Reading"@en ;
+  skos:definition "Description of sub-strand..."@en ;
+  curric:displayOrder "3"^^xsd:positiveInteger ;
+  skos:broader natcurric:strand-reading ;
+  skos:narrower 
+    natcurric:contentdescriptor-reading-wide-range-fiction-nonfiction ,
+    natcurric:contentdescriptor-choosing-and-reading-books-independently ,
+    natcurric:contentdescriptor-rereading-books-to-increase-familiarity ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:substrand-increasingly-challenging-texts
+  a skos:Concept, curric:SubStrand ;
+  skos:prefLabel "Increasingly Challenging Texts"@en ;
+  skos:definition "Description of sub-strand..."@en ;
+  curric:displayOrder "4"^^xsd:positiveInteger ;
+  skos:broader natcurric:strand-reading ;
+  skos:narrower 
+    natcurric:contentdescriptor-new-vocabulary-with-context-dictionaries ,
+    natcurric:contentdescriptor-inferences-and-referring-to-evidence ,
+    natcurric:contentdescriptor-purpose-audience-context-of-writing ,
+    natcurric:contentdescriptor-checking-understanding ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:substrand-read-critically
+  a skos:Concept, curric:SubStrand ;
+  skos:prefLabel "Read Critically"@en ;
+  skos:definition "Description of sub-strand..."@en ;
+  curric:displayOrder "5"^^xsd:positiveInteger ;
+  skos:broader natcurric:strand-reading ;
+  skos:narrower 
+    natcurric:contentdescriptor-how-language-presents-meaning ,
+    natcurric:contentdescriptor-poetic-conventions ,
+    natcurric:contentdescriptor-setting-plot-characterisation ,
+    natcurric:contentdescriptor-dramatists-performance-alternative-staging ,
+    natcurric:contentdescriptor-critical-comparisons-across-texts ,
+    natcurric:contentdescriptor-studying-range-of-authors ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:substrand-english-literary-heritage
+  a skos:Concept, curric:SubStrand ;
+  skos:prefLabel "English Literary Heritage"@en ;
+  skos:definition "Description of sub-strand..."@en ;
+  curric:displayOrder "6"^^xsd:positiveInteger ;
+  skos:broader natcurric:strand-reading ;
+  skos:narrower 
+    natcurric:contentdescriptor-classic-literature-extended-literary-nonfiction ,
+    natcurric:contentdescriptor-rereading-literature-for-making-comparisons ,
+    natcurric:contentdescriptor-reading-for-challenge-interest-enjoyment ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:substrand-critically-evaluate-texts
+  a skos:Concept, curric:SubStrand ;
+  skos:prefLabel "Critically Evaluate Texts"@en ;
+  skos:definition "Description of sub-strand..."@en ;
+  curric:displayOrder "7"^^xsd:positiveInteger ;
+  skos:broader natcurric:strand-reading ;
+  skos:narrower 
+    natcurric:contentdescriptor-reading-in-different-ways ,
+    natcurric:contentdescriptor-knowledge-of-purpose-audience-context ,
+    natcurric:contentdescriptor-identifying-interpreting-themes-ideas-information ,
+    natcurric:contentdescriptor-exploring-plot-characterisation-events-settings ,
+    natcurric:contentdescriptor-evidence-to-support-point-view ,
+    natcurric:contentdescriptor-statements-supported-by-evidence ,
+    natcurric:contentdescriptor-vocabulary-form-grammatical-structural-features ,
+    natcurric:contentdescriptor-contexts-themes-characterisation-style-quality ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
 natcurric:substrand-transcription
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Transcription"@en ;
   skos:definition "Description of sub-strand..."@en ;
-  curric:displayOrder "3"^^xsd:positiveInteger ;
+  curric:displayOrder "1"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-writing ;
   skos:narrower 
     natcurric:contentdescriptor-spell-words-40-phonemes ,
@@ -247,7 +321,7 @@ natcurric:substrand-handwriting
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Handwriting"@en ;
   skos:definition "Description of sub-strand..."@en ;
-  curric:displayOrder "4"^^xsd:positiveInteger ;
+  curric:displayOrder "2"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-writing ;
   skos:narrower 
     natcurric:contentdescriptor-sit-correctly-holding-pencil-correctly ,
@@ -270,7 +344,7 @@ natcurric:substrand-composition
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Composition"@en ;
   skos:definition "Description of sub-strand..."@en ;
-  curric:displayOrder "5"^^xsd:positiveInteger ;
+  curric:displayOrder "3"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-writing ;
   skos:narrower 
     natcurric:contentdescriptor-out-loud-what-write-about ,
@@ -292,11 +366,54 @@ natcurric:substrand-composition
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
 
+natcurric:substrand-write-accurately-fluently-effectively
+  a skos:Concept, curric:SubStrand ;
+  skos:prefLabel "Write Accurately Fluently Effectively"@en ;
+  skos:definition "Description of sub-strand..."@en ;
+  curric:displayOrder "4"^^xsd:positiveInteger ;
+  skos:broader natcurric:strand-writing ;
+  skos:narrower 
+    natcurric:contentdescriptor-writing-for-range-purposes-audiences ,
+    natcurric:contentdescriptor-summarising-and-organising-material ,
+    natcurric:contentdescriptor-applying-vocabulary-grammar-text-structure ,
+    natcurric:contentdescriptor-literary-and-rhetorical-devices ,
+    natcurric:contentdescriptor-adapting-writing-range-purposes-audiences ,
+    natcurric:contentdescriptor-selecting-organising-for-support-emphasis ,
+    natcurric:contentdescriptor-vocabulary-grammar-form-structural-organisational ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:substrand-plan-draft-edit-and-proofread
+  a skos:Concept, curric:SubStrand ;
+  skos:prefLabel "Plan Draft Edit and Proofread"@en ;
+  skos:definition "Description of sub-strand..."@en ;
+  curric:displayOrder "5"^^xsd:positiveInteger ;
+  skos:broader natcurric:strand-writing ;
+  skos:narrower 
+    natcurric:contentdescriptor-how-writing-reflects-audiences-purposes ,
+    natcurric:contentdescriptor-amending-vocabulary-grammar-structure ,
+    natcurric:contentdescriptor-accurate-grammar-punctuation-and-spelling ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:substrand-revise-edit-and-proof-read
+  a skos:Concept, curric:SubStrand ;
+  skos:prefLabel "Revise Edit and Proof-Read"@en ;
+  skos:definition "Description of sub-strand..."@en ;
+  curric:displayOrder "6"^^xsd:positiveInteger ;
+  skos:broader natcurric:strand-writing ;
+  skos:narrower 
+    natcurric:contentdescriptor-whether-draft-achieves-intended-impact ,
+    natcurric:contentdescriptor-improve-coherence-consistency-clarity-effectiveness ,
+    natcurric:contentdescriptor-accuracy-effectiveness-grammar-punctuation-spelling ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
 natcurric:substrand-vocabulary-grammar-punctuation
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Vocabulary Grammar Punctuation"@en ;
   skos:definition "Description of sub-strand..."@en ;
-  curric:displayOrder "6"^^xsd:positiveInteger ;
+  curric:displayOrder "1"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-grammar-and-vocabulary ;
   skos:narrower 
     natcurric:contentdescriptor-leaving-spaces-between-words ,
@@ -338,142 +455,11 @@ natcurric:substrand-vocabulary-grammar-punctuation
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
 
-natcurric:substrand-appreciation-and-love-of-reading
-  a skos:Concept, curric:SubStrand ;
-  skos:prefLabel "Appreciation and Love of Reading"@en ;
-  skos:definition "Description of sub-strand..."@en ;
-  curric:displayOrder "7"^^xsd:positiveInteger ;
-  skos:broader natcurric:strand-reading ;
-  skos:narrower 
-    natcurric:contentdescriptor-reading-wide-range-fiction-nonfiction ,
-    natcurric:contentdescriptor-choosing-and-reading-books-independently ,
-    natcurric:contentdescriptor-rereading-books-to-increase-familiarity ;
-  skos:inScheme natcurric:knowledge-taxonomy ;
-  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
-
-natcurric:substrand-increasingly-challenging-texts
-  a skos:Concept, curric:SubStrand ;
-  skos:prefLabel "Increasingly Challenging Texts"@en ;
-  skos:definition "Description of sub-strand..."@en ;
-  curric:displayOrder "8"^^xsd:positiveInteger ;
-  skos:broader natcurric:strand-reading ;
-  skos:narrower 
-    natcurric:contentdescriptor-new-vocabulary-with-context-dictionaries ,
-    natcurric:contentdescriptor-inferences-and-referring-to-evidence ,
-    natcurric:contentdescriptor-purpose-audience-context-of-writing ,
-    natcurric:contentdescriptor-checking-understanding ;
-  skos:inScheme natcurric:knowledge-taxonomy ;
-  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
-
-natcurric:substrand-read-critically
-  a skos:Concept, curric:SubStrand ;
-  skos:prefLabel "Read Critically"@en ;
-  skos:definition "Description of sub-strand..."@en ;
-  curric:displayOrder "9"^^xsd:positiveInteger ;
-  skos:broader natcurric:strand-reading ;
-  skos:narrower 
-    natcurric:contentdescriptor-how-language-presents-meaning ,
-    natcurric:contentdescriptor-poetic-conventions ,
-    natcurric:contentdescriptor-setting-plot-characterisation ,
-    natcurric:contentdescriptor-dramatists-performance-alternative-staging ,
-    natcurric:contentdescriptor-critical-comparisons-across-texts ,
-    natcurric:contentdescriptor-studying-range-of-authors ;
-  skos:inScheme natcurric:knowledge-taxonomy ;
-  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
-
-natcurric:substrand-write-accurately-fluently-effectively
-  a skos:Concept, curric:SubStrand ;
-  skos:prefLabel "Write Accurately Fluently Effectively"@en ;
-  skos:definition "Description of sub-strand..."@en ;
-  curric:displayOrder "10"^^xsd:positiveInteger ;
-  skos:broader natcurric:strand-writing ;
-  skos:narrower 
-    natcurric:contentdescriptor-writing-for-range-purposes-audiences ,
-    natcurric:contentdescriptor-summarising-and-organising-material ,
-    natcurric:contentdescriptor-applying-vocabulary-grammar-text-structure ,
-    natcurric:contentdescriptor-literary-and-rhetorical-devices ,
-    natcurric:contentdescriptor-adapting-writing-range-purposes-audiences ,
-    natcurric:contentdescriptor-selecting-organising-for-support-emphasis ,
-    natcurric:contentdescriptor-vocabulary-grammar-form-structural-organisational ;
-  skos:inScheme natcurric:knowledge-taxonomy ;
-  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
-
-natcurric:substrand-plan-draft-edit-and-proofread
-  a skos:Concept, curric:SubStrand ;
-  skos:prefLabel "Plan Draft Edit and Proofread"@en ;
-  skos:definition "Description of sub-strand..."@en ;
-  curric:displayOrder "11"^^xsd:positiveInteger ;
-  skos:broader natcurric:strand-writing ;
-  skos:narrower 
-    natcurric:contentdescriptor-how-writing-reflects-audiences-purposes ,
-    natcurric:contentdescriptor-amending-vocabulary-grammar-structure ,
-    natcurric:contentdescriptor-accurate-grammar-punctuation-and-spelling ;
-  skos:inScheme natcurric:knowledge-taxonomy ;
-  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
-
-natcurric:substrand-speak-confidently-effectively
-  a skos:Concept, curric:SubStrand ;
-  skos:prefLabel "Speak Confidently Effectively"@en ;
-  skos:definition "Description of sub-strand..."@en ;
-  curric:displayOrder "12"^^xsd:positiveInteger ;
-  skos:broader natcurric:strand-spoken-english ;
-  skos:narrower 
-    natcurric:contentdescriptor-standard-english-formal-informal-contexts ,
-    natcurric:contentdescriptor-giving-short-speeches-and-presentations ,
-    natcurric:contentdescriptor-participating-formal-debates-structured-discussions ,
-    natcurric:contentdescriptor-speak-confidently-effectively-performing-play-scripts-and-poetry ;
-  skos:inScheme natcurric:knowledge-taxonomy ;
-  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
-
-natcurric:substrand-english-literary-heritage
-  a skos:Concept, curric:SubStrand ;
-  skos:prefLabel "English Literary Heritage"@en ;
-  skos:definition "Description of sub-strand..."@en ;
-  curric:displayOrder "13"^^xsd:positiveInteger ;
-  skos:broader natcurric:strand-reading ;
-  skos:narrower 
-    natcurric:contentdescriptor-classic-literature-extended-literary-nonfiction ,
-    natcurric:contentdescriptor-rereading-literature-for-making-comparisons ,
-    natcurric:contentdescriptor-reading-for-challenge-interest-enjoyment ;
-  skos:inScheme natcurric:knowledge-taxonomy ;
-  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
-
-natcurric:substrand-critically-evaluate-texts
-  a skos:Concept, curric:SubStrand ;
-  skos:prefLabel "Critically Evaluate Texts"@en ;
-  skos:definition "Description of sub-strand..."@en ;
-  curric:displayOrder "14"^^xsd:positiveInteger ;
-  skos:broader natcurric:strand-reading ;
-  skos:narrower 
-    natcurric:contentdescriptor-reading-in-different-ways ,
-    natcurric:contentdescriptor-knowledge-of-purpose-audience-context ,
-    natcurric:contentdescriptor-identifying-interpreting-themes-ideas-information ,
-    natcurric:contentdescriptor-exploring-plot-characterisation-events-settings ,
-    natcurric:contentdescriptor-evidence-to-support-point-view ,
-    natcurric:contentdescriptor-statements-supported-by-evidence ,
-    natcurric:contentdescriptor-vocabulary-form-grammatical-structural-features ,
-    natcurric:contentdescriptor-contexts-themes-characterisation-style-quality ;
-  skos:inScheme natcurric:knowledge-taxonomy ;
-  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
-
-natcurric:substrand-revise-edit-and-proof-read
-  a skos:Concept, curric:SubStrand ;
-  skos:prefLabel "Revise Edit and Proof-Read"@en ;
-  skos:definition "Description of sub-strand..."@en ;
-  curric:displayOrder "15"^^xsd:positiveInteger ;
-  skos:broader natcurric:strand-writing ;
-  skos:narrower 
-    natcurric:contentdescriptor-whether-draft-achieves-intended-impact ,
-    natcurric:contentdescriptor-improve-coherence-consistency-clarity-effectiveness ,
-    natcurric:contentdescriptor-accuracy-effectiveness-grammar-punctuation-spelling ;
-  skos:inScheme natcurric:knowledge-taxonomy ;
-  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
-
 natcurric:substrand-consolidate-knowledge-grammar-vocabulary
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Consolidate Knowledge Grammar Vocabulary"@en ;
   skos:definition "Description of sub-strand..."@en ;
-  curric:displayOrder "16"^^xsd:positiveInteger ;
+  curric:displayOrder "2"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-grammar-and-vocabulary ;
   skos:narrower 
     natcurric:contentdescriptor-effectiveness-and-impact-in-texts ,
@@ -488,11 +474,25 @@ natcurric:substrand-consolidate-knowledge-grammar-vocabulary
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
 
+natcurric:substrand-speak-confidently-effectively
+  a skos:Concept, curric:SubStrand ;
+  skos:prefLabel "Speak Confidently Effectively"@en ;
+  skos:definition "Description of sub-strand..."@en ;
+  curric:displayOrder "1"^^xsd:positiveInteger ;
+  skos:broader natcurric:strand-spoken-english ;
+  skos:narrower 
+    natcurric:contentdescriptor-standard-english-formal-informal-contexts ,
+    natcurric:contentdescriptor-giving-short-speeches-and-presentations ,
+    natcurric:contentdescriptor-participating-formal-debates-structured-discussions ,
+    natcurric:contentdescriptor-speak-confidently-effectively-performing-play-scripts-and-poetry ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
 natcurric:substrand-speak-confidently-audibly-effectively
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Speak Confidently Audibly Effectively"@en ;
   skos:definition "Description of sub-strand..."@en ;
-  curric:displayOrder "17"^^xsd:positiveInteger ;
+  curric:displayOrder "2"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-spoken-english ;
   skos:narrower 
     natcurric:contentdescriptor-standard-english-context-and-audience ,
