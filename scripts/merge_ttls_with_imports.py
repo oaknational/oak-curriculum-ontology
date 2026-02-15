@@ -2,6 +2,13 @@
 """Merge TTL files into a single file, recursively resolving owl:imports.
 
 Excludes any files inside directories named "versions".
+
+Usage:
+    python merge_ttls_with_imports.py [options] [paths...]
+    python merge_ttls_with_imports.py -q
+    python merge_ttls_with_imports.py -o /tmp/output.ttl data/
+
+Run with --help for all options.
 """
 
 from __future__ import annotations
