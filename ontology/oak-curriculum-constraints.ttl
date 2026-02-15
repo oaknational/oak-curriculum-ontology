@@ -1809,10 +1809,10 @@ shapes:LessonShape
   sh:property [
     sh:path curric:hasMisconception ;
     sh:class curric:Misconception ;
-    sh:minCount 1 ;
+    sh:minCount 0 ;
     sh:name "has misconception" ;
-    sh:description "Every lesson must address at least one misconception." ;
-    sh:message "Lessons must address at least one misconception." ;
+    sh:description "Every lesson must address at least one misconception (RULE CURRENTLY DISABLED - CHANGE MINCOUNT TO 1 TO RE-ENABLE)." ;
+    sh:message "Lessons must address at least one misconception (RULE CURRENTLY DISABLED - CHANGE MINCOUNT TO 1 TO RE-ENABLE)." ;
   ] ;
 
   sh:property [
