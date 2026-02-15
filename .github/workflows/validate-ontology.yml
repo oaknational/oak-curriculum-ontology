@@ -30,12 +30,6 @@ concurrency:
 jobs:
   validate-ontology:
     runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        python-version: ['3.12', '3.13']
-
-    name: Validate (Python ${{ matrix.python-version }})
 
     steps:
       - name: Checkout repository
@@ -44,29 +38,22 @@ jobs:
       - name: Install uv
         uses: astral-sh/setup-uv@v4
 
-      - name: Set up Python ${{ matrix.python-version }}
-        run: uv python install ${{ matrix.python-version }}
+      - name: Set up Python 3.12
+        run: uv python install 3.12
 
-      - name: Cache uv packages
-        uses: actions/cache@v4
-        with:
-          path: ~/.cache/uv
-          key: uv-${{ runner.os }}-${{ matrix.python-version }}-${{ hashFiles('pyproject.toml') }}
-          restore-keys: |
-            uv-${{ runner.os }}-${{ matrix.python-version }}-
-
-      - name: Install dependencies
+      - name: Create virtual environment and install dependencies
         run: |
-          uv pip install --system rdflib pyshacl
+          uv venv
+          uv pip install rdflib pyshacl
       
       - name: Merge TTLs and resolve owl:imports (exclude "versions")
         run: |
-          python scripts/merge_ttls_with_imports.py
-        
+          uv run python scripts/merge_ttls_with_imports.py
+
       - name: Check Turtle syntax
         id: syntax-check
         run: |
-          python - <<'EOF'
+          uv run python - <<'EOF'
           from rdflib import Graph
           try:
               g = Graph()
@@ -83,7 +70,7 @@ jobs:
           echo "Running SHACL validation..."
 
           # Run SHACL validation and capture output
-          if pyshacl \
+          if uv run pyshacl \
             --shacl ontology/oak-curriculum-constraints.ttl \
             --ont-graph ontology/oak-curriculum-ontology.ttl \
             --inference rdfs \
@@ -114,14 +101,14 @@ jobs:
         with:
           name: shacl-validation-report-${{ github.sha }}
           path: /tmp/shacl-output.txt
-          retention-days: 14
+          retention-days: 400
 
       - name: Display SHACL validation summary
         if: always()
         run: |
           echo "### SHACL Validation Results" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
-          echo "**Python Version:** ${{ matrix.python-version }}" >> $GITHUB_STEP_SUMMARY
+          echo "**Python Version:** 3.12" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "Validates all curriculum data instances against the ontology schema:" >> $GITHUB_STEP_SUMMARY
           echo "- Required properties and cardinalities" >> $GITHUB_STEP_SUMMARY

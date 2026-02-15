@@ -31,15 +31,7 @@ jobs:
           distribution: 'temurin'
           java-version: '21'
 
-      - name: Cache Apache Jena
-        uses: actions/cache@v4
-        id: cache-jena
-        with:
-          path: apache-jena-${{ env.JENA_VERSION }}
-          key: apache-jena-${{ env.JENA_VERSION }}
-
       - name: Download and verify Apache Jena
-        if: steps.cache-jena.outputs.cache-hit != 'true'
         run: |
           echo "Downloading Apache Jena ${{ env.JENA_VERSION }}..."
           wget -q "https://dlcdn.apache.org/jena/binaries/apache-jena-${{ env.JENA_VERSION }}.tar.gz"

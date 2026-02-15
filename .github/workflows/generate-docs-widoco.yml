@@ -29,10 +29,6 @@ jobs:
           mkdir -p docs-output
           chmod -R 755 docs-output
 
-      - name: Pull Widoco Docker image
-        run: |
-          docker pull ghcr.io/dgarijo/widoco:v1.4.25
-
       - name: Generate documentation with Widoco
         run: |
           docker run --rm \

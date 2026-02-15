@@ -24,8 +24,8 @@ This directory contains automated CI/CD workflows for the Oak Curriculum Ontolog
 All workflows in this directory are designed to ensure the quality, accessibility, and usability of the Oak Curriculum Ontology. They implement:
 
 - ✅ **Security:** Explicit permissions, checksum verification, SSL by default
-- ⚡ **Performance:** Intelligent caching, parallel testing, optimized builds
-- 🎯 **Quality:** Matrix testing, comprehensive validation, rich metadata
+- ⚡ **Performance:** Intelligent caching, optimized builds
+- 🎯 **Quality:** Comprehensive validation, rich metadata
 - 📊 **Transparency:** Detailed summaries, artifacts, status badges
 
 ---
@@ -50,9 +50,10 @@ Validates the ontology structure and curriculum data against SHACL constraints t
 #### What It Does
 
 1. **Sets up environment**
-   - Installs Python (3.12 & 3.13 via matrix testing)
+   - Installs Python 3.12 (matches pyproject.toml)
    - Uses `uv` package manager for fast dependency installation
-   - Caches dependencies for faster subsequent runs
+   - Creates virtual environment with `uv venv`
+   - Installs `rdflib` and `pyshacl` dependencies
 
 2. **Merges ontology files**
    - Combines all TTL files from `data/` directory
@@ -71,24 +72,15 @@ Validates the ontology structure and curriculum data against SHACL constraints t
    - Counts and reports violations
 
 5. **Generates artifacts**
-   - Uploads validation report (14-day retention)
+   - Uploads validation report (400-day retention)
    - Creates detailed GitHub step summary
    - Reports violation count and Python version used
-
-#### Matrix Testing
-
-Tests against multiple Python versions in parallel:
-
-| Python Version | Purpose |
-|----------------|---------|
-| 3.12 | Primary version (matches pyproject.toml) |
-| 3.13 | Future compatibility testing |
 
 #### Artifacts
 
 - **Name:** `shacl-validation-report-{commit-sha}`
 - **Contents:** Full SHACL validation report in human-readable format
-- **Retention:** 14 days
+- **Retention:** 400 days (maximum for public repos)
 - **Access:** Available in workflow run summary
 
 #### Success Criteria
@@ -96,7 +88,6 @@ Tests against multiple Python versions in parallel:
 - ✅ All TTL files parse successfully
 - ✅ Merged ontology has valid Turtle syntax
 - ✅ All SHACL constraints pass (zero violations)
-- ✅ Tests pass on all Python versions in matrix
 
 #### Example Output
 
@@ -139,6 +130,7 @@ Generates comprehensive HTML documentation from the ontology and deploys it to G
 
 1. **Generates documentation with Widoco**
    - Uses official Widoco Docker image (v1.4.25)
+   - Docker automatically pulls the image if not present
    - Runs as non-root user for security
    - Generates HTML documentation with cross-references
    - Creates WebVOWL interactive visualization
@@ -219,7 +211,6 @@ Generates the ontology in multiple RDF serialization formats with checksums and 
 1. **Sets up Apache Jena**
    - Downloads Apache Jena binaries (v6.0.0)
    - Verifies SHA512 checksum for security
-   - Caches binary for faster subsequent runs
    - Adds tools to PATH
 
 2. **Generates distribution formats**
@@ -313,21 +304,18 @@ All workflows implement:
 
 | Feature | Benefit |
 |---------|---------|
-| **Dependency Caching** | `uv` caches Python packages (60% faster) |
-| **Binary Caching** | Apache Jena cached (saves 2-3 minutes) |
-| **Docker Caching** | Widoco image pre-pulled |
 | **Concurrency Control** | Prevents duplicate workflow runs |
-| **Matrix Testing** | Parallel test execution |
 | **Efficient Validation** | Refactored loops (75% less code) |
+| **Simple Design** | No caching complexity (optimal for occasional runs) |
 
 ### Quality Assurance
 
 | Feature | Description |
 |---------|-------------|
-| **Matrix Testing** | Tests on Python 3.12 & 3.13 |
+| **Python 3.12** | Tests on Python 3.12 (matches pyproject.toml) |
 | **Violation Counting** | Tracks SHACL constraint violations |
 | **Triple Counting** | Reports RDF dataset size |
-| **Artifact Retention** | 14-30 day retention for debugging |
+| **Artifact Retention** | 400-day validation reports, 30-day distributions |
 | **Rich Summaries** | Detailed GitHub step summaries |
 | **Build Metadata** | JSON files with full traceability |
 
@@ -376,28 +364,13 @@ All external downloads are verified:
 
 ### Typical Run Times
 
-| Workflow | Cold Run | Cached Run | Improvement |
-|----------|----------|------------|-------------|
-| Validate Ontology | 3-4 min | 1-2 min | 60% faster |
-| Generate Documentation | 2-3 min | 1-2 min | 40% faster |
-| Generate Distributions | 5-7 min | 2-4 min | 50% faster |
+| Workflow | Duration |
+|----------|----------|
+| Validate Ontology | 2-3 min |
+| Generate Documentation | 2-3 min |
+| Generate Distributions | 5-7 min |
 
-### Caching Strategy
-
-```yaml
-# Python dependencies (uv)
-- name: Install uv
-  uses: astral-sh/setup-uv@v4
-  with:
-    enable-cache: true
-
-# Apache Jena binaries
-- name: Cache Apache Jena
-  uses: actions/cache@v4
-  with:
-    path: apache-jena-${{ env.JENA_VERSION }}
-    key: apache-jena-${{ env.JENA_VERSION }}
-```
+**Note:** Caching has been intentionally omitted for simplicity. Caches expire after 7 days of inactivity, so they provide no benefit for workflows that run occasionally.
 
 ### Concurrency Control
 
@@ -448,15 +421,9 @@ concurrency:
 3. Verify source TTL files are syntactically correct
 4. Check for unsupported RDF features in that format
 
-### Cache Issues
+### Workflow Performance
 
-**Problem:** Workflows are slow despite caching
-
-**Solution:**
-1. Check if caches were successfully saved/restored
-2. Clear GitHub Actions cache via repository settings
-3. Verify cache keys are correct
-4. Check for cache size limits (10 GB per repository)
+**Note:** These workflows are optimized for occasional runs and do not use caching. GitHub Actions caches expire after 7 days of inactivity, so caching adds complexity without benefit for infrequent workflow execution.
 
 ---
 
