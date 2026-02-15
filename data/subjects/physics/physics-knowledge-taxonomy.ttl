@@ -63,6 +63,7 @@ natcurric:knowledge-taxonomy
 natcurric:discipline-science
   a skos:Concept, curric:Discipline ;
   skos:prefLabel "Science"@en ;
+  skos:definition "Description of discipline..."@en ;
   skos:topConceptOf natcurric:knowledge-taxonomy ;
   skos:narrower 
     natcurric:strand-working-scientifically ,

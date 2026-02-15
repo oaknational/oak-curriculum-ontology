@@ -64,6 +64,7 @@ natcurric:knowledge-taxonomy
 natcurric:discipline-english
   a skos:Concept, curric:Discipline ;
   skos:prefLabel "English"@en ;
+  skos:definition "Description of discipline..."@en ;
   skos:topConceptOf natcurric:knowledge-taxonomy ;
   skos:narrower
     natcurric:strand-reading ,

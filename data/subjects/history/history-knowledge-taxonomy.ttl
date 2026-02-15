@@ -63,6 +63,7 @@ natcurric:knowledge-taxonomy
 natcurric:discipline-history
   a skos:Concept, curric:Discipline ;
   skos:prefLabel "History"@en ;
+  skos:definition "Description of discipline..."@en ;
   skos:topConceptOf natcurric:knowledge-taxonomy ;
   skos:narrower natcurric:strand-knowledge-of-past ,
                 natcurric:strand-knowledge-of-history ;

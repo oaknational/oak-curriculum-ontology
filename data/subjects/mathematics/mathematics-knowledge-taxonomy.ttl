@@ -64,6 +64,7 @@ natcurric:knowledge-taxonomy
 natcurric:discipline-mathematics
   a skos:Concept, curric:Discipline ;
   skos:prefLabel "Mathematics"@en ;
+  skos:definition "Description of discipline..."@en ;
   skos:topConceptOf natcurric:knowledge-taxonomy ;
   skos:narrower 
     natcurric:strand-working-mathematically,
