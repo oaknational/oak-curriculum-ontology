@@ -1631,13 +1631,12 @@ shapes:KeywordShape
 
   sh:property [
     sh:path rdfs:label ;
-    sh:datatype rdf:langString ;
-    sh:languageIn ( "en" ) ;
+    sh:datatype xsd:string ;
     sh:minCount 1 ;
     sh:maxCount 1 ;
     sh:name "label" ;
     sh:description "Every keyword must have exactly one rdfs:label." ;
-    sh:message "Keywords must have exactly one rdfs:label with English language tag." ;
+    sh:message "Keywords must have exactly one rdfs:label." ;
   ] ;
 
   sh:sparql [
@@ -1706,13 +1705,12 @@ shapes:KeyLearningPointShape
 
   sh:property [
     sh:path rdfs:label ;
-    sh:datatype rdf:langString ;
-    sh:languageIn ( "en" ) ;
+    sh:datatype xsd:string ;
     sh:minCount 1 ;
     sh:maxCount 1 ;
     sh:name "label" ;
     sh:description "Every key learning point must have exactly one rdfs:label." ;
-    sh:message "Key learning points must have exactly one rdfs:label with English language tag." ;
+    sh:message "Key learning points must have exactly one rdfs:label." ;
   ] ;
 
   sh:sparql [
@@ -1739,13 +1737,12 @@ shapes:PupilLessonOutcomeShape
 
   sh:property [
     sh:path rdfs:label ;
-    sh:datatype rdf:langString ;
-    sh:languageIn ( "en" ) ;
+    sh:datatype xsd:string ;
     sh:minCount 1 ;
     sh:maxCount 1 ;
     sh:name "label" ;
     sh:description "Every pupil lesson outcome must have exactly one rdfs:label." ;
-    sh:message "Pupil lesson outcomes must have exactly one rdfs:label with English language tag." ;
+    sh:message "Pupil lesson outcomes must have exactly one rdfs:label." ;
   ] ;
 
   sh:sparql [
