@@ -652,12 +652,13 @@ shapes:StrandShape
 
         # Get all display orders for this discipline
         {
-          SELECT ?discipline (MIN(?order) as ?minOrder) (MAX(?order) as ?maxOrder) (COUNT(DISTINCT ?order) as ?count) WHERE {
+          SELECT $this ?discipline (MIN(?order) as ?minOrder) (MAX(?order) as ?maxOrder) (COUNT(DISTINCT ?order) as ?count) WHERE {
+            $this skos:broader ?discipline .
             ?strand a curric:Strand ;
                     skos:broader ?discipline ;
                     curric:displayOrder ?order .
           }
-          GROUP BY ?discipline
+          GROUP BY $this ?discipline
         }
 
         # Check if count equals max-min+1 (i.e., consecutive sequence)
@@ -796,12 +797,13 @@ shapes:SubStrandShape
 
         # Get all display orders for this strand
         {
-          SELECT ?strand (MIN(?order) as ?minOrder) (MAX(?order) as ?maxOrder) (COUNT(DISTINCT ?order) as ?count) WHERE {
+          SELECT $this ?strand (MIN(?order) as ?minOrder) (MAX(?order) as ?maxOrder) (COUNT(DISTINCT ?order) as ?count) WHERE {
+            $this skos:broader ?strand .
             ?substrand a curric:SubStrand ;
                        skos:broader ?strand ;
                        curric:displayOrder ?order .
           }
-          GROUP BY ?strand
+          GROUP BY $this ?strand
         }
 
         # Check if count equals max-min+1 (i.e., consecutive sequence)
@@ -916,12 +918,13 @@ shapes:ContentDescriptorShape
 
         # Get all display orders for this sub-strand
         {
-          SELECT ?substrand (MIN(?order) as ?minOrder) (MAX(?order) as ?maxOrder) (COUNT(DISTINCT ?order) as ?count) WHERE {
+          SELECT $this ?substrand (MIN(?order) as ?minOrder) (MAX(?order) as ?maxOrder) (COUNT(DISTINCT ?order) as ?count) WHERE {
+            $this skos:broader ?substrand .
             ?descriptor a curric:ContentDescriptor ;
                         skos:broader ?substrand ;
                         curric:displayOrder ?order .
           }
-          GROUP BY ?substrand
+          GROUP BY $this ?substrand
         }
 
         # Check if count equals max-min+1 (i.e., consecutive sequence)
@@ -1352,11 +1355,12 @@ shapes:UnitVariantInclusionShape
 
         # Get all positions for this programme
         {
-          SELECT ?programme (MIN(?pos) as ?minPos) (MAX(?pos) as ?maxPos) (COUNT(DISTINCT ?pos) as ?count) WHERE {
+          SELECT $this ?programme (MIN(?pos) as ?minPos) (MAX(?pos) as ?maxPos) (COUNT(DISTINCT ?pos) as ?count) WHERE {
+            ?programme curric:hasUnitVariantInclusion $this .
             ?programme curric:hasUnitVariantInclusion ?inclusion .
             ?inclusion curric:sequencePosition ?pos .
           }
-          GROUP BY ?programme
+          GROUP BY $this ?programme
         }
 
         # Check if count equals max-min+1 (i.e., consecutive sequence)
@@ -1550,11 +1554,12 @@ shapes:LessonInclusionShape
 
         # Get all positions for this unit variant
         {
-          SELECT ?unitvariant (MIN(?pos) as ?minPos) (MAX(?pos) as ?maxPos) (COUNT(DISTINCT ?pos) as ?count) WHERE {
+          SELECT $this ?unitvariant (MIN(?pos) as ?minPos) (MAX(?pos) as ?maxPos) (COUNT(DISTINCT ?pos) as ?count) WHERE {
+            ?unitvariant curric:hasLessonInclusion $this .
             ?unitvariant curric:hasLessonInclusion ?inclusion .
             ?inclusion curric:sequencePosition ?pos .
           }
-          GROUP BY ?unitvariant
+          GROUP BY $this ?unitvariant
         }
 
         # Check if count equals max-min+1 (i.e., consecutive sequence)
