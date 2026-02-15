@@ -96,7 +96,7 @@ natcurric:strand-physical-science
   a skos:Concept, curric:Strand ;
   skos:prefLabel "Physical Science"@en ;
   skos:definition "Description of strand..."@en ;
-  curric:displayOrder "2"^^xsd:positiveInteger ;
+  curric:displayOrder "4"^^xsd:positiveInteger ;
   skos:broader natcurric:discipline-science ;
   skos:narrower 
     natcurric:substrand-energy ,

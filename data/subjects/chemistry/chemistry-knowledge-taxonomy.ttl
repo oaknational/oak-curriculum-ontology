@@ -95,7 +95,7 @@ natcurric:strand-chemical-science
   a skos:Concept, curric:Strand ;
   skos:prefLabel "Chemical Science"@en ;
   skos:definition "Description of strand..."@en ;
-  curric:displayOrder "2"^^xsd:positiveInteger ;
+  curric:displayOrder "3"^^xsd:positiveInteger ;
   skos:broader natcurric:discipline-science ;
   skos:narrower 
     natcurric:substrand-atomic-structure-periodic-table ,
