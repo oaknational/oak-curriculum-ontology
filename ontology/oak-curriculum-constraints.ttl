@@ -5,6 +5,7 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix schema: <http://schema.org/> .
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix vann: <http://purl.org/vocab/vann/> .
@@ -1630,13 +1631,13 @@ shapes:KeywordShape
   sh:targetClass curric:Keyword ;
 
   sh:property [
-    sh:path rdfs:label ;
-    sh:datatype xsd:string ;
+    sh:path schema:name ;
+    sh:datatype rdf:langString ;
     sh:minCount 1 ;
     sh:maxCount 1 ;
-    sh:name "label" ;
-    sh:description "Every keyword must have exactly one rdfs:label." ;
-    sh:message "Keywords must have exactly one rdfs:label." ;
+    sh:name "name" ;
+    sh:description "Every keyword must have exactly one schema:name with a language tag." ;
+    sh:message "Keywords must have exactly one schema:name with a language tag." ;
   ] ;
 
   sh:sparql [
@@ -1663,7 +1664,7 @@ shapes:MisconceptionShape
 
   sh:property [
     sh:path curric:statement ;
-    sh:datatype xsd:string ;
+    sh:datatype rdf:langString ;
     sh:minCount 1 ;
     sh:maxCount 1 ;
     sh:name "statement" ;
@@ -1673,7 +1674,7 @@ shapes:MisconceptionShape
 
   sh:property [
     sh:path curric:correction ;
-    sh:datatype xsd:string ;
+    sh:datatype rdf:langString ;
     sh:minCount 1 ;
     sh:maxCount 1 ;
     sh:name "correction" ;
@@ -1705,7 +1706,7 @@ shapes:KeyLearningPointShape
 
   sh:property [
     sh:path rdfs:label ;
-    sh:datatype xsd:string ;
+    sh:datatype rdf:langString ;
     sh:minCount 1 ;
     sh:maxCount 1 ;
     sh:name "label" ;
@@ -1737,7 +1738,7 @@ shapes:PupilLessonOutcomeShape
 
   sh:property [
     sh:path rdfs:label ;
-    sh:datatype xsd:string ;
+    sh:datatype rdf:langString ;
     sh:minCount 1 ;
     sh:maxCount 1 ;
     sh:name "label" ;
