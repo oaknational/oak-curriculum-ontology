@@ -2051,7 +2051,7 @@ oakcurric:inclusion-unitvariant-564-lesson-5310
 oakcurric:inclusion-unitvariant-1480-lesson-9786
   a curric:LessonInclusion ;
   curric:includesLesson oakcurric:lesson-9786 ;
-  curric:sequencePosition "1"^^xsd:positiveInteger .
+  curric:sequencePosition "3"^^xsd:positiveInteger .
 
 oakcurric:inclusion-unitvariant-566-lesson-5324
   a curric:LessonInclusion ;
@@ -2436,7 +2436,7 @@ oakcurric:inclusion-unitvariant-554-lesson-5255
 oakcurric:inclusion-unitvariant-1480-lesson-9787
   a curric:LessonInclusion ;
   curric:includesLesson oakcurric:lesson-9787 ;
-  curric:sequencePosition "2"^^xsd:positiveInteger .
+  curric:sequencePosition "4"^^xsd:positiveInteger .
 
 oakcurric:inclusion-unitvariant-576-lesson-5382
   a curric:LessonInclusion ;

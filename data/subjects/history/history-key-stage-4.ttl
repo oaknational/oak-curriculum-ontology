@@ -300,7 +300,7 @@ oakcurric:inclusion-programme-history-year-group-10-edexcel-pos-2
 oakcurric:inclusion-programme-history-year-group-10-edexcel-pos-3
   a curric:UnitVariantInclusion ;
   curric:includesUnitVariant oakcurric:unitvariant-5153 ;
-  curric:sequencePosition "1"^^xsd:positiveInteger .
+  curric:sequencePosition "3"^^xsd:positiveInteger .
 
 oakcurric:inclusion-programme-history-year-group-11-edexcel-pos-1
   a curric:UnitVariantInclusion ;
@@ -324,7 +324,7 @@ oakcurric:inclusion-programme-history-year-group-11-aqa-pos-1
 oakcurric:inclusion-programme-history-year-group-11-aqa-pos-2
   a curric:UnitVariantInclusion ;
   curric:includesUnitVariant oakcurric:unitvariant-5131 ;
-  curric:sequencePosition "1"^^xsd:positiveInteger .
+  curric:sequencePosition "2"^^xsd:positiveInteger .
 
 # ----------------------------------------------------------------------
 # Unit Variant Choices

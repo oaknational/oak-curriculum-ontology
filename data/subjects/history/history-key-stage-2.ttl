@@ -509,7 +509,7 @@ oakcurric:inclusion-programme-history-year-group-3-pos-5
 oakcurric:inclusion-programme-history-year-group-3-pos-6
   a curric:UnitVariantInclusion ;
   curric:includesUnitVariant oakcurric:unitvariant-1548 ;
-  curric:sequencePosition "5"^^xsd:positiveInteger .
+  curric:sequencePosition "6"^^xsd:positiveInteger .
 
 oakcurric:inclusion-programme-history-year-group-4-pos-1
   a curric:UnitVariantInclusion ;
@@ -596,12 +596,12 @@ oakcurric:inclusion-programme-history-year-group-6-pos-4
 oakcurric:inclusion-programme-history-year-group-6-pos-5
   a curric:UnitVariantInclusion ;
   curric:includesUnitVariant oakcurric:unitvariant-1552 ;
-  curric:sequencePosition "4"^^xsd:positiveInteger .
+  curric:sequencePosition "5"^^xsd:positiveInteger .
 
 oakcurric:inclusion-programme-history-year-group-6-pos-6
   a curric:UnitVariantInclusion ;
   curric:includesUnitVariant oakcurric:unitvariant-1706 ;
-  curric:sequencePosition "5"^^xsd:positiveInteger .
+  curric:sequencePosition "6"^^xsd:positiveInteger .
 
 # ----------------------------------------------------------------------
 # Unit Variant Choices

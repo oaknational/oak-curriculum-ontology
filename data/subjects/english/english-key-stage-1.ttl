@@ -1333,7 +1333,7 @@ oakcurric:inclusion-programme-english-year-group-2-pos-8
 oakcurric:inclusion-programme-english-year-group-2-pos-9
   a curric:UnitVariantInclusion ;
   curric:includesUnitVariant oakcurric:unitvariant-491 ;
-  curric:sequencePosition "7"^^xsd:positiveInteger .
+  curric:sequencePosition "9"^^xsd:positiveInteger .
 
 oakcurric:inclusion-programme-english-year-group-2-pos-10
   a curric:UnitVariantInclusion ;
@@ -1345,132 +1345,132 @@ oakcurric:inclusion-programme-english-year-group-2-pos-10
 oakcurric:inclusion-programme-english-year-group-2-pos-11
   a curric:UnitVariantInclusion ;
   curric:includesUnitVariant oakcurric:unitvariant-536 ;
-  curric:sequencePosition "8"^^xsd:positiveInteger .
+  curric:sequencePosition "11"^^xsd:positiveInteger .
 
 oakcurric:inclusion-programme-english-year-group-2-pos-12
   a curric:UnitVariantInclusion ;
   curric:includesUnitVariant oakcurric:unitvariant-695 ;
-  curric:sequencePosition "9"^^xsd:positiveInteger .
+  curric:sequencePosition "12"^^xsd:positiveInteger .
 
 oakcurric:inclusion-programme-english-year-group-2-pos-13
   a curric:UnitVariantInclusion ;
   curric:includesUnitVariant oakcurric:unitvariant-1238 ;
-  curric:sequencePosition "10"^^xsd:positiveInteger .
+  curric:sequencePosition "13"^^xsd:positiveInteger .
 
 oakcurric:inclusion-programme-english-year-group-2-pos-14
   a curric:UnitVariantInclusion ;
   curric:includesUnitVariant oakcurric:unitvariant-619 ;
-  curric:sequencePosition "11"^^xsd:positiveInteger .
+  curric:sequencePosition "14"^^xsd:positiveInteger .
 
 oakcurric:inclusion-programme-english-year-group-2-pos-15
   a curric:UnitVariantInclusion ;
   curric:includesUnitVariant oakcurric:unitvariant-785 ;
-  curric:sequencePosition "12"^^xsd:positiveInteger .
+  curric:sequencePosition "15"^^xsd:positiveInteger .
 
 oakcurric:inclusion-programme-english-year-group-2-pos-16
   a curric:UnitVariantInclusion ;
   curric:includesUnitVariant oakcurric:unitvariant-620 ;
-  curric:sequencePosition "13"^^xsd:positiveInteger .
+  curric:sequencePosition "16"^^xsd:positiveInteger .
 
 oakcurric:inclusion-programme-english-year-group-2-pos-17
   a curric:UnitVariantInclusion ;
   curric:includesUnitVariant oakcurric:unitvariant-1073 ;
-  curric:sequencePosition "14"^^xsd:positiveInteger .
+  curric:sequencePosition "17"^^xsd:positiveInteger .
 
 oakcurric:inclusion-programme-english-year-group-2-pos-18
   a curric:UnitVariantInclusion ;
   curric:includesUnitVariant oakcurric:unitvariant-700 ;
-  curric:sequencePosition "15"^^xsd:positiveInteger .
+  curric:sequencePosition "18"^^xsd:positiveInteger .
 
 oakcurric:inclusion-programme-english-year-group-2-pos-19
   a curric:UnitVariantInclusion ;
   curric:includesUnitVariant oakcurric:unitvariant-838 ;
-  curric:sequencePosition "16"^^xsd:positiveInteger .
+  curric:sequencePosition "19"^^xsd:positiveInteger .
 
 oakcurric:inclusion-programme-english-year-group-2-pos-20
   a curric:UnitVariantInclusion ;
   curric:includesUnitVariant oakcurric:unitvariant-842 ;
-  curric:sequencePosition "17"^^xsd:positiveInteger .
+  curric:sequencePosition "20"^^xsd:positiveInteger .
 
 oakcurric:inclusion-programme-english-year-group-2-pos-21
   a curric:UnitVariantInclusion ;
   curric:includesUnitVariant oakcurric:unitvariant-699 ;
-  curric:sequencePosition "18"^^xsd:positiveInteger .
+  curric:sequencePosition "21"^^xsd:positiveInteger .
 
 oakcurric:inclusion-programme-english-year-group-2-pos-22
   a curric:UnitVariantInclusion ;
   curric:includesUnitVariant oakcurric:unitvariant-1334 ;
-  curric:sequencePosition "19"^^xsd:positiveInteger .
+  curric:sequencePosition "22"^^xsd:positiveInteger .
 
 oakcurric:inclusion-programme-english-year-group-2-pos-23
   a curric:UnitVariantInclusion ;
   curric:includesUnitVariant oakcurric:unitvariant-701 ;
-  curric:sequencePosition "20"^^xsd:positiveInteger .
+  curric:sequencePosition "23"^^xsd:positiveInteger .
 
 oakcurric:inclusion-programme-english-year-group-2-pos-24
   a curric:UnitVariantInclusion ;
   curric:includesUnitVariant oakcurric:unitvariant-1239 ;
-  curric:sequencePosition "21"^^xsd:positiveInteger .
+  curric:sequencePosition "24"^^xsd:positiveInteger .
 
 oakcurric:inclusion-programme-english-year-group-2-pos-25
   a curric:UnitVariantInclusion ;
   curric:includesUnitVariant oakcurric:unitvariant-694 ;
-  curric:sequencePosition "22"^^xsd:positiveInteger .
+  curric:sequencePosition "25"^^xsd:positiveInteger .
 
 oakcurric:inclusion-programme-english-year-group-2-pos-26
   a curric:UnitVariantInclusion ;
   curric:includesUnitVariant oakcurric:unitvariant-1479 ;
-  curric:sequencePosition "23"^^xsd:positiveInteger .
+  curric:sequencePosition "26"^^xsd:positiveInteger .
 
 oakcurric:inclusion-programme-english-year-group-2-pos-27
   a curric:UnitVariantInclusion ;
   curric:includesUnitVariant oakcurric:unitvariant-1325 ;
-  curric:sequencePosition "24"^^xsd:positiveInteger .
+  curric:sequencePosition "27"^^xsd:positiveInteger .
 
 oakcurric:inclusion-programme-english-year-group-2-pos-28
   a curric:UnitVariantInclusion ;
   curric:includesUnitVariant oakcurric:unitvariant-696 ;
-  curric:sequencePosition "25"^^xsd:positiveInteger .
+  curric:sequencePosition "28"^^xsd:positiveInteger .
 
 oakcurric:inclusion-programme-english-year-group-2-pos-29
   a curric:UnitVariantInclusion ;
   curric:includesUnitVariant oakcurric:unitvariant-706 ;
-  curric:sequencePosition "26"^^xsd:positiveInteger .
+  curric:sequencePosition "29"^^xsd:positiveInteger .
 
 oakcurric:inclusion-programme-english-year-group-2-pos-30
   a curric:UnitVariantInclusion ;
   curric:includesUnitVariant oakcurric:unitvariant-544 ;
-  curric:sequencePosition "27"^^xsd:positiveInteger .
+  curric:sequencePosition "30"^^xsd:positiveInteger .
 
 oakcurric:inclusion-programme-english-year-group-2-pos-31
   a curric:UnitVariantInclusion ;
   curric:includesUnitVariant oakcurric:unitvariant-843 ;
-  curric:sequencePosition "28"^^xsd:positiveInteger .
+  curric:sequencePosition "31"^^xsd:positiveInteger .
 
 oakcurric:inclusion-programme-english-year-group-2-pos-32
   a curric:UnitVariantInclusion ;
   curric:includesUnitVariant oakcurric:unitvariant-1251 ;
-  curric:sequencePosition "29"^^xsd:positiveInteger .
+  curric:sequencePosition "32"^^xsd:positiveInteger .
 
 oakcurric:inclusion-programme-english-year-group-2-pos-33
   a curric:UnitVariantInclusion ;
   curric:includesUnitVariant oakcurric:unitvariant-1070 ;
-  curric:sequencePosition "30"^^xsd:positiveInteger .
+  curric:sequencePosition "33"^^xsd:positiveInteger .
 
 oakcurric:inclusion-programme-english-year-group-2-pos-34
   a curric:UnitVariantInclusion ;
   curric:includesUnitVariant oakcurric:unitvariant-4422 ;
-  curric:sequencePosition "31"^^xsd:positiveInteger .
+  curric:sequencePosition "34"^^xsd:positiveInteger .
 
 oakcurric:inclusion-programme-english-year-group-2-pos-35
   a curric:UnitVariantInclusion ;
   curric:includesUnitVariant oakcurric:unitvariant-784 ;
-  curric:sequencePosition "32"^^xsd:positiveInteger .
+  curric:sequencePosition "35"^^xsd:positiveInteger .
 
 oakcurric:inclusion-programme-english-year-group-2-pos-36
   a curric:UnitVariantInclusion ;
   curric:includesUnitVariant oakcurric:unitvariant-4875 ;
-  curric:sequencePosition "33"^^xsd:positiveInteger .
+  curric:sequencePosition "36"^^xsd:positiveInteger .
 
 # ----------------------------------------------------------------------
 # Unit Variant Choices
@@ -2560,7 +2560,7 @@ oakcurric:inclusion-unitvariant-1334-lesson-8888
 oakcurric:inclusion-unitvariant-780-lesson-8925
   a curric:LessonInclusion ;
   curric:includesLesson oakcurric:lesson-8925 ;
-  curric:sequencePosition "7"^^xsd:positiveInteger .
+  curric:sequencePosition "8"^^xsd:positiveInteger .
 
 oakcurric:inclusion-unitvariant-706-lesson-6283
   a curric:LessonInclusion ;
@@ -2600,7 +2600,7 @@ oakcurric:inclusion-unitvariant-485-lesson-4737
 oakcurric:inclusion-unitvariant-4875-lesson-28942
   a curric:LessonInclusion ;
   curric:includesLesson oakcurric:lesson-28942 ;
-  curric:sequencePosition "3"^^xsd:positiveInteger .
+  curric:sequencePosition "6"^^xsd:positiveInteger .
 
 oakcurric:inclusion-unitvariant-78-lesson-910
   a curric:LessonInclusion ;
@@ -2610,7 +2610,7 @@ oakcurric:inclusion-unitvariant-78-lesson-910
 oakcurric:inclusion-unitvariant-4875-lesson-28943
   a curric:LessonInclusion ;
   curric:includesLesson oakcurric:lesson-28943 ;
-  curric:sequencePosition "4"^^xsd:positiveInteger .
+  curric:sequencePosition "7"^^xsd:positiveInteger .
 
 oakcurric:inclusion-unitvariant-493-lesson-4796
   a curric:LessonInclusion ;
@@ -3205,12 +3205,12 @@ oakcurric:inclusion-unitvariant-780-lesson-8922
 oakcurric:inclusion-unitvariant-780-lesson-8926
   a curric:LessonInclusion ;
   curric:includesLesson oakcurric:lesson-8926 ;
-  curric:sequencePosition "8"^^xsd:positiveInteger .
+  curric:sequencePosition "9"^^xsd:positiveInteger .
 
 oakcurric:inclusion-unitvariant-780-lesson-8924
   a curric:LessonInclusion ;
   curric:includesLesson oakcurric:lesson-8924 ;
-  curric:sequencePosition "6"^^xsd:positiveInteger .
+  curric:sequencePosition "7"^^xsd:positiveInteger .
 
 oakcurric:inclusion-unitvariant-583-lesson-5434
   a curric:LessonInclusion ;
@@ -3805,7 +3805,7 @@ oakcurric:inclusion-unitvariant-779-lesson-6829
 oakcurric:inclusion-unitvariant-780-lesson-8928
   a curric:LessonInclusion ;
   curric:includesLesson oakcurric:lesson-8928 ;
-  curric:sequencePosition "10"^^xsd:positiveInteger .
+  curric:sequencePosition "11"^^xsd:positiveInteger .
 
 oakcurric:inclusion-unitvariant-82-lesson-965
   a curric:LessonInclusion ;
@@ -4350,7 +4350,7 @@ oakcurric:inclusion-unitvariant-80-lesson-924
 oakcurric:inclusion-unitvariant-1325-lesson-8835
   a curric:LessonInclusion ;
   curric:includesLesson oakcurric:lesson-8835 ;
-  curric:sequencePosition "3"^^xsd:positiveInteger .
+  curric:sequencePosition "5"^^xsd:positiveInteger .
 
 oakcurric:inclusion-unitvariant-581-lesson-5410
   a curric:LessonInclusion ;
@@ -4395,7 +4395,7 @@ oakcurric:inclusion-unitvariant-695-lesson-6176
 oakcurric:inclusion-unitvariant-780-lesson-8927
   a curric:LessonInclusion ;
   curric:includesLesson oakcurric:lesson-8927 ;
-  curric:sequencePosition "9"^^xsd:positiveInteger .
+  curric:sequencePosition "10"^^xsd:positiveInteger .
 
 oakcurric:inclusion-unitvariant-5032-lesson-29014
   a curric:LessonInclusion ;
