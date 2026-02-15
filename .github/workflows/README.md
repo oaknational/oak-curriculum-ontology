@@ -24,7 +24,6 @@ This directory contains automated CI/CD workflows for the Oak Curriculum Ontolog
 All workflows in this directory are designed to ensure the quality, accessibility, and usability of the Oak Curriculum Ontology. They implement:
 
 - ✅ **Security:** Explicit permissions, checksum verification, SSL by default
-- ⚡ **Performance:** Intelligent caching, optimized builds
 - 🎯 **Quality:** Comprehensive validation, rich metadata
 - 📊 **Transparency:** Detailed summaries, artifacts, status badges
 
@@ -370,7 +369,6 @@ All external downloads are verified:
 | Generate Documentation | 2-3 min |
 | Generate Distributions | 5-7 min |
 
-**Note:** Caching has been intentionally omitted for simplicity. Caches expire after 7 days of inactivity, so they provide no benefit for workflows that run occasionally.
 
 ### Concurrency Control
 
@@ -432,7 +430,6 @@ concurrency:
 ### GitHub Actions Documentation
 - [Workflow Syntax](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions)
 - [Security Hardening](https://docs.github.com/en/actions/security-guides/security-hardening-for-github-actions)
-- [Caching Dependencies](https://docs.github.com/en/actions/using-workflows/caching-dependencies-to-speed-up-workflows)
 
 ### Tools & Technologies
 - [uv Package Manager](https://github.com/astral-sh/uv)
