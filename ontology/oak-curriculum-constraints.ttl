@@ -28,7 +28,7 @@
   owl:versionInfo "0.1.0" ;
   owl:versionIRI <https://w3id.org/uk/oak/curriculum/ontology/shapes/0.1.0> ;
 
-  dcterms:description """These SHACL constraints represent current rules and policies that may 
+  dcterms:description """These SHACL constraints represent current rules and policies that may
   evolve over time, separate from the core ontology definitions."""@en ;
   dc:creator "Oak National Academy" ;
   dcterms:created "2025-12-01T12:33:32Z"^^xsd:dateTime ;
@@ -37,12 +37,12 @@
 
   # CC0 License
   dcterms:license <https://creativecommons.org/publicdomain/zero/1.0/> ;
-  dcterms:rights """To the extent possible under law, Oak National Academy has 
+  dcterms:rights """To the extent possible under law, Oak National Academy has
   waived all copyright and related or neighbouring rights to this work."""@en ;
-  
+
   vann:preferredNamespacePrefix "shapes" ;
   vann:preferredNamespaceUri "https://w3id.org/uk/oak/curriculum/ontology/shapes/" .
-  
+
 # ----------------------------------------------------------------------
 # Shape: Phase
 # ----------------------------------------------------------------------
@@ -54,11 +54,12 @@ shapes:PhaseShape
   sh:property [
     sh:path rdfs:label ;
     sh:datatype rdf:langString ;
+    sh:languageIn ( "en" ) ;
     sh:minCount 1 ;
     sh:maxCount 1 ;
     sh:name "label" ;
     sh:description "Every phase must have exactly one rdfs:label." ;
-    sh:message "Phases must have exactly one rdfs:label." ;
+    sh:message "Phases must have exactly one rdfs:label with English language tag." ;
   ] ;
 
   sh:property [
@@ -116,11 +117,12 @@ shapes:KeyStageShape
   sh:property [
     sh:path rdfs:label ;
     sh:datatype rdf:langString ;
+    sh:languageIn ( "en" ) ;
     sh:minCount 1 ;
     sh:maxCount 1 ;
     sh:name "label" ;
     sh:description "Every key stage must have exactly one rdfs:label." ;
-    sh:message "Key stages must have exactly one rdfs:label." ;
+    sh:message "Key stages must have exactly one rdfs:label with English language tag." ;
   ] ;
 
   sh:property [
@@ -173,10 +175,10 @@ shapes:KeyStageShape
         $this curric:isKeyStageOf ?phase ;
               curric:lowerAgeBoundary ?childLower ;
               curric:upperAgeBoundary ?childUpper .
-        
+
         ?phase curric:lowerAgeBoundary ?parentLower ;
                curric:upperAgeBoundary ?parentUpper .
-        
+
         FILTER (?childLower < ?parentLower || ?childUpper > ?parentUpper)
       }
     """ ;
@@ -193,11 +195,12 @@ shapes:YearGroupShape
   sh:property [
     sh:path rdfs:label ;
     sh:datatype rdf:langString ;
+    sh:languageIn ( "en" ) ;
     sh:minCount 1 ;
     sh:maxCount 1 ;
     sh:name "label" ;
     sh:description "Every year group must have exactly one rdfs:label." ;
-    sh:message "Year groups must have exactly one rdfs:label." ;
+    sh:message "Year groups must have exactly one rdfs:label with English language tag." ;
   ] ;
 
   sh:property [
@@ -250,10 +253,10 @@ shapes:YearGroupShape
         $this curric:isYearGroupOf ?keystage ;
               curric:lowerAgeBoundary ?childLower ;
               curric:upperAgeBoundary ?childUpper .
-        
+
         ?keystage curric:lowerAgeBoundary ?parentLower ;
                   curric:upperAgeBoundary ?parentUpper .
-        
+
         FILTER (?childLower < ?parentLower || ?childUpper > ?parentUpper)
       }
     """ ;
@@ -270,11 +273,12 @@ shapes:SubjectGroupShape
   sh:property [
     sh:path rdfs:label ;
     sh:datatype rdf:langString ;
+    sh:languageIn ( "en" ) ;
     sh:minCount 1 ;
     sh:maxCount 1 ;
     sh:name "label" ;
     sh:description "Every subject group must have exactly one rdfs:label." ;
-    sh:message "Subject groups must have exactly one rdfs:label." ;
+    sh:message "Subject groups must have exactly one rdfs:label with English language tag." ;
   ] ;
 
   sh:property [
@@ -293,14 +297,14 @@ shapes:SubjectGroupShape
       PREFIX curric: <https://w3id.org/uk/oak/curriculum/ontology/>
       PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
       PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
-      
+
       SELECT $this WHERE {
         $this a curric:SubjectGroup ;
               curric:coversDiscipline ?discipline ;
               rdfs:label ?subjectGroupLabel .
-        
+
         ?discipline skos:prefLabel ?disciplineLabel .
-        
+
         FILTER (?subjectGroupLabel != ?disciplineLabel)
       }
     """ ;
@@ -332,11 +336,12 @@ shapes:SubjectShape
   sh:property [
     sh:path rdfs:label ;
     sh:datatype rdf:langString ;
+    sh:languageIn ( "en" ) ;
     sh:minCount 1 ;
     sh:maxCount 1 ;
     sh:name "label" ;
     sh:description "Every subject must have exactly one rdfs:label." ;
-    sh:message "Subjects must have exactly one rdfs:label." ;
+    sh:message "Subjects must have exactly one rdfs:label with English language tag." ;
   ] ;
 
   sh:property [
@@ -350,9 +355,10 @@ shapes:SubjectShape
       sh:property [
         sh:path ( [ sh:zeroOrMorePath rdf:rest ] rdf:first ) ;
         sh:datatype rdf:langString ;
+        sh:languageIn ( "en" ) ;
         sh:minCount 1 ;
         sh:description "Each aim in the list must be a language-tagged string." ;
-        sh:message "The aims list must contain at least one language-tagged string value." ;
+        sh:message "The aims list must contain at least one language-tagged string value with English language tag." ;
       ]
     ]
   ] ;
@@ -403,20 +409,22 @@ shapes:SchemeShape
   sh:property [
     sh:path rdfs:label ;
     sh:datatype rdf:langString ;
+    sh:languageIn ( "en" ) ;
     sh:minCount 1 ;
     sh:maxCount 1 ;
     sh:name "label" ;
     sh:description "Every scheme must have exactly one rdfs:label." ;
-    sh:message "Schemes must have exactly one rdfs:label." ;
+    sh:message "Schemes must have exactly one rdfs:label with English language tag." ;
   ] ;
 
   sh:property [
     sh:path curric:isSchemeOf ;
     sh:class curric:Subject ;
     sh:minCount 1 ;
+    sh:maxCount 1 ;
     sh:name "is scheme of" ;
-    sh:description "Every scheme must be part of at least one subject." ;
-    sh:message "Schemes must specify which subject(s) they belong to." ;
+    sh:description "Every scheme must be part of exactly one subject." ;
+    sh:message "Schemes must specify exactly one subject they belong to." ;
   ] ;
 
   sh:property [
@@ -427,22 +435,6 @@ shapes:SchemeShape
     sh:name "covers key stage" ;
     sh:description "A scheme must cover exactly one key stage." ;
     sh:message "Schemes must specify exactly which key stage they cover." ;
-  ] ;
-
-  sh:sparql [
-    sh:message "Scheme's subjects must all belong to the same subject group." ;
-    sh:select """
-      PREFIX curric: <https://w3id.org/uk/oak/curriculum/ontology/>
-      SELECT $this WHERE {
-        $this curric:isSchemeOf ?subject1 , ?subject2 .
-        
-        ?subject1 curric:isSubjectOf ?subjectGroup1 .
-        ?subject2 curric:isSubjectOf ?subjectGroup2 .
-        
-        FILTER (?subject1 != ?subject2)
-        FILTER (?subjectGroup1 != ?subjectGroup2)
-      }
-    """ ;
   ] .
 
 # ----------------------------------------------------------------------
@@ -456,11 +448,12 @@ shapes:ProgressionShape
   sh:property [
     sh:path rdfs:label ;
     sh:datatype rdf:langString ;
+    sh:languageIn ( "en" ) ;
     sh:minCount 1 ;
     sh:maxCount 1 ;
     sh:name "label" ;
     sh:description "Every progression must have exactly one rdfs:label." ;
-    sh:message "Progressions must have exactly one rdfs:label." ;
+    sh:message "Progressions must have exactly one rdfs:label with English language tag." ;
   ] ;
 
   sh:property [
@@ -490,15 +483,16 @@ shapes:ProgressionShape
 shapes:ConceptSchemeShape
   a sh:NodeShape ;
   sh:targetClass skos:ConceptScheme ;
-  
+
   sh:property [
     sh:path skos:prefLabel ;
     sh:datatype rdf:langString ;
+    sh:languageIn ( "en" ) ;
     sh:minCount 1 ;
     sh:maxCount 1 ;
     sh:name "preferred label" ;
     sh:description "Every concept scheme must have exactly one skos:prefLabel." ;
-    sh:message "Concept schemes must have exactly one skos:prefLabel for SKOS taxonomy." ;
+    sh:message "Concept schemes must have exactly one skos:prefLabel for SKOS taxonomy with English language tag." ;
   ] ;
 
   sh:property [
@@ -521,11 +515,23 @@ shapes:DisciplineShape
   sh:property [
     sh:path skos:prefLabel ;
     sh:datatype rdf:langString ;
+    sh:languageIn ( "en" ) ;
     sh:minCount 1 ;
     sh:maxCount 1 ;
     sh:name "preferred label" ;
     sh:description "Every discipline must have exactly one skos:prefLabel." ;
-    sh:message "Disciplines must have exactly one skos:prefLabel for SKOS taxonomy." ;
+    sh:message "Disciplines must have exactly one skos:prefLabel for SKOS taxonomy with English language tag." ;
+  ] ;
+
+  sh:property [
+    sh:path skos:definition ;
+    sh:datatype rdf:langString ;
+    sh:languageIn ( "en" ) ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:name "definition" ;
+    sh:description "Every discipline must have exactly one skos:definition." ;
+    sh:message "Disciplines must have exactly one skos:definition with English language tag." ;
   ] ;
 
   sh:property [
@@ -558,11 +564,23 @@ shapes:StrandShape
   sh:property [
     sh:path skos:prefLabel ;
     sh:datatype rdf:langString ;
+    sh:languageIn ( "en" ) ;
     sh:minCount 1 ;
     sh:maxCount 1 ;
     sh:name "preferred label" ;
     sh:description "Every strand must have exactly one skos:prefLabel." ;
-    sh:message "Strands must have exactly one skos:prefLabel for SKOS taxonomy." ;
+    sh:message "Strands must have exactly one skos:prefLabel for SKOS taxonomy with English language tag." ;
+  ] ;
+
+  sh:property [
+    sh:path skos:definition ;
+    sh:datatype rdf:langString ;
+    sh:languageIn ( "en" ) ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:name "definition" ;
+    sh:description "Every strand must have exactly one skos:definition." ;
+    sh:message "Strands must have exactly one skos:definition with English language tag." ;
   ] ;
 
   sh:property [
@@ -602,6 +620,50 @@ shapes:StrandShape
     sh:name "narrower" ;
     sh:description "A strand must have at least one child sub-strand." ;
     sh:message "Strands must have at least one sub-strand." ;
+  ] ;
+
+  sh:sparql [
+    sh:message "Display order must be unique within the same discipline" ;
+    sh:select """
+      PREFIX curric: <https://w3id.org/uk/oak/curriculum/ontology/>
+      PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+      SELECT $this WHERE {
+        $this a curric:Strand ;
+              curric:displayOrder ?order ;
+              skos:broader ?parent .
+
+        ?other a curric:Strand ;
+               curric:displayOrder ?order ;
+               skos:broader ?parent .
+
+        FILTER ($this != ?other)
+      }
+    """ ;
+  ] ;
+
+  sh:sparql [
+    sh:message "Display order must be consecutive within the same discipline (no gaps allowed)" ;
+    sh:select """
+      PREFIX curric: <https://w3id.org/uk/oak/curriculum/ontology/>
+      PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+      SELECT $this WHERE {
+        # Find the discipline that contains this strand
+        $this skos:broader ?discipline .
+
+        # Get all display orders for this discipline
+        {
+          SELECT ?discipline (MIN(?order) as ?minOrder) (MAX(?order) as ?maxOrder) (COUNT(DISTINCT ?order) as ?count) WHERE {
+            ?strand a curric:Strand ;
+                    skos:broader ?discipline ;
+                    curric:displayOrder ?order .
+          }
+          GROUP BY ?discipline
+        }
+
+        # Check if count equals max-min+1 (i.e., consecutive sequence)
+        FILTER (?count != (?maxOrder - ?minOrder + 1))
+      }
+    """ ;
   ] ;
 
   sh:sparql [
@@ -646,11 +708,23 @@ shapes:SubStrandShape
   sh:property [
     sh:path skos:prefLabel ;
     sh:datatype rdf:langString ;
+    sh:languageIn ( "en" ) ;
     sh:minCount 1 ;
     sh:maxCount 1 ;
     sh:name "preferred label" ;
     sh:description "Every sub-strand must have exactly one skos:prefLabel." ;
-    sh:message "Sub-strands must have exactly one skos:prefLabel for SKOS taxonomy." ;
+    sh:message "Sub-strands must have exactly one skos:prefLabel for SKOS taxonomy with English language tag." ;
+  ] ;
+
+  sh:property [
+    sh:path skos:definition ;
+    sh:datatype rdf:langString ;
+    sh:languageIn ( "en" ) ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:name "definition" ;
+    sh:description "Every sub-strand must have exactly one skos:definition." ;
+    sh:message "Sub-strands must have exactly one skos:definition with English language tag." ;
   ] ;
 
   sh:property [
@@ -693,6 +767,50 @@ shapes:SubStrandShape
   ] ;
 
   sh:sparql [
+    sh:message "Display order must be unique within the same strand" ;
+    sh:select """
+      PREFIX curric: <https://w3id.org/uk/oak/curriculum/ontology/>
+      PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+      SELECT $this WHERE {
+        $this a curric:SubStrand ;
+              curric:displayOrder ?order ;
+              skos:broader ?parent .
+
+        ?other a curric:SubStrand ;
+               curric:displayOrder ?order ;
+               skos:broader ?parent .
+
+        FILTER ($this != ?other)
+      }
+    """ ;
+  ] ;
+
+  sh:sparql [
+    sh:message "Display order must be consecutive within the same strand (no gaps allowed)" ;
+    sh:select """
+      PREFIX curric: <https://w3id.org/uk/oak/curriculum/ontology/>
+      PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+      SELECT $this WHERE {
+        # Find the strand that contains this sub-strand
+        $this skos:broader ?strand .
+
+        # Get all display orders for this strand
+        {
+          SELECT ?strand (MIN(?order) as ?minOrder) (MAX(?order) as ?maxOrder) (COUNT(DISTINCT ?order) as ?count) WHERE {
+            ?substrand a curric:SubStrand ;
+                       skos:broader ?strand ;
+                       curric:displayOrder ?order .
+          }
+          GROUP BY ?strand
+        }
+
+        # Check if count equals max-min+1 (i.e., consecutive sequence)
+        FILTER (?count != (?maxOrder - ?minOrder + 1))
+      }
+    """ ;
+  ] ;
+
+  sh:sparql [
     sh:severity sh:Warning ;
     sh:message "Sub-strand is not referenced by any strand via skos:narrower (WARNING - orphaned)" ;
     sh:select """
@@ -719,11 +837,23 @@ shapes:ContentDescriptorShape
   sh:property [
     sh:path skos:prefLabel ;
     sh:datatype rdf:langString ;
+    sh:languageIn ( "en" ) ;
     sh:minCount 1 ;
     sh:maxCount 1 ;
     sh:name "preferred label" ;
     sh:description "Every content descriptor must have exactly one skos:prefLabel." ;
-    sh:message "Content descriptors must have exactly one skos:prefLabel for SKOS taxonomy." ;
+    sh:message "Content descriptors must have exactly one skos:prefLabel for SKOS taxonomy with English language tag." ;
+  ] ;
+
+  sh:property [
+    sh:path skos:definition ;
+    sh:datatype rdf:langString ;
+    sh:languageIn ( "en" ) ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:name "definition" ;
+    sh:description "Every content descriptor must have exactly one skos:definition." ;
+    sh:message "Content descriptors must have exactly one skos:definition with English language tag." ;
   ] ;
 
   sh:property [
@@ -754,6 +884,50 @@ shapes:ContentDescriptorShape
     sh:name "broader" ;
     sh:description "Every content descriptor must belong to exactly one sub-strand." ;
     sh:message "Content descriptors must specify which sub-strand they belong to via skos:broader." ;
+  ] ;
+
+  sh:sparql [
+    sh:message "Display order must be unique within the same sub-strand" ;
+    sh:select """
+      PREFIX curric: <https://w3id.org/uk/oak/curriculum/ontology/>
+      PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+      SELECT $this WHERE {
+        $this a curric:ContentDescriptor ;
+              curric:displayOrder ?order ;
+              skos:broader ?parent .
+
+        ?other a curric:ContentDescriptor ;
+               curric:displayOrder ?order ;
+               skos:broader ?parent .
+
+        FILTER ($this != ?other)
+      }
+    """ ;
+  ] ;
+
+  sh:sparql [
+    sh:message "Display order must be consecutive within the same sub-strand (no gaps allowed)" ;
+    sh:select """
+      PREFIX curric: <https://w3id.org/uk/oak/curriculum/ontology/>
+      PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+      SELECT $this WHERE {
+        # Find the sub-strand that contains this content descriptor
+        $this skos:broader ?substrand .
+
+        # Get all display orders for this sub-strand
+        {
+          SELECT ?substrand (MIN(?order) as ?minOrder) (MAX(?order) as ?maxOrder) (COUNT(DISTINCT ?order) as ?count) WHERE {
+            ?descriptor a curric:ContentDescriptor ;
+                        skos:broader ?substrand ;
+                        curric:displayOrder ?order .
+          }
+          GROUP BY ?substrand
+        }
+
+        # Check if count equals max-min+1 (i.e., consecutive sequence)
+        FILTER (?count != (?maxOrder - ?minOrder + 1))
+      }
+    """ ;
   ] ;
 
   sh:sparql [
@@ -966,11 +1140,12 @@ shapes:ExamBoardShape
   sh:property [
     sh:path rdfs:label ;
     sh:datatype rdf:langString ;
+    sh:languageIn ( "en" ) ;
     sh:minCount 1 ;
     sh:maxCount 1 ;
     sh:name "label" ;
     sh:description "Every exam board must have exactly one rdfs:label." ;
-    sh:message "Exam boards must have exactly one rdfs:label." ;
+    sh:message "Exam boards must have exactly one rdfs:label with English language tag." ;
   ] .
 
 # ----------------------------------------------------------------------
@@ -984,11 +1159,12 @@ shapes:TierShape
   sh:property [
     sh:path rdfs:label ;
     sh:datatype rdf:langString ;
+    sh:languageIn ( "en" ) ;
     sh:minCount 1 ;
     sh:maxCount 1 ;
     sh:name "label" ;
     sh:description "Every tier must have exactly one rdfs:label." ;
-    sh:message "Tiers must have exactly one rdfs:label." ;
+    sh:message "Tiers must have exactly one rdfs:label with English language tag." ;
   ] .
 
 # ----------------------------------------------------------------------
@@ -1007,7 +1183,7 @@ shapes:UnitShape
     sh:description "Every unit must be part of at least one scheme (subject/key stage)." ;
     sh:message "Units must specify which scheme(s) they belong to." ;
   ] ;
- 
+
   sh:property [
     sh:path [ sh:inversePath curric:isUnitVariantOf ] ;
     sh:class curric:UnitVariant ;
@@ -1039,6 +1215,16 @@ shapes:UnitShape
     sh:name "why this why now" ;
     sh:description "Every unit must explain its pedagogical rationale." ;
     sh:message "Units must include a 'why this why now' explanation." ;
+  ] ;
+
+  sh:property [
+    sh:path curric:unitPriorKnowledgeRequirements ;
+    sh:datatype xsd:string ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:name "unit prior knowledge requirements" ;
+    sh:description "Every unit must specify its prior knowledge requirements." ;
+    sh:message "Units must include a 'unit prior knowledge requirements' description." ;
   ] ;
 
   sh:sparql [
@@ -1143,15 +1329,38 @@ shapes:UnitVariantInclusionShape
       PREFIX curric: <https://w3id.org/uk/oak/curriculum/ontology/>
       SELECT $this WHERE {
         $this curric:sequencePosition ?pos .
-        
+
         # Find the programme that contains this inclusion
         ?programme curric:hasUnitVariantInclusion $this .
-        
+
         # Check if another inclusion in the same programme has the same position
         ?programme curric:hasUnitVariantInclusion ?other .
         ?other curric:sequencePosition ?pos .
-        
+
         FILTER ($this != ?other)
+      }
+    """ ;
+  ] ;
+
+  sh:sparql [
+    sh:message "Sequence positions must be consecutive within a programme (no gaps allowed)" ;
+    sh:select """
+      PREFIX curric: <https://w3id.org/uk/oak/curriculum/ontology/>
+      SELECT $this WHERE {
+        # Find the programme that contains this inclusion
+        ?programme curric:hasUnitVariantInclusion $this .
+
+        # Get all positions for this programme
+        {
+          SELECT ?programme (MIN(?pos) as ?minPos) (MAX(?pos) as ?maxPos) (COUNT(DISTINCT ?pos) as ?count) WHERE {
+            ?programme curric:hasUnitVariantInclusion ?inclusion .
+            ?inclusion curric:sequencePosition ?pos .
+          }
+          GROUP BY ?programme
+        }
+
+        # Check if count equals max-min+1 (i.e., consecutive sequence)
+        FILTER (?count != (?maxPos - ?minPos + 1))
       }
     """ ;
   ] ;
@@ -1160,7 +1369,7 @@ shapes:UnitVariantInclusionShape
     sh:path curric:minChoices ;
     sh:datatype xsd:nonNegativeInteger ;
     sh:name "minimum choices" ;
-    sh:description """Minimum number of unit variants to select from a choice. Only used with 
+    sh:description """Minimum number of unit variants to select from a choice. Only used with
     includesUnitVariantChoice.""" ;
   ] ;
 
@@ -1168,7 +1377,7 @@ shapes:UnitVariantInclusionShape
     sh:path curric:maxChoices ;
     sh:datatype xsd:positiveInteger ;
     sh:name "maximum choices" ;
-    sh:description """Maximum number of unit variants to select from a choice. Only used with 
+    sh:description """Maximum number of unit variants to select from a choice. Only used with
     includesUnitVariantChoice.""" ;
   ] ;
 
@@ -1178,14 +1387,14 @@ shapes:UnitVariantInclusionShape
       PREFIX curric: <https://w3id.org/uk/oak/curriculum/ontology/>
       SELECT $this WHERE {
         $this a curric:UnitVariantInclusion .
-        
+
         # Count how many inclusion properties exist
         BIND(
           (IF(EXISTS { $this curric:includesUnitVariant ?v }, 1, 0) +
            IF(EXISTS { $this curric:includesUnitVariantChoice ?c }, 1, 0))
           AS ?count
         )
-        
+
         # Must be exactly 1
         FILTER (?count != 1)
       }
@@ -1255,7 +1464,7 @@ shapes:UnitVariantInclusionShape
       SELECT $this WHERE {
         $this curric:includesUnitVariantChoice ?choice ;
               curric:minChoices ?min .
-        
+
         # Count options in the choice, including $this
         {
           SELECT $this ?choice (COUNT(?option) AS ?numOptions) WHERE {
@@ -1264,7 +1473,7 @@ shapes:UnitVariantInclusionShape
           }
           GROUP BY $this ?choice
         }
-        
+
         FILTER (?min > ?numOptions)
       }
     """ ;
@@ -1318,15 +1527,38 @@ shapes:LessonInclusionShape
       SELECT $this WHERE {
         $this curric:includesLesson ?lesson ;
             curric:sequencePosition ?pos .
-        
+
         # Find the unit variant that contains this inclusion
         ?unitvariant curric:hasLessonInclusion $this .
-        
+
         # Check if another inclusion in the same unit variant has the same position
         ?unitvariant curric:hasLessonInclusion ?other .
         ?other curric:sequencePosition ?pos .
-        
+
         FILTER ($this != ?other)
+      }
+    """ ;
+  ] ;
+
+  sh:sparql [
+    sh:message "Sequence positions must be consecutive within a unit variant (no gaps allowed)" ;
+    sh:select """
+      PREFIX curric: <https://w3id.org/uk/oak/curriculum/ontology/>
+      SELECT $this WHERE {
+        # Find the unit variant that contains this inclusion
+        ?unitvariant curric:hasLessonInclusion $this .
+
+        # Get all positions for this unit variant
+        {
+          SELECT ?unitvariant (MIN(?pos) as ?minPos) (MAX(?pos) as ?maxPos) (COUNT(DISTINCT ?pos) as ?count) WHERE {
+            ?unitvariant curric:hasLessonInclusion ?inclusion .
+            ?inclusion curric:sequencePosition ?pos .
+          }
+          GROUP BY ?unitvariant
+        }
+
+        # Check if count equals max-min+1 (i.e., consecutive sequence)
+        FILTER (?count != (?maxPos - ?minPos + 1))
       }
     """ ;
   ] ;
@@ -1388,8 +1620,149 @@ shapes:ThreadShape
       PREFIX curric: <https://w3id.org/uk/oak/curriculum/ontology/>
       SELECT $this WHERE {
         $this a curric:Thread .
-        FILTER NOT EXISTS { 
-          ?unit curric:includesThread $this 
+        FILTER NOT EXISTS {
+          ?unit curric:includesThread $this
+        }
+      }
+    """ ;
+  ] .
+
+# ----------------------------------------------------------------------
+# Shape: Keyword
+# ----------------------------------------------------------------------
+
+shapes:KeywordShape
+  a sh:NodeShape ;
+  sh:targetClass curric:Keyword ;
+
+  sh:property [
+    sh:path rdfs:label ;
+    sh:datatype rdf:langString ;
+    sh:languageIn ( "en" ) ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:name "label" ;
+    sh:description "Every keyword must have exactly one rdfs:label." ;
+    sh:message "Keywords must have exactly one rdfs:label with English language tag." ;
+  ] ;
+
+  sh:sparql [
+    sh:severity sh:Warning ;
+    sh:message "Keyword is not referenced by any lesson (WARNING - orphaned)" ;
+    sh:select """
+      PREFIX curric: <https://w3id.org/uk/oak/curriculum/ontology/>
+      SELECT $this WHERE {
+        $this a curric:Keyword .
+        FILTER NOT EXISTS {
+          ?lesson curric:hasKeyword $this .
+        }
+      }
+    """ ;
+  ] .
+
+# ----------------------------------------------------------------------
+# Shape: Misconception
+# ----------------------------------------------------------------------
+
+shapes:MisconceptionShape
+  a sh:NodeShape ;
+  sh:targetClass curric:Misconception ;
+
+  sh:property [
+    sh:path curric:statement ;
+    sh:datatype xsd:string ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:name "statement" ;
+    sh:description "Every misconception must have exactly one statement." ;
+    sh:message "Misconceptions must have exactly one statement describing the misconception." ;
+  ] ;
+
+  sh:property [
+    sh:path curric:correction ;
+    sh:datatype xsd:string ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:name "correction" ;
+    sh:description "Every misconception must have exactly one correction." ;
+    sh:message "Misconceptions must have exactly one correction explaining the correct understanding." ;
+  ] ;
+
+  sh:sparql [
+    sh:severity sh:Warning ;
+    sh:message "Misconception is not referenced by any lesson (WARNING - orphaned)" ;
+    sh:select """
+      PREFIX curric: <https://w3id.org/uk/oak/curriculum/ontology/>
+      SELECT $this WHERE {
+        $this a curric:Misconception .
+        FILTER NOT EXISTS {
+          ?lesson curric:hasMisconception $this .
+        }
+      }
+    """ ;
+  ] .
+
+# ----------------------------------------------------------------------
+# Shape: KeyLearningPoint
+# ----------------------------------------------------------------------
+
+shapes:KeyLearningPointShape
+  a sh:NodeShape ;
+  sh:targetClass curric:KeyLearningPoint ;
+
+  sh:property [
+    sh:path rdfs:label ;
+    sh:datatype rdf:langString ;
+    sh:languageIn ( "en" ) ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:name "label" ;
+    sh:description "Every key learning point must have exactly one rdfs:label." ;
+    sh:message "Key learning points must have exactly one rdfs:label with English language tag." ;
+  ] ;
+
+  sh:sparql [
+    sh:severity sh:Warning ;
+    sh:message "Key learning point is not referenced by any lesson (WARNING - orphaned)" ;
+    sh:select """
+      PREFIX curric: <https://w3id.org/uk/oak/curriculum/ontology/>
+      SELECT $this WHERE {
+        $this a curric:KeyLearningPoint .
+        FILTER NOT EXISTS {
+          ?lesson curric:hasKeyLearningPoint $this .
+        }
+      }
+    """ ;
+  ] .
+
+# ----------------------------------------------------------------------
+# Shape: PupilLessonOutcome
+# ----------------------------------------------------------------------
+
+shapes:PupilLessonOutcomeShape
+  a sh:NodeShape ;
+  sh:targetClass curric:PupilLessonOutcome ;
+
+  sh:property [
+    sh:path rdfs:label ;
+    sh:datatype rdf:langString ;
+    sh:languageIn ( "en" ) ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:name "label" ;
+    sh:description "Every pupil lesson outcome must have exactly one rdfs:label." ;
+    sh:message "Pupil lesson outcomes must have exactly one rdfs:label with English language tag." ;
+  ] ;
+
+  sh:sparql [
+    sh:severity sh:Warning ;
+    sh:message "Pupil lesson outcome is not referenced by any lesson (WARNING - orphaned)" ;
+    sh:select """
+      PREFIX curric: <https://w3id.org/uk/oak/curriculum/ontology/>
+      SELECT $this WHERE {
+        $this a curric:PupilLessonOutcome .
+        FILTER NOT EXISTS {
+          ?lesson curric:hasPupilLessonOutcome $this .
         }
       }
     """ ;
@@ -1403,14 +1776,71 @@ shapes:LessonShape
   a sh:NodeShape ;
   sh:targetClass curric:Lesson ;
 
+  sh:property [
+    sh:path rdfs:label ;
+    sh:datatype rdf:langString ;
+    sh:languageIn ( "en" ) ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:name "label" ;
+    sh:description "Every lesson must have exactly one rdfs:label." ;
+    sh:message "Lessons must have exactly one rdfs:label with English language tag." ;
+  ] ;
+
+  sh:property [
+    sh:path curric:id ;
+    sh:datatype xsd:positiveInteger ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:name "identifier" ;
+    sh:description "Every lesson must have exactly one numeric identifier." ;
+    sh:message "Lessons must have exactly one curric:id as a positive integer." ;
+  ] ;
+
+  sh:property [
+    sh:path curric:hasKeyword ;
+    sh:class curric:Keyword ;
+    sh:minCount 1 ;
+    sh:name "has keyword" ;
+    sh:description "Every lesson must have at least one keyword." ;
+    sh:message "Lessons must have at least one keyword." ;
+  ] ;
+
+  sh:property [
+    sh:path curric:hasMisconception ;
+    sh:class curric:Misconception ;
+    sh:minCount 1 ;
+    sh:name "has misconception" ;
+    sh:description "Every lesson must address at least one misconception." ;
+    sh:message "Lessons must address at least one misconception." ;
+  ] ;
+
+  sh:property [
+    sh:path curric:hasKeyLearningPoint ;
+    sh:class curric:KeyLearningPoint ;
+    sh:minCount 1 ;
+    sh:name "has key learning point" ;
+    sh:description "Every lesson must have at least one key learning point." ;
+    sh:message "Lessons must have at least one key learning point." ;
+  ] ;
+
+  sh:property [
+    sh:path curric:hasPupilLessonOutcome ;
+    sh:class curric:PupilLessonOutcome ;
+    sh:minCount 1 ;
+    sh:name "has pupil lesson outcome" ;
+    sh:description "Every lesson must have at least one pupil lesson outcome." ;
+    sh:message "Lessons must have at least one pupil lesson outcome." ;
+  ] ;
+
   sh:sparql [
     sh:message "Lesson is not referenced by any lesson inclusion (orphaned resource)" ;
     sh:select """
       PREFIX curric: <https://w3id.org/uk/oak/curriculum/ontology/>
       SELECT $this WHERE {
         $this a curric:Lesson .
-        FILTER NOT EXISTS { 
-          ?inclusion curric:includesLesson $this 
+        FILTER NOT EXISTS {
+          ?inclusion curric:includesLesson $this
         }
       }
     """ ;
