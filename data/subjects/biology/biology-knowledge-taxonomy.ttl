@@ -76,7 +76,7 @@ natcurric:discipline-science
 natcurric:strand-working-scientifically
   a skos:Concept, curric:Strand ;
   skos:prefLabel "Working Scientifically"@en ;
-  skos:definition "Description of strand..." ;
+  skos:definition "Description of strand..."@en ;
   curric:displayOrder "1"^^xsd:positiveInteger ;
   skos:broader natcurric:discipline-science ;
   skos:narrower 
@@ -93,7 +93,7 @@ natcurric:strand-working-scientifically
 natcurric:strand-biological-science
   a skos:Concept, curric:Strand ;
   skos:prefLabel "Biological Science"@en ;
-  skos:definition "Description of strand..." ;
+  skos:definition "Description of strand..."@en ;
   curric:displayOrder "2"^^xsd:positiveInteger ;
   skos:broader natcurric:discipline-science ;
   skos:narrower 
