@@ -192,11 +192,23 @@ def parse_with_imports(file_path_or_uri, repo_root):
         print(f"   → from: {resolved}")
 
         try:
-            ssl_context = ssl.create_default_context()
-            ssl_context.check_hostname = False
-            ssl_context.verify_mode = ssl.CERT_NONE
-            with urllib.request.urlopen(resolved, context=ssl_context) as response:
+            # First try with SSL verification enabled (secure)
+            with urllib.request.urlopen(resolved, timeout=30) as response:
                 g.parse(data=response.read(), format="turtle")
+        except urllib.error.URLError as ssl_error:
+            # If SSL verification fails, try without verification
+            # This should only happen for self-signed certs or local dev
+            print(f"⚠️  SSL verification failed, retrying without verification...")
+            print(f"    (This is a security risk - consider fixing the SSL certificate)")
+            try:
+                ssl_context = ssl.create_default_context()
+                ssl_context.check_hostname = False
+                ssl_context.verify_mode = ssl.CERT_NONE
+                with urllib.request.urlopen(resolved, context=ssl_context, timeout=30) as response:
+                    g.parse(data=response.read(), format="turtle")
+            except Exception as e:
+                print(f"❌ Error parsing {resolved}: {e}")
+                return
         except Exception as e:
             print(f"❌ Error parsing {resolved}: {e}")
             return

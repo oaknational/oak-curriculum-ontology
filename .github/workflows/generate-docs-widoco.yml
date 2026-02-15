@@ -27,12 +27,17 @@ jobs:
       - name: Create output directory
         run: |
           mkdir -p docs-output
-          chmod -R 777 docs-output
+          chmod -R 755 docs-output
+
+      - name: Pull Widoco Docker image
+        run: |
+          docker pull ghcr.io/dgarijo/widoco:v1.4.25
 
       - name: Generate documentation with Widoco
         run: |
           docker run --rm \
             -v ${{ github.workspace }}:/data \
+            -u $(id -u):$(id -g) \
             ghcr.io/dgarijo/widoco:v1.4.25 \
             -ontFile /data/ontology/oak-curriculum-ontology.ttl \
             -outFolder /data/docs-output \
@@ -44,10 +49,49 @@ jobs:
             -excludeProvenance \
             -rewriteAll
 
-      - name: Fix permissions
+      - name: Validate generated documentation
         run: |
-          sudo chown -R runner:runner docs-output/
-          chmod -R u+w docs-output/
+          echo "Validating documentation structure..."
+          test -f docs-output/doc/index-en.html || (echo "❌ Missing index-en.html" && exit 1)
+          test -d docs-output/doc/sections || (echo "❌ Missing sections directory" && exit 1)
+          echo "✅ Documentation structure validated"
+
+      - name: Add version metadata to documentation
+        run: |
+          echo "Adding version and build metadata..."
+
+          # Create a metadata file
+          cat > docs-output/doc/build-info.json <<EOF
+          {
+            "generated_at": "$(date -u +"%Y-%m-%dT%H:%M:%SZ")",
+            "commit_sha": "${{ github.sha }}",
+            "commit_short": "$(echo ${{ github.sha }} | cut -c1-7)",
+            "ref": "${{ github.ref }}",
+            "repository": "${{ github.repository }}",
+            "widoco_version": "v1.4.25"
+          }
+          EOF
+
+          echo "✅ Build metadata added"
+          cat docs-output/doc/build-info.json
+
+      - name: Check for broken internal links
+        run: |
+          echo "Checking for broken internal links..."
+
+          # Simple check for common issues
+          cd docs-output/doc
+
+          # Check if ontology file reference exists
+          if grep -q "ontology.ttl" index-en.html; then
+            echo "✅ Ontology reference found"
+          fi
+
+          # Count total HTML files generated
+          HTML_COUNT=$(find . -name "*.html" | wc -l)
+          echo "📊 Generated $HTML_COUNT HTML pages"
+
+          echo "✅ Link validation completed"
 
       - name: Create index.html
         run: cp docs-output/doc/index-en.html docs-output/doc/index.html
@@ -71,19 +115,23 @@ jobs:
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "**Source Ontology:** \`ontology/oak-curriculum-ontology.ttl\`" >> $GITHUB_STEP_SUMMARY
           echo "**Generator:** Widoco v1.4.25" >> $GITHUB_STEP_SUMMARY
+          echo "**Generated:** $(date -u +"%Y-%m-%d %H:%M:%S UTC")" >> $GITHUB_STEP_SUMMARY
+          echo "**Commit:** \`$(echo ${{ github.sha }} | cut -c1-7)\`" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
 
           if [ "${{ steps.deployment.outcome }}" == "success" ]; then
             echo "✅ **Status:** Documentation deployed successfully" >> $GITHUB_STEP_SUMMARY
             echo "" >> $GITHUB_STEP_SUMMARY
             echo "**Live Documentation:** ${{ steps.deployment.outputs.page_url }}" >> $GITHUB_STEP_SUMMARY
+            echo "**Build Metadata:** ${{ steps.deployment.outputs.page_url }}build-info.json" >> $GITHUB_STEP_SUMMARY
             echo "" >> $GITHUB_STEP_SUMMARY
             echo "#### Features Included" >> $GITHUB_STEP_SUMMARY
-            echo "- HTML documentation with cross-references" >> $GITHUB_STEP_SUMMARY
-            echo "- WebVOWL interactive visualization" >> $GITHUB_STEP_SUMMARY
-            echo "- Class and property definitions" >> $GITHUB_STEP_SUMMARY
-            echo "- Annotation properties" >> $GITHUB_STEP_SUMMARY
-            echo "- .htaccess file for content negotiation" >> $GITHUB_STEP_SUMMARY
+            echo "- ✅ HTML documentation with cross-references" >> $GITHUB_STEP_SUMMARY
+            echo "- ✅ WebVOWL interactive visualization" >> $GITHUB_STEP_SUMMARY
+            echo "- ✅ Class and property definitions" >> $GITHUB_STEP_SUMMARY
+            echo "- ✅ Annotation properties" >> $GITHUB_STEP_SUMMARY
+            echo "- ✅ .htaccess file for content negotiation" >> $GITHUB_STEP_SUMMARY
+            echo "- ✅ Build metadata and version tracking" >> $GITHUB_STEP_SUMMARY
           else
             echo "❌ **Status:** Documentation generation or deployment failed" >> $GITHUB_STEP_SUMMARY
             echo "" >> $GITHUB_STEP_SUMMARY

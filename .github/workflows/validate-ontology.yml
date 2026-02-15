@@ -7,29 +7,49 @@ on:
       - '**/*.ttl'
       - '.github/workflows/validate-ontology.yml'
       - 'scripts/merge_ttls_with_imports.py'
+      - 'pyproject.toml'
   pull_request:
     branches: [ main ]
     paths:
       - '**/*.ttl'
       - '.github/workflows/validate-ontology.yml'
       - 'scripts/merge_ttls_with_imports.py'
+      - 'pyproject.toml'
   workflow_dispatch:
+
+# Explicit permissions for security
+permissions:
+  contents: read
+  pull-requests: write
+
+# Prevent duplicate runs
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   validate-ontology:
     runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ['3.12', '3.13']
 
-      - name: Set up Python
+    name: Validate (Python ${{ matrix.python-version }})
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
+          python-version: ${{ matrix.python-version }}
           cache: 'pip'
 
       - name: Install dependencies
         run: |
-          pip install rdflib pyshacl
+          pip install -e .
       
       - name: Merge TTLs and resolve owl:imports (exclude "versions")
         run: |
@@ -65,18 +85,35 @@ jobs:
 
             echo "✅ Validation passed"
             echo "conforms=true" >> $GITHUB_OUTPUT
+            echo "violations=0" >> $GITHUB_OUTPUT
             cat /tmp/shacl-output.txt
           else
             echo "❌ Validation failed"
             echo "conforms=false" >> $GITHUB_OUTPUT
+
+            # Count violations
+            VIOLATIONS=$(grep -c "Constraint Violation" /tmp/shacl-output.txt || echo "0")
+            echo "violations=$VIOLATIONS" >> $GITHUB_OUTPUT
+            echo "Found $VIOLATIONS constraint violations"
+
             cat /tmp/shacl-output.txt
             exit 1
           fi
 
+      - name: Upload validation report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: shacl-validation-report-${{ github.sha }}
+          path: /tmp/shacl-output.txt
+          retention-days: 14
+
       - name: Display SHACL validation summary
         if: always()
         run: |
-          echo "### SHACL Validation" >> $GITHUB_STEP_SUMMARY
+          echo "### SHACL Validation Results" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Python Version:** ${{ matrix.python-version }}" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "Validates all curriculum data instances against the ontology schema:" >> $GITHUB_STEP_SUMMARY
           echo "- Required properties and cardinalities" >> $GITHUB_STEP_SUMMARY
@@ -87,6 +124,10 @@ jobs:
           if [ "${{ steps.shacl-validation.outcome }}" == "success" ]; then
             echo "✅ **Result:** All curriculum data conforms to validation constraints" >> $GITHUB_STEP_SUMMARY
           else
-            echo "❌ **Result:** Validation failed - see logs for constraint violations" >> $GITHUB_STEP_SUMMARY
+            echo "❌ **Result:** Validation failed" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "**Violations Found:** ${{ steps.shacl-validation.outputs.violations }}" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "📎 **Validation Report:** See uploaded artifact \`shacl-validation-report-${{ github.sha }}\`" >> $GITHUB_STEP_SUMMARY
           fi
           echo "" >> $GITHUB_STEP_SUMMARY
