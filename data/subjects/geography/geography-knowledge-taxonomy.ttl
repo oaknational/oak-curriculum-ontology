@@ -77,7 +77,7 @@ natcurric:discipline-geography
 natcurric:strand-world-knowledge
   a skos:Concept, curric:Strand ;
   skos:prefLabel "World Knowledge"@en ;
-  skos:definition "Description of strand..." ;
+  skos:definition "Description of strand..."@en ;
   curric:displayOrder "1"^^xsd:positiveInteger ;
   skos:broader natcurric:discipline-geography ;
   skos:narrower natcurric:substrand-locational-knowledge ,
@@ -88,7 +88,7 @@ natcurric:strand-world-knowledge
 natcurric:strand-thinking-geographically
   a skos:Concept, curric:Strand ;
   skos:prefLabel "Thinking Geographically"@en ;
-  skos:definition "Description of strand..." ;
+  skos:definition "Description of strand..."@en ;
   curric:displayOrder "2"^^xsd:positiveInteger ;
   skos:broader natcurric:discipline-geography ;
   skos:narrower natcurric:substrand-human-and-physical-geography ;
@@ -98,7 +98,7 @@ natcurric:strand-thinking-geographically
 natcurric:strand-working-geographically
   a skos:Concept, curric:Strand ;
   skos:prefLabel "Working Geographically"@en ;
-  skos:definition "Description of strand..." ;
+  skos:definition "Description of strand..."@en ;
   curric:displayOrder "3"^^xsd:positiveInteger ;
   skos:broader natcurric:discipline-geography ;
   skos:narrower natcurric:substrand-geographical-skills-and-fieldwork ;
@@ -112,7 +112,7 @@ natcurric:strand-working-geographically
 natcurric:substrand-locational-knowledge
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Locational Knowledge"@en ;
-  skos:definition "Description of sub-strand..." ;
+  skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "1"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-world-knowledge ;
   skos:narrower 
@@ -128,7 +128,7 @@ natcurric:substrand-locational-knowledge
 natcurric:substrand-place-knowledge
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Place Knowledge"@en ;
-  skos:definition "Description of sub-strand..." ;
+  skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "2"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-world-knowledge ;
   skos:narrower 
@@ -141,7 +141,7 @@ natcurric:substrand-place-knowledge
 natcurric:substrand-human-and-physical-geography
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Human and Physical Geography"@en ;
-  skos:definition "Description of sub-strand..." ;
+  skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "3"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-thinking-geographically ;
   skos:narrower 
@@ -159,7 +159,7 @@ natcurric:substrand-human-and-physical-geography
 natcurric:substrand-geographical-skills-and-fieldwork
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Geographical Skills and Fieldwork"@en ;
-  skos:definition "Description of sub-strand..." ;
+  skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "4"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-working-geographically ;
   skos:narrower

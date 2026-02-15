@@ -80,7 +80,7 @@ natcurric:discipline-english
 natcurric:strand-reading
   a skos:Concept, curric:Strand ;
   skos:prefLabel "Reading"@en ;
-  skos:definition "Description of strand..." ;
+  skos:definition "Description of strand..."@en ;
   curric:displayOrder "1"^^xsd:positiveInteger ;
   skos:broader natcurric:discipline-english ;
   skos:narrower natcurric:substrand-word-reading ,
@@ -96,7 +96,7 @@ natcurric:strand-reading
 natcurric:strand-writing
   a skos:Concept, curric:Strand ;
   skos:prefLabel "Writing"@en ;
-  skos:definition "Description of strand..." ;
+  skos:definition "Description of strand..."@en ;
   curric:displayOrder "2"^^xsd:positiveInteger ;
   skos:broader natcurric:discipline-english ;
   skos:narrower natcurric:substrand-transcription ,
@@ -111,7 +111,7 @@ natcurric:strand-writing
 natcurric:strand-grammar-and-vocabulary
   a skos:Concept, curric:Strand ;
   skos:prefLabel "Grammar and Vocabulary"@en ;
-  skos:definition "Description of strand..." ;
+  skos:definition "Description of strand..."@en ;
   curric:displayOrder "3"^^xsd:positiveInteger ;
   skos:broader natcurric:discipline-english ;
   skos:narrower natcurric:substrand-vocabulary-grammar-punctuation ,
@@ -122,7 +122,7 @@ natcurric:strand-grammar-and-vocabulary
 natcurric:strand-spoken-english
   a skos:Concept, curric:Strand ;
   skos:prefLabel "Spoken English"@en ;
-  skos:definition "Description of strand..." ;
+  skos:definition "Description of strand..."@en ;
   curric:displayOrder "4"^^xsd:positiveInteger ;
   skos:broader natcurric:discipline-english ;
   skos:narrower natcurric:substrand-speak-confidently-effectively ,
@@ -137,7 +137,7 @@ natcurric:strand-spoken-english
 natcurric:substrand-word-reading
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Word Reading"@en ;
-  skos:definition "Description of sub-strand..." ;
+  skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "1"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-reading ;
   skos:narrower 
@@ -167,7 +167,7 @@ natcurric:substrand-word-reading
 natcurric:substrand-comprehension
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Comprehension"@en ;
-  skos:definition "Description of sub-strand..." ;
+  skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "2"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-reading ;
   skos:narrower 
@@ -206,7 +206,7 @@ natcurric:substrand-comprehension
 natcurric:substrand-transcription
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Transcription"@en ;
-  skos:definition "Description of sub-strand..." ;
+  skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "3"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-writing ;
   skos:narrower 
@@ -245,7 +245,7 @@ natcurric:substrand-transcription
 natcurric:substrand-handwriting
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Handwriting"@en ;
-  skos:definition "Description of sub-strand..." ;
+  skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "4"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-writing ;
   skos:narrower 
@@ -268,7 +268,7 @@ natcurric:substrand-handwriting
 natcurric:substrand-composition
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Composition"@en ;
-  skos:definition "Description of sub-strand..." ;
+  skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "5"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-writing ;
   skos:narrower 
@@ -294,7 +294,7 @@ natcurric:substrand-composition
 natcurric:substrand-vocabulary-grammar-punctuation
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Vocabulary Grammar Punctuation"@en ;
-  skos:definition "Description of sub-strand..." ;
+  skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "6"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-grammar-and-vocabulary ;
   skos:narrower 
@@ -340,7 +340,7 @@ natcurric:substrand-vocabulary-grammar-punctuation
 natcurric:substrand-appreciation-and-love-of-reading
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Appreciation and Love of Reading"@en ;
-  skos:definition "Description of sub-strand..." ;
+  skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "7"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-reading ;
   skos:narrower 
@@ -353,7 +353,7 @@ natcurric:substrand-appreciation-and-love-of-reading
 natcurric:substrand-increasingly-challenging-texts
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Increasingly Challenging Texts"@en ;
-  skos:definition "Description of sub-strand..." ;
+  skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "8"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-reading ;
   skos:narrower 
@@ -367,7 +367,7 @@ natcurric:substrand-increasingly-challenging-texts
 natcurric:substrand-read-critically
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Read Critically"@en ;
-  skos:definition "Description of sub-strand..." ;
+  skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "9"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-reading ;
   skos:narrower 
@@ -383,7 +383,7 @@ natcurric:substrand-read-critically
 natcurric:substrand-write-accurately-fluently-effectively
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Write Accurately Fluently Effectively"@en ;
-  skos:definition "Description of sub-strand..." ;
+  skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "10"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-writing ;
   skos:narrower 
@@ -400,7 +400,7 @@ natcurric:substrand-write-accurately-fluently-effectively
 natcurric:substrand-plan-draft-edit-and-proofread
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Plan Draft Edit and Proofread"@en ;
-  skos:definition "Description of sub-strand..." ;
+  skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "11"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-writing ;
   skos:narrower 
@@ -413,7 +413,7 @@ natcurric:substrand-plan-draft-edit-and-proofread
 natcurric:substrand-speak-confidently-effectively
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Speak Confidently Effectively"@en ;
-  skos:definition "Description of sub-strand..." ;
+  skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "12"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-spoken-english ;
   skos:narrower 
@@ -427,7 +427,7 @@ natcurric:substrand-speak-confidently-effectively
 natcurric:substrand-english-literary-heritage
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "English Literary Heritage"@en ;
-  skos:definition "Description of sub-strand..." ;
+  skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "13"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-reading ;
   skos:narrower 
@@ -440,7 +440,7 @@ natcurric:substrand-english-literary-heritage
 natcurric:substrand-critically-evaluate-texts
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Critically Evaluate Texts"@en ;
-  skos:definition "Description of sub-strand..." ;
+  skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "14"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-reading ;
   skos:narrower 
@@ -458,7 +458,7 @@ natcurric:substrand-critically-evaluate-texts
 natcurric:substrand-revise-edit-and-proof-read
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Revise Edit and Proof-Read"@en ;
-  skos:definition "Description of sub-strand..." ;
+  skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "15"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-writing ;
   skos:narrower 
@@ -471,7 +471,7 @@ natcurric:substrand-revise-edit-and-proof-read
 natcurric:substrand-consolidate-knowledge-grammar-vocabulary
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Consolidate Knowledge Grammar Vocabulary"@en ;
-  skos:definition "Description of sub-strand..." ;
+  skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "16"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-grammar-and-vocabulary ;
   skos:narrower 
@@ -490,7 +490,7 @@ natcurric:substrand-consolidate-knowledge-grammar-vocabulary
 natcurric:substrand-speak-confidently-audibly-effectively
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Speak Confidently Audibly Effectively"@en ;
-  skos:definition "Description of sub-strand..." ;
+  skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "17"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-spoken-english ;
   skos:narrower 

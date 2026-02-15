@@ -82,7 +82,7 @@ natcurric:discipline-mathematics
 natcurric:strand-working-mathematically
   a skos:Concept, curric:Strand ;
   skos:prefLabel "Working Mathematically"@en ;
-  skos:definition "Description of strand..." ;
+  skos:definition "Description of strand..."@en ;
   curric:displayOrder "1"^^xsd:positiveInteger ;
   skos:broader natcurric:discipline-mathematics ;
   skos:narrower 
@@ -95,7 +95,7 @@ natcurric:strand-working-mathematically
 natcurric:strand-number
   a skos:Concept, curric:Strand ;
   skos:prefLabel "Number"@en ;
-  skos:definition "Description of strand..." ;
+  skos:definition "Description of strand..."@en ;
   curric:displayOrder "2"^^xsd:positiveInteger ;
   skos:broader natcurric:discipline-mathematics ;
   skos:narrower 
@@ -112,7 +112,7 @@ natcurric:strand-number
 natcurric:strand-algebra
   a skos:Concept, curric:Strand ;
   skos:prefLabel "Generality and Algebraic Fluency"@en ;
-  skos:definition "Description of strand..." ;
+  skos:definition "Description of strand..."@en ;
   curric:displayOrder "3"^^xsd:positiveInteger ;
   skos:broader natcurric:discipline-mathematics ;
   skos:narrower natcurric:substrand-algebra ;
@@ -122,7 +122,7 @@ natcurric:strand-algebra
 natcurric:strand-multiplicative-reasoning
   a skos:Concept, curric:Strand ;
   skos:prefLabel "Multiplicative Reasoning"@en ;
-  skos:definition "Description of strand..." ;
+  skos:definition "Description of strand..."@en ;
   curric:displayOrder "4"^^xsd:positiveInteger ;
   skos:broader natcurric:discipline-mathematics ;
   skos:narrower 
@@ -134,7 +134,7 @@ natcurric:strand-multiplicative-reasoning
 natcurric:strand-geometry-measurement-spacial-reasoning
   a skos:Concept, curric:Strand ;
   skos:prefLabel "Geometry, Measurement and Spatial Reasoning"@en ;
-  skos:definition "Description of strand..." ;
+  skos:definition "Description of strand..."@en ;
   curric:displayOrder "5"^^xsd:positiveInteger ;
   skos:broader natcurric:discipline-mathematics ;
   skos:narrower 
@@ -148,7 +148,7 @@ natcurric:strand-geometry-measurement-spacial-reasoning
 natcurric:strand-data-literacy
   a skos:Concept, curric:Strand ;
   skos:prefLabel "Data Literacy"@en ;
-  skos:definition "Description of strand..." ;
+  skos:definition "Description of strand..."@en ;
   curric:displayOrder "6"^^xsd:positiveInteger ;
   skos:broader natcurric:discipline-mathematics ;
   skos:narrower 
@@ -164,7 +164,7 @@ natcurric:strand-data-literacy
 natcurric:substrand-develop-fluency
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Develop Fluency"@en ;
-  skos:definition "Description of sub-strand..." ;
+  skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "1"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-working-mathematically ;
   skos:narrower 
@@ -187,7 +187,7 @@ natcurric:substrand-develop-fluency
 natcurric:substrand-reason-mathematically
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Reason Mathematically"@en ;
-  skos:definition "Description of sub-strand..." ;
+  skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "2"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-working-mathematically ;
   skos:narrower 
@@ -209,7 +209,7 @@ natcurric:substrand-reason-mathematically
 natcurric:substrand-solve-problems
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Solve Problems"@en ;
-  skos:definition "Description of sub-strand..." ;
+  skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "3"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-working-mathematically ;
   skos:narrower 
@@ -227,7 +227,7 @@ natcurric:substrand-solve-problems
 natcurric:substrand-number
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Number"@en ;
-  skos:definition "Description of sub-strand..." ;
+  skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "1"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-number ;
   skos:narrower 
@@ -261,7 +261,7 @@ natcurric:substrand-number
   natcurric:substrand-place-value
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Place Value"@en ;
-  skos:definition "Description of sub-strand..." ;
+  skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "2"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-number ;
   skos:narrower 
@@ -305,7 +305,7 @@ natcurric:substrand-number
 natcurric:substrand-addition-and-subtraction
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Addition and Subtraction"@en ;
-  skos:definition "Description of sub-strand..." ;
+  skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "3"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-number ;
   skos:narrower 
@@ -335,7 +335,7 @@ natcurric:substrand-addition-and-subtraction
 natcurric:substrand-multiplication-and-division
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Multiplication and Division"@en ;
-  skos:definition "Description of sub-strand..." ;
+  skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "4"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-number ;
   skos:narrower 
@@ -369,7 +369,7 @@ natcurric:substrand-multiplication-and-division
 natcurric:substrand-addition-subtraction-multiplication-division
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Addition, Subtraction, Multiplication and Division"@en ;
-  skos:definition "Description of sub-strand..." ;
+  skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "5"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-number ;
   skos:narrower 
@@ -388,7 +388,7 @@ natcurric:substrand-addition-subtraction-multiplication-division
 natcurric:substrand-fractions
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Fractions"@en ;
-  skos:definition "Description of sub-strand..." ;
+  skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "6"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-number ;
   skos:narrower 
@@ -427,7 +427,7 @@ natcurric:substrand-fractions
 natcurric:substrand-decimals-and-percentages
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Decimals and Percentages"@en ;
-  skos:definition "Description of sub-strand..." ;
+  skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "7"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-number ;
   skos:narrower 
@@ -452,7 +452,7 @@ natcurric:substrand-decimals-and-percentages
 natcurric:substrand-ratio-proportion
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Ratio and Proportion"@en ;
-  skos:definition "Description of sub-strand..." ;
+  skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "1"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-multiplicative-reasoning ;
   skos:narrower 
@@ -466,7 +466,7 @@ natcurric:substrand-ratio-proportion
 natcurric:substrand-ratio-proportion-rates-of-change
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Ratio, Proportion and Rates of Change"@en ;
-  skos:definition "Description of sub-strand..." ;
+  skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "2"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-multiplicative-reasoning ;
   skos:narrower 
@@ -492,7 +492,7 @@ natcurric:substrand-ratio-proportion-rates-of-change
 natcurric:substrand-algebra
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Algebra"@en ;
-  skos:definition "Description of sub-strand..." ;
+  skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "1"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-algebra ;
   skos:narrower 
@@ -542,7 +542,7 @@ natcurric:substrand-algebra
 natcurric:substrand-measurement
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Measurement"@en ;
-  skos:definition "Description of sub-strand..." ;
+  skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "1"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-geometry-measurement-spacial-reasoning ;
   skos:narrower 
@@ -599,7 +599,7 @@ natcurric:substrand-measurement
 natcurric:substrand-properties-of-shape
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Properties of Shape"@en ;
-  skos:definition "Description of sub-strand..." ;
+  skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "2"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-geometry-measurement-spacial-reasoning ;
   skos:narrower 
@@ -634,7 +634,7 @@ natcurric:substrand-properties-of-shape
 natcurric:substrand-position-and-direction
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Position and Direction"@en ;
-  skos:definition "Description of sub-strand..." ;
+  skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "3"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-geometry-measurement-spacial-reasoning ;
   skos:narrower 
@@ -653,7 +653,7 @@ natcurric:substrand-position-and-direction
 natcurric:substrand-geometry-and-measures
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Geometry and Measures"@en ;
-  skos:definition "Description of sub-strand..." ;
+  skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "4"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-geometry-measurement-spacial-reasoning ;
   skos:narrower 
@@ -694,7 +694,7 @@ natcurric:substrand-geometry-and-measures
 natcurric:substrand-probability
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Probability"@en ;
-  skos:definition "Description of sub-strand..." ;
+  skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "1"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-data-literacy ;
   skos:narrower 
@@ -712,7 +712,7 @@ natcurric:substrand-probability
 natcurric:substrand-statistics
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Statistics"@en ;
-  skos:definition "Description of sub-strand..." ;
+  skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "2"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-data-literacy ;
   skos:narrower 

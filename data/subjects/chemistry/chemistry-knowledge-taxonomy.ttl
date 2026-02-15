@@ -76,7 +76,7 @@ natcurric:discipline-science
 natcurric:strand-working-scientifically
   a skos:Concept, curric:Strand ;
   skos:prefLabel "Working Scientifically"@en ;
-  skos:definition "Description of strand..." ;
+  skos:definition "Description of strand..."@en ;
   curric:displayOrder "1"^^xsd:positiveInteger ;
   skos:broader natcurric:discipline-science ;
   skos:narrower
@@ -93,7 +93,7 @@ natcurric:strand-working-scientifically
 natcurric:strand-chemical-science
   a skos:Concept, curric:Strand ;
   skos:prefLabel "Chemical Science"@en ;
-  skos:definition "Description of strand..." ;
+  skos:definition "Description of strand..."@en ;
   curric:displayOrder "2"^^xsd:positiveInteger ;
   skos:broader natcurric:discipline-science ;
   skos:narrower 
@@ -115,7 +115,7 @@ natcurric:strand-chemical-science
 natcurric:substrand-scientific-attitudes
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Scientific attitudes"@en ;
-  skos:definition "Description of sub-strand..." ;
+  skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "1"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-working-scientifically ;
   skos:narrower 
@@ -128,7 +128,7 @@ natcurric:substrand-scientific-attitudes
 natcurric:substrand-experimental-skills-and-investigations
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Experimental skills and investigations"@en ;
-  skos:definition "Description of sub-strand..." ;
+  skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "2"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-working-scientifically ;
   skos:narrower 
@@ -144,7 +144,7 @@ natcurric:substrand-experimental-skills-and-investigations
 natcurric:substrand-development-of-scientific-thinking
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "The development of scientific thinking"@en ;
-  skos:definition "Description of sub-strand..." ;
+  skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "3"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-working-scientifically ;
   skos:narrower 
@@ -160,7 +160,7 @@ natcurric:substrand-development-of-scientific-thinking
 natcurric:substrand-experimental-skills-and-strategies
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Experimental skills and strategies"@en ;
-  skos:definition "Description of sub-strand..." ;
+  skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "4"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-working-scientifically ;
   skos:narrower 
@@ -177,7 +177,7 @@ natcurric:substrand-experimental-skills-and-strategies
 natcurric:substrand-analysis-and-evaluation
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Analysis and evaluation"@en ;
-  skos:definition "Description of sub-strand..." ;
+  skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "5"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-working-scientifically ;
   skos:narrower 
@@ -201,7 +201,7 @@ natcurric:substrand-analysis-and-evaluation
 natcurric:substrand-vocabulary-units-symbols-nomenclature
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Vocabulary, units, symbols and nomenclature"@en ;
-  skos:definition "Description of sub-strand..." ;
+  skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "6"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-working-scientifically ;
   skos:narrower 
@@ -217,7 +217,7 @@ natcurric:substrand-vocabulary-units-symbols-nomenclature
 natcurric:substrand-scientific-measurement
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Measurement"@en ;
-  skos:definition "Description of sub-strand..." ;
+  skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "7"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-working-scientifically ;
   skos:narrower 
@@ -230,7 +230,7 @@ natcurric:substrand-scientific-measurement
 natcurric:substrand-atomic-structure-periodic-table
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Atomic structure and the Periodic Table"@en ;
-  skos:definition "Description of sub-strand..." ;
+  skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "1"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-chemical-science ;
   skos:narrower 
@@ -247,7 +247,7 @@ natcurric:substrand-atomic-structure-periodic-table
 natcurric:substrand-structure-bonding-properties-of-matter
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Structure, bonding and the properties of matter"@en ;
-  skos:definition "Description of sub-strand..." ;
+  skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "2"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-chemical-science ;
   skos:narrower 
@@ -262,7 +262,7 @@ natcurric:substrand-structure-bonding-properties-of-matter
 natcurric:substrand-chemical-changes
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Chemical changes"@en ;
-  skos:definition "Description of sub-strand..." ;
+  skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "3"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-chemical-science ;
   skos:narrower 
@@ -279,7 +279,7 @@ natcurric:substrand-chemical-changes
 natcurric:substrand-energy-changes-in-chemistry
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Energy changes in chemistry"@en ;
-  skos:definition "Description of sub-strand..." ;
+  skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "4"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-chemical-science ;
   skos:narrower 
@@ -291,7 +291,7 @@ natcurric:substrand-energy-changes-in-chemistry
 natcurric:substrand-rate-extent-of-chemical-change
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Rate and extent of chemical change"@en ;
-  skos:definition "Description of sub-strand..." ;
+  skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "5"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-chemical-science ;
   skos:narrower 
@@ -303,7 +303,7 @@ natcurric:substrand-rate-extent-of-chemical-change
 natcurric:substrand-chemical-analysis
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Chemical analysis"@en ;
-  skos:definition "Description of sub-strand..." ;
+  skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "6"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-chemical-science ;
   skos:narrower 
@@ -317,7 +317,7 @@ natcurric:substrand-chemical-analysis
 natcurric:substrand-chemical-and-allied-industries
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Chemical and allied industries"@en ;
-  skos:definition "Description of sub-strand..." ;
+  skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "7"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-chemical-science ;
   skos:narrower
@@ -332,7 +332,7 @@ natcurric:substrand-chemical-and-allied-industries
 natcurric:substrand-earth-and-atmospheric-science
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Earth and atmospheric science"@en ;
-  skos:definition "Description of sub-strand..." ;
+  skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "8"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-chemical-science ;
   skos:narrower 

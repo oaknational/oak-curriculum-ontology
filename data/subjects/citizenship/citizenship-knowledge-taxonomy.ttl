@@ -78,7 +78,7 @@ natcurric:discipline-citizenship
 natcurric:strand-democracy
   a skos:Concept, curric:Strand ;
   skos:prefLabel "Democracy"@en ;
-  skos:definition "Description of strand..." ;
+  skos:definition "Description of strand..."@en ;
   curric:displayOrder "1"^^xsd:positiveInteger ;
   skos:broader natcurric:discipline-citizenship ;
   skos:narrower 
@@ -89,7 +89,7 @@ natcurric:strand-democracy
 natcurric:strand-government
   a skos:Concept, curric:Strand ;
   skos:prefLabel "Government"@en ;
-  skos:definition "Description of strand..." ;
+  skos:definition "Description of strand..."@en ;
   curric:displayOrder "2"^^xsd:positiveInteger ;
   skos:broader natcurric:discipline-citizenship ;
   skos:narrower 
@@ -100,7 +100,7 @@ natcurric:strand-government
 natcurric:strand-rights-and-responsibilities-of-citizens
   a skos:Concept, curric:Strand ;
   skos:prefLabel "Rights and Responsibilities of Citizens"@en ;
-  skos:definition "Description of strand..." ;
+  skos:definition "Description of strand..."@en ;
   curric:displayOrder "3"^^xsd:positiveInteger ;
   skos:broader natcurric:discipline-citizenship ;
   skos:narrower 
@@ -115,7 +115,7 @@ natcurric:strand-rights-and-responsibilities-of-citizens
 natcurric:substrand-democracy
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Democracy"@en ;
-  skos:definition "Description of sub-strand..." ;
+  skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "1"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-democracy ;
   skos:narrower 
@@ -129,7 +129,7 @@ natcurric:substrand-democracy
 natcurric:substrand-government
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Government"@en ;
-  skos:definition "Description of sub-strand..." ;
+  skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "1"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-government ;
   skos:narrower 
@@ -143,7 +143,7 @@ natcurric:substrand-government
 natcurric:substrand-rights-and-responsibilities-of-citizens
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Rights and Responsibilities of Citizens"@en ;
-  skos:definition "Description of sub-strand..." ;
+  skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "1"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-rights-and-responsibilities-of-citizens ;
   skos:narrower 

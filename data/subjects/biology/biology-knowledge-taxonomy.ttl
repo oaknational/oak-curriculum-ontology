@@ -123,7 +123,7 @@ natcurric:strand-biological-science
 natcurric:substrand-scientific-attitudes
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Scientific attitudes"@en ;
-  skos:definition "Description of sub-strand..." ;
+  skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "1"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-working-scientifically ;
   skos:narrower 
@@ -136,7 +136,7 @@ natcurric:substrand-scientific-attitudes
 natcurric:substrand-experimental-skills-and-investigations
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Experimental skills and investigations"@en ;
-  skos:definition "Description of sub-strand..." ;
+  skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "2"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-working-scientifically ;
   skos:narrower 
@@ -152,7 +152,7 @@ natcurric:substrand-experimental-skills-and-investigations
 natcurric:substrand-development-of-scientific-thinking
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "The development of scientific thinking"@en ;
-  skos:definition "Description of sub-strand..." ;
+  skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "3"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-working-scientifically ;
   skos:narrower 
@@ -168,7 +168,7 @@ natcurric:substrand-development-of-scientific-thinking
 natcurric:substrand-experimental-skills-and-strategies
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Experimental skills and strategies"@en ;
-  skos:definition "Description of sub-strand..." ;
+  skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "4"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-working-scientifically ;
   skos:narrower 
@@ -185,7 +185,7 @@ natcurric:substrand-experimental-skills-and-strategies
 natcurric:substrand-analysis-and-evaluation
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Analysis and evaluation"@en ;
-  skos:definition "Description of sub-strand..." ;
+  skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "5"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-working-scientifically ;
   skos:narrower 
@@ -209,7 +209,7 @@ natcurric:substrand-analysis-and-evaluation
 natcurric:substrand-vocabulary-units-symbols-nomenclature
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Vocabulary, units, symbols and nomenclature"@en ;
-  skos:definition "Description of sub-strand..." ;
+  skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "6"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-working-scientifically ;
   skos:narrower 
@@ -225,7 +225,7 @@ natcurric:substrand-vocabulary-units-symbols-nomenclature
 natcurric:substrand-scientific-measurement
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Measurement"@en ;
-  skos:definition "Description of sub-strand..." ;
+  skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "7"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-working-scientifically ;
   skos:narrower 
@@ -238,7 +238,7 @@ natcurric:substrand-scientific-measurement
 natcurric:substrand-cells-and-organisation
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Cells and Organisation"@en ;
-  skos:definition "Description of sub-strand..." ;
+  skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "1"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-biological-science ;
   skos:narrower 
@@ -254,7 +254,7 @@ natcurric:substrand-cells-and-organisation
 natcurric:substrand-skeletal-and-muscular-systems
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "The Skeletal and Muscular Systems"@en ;
-  skos:definition "Description of sub-strand..." ;
+  skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "2"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-biological-science ;
   skos:narrower 
@@ -267,7 +267,7 @@ natcurric:substrand-skeletal-and-muscular-systems
 natcurric:substrand-nutrition-and-digestion
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Nutrition and Digestion"@en ;
-  skos:definition "Description of sub-strand..." ;
+  skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "3"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-biological-science ;
   skos:narrower 
@@ -283,7 +283,7 @@ natcurric:substrand-nutrition-and-digestion
 natcurric:substrand-gas-exchange-systems
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Gas Exchange Systems"@en ;
-  skos:definition "Description of sub-strand..." ;
+  skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "4"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-biological-science ;
   skos:narrower 
@@ -297,7 +297,7 @@ natcurric:substrand-gas-exchange-systems
 natcurric:substrand-reproduction
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Reproduction"@en ;
-  skos:definition "Description of sub-strand..." ;
+  skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "5"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-biological-science ;
   skos:narrower 
@@ -309,7 +309,7 @@ natcurric:substrand-reproduction
 natcurric:substrand-health
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Health"@en ;
-  skos:definition "Description of sub-strand..." ;
+  skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "6"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-biological-science ;
   skos:narrower natcurric:contentdescriptor-effects-of-recreational-drugs ;
@@ -319,7 +319,7 @@ natcurric:substrand-health
 natcurric:substrand-cell-biology
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Cell biology"@en ;
-  skos:definition "Description of sub-strand..." ;
+  skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "7"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-biological-science ;
   skos:narrower 
@@ -335,7 +335,7 @@ natcurric:substrand-cell-biology
 natcurric:substrand-transport-systems
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Transport systems"@en ;
-  skos:definition "Description of sub-strand..." ;
+  skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "8"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-biological-science ;
   skos:narrower 
@@ -347,7 +347,7 @@ natcurric:substrand-transport-systems
 natcurric:substrand-health-disease-medicines
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Health, disease and the development of medicines"@en ;
-  skos:definition "Description of sub-strand..." ;
+  skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "9"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-biological-science ;
   skos:narrower 
@@ -365,7 +365,7 @@ natcurric:substrand-health-disease-medicines
 natcurric:substrand-coordination-and-control
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Coordination and control"@en ;
-  skos:definition "Description of sub-strand..." ;
+  skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "10"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-biological-science ;
   skos:narrower 
@@ -381,7 +381,7 @@ natcurric:substrand-coordination-and-control
 natcurric:substrand-photosynthesis
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Photosynthesis"@en ;
-  skos:definition "Description of sub-strand..." ;
+  skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "11"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-biological-science ;
   skos:narrower 
@@ -397,7 +397,7 @@ natcurric:substrand-photosynthesis
 natcurric:substrand-ecosystems
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Ecosystems"@en ;
-  skos:definition "Description of sub-strand..." ;
+  skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "12"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-biological-science ;
   skos:narrower 
@@ -415,7 +415,7 @@ natcurric:substrand-ecosystems
 natcurric:substrand-evolution-inheritance-variation
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Evolution, inheritance and variation"@en ;
-  skos:definition "Description of sub-strand..." ;
+  skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "13"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-biological-science ;
   skos:narrower 
@@ -437,7 +437,7 @@ natcurric:substrand-evolution-inheritance-variation
 natcurric:substrand-cellular-respiration
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Cellular Respiration"@en ;
-  skos:definition "Description of sub-strand..." ;
+  skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "14"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-biological-science ;
   skos:narrower 
@@ -451,7 +451,7 @@ natcurric:substrand-cellular-respiration
 natcurric:substrand-relationships-in-an-ecosystem
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Relationships in an Ecosystem"@en ;
-  skos:definition "Description of sub-strand..." ;
+  skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "15"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-biological-science ;
   skos:narrower 
@@ -464,7 +464,7 @@ natcurric:substrand-relationships-in-an-ecosystem
 natcurric:substrand-inheritance-chromosomes-dna-genes
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Inheritance, Chromosomes, DNA and Genes"@en ;
-  skos:definition "Description of sub-strand..." ;
+  skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "16"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-biological-science ;
   skos:narrower 

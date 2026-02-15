@@ -77,7 +77,7 @@ natcurric:discipline-science
 natcurric:strand-working-scientifically
   a skos:Concept, curric:Strand ;
   skos:prefLabel "Working Scientifically"@en ;
-  skos:definition "Description of strand..." ;
+  skos:definition "Description of strand..."@en ;
   curric:displayOrder "1"^^xsd:positiveInteger ;
   skos:broader natcurric:discipline-science ;
   skos:narrower
@@ -94,7 +94,7 @@ natcurric:strand-working-scientifically
 natcurric:strand-physical-science
   a skos:Concept, curric:Strand ;
   skos:prefLabel "Physical Science"@en ;
-  skos:definition "Description of strand..." ;
+  skos:definition "Description of strand..."@en ;
   curric:displayOrder "2"^^xsd:positiveInteger ;
   skos:broader natcurric:discipline-science ;
   skos:narrower 
@@ -117,7 +117,7 @@ natcurric:strand-physical-science
 natcurric:substrand-scientific-attitudes
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Scientific attitudes"@en ;
-  skos:definition "Description of sub-strand..." ;
+  skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "1"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-working-scientifically ;
   skos:narrower 
@@ -130,7 +130,7 @@ natcurric:substrand-scientific-attitudes
 natcurric:substrand-experimental-skills-and-investigations
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Experimental skills and investigations"@en ;
-  skos:definition "Description of sub-strand..." ;
+  skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "2"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-working-scientifically ;
   skos:narrower 
@@ -146,7 +146,7 @@ natcurric:substrand-experimental-skills-and-investigations
 natcurric:substrand-development-of-scientific-thinking
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "The development of scientific thinking"@en ;
-  skos:definition "Description of sub-strand..." ;
+  skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "3"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-working-scientifically ;
   skos:narrower 
@@ -162,7 +162,7 @@ natcurric:substrand-development-of-scientific-thinking
 natcurric:substrand-experimental-skills-and-strategies
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Experimental skills and strategies"@en ;
-  skos:definition "Description of sub-strand..." ;
+  skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "4"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-working-scientifically ;
   skos:narrower 
@@ -179,7 +179,7 @@ natcurric:substrand-experimental-skills-and-strategies
 natcurric:substrand-analysis-and-evaluation
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Analysis and evaluation"@en ;
-  skos:definition "Description of sub-strand..." ;
+  skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "5"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-working-scientifically ;
   skos:narrower 
@@ -203,7 +203,7 @@ natcurric:substrand-analysis-and-evaluation
 natcurric:substrand-vocabulary-units-symbols-nomenclature
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Vocabulary, units, symbols and nomenclature"@en ;
-  skos:definition "Description of sub-strand..." ;
+  skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "6"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-working-scientifically ;
   skos:narrower 
@@ -219,7 +219,7 @@ natcurric:substrand-vocabulary-units-symbols-nomenclature
 natcurric:substrand-scientific-measurement
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Measurement"@en ;
-  skos:definition "Description of sub-strand..." ;
+  skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "7"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-working-scientifically ;
   skos:narrower 
@@ -232,7 +232,7 @@ natcurric:substrand-scientific-measurement
 natcurric:substrand-energy
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Energy"@en ;
-  skos:definition "Description of sub-strand..." ;
+  skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "1"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-physical-science ;
   skos:narrower 
@@ -247,7 +247,7 @@ natcurric:substrand-energy
 natcurric:substrand-forces
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Forces"@en ;
-  skos:definition "Description of sub-strand..." ;
+  skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "2"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-physical-science ;
   skos:narrower 
@@ -261,7 +261,7 @@ natcurric:substrand-forces
 natcurric:substrand-forces-and-motion
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Forces and motion"@en ;
-  skos:definition "Description of sub-strand..." ;
+  skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "3"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-physical-science ;
   skos:narrower 
@@ -276,7 +276,7 @@ natcurric:substrand-forces-and-motion
 natcurric:substrand-wave-motion
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Wave motion"@en ;
-  skos:definition "Description of sub-strand..." ;
+  skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "4"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-physical-science ;
   skos:narrower 
@@ -292,7 +292,7 @@ natcurric:substrand-wave-motion
 natcurric:substrand-electricity
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Electricity"@en ;
-  skos:definition "Description of sub-strand..." ;
+  skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "5"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-physical-science ;
   skos:narrower 
@@ -308,7 +308,7 @@ natcurric:substrand-electricity
 natcurric:substrand-magnetism-and-electromagnetism
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Magnetism and electromagnetism"@en ;
-  skos:definition "Description of sub-strand..." ;
+  skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "6"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-physical-science ;
   skos:narrower 
@@ -321,7 +321,7 @@ natcurric:substrand-magnetism-and-electromagnetism
 natcurric:substrand-structure-of-matter
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "The structure of matter"@en ;
-  skos:definition "Description of sub-strand..." ;
+  skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "7"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-physical-science ;
   skos:narrower 
@@ -335,7 +335,7 @@ natcurric:substrand-structure-of-matter
 natcurric:substrand-atomic-structure
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Atomic structure"@en ;
-  skos:definition "Description of sub-strand..." ;
+  skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "8"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-physical-science ;
   skos:narrower 
@@ -352,7 +352,7 @@ natcurric:substrand-atomic-structure
 natcurric:substrand-space-physics
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Space physics"@en ;
-  skos:definition "Description of sub-strand..." ;
+  skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "9"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-physical-science ;
   skos:narrower natcurric:contentdescriptor-main-features-of-solar-system ;
