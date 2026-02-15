@@ -199,12 +199,12 @@ oakcurric:inclusion-programme-history-year-group-2-pos-1
 oakcurric:inclusion-programme-history-year-group-2-pos-2
   a curric:UnitVariantInclusion ;
   curric:includesUnitVariant oakcurric:unitvariant-1494 ;
-  curric:sequencePosition "2"^^xsd:positiveInteger .
+  curric:sequencePosition "1"^^xsd:positiveInteger .
 
 oakcurric:inclusion-programme-history-year-group-2-pos-3
   a curric:UnitVariantInclusion ;
   curric:includesUnitVariant oakcurric:unitvariant-1544 ;
-  curric:sequencePosition "3"^^xsd:positiveInteger .
+  curric:sequencePosition "2"^^xsd:positiveInteger .
 
 oakcurric:inclusion-programme-history-year-group-1-pos-1
   a curric:UnitVariantInclusion ;
