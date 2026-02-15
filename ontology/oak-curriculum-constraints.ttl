@@ -848,17 +848,6 @@ shapes:ContentDescriptorShape
   ] ;
 
   sh:property [
-    sh:path skos:definition ;
-    sh:datatype rdf:langString ;
-    sh:languageIn ( "en" ) ;
-    sh:minCount 1 ;
-    sh:maxCount 1 ;
-    sh:name "definition" ;
-    sh:description "Every content descriptor must have exactly one skos:definition." ;
-    sh:message "Content descriptors must have exactly one skos:definition with English language tag." ;
-  ] ;
-
-  sh:property [
     sh:path curric:displayOrder ;
     sh:datatype xsd:positiveInteger ;
     sh:minCount 1 ;
