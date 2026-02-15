@@ -2,54 +2,74 @@
 # Generate static distribution files from RDF data
 # Outputs: Turtle, JSON-LD, RDF/XML, N-Triples
 
-set -e
+set -eo pipefail
+shopt -s globstar nullglob
 
 echo "=========================================="
 echo "Building Static Distribution Files"
 echo "=========================================="
 echo ""
 
-# Output directory
+# Check for riot (Apache Jena)
+if ! command -v riot &> /dev/null; then
+    echo "❌ Error: riot (Apache Jena) not found"
+    echo ""
+    echo "Install Apache Jena and ensure 'riot' is in your PATH."
+    echo "See: https://jena.apache.org/download/"
+    exit 1
+fi
+
+# Output directory with safety guard
 OUTPUT_DIR="distributions"
+if [[ -z "$OUTPUT_DIR" ]]; then
+    echo "❌ Error: OUTPUT_DIR is not set"
+    exit 1
+fi
 rm -rf "$OUTPUT_DIR"
 mkdir -p "$OUTPUT_DIR"
 
-# Collect all source TTL files
+# Collect all source TTL files using arrays
 echo "Collecting source files..."
-
-# Build list of all TTL files to merge
-SOURCE_FILES=""
+SOURCE_FILES=()
 
 # Ontology files
 for file in ontology/*.ttl; do
-    if [ -f "$file" ]; then
-        SOURCE_FILES="$SOURCE_FILES $file"
+    if [[ -f "$file" ]]; then
+        SOURCE_FILES+=("$file")
         echo "  + $file"
     fi
 done
 
 # Core data files
 for file in data/*.ttl; do
-    if [ -f "$file" ]; then
-        SOURCE_FILES="$SOURCE_FILES $file"
+    if [[ -f "$file" ]]; then
+        SOURCE_FILES+=("$file")
         echo "  + $file"
     fi
 done
 
 # Subject data files (all subjects, all key stages)
 for file in data/subjects/**/*.ttl; do
-    if [ -f "$file" ]; then
-        SOURCE_FILES="$SOURCE_FILES $file"
+    if [[ -f "$file" ]]; then
+        SOURCE_FILES+=("$file")
         echo "  + $file"
     fi
 done
 
+# Check files are found
+if [[ ${#SOURCE_FILES[@]} -eq 0 ]]; then
+    echo "❌ Error: No TTL source files found"
+    exit 1
+fi
+
+echo ""
+echo "Found ${#SOURCE_FILES[@]} source files"
 echo ""
 echo "Generating distribution formats..."
 
 # Generate merged Turtle file (canonical format)
 echo "  Generating Turtle (.ttl)..."
-riot --output=TTL $SOURCE_FILES > "$OUTPUT_DIR/oak-curriculum-full.ttl"
+riot --output=TTL "${SOURCE_FILES[@]}" > "$OUTPUT_DIR/oak-curriculum-full.ttl"
 echo "    Created oak-curriculum-full.ttl"
 
 # Generate JSON-LD from merged Turtle
@@ -75,7 +95,7 @@ echo ""
 
 # Show file sizes
 echo "Generated files:"
-ls -lh "$OUTPUT_DIR"/* | awk '{print "  " $9 " (" $5 ")"}'
+du -h "$OUTPUT_DIR"/*
 
 echo ""
 TOTAL_SIZE=$(du -sh "$OUTPUT_DIR" | cut -f1)
