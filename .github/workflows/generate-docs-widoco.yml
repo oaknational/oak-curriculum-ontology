@@ -24,15 +24,11 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Create output directory
-        run: |
-          mkdir -p docs-output
-          chmod -R 755 docs-output
-
       - name: Generate documentation with Widoco
         run: |
           docker run --rm \
-            -v ${{ github.workspace }}:/data \
+            -v ${{ github.workspace }}/ontology:/data/ontology:ro \
+            -v ${{ github.workspace }}/docs-output:/data/docs-output \
             ghcr.io/dgarijo/widoco:v1.4.25 \
             -ontFile /data/ontology/oak-curriculum-ontology.ttl \
             -outFolder /data/docs-output \
