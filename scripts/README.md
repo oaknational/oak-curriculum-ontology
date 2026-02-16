@@ -232,7 +232,7 @@ Python dependencies are managed in `pyproject.toml`:
 # Install runtime dependencies
 uv pip install -e .
 
-# Install dev dependencies (includes mypy, pytest, ruff)
+# Install dev dependencies (includes mypy, ruff)
 uv pip install -e ".[dev]"
 ```
 

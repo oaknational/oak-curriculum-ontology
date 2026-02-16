@@ -1,10 +1,10 @@
 [project]
 name = "oak-curriculum-ontology"
 version = "0.1.0"
-description = "Oak National Academy Curriculum Ontology - A formal semantic representation of the UK National Curriculum"
+description = "Oak National Academy Curriculum Ontology - A formal semantic representation of the Oak Curriculum and linkage to the National Curriculum for England (2014)"
 readme = "README.md"
 requires-python = ">=3.12"
-license = {text = "CC0-1.0"}
+license = {text = "MIT"}
 authors = [
     {name = "Oak National Academy"}
 ]
@@ -29,7 +29,6 @@ dependencies = [
 
 [project.optional-dependencies]
 dev = [
-    "pytest>=8.0.0",
     "ruff>=0.2.0",
     "mypy>=1.8.0",
 ]

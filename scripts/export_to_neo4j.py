@@ -875,7 +875,6 @@ class Transformation(ABC):
 
     Each transformation is a separate class following the Strategy pattern.
     This makes transformations:
-    - Easy to test independently
     - Easy to add/remove without modifying existing code
     - Reusable in different contexts
     - Configuration-driven

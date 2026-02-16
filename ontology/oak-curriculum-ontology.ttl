@@ -43,10 +43,9 @@
     dcterms:modified "2026-02-12T12:33:32Z"^^xsd:dateTime ;
     dcterms:issued "2026-02-12T12:33:32Z"^^xsd:dateTime ;
 
-    # CC0 License
-    dcterms:license <https://creativecommons.org/publicdomain/zero/1.0/> ;
-    dcterms:rights """To the extent possible under law, Oak National Academy has 
-    waived all copyright and related or neighbouring rights to this work."""@en ;
+    # OGL 3.0 License
+    dcterms:license <http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/> ;
+    dcterms:rights "Copyright © 2026 Oak National Academy."@en ;
     
     vann:preferredNamespacePrefix "curric" ;
     vann:preferredNamespaceUri "https://w3id.org/uk/oak/curriculum/ontology/" ;

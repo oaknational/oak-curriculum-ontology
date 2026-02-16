@@ -326,25 +326,6 @@ python scripts/export_to_neo4j.py --config scripts/export_to_neo4j_config.json -
 
 ---
 
-## Testing Strategy
-
-### Unit Tests (To Be Added)
-- `test_rdf_loader.py` - Filtering, extraction methods
-- `test_transformations.py` - Each transformation independently
-- `test_config.py` - Configuration validation
-- `test_retry.py` - Retry logic
-
-### Integration Tests (To Be Added)
-- `test_pipeline.py` - Full pipeline with sample data
-- `test_error_handling.py` - Error scenarios
-
-### Running Tests
-```bash
-uv run pytest tests/
-```
-
----
-
 ## Configuration for Other RDF Repositories
 
 To adapt this script for another RDF repository:
@@ -371,7 +352,6 @@ The script is designed to be reusable across different RDF domains.
 - `tqdm>=4.66.0` - Progress bars
 
 **Development:**
-- `pytest>=8.0.0` - Testing framework
 - `mypy>=1.8.0` - Static type checking
 - `ruff>=0.2.0` - Linting and formatting
 
@@ -471,11 +451,7 @@ INDEX_AWAIT_TIMEOUT_SECONDS = 300  # 5 minutes
 - ✅ Well-documented (docstrings, comments)
 - ✅ Error handling with retry logic
 - ✅ Performance optimized (batching, indexing, caching)
-- ✅ Testable design (extracted functions)
-
-**Areas for Improvement:**
-- ⚠️ Add comprehensive test suite
-- ⚠️ Run mypy --strict for full type checking
+- ✅ Passes mypy --strict type checking
 
 ---
 

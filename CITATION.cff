@@ -1,4 +1,4 @@
-cff-version: 1.2.0
+cff-version: 1.0.0
 message: "If you use this ontology in your research, please cite it as below."
 title: "Oak Curriculum Ontology"
 abstract: "A formal semantic representation of the Oak National Academy Curriculum and its linkage to the National Curriculum for England (2014). This OWL ontology provides a machine-readable description of curriculum structure, temporal organization, subject taxonomies, and knowledge descriptors, with SHACL constraints for data validation."
@@ -8,9 +8,9 @@ authors:
     website: "https://thenational.academy"
 repository-code: "https://github.com/oaknational/oak-curriculum-ontology-public"
 url: "https://oaknational.github.io/oak-curriculum-ontology-public/"
-license: CC0-1.0
+license: OGL-UK-3.0
 version: 0.1.0
-date-released: "2025-02-15"
+date-released: "2026-02-15"
 keywords:
   - ontology
   - curriculum
@@ -22,27 +22,11 @@ keywords:
   - knowledge graph
   - national curriculum
   - UK education
-references:
-  - type: standard
-    title: "OWL 2 Web Ontology Language"
-    authors:
-      - name: "W3C"
-    url: "https://www.w3.org/TR/owl2-overview/"
-  - type: standard
-    title: "Shapes Constraint Language (SHACL)"
-    authors:
-      - name: "W3C"
-    url: "https://www.w3.org/TR/shacl/"
-  - type: standard
-    title: "RDF 1.1 Concepts and Abstract Syntax"
-    authors:
-      - name: "W3C"
-    url: "https://www.w3.org/TR/rdf11-concepts/"
 preferred-citation:
   type: dataset
   title: "Oak Curriculum Ontology"
   authors:
     - name: "Oak National Academy"
-  year: 2025
+  year: 2026
   url: "https://oaknational.github.io/oak-curriculum-ontology-public/"
   version: 0.1.0
