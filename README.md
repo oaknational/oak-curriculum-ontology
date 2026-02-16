@@ -187,8 +187,9 @@ Subject (e.g., Mathematics)
 ### National Curriculum Integration
 
 Oak units reference National Curriculum content via:
-- `curric:isPartOf` - Links a programme or unit to a National Curriculum scheme
-- `oakcurric:hasContent` - Links a unit to specific National Curriculum content descriptors
+- `curric:isProgrammeOf` - Links a programme to a National Curriculum scheme
+- `curric:isUnitOf` - Links a unit to a National Curriculum scheme
+- `curric:includesContent` - Links a unit to specific National Curriculum content descriptors
 
 ![How the Oak Curriculum Ontology and the National Curriculum Ontology link](docs/images/model.png)
 
