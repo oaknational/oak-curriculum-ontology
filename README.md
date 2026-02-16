@@ -57,12 +57,12 @@ The ontology structure, URIs, and data are under active development and **subjec
 - ✅ Core ontology structure is stable
 - 🚧 Subject coverage is being expanded
 - 🔄 Data validation and refinement ongoing
-- 📝 Feedback, issues, and contributions are welcome!
+- 📝 Feedback and suggestions are welcome!
 
 **We welcome:**
-- 🐛 Issue reports (structure, data, documentation)
+- 🐛 Bug reports (structure, data, documentation)
 - 💡 Feature requests and suggestions
-- 🤝 Contributions (see [CONTRIBUTING.md](CONTRIBUTING.md))
+- ❓ Questions and feedback (see [CONTRIBUTING.md](CONTRIBUTING.md))
 
 ---
 
@@ -475,26 +475,20 @@ Generated automatically via WIDOCO on each release, includes:
 
 ## Contributing
 
-We welcome contributions from the community!
+We welcome feedback and suggestions from the community!
 
-**Ways to contribute:**
-- 🐛 Report issues with data or structure
-- 💡 Suggest improvements or new features
-- 📝 Improve documentation
-- 🔧 Submit pull requests
+**During this early release (v0.1.0), we welcome:**
+- 🐛 Bug reports - Issues with data quality, structure, or documentation
+- 💡 Feature suggestions - Ideas for improvements or additions
+- 📝 Documentation feedback - Clarifications, corrections, or enhancements
+- ❓ Questions - About the ontology, data model, or usage
 
-**Before contributing:**
-1. Read [CONTRIBUTING.md](CONTRIBUTING.md)
-2. Check existing [issues](https://github.com/oaknational/oak-curriculum-ontology-public/issues)
-3. Run `./scripts/validate.sh` to ensure data quality
-4. Follow semantic web best practices
+**How to contribute:**
+1. Read [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines
+2. [Open an issue](https://github.com/oaknational/oak-curriculum-ontology-public/issues) to share your feedback
+3. Provide clear context and examples
 
-**Development workflow:**
-1. Fork the repository
-2. Create a feature branch
-3. Make changes and validate locally
-4. Submit pull request with clear description
-5. CI/CD will automatically validate your changes
+**Note:** We are not accepting pull requests during v0.1.0 while we refine the ontology structure and establish governance processes. See [CONTRIBUTING.md](CONTRIBUTING.md) for details.
 
 ---
 
