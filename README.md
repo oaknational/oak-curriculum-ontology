@@ -23,7 +23,7 @@ Machine-readable curriculum data in W3C-standard formats (RDF, OWL, SKOS, SHACL)
 
 📘 **[Browse Full Documentation](https://oaknational.github.io/oak-curriculum-ontology-public/)** |
 🔍 **[View Ontology](ontology/oak-curriculum-ontology.ttl)** |
-📊 **[Download Distributions](distributions/)**
+📊 **[Download Distributions](https://github.com/oaknational/oak-curriculum-ontology-public/releases/latest)**
 
 Developed by [Oak National Academy](https://thenational.academy)
 
@@ -175,21 +175,27 @@ Discipline (e.g., Science)
 
 ### Option 1: Download Distribution Files
 
-Pre-generated RDF files in multiple formats:
+Pre-generated RDF files in multiple formats available from [GitHub Releases](https://github.com/oaknational/oak-curriculum-ontology-public/releases/latest):
 
 ```bash
 # Download Turtle (compact, human-readable)
-curl -L -O https://github.com/oaknational/oak-curriculum-ontology-public/raw/main/distributions/oak-curriculum-full.ttl
+curl -L -O https://github.com/oaknational/oak-curriculum-ontology-public/releases/latest/download/oak-curriculum-full.ttl
 
 # Download JSON-LD (for web apps)
-curl -L -O https://github.com/oaknational/oak-curriculum-ontology-public/raw/main/distributions/oak-curriculum-full.jsonld
+curl -L -O https://github.com/oaknational/oak-curriculum-ontology-public/releases/latest/download/oak-curriculum-full.jsonld
 
 # Download RDF/XML (for legacy tools)
-curl -L -O https://github.com/oaknational/oak-curriculum-ontology-public/raw/main/distributions/oak-curriculum-full.rdf
+curl -L -O https://github.com/oaknational/oak-curriculum-ontology-public/releases/latest/download/oak-curriculum-full.rdf
 
 # Download N-Triples (for streaming/line-based processing)
-curl -L -O https://github.com/oaknational/oak-curriculum-ontology-public/raw/main/distributions/oak-curriculum-full.nt
+curl -L -O https://github.com/oaknational/oak-curriculum-ontology-public/releases/latest/download/oak-curriculum-full.nt
 ```
+
+**Available formats:**
+- `.ttl` (Turtle) - Compact, human-readable
+- `.jsonld` (JSON-LD) - JSON-based RDF for web apps
+- `.rdf` (RDF/XML) - XML-based RDF for legacy tools
+- `.nt` (N-Triples) - Line-based format for streaming
 
 ### Option 2: Load into Triple Store
 
@@ -340,20 +346,20 @@ oak-curriculum-ontology-public/
 │           ├── citizenship-knowledge-taxonomy.ttl
 │           └── citizenship-key-stage-*.ttl
 │
-├── distributions/                        # Pre-built distribution files
-│   ├── oak-curriculum-full.ttl          # Complete dataset (Turtle)
-│   ├── oak-curriculum-full.jsonld       # Complete dataset (JSON-LD)
-│   ├── oak-curriculum-full.rdf          # Complete dataset (RDF/XML)
-│   └── oak-curriculum-full.nt           # Complete dataset (N-Triples)
-│
 ├── scripts/
 │   ├── validate.sh                       # Local SHACL validation
 │   ├── export_to_neo4j.py               # Export to Neo4j with transformations
 │   ├── export_to_neo4j_config.json      # Neo4j export configuration
 │   ├── export_to_neo4j_ARCHITECTURE.md  # Neo4j export architecture docs
 │   ├── merge_ttls_with_imports.py       # Merge TTL files with import resolution
-│   ├── build_static_data.sh             # Generate distribution files
+│   ├── build_static_data.sh             # Generate distribution files (for releases)
 │   └── README.md                         # Scripts documentation
+│
+├── distributions/ (published via GitHub Releases)
+│   ├── oak-curriculum-full.ttl          # Complete dataset (Turtle)
+│   ├── oak-curriculum-full.jsonld       # Complete dataset (JSON-LD)
+│   ├── oak-curriculum-full.rdf          # Complete dataset (RDF/XML)
+│   └── oak-curriculum-full.nt           # Complete dataset (N-Triples)
 │
 ├── docs/
 │   └── standards-compliance.md           # W3C standards documentation

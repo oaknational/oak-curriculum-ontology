@@ -40,3 +40,6 @@ Thumbs.db
 dist/
 build/
 *.egg-info/
+
+# Distribution files (published via GitHub Releases)
+distributions/
