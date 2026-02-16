@@ -9,8 +9,6 @@
 
 The Oak Curriculum Ontology has been developed as an **open, standards-compliant, interoperable semantic web resource** for representing educational curriculum data. This document demonstrates how the ontology achieves industry-leading compliance with W3C Recommendations, international educational metadata standards, and semantic web best practices.
 
-**Key Achievement**: This ontology meets the highest standards for **open data interoperability**, ensuring curriculum data can be shared, queried, validated, and integrated across educational systems, platforms, and organisations worldwide.
-
 ---
 
 ## Design Objectives
@@ -416,7 +414,7 @@ All ontology files include OGL licensing metadata:
 
 ## Interoperability Achievements
 
-The combination of these standards enables the Oak Curriculum Ontology to achieve exceptional interoperability:
+The combination of these standards enables the Oak Curriculum Ontology to achieve interoperability:
 
 ### 1. Cross-Platform Compatibility
 - **RDF triple stores**: Apache Jena, GraphDB, Blazegraph, Virtuoso
@@ -483,28 +481,21 @@ The ontology implements multiple quality assurance mechanisms:
 ### Documentation
 - **Inline comments**: Every class and property documented in RDF
 - **Markdown guides**: Human-readable documentation for developers
-- **SPARQL examples**: Practical query patterns for common use cases
-
-### Testing
-- **SHACL validation**: Automated constraint checking via CI/CD
-- **SPARQL test queries**: Verify expected query results
-- **Round-trip testing**: Data can be exported and re-imported without loss
 
 ---
 
 ## Conclusion
 
-The Oak Curriculum Ontology represents a **best-in-class implementation of open, standards-based curriculum data modelling**. By leveraging:
+The Oak Curriculum Ontology represents an implementation of **open, standards-based curriculum data modelling**. By leveraging:
 
 - W3C Recommendations (RDF, OWL, SKOS, SHACL)
 - International metadata standards (Dublin Core, Schema.org)
 - Semantic web best practices (persistent URIs, Linked Data principles)
 - Open licensing (OGL v3.0)
-- Professional versioning and quality assurance
 
-The ontology achieves its core objective: **creating an interoperable, discoverable, and extensible open standard for curriculum representation**.
+The ontology is **an interoperable, discoverable, and extensible open standard for curriculum representation**.
 
-This foundation enables Oak National Academy and the broader educational community to build innovative tools, resources, and services on top of a reliable, standardised curriculum infrastructure that will remain stable and accessible for decades to come.
+This foundation enables Oak National Academy and the broader educational community to build innovative tools, resources, and services on top of a reliable and standardised curriculum infrastructure.
 
 ---
 
