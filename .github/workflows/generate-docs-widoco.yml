@@ -24,6 +24,11 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Prepare output directory
+        run: |
+          mkdir -p docs-output
+          chmod 777 docs-output
+
       - name: Generate documentation with Widoco
         run: |
           docker run --rm \
