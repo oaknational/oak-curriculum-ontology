@@ -52,7 +52,8 @@ jobs:
         run: |
           echo "Validating documentation structure..."
           test -f docs-output/doc/index-en.html || (echo "❌ Missing index-en.html" && exit 1)
-          test -d docs-output/doc/sections || (echo "❌ Missing sections directory" && exit 1)
+          test -d docs-output/doc/resources || (echo "❌ Missing resources directory" && exit 1)
+          test -f docs-output/.htaccess || (echo "⚠️ Missing .htaccess file" && exit 0)
           echo "✅ Documentation structure validated"
 
       - name: Add version metadata to documentation
