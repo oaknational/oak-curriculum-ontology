@@ -13,9 +13,10 @@ import argparse
 import json
 import logging
 from pathlib import Path
-from typing import Dict, List, Optional, Any, Union
+from typing import Optional, Any, Union, TypedDict
 from contextlib import contextmanager
 from abc import ABC, abstractmethod
+from dataclasses import dataclass
 
 from rdflib import Graph, Namespace, URIRef, BNode
 from rdflib.collection import Collection
@@ -24,8 +25,20 @@ from dotenv import load_dotenv
 from pydantic import BaseModel, Field, field_validator
 from neo4j import GraphDatabase
 
-logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+# Logger instance - configured in main()
 logger = logging.getLogger(__name__)
+
+
+# ============================================================================
+# CONSTANTS
+# ============================================================================
+
+# Neo4j batch sizes
+DEFAULT_BATCH_SIZE = 5000  # Triples per batch for import
+DELETE_BATCH_SIZE = 1000   # Nodes per batch for deletion
+
+# Timeouts (in seconds)
+INDEX_AWAIT_TIMEOUT_SECONDS = 300  # 5 minutes for index creation
 
 
 # ============================================================================
@@ -43,21 +56,21 @@ class LabelMappingConfig(BaseModel):
 class FileDiscoveryConfig(BaseModel):
     """Configuration for discovering TTL files to import."""
     base_dir: str = "data/oak-curriculum"
-    include_files: List[str] = []
-    include_patterns: List[str] = []
-    exclude_patterns: List[str] = ["**/versions/**"]
+    include_files: list[str] = []
+    include_patterns: list[str] = []
+    exclude_patterns: list[str] = ["**/versions/**"]
 
 
 class FilterConfig(BaseModel):
     """Configuration for filtering RDF triples."""
-    exclude_entities_by_type: List[str] = []
-    exclude_properties_by_type: Dict[str, List[str]] = {}
-    exclude_predicates: List[str] = []  # Predicates to exclude globally (e.g., "broader")
+    exclude_entities_by_type: list[str] = []
+    exclude_properties_by_type: dict[str, list[str]] = {}
+    exclude_predicates: list[str] = []  # Predicates to exclude globally (e.g., "broader")
 
 
 class RDFSourceConfig(BaseModel):
     """Configuration for RDF data source."""
-    namespaces: Dict[str, str]
+    namespaces: dict[str, str]
     file_discovery: FileDiscoveryConfig
     filters: FilterConfig = FilterConfig()
 
@@ -66,7 +79,7 @@ class Neo4jConnectionConfig(BaseModel):
     """Configuration for Neo4j connection."""
     database: str = "neo4j"
     batching: bool = True
-    batch_size: int = 5000  # Number of triples per batch (default: 5000)
+    batch_size: int = DEFAULT_BATCH_SIZE  # Number of triples per batch
 
 
 class ConditionalRelationshipMapping(BaseModel):
@@ -82,8 +95,8 @@ class InclusionFlatteningConfig(BaseModel):
     source_node_label: str
     target_node_label: str
     relationship_type: str
-    relationship_property_mappings: Dict[str, str] = {}
-    copy_target_properties: Dict[str, str] = {}
+    relationship_property_mappings: dict[str, str] = {}
+    copy_target_properties: dict[str, str] = {}
 
 
 class Neo4jExportConfig(BaseModel):
@@ -92,15 +105,48 @@ class Neo4jExportConfig(BaseModel):
 
     rdf_source: RDFSourceConfig
     neo4j_connection: Neo4jConnectionConfig = Neo4jConnectionConfig()
-    label_mapping: Union[LabelMappingConfig, List[LabelMappingConfig]] = Field(validation_alias="label_mappings")
-    remove_labels: List[str] = []  # Labels to remove from main_label nodes
-    uri_slug_extraction: Dict[str, str] = {}
-    property_mappings: Dict[str, Dict[str, str]] = {}
-    multi_valued_properties: Dict[str, List[str]] = {}  # Node type -> list of array properties
-    extract_object_uris_as_properties: Dict[str, Dict[str, str]] = {}  # Node type -> {predicate: property_name}
-    relationship_type_mappings: Dict[str, Union[str, List[ConditionalRelationshipMapping]]] = {}
-    reverse_relationships: Dict[str, str] = {}
-    inclusion_flattening: List[InclusionFlatteningConfig] = []
+    label_mapping: Union[LabelMappingConfig, list[LabelMappingConfig]] = Field(validation_alias="label_mappings")
+    remove_labels: list[str] = []  # Labels to remove from main_label nodes
+    uri_slug_extraction: dict[str, str] = {}
+    property_mappings: dict[str, dict[str, str]] = {}
+    multi_valued_properties: dict[str, list[str]] = {}  # Node type -> list of array properties
+    extract_object_uris_as_properties: dict[str, dict[str, str]] = {}  # Node type -> {predicate: property_name}
+    relationship_type_mappings: dict[str, Union[str, list[ConditionalRelationshipMapping]]] = {}
+    reverse_relationships: dict[str, str] = {}
+    inclusion_flattening: list[InclusionFlatteningConfig] = []
+
+
+# ============================================================================
+# DATA STRUCTURES
+# ============================================================================
+
+@dataclass
+class FilteredGraphResult:
+    """Result of loading and filtering a TTL file.
+
+    Contains the filtered graph plus extracted metadata needed for transformations.
+    """
+    graph: Graph
+    original_count: int
+    filtered_count: int
+    multi_valued_data: dict[str, dict[str, dict[str, list[str]]]]  # node_label -> {prop: {uri: [values]}}
+    slug_data: dict[str, dict[str, str]]  # node_label -> {uri: slug}
+    uri_property_data: dict[str, dict[str, dict[str, str]]]  # node_label -> {prop: {uri: value}}
+    rdf_types_data: dict[str, str]  # uri -> type_label
+    external_relationships: list[tuple[str, str, str]]  # [(subject_uri, predicate_uri, object_uri), ...]
+
+
+class TransformationData(TypedDict, total=False):
+    """Data passed to transformations.
+
+    All fields are optional (total=False) since not all transformations need all data.
+    This provides type safety while maintaining flexibility.
+    """
+    slug_data: dict[str, dict[str, str]]
+    multi_valued_data: dict[str, dict[str, dict[str, list[str]]]]
+    uri_property_data: dict[str, dict[str, dict[str, str]]]
+    rdf_types_data: dict[str, str]
+    external_relationships: list[tuple[str, str, str]]
 
 
 # ============================================================================
@@ -125,7 +171,7 @@ class ExportConfig:
         load_dotenv(self.env_path)
 
         # Load and validate config
-        with open(config_path, 'r') as f:
+        with open(config_path, 'r', encoding='utf-8') as f:
             config_dict = json.load(f)
 
         self.config = Neo4jExportConfig(**config_dict)
@@ -139,7 +185,7 @@ class ExportConfig:
         if not self.neo4j_uri or not self.neo4j_password:
             raise ValueError("NEO4J_URI and NEO4J_PASSWORD must be set in .env file")
 
-    def get_auth_data(self) -> Dict[str, str]:
+    def get_auth_data(self) -> dict[str, str]:
         """Get Neo4j authentication data."""
         return {
             'uri': self.neo4j_uri,
@@ -156,7 +202,7 @@ class ExportConfig:
 class RDFLoader:
     """Handles TTL file discovery, loading, and filtering."""
 
-    def __init__(self, config: RDFSourceConfig, project_root: Path, export_config: 'Neo4jExportConfig' = None):
+    def __init__(self, config: RDFSourceConfig, project_root: Path, export_config: Optional['Neo4jExportConfig'] = None):
         """
         Initialize RDF loader.
 
@@ -171,13 +217,37 @@ class RDFLoader:
         self.data_dir = project_root / config.file_discovery.base_dir
 
         # Create namespace objects from config
-        self.namespaces = {}
+        self.namespaces: dict[str, Namespace] = {}
         for prefix, uri in config.namespaces.items():
             self.namespaces[prefix] = Namespace(uri)
 
         # Keep shortcuts for commonly used namespaces
         self.OWL = self.namespaces.get('owl', Namespace("http://www.w3.org/2002/07/owl#"))
         self.RDF = self.namespaces.get('rdf', Namespace("http://www.w3.org/1999/02/22-rdf-syntax-ns#"))
+
+    def _parse_namespaced_identifier(self, identifier: str) -> Optional[URIRef]:
+        """
+        Parse 'prefix:localname' or full URI into URIRef.
+
+        Args:
+            identifier: Either 'prefix:localname' (e.g., 'owl:Ontology') or full URI
+
+        Returns:
+            URIRef if valid, None if namespace prefix is unknown
+
+        Examples:
+            'owl:Ontology' -> URIRef('http://www.w3.org/2002/07/owl#Ontology')
+            'http://example.org/Thing' -> URIRef('http://example.org/Thing')
+        """
+        if ":" not in identifier:
+            return URIRef(identifier)
+
+        prefix, local_name = identifier.split(":", 1)
+        if prefix in self.namespaces:
+            return self.namespaces[prefix][local_name]
+
+        logger.warning(f"Unknown namespace prefix '{prefix}' in identifier '{identifier}' - skipping")
+        return None
 
     def _resolve_rdf_type(self, graph: Graph, node_label: str) -> Optional[URIRef]:
         """
@@ -203,7 +273,7 @@ class RDFLoader:
                 return pred_uri
         return None
 
-    def discover_files(self) -> List[Path]:
+    def discover_files(self) -> list[Path]:
         """
         Discover TTL files based on configuration.
 
@@ -255,39 +325,23 @@ class RDFLoader:
                 return True
         return False
 
-    def load_and_filter(self, ttl_file: Path) -> tuple[Graph, int, int, Dict, Dict, Dict, Dict, List[tuple]]:
+    def _filter_by_entity_type(self, graph: Graph, entity_types: list[str]) -> int:
         """
-        Load TTL file and filter out unwanted triples.
+        Remove all triples for entities of specific types.
 
         Args:
-            ttl_file: Path to TTL file
+            graph: RDF graph to filter
+            entity_types: List of entity types to remove (e.g., ['owl:Ontology'])
 
         Returns:
-            Tuple of (filtered_graph, original_count, filtered_count)
+            Number of triples removed
         """
-        # Parse TTL file
-        graph = Graph()
-        graph.parse(ttl_file, format="turtle")
-        original_count = len(graph)
-
         filtered_count = 0
 
-        # CRITICAL: Extract multi-valued properties BEFORE filtering
-        # RDF lists use rdf:first/rdf:rest which are filtered out later
-        multi_valued_data = self._extract_multi_valued_properties(graph)
-
-        # Filter 1: Remove entities by type
-        for subject_type in self.config.filters.exclude_entities_by_type:
-            # Parse namespace prefix (e.g., "owl:Ontology")
-            if ":" in subject_type:
-                prefix, local_name = subject_type.split(":", 1)
-                if prefix in self.namespaces:
-                    type_uri = self.namespaces[prefix][local_name]
-                else:
-                    logger.warning(f"Unknown namespace prefix '{prefix}' in filter '{subject_type}' - skipping")
-                    continue
-            else:
-                type_uri = URIRef(subject_type)
+        for subject_type in entity_types:
+            type_uri = self._parse_namespaced_identifier(subject_type)
+            if not type_uri:
+                continue
 
             # Find subjects of this type
             subjects_to_remove = set(graph.subjects(self.RDF.type, type_uri))
@@ -299,34 +353,35 @@ class RDFLoader:
                     graph.remove(triple)
                     filtered_count += 1
 
-        # Filter 2: Remove specific properties from specific node types
-        for node_type, properties_to_exclude in self.config.filters.exclude_properties_by_type.items():
-            # Parse node type
-            if ":" in node_type:
-                prefix, local_name = node_type.split(":", 1)
-                if prefix in self.namespaces:
-                    type_uri = self.namespaces[prefix][local_name]
-                else:
-                    logger.warning(f"Unknown namespace prefix '{prefix}' in property filter '{node_type}' - skipping")
-                    continue
-            else:
-                type_uri = URIRef(node_type)
+        return filtered_count
+
+    def _filter_properties_by_type(self, graph: Graph,
+                                   property_filters: dict[str, list[str]]) -> int:
+        """
+        Remove specific properties from specific node types.
+
+        Args:
+            graph: RDF graph to filter
+            property_filters: Dict mapping node type to list of properties to remove
+
+        Returns:
+            Number of triples removed
+        """
+        filtered_count = 0
+
+        for node_type, properties_to_exclude in property_filters.items():
+            type_uri = self._parse_namespaced_identifier(node_type)
+            if not type_uri:
+                continue
 
             # Find all subjects of this type
             subjects_of_type = set(graph.subjects(self.RDF.type, type_uri))
 
             # For each property to exclude
             for prop_to_exclude in properties_to_exclude:
-                # Parse property predicate
-                if ":" in prop_to_exclude:
-                    prop_prefix, prop_local = prop_to_exclude.split(":", 1)
-                    if prop_prefix in self.namespaces:
-                        property_uri = self.namespaces[prop_prefix][prop_local]
-                    else:
-                        logger.warning(f"Unknown namespace prefix '{prop_prefix}' in property '{prop_to_exclude}' - skipping")
-                        continue
-                else:
-                    property_uri = URIRef(prop_to_exclude)
+                property_uri = self._parse_namespaced_identifier(prop_to_exclude)
+                if not property_uri:
+                    continue
 
                 # Remove triples with this property for subjects of this type
                 for subject in subjects_of_type:
@@ -335,24 +390,58 @@ class RDFLoader:
                         graph.remove(triple)
                         filtered_count += 1
 
-        # Filter 3: Remove specific predicates globally
-        for predicate_to_exclude in self.config.filters.exclude_predicates:
-            # Parse namespace prefix (e.g., "skos:broader")
-            if ":" in predicate_to_exclude:
-                prefix, local_name = predicate_to_exclude.split(":", 1)
-                if prefix in self.namespaces:
-                    predicate_uri = self.namespaces[prefix][local_name]
-                else:
-                    logger.warning(f"Unknown namespace prefix '{prefix}' in predicate filter '{predicate_to_exclude}' - skipping")
-                    continue
-            else:
-                predicate_uri = URIRef(predicate_to_exclude)
+        return filtered_count
+
+    def _filter_predicates_globally(self, graph: Graph, predicates: list[str]) -> int:
+        """
+        Remove all triples with specific predicates.
+
+        Args:
+            graph: RDF graph to filter
+            predicates: List of predicates to remove globally (e.g., ['skos:broader'])
+
+        Returns:
+            Number of triples removed
+        """
+        filtered_count = 0
+
+        for predicate_to_exclude in predicates:
+            predicate_uri = self._parse_namespaced_identifier(predicate_to_exclude)
+            if not predicate_uri:
+                continue
 
             # Remove all triples with this predicate
             triples_to_remove = list(graph.triples((None, predicate_uri, None)))
             for triple in triples_to_remove:
                 graph.remove(triple)
                 filtered_count += 1
+
+        return filtered_count
+
+    def load_and_filter(self, ttl_file: Path) -> FilteredGraphResult:
+        """
+        Load TTL file and filter out unwanted triples.
+
+        Args:
+            ttl_file: Path to TTL file
+
+        Returns:
+            FilteredGraphResult containing the filtered graph and extracted metadata
+        """
+        # Parse TTL file
+        graph = Graph()
+        graph.parse(ttl_file, format="turtle")
+        original_count = len(graph)
+
+        # CRITICAL: Extract multi-valued properties BEFORE filtering
+        # RDF lists use rdf:first/rdf:rest which are filtered out later
+        multi_valued_data = self._extract_multi_valued_properties(graph)
+
+        # Apply filters in sequence
+        filtered_count = 0
+        filtered_count += self._filter_by_entity_type(graph, self.config.filters.exclude_entities_by_type)
+        filtered_count += self._filter_properties_by_type(graph, self.config.filters.exclude_properties_by_type)
+        filtered_count += self._filter_predicates_globally(graph, self.config.filters.exclude_predicates)
 
         # Normalize text literals (remove line breaks and extra whitespace)
         self._normalize_text_literals(graph)
@@ -368,7 +457,16 @@ class RDFLoader:
         # Extract external relationships (to prevent rdflib-neo4j from creating Resource nodes)
         external_relationships = self._extract_external_relationships(graph)
 
-        return graph, original_count, filtered_count, multi_valued_data, slug_data, uri_property_data, rdf_types_data, external_relationships
+        return FilteredGraphResult(
+            graph=graph,
+            original_count=original_count,
+            filtered_count=filtered_count,
+            multi_valued_data=multi_valued_data,
+            slug_data=slug_data,
+            uri_property_data=uri_property_data,
+            rdf_types_data=rdf_types_data,
+            external_relationships=external_relationships
+        )
 
     def _normalize_text_literals(self, graph: Graph):
         """Normalize text literals by removing excess whitespace and line breaks."""
@@ -398,7 +496,7 @@ class RDFLoader:
             graph.remove((s, p, old_o))
             graph.add((s, p, new_o))
 
-    def _extract_multi_valued_properties(self, graph: Graph) -> Dict[str, Dict[str, List[str]]]:
+    def _extract_multi_valued_properties(self, graph: Graph) -> dict[str, dict[str, dict[str, list[str]]]]:
         """
         Extract RDF lists and convert them to Neo4j array properties.
 
@@ -469,7 +567,7 @@ class RDFLoader:
 
         return multi_valued_data
 
-    def _extract_slugs(self, graph: Graph) -> Dict[str, Dict[str, str]]:
+    def _extract_slugs(self, graph: Graph) -> dict[str, dict[str, str]]:
         """
         Extract URI slugs for configured node types.
 
@@ -495,7 +593,7 @@ class RDFLoader:
 
         return slug_data
 
-    def _extract_object_uri_properties(self, graph: Graph) -> Dict[str, Dict[str, Dict[str, str]]]:
+    def _extract_object_uri_properties(self, graph: Graph) -> dict[str, dict[str, dict[str, str]]]:
         """
         Extract object URIs from specific predicates to be set as properties.
         Also removes these triples from the graph.
@@ -541,7 +639,7 @@ class RDFLoader:
 
         return uri_property_data
 
-    def _extract_rdf_types(self, graph: Graph) -> Dict[str, str]:
+    def _extract_rdf_types(self, graph: Graph) -> dict[str, str]:
         """
         Extract RDF types for all nodes.
         Returns mapping of {uri: type_label} where type_label is the class name (e.g., "Scheme", "Programme").
@@ -571,7 +669,7 @@ class RDFLoader:
         logger.info(f"  Extracted RDF types for {len(rdf_types)} nodes")
         return rdf_types
 
-    def _extract_external_relationships(self, graph: Graph) -> List[tuple]:
+    def _extract_external_relationships(self, graph: Graph) -> list[tuple[str, str, str]]:
         """
         Extract relationships to external (non-Oak) resources.
         These will be recreated after import to connect to pre-existing external nodes.
@@ -639,7 +737,7 @@ class RDFLoader:
 class Neo4jConnection:
     """Context manager for Neo4j RDF store connection (rdflib-neo4j only)."""
 
-    def __init__(self, auth_data: Dict[str, str], custom_prefixes: Dict[str, str], config: Neo4jConnectionConfig):
+    def __init__(self, auth_data: dict[str, str], custom_prefixes: dict[str, str], config: Neo4jConnectionConfig):
         """
         Initialize Neo4j RDF store connection.
 
@@ -707,7 +805,7 @@ class Transformation(ABC):
         pass
 
     @abstractmethod
-    def execute(self, session, config: Neo4jExportConfig, main_labels: List[str], **data) -> int:
+    def execute(self, session, config: Neo4jExportConfig, main_labels: list[str], data: TransformationData) -> int:
         """
         Execute transformation.
 
@@ -715,12 +813,42 @@ class Transformation(ABC):
             session: Neo4j session
             config: Export configuration
             main_labels: List of main node labels (e.g., ['OakCurric', 'NatCurric'])
-            **data: Additional data (slug_data, multi_valued_data, etc.)
+            data: Transformation data containing slug_data, multi_valued_data, etc.
 
         Returns:
             Count of affected nodes
         """
         pass
+
+    def _execute_count_query(self, session, query: str, params: Optional[dict] = None,
+                            operation_desc: str = "") -> int:
+        """
+        Execute a Cypher query that returns a count, with standardized logging.
+
+        Args:
+            session: Neo4j session
+            query: Cypher query that returns 'count' field
+            params: Query parameters
+            operation_desc: Description to log if count > 0 (e.g., "Renamed 'label' → 'title'")
+
+        Returns:
+            Count from query result
+
+        Example:
+            count = self._execute_count_query(
+                session,
+                "MATCH (n:Programme) SET n.title = n.label RETURN count(n) as count",
+                operation_desc="Renamed Programme.label → Programme.title"
+            )
+        """
+        result = session.run(query, params or {})
+        record = result.single()
+        count = record["count"] if record else 0
+
+        if count > 0 and operation_desc:
+            logger.info(f"✓ {operation_desc} ({count} {'nodes' if count != 1 else 'node'})")
+
+        return count
 
 
 class LabelMappingTransformation(Transformation):
@@ -732,7 +860,7 @@ class LabelMappingTransformation(Transformation):
     def should_run(self, config: Neo4jExportConfig) -> bool:
         return config.label_mapping is not None
 
-    def execute(self, session, config: Neo4jExportConfig, main_labels: List[str], **data) -> int:
+    def execute(self, session, config: Neo4jExportConfig, main_labels: list[str], data: TransformationData) -> int:
         # Handle both single label mapping and list of label mappings
         label_configs = config.label_mapping if isinstance(config.label_mapping, list) else [config.label_mapping]
 
@@ -742,19 +870,18 @@ class LabelMappingTransformation(Transformation):
             target_label = label_config.target_label
             uri_pattern = label_config.uri_pattern
 
-            result = session.run(f"""
-                MATCH (n:{source_label})
-                WHERE n.uri STARTS WITH $pattern
-                SET n:{target_label}
-                REMOVE n:{source_label}
-                RETURN count(n) as count
-            """, pattern=uri_pattern)
-
-            record = result.single()
-            count = record["count"] if record else 0
-
-            if count > 0:
-                logger.info(f"✓ Relabeled {count} nodes: {source_label} → {target_label} (pattern: {uri_pattern[:50]}...)")
+            count = self._execute_count_query(
+                session,
+                f"""
+                    MATCH (n:{source_label})
+                    WHERE n.uri STARTS WITH $pattern
+                    SET n:{target_label}
+                    REMOVE n:{source_label}
+                    RETURN count(n) as count
+                """,
+                params={"pattern": uri_pattern},
+                operation_desc=f"Relabeled {source_label} → {target_label} (pattern: {uri_pattern[:50]}...)"
+            )
 
             total_count += count
 
@@ -770,20 +897,20 @@ class RemoveLabelsTransformation(Transformation):
     def should_run(self, config: Neo4jExportConfig) -> bool:
         return bool(config.remove_labels)
 
-    def execute(self, session, config: Neo4jExportConfig, main_labels: List[str], **data) -> int:
+    def execute(self, session, config: Neo4jExportConfig, main_labels: list[str], data: TransformationData) -> int:
         total_removed = 0
         for main_label in main_labels:
             for label_to_remove in config.remove_labels:
-                result = session.run(f"""
-                    MATCH (n:{main_label}:{label_to_remove})
-                    REMOVE n:{label_to_remove}
-                    RETURN count(n) as count
-                """)
-                record = result.single()
-                count = record["count"] if record else 0
-                if count > 0:
-                    logger.info(f"✓ Removed '{label_to_remove}' label from {count} {main_label} nodes")
-                    total_removed += count
+                count = self._execute_count_query(
+                    session,
+                    f"""
+                        MATCH (n:{main_label}:{label_to_remove})
+                        REMOVE n:{label_to_remove}
+                        RETURN count(n) as count
+                    """,
+                    operation_desc=f"Removed '{label_to_remove}' label from {main_label} nodes"
+                )
+                total_removed += count
 
         return total_removed
 
@@ -801,7 +928,7 @@ class SlugExtractionTransformation(Transformation):
     def should_run(self, config: Neo4jExportConfig) -> bool:
         return bool(config.uri_slug_extraction)
 
-    def execute(self, session, config: Neo4jExportConfig, main_labels: List[str], **data) -> int:
+    def execute(self, session, config: Neo4jExportConfig, main_labels: list[str], data: TransformationData) -> int:
         slug_data = data.get('slug_data', {})
         if not slug_data:
             return 0
@@ -822,16 +949,18 @@ class SlugExtractionTransformation(Transformation):
                 # Batch all URIs for this node type
                 batch_data = [{"uri": uri, "slug": slug} for uri, slug in uri_slug_map.items()]
 
-                result = session.run(f"""
-                    UNWIND $data AS item
-                    MATCH (n:{node_label}:{main_label})
-                    WHERE n.uri = item.uri
-                    SET n.{slug_property} = item.slug
-                    RETURN count(n) as count
-                """, data=batch_data)
+                count = self._execute_count_query(
+                    session,
+                    f"""
+                        UNWIND $data AS item
+                        MATCH (n:{node_label}:{main_label})
+                        WHERE n.uri = item.uri
+                        SET n.{slug_property} = item.slug
+                        RETURN count(n) as count
+                    """,
+                    params={"data": batch_data}
+                )
 
-                record = result.single()
-                count = record["count"] if record else 0
                 if count > 0:
                     node_types_processed.append(f"{node_label}:{main_label}({count})")
                     total_slugs += count
@@ -851,7 +980,7 @@ class ObjectUriPropertyTransformation(Transformation):
     def should_run(self, config: Neo4jExportConfig) -> bool:
         return bool(config.extract_object_uris_as_properties)
 
-    def execute(self, session, config: Neo4jExportConfig, main_labels: List[str], **data) -> int:
+    def execute(self, session, config: Neo4jExportConfig, main_labels: list[str], data: TransformationData) -> int:
         uri_property_data = data.get('uri_property_data', {})
         if not uri_property_data:
             return 0
@@ -860,19 +989,19 @@ class ObjectUriPropertyTransformation(Transformation):
         for main_label in main_labels:
             for node_label, prop_data in uri_property_data.items():
                 for property_name, uri_value_map in prop_data.items():
-                    result = session.run(f"""
-                        UNWIND $data AS item
-                        MATCH (n:{node_label}:{main_label})
-                        WHERE n.uri = item.uri
-                        SET n.{property_name} = item.value
-                        RETURN count(n) as count
-                    """, data=[{"uri": uri, "value": value} for uri, value in uri_value_map.items()])
-
-                    record = result.single()
-                    count = record["count"] if record else 0
-                    if count > 0:
-                        logger.info(f"✓ {node_label}:{main_label}.{property_name} set ({count} nodes)")
-                        total_properties += count
+                    count = self._execute_count_query(
+                        session,
+                        f"""
+                            UNWIND $data AS item
+                            MATCH (n:{node_label}:{main_label})
+                            WHERE n.uri = item.uri
+                            SET n.{property_name} = item.value
+                            RETURN count(n) as count
+                        """,
+                        params={"data": [{"uri": uri, "value": value} for uri, value in uri_value_map.items()]},
+                        operation_desc=f"{node_label}:{main_label}.{property_name} set"
+                    )
+                    total_properties += count
 
         return total_properties
 
@@ -889,7 +1018,7 @@ class PropertyMappingTransformation(Transformation):
     def should_run(self, config: Neo4jExportConfig) -> bool:
         return bool(config.property_mappings)
 
-    def execute(self, session, config: Neo4jExportConfig, main_labels: List[str], **data) -> int:
+    def execute(self, session, config: Neo4jExportConfig, main_labels: list[str], data: TransformationData) -> int:
         total_renamed = 0
 
         for main_label in main_labels:
@@ -938,7 +1067,7 @@ class MultiValuedPropertiesTransformation(Transformation):
     def should_run(self, config: Neo4jExportConfig) -> bool:
         return bool(config.multi_valued_properties)
 
-    def execute(self, session, config: Neo4jExportConfig, main_labels: List[str], **data) -> int:
+    def execute(self, session, config: Neo4jExportConfig, main_labels: list[str], data: TransformationData) -> int:
         multi_valued_data = data.get('multi_valued_data', {})
         if not multi_valued_data:
             return 0
@@ -973,7 +1102,7 @@ class RelationshipTypeMappingTransformation(Transformation):
     def should_run(self, config: Neo4jExportConfig) -> bool:
         return bool(config.relationship_type_mappings)
 
-    def execute(self, session, config: Neo4jExportConfig, main_labels: List[str], **data) -> int:
+    def execute(self, session, config: Neo4jExportConfig, main_labels: list[str], data: TransformationData) -> int:
         total_renamed = 0
 
         for old_type, mapping in config.relationship_type_mappings.items():
@@ -1026,7 +1155,7 @@ class ReverseRelationshipsTransformation(Transformation):
     def should_run(self, config: Neo4jExportConfig) -> bool:
         return bool(config.reverse_relationships)
 
-    def execute(self, session, config: Neo4jExportConfig, main_labels: List[str], **data) -> int:
+    def execute(self, session, config: Neo4jExportConfig, main_labels: list[str], data: TransformationData) -> int:
         total_reversed = 0
         for old_type, new_type in config.reverse_relationships.items():
             result = session.run(f"""
@@ -1055,7 +1184,7 @@ class InclusionFlatteningTransformation(Transformation):
     def should_run(self, config: Neo4jExportConfig) -> bool:
         return bool(config.inclusion_flattening)
 
-    def execute(self, session, config: Neo4jExportConfig, main_labels: List[str], **data) -> int:
+    def execute(self, session, config: Neo4jExportConfig, main_labels: list[str], data: TransformationData) -> int:
         total_flattened = 0
 
         for flattening_config in config.inclusion_flattening:
@@ -1099,7 +1228,7 @@ class CamelCaseConversionTransformation(Transformation):
     def should_run(self, config: Neo4jExportConfig) -> bool:
         return True  # Always run to standardize relationship names
 
-    def execute(self, session, config: Neo4jExportConfig, main_labels: List[str], **data) -> int:
+    def execute(self, session, config: Neo4jExportConfig, main_labels: list[str], data: TransformationData) -> int:
         # Get all relationship types
         result = session.run("CALL db.relationshipTypes() YIELD relationshipType RETURN relationshipType")
         rel_types = [record["relationshipType"] for record in result]
@@ -1141,7 +1270,7 @@ class CleanupOrphanedResourceNodesTransformation(Transformation):
     def should_run(self, config: Neo4jExportConfig) -> bool:
         return True  # Always cleanup
 
-    def execute(self, session, config: Neo4jExportConfig, main_labels: List[str], **data) -> int:
+    def execute(self, session, config: Neo4jExportConfig, main_labels: list[str], data: TransformationData) -> int:
         # Delete nodes that have ONLY the Resource label (garbage nodes from import)
         # After transformations, all legitimate nodes should have additional labels
         result = session.run("""
@@ -1168,7 +1297,7 @@ class DropResourceConstraintTransformation(Transformation):
     def should_run(self, config: Neo4jExportConfig) -> bool:
         return True  # Always drop
 
-    def execute(self, session, config: Neo4jExportConfig, main_labels: List[str], **data) -> int:
+    def execute(self, session, config: Neo4jExportConfig, main_labels: list[str], data: TransformationData) -> int:
         # Drop the n10s_unique_uri constraint if it exists
         try:
             session.run("DROP CONSTRAINT n10s_unique_uri IF EXISTS")
@@ -1188,7 +1317,7 @@ class AddExternalTypeLabelsTransformation(Transformation):
     def should_run(self, config: Neo4jExportConfig) -> bool:
         return True  # Always run to add missing type labels
 
-    def execute(self, session, config: Neo4jExportConfig, main_labels: List[str], **data) -> int:
+    def execute(self, session, config: Neo4jExportConfig, main_labels: list[str], data: TransformationData) -> int:
         """
         Add type labels for nodes using external ontology classes.
         rdflib-neo4j only creates labels for types in the local ontology (oakcurric:),
@@ -1246,7 +1375,7 @@ class ExternalRelationshipsTransformation(Transformation):
     def should_run(self, config: Neo4jExportConfig) -> bool:
         return True  # Run if external relationships exist
 
-    def _pre_cache_target_labels(self, session, target_uris: List[str]) -> Dict[str, List[str]]:
+    def _pre_cache_target_labels(self, session, target_uris: list[str]) -> dict[str, list[str]]:
         """
         Pre-cache all target node labels in a single query.
 
@@ -1281,7 +1410,7 @@ class ExternalRelationshipsTransformation(Transformation):
         return label_cache
 
     def _apply_relationship_transformations(self, predicate_name: str, config: Neo4jExportConfig,
-                                            target_uri: str, label_cache: Dict[str, List[str]]) -> tuple:
+                                            target_uri: str, label_cache: dict[str, list[str]]) -> tuple[str, bool]:
         """
         Apply relationship type mappings and reversals to match config.
         Uses pre-cached labels instead of querying per relationship.
@@ -1313,7 +1442,7 @@ class ExternalRelationshipsTransformation(Transformation):
         # No transformation needed
         return predicate_name, False
 
-    def execute(self, session, config: Neo4jExportConfig, main_labels: List[str], **data) -> int:
+    def execute(self, session, config: Neo4jExportConfig, main_labels: list[str], data: TransformationData) -> int:
         external_rels = data.get('external_relationships', [])
         if not external_rels:
             logger.info("No external relationships to create")
@@ -1420,7 +1549,7 @@ class TransformationPipeline:
     Follows the Strategy pattern with a list of transformation strategies.
     """
 
-    def __init__(self, driver, database: str, transformations: List[Transformation]):
+    def __init__(self, driver, database: str, transformations: list[Transformation]):
         """
         Initialize pipeline.
 
@@ -1433,7 +1562,7 @@ class TransformationPipeline:
         self.database = database
         self.transformations = transformations
 
-    def _ensure_uri_index(self, session, main_labels: List[str]):
+    def _ensure_uri_index(self, session, main_labels: list[str]) -> None:
         """
         Create index on uri property for fast lookups during transformations.
         This is CRITICAL for performance - without it, URI lookups are O(n) full scans.
@@ -1444,18 +1573,18 @@ class TransformationPipeline:
                 # Create index if it doesn't exist (Neo4j 4.x+ syntax)
                 session.run(f"CREATE INDEX idx_{main_label.lower()}_uri IF NOT EXISTS FOR (n:{main_label}) ON (n.uri)")
                 # Wait for index to be online
-                session.run("CALL db.awaitIndexes(300)")
+                session.run(f"CALL db.awaitIndexes({INDEX_AWAIT_TIMEOUT_SECONDS})")
                 logger.info(f"✓ Index on {main_label}.uri ready")
             except Exception as e:
                 logger.warning(f"Could not create index (may already exist): {e}")
 
-    def execute(self, config: Neo4jExportConfig, **data):
+    def execute(self, config: Neo4jExportConfig, data: TransformationData) -> None:
         """
         Execute all applicable transformations.
 
         Args:
             config: Export configuration
-            **data: Additional data (slug_data, multi_valued_data, etc.)
+            data: Transformation data (slug_data, multi_valued_data, etc.)
         """
         logger.info("\n" + "=" * 60)
         logger.info("Applying transformations...")
@@ -1478,7 +1607,7 @@ class TransformationPipeline:
                     logger.info("\n" + "=" * 60)
                     logger.info(f"Running: {transformation.name()}")
 
-                    count = transformation.execute(session, config, main_labels, **data)
+                    count = transformation.execute(session, config, main_labels, data)
 
                     if count == 0:
                         logger.info(f"  No changes made")
@@ -1505,7 +1634,7 @@ class TransformationPipeline:
 # UTILITY FUNCTIONS
 # ============================================================================
 
-def clear_neo4j_data(auth_data: Dict[str, str], labels: Union[str, List[str]]) -> None:
+def clear_neo4j_data(auth_data: dict[str, str], labels: Union[str, list[str]]) -> None:
     """
     Clear all nodes with the specified label(s) from Neo4j.
     Uses batched deletion to prevent connection timeouts on large datasets.
@@ -1549,7 +1678,7 @@ def clear_neo4j_data(auth_data: Dict[str, str], labels: Union[str, List[str]]) -
                 logger.info(f"Deleting in batches to prevent connection timeout...")
 
                 # Delete in batches to prevent connection timeout
-                batch_size = 1000
+                batch_size = DELETE_BATCH_SIZE
                 deleted_count = 0
 
                 while True:
@@ -1585,13 +1714,11 @@ def clear_neo4j_data(auth_data: Dict[str, str], labels: Union[str, List[str]]) -
 
 
 # ============================================================================
-# MAIN FUNCTION
+# MAIN FUNCTION HELPERS
 # ============================================================================
 
-def main():
-    """Export Oak Curriculum Ontology to Neo4j AuraDB."""
-
-    # Parse command line arguments
+def parse_arguments() -> argparse.Namespace:
+    """Parse command line arguments."""
     parser = argparse.ArgumentParser(
         description='Export RDF/TTL curriculum data to Neo4j AuraDB',
         formatter_class=argparse.RawDescriptionHelpFormatter,
@@ -1607,54 +1734,292 @@ Examples:
                         help='Clear data from Neo4j database before import (scope defined by config)')
     parser.add_argument('--config', type=str, required=True,
                         help='Path to configuration file (required)')
-    args = parser.parse_args()
+    return parser.parse_args()
+
+
+def load_and_validate_config(config_path: Path) -> ExportConfig:
+    """
+    Load and validate configuration from file.
+
+    Args:
+        config_path: Path to configuration file
+
+    Returns:
+        Validated ExportConfig object
+
+    Raises:
+        SystemExit: If config file not found or invalid
+    """
+    if not config_path.exists():
+        logger.error(f"Configuration file not found: {config_path}")
+        sys.exit(1)
+
+    logger.info("=" * 60)
+    logger.info("RDF/TTL Curriculum Data → Neo4j AuraDB Export")
+    logger.info("=" * 60)
+
+    export_config = ExportConfig(config_path)
+    logger.info(f"✓ Configuration loaded and validated")
+    logger.info(f"Target: {export_config.neo4j_uri}")
+    logger.info(f"Database: {export_config.neo4j_database}")
+    logger.info("-" * 60)
+
+    return export_config
+
+
+def clear_database_if_requested(export_config: ExportConfig, should_clear: bool) -> None:
+    """
+    Clear Neo4j database if --clear flag was provided.
+
+    Args:
+        export_config: Export configuration
+        should_clear: Whether to clear the database
+    """
+    if not should_clear:
+        return
+
+    # Get all target labels from label mapping(s)
+    if isinstance(export_config.config.label_mapping, list):
+        labels_to_clear = [lm.target_label for lm in export_config.config.label_mapping]
+    else:
+        labels_to_clear = export_config.config.label_mapping.target_label
+
+    clear_neo4j_data(export_config.get_auth_data(), labels_to_clear)
+
+
+def discover_ttl_files(export_config: ExportConfig, project_root: Path) -> list[Path]:
+    """
+    Discover TTL files to import based on configuration.
+
+    Args:
+        export_config: Export configuration
+        project_root: Project root directory
+
+    Returns:
+        List of TTL file paths
+    """
+    rdf_loader = RDFLoader(export_config.config.rdf_source, project_root, export_config.config)
+    ttl_files = rdf_loader.discover_files()
+
+    logger.info(f"Found {len(ttl_files)} TTL files to export:")
+    for f in ttl_files:
+        logger.info(f"  - {f.relative_to(project_root)}")
+
+    return ttl_files
+
+
+def load_and_aggregate_ttl_files(
+    ttl_files: list[Path],
+    export_config: ExportConfig,
+    project_root: Path,
+    neo4j_graph: Graph
+) -> TransformationData:
+    """
+    Load all TTL files and aggregate their data.
+
+    Args:
+        ttl_files: List of TTL files to load
+        export_config: Export configuration
+        project_root: Project root directory
+        neo4j_graph: Neo4j graph to add triples to
+
+    Returns:
+        Aggregated transformation data
+    """
+    rdf_loader = RDFLoader(export_config.config.rdf_source, project_root, export_config.config)
+
+    total_triples = 0
+    total_filtered = 0
+    all_multi_valued_data: dict = {}
+    all_slug_data: dict = {}
+    all_uri_property_data: dict = {}
+    all_rdf_types_data: dict = {}
+    all_external_relationships: list = []
+
+    logger.info("\n" + "=" * 60)
+    for ttl_file in ttl_files:
+        logger.info(f"\nExporting: {ttl_file.name}")
+        logger.info("-" * 40)
+
+        try:
+            # Load and filter
+            result = rdf_loader.load_and_filter(ttl_file)
+
+            # Merge multi-valued data
+            for node_label, prop_data in result.multi_valued_data.items():
+                if node_label not in all_multi_valued_data:
+                    all_multi_valued_data[node_label] = {}
+                for prop, uri_values in prop_data.items():
+                    if prop not in all_multi_valued_data[node_label]:
+                        all_multi_valued_data[node_label][prop] = {}
+                    all_multi_valued_data[node_label][prop].update(uri_values)
+
+            # Merge slug data
+            for node_label, uri_slug_map in result.slug_data.items():
+                if node_label not in all_slug_data:
+                    all_slug_data[node_label] = {}
+                all_slug_data[node_label].update(uri_slug_map)
+
+            # Merge URI property data
+            for node_label, prop_data in result.uri_property_data.items():
+                if node_label not in all_uri_property_data:
+                    all_uri_property_data[node_label] = {}
+                for prop, uri_values in prop_data.items():
+                    if prop not in all_uri_property_data[node_label]:
+                        all_uri_property_data[node_label][prop] = {}
+                    all_uri_property_data[node_label][prop].update(uri_values)
+
+            # Merge RDF types data
+            all_rdf_types_data.update(result.rdf_types_data)
+
+            # Merge external relationships
+            all_external_relationships.extend(result.external_relationships)
+
+            # Add to Neo4j with commits after each batch to flush buffer
+            batch_size = export_config.config.neo4j_connection.batch_size
+            triple_count = 0
+
+            for triple in result.graph:
+                neo4j_graph.add(triple)
+                triple_count += 1
+
+                # Commit after each batch to flush buffer completely
+                if triple_count % batch_size == 0:
+                    neo4j_graph.commit()
+
+            # Final commit for any remaining triples
+            neo4j_graph.commit()
+
+            file_triple_count = len(result.graph)
+            total_triples += file_triple_count
+            total_filtered += result.filtered_count
+
+            if result.filtered_count > 0:
+                logger.info(f"✓ Added {file_triple_count} triples (filtered {result.filtered_count} ontology triples)")
+            else:
+                logger.info(f"✓ Added {file_triple_count} triples")
+            logger.info(f"  ✓ Committed in {(file_triple_count // batch_size) + 1} batches. Running total: {total_triples} triples")
+
+        except Exception as e:
+            logger.error(f"✗ Failed to export {ttl_file.name}: {e}")
+            continue
+
+    # Final summary
+    logger.info("\n" + "=" * 60)
+    logger.info(f"✓ Successfully exported {total_triples} triples to Neo4j!")
+    if total_filtered > 0:
+        logger.info(f"  (Filtered out {total_filtered} ontology declaration triples)")
+
+    return {
+        'slug_data': all_slug_data,
+        'multi_valued_data': all_multi_valued_data,
+        'uri_property_data': all_uri_property_data,
+        'rdf_types_data': all_rdf_types_data,
+        'external_relationships': all_external_relationships
+    }
+
+
+def apply_transformations(export_config: ExportConfig, transformation_data: TransformationData) -> None:
+    """
+    Apply all Neo4j transformations.
+
+    Args:
+        export_config: Export configuration
+        transformation_data: Aggregated data for transformations
+    """
+    # Create separate driver for transformations
+    driver = GraphDatabase.driver(
+        export_config.neo4j_uri,
+        auth=(export_config.neo4j_username, export_config.neo4j_password)
+    )
 
     try:
-        # Load configuration
+        # Create transformation pipeline
+        pipeline = TransformationPipeline(
+            driver=driver,
+            database=export_config.neo4j_database,
+            transformations=[
+                LabelMappingTransformation(),
+                AddExternalTypeLabelsTransformation(),
+                RemoveLabelsTransformation(),
+                SlugExtractionTransformation(),
+                ObjectUriPropertyTransformation(),
+                MultiValuedPropertiesTransformation(),
+                PropertyMappingTransformation(),
+                RelationshipTypeMappingTransformation(),
+                ReverseRelationshipsTransformation(),
+                InclusionFlatteningTransformation(),
+                CamelCaseConversionTransformation(),
+                ExternalRelationshipsTransformation(),
+                CleanupOrphanedResourceNodesTransformation(),
+                DropResourceConstraintTransformation(),
+            ]
+        )
+
+        # Execute all transformations
+        pipeline.execute(config=export_config.config, data=transformation_data)
+
+        # Verify export
+        pipeline.verify_export()
+
+    finally:
+        driver.close()
+
+
+def finalize_export(neo4j_graph: Graph, neo4j_store: Neo4jStore) -> None:
+    """
+    Finalize the export by committing and closing the Neo4j store.
+
+    Args:
+        neo4j_graph: Neo4j RDF graph
+        neo4j_store: Neo4j store instance
+    """
+    logger.info("\nClosing Neo4j store...")
+    try:
+        neo4j_graph.commit()
+        logger.info("✓ Final buffer flushed")
+    except Exception as e:
+        logger.warning(f"⚠️  Final commit failed (data should already be in Neo4j from per-file commits): {e}")
+
+    try:
+        neo4j_store.close()
+        logger.info("✓ Store closed")
+    except Exception as e:
+        logger.warning(f"⚠️  Store close failed (non-critical): {e}")
+
+
+# ============================================================================
+# MAIN FUNCTION
+# ============================================================================
+
+def main():
+    """Export Oak Curriculum Ontology to Neo4j AuraDB."""
+
+    # Configure logging
+    logging.basicConfig(
+        level=logging.INFO,
+        format='%(asctime)s - %(levelname)s - %(message)s'
+    )
+
+    try:
+        # Parse arguments
+        args = parse_arguments()
         project_root = Path(__file__).parent.parent
         config_path = Path(args.config)
 
-        if not config_path.exists():
-            logger.error(f"Configuration file not found: {config_path}")
-            sys.exit(1)
-
-        logger.info("=" * 60)
-        logger.info("RDF/TTL Curriculum Data → Neo4j AuraDB Export")
-        logger.info("=" * 60)
-
         # Load and validate configuration
-        export_config = ExportConfig(config_path)
-        logger.info(f"✓ Configuration loaded and validated")
-        logger.info(f"Target: {export_config.neo4j_uri}")
-        logger.info(f"Database: {export_config.neo4j_database}")
-        logger.info("-" * 60)
+        export_config = load_and_validate_config(config_path)
 
-        # Clear data if requested
-        if args.clear:
-            # Get all target labels from label mapping(s)
-            if isinstance(export_config.config.label_mapping, list):
-                labels_to_clear = [lm.target_label for lm in export_config.config.label_mapping]
-            else:
-                labels_to_clear = export_config.config.label_mapping.target_label
-
-            clear_neo4j_data(
-                export_config.get_auth_data(),
-                labels_to_clear
-            )
+        # Clear database if requested
+        clear_database_if_requested(export_config, args.clear)
 
         # Discover TTL files
-        rdf_loader = RDFLoader(export_config.config.rdf_source, project_root, export_config.config)
-        ttl_files = rdf_loader.discover_files()
+        ttl_files = discover_ttl_files(export_config, project_root)
 
-        logger.info(f"Found {len(ttl_files)} TTL files to export:")
-        for f in ttl_files:
-            logger.info(f"  - {f.relative_to(project_root)}")
-
-        # Connect to Neo4j and load data (don't use context manager - keep store open)
+        # Connect to Neo4j
         logger.info("\n" + "=" * 60)
         logger.info("Connecting to AuraDB...")
 
-        # Create store config
         store_config = Neo4jStoreConfig(
             auth_data=export_config.get_auth_data(),
             custom_prefixes=export_config.config.rdf_source.namespaces,
@@ -1663,155 +2028,25 @@ Examples:
             batch_size=export_config.config.neo4j_connection.batch_size
         )
 
-        # Create store and graph (like original)
         neo4j_store = Neo4jStore(config=store_config)
         neo4j_graph = Graph(store=neo4j_store, identifier=export_config.neo4j_uri)
-
         logger.info("✓ Connected to AuraDB!")
 
-        # Load each TTL file
-        total_triples = 0
-        total_filtered = 0
-        all_multi_valued_data = {}  # Accumulate multi-valued properties from all files
-        all_slug_data = {}  # Accumulate slug data from all files
-        all_uri_property_data = {}  # Accumulate object URI properties from all files
-        all_rdf_types_data = {}  # Accumulate RDF type information from all files
-        all_external_relationships = []  # Accumulate external relationships from all files
-
-        logger.info("\n" + "=" * 60)
-        for ttl_file in ttl_files:
-            logger.info(f"\nExporting: {ttl_file.name}")
-            logger.info("-" * 40)
-
-            try:
-                # Load and filter (now returns multi-valued, slug, URI property data, and external relationships)
-                filtered_graph, original_count, filtered_count, multi_valued_data, slug_data, uri_property_data, rdf_types_data, external_relationships = rdf_loader.load_and_filter(ttl_file)
-
-                # Merge multi-valued data
-                for node_label, prop_data in multi_valued_data.items():
-                    if node_label not in all_multi_valued_data:
-                        all_multi_valued_data[node_label] = {}
-                    for prop, uri_values in prop_data.items():
-                        if prop not in all_multi_valued_data[node_label]:
-                            all_multi_valued_data[node_label][prop] = {}
-                        all_multi_valued_data[node_label][prop].update(uri_values)
-
-                # Merge slug data
-                for node_label, uri_slug_map in slug_data.items():
-                    if node_label not in all_slug_data:
-                        all_slug_data[node_label] = {}
-                    all_slug_data[node_label].update(uri_slug_map)
-
-                # Merge URI property data
-                for node_label, prop_data in uri_property_data.items():
-                    if node_label not in all_uri_property_data:
-                        all_uri_property_data[node_label] = {}
-                    for prop, uri_values in prop_data.items():
-                        if prop not in all_uri_property_data[node_label]:
-                            all_uri_property_data[node_label][prop] = {}
-                        all_uri_property_data[node_label][prop].update(uri_values)
-
-                # Merge RDF types data
-                all_rdf_types_data.update(rdf_types_data)
-
-                # Merge external relationships
-                all_external_relationships.extend(external_relationships)
-
-                # Add to Neo4j with commits after each batch to flush buffer
-                batch_size = export_config.config.neo4j_connection.batch_size
-                triple_count = 0
-
-                for triple in filtered_graph:
-                    neo4j_graph.add(triple)
-                    triple_count += 1
-
-                    # Commit after each batch to flush buffer completely
-                    if triple_count % batch_size == 0:
-                        neo4j_graph.commit()
-
-                # Final commit for any remaining triples
-                neo4j_graph.commit()
-
-                file_triple_count = len(filtered_graph)
-                total_triples += file_triple_count
-                total_filtered += filtered_count
-
-                if filtered_count > 0:
-                    logger.info(f"✓ Added {file_triple_count} triples (filtered {filtered_count} ontology triples)")
-                else:
-                    logger.info(f"✓ Added {file_triple_count} triples")
-                logger.info(f"  ✓ Committed in {(file_triple_count // batch_size) + 1} batches. Running total: {total_triples} triples")
-
-            except Exception as e:
-                logger.error(f"✗ Failed to export {ttl_file.name}: {e}")
-                continue
-
-        # Final summary
-        logger.info("\n" + "=" * 60)
-        logger.info(f"✓ Successfully exported {total_triples} triples to Neo4j!")
-        if total_filtered > 0:
-            logger.info(f"  (Filtered out {total_filtered} ontology declaration triples)")
-
-        # Create separate driver for transformations (like original version)
-        # IMPORTANT: Store stays open!
-        driver = GraphDatabase.driver(
-            export_config.neo4j_uri,
-            auth=(export_config.neo4j_username, export_config.neo4j_password)
+        # Load and aggregate all TTL files
+        transformation_data = load_and_aggregate_ttl_files(
+            ttl_files,
+            export_config,
+            project_root,
+            neo4j_graph
         )
 
-        try:
-            # Create transformation pipeline
-            pipeline = TransformationPipeline(
-                driver=driver,
-                database=export_config.neo4j_database,
-                transformations=[
-                    LabelMappingTransformation(),
-                    AddExternalTypeLabelsTransformation(),  # Add type labels for external ontology classes (e.g., Scheme)
-                    RemoveLabelsTransformation(),
-                    SlugExtractionTransformation(),
-                    ObjectUriPropertyTransformation(),
-                    MultiValuedPropertiesTransformation(),  # Run BEFORE PropertyMapping so arrays are consolidated first
-                    PropertyMappingTransformation(),  # Run AFTER MultiValued so property renaming works on consolidated arrays
-                    RelationshipTypeMappingTransformation(),
-                    ReverseRelationshipsTransformation(),
-                    InclusionFlatteningTransformation(),
-                    CamelCaseConversionTransformation(),
-                    ExternalRelationshipsTransformation(),  # Create relationships to existing external nodes
-                    CleanupOrphanedResourceNodesTransformation(),  # Cleanup duplicate/orphaned Resource nodes
-                    DropResourceConstraintTransformation(),  # Must run LAST - drop unused constraint
-                ]
-            )
+        # Apply transformations
+        apply_transformations(export_config, transformation_data)
 
-            # Execute all transformations
-            pipeline.execute(
-                config=export_config.config,
-                slug_data=all_slug_data,
-                multi_valued_data=all_multi_valued_data,
-                uri_property_data=all_uri_property_data,
-                rdf_types_data=all_rdf_types_data,
-                external_relationships=all_external_relationships
-            )
+        # Finalize export
+        finalize_export(neo4j_graph, neo4j_store)
 
-            # Verify export
-            pipeline.verify_export()
-
-        finally:
-            driver.close()
-            # Final commit to flush any remaining buffer before closing
-            # Note: Data should already be committed via per-file commits above
-            logger.info("\nClosing Neo4j store...")
-            try:
-                neo4j_graph.commit()
-                logger.info("✓ Final buffer flushed")
-            except Exception as e:
-                logger.warning(f"⚠️  Final commit failed (data should already be in Neo4j from per-file commits): {e}")
-
-            try:
-                neo4j_store.close()
-                logger.info("✓ Store closed")
-            except Exception as e:
-                logger.warning(f"⚠️  Store close failed (non-critical): {e}")
-
+        # Success message
         logger.info("\n" + "=" * 60)
         logger.info("✅ EXPORT COMPLETE!")
         logger.info("\nNext steps:")
