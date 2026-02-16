@@ -186,7 +186,7 @@ class TTLMerger:
                     continue
 
             # Otherwise treat as a URI that needs resolution
-            self.parse_with_imports(obj)
+            self.parse_with_imports(str(obj))
 
     def merge(self, root_paths: list[str]) -> None:
         """Merge TTL files from the given root paths."""
