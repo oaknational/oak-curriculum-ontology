@@ -310,13 +310,13 @@ oak-curriculum-ontology-public/
 │
 ├── data/
 │   ├── temporal-structure.ttl            # Phases, Key Stages, Year Groups
-│   ├── programme-structure.ttl           # Exam boards, tiers
-│   ├── threads.ttl                       # Cross-cutting themes
+│   ├── programme-structure.ttl           # Exam Boards, Tiers
+│   ├── threads.ttl                       # Cross-cutting Threads
 │   └── subjects/
 │       ├── english/
-│       │   ├── english-programme-structure.ttl
-│       │   ├── english-knowledge-taxonomy.ttl
-│       │   └── english-key-stage-*.ttl   # KS1-KS4 programme instances
+│       │   ├── english-programme-structure.ttl     # Subject, Schemes, Progressions
+│       │   ├── english-knowledge-taxonomy.ttl      # Strands, Sub-Strands, Content Descriptors
+│       │   └── english-key-stage-*.ttl             # KS1-KS4 Programmes, Units, Unit Variants, Lessons
 │       ├── mathematics/
 │       │   ├── mathematics-programme-structure.ttl
 │       │   ├── mathematics-knowledge-taxonomy.ttl
@@ -347,19 +347,13 @@ oak-curriculum-ontology-public/
 │           └── citizenship-key-stage-*.ttl
 │
 ├── scripts/
-│   ├── validate.sh                       # Local SHACL validation
+│   ├── validate.sh                      # Local SHACL validation
 │   ├── export_to_neo4j.py               # Export to Neo4j with transformations
 │   ├── export_to_neo4j_config.json      # Neo4j export configuration
-│   ├── export_to_neo4j_ARCHITECTURE.md  # Neo4j export architecture docs
+│   ├── export_to_neo4j_ARCHITECTURE.md  # Neo4j export architecture documentation
 │   ├── merge_ttls_with_imports.py       # Merge TTL files with import resolution
 │   ├── build_static_data.sh             # Generate distribution files (for releases)
-│   └── README.md                         # Scripts documentation
-│
-├── distributions/ (published via GitHub Releases)
-│   ├── oak-curriculum-full.ttl          # Complete dataset (Turtle)
-│   ├── oak-curriculum-full.jsonld       # Complete dataset (JSON-LD)
-│   ├── oak-curriculum-full.rdf          # Complete dataset (RDF/XML)
-│   └── oak-curriculum-full.nt           # Complete dataset (N-Triples)
+│   └── README.md                        # Scripts documentation
 │
 ├── docs/
 │   └── standards-compliance.md           # W3C standards documentation
@@ -373,6 +367,7 @@ oak-curriculum-ontology-public/
 ├── LICENSE-DATA                          # OGL 3.0 (for ontology/data)
 ├── CITATION.cff                          # Citation metadata
 ├── CONTRIBUTING.md                       # Contribution guidelines
+├── SECURITY.md                           # Policy and vulnerability reporting
 └── README.md                             # This file
 ```
 
@@ -380,7 +375,7 @@ oak-curriculum-ontology-public/
 
 ## Standards Compliance
 
-This ontology achieves **industry-leading compliance** with W3C Recommendations and international standards:
+This ontology achieves compliance with W3C Recommendations and international standards:
 
 ### W3C Standards
 
@@ -405,12 +400,11 @@ This ontology achieves **industry-leading compliance** with W3C Recommendations 
 
 - **Automated CI/CD** - GitHub Actions validate every commit
 - **SHACL Constraints** - 26 shapes ensure structural integrity
-- **Type Safety** - Modern Python type hints throughout scripts
 - **Test Coverage** - Validation shapes cover all major classes
 
 📋 **[Read full standards compliance documentation →](docs/standards-compliance.md)**
 
-This comprehensive document explains:
+This document explains:
 - How each W3C standard is implemented
 - Examples of standard usage in the ontology
 - Benefits of standards compliance
@@ -437,17 +431,8 @@ Generated automatically via WIDOCO on each release, includes:
 - 📋 **[Standards Compliance](docs/standards-compliance.md)** - W3C standards and semantic web best practices
 - 🔧 **[Scripts and Tools](scripts/README.md)** - Validation, export, and build utilities
 - 🏗️ **[Neo4j Export Architecture](scripts/export_to_neo4j_ARCHITECTURE.md)** - Detailed export pipeline documentation
+- 📖 **[Citation Metadata](CITATION.cff)** - Machine-readable citation for academic use
 - 🤝 **[Contributing Guidelines](CONTRIBUTING.md)** - How to contribute to this project
-
-### Quick Reference
-
-| Documentation | Purpose |
-|--------------|---------|
-| [README.md](README.md) | This file - project overview and getting started |
-| [standards-compliance.md](docs/standards-compliance.md) | W3C standards implementation details |
-| [scripts/README.md](scripts/README.md) | Tool usage and CLI documentation |
-| [CITATION.cff](CITATION.cff) | Citation metadata for academic use |
-| [CONTRIBUTING.md](CONTRIBUTING.md) | Contribution guidelines |
 
 ---
 
@@ -514,27 +499,9 @@ All Python scripts, GitHub Actions workflows, and software tools are licensed un
 
 ## Citation
 
-If you use this ontology in your research, please cite:
+If you use this ontology in your research, please cite it using the "Cite this repository" button on GitHub, which provides citations in BibTeX, APA, Chicago, and other formats.
 
-```bibtex
-@dataset{oak_curriculum_ontology_2026,
-  author = {{Oak National Academy}},
-  title = {Oak Curriculum Ontology},
-  year = {2026},
-  version = {0.1.0},
-  url = {https://oaknational.github.io/oak-curriculum-ontology-public/},
-  doi = {10.5281/zenodo.XXXXXXX},
-  note = {A formal semantic representation of the Oak Curriculum and linkage to the National Curriculum for England (2014)}
-}
-```
-
-**APA Format:**
-Oak National Academy. (2026). *Oak Curriculum Ontology* (Version 0.1.0) [Data set]. https://oaknational.github.io/oak-curriculum-ontology-public/
-
-**Chicago Format:**
-Oak National Academy. "Oak Curriculum Ontology." Version 0.1.0, 2026. https://oaknational.github.io/oak-curriculum-ontology-public/.
-
-See [CITATION.cff](CITATION.cff) for machine-readable citation metadata compatible with GitHub, Zenodo, and other research platforms.
+Alternatively, see [CITATION.cff](CITATION.cff) for machine-readable citation metadata.
 
 ---
 
@@ -549,28 +516,15 @@ See [CITATION.cff](CITATION.cff) for machine-readable citation metadata compatib
 - ✅ Neo4j export tooling
 - ✅ Standards compliance documentation
 
-### v0.2.0 (Planned - Q2 2026)
-- 🚧 Additional subjects (Computing, Art, Music, PE, Languages)
-- 🚧 Expanded SHACL validation (pedagogical constraints)
-- 🚧 Public SPARQL endpoint deployment
-- 🚧 Enhanced documentation with tutorials
-- 🚧 API examples for common integrations
-- 🚧 Performance benchmarks
-
-### v1.0.0 (Planned - Q4 2026)
-- 🔮 Complete subject coverage (14 National Curriculum subjects)
-- 🔮 Comprehensive validation suite
-- 🔮 Production-grade SPARQL endpoint with SLA
-- 🔮 Content negotiation for URIs
-- 🔮 Integration examples with major LMS platforms
-- 🔮 Research case studies and white papers
-
-### Future Considerations
-- Learning resource integration (videos, worksheets, assessments)
-- Cross-curriculum skill taxonomy
+### Future Plans
+- Additional subjects (Computing, Art, Music, PE, Languages etc.)
+- Public SPARQL endpoint deployment
+- HTTP content negotiation supporting HTML, TTL, JSON-LD, RDF/XML and N-Triples
+- Learning resource integration using LRMI standards (videos, worksheets, assessments etc.)
+- Cross-curriculum concepts and skills
 - Progression models and learning pathways
 - Assessment objective mappings
-- Multi-language support (Welsh, Gaelic)
+- Enhanced documentation
 
 **Feedback welcome!** If you have suggestions for the roadmap, [open an issue](https://github.com/oaknational/oak-curriculum-ontology-public/issues).
 
@@ -603,11 +557,9 @@ Special thanks to the broader semantic web and open education communities for th
 For questions, suggestions, or collaboration opportunities:
 
 - **GitHub Issues**: [Report an issue](https://github.com/oaknational/oak-curriculum-ontology-public/issues)
-- **Email**: Contact Oak National Academy via [thenational.academy](https://www.thenational.academy/contact)
 - **Documentation**: [https://oaknational.github.io/oak-curriculum-ontology-public/](https://oaknational.github.io/oak-curriculum-ontology-public/)
 
 ---
 
-**Developed with ❤️ by [Oak National Academy](https://thenational.academy)**
+**Developed by [Oak National Academy](https://thenational.academy)**
 
-*Making curriculum data open, interoperable, and accessible to all*
