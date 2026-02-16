@@ -13,7 +13,7 @@ import argparse
 import json
 import logging
 from pathlib import Path
-from typing import Optional, Any, Union, TypedDict
+from typing import Optional, Any, Union, TypedDict, Callable, TypeVar, Self
 from contextlib import contextmanager
 from abc import ABC, abstractmethod
 from dataclasses import dataclass
@@ -23,7 +23,7 @@ from rdflib.collection import Collection
 from rdflib_neo4j import Neo4jStoreConfig, Neo4jStore, HANDLE_VOCAB_URI_STRATEGY
 from dotenv import load_dotenv
 from pydantic import BaseModel, Field, field_validator
-from neo4j import GraphDatabase
+from neo4j import GraphDatabase, Driver, Session
 from neo4j.exceptions import ServiceUnavailable, TransientError, AuthError, CypherSyntaxError
 from tqdm import tqdm
 import time
@@ -161,7 +161,10 @@ class TransformationData(TypedDict, total=False):
 # UTILITY FUNCTIONS - Error Handling & Retry
 # ============================================================================
 
-def retry_on_transient_error(func, *args, max_retries: int = MAX_RETRIES, **kwargs):
+# TypeVar for generic return type
+T = TypeVar('T')
+
+def retry_on_transient_error(func: Callable[..., T], *args: Any, max_retries: int = MAX_RETRIES, **kwargs: Any) -> T:
     """
     Retry a function on transient Neo4j errors with exponential backoff.
 
@@ -207,6 +210,7 @@ def retry_on_transient_error(func, *args, max_retries: int = MAX_RETRIES, **kwar
     # Should not reach here but satisfy type checker
     if last_exception:
         raise last_exception
+    raise RuntimeError("Retry logic failed without exception")
 
 
 # ============================================================================
@@ -216,7 +220,7 @@ def retry_on_transient_error(func, *args, max_retries: int = MAX_RETRIES, **kwar
 class ExportConfig:
     """Manages configuration loading and environment variables."""
 
-    def __init__(self, config_path: Path, env_path: Optional[Path] = None):
+    def __init__(self, config_path: Path, env_path: Optional[Path] = None) -> None:
         """
         Load configuration from JSON file and environment.
 
@@ -257,6 +261,8 @@ class ExportConfig:
 
     def get_auth_data(self) -> dict[str, str]:
         """Get Neo4j authentication data."""
+        assert self.neo4j_uri is not None, "NEO4J_URI must be set"
+        assert self.neo4j_password is not None, "NEO4J_PASSWORD must be set"
         return {
             'uri': self.neo4j_uri,
             'database': self.neo4j_database,
@@ -272,7 +278,7 @@ class ExportConfig:
 class RDFLoader:
     """Handles TTL file discovery, loading, and filtering."""
 
-    def __init__(self, config: RDFSourceConfig, project_root: Path, export_config: Optional['Neo4jExportConfig'] = None):
+    def __init__(self, config: RDFSourceConfig, project_root: Path, export_config: Optional['Neo4jExportConfig'] = None) -> None:
         """
         Initialize RDF loader.
 
@@ -549,7 +555,7 @@ class RDFLoader:
             external_relationships=external_relationships
         )
 
-    def _normalize_text_literals(self, graph: Graph):
+    def _normalize_text_literals(self, graph: Graph) -> None:
         """Normalize text literals by removing excess whitespace and line breaks."""
         from rdflib import Literal
 
@@ -597,7 +603,7 @@ class RDFLoader:
         if not self.export_config or not self.export_config.multi_valued_properties:
             return {}
 
-        multi_valued_data = {}
+        multi_valued_data: dict[str, dict[str, dict[str, list[str]]]] = {}
         triples_to_remove = []
 
         for node_label, properties in self.export_config.multi_valued_properties.items():
@@ -685,7 +691,7 @@ class RDFLoader:
         if not self.export_config or not self.export_config.extract_object_uris_as_properties:
             return {}
 
-        uri_property_data = {}
+        uri_property_data: dict[str, dict[str, dict[str, str]]] = {}
         triples_to_remove = []
 
         for node_label, predicate_mappings in self.export_config.extract_object_uris_as_properties.items():
@@ -818,7 +824,7 @@ class RDFLoader:
 class Neo4jConnection:
     """Context manager for Neo4j RDF store connection (rdflib-neo4j only)."""
 
-    def __init__(self, auth_data: dict[str, str], custom_prefixes: dict[str, str], config: Neo4jConnectionConfig):
+    def __init__(self, auth_data: dict[str, str], custom_prefixes: dict[str, str], config: Neo4jConnectionConfig) -> None:
         """
         Initialize Neo4j RDF store connection.
 
@@ -830,10 +836,10 @@ class Neo4jConnection:
         self.auth_data = auth_data
         self.custom_prefixes = custom_prefixes
         self.config = config
-        self.store = None
-        self.graph = None
+        self.store: Optional[Neo4jStore] = None
+        self.graph: Optional[Graph] = None
 
-    def __enter__(self):
+    def __enter__(self) -> Self:
         """Open Neo4j RDF store."""
         # Create rdflib-neo4j store
         store_config = Neo4jStoreConfig(
@@ -848,12 +854,12 @@ class Neo4jConnection:
 
         return self
 
-    def __exit__(self, exc_type, exc_val, exc_tb):
+    def __exit__(self, exc_type: Any, exc_val: Any, exc_tb: Any) -> None:
         """Close Neo4j RDF store."""
         if self.store:
             self.store.close()
 
-    def commit(self):
+    def commit(self) -> None:
         """Commit RDF graph changes."""
         if self.graph:
             self.graph.commit()
@@ -886,7 +892,7 @@ class Transformation(ABC):
         pass
 
     @abstractmethod
-    def execute(self, session, config: Neo4jExportConfig, main_labels: list[str], data: TransformationData) -> int:
+    def execute(self, session: Session, config: Neo4jExportConfig, main_labels: list[str], data: TransformationData) -> int:
         """
         Execute transformation.
 
@@ -901,7 +907,7 @@ class Transformation(ABC):
         """
         pass
 
-    def _execute_count_query(self, session, query: str, params: Optional[dict] = None,
+    def _execute_count_query(self, session: Session, query: str, params: Optional[dict[str, Any]] = None,
                             operation_desc: str = "") -> int:
         """
         Execute a Cypher query that returns a count, with standardized logging.
@@ -941,7 +947,7 @@ class LabelMappingTransformation(Transformation):
     def should_run(self, config: Neo4jExportConfig) -> bool:
         return config.label_mapping is not None
 
-    def execute(self, session, config: Neo4jExportConfig, main_labels: list[str], data: TransformationData) -> int:
+    def execute(self, session: Session, config: Neo4jExportConfig, main_labels: list[str], data: TransformationData) -> int:
         # Handle both single label mapping and list of label mappings
         label_configs = config.label_mapping if isinstance(config.label_mapping, list) else [config.label_mapping]
 
@@ -978,7 +984,7 @@ class RemoveLabelsTransformation(Transformation):
     def should_run(self, config: Neo4jExportConfig) -> bool:
         return bool(config.remove_labels)
 
-    def execute(self, session, config: Neo4jExportConfig, main_labels: list[str], data: TransformationData) -> int:
+    def execute(self, session: Session, config: Neo4jExportConfig, main_labels: list[str], data: TransformationData) -> int:
         total_removed = 0
         for main_label in main_labels:
             for label_to_remove in config.remove_labels:
@@ -1009,7 +1015,7 @@ class SlugExtractionTransformation(Transformation):
     def should_run(self, config: Neo4jExportConfig) -> bool:
         return bool(config.uri_slug_extraction)
 
-    def execute(self, session, config: Neo4jExportConfig, main_labels: list[str], data: TransformationData) -> int:
+    def execute(self, session: Session, config: Neo4jExportConfig, main_labels: list[str], data: TransformationData) -> int:
         slug_data = data.get('slug_data', {})
         if not slug_data:
             return 0
@@ -1061,7 +1067,7 @@ class ObjectUriPropertyTransformation(Transformation):
     def should_run(self, config: Neo4jExportConfig) -> bool:
         return bool(config.extract_object_uris_as_properties)
 
-    def execute(self, session, config: Neo4jExportConfig, main_labels: list[str], data: TransformationData) -> int:
+    def execute(self, session: Session, config: Neo4jExportConfig, main_labels: list[str], data: TransformationData) -> int:
         uri_property_data = data.get('uri_property_data', {})
         if not uri_property_data:
             return 0
@@ -1099,7 +1105,7 @@ class PropertyMappingTransformation(Transformation):
     def should_run(self, config: Neo4jExportConfig) -> bool:
         return bool(config.property_mappings)
 
-    def execute(self, session, config: Neo4jExportConfig, main_labels: list[str], data: TransformationData) -> int:
+    def execute(self, session: Session, config: Neo4jExportConfig, main_labels: list[str], data: TransformationData) -> int:
         total_renamed = 0
 
         for main_label in main_labels:
@@ -1148,7 +1154,7 @@ class MultiValuedPropertiesTransformation(Transformation):
     def should_run(self, config: Neo4jExportConfig) -> bool:
         return bool(config.multi_valued_properties)
 
-    def execute(self, session, config: Neo4jExportConfig, main_labels: list[str], data: TransformationData) -> int:
+    def execute(self, session: Session, config: Neo4jExportConfig, main_labels: list[str], data: TransformationData) -> int:
         multi_valued_data = data.get('multi_valued_data', {})
         if not multi_valued_data:
             return 0
@@ -1183,7 +1189,7 @@ class RelationshipTypeMappingTransformation(Transformation):
     def should_run(self, config: Neo4jExportConfig) -> bool:
         return bool(config.relationship_type_mappings)
 
-    def execute(self, session, config: Neo4jExportConfig, main_labels: list[str], data: TransformationData) -> int:
+    def execute(self, session: Session, config: Neo4jExportConfig, main_labels: list[str], data: TransformationData) -> int:
         total_renamed = 0
 
         for old_type, mapping in config.relationship_type_mappings.items():
@@ -1236,7 +1242,7 @@ class ReverseRelationshipsTransformation(Transformation):
     def should_run(self, config: Neo4jExportConfig) -> bool:
         return bool(config.reverse_relationships)
 
-    def execute(self, session, config: Neo4jExportConfig, main_labels: list[str], data: TransformationData) -> int:
+    def execute(self, session: Session, config: Neo4jExportConfig, main_labels: list[str], data: TransformationData) -> int:
         total_reversed = 0
         for old_type, new_type in config.reverse_relationships.items():
             result = session.run(f"""
@@ -1265,7 +1271,7 @@ class InclusionFlatteningTransformation(Transformation):
     def should_run(self, config: Neo4jExportConfig) -> bool:
         return bool(config.inclusion_flattening)
 
-    def execute(self, session, config: Neo4jExportConfig, main_labels: list[str], data: TransformationData) -> int:
+    def execute(self, session: Session, config: Neo4jExportConfig, main_labels: list[str], data: TransformationData) -> int:
         total_flattened = 0
 
         for flattening_config in config.inclusion_flattening:
@@ -1309,7 +1315,7 @@ class CamelCaseConversionTransformation(Transformation):
     def should_run(self, config: Neo4jExportConfig) -> bool:
         return True  # Always run to standardize relationship names
 
-    def execute(self, session, config: Neo4jExportConfig, main_labels: list[str], data: TransformationData) -> int:
+    def execute(self, session: Session, config: Neo4jExportConfig, main_labels: list[str], data: TransformationData) -> int:
         # Get all relationship types
         result = session.run("CALL db.relationshipTypes() YIELD relationshipType RETURN relationshipType")
         rel_types = [record["relationshipType"] for record in result]
@@ -1351,7 +1357,7 @@ class CleanupOrphanedResourceNodesTransformation(Transformation):
     def should_run(self, config: Neo4jExportConfig) -> bool:
         return True  # Always cleanup
 
-    def execute(self, session, config: Neo4jExportConfig, main_labels: list[str], data: TransformationData) -> int:
+    def execute(self, session: Session, config: Neo4jExportConfig, main_labels: list[str], data: TransformationData) -> int:
         # Delete nodes that have ONLY the Resource label (garbage nodes from import)
         # After transformations, all legitimate nodes should have additional labels
         result = session.run("""
@@ -1378,7 +1384,7 @@ class DropResourceConstraintTransformation(Transformation):
     def should_run(self, config: Neo4jExportConfig) -> bool:
         return True  # Always drop
 
-    def execute(self, session, config: Neo4jExportConfig, main_labels: list[str], data: TransformationData) -> int:
+    def execute(self, session: Session, config: Neo4jExportConfig, main_labels: list[str], data: TransformationData) -> int:
         # Drop the n10s_unique_uri constraint if it exists
         try:
             session.run("DROP CONSTRAINT n10s_unique_uri IF EXISTS")
@@ -1398,7 +1404,7 @@ class AddExternalTypeLabelsTransformation(Transformation):
     def should_run(self, config: Neo4jExportConfig) -> bool:
         return True  # Always run to add missing type labels
 
-    def execute(self, session, config: Neo4jExportConfig, main_labels: list[str], data: TransformationData) -> int:
+    def execute(self, session: Session, config: Neo4jExportConfig, main_labels: list[str], data: TransformationData) -> int:
         """
         Add type labels for nodes using external ontology classes.
         rdflib-neo4j only creates labels for types in the local ontology (oakcurric:),
@@ -1413,7 +1419,7 @@ class AddExternalTypeLabelsTransformation(Transformation):
         total_labeled = 0
 
         # Group URIs by their type label
-        type_to_uris = {}
+        type_to_uris: dict[str, list[str]] = {}
         for uri, type_label in rdf_types_data.items():
             if type_label not in type_to_uris:
                 type_to_uris[type_label] = []
@@ -1456,7 +1462,7 @@ class ExternalRelationshipsTransformation(Transformation):
     def should_run(self, config: Neo4jExportConfig) -> bool:
         return True  # Run if external relationships exist
 
-    def _pre_cache_target_labels(self, session, target_uris: list[str]) -> dict[str, list[str]]:
+    def _pre_cache_target_labels(self, session: Session, target_uris: list[str]) -> dict[str, list[str]]:
         """
         Pre-cache all target node labels in a single query.
 
@@ -1523,7 +1529,7 @@ class ExternalRelationshipsTransformation(Transformation):
         # No transformation needed
         return predicate_name, False
 
-    def execute(self, session, config: Neo4jExportConfig, main_labels: list[str], data: TransformationData) -> int:
+    def execute(self, session: Session, config: Neo4jExportConfig, main_labels: list[str], data: TransformationData) -> int:
         external_rels = data.get('external_relationships', [])
         if not external_rels:
             logger.info("No external relationships to create")
@@ -1542,7 +1548,7 @@ class ExternalRelationshipsTransformation(Transformation):
 
         # Group relationships by (rel_type, should_reverse) for batched execution
         # Key: (rel_type, should_reverse), Value: [(subject_uri, object_uri), ...]
-        grouped_rels: Dict[tuple, List[tuple]] = {}
+        grouped_rels: dict[tuple[str, bool], list[tuple[str, str]]] = {}
         missing_targets = []
 
         for subject_uri, predicate_uri, object_uri in external_rels:
@@ -1630,7 +1636,7 @@ class TransformationPipeline:
     Follows the Strategy pattern with a list of transformation strategies.
     """
 
-    def __init__(self, driver, database: str, transformations: list[Transformation]):
+    def __init__(self, driver: Driver, database: str, transformations: list[Transformation]) -> None:
         """
         Initialize pipeline.
 
@@ -1643,7 +1649,7 @@ class TransformationPipeline:
         self.database = database
         self.transformations = transformations
 
-    def _ensure_uri_index(self, session, main_labels: list[str]) -> None:
+    def _ensure_uri_index(self, session: Session, main_labels: list[str]) -> None:
         """
         Create index on uri property for fast lookups during transformations.
         This is CRITICAL for performance - without it, URI lookups are O(n) full scans.
@@ -1696,7 +1702,7 @@ class TransformationPipeline:
         logger.info("\n" + "=" * 60)
         logger.info("✓ All transformations complete")
 
-    def verify_export(self):
+    def verify_export(self) -> None:
         """Verify export by checking node counts."""
         logger.info("\n" + "=" * 60)
         logger.info("Verifying export...")
@@ -1881,7 +1887,7 @@ def clear_database_if_requested(export_config: ExportConfig, should_clear: bool)
     if isinstance(export_config.config.label_mapping, list):
         labels_to_clear = [lm.target_label for lm in export_config.config.label_mapping]
     else:
-        labels_to_clear = export_config.config.label_mapping.target_label
+        labels_to_clear = [export_config.config.label_mapping.target_label]
 
     clear_neo4j_data(export_config.get_auth_data(), labels_to_clear)
 
@@ -1929,11 +1935,11 @@ def load_and_aggregate_ttl_files(
 
     total_triples = 0
     total_filtered = 0
-    all_multi_valued_data: dict = {}
-    all_slug_data: dict = {}
-    all_uri_property_data: dict = {}
-    all_rdf_types_data: dict = {}
-    all_external_relationships: list = []
+    all_multi_valued_data: dict[str, dict[str, dict[str, list[str]]]] = {}
+    all_slug_data: dict[str, dict[str, str]] = {}
+    all_uri_property_data: dict[str, dict[str, dict[str, str]]] = {}
+    all_rdf_types_data: dict[str, str] = {}
+    all_external_relationships: list[tuple[str, str, str]] = []
 
     logger.info("\n" + "=" * 60)
     logger.info("Loading TTL files...")
@@ -1963,13 +1969,13 @@ def load_and_aggregate_ttl_files(
                 all_slug_data[node_label].update(uri_slug_map)
 
             # Merge URI property data
-            for node_label, prop_data in result.uri_property_data.items():
+            for node_label, prop_data_uri in result.uri_property_data.items():
                 if node_label not in all_uri_property_data:
                     all_uri_property_data[node_label] = {}
-                for prop, uri_values in prop_data.items():
+                for prop, uri_values_single in prop_data_uri.items():
                     if prop not in all_uri_property_data[node_label]:
                         all_uri_property_data[node_label][prop] = {}
-                    all_uri_property_data[node_label][prop].update(uri_values)
+                    all_uri_property_data[node_label][prop].update(uri_values_single)
 
             # Merge RDF types data
             all_rdf_types_data.update(result.rdf_types_data)
@@ -2030,6 +2036,8 @@ def apply_transformations(export_config: ExportConfig, transformation_data: Tran
         transformation_data: Aggregated data for transformations
     """
     # Create separate driver for transformations
+    assert export_config.neo4j_uri is not None, "NEO4J_URI must be set"
+    assert export_config.neo4j_password is not None, "NEO4J_PASSWORD must be set"
     try:
         driver = GraphDatabase.driver(
             export_config.neo4j_uri,
@@ -2109,7 +2117,7 @@ def finalize_export(neo4j_graph: Graph, neo4j_store: Neo4jStore) -> None:
 # MAIN FUNCTION
 # ============================================================================
 
-def main():
+def main() -> None:
     """Export Oak Curriculum Ontology to Neo4j AuraDB."""
 
     # Parse arguments first (before logging config)

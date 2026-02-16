@@ -37,3 +37,19 @@ dev = [
 [tool.ruff]
 line-length = 100
 target-version = "py312"
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+
+# Ignore missing type stubs for external libraries
+[[tool.mypy.overrides]]
+module = ["rdflib_neo4j", "rdflib_neo4j.*"]
+ignore_missing_imports = true
+
+[[tool.mypy.overrides]]
+module = ["tqdm", "tqdm.*"]
+ignore_missing_imports = true
