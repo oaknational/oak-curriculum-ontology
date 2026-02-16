@@ -3,7 +3,7 @@
 <!-- Version and Status Badges -->
 ![Version](https://img.shields.io/badge/version-0.1.0-orange)
 ![Status](https://img.shields.io/badge/status-early_release-yellow)
-![License: MIT + OGL-3.0](https://img.shields.io/badge/License-MIT%20%2B%20OGL--3.0-lightgrey.svg)
+![License: MIT + OGL-3.0](https://img.shields.io/badge/License-MIT%20%2B%20OGL--UK--3.0-lightgrey.svg)
 ![Python](https://img.shields.io/badge/python-3.12+-blue.svg)
 
 <!-- Build and Quality Badges -->
