@@ -24,6 +24,7 @@ from rdflib_neo4j import Neo4jStoreConfig, Neo4jStore, HANDLE_VOCAB_URI_STRATEGY
 from dotenv import load_dotenv
 from pydantic import BaseModel, Field, field_validator
 from neo4j import GraphDatabase
+from tqdm import tqdm
 
 # Logger instance - configured in main()
 logger = logging.getLogger(__name__)
@@ -1724,16 +1725,34 @@ def parse_arguments() -> argparse.Namespace:
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Examples:
+  # Basic export
   python scripts/export_to_neo4j.py --config scripts/export_to_neo4j_config.json
 
   # Clear database first, then export
   python scripts/export_to_neo4j.py --config scripts/export_to_neo4j_config.json --clear
+
+  # Dry run (validate without executing)
+  python scripts/export_to_neo4j.py --config scripts/export_to_neo4j_config.json --dry-run
+
+  # List files that would be processed
+  python scripts/export_to_neo4j.py --config scripts/export_to_neo4j_config.json --list-files
+
+  # Verbose logging
+  python scripts/export_to_neo4j.py --config scripts/export_to_neo4j_config.json --verbose
         """
     )
-    parser.add_argument('--clear', action='store_true',
-                        help='Clear data from Neo4j database before import (scope defined by config)')
     parser.add_argument('--config', type=str, required=True,
                         help='Path to configuration file (required)')
+    parser.add_argument('--clear', action='store_true',
+                        help='Clear data from Neo4j database before import (scope defined by config)')
+    parser.add_argument('--dry-run', action='store_true',
+                        help='Validate configuration and show what would be done without executing')
+    parser.add_argument('--list-files', action='store_true',
+                        help='List TTL files that would be processed and exit')
+    parser.add_argument('--verbose', '-v', action='store_true',
+                        help='Enable verbose debug logging')
+    parser.add_argument('--version', action='version', version='oak-curriculum-ontology 0.1.0',
+                        help='Show version and exit')
     return parser.parse_args()
 
 
@@ -1837,7 +1856,10 @@ def load_and_aggregate_ttl_files(
     all_external_relationships: list = []
 
     logger.info("\n" + "=" * 60)
-    for ttl_file in ttl_files:
+    logger.info("Loading TTL files...")
+
+    # Use tqdm for progress bar
+    for ttl_file in tqdm(ttl_files, desc="Processing TTL files", unit="file"):
         logger.info(f"\nExporting: {ttl_file.name}")
         logger.info("-" * 40)
 
@@ -1995,26 +2017,51 @@ def finalize_export(neo4j_graph: Graph, neo4j_store: Neo4jStore) -> None:
 def main():
     """Export Oak Curriculum Ontology to Neo4j AuraDB."""
 
-    # Configure logging
+    # Parse arguments first (before logging config)
+    args = parse_arguments()
+
+    # Configure logging based on verbosity
+    log_level = logging.DEBUG if args.verbose else logging.INFO
     logging.basicConfig(
-        level=logging.INFO,
+        level=log_level,
         format='%(asctime)s - %(levelname)s - %(message)s'
     )
 
     try:
-        # Parse arguments
-        args = parse_arguments()
         project_root = Path(__file__).parent.parent
         config_path = Path(args.config)
 
         # Load and validate configuration
         export_config = load_and_validate_config(config_path)
 
-        # Clear database if requested
-        clear_database_if_requested(export_config, args.clear)
-
         # Discover TTL files
         ttl_files = discover_ttl_files(export_config, project_root)
+
+        # Handle --list-files flag
+        if args.list_files:
+            logger.info("\n" + "=" * 60)
+            logger.info(f"Would process {len(ttl_files)} TTL files:")
+            for i, ttl_file in enumerate(ttl_files, 1):
+                logger.info(f"  {i}. {ttl_file.relative_to(project_root)}")
+            logger.info("=" * 60)
+            return
+
+        # Handle --dry-run flag
+        if args.dry_run:
+            logger.info("\n" + "=" * 60)
+            logger.info("DRY RUN MODE - No changes will be made")
+            logger.info("=" * 60)
+            logger.info(f"✓ Configuration valid")
+            logger.info(f"✓ {len(ttl_files)} TTL files discovered")
+            logger.info(f"✓ Target: {export_config.neo4j_uri}")
+            logger.info(f"✓ Database: {export_config.neo4j_database}")
+            if args.clear:
+                logger.info(f"✓ Would clear database before import")
+            logger.info("\nDry run complete - no data modified")
+            return
+
+        # Clear database if requested
+        clear_database_if_requested(export_config, args.clear)
 
         # Connect to Neo4j
         logger.info("\n" + "=" * 60)
