@@ -33,7 +33,6 @@ jobs:
         run: |
           docker run --rm \
             -v ${{ github.workspace }}:/data \
-            -u $(id -u):$(id -g) \
             ghcr.io/dgarijo/widoco:v1.4.25 \
             -ontFile /data/ontology/oak-curriculum-ontology.ttl \
             -outFolder /data/docs-output \
@@ -44,6 +43,9 @@ jobs:
             -noPlaceHolderText \
             -excludeProvenance \
             -rewriteAll
+
+      - name: Fix output directory permissions
+        run: sudo chown -R $(id -u):$(id -g) docs-output
 
       - name: Validate generated documentation
         run: |
