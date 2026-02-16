@@ -24,7 +24,9 @@ from rdflib_neo4j import Neo4jStoreConfig, Neo4jStore, HANDLE_VOCAB_URI_STRATEGY
 from dotenv import load_dotenv
 from pydantic import BaseModel, Field, field_validator
 from neo4j import GraphDatabase
+from neo4j.exceptions import ServiceUnavailable, TransientError, AuthError, CypherSyntaxError
 from tqdm import tqdm
+import time
 
 # Logger instance - configured in main()
 logger = logging.getLogger(__name__)
@@ -40,6 +42,11 @@ DELETE_BATCH_SIZE = 1000   # Nodes per batch for deletion
 
 # Timeouts (in seconds)
 INDEX_AWAIT_TIMEOUT_SECONDS = 300  # 5 minutes for index creation
+
+# Retry configuration
+MAX_RETRIES = 3
+RETRY_DELAY_SECONDS = 2
+RETRY_BACKOFF_MULTIPLIER = 2
 
 
 # ============================================================================
@@ -151,6 +158,58 @@ class TransformationData(TypedDict, total=False):
 
 
 # ============================================================================
+# UTILITY FUNCTIONS - Error Handling & Retry
+# ============================================================================
+
+def retry_on_transient_error(func, *args, max_retries: int = MAX_RETRIES, **kwargs):
+    """
+    Retry a function on transient Neo4j errors with exponential backoff.
+
+    Args:
+        func: Function to retry
+        *args: Positional arguments to pass to func
+        max_retries: Maximum number of retry attempts
+        **kwargs: Keyword arguments to pass to func
+
+    Returns:
+        Result of successful function call
+
+    Raises:
+        Last exception encountered if all retries fail
+    """
+    delay = RETRY_DELAY_SECONDS
+    last_exception = None
+
+    for attempt in range(max_retries):
+        try:
+            return func(*args, **kwargs)
+        except (TransientError, ServiceUnavailable) as e:
+            last_exception = e
+            if attempt < max_retries - 1:
+                logger.warning(
+                    f"Transient error (attempt {attempt + 1}/{max_retries}): {e}. "
+                    f"Retrying in {delay}s..."
+                )
+                time.sleep(delay)
+                delay *= RETRY_BACKOFF_MULTIPLIER
+            else:
+                logger.error(f"Failed after {max_retries} attempts")
+                raise
+        except AuthError as e:
+            # Don't retry auth errors
+            logger.error(f"Authentication failed: {e}")
+            raise RuntimeError(f"Neo4j authentication failed. Check NEO4J_PASSWORD in .env") from e
+        except CypherSyntaxError as e:
+            # Don't retry syntax errors
+            logger.error(f"Cypher syntax error: {e}")
+            raise RuntimeError(f"Invalid Cypher query - this is a bug in the script") from e
+
+    # Should not reach here but satisfy type checker
+    if last_exception:
+        raise last_exception
+
+
+# ============================================================================
 # CONFIGURATION LOADER
 # ============================================================================
 
@@ -172,10 +231,20 @@ class ExportConfig:
         load_dotenv(self.env_path)
 
         # Load and validate config
-        with open(config_path, 'r', encoding='utf-8') as f:
-            config_dict = json.load(f)
+        try:
+            with open(config_path, 'r', encoding='utf-8') as f:
+                config_dict = json.load(f)
+        except FileNotFoundError:
+            raise FileNotFoundError(f"Configuration file not found: {config_path}") from None
+        except PermissionError:
+            raise PermissionError(f"Permission denied reading config file: {config_path}") from None
+        except json.JSONDecodeError as e:
+            raise ValueError(f"Invalid JSON in configuration file {config_path}: {e}") from e
 
-        self.config = Neo4jExportConfig(**config_dict)
+        try:
+            self.config = Neo4jExportConfig(**config_dict)
+        except Exception as e:
+            raise ValueError(f"Invalid configuration in {config_path}: {e}") from e
 
         # Load Neo4j credentials from environment
         self.neo4j_uri = os.getenv("NEO4J_URI")
@@ -431,7 +500,18 @@ class RDFLoader:
         """
         # Parse TTL file
         graph = Graph()
-        graph.parse(ttl_file, format="turtle")
+        try:
+            graph.parse(ttl_file, format="turtle")
+        except FileNotFoundError:
+            raise FileNotFoundError(f"TTL file not found: {ttl_file}") from None
+        except PermissionError:
+            raise PermissionError(f"Permission denied reading TTL file: {ttl_file}") from None
+        except Exception as e:
+            raise RuntimeError(
+                f"Failed to parse TTL file '{ttl_file.name}'. "
+                f"File may be malformed or not valid Turtle format: {e}"
+            ) from e
+
         original_count = len(graph)
 
         # CRITICAL: Extract multi-valued properties BEFORE filtering
@@ -1950,10 +2030,20 @@ def apply_transformations(export_config: ExportConfig, transformation_data: Tran
         transformation_data: Aggregated data for transformations
     """
     # Create separate driver for transformations
-    driver = GraphDatabase.driver(
-        export_config.neo4j_uri,
-        auth=(export_config.neo4j_username, export_config.neo4j_password)
-    )
+    try:
+        driver = GraphDatabase.driver(
+            export_config.neo4j_uri,
+            auth=(export_config.neo4j_username, export_config.neo4j_password)
+        )
+    except ServiceUnavailable as e:
+        raise RuntimeError(
+            f"Cannot connect to Neo4j at {export_config.neo4j_uri}. "
+            f"Check that Neo4j is running and the URI is correct: {e}"
+        ) from e
+    except AuthError as e:
+        raise RuntimeError(
+            f"Neo4j authentication failed. Check NEO4J_USERNAME and NEO4J_PASSWORD in .env: {e}"
+        ) from e
 
     try:
         # Create transformation pipeline
@@ -1998,10 +2088,15 @@ def finalize_export(neo4j_graph: Graph, neo4j_store: Neo4jStore) -> None:
     """
     logger.info("\nClosing Neo4j store...")
     try:
-        neo4j_graph.commit()
+        # Use retry logic for final commit
+        retry_on_transient_error(neo4j_graph.commit)
         logger.info("✓ Final buffer flushed")
+    except (TransientError, ServiceUnavailable) as e:
+        logger.warning(
+            f"⚠️  Final commit failed after retries (data should already be in Neo4j from per-file commits): {e}"
+        )
     except Exception as e:
-        logger.warning(f"⚠️  Final commit failed (data should already be in Neo4j from per-file commits): {e}")
+        logger.warning(f"⚠️  Final commit failed (non-critical): {e}")
 
     try:
         neo4j_store.close()
