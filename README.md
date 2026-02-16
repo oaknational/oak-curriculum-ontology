@@ -129,16 +129,6 @@ Phase (Primary, Secondary)
       └─ Year Group (Year 1-11)
 ```
 
-### Programme Structure
-How subjects are organized into teaching programmes:
-```
-Subject (e.g., Mathematics)
-  └─ Programme (e.g., Mathematics Year 7)
-      └─ Unit (coherent topic, e.g., "Fractions")
-          └─ Unit Variant (exam board variations)
-              └─ Lesson (individual teaching session)
-```
-
 ### Knowledge Taxonomy
 How subject content is organized hierarchically (SKOS):
 ```
@@ -155,6 +145,52 @@ Discipline (e.g., Science)
 - **History** - Programme structure and knowledge taxonomy
 - **Geography** - Programme structure and knowledge taxonomy
 - **Citizenship** - Programme structure and knowledge taxonomy
+
+### Programme Structure
+How subjects are organized into teaching programmes:
+```
+Subject (e.g., Mathematics)
+  └─ Programme (e.g., Mathematics Year 7)
+      └─ Unit (coherent topic, e.g., "Fractions")
+          └─ Unit Variant (exam board variations)
+              └─ Lesson (individual teaching session)
+```
+
+### Key Classes
+
+**Programme**: A structured sequence of units for a specific year group, and optionally for a specific exam board and tier. For example, "English Year 3" or "Combined Science Year 10 (AQA Foundation)".
+
+**Unit**: A coherent body of knowledge and skills, such as "'Marcy and the Riddle of the Sphinx': book club". Units can have multiple unit variants for different exam boards or pedagogical approaches.
+
+**UnitVariant**: A specific version of a unit, potentially adapted for different exam boards, tiers, or teaching contexts. Unit variants contain the ordered sequence of lessons.
+
+**Lesson**: A single teaching session with learning activities, resources, and formative assessment.
+
+**Thread**: A conceptual thread that weaves through multiple units, representing recurring themes or skills (e.g., "Systems Thinking", "Scale and Magnitude").
+
+**ExamBoard**: An awarding organization (AQA, Edexcel, OCR) that creates and assesses qualifications.
+
+**Tier**: A level of difficulty within tiered qualifications (Foundation or Higher).
+
+### Sequencing and Optionality
+
+**UnitVariantInclusion**: Links a programme to a unit variant at a specific sequence position. Can include choice points where teachers select from multiple unit variant options.
+
+**LessonInclusion**: Links a unit variant to a lesson at a specific sequence position within the unit variant.
+
+**UnitVariantChoice**: Groups multiple unit variant options at a choice point, with configurable min/max selection constraints.
+
+![Unit Variant Sequencing and Optionality (i) Simple Programme link](docs/images/optionality-1.png)
+![Unit Variant Sequencing and Optionality (ii) Programme with Optional Unit Variants link](docs/images/optionality-2.png)
+![Lesson Sequencing link](docs/images/sequencing.png)
+
+### National Curriculum Integration
+
+Oak units reference National Curriculum content via:
+- `curric:isPartOf` - Links a programme or unit to a National Curriculum scheme
+- `oakcurric:hasContent` - Links a unit to specific National Curriculum content descriptors
+
+![How the Oak Curriculum Ontology and the National Curriculum Ontology link](docs/images/model.png)
 
 ---
 
@@ -562,4 +598,3 @@ For questions, suggestions, or collaboration opportunities:
 ---
 
 **Developed by [Oak National Academy](https://thenational.academy)**
-
