@@ -1,7 +1,7 @@
 # Standards Compliance and Interoperability
 
 **Version:** 0.1.0
-**Last Updated:** 2025-12-06
+**Last Updated:** 2026-02-16
 
 ---
 
@@ -51,10 +51,10 @@ Every curriculum element (programmes, units, lessons, content descriptors) is re
 
 **Example:**
 ```turtle
-oak:programme-english-year-group-3
-  rdf:type oakcurric:Programme ;
-  rdfs:label "English Year 3"@en ;
-  oakcurric:hasYearGroup eng:year-group-3 .
+oakcurric:examboard-aqa
+  rdf:type curric:ExamBoard ;
+  rdfs:label "AQA"@en ;
+  rdfs:comment "Assessment and Qualifications Alliance"@en .
 ```
 
 **Benefits:**
@@ -81,20 +81,21 @@ OWL enables formal modeling of curriculum structure with:
 - **Cardinality constraints**: Enforce structural rules (e.g., "every programme has exactly one year group")
 
 **How we use it:**
-The ontology defines 12 core classes (Programme, Unit, UnitVariant, Lesson, etc.) and 20+ properties with formal OWL semantics.
+The ontology defines 26 core classes (Programme, Unit, UnitVariant, Lesson, Discipline, Strand, ContentDescriptor, etc.) and 40+ properties with formal OWL semantics.
 
 **Example:**
 ```turtle
-oakcurric:Programme
+curric:Programme
   rdf:type owl:Class ;
   rdfs:label "Programme"@en ;
-  rdfs:comment "A structured sequence of units for a specific year group"@en .
+  rdfs:comment "A structured sequence of units designed for a specific year group"@en ;
+  rdfs:isDefinedBy <https://w3id.org/uk/oak/curriculum/ontology> .
 
-oakcurric:hasUnitVariantInclusion
+curric:hasUnitVariantInclusion
   rdf:type owl:ObjectProperty ;
-  rdfs:domain oakcurric:Programme ;
-  rdfs:range oakcurric:UnitVariantInclusion ;
-  owl:inverseOf oakcurric:isUnitVariantInclusionOf .
+  rdfs:domain curric:Programme ;
+  rdfs:range curric:UnitVariantInclusion ;
+  owl:inverseOf curric:isUnitVariantInclusionOf .
 ```
 
 **Benefits:**
@@ -122,18 +123,23 @@ SKOS provides established patterns for organising hierarchical knowledge:
 - **Definitions and scope notes**: Rich descriptive metadata
 
 **How we use it:**
-The DfE Curriculum Ontology (which Oak extends) uses SKOS for curriculum knowledge taxonomy:
-- Subjects, Strands, ContentDescriptors are `skos:Concept` instances
+The ontology uses SKOS to represent the National Curriculum for England (2014) knowledge taxonomy:
+- Disciplines, Strands, SubStrands, and ContentDescriptors are `skos:Concept` instances
 - Hierarchical relationships use `skos:broader`/`skos:narrower`
 - Labels and definitions use SKOS vocabulary
+- Available subjects: English, Mathematics, Science (Biology, Chemistry, Physics), History, Geography, Citizenship
 
 **Example:**
 ```turtle
-eng:content-descriptor-cells-as-unit-of-living-organism
-  a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel "Cells as the fundamental unit of living organisms"@en ;
-  skos:broader eng:substrand-cells-organisation ;
-  skos:definition "Students understand that cells are the basic building blocks..."@en .
+natcurric:discipline-mathematics
+  a skos:Concept, curric:Discipline ;
+  skos:prefLabel "Mathematics"@en ;
+  skos:topConceptOf natcurric:knowledge-taxonomy ;
+  skos:narrower
+    natcurric:strand-working-mathematically,
+    natcurric:strand-number ,
+    natcurric:strand-algebra ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
 ```
 
 **Benefits:**
@@ -161,7 +167,7 @@ SHACL ensures data quality by validating that:
 - Structural integrity is maintained
 
 **How we use it:**
-The ontology includes comprehensive SHACL shapes (`oak-constraints.ttl`) with 25+ validation rules covering:
+The ontology includes comprehensive SHACL shapes (`oak-curriculum-constraints.ttl`) with 26 validation shapes covering:
 - Programme structure validation
 - Sequencing constraints (unique sequence positions)
 - Exam board and tier consistency
@@ -169,11 +175,11 @@ The ontology includes comprehensive SHACL shapes (`oak-constraints.ttl`) with 25
 
 **Example:**
 ```turtle
-oakcurric:ProgrammeShape
+curric:ProgrammeShape
   a sh:NodeShape ;
-  sh:targetClass oakcurric:Programme ;
+  sh:targetClass curric:Programme ;
   sh:property [
-    sh:path oakcurric:hasYearGroup ;
+    sh:path curric:hasYearGroup ;
     sh:minCount 1 ;
     sh:maxCount 1 ;
     sh:class curric:YearGroup ;
@@ -210,14 +216,14 @@ Every ontology file includes comprehensive Dublin Core metadata:
 
 **Example:**
 ```turtle
-<https://w3id.org/uk/curriculum/oak-ontology/>
+<https://w3id.org/uk/oak/curriculum/ontology>
   dcterms:title "Oak Curriculum Ontology"@en ;
-  dcterms:description "Semantic web ontology for Oak National Academy's curriculum"@en ;
-  dcterms:creator "Oak National Academy" ;
+  dcterms:description "Formal semantic representation of the Oak Curriculum and linkage to the National Curriculum for England (2014)"@en ;
+  dc:creator "Oak National Academy" ;
   dcterms:created "2025-11-20"^^xsd:date ;
-  dcterms:modified "2025-12-05"^^xsd:date ;
+  dcterms:modified "2026-01-15"^^xsd:date ;
   dcterms:license <http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/> ;
-  dcterms:rights "Crown Copyright"@en .
+  dcterms:rights "Copyright © 2026 Oak National Academy."@en .
 ```
 
 **Benefits:**
@@ -253,18 +259,18 @@ Oak extends its teaching resource classes to be compatible with Schema.org types
 ```turtle
 @prefix schema: <http://schema.org/> .
 
-oak:resource-video-7826
-  a oakcurric:Video, schema:VideoObject ;
+oakcurric:resource-video-introduction-to-cells
+  a curric:Video, schema:VideoObject ;
   schema:name "Introduction to Cell Structure"@en ;
   schema:url <https://cdn.thenational.academy/videos/7826.mp4> ;
   schema:duration "PT12M30S" ;
-  schema:educationalLevel "Year 3"@en ;
+  schema:educationalLevel "Year 7"@en ;
   schema:learningResourceType "video" ;
   schema:educationalAlignment [
     a schema:AlignmentObject ;
     schema:alignmentType "teaches" ;
-    schema:educationalFramework "National Curriculum for England" ;
-    schema:targetUrl eng:content-descriptor-cells-as-unit-of-living-organism
+    schema:educationalFramework "National Curriculum for England (2014)" ;
+    schema:targetUrl natcurric:content-descriptor-cells-as-unit-of-living-organism
   ] .
 ```
 
@@ -293,18 +299,19 @@ Persistent identifiers ensure:
 
 **How we use it:**
 All curriculum URIs use the w3id.org namespace:
-- Ontology: `https://w3id.org/uk/curriculum/oak-ontology/`
-- Data: `https://w3id.org/uk/curriculum/oak-data/`
+- Ontology: `https://w3id.org/uk/oak/curriculum/ontology/`
+- National Curriculum Data: `https://w3id.org/uk/oak/curriculum/nationalcurriculum/`
+- Oak Curriculum Data: `https://w3id.org/uk/oak/curriculum/oakcurriculum/`
 
 w3id.org redirects these to the actual GitHub repository via HTTP 303 redirects.
 
 **Example:**
 ```
-User requests: https://w3id.org/uk/curriculum/oak-ontology/Programme
+User requests: https://w3id.org/uk/oak/curriculum/ontology/Programme
        ↓
 w3id.org redirects (HTTP 303) to:
        ↓
-GitHub: https://raw.githubusercontent.com/oaknational/oak-curriculum-ontology/main/ontology/oak-ontology.ttl
+GitHub: https://raw.githubusercontent.com/oaknational/oak-curriculum-ontology-public/main/ontology/oak-curriculum-ontology.ttl
 ```
 
 **Benefits:**
@@ -332,56 +339,78 @@ Semantic versioning provides clear signals about:
 **How we use it:**
 Current version: **0.1.0**
 
-Version history preserved in:
-- `ontology/versions/` - Versioned ontology files
-- `data/versions/` - Versioned data snapshots
+Version information is tracked through:
 - Version IRIs in ontology metadata
+- Git tags and releases
+- CHANGELOG.md documenting changes between versions
 
 **Example:**
 ```turtle
-<https://w3id.org/uk/curriculum/oak-ontology/>
+<https://w3id.org/uk/oak/curriculum/ontology/>
   owl:versionInfo "0.1.0" ;
-  owl:versionIRI <https://w3id.org/uk/curriculum/oak-ontology/0.1.0> ;
-  owl:priorVersion <https://w3id.org/uk/curriculum/oak-ontology/0.0.9> .
+  owl:versionIRI <https://w3id.org/uk/oak/curriculum/ontology/0.1.0> .
 ```
 
 **Benefits:**
 - Consumers know when updates will break their applications
-- Historical versions preserved for reproducibility
 - Clear change communication through CHANGELOG.md
 - Aligns with software development best practices
+- Version tracking through Git enables reproducibility
 
 ---
 
-### 9. Open Government Licence v3.0
+### 9. Dual Licensing: OGL v3.0 and MIT
 
 **What it is:**
-UK government license enabling free use, reuse, and redistribution of public sector information.
+This repository uses dual licensing to appropriately cover different types of content:
+- **Ontology and Data**: Open Government Licence v3.0 (OGL 3.0)
+- **Code**: MIT License
 
 **Standard Status:**
-UK government standard, [OGL v3.0](http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/)
+- OGL v3.0: UK government standard, [OGL v3.0](http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/)
+- MIT License: OSI-approved open source license, [MIT License](https://opensource.org/licenses/MIT)
 
-**Why we use it:**
+**Why we use dual licensing:**
+
+**For Ontology and Data (OGL 3.0):**
 The Open Government Licence ensures:
-- **Free use**: Anyone can use the data for any purpose
+- **Free use**: Anyone can use the curriculum data for any purpose
 - **Reuse**: Data can be copied, adapted, and built upon
 - **Redistribution**: Modified versions can be shared
-- **Attribution**: Requires acknowledgment of source
+- **Attribution**: Requires acknowledgment of "Oak National Academy"
+
+Applies to:
+- `ontology/` - OWL/SKOS ontology files
+- `data/` - Curriculum instance data
+- This document and other documentation
+
+**For Code (MIT License):**
+The MIT License provides:
+- **Permissive use**: Minimal restrictions on software reuse
+- **Commercial compatibility**: No copyleft requirements
+- **Liability protection**: Standard software warranty disclaimers
+
+Applies to:
+- `scripts/` - Python utilities
+- `.github/workflows/` - CI/CD automation
 
 **How we use it:**
 All ontology files include OGL licensing metadata:
 
 ```turtle
-<https://w3id.org/uk/curriculum/oak-ontology/>
+<https://w3id.org/uk/oak/curriculum/ontology/>
   dcterms:license <http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/> ;
-  dcterms:rights "Crown Copyright"@en .
+  dcterms:rights "Copyright © 2026 Oak National Academy."@en .
 ```
 
 **Benefits:**
-- Legal clarity for commercial and non-commercial use
+- Legal clarity for both data consumers and software developers
+- Appropriate licensing for different content types
 - Encourages widespread adoption and innovation
 - Aligns with UK government open data initiatives
 - Enables educational technology ecosystem to build on curriculum data
+
+**Note:** This standards compliance document focuses on the ontology and data standards (OGL 3.0). Code standards are documented separately in repository documentation.
 
 ---
 
@@ -431,7 +460,7 @@ The ontology follows Tim Berners-Lee's **4 principles of Linked Data**:
    URIs return RDF data describing the curriculum entity
 
 4. ✅ **Include links to other URIs for discovery**
-   Curriculum entities link to DfE Curriculum URIs, enabling graph traversal
+   Curriculum entities link to National Curriculum URIs, enabling graph traversal
 
 This makes the Oak Curriculum Ontology part of the global **Web of Data**, not just a standalone dataset.
 
@@ -449,7 +478,7 @@ The ontology implements multiple quality assurance mechanisms:
 ### Version Control
 - **Git repository**: Full change history with commit messages
 - **Semantic versioning**: Clear communication of change impact
-- **Version preservation**: Historical versions archived for reproducibility
+- **Git tags**: Version snapshots for reproducibility
 
 ### Documentation
 - **Inline comments**: Every class and property documented in RDF
@@ -457,7 +486,7 @@ The ontology implements multiple quality assurance mechanisms:
 - **SPARQL examples**: Practical query patterns for common use cases
 
 ### Testing
-- **Example data**: Validation test cases in `validation/` directory
+- **SHACL validation**: Automated constraint checking via CI/CD
 - **SPARQL test queries**: Verify expected query results
 - **Round-trip testing**: Data can be exported and re-imported without loss
 
@@ -498,4 +527,4 @@ This foundation enables Oak National Academy and the broader educational communi
 **Document Version:** 1.0
 **Author:** Oak National Academy
 **License:** Open Government Licence v3.0
-**Last Review Date:** 2025-12-06
+**Last Review Date:** 2026-02-16

@@ -76,3 +76,11 @@ This includes:
 **Attribution:** When using this work, please credit "Oak National Academy"
 
 ---
+
+## Documentation
+
+- 📘 **[Full Ontology Documentation](https://oaknational.github.io/oak-curriculum-ontology-public/)** - Auto-generated documentation via WIDOCO
+- 📋 **[Standards Compliance](docs/standards-compliance.md)** - W3C standards and semantic web best practices
+- 🔧 **[Scripts and Tools](scripts/README.md)** - Validation, export, and build utilities
+
+---
