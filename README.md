@@ -4,6 +4,7 @@
 ![Version](https://img.shields.io/badge/version-0.1.0-orange)
 ![Status](https://img.shields.io/badge/status-early_release-yellow)
 ![License: CC0](https://img.shields.io/badge/License-CC0_1.0-lightgrey.svg)
+![License: MIT + OGL-3.0](https://img.shields.io/badge/License-MIT%20%2B%20OGL--3.0-lightgrey.svg)
 ![Python](https://img.shields.io/badge/python-3.12+-blue.svg)
 
 <!-- Build and Quality Badges -->
@@ -52,5 +53,27 @@ https://oaknational.github.io/oak-curriculum-ontology-public/
 - 🐛 Issue reports (structure, data, documentation)
 - 💡 Feature requests and suggestions
 - 🤝 Contributions (see [CONTRIBUTING.md](CONTRIBUTING.md))
+
+
+## License
+
+This repository uses dual licensing:
+
+### Code (MIT License)
+All Python scripts, GitHub Actions workflows, and software tools are licensed under the [MIT License](LICENSE-CODE).
+
+This includes:
+- `scripts/` directory
+- `.github/workflows/`
+
+### Ontology and Data (OGL 3.0)
+The curriculum ontology, vocabulary definitions, and curriculum data are licensed under [Open Government Licence v3.0 (OGL 3.0)](LICENSE-DATA).
+
+This includes:
+- `ontology/` - OWL/SKOS ontology files
+- `data/` - Curriculum instance data
+- `docs/` - Documentation
+
+**Attribution:** When using this work, please credit "Oak National Academy"
 
 ---
