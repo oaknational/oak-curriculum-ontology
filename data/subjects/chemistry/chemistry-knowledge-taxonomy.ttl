@@ -80,10 +80,11 @@ natcurric:strand-working-scientifically
   skos:definition "Description of strand..."@en ;
   curric:displayOrder "1"^^xsd:positiveInteger ;
   skos:broader natcurric:discipline-science ;
-  skos:narrower
+  skos:narrower 
+    natcurric:substrand-practical-scientific-methods-processes-skills ,
     natcurric:substrand-scientific-attitudes ,
     natcurric:substrand-experimental-skills-and-investigations ,
-    natcurric:substrand-measurement ,
+    natcurric:substrand-scientific-measurement ,
     natcurric:substrand-development-of-scientific-thinking ,
     natcurric:substrand-experimental-skills-and-strategies ,
     natcurric:substrand-analysis-and-evaluation ,
@@ -94,10 +95,14 @@ natcurric:strand-working-scientifically
 natcurric:strand-chemical-science
   a skos:Concept, curric:Strand ;
   skos:prefLabel "Chemical Science"@en ;
-  skos:definition "Description of strand..."@en ;
-  curric:displayOrder "3"^^xsd:positiveInteger ;
+  skos:definition "Description of strand..." ;
+  curric:displayOrder "2"^^xsd:positiveInteger ;
   skos:broader natcurric:discipline-science ;
-  skos:narrower 
+  skos:narrower
+    natcurric:substrand-everyday-materials ,
+    natcurric:substrand-rocks ,
+    natcurric:substrand-states-of-matter ,
+    natcurric:substrand-properties-and-changes-of-materials ,
     natcurric:substrand-atomic-structure-periodic-table ,
     natcurric:substrand-structure-bonding-properties-of-matter ,
     natcurric:substrand-chemical-changes ,
@@ -113,11 +118,42 @@ natcurric:strand-chemical-science
 # Sub-Strands
 # ----------------------------------------------------------------------
 
+natcurric:substrand-practical-scientific-methods-processes-skills
+  a skos:Concept, curric:SubStrand ;
+  skos:prefLabel "Practical scientific methods, processes and skills"@en ;
+  skos:definition "Description of sub-strand..." ;
+  curric:displayOrder "1"^^xsd:positiveInteger ;
+  skos:broader natcurric:strand-working-scientifically ;
+  skos:narrower 
+    natcurric:contentdescriptor-asking-simple-questions ,
+    natcurric:contentdescriptor-observing-closely-using-simple-equipment ,
+    natcurric:contentdescriptor-performing-simple-tests ,
+    natcurric:contentdescriptor-identifying-and-classifying ,
+    natcurric:contentdescriptor-observations-ideas-to-suggest-answers ,
+    natcurric:contentdescriptor-gathering-recording-data-answering-questions ,
+    natcurric:contentdescriptor-asking-relevant-questions ,
+    natcurric:contentdescriptor-practical-enquiries-comparative-fair-tests ,
+    natcurric:contentdescriptor-making-systematic-and-careful-observations ,
+    natcurric:contentdescriptor-gathering-recording-classifying-presenting-data ,
+    natcurric:contentdescriptor-scientific-language-diagrams-charts-tables ,
+    natcurric:contentdescriptor-reporting-on-findings-from-enquiries ,
+    natcurric:contentdescriptor-results-draw-conclusions-make-predictions ,
+    natcurric:contentdescriptor-differences-similarities-scientific-ideas-processes ,
+    natcurric:contentdescriptor-scientific-evidence-to-support-findings ,
+    natcurric:contentdescriptor-planning-different-types-scientific-enquiries ,
+    natcurric:contentdescriptor-taking-measurements-range-scientific-equipment ,
+    natcurric:contentdescriptor-recording-data-results-increasing-complexity ,
+    natcurric:contentdescriptor-test-results-to-make-predictions ,
+    natcurric:contentdescriptor-findings-conclusions-relationships-explanations-trust ,
+    natcurric:contentdescriptor-scientific-evidence-support-refute-arguments ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
 natcurric:substrand-scientific-attitudes
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Scientific attitudes"@en ;
   skos:definition "Description of sub-strand..."@en ;
-  curric:displayOrder "1"^^xsd:positiveInteger ;
+  curric:displayOrder "2"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-working-scientifically ;
   skos:narrower 
     natcurric:contentdescriptor-objectivity-concern-for-accuracy-precision ,
@@ -130,7 +166,7 @@ natcurric:substrand-experimental-skills-and-investigations
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Experimental skills and investigations"@en ;
   skos:definition "Description of sub-strand..."@en ;
-  curric:displayOrder "2"^^xsd:positiveInteger ;
+  curric:displayOrder "3"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-working-scientifically ;
   skos:narrower 
     natcurric:contentdescriptor-enquiry-observations-of-real-world ,
@@ -146,7 +182,7 @@ natcurric:substrand-development-of-scientific-thinking
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "The development of scientific thinking"@en ;
   skos:definition "Description of sub-strand..."@en ;
-  curric:displayOrder "3"^^xsd:positiveInteger ;
+  curric:displayOrder "4"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-working-scientifically ;
   skos:narrower 
     natcurric:contentdescriptor-scientific-methods-theories-over-time ,
@@ -162,7 +198,7 @@ natcurric:substrand-experimental-skills-and-strategies
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Experimental skills and strategies"@en ;
   skos:definition "Description of sub-strand..."@en ;
-  curric:displayOrder "4"^^xsd:positiveInteger ;
+  curric:displayOrder "5"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-working-scientifically ;
   skos:narrower 
     natcurric:contentdescriptor-theories-explanations-hypotheses ,
@@ -179,7 +215,7 @@ natcurric:substrand-analysis-and-evaluation
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Analysis and evaluation"@en ;
   skos:definition "Description of sub-strand..."@en ;
-  curric:displayOrder "5"^^xsd:positiveInteger ;
+  curric:displayOrder "6"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-working-scientifically ;
   skos:narrower 
     natcurric:contentdescriptor-apply-mathematical-concepts-calculate-results ,
@@ -203,7 +239,7 @@ natcurric:substrand-vocabulary-units-symbols-nomenclature
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Vocabulary, units, symbols and nomenclature"@en ;
   skos:definition "Description of sub-strand..."@en ;
-  curric:displayOrder "6"^^xsd:positiveInteger ;
+  curric:displayOrder "7"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-working-scientifically ;
   skos:narrower 
     natcurric:contentdescriptor-developing-scientific-vocabulary-nomenclature ,
@@ -219,12 +255,70 @@ natcurric:substrand-scientific-measurement
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Measurement"@en ;
   skos:definition "Description of sub-strand..."@en ;
-  curric:displayOrder "7"^^xsd:positiveInteger ;
+  curric:displayOrder "8"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-working-scientifically ;
   skos:narrower 
     natcurric:contentdescriptor-si-units-iupac-chemical-nomenclature ,
     natcurric:contentdescriptor-simple-equations-and-calculations ,
     natcurric:contentdescriptor-basic-data-analysis-statistical-techniques ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:substrand-everyday-materials
+  a skos:Concept, curric:SubStrand ;
+  skos:prefLabel "Everyday Materials"@en ;
+  skos:definition "Description of sub-strand..." ;
+  curric:displayOrder "1"^^xsd:positiveInteger ;
+  skos:broader natcurric:strand-chemical-science ;
+  skos:narrower 
+    natcurric:contentdescriptor-distinguish-between-object-and-material ,
+    natcurric:contentdescriptor-identify-variety-of-everyday-materials ,
+    natcurric:contentdescriptor-simple-physical-properties-everyday-materials ,
+    natcurric:contentdescriptor-compare-and-group-everyday-materials ,
+    natcurric:contentdescriptor-suitability-variety-of-everyday-materials ,
+    natcurric:contentdescriptor-shapes-of-solid-objects-changed ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:substrand-rocks
+  a skos:Concept, curric:SubStrand ;
+  skos:prefLabel "Rocks"@en ;
+  skos:definition "Description of sub-strand..." ;
+  curric:displayOrder "2"^^xsd:positiveInteger ;
+  skos:broader natcurric:strand-chemical-science ;
+  skos:narrower 
+    natcurric:contentdescriptor-compare-rocks-appearance-physical-properties ,
+    natcurric:contentdescriptor-how-fossils-are-formed ,
+    natcurric:contentdescriptor-soils-from-rocks-organic-matter ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:substrand-states-of-matter
+  a skos:Concept, curric:SubStrand ;
+  skos:prefLabel "States of Matter"@en ;
+  skos:definition "Description of sub-strand..." ;
+  curric:displayOrder "3"^^xsd:positiveInteger ;
+  skos:broader natcurric:strand-chemical-science ;
+  skos:narrower 
+    natcurric:contentdescriptor-compare-group-solids-liquids-gases ,
+    natcurric:contentdescriptor-materials-change-state-heated-cooled ,
+    natcurric:contentdescriptor-evaporation-condensation-in-water-cycle ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:substrand-properties-and-changes-of-materials
+  a skos:Concept, curric:SubStrand ;
+  skos:prefLabel "Properties and Changes of Materials"@en ;
+  skos:definition "Description of sub-strand..." ;
+  curric:displayOrder "4"^^xsd:positiveInteger ;
+  skos:broader natcurric:strand-chemical-science ;
+  skos:narrower 
+    natcurric:contentdescriptor-compare-materials-based-on-properties ,
+    natcurric:contentdescriptor-materials-dissolve-to-form-solution ,
+    natcurric:contentdescriptor-how-mixtures-might-be-separated ,
+    natcurric:contentdescriptor-particular-uses-of-everyday-materials ,
+    natcurric:contentdescriptor-dissolving-mixing-are-reversible-changes ,
+    natcurric:contentdescriptor-formation-of-new-materials ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
 
@@ -349,6 +443,190 @@ natcurric:substrand-earth-and-atmospheric-science
 # Content Descriptors
 # ----------------------------------------------------------------------
 
+natcurric:contentdescriptor-asking-simple-questions
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Asking simple questions and recognising that they can be answered in different ways."""@en ;
+  curric:displayOrder "1"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-practical-scientific-methods-processes-skills ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-observing-closely-using-simple-equipment
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Observing closely, using simple equipment."@en ;
+  curric:displayOrder "2"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-practical-scientific-methods-processes-skills ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-performing-simple-tests
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Performing simple tests."@en ;
+  curric:displayOrder "3"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-practical-scientific-methods-processes-skills ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-identifying-and-classifying
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Identifying and classifying."@en ;
+  curric:displayOrder "4"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-practical-scientific-methods-processes-skills ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-observations-ideas-to-suggest-answers
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Using their observations and ideas to suggest answers to questions."@en ;
+  curric:displayOrder "5"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-practical-scientific-methods-processes-skills ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-gathering-recording-data-answering-questions
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Gathering and recording data to help in answering questions."@en ;
+  curric:displayOrder "6"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-practical-scientific-methods-processes-skills ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-asking-relevant-questions
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Asking relevant questions and using different types of scientific enquiries to 
+  answer them."""@en ;
+  curric:displayOrder "7"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-practical-scientific-methods-processes-skills ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-practical-enquiries-comparative-fair-tests
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Setting up simple practical enquiries, comparative and fair tests."@en ;
+  curric:displayOrder "8"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-practical-scientific-methods-processes-skills ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-making-systematic-and-careful-observations
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Making systematic and careful observations and, where appropriate, taking 
+  accurate measurements using standard units, using a range of equipment, including thermometers 
+  and data loggers."""@en ;
+  curric:displayOrder "9"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-practical-scientific-methods-processes-skills ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-gathering-recording-classifying-presenting-data
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Gathering, recording, classifying and presenting data in a variety of ways to 
+  help in answering questions."""@en ;
+  curric:displayOrder "10"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-practical-scientific-methods-processes-skills ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-scientific-language-diagrams-charts-tables
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Recording findings using simple scientific language, drawings, labelled 
+  diagrams, keys, bar charts, and tables."""@en ;
+  curric:displayOrder "11"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-practical-scientific-methods-processes-skills ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-reporting-on-findings-from-enquiries
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Reporting on findings from enquiries, including oral and written explanations, 
+  displays or presentations of results and conclusions."""@en ;
+  curric:displayOrder "12"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-practical-scientific-methods-processes-skills ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-results-draw-conclusions-make-predictions
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Using results to draw simple conclusions, make predictions for new values, 
+  suggest improvements and raise further questions."""@en ;
+  curric:displayOrder "13"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-practical-scientific-methods-processes-skills ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-differences-similarities-scientific-ideas-processes
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Identifying differences, similarities or changes related to simple scientific 
+  ideas and processes."""@en ;
+  curric:displayOrder "14"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-practical-scientific-methods-processes-skills ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-scientific-evidence-to-support-findings
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Using straightforward scientific evidence to answer questions or to support 
+  their findings."""@en ;
+  curric:displayOrder "15"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-practical-scientific-methods-processes-skills ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-planning-different-types-scientific-enquiries
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Planning different types of scientific enquiries to answer questions, including 
+  recognising and controlling variables where necessary."""@en ;
+  curric:displayOrder "16"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-practical-scientific-methods-processes-skills ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-taking-measurements-range-scientific-equipment
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Taking measurements, using a range of scientific equipment, with increasing 
+  accuracy and precision, taking repeat readings when appropriate."""@en ;
+  curric:displayOrder "17"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-practical-scientific-methods-processes-skills ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-recording-data-results-increasing-complexity
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Recording data and results of increasing complexity using scientific diagrams 
+  and labels, classification keys, tables, scatter graphs, bar and line graphs."""@en ;
+  curric:displayOrder "18"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-practical-scientific-methods-processes-skills ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-test-results-to-make-predictions
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Using test results to make predictions to set up further comparative and fair 
+  tests."""@en ;
+  curric:displayOrder "19"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-practical-scientific-methods-processes-skills ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-findings-conclusions-relationships-explanations-trust
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Reporting and presenting findings from enquiries, including conclusions, causal 
+  relationships and explanations of and a degree of trust in results, in oral and written forms 
+  such as displays and other presentations."""@en ;
+  curric:displayOrder "20"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-practical-scientific-methods-processes-skills ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-scientific-evidence-support-refute-arguments
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Identifying scientific evidence that has been used to support or refute ideas 
+  or arguments."""@en ;
+  curric:displayOrder "21"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-practical-scientific-methods-processes-skills ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+  
 natcurric:contentdescriptor-objectivity-concern-for-accuracy-precision
   a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel """Pay attention to objectivity and concern for accuracy, precision, repeatability 
@@ -746,6 +1024,168 @@ natcurric:contentdescriptor-significant-figures-in-calculations
   skos:prefLabel "Using an appropriate number of significant figures in calculations."@en ;
   curric:displayOrder "6"^^xsd:positiveInteger ;
   skos:broader natcurric:substrand-vocabulary-units-symbols-nomenclature ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-distinguish-between-object-and-material
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Distinguish between an object and the material from which it is made."@en ;
+  curric:displayOrder "1"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-everyday-materials ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-identify-variety-of-everyday-materials
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Identify and name a variety of everyday materials, including wood, plastic, 
+  glass, metal, water, and rock."""@en ;
+  curric:displayOrder "2"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-everyday-materials ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-simple-physical-properties-everyday-materials
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Describe the simple physical properties of a variety of everyday materials."@en ;
+  curric:displayOrder "3"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-everyday-materials ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-compare-and-group-everyday-materials
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Compare and group together a variety of everyday materials on the basis of 
+  their simple physical properties."""@en ;
+  curric:displayOrder "4"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-everyday-materials ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-suitability-variety-of-everyday-materials
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Identify and compare the suitability of a variety of everyday materials, 
+  including wood, metal, plastic, glass, brick, rock, paper and cardboard for particular 
+  uses."""@en ;
+  curric:displayOrder "5"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-everyday-materials ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-shapes-of-solid-objects-changed
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Find out how the shapes of solid objects made from some materials can be 
+  changed by squashing, bending, twisting and stretching."""@en ;
+  curric:displayOrder "6"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-everyday-materials ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-compare-rocks-appearance-physical-properties
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Compare and group together different kinds of rocks on the basis of their 
+  appearance and simple physical properties."""@en ;
+  curric:displayOrder "1"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-rocks ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-how-fossils-are-formed
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Describe in simple terms how fossils are formed when things that have lived are 
+  trapped within rock."""@en ;
+  curric:displayOrder "2"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-rocks ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-soils-from-rocks-organic-matter
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Recognise that soils are made from rocks and organic matter."@en ;
+  curric:displayOrder "3"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-rocks ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-compare-group-solids-liquids-gases
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Compare and group materials together, according to whether they are solids, 
+  liquids or gases."""@en ;
+  curric:displayOrder "1"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-states-of-matter ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-materials-change-state-heated-cooled
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Observe that some materials change state when they are heated or cooled, and 
+  measure or research the temperature at which this happens in degrees Celsius (°C)."""@en ;
+  curric:displayOrder "2"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-states-of-matter ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-evaporation-condensation-in-water-cycle
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Identify the part played by evaporation and condensation in the water cycle and 
+  associate the rate of evaporation with temperature."""@en ;
+  curric:displayOrder "3"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-states-of-matter ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-compare-materials-based-on-properties
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Compare and group together everyday materials on the basis of their properties, 
+  including their hardness, solubility, transparency, conductivity (electrical and thermal), and 
+  response to magnets."""@en ;
+  curric:displayOrder "1"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-properties-and-changes-of-materials ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-materials-dissolve-to-form-solution
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Know that some materials will dissolve in liquid to form a solution, and 
+  describe how to recover a substance from a solution."""@en ;
+  curric:displayOrder "2"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-properties-and-changes-of-materials ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-how-mixtures-might-be-separated
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Use knowledge of solids, liquids and gases to decide how mixtures might be 
+  separated, including through filtering, sieving and evaporating."""@en ;
+  curric:displayOrder "3"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-properties-and-changes-of-materials ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-particular-uses-of-everyday-materials
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Give reasons, based on evidence from comparative and fair tests, for the 
+  particular uses of everyday materials, including metals, wood and plastic."""@en ;
+  curric:displayOrder "4"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-properties-and-changes-of-materials ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-dissolving-mixing-are-reversible-changes
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Demonstrate that dissolving, mixing and changes of state are reversible 
+  changes."""@en ;
+  curric:displayOrder "5"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-properties-and-changes-of-materials ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-formation-of-new-materials
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Explain that some changes result in the formation of new materials, and that 
+  this kind of change is not usually reversible, including changes associated with burning and the 
+  action of acid on bicarbonate of soda."""@en ;
+  curric:displayOrder "6"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-properties-and-changes-of-materials ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
 

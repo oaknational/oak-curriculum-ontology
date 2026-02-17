@@ -81,6 +81,7 @@ natcurric:strand-working-scientifically
   curric:displayOrder "1"^^xsd:positiveInteger ;
   skos:broader natcurric:discipline-science ;
   skos:narrower 
+    natcurric:substrand-practical-scientific-methods-processes-skills ,
     natcurric:substrand-scientific-attitudes ,
     natcurric:substrand-experimental-skills-and-investigations ,
     natcurric:substrand-scientific-measurement ,
@@ -97,7 +98,11 @@ natcurric:strand-biological-science
   skos:definition "Description of strand..."@en ;
   curric:displayOrder "2"^^xsd:positiveInteger ;
   skos:broader natcurric:discipline-science ;
-  skos:narrower 
+  skos:narrower
+    natcurric:substrand-plants ,
+    natcurric:substrand-animals-including-humans ,
+    natcurric:substrand-living-things-and-their-habitats ,
+    natcurric:substrand-evolution-and-inheritance ,
     natcurric:substrand-cells-and-organisation ,
     natcurric:substrand-skeletal-and-muscular-systems ,
     natcurric:substrand-nutrition-and-digestion ,
@@ -121,11 +126,42 @@ natcurric:strand-biological-science
 # Sub-Strands
 # ----------------------------------------------------------------------
 
+natcurric:substrand-practical-scientific-methods-processes-skills
+  a skos:Concept, curric:SubStrand ;
+  skos:prefLabel "Practical scientific methods, processes and skills"@en ;
+  skos:definition "Description of sub-strand..." ;
+  curric:displayOrder "1"^^xsd:positiveInteger ;
+  skos:broader natcurric:strand-working-scientifically ;
+  skos:narrower 
+    natcurric:contentdescriptor-asking-simple-questions ,
+    natcurric:contentdescriptor-observing-closely-using-simple-equipment ,
+    natcurric:contentdescriptor-performing-simple-tests ,
+    natcurric:contentdescriptor-identifying-and-classifying ,
+    natcurric:contentdescriptor-observations-ideas-to-suggest-answers ,
+    natcurric:contentdescriptor-gathering-recording-data-answering-questions ,
+    natcurric:contentdescriptor-asking-relevant-questions ,
+    natcurric:contentdescriptor-practical-enquiries-comparative-fair-tests ,
+    natcurric:contentdescriptor-making-systematic-and-careful-observations ,
+    natcurric:contentdescriptor-gathering-recording-classifying-presenting-data ,
+    natcurric:contentdescriptor-scientific-language-diagrams-charts-tables ,
+    natcurric:contentdescriptor-reporting-on-findings-from-enquiries ,
+    natcurric:contentdescriptor-results-draw-conclusions-make-predictions ,
+    natcurric:contentdescriptor-differences-similarities-scientific-ideas-processes ,
+    natcurric:contentdescriptor-scientific-evidence-to-support-findings ,
+    natcurric:contentdescriptor-planning-different-types-scientific-enquiries ,
+    natcurric:contentdescriptor-taking-measurements-range-scientific-equipment ,
+    natcurric:contentdescriptor-recording-data-results-increasing-complexity ,
+    natcurric:contentdescriptor-test-results-to-make-predictions ,
+    natcurric:contentdescriptor-findings-conclusions-relationships-explanations-trust ,
+    natcurric:contentdescriptor-scientific-evidence-support-refute-arguments ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
 natcurric:substrand-scientific-attitudes
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Scientific attitudes"@en ;
   skos:definition "Description of sub-strand..."@en ;
-  curric:displayOrder "1"^^xsd:positiveInteger ;
+  curric:displayOrder "2"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-working-scientifically ;
   skos:narrower 
     natcurric:contentdescriptor-objectivity-concern-for-accuracy-precision ,
@@ -138,7 +174,7 @@ natcurric:substrand-experimental-skills-and-investigations
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Experimental skills and investigations"@en ;
   skos:definition "Description of sub-strand..."@en ;
-  curric:displayOrder "2"^^xsd:positiveInteger ;
+  curric:displayOrder "3"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-working-scientifically ;
   skos:narrower 
     natcurric:contentdescriptor-enquiry-observations-of-real-world ,
@@ -154,7 +190,7 @@ natcurric:substrand-development-of-scientific-thinking
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "The development of scientific thinking"@en ;
   skos:definition "Description of sub-strand..."@en ;
-  curric:displayOrder "3"^^xsd:positiveInteger ;
+  curric:displayOrder "4"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-working-scientifically ;
   skos:narrower 
     natcurric:contentdescriptor-scientific-methods-theories-over-time ,
@@ -170,7 +206,7 @@ natcurric:substrand-experimental-skills-and-strategies
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Experimental skills and strategies"@en ;
   skos:definition "Description of sub-strand..."@en ;
-  curric:displayOrder "4"^^xsd:positiveInteger ;
+  curric:displayOrder "5"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-working-scientifically ;
   skos:narrower 
     natcurric:contentdescriptor-theories-explanations-hypotheses ,
@@ -187,7 +223,7 @@ natcurric:substrand-analysis-and-evaluation
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Analysis and evaluation"@en ;
   skos:definition "Description of sub-strand..."@en ;
-  curric:displayOrder "5"^^xsd:positiveInteger ;
+  curric:displayOrder "6"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-working-scientifically ;
   skos:narrower 
     natcurric:contentdescriptor-apply-mathematical-concepts-calculate-results ,
@@ -211,7 +247,7 @@ natcurric:substrand-vocabulary-units-symbols-nomenclature
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Vocabulary, units, symbols and nomenclature"@en ;
   skos:definition "Description of sub-strand..."@en ;
-  curric:displayOrder "6"^^xsd:positiveInteger ;
+  curric:displayOrder "7"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-working-scientifically ;
   skos:narrower 
     natcurric:contentdescriptor-developing-scientific-vocabulary-nomenclature ,
@@ -227,7 +263,7 @@ natcurric:substrand-scientific-measurement
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Measurement"@en ;
   skos:definition "Description of sub-strand..."@en ;
-  curric:displayOrder "7"^^xsd:positiveInteger ;
+  curric:displayOrder "8"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-working-scientifically ;
   skos:narrower 
     natcurric:contentdescriptor-si-units-iupac-chemical-nomenclature ,
@@ -236,11 +272,89 @@ natcurric:substrand-scientific-measurement
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
 
+natcurric:substrand-living-things-and-their-habitats
+  a skos:Concept, curric:SubStrand ;
+  skos:prefLabel "Living things and their habitats"@en ;
+  skos:definition "Description of sub-strand..." ;
+  curric:displayOrder "1"^^xsd:positiveInteger ;
+  skos:broader natcurric:strand-biological-science ;
+  skos:narrower 
+    natcurric:contentdescriptor-differences-living-dead-never-alive ,
+    natcurric:contentdescriptor-different-habitats-basic-needs ,
+    natcurric:contentdescriptor-plants-animals-in-their-habitats ,
+    natcurric:contentdescriptor-how-animals-obtain-their-food ,
+    natcurric:contentdescriptor-living-things-can-be-grouped ,
+    natcurric:contentdescriptor-explore-and-use-classification-keys ,
+    natcurric:contentdescriptor-environments-can-change-dangers ,
+    natcurric:contentdescriptor-lifecycles-mammal-amphibian-insect-bird ,
+    natcurric:contentdescriptor-life-process-of-reproduction ,
+    natcurric:contentdescriptor-living-things-classified-broad-groups ,
+    natcurric:contentdescriptor-classifying-plants-animals-specific-characteristics ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:substrand-plants
+  a skos:Concept, curric:SubStrand ;
+  skos:prefLabel "Plants"@en ;
+  skos:definition "Description of sub-strand..." ;
+  curric:displayOrder "2"^^xsd:positiveInteger ;
+  skos:broader natcurric:strand-biological-science ;
+  skos:narrower 
+    natcurric:contentdescriptor-identify-wild-and-garden-plants ,
+    natcurric:contentdescriptor-basic-structure-common-flowering-plants ,
+    natcurric:contentdescriptor-seeds-bulbs-grow-into-plants ,
+    natcurric:contentdescriptor-plants-need-water-light-temperature ,
+    natcurric:contentdescriptor-functions-different-parts-flowering-plants ,
+    natcurric:contentdescriptor-requirements-plants-for-life-growth ,
+    natcurric:contentdescriptor-water-transported-within-plants ,
+    natcurric:contentdescriptor-life-cycle-of-flowering-plants ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:substrand-animals-including-humans
+  a skos:Concept, curric:SubStrand ;
+  skos:prefLabel "Animals including humans"@en ;
+  skos:definition "Description of sub-strand..." ;
+  curric:displayOrder "3"^^xsd:positiveInteger ;
+  skos:broader natcurric:strand-biological-science ;
+  skos:narrower 
+    natcurric:contentdescriptor-fish-amphibians-reptiles-birds-mammals ,
+    natcurric:contentdescriptor-carnivores-herbivores-omnivores ,
+    natcurric:contentdescriptor-compare-structure-variety-common-animals ,
+    natcurric:contentdescriptor-basic-parts-of-human-body ,
+    natcurric:contentdescriptor-humans-offspring-grow-into-adults ,
+    natcurric:contentdescriptor-basic-needs-animals-for-survival ,
+    natcurric:contentdescriptor-importance-humans-exercise-eating-hygiene ,
+    natcurric:contentdescriptor-animals-need-the-right-nutrition ,
+    natcurric:contentdescriptor-skeletons-muscles-support-protection-movement ,
+    natcurric:contentdescriptor-functions-parts-digestive-system-humans ,
+    natcurric:contentdescriptor-types-teeth-humans-simple-functions ,
+    natcurric:contentdescriptor-food-chains-producers-predators-prey ,
+    natcurric:contentdescriptor-changes-humans-develop-old-age ,
+    natcurric:contentdescriptor-main-parts-human-circulatory-system ,
+    natcurric:contentdescriptor-impact-diet-exercise-drugs-lifestyle ,
+    natcurric:contentdescriptor-nutrients-water-transported-within-animals ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:substrand-evolution-and-inheritance
+  a skos:Concept, curric:SubStrand ;
+  skos:prefLabel "Evolution and inheritance"@en ;
+  skos:definition "Description of sub-strand..." ;
+  curric:displayOrder "4"^^xsd:positiveInteger ;
+  skos:broader natcurric:strand-biological-science ;
+  skos:narrower 
+    natcurric:contentdescriptor-living-things-changed-over-time ,
+    natcurric:contentdescriptor-living-things-offspring-same-kind ,
+    natcurric:contentdescriptor-animals-plants-adapted-suit-environment ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
 natcurric:substrand-cells-and-organisation
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Cells and Organisation"@en ;
   skos:definition "Description of sub-strand..."@en ;
-  curric:displayOrder "1"^^xsd:positiveInteger ;
+  curric:displayOrder "5"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-biological-science ;
   skos:narrower 
     natcurric:contentdescriptor-cells-fundamental-unit-living-organisms ,
@@ -256,7 +370,7 @@ natcurric:substrand-skeletal-and-muscular-systems
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "The Skeletal and Muscular Systems"@en ;
   skos:definition "Description of sub-strand..."@en ;
-  curric:displayOrder "2"^^xsd:positiveInteger ;
+  curric:displayOrder "6"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-biological-science ;
   skos:narrower 
     natcurric:contentdescriptor-structure-functions-of-human-skeleton ,
@@ -269,7 +383,7 @@ natcurric:substrand-nutrition-and-digestion
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Nutrition and Digestion"@en ;
   skos:definition "Description of sub-strand..."@en ;
-  curric:displayOrder "3"^^xsd:positiveInteger ;
+  curric:displayOrder "7"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-biological-science ;
   skos:narrower 
     natcurric:contentdescriptor-content-of-healthy-human-diet ,
@@ -285,7 +399,7 @@ natcurric:substrand-gas-exchange-systems
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Gas Exchange Systems"@en ;
   skos:definition "Description of sub-strand..."@en ;
-  curric:displayOrder "4"^^xsd:positiveInteger ;
+  curric:displayOrder "8"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-biological-science ;
   skos:narrower 
     natcurric:contentdescriptor-gas-exchange-system-in-humans ,
@@ -299,7 +413,7 @@ natcurric:substrand-reproduction
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Reproduction"@en ;
   skos:definition "Description of sub-strand..."@en ;
-  curric:displayOrder "5"^^xsd:positiveInteger ;
+  curric:displayOrder "9"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-biological-science ;
   skos:narrower 
     natcurric:contentdescriptor-reproduction-in-humans ,
@@ -311,7 +425,7 @@ natcurric:substrand-health
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Health"@en ;
   skos:definition "Description of sub-strand..."@en ;
-  curric:displayOrder "6"^^xsd:positiveInteger ;
+  curric:displayOrder "10"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-biological-science ;
   skos:narrower natcurric:contentdescriptor-effects-of-recreational-drugs ;
   skos:inScheme natcurric:knowledge-taxonomy ;
@@ -321,7 +435,7 @@ natcurric:substrand-cell-biology
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Cell biology"@en ;
   skos:definition "Description of sub-strand..."@en ;
-  curric:displayOrder "7"^^xsd:positiveInteger ;
+  curric:displayOrder "11"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-biological-science ;
   skos:narrower 
     natcurric:contentdescriptor-cells-as-basic-structural-unit ,
@@ -337,7 +451,7 @@ natcurric:substrand-transport-systems
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Transport systems"@en ;
   skos:definition "Description of sub-strand..."@en ;
-  curric:displayOrder "8"^^xsd:positiveInteger ;
+  curric:displayOrder "12"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-biological-science ;
   skos:narrower 
     natcurric:contentdescriptor-transport-systems-in-multicellular-organisms ,
@@ -349,7 +463,7 @@ natcurric:substrand-health-disease-medicines
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Health, disease and the development of medicines"@en ;
   skos:definition "Description of sub-strand..."@en ;
-  curric:displayOrder "9"^^xsd:positiveInteger ;
+  curric:displayOrder "13"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-biological-science ;
   skos:narrower 
     natcurric:contentdescriptor-relationship-between-health-and-disease ,
@@ -367,7 +481,7 @@ natcurric:substrand-coordination-and-control
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Coordination and control"@en ;
   skos:definition "Description of sub-strand..."@en ;
-  curric:displayOrder "10"^^xsd:positiveInteger ;
+  curric:displayOrder "14"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-biological-science ;
   skos:narrower 
     natcurric:contentdescriptor-nervous-coordination-and-control-humans ,
@@ -383,7 +497,7 @@ natcurric:substrand-photosynthesis
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Photosynthesis"@en ;
   skos:definition "Description of sub-strand..."@en ;
-  curric:displayOrder "11"^^xsd:positiveInteger ;
+  curric:displayOrder "15"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-biological-science ;
   skos:narrower 
     natcurric:contentdescriptor-reactants-products-photosynthesis ,
@@ -399,7 +513,7 @@ natcurric:substrand-ecosystems
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Ecosystems"@en ;
   skos:definition "Description of sub-strand..."@en ;
-  curric:displayOrder "12"^^xsd:positiveInteger ;
+  curric:displayOrder "16"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-biological-science ;
   skos:narrower 
     natcurric:contentdescriptor-organisation-within-an-ecosystem ,
@@ -417,7 +531,7 @@ natcurric:substrand-evolution-inheritance-variation
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Evolution, inheritance and variation"@en ;
   skos:definition "Description of sub-strand..."@en ;
-  curric:displayOrder "13"^^xsd:positiveInteger ;
+  curric:displayOrder "17"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-biological-science ;
   skos:narrower 
     natcurric:contentdescriptor-genome-genetic-material-of-organism ,
@@ -439,7 +553,7 @@ natcurric:substrand-cellular-respiration
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Cellular Respiration"@en ;
   skos:definition "Description of sub-strand..."@en ;
-  curric:displayOrder "14"^^xsd:positiveInteger ;
+  curric:displayOrder "18"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-biological-science ;
   skos:narrower 
     natcurric:contentdescriptor-aerobic-anaerobic-respiration-living-organisms ,
@@ -453,7 +567,7 @@ natcurric:substrand-relationships-in-an-ecosystem
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Relationships in an Ecosystem"@en ;
   skos:definition "Description of sub-strand..."@en ;
-  curric:displayOrder "15"^^xsd:positiveInteger ;
+  curric:displayOrder "19"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-biological-science ;
   skos:narrower 
     natcurric:contentdescriptor-interdependence-of-organisms-in-ecosystem ,
@@ -466,7 +580,7 @@ natcurric:substrand-inheritance-chromosomes-dna-genes
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Inheritance, Chromosomes, DNA and Genes"@en ;
   skos:definition "Description of sub-strand..."@en ;
-  curric:displayOrder "16"^^xsd:positiveInteger ;
+  curric:displayOrder "20"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-biological-science ;
   skos:narrower 
     natcurric:contentdescriptor-heredity-genetic-information-transmitted ,
@@ -483,199 +597,187 @@ natcurric:substrand-inheritance-chromosomes-dna-genes
 # Content Descriptors
 # ----------------------------------------------------------------------
 
-natcurric:contentdescriptor-cells-fundamental-unit-living-organisms
+natcurric:contentdescriptor-asking-simple-questions
   a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel """Cells as the fundamental unit of living organisms, including how to observe, 
-  interpret and record cell structure using a light microscope."""@en ;
+  skos:prefLabel """Asking simple questions and recognising that they can be answered in different ways."""@en ;
   curric:displayOrder "1"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-cells-and-organisation ;
+  skos:broader natcurric:substrand-practical-scientific-methods-processes-skills ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
 
-natcurric:contentdescriptor-functions-cell-wall-membrane-cytoplasm
+natcurric:contentdescriptor-observing-closely-using-simple-equipment
   a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel """The functions of the cell wall, cell membrane, cytoplasm, nucleus, vacuole, 
-  mitochondria and chloroplasts."""@en ;
+  skos:prefLabel "Observing closely, using simple equipment."@en ;
   curric:displayOrder "2"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-cells-and-organisation ;
+  skos:broader natcurric:substrand-practical-scientific-methods-processes-skills ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
 
-natcurric:contentdescriptor-similarities-differences-plant-animal-cells
+natcurric:contentdescriptor-performing-simple-tests
   a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel "The similarities and differences between plant and animal cells."@en ;
+  skos:prefLabel "Performing simple tests."@en ;
   curric:displayOrder "3"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-cells-and-organisation ;
+  skos:broader natcurric:substrand-practical-scientific-methods-processes-skills ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
 
-natcurric:contentdescriptor-diffusion-materials-in-between-cells
+natcurric:contentdescriptor-identifying-and-classifying
   a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel "The role of diffusion in the movement of materials in and between cells."@en ;
+  skos:prefLabel "Identifying and classifying."@en ;
   curric:displayOrder "4"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-cells-and-organisation ;
+  skos:broader natcurric:substrand-practical-scientific-methods-processes-skills ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
 
-natcurric:contentdescriptor-structural-adaptations-of-unicellular-organisms
+natcurric:contentdescriptor-observations-ideas-to-suggest-answers
   a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel "The structural adaptations of some unicellular organisms."@en ;
+  skos:prefLabel "Using their observations and ideas to suggest answers to questions."@en ;
   curric:displayOrder "5"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-cells-and-organisation ;
+  skos:broader natcurric:substrand-practical-scientific-methods-processes-skills ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
 
-natcurric:contentdescriptor-hierarchical-organisation-of-multicellular-organisms
+natcurric:contentdescriptor-gathering-recording-data-answering-questions
   a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel """The hierarchical organisation of multicellular organisms: from cells to tissues 
-  to organs to systems to organisms."""@en ;
+  skos:prefLabel "Gathering and recording data to help in answering questions."@en ;
   curric:displayOrder "6"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-cells-and-organisation ;
+  skos:broader natcurric:substrand-practical-scientific-methods-processes-skills ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
 
-natcurric:contentdescriptor-structure-functions-of-human-skeleton
+natcurric:contentdescriptor-asking-relevant-questions
   a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel """The structure and functions of the human skeleton, to include support, 
-  protection, movement and making blood cells."""@en ;
-  curric:displayOrder "1"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-skeletal-and-muscular-systems ;
+  skos:prefLabel """Asking relevant questions and using different types of scientific enquiries to 
+  answer them."""@en ;
+  curric:displayOrder "7"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-practical-scientific-methods-processes-skills ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
 
-natcurric:contentdescriptor-biomechanics-skeleton-and-muscles
+natcurric:contentdescriptor-practical-enquiries-comparative-fair-tests
   a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel """Biomechanics – the interaction between skeleton and muscles, including the 
-  measurement of force exerted by different muscles."""@en ;
-  curric:displayOrder "2"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-skeletal-and-muscular-systems ;
+  skos:prefLabel "Setting up simple practical enquiries, comparative and fair tests."@en ;
+  curric:displayOrder "8"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-practical-scientific-methods-processes-skills ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
 
-natcurric:contentdescriptor-function-of-muscles-and-examples
+natcurric:contentdescriptor-making-systematic-and-careful-observations
   a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel "The function of muscles and examples of antagonistic muscles."@en ;
-  curric:displayOrder "3"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-skeletal-and-muscular-systems ;
+  skos:prefLabel """Making systematic and careful observations and, where appropriate, taking 
+  accurate measurements using standard units, using a range of equipment, including thermometers 
+  and data loggers."""@en ;
+  curric:displayOrder "9"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-practical-scientific-methods-processes-skills ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
 
-natcurric:contentdescriptor-content-of-healthy-human-diet
+natcurric:contentdescriptor-gathering-recording-classifying-presenting-data
   a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel """The content of a healthy human diet: carbohydrates, lipids (fats and oils), 
-  proteins, vitamins, minerals, dietary fibre and water, and why each is needed."""@en ;
-  curric:displayOrder "1"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-nutrition-and-digestion ;
+  skos:prefLabel """Gathering, recording, classifying and presenting data in a variety of ways to 
+  help in answering questions."""@en ;
+  curric:displayOrder "10"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-practical-scientific-methods-processes-skills ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
 
-natcurric:contentdescriptor-energy-requirements-healthy-daily-diet
+natcurric:contentdescriptor-scientific-language-diagrams-charts-tables
   a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel "Calculations of energy requirements in a healthy daily diet."@en ;
-  curric:displayOrder "2"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-nutrition-and-digestion ;
+  skos:prefLabel """Recording findings using simple scientific language, drawings, labelled 
+  diagrams, keys, bar charts, and tables."""@en ;
+  curric:displayOrder "11"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-practical-scientific-methods-processes-skills ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
 
-natcurric:contentdescriptor-consequences-of-imbalances-in-diet
+natcurric:contentdescriptor-reporting-on-findings-from-enquiries
   a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel """The consequences of imbalances in the diet, including obesity, starvation and 
-  deficiency diseases."""@en ;
-  curric:displayOrder "3"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-nutrition-and-digestion ;
+  skos:prefLabel """Reporting on findings from enquiries, including oral and written explanations, 
+  displays or presentations of results and conclusions."""@en ;
+  curric:displayOrder "12"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-practical-scientific-methods-processes-skills ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
 
-natcurric:contentdescriptor-tissues-organs-human-digestive-system
+natcurric:contentdescriptor-results-draw-conclusions-make-predictions
   a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel """The tissues and organs of the human digestive system, including adaptations to 
-  function and how the digestive system digests food (enzymes simply as biological 
-  catalysts)."""@en ;
-  curric:displayOrder "4"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-nutrition-and-digestion ;
+  skos:prefLabel """Using results to draw simple conclusions, make predictions for new values, 
+  suggest improvements and raise further questions."""@en ;
+  curric:displayOrder "13"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-practical-scientific-methods-processes-skills ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
 
-natcurric:contentdescriptor-bacteria-in-human-digestive-system
+natcurric:contentdescriptor-differences-similarities-scientific-ideas-processes
   a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel "The importance of bacteria in the human digestive system."@en ;
-  curric:displayOrder "5"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-nutrition-and-digestion ;
+  skos:prefLabel """Identifying differences, similarities or changes related to simple scientific 
+  ideas and processes."""@en ;
+  curric:displayOrder "14"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-practical-scientific-methods-processes-skills ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
 
-natcurric:contentdescriptor-plants-making-carbohydrates
+natcurric:contentdescriptor-scientific-evidence-to-support-findings
   a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel """Plants making carbohydrates in their leaves by photosynthesis and gaining 
-  mineral nutrients and water from the soil via their roots."""@en ;
-  curric:displayOrder "6"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-nutrition-and-digestion ;
+  skos:prefLabel """Using straightforward scientific evidence to answer questions or to support 
+  their findings."""@en ;
+  curric:displayOrder "15"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-practical-scientific-methods-processes-skills ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
 
-natcurric:contentdescriptor-gas-exchange-system-in-humans
+natcurric:contentdescriptor-planning-different-types-scientific-enquiries
   a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel """The structure and functions of the gas exchange system in humans, including 
-  adaptations to function."""@en ;
-  curric:displayOrder "1"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-gas-exchange-systems ;
+  skos:prefLabel """Planning different types of scientific enquiries to answer questions, including 
+  recognising and controlling variables where necessary."""@en ;
+  curric:displayOrder "16"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-practical-scientific-methods-processes-skills ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
 
-natcurric:contentdescriptor-mechanism-of-breathing
+natcurric:contentdescriptor-taking-measurements-range-scientific-equipment
   a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel """The mechanism of breathing to move air in and out of the lungs, using a 
-  pressure model to explain the movement of gases, including simple measurements of lung 
-  volume."""@en ;
-  curric:displayOrder "2"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-gas-exchange-systems ;
+  skos:prefLabel """Taking measurements, using a range of scientific equipment, with increasing 
+  accuracy and precision, taking repeat readings when appropriate."""@en ;
+  curric:displayOrder "17"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-practical-scientific-methods-processes-skills ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
 
-natcurric:contentdescriptor-impact-of-exercise-asthma-smoking
+natcurric:contentdescriptor-recording-data-results-increasing-complexity
   a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel """The impact of exercise, asthma and smoking on the human gas exchange 
-  system."""@en ;
-  curric:displayOrder "3"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-gas-exchange-systems ;
+  skos:prefLabel """Recording data and results of increasing complexity using scientific diagrams 
+  and labels, classification keys, tables, scatter graphs, bar and line graphs."""@en ;
+  curric:displayOrder "18"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-practical-scientific-methods-processes-skills ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
 
-natcurric:contentdescriptor-leaf-stomata-gas-exchange-plants
+natcurric:contentdescriptor-test-results-to-make-predictions
   a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel "The role of leaf stomata in gas exchange in plants."@en ;
-  curric:displayOrder "4"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-gas-exchange-systems ;
+  skos:prefLabel """Using test results to make predictions to set up further comparative and fair 
+  tests."""@en ;
+  curric:displayOrder "19"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-practical-scientific-methods-processes-skills ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
 
-natcurric:contentdescriptor-reproduction-in-humans
+natcurric:contentdescriptor-findings-conclusions-relationships-explanations-trust
   a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel """Reproduction in humans (as an example of a mammal), including the structure and 
-  function of the male and female reproductive systems, menstrual cycle (without details of 
-  hormones), gametes, fertilisation, gestation and birth, to include the effect of maternal 
-  lifestyle on the foetus through the placenta."""@en ;
-  curric:displayOrder "1"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-reproduction ;
+  skos:prefLabel """Reporting and presenting findings from enquiries, including conclusions, causal 
+  relationships and explanations of and a degree of trust in results, in oral and written forms 
+  such as displays and other presentations."""@en ;
+  curric:displayOrder "20"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-practical-scientific-methods-processes-skills ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
 
-natcurric:contentdescriptor-reproduction-in-plants
+natcurric:contentdescriptor-scientific-evidence-support-refute-arguments
   a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel """Reproduction in plants, including flower structure, wind and insect 
-  pollination, fertilisation, seed and fruit formation and dispersal, including quantitative 
-  investigation of some dispersal mechanisms."""@en ;
-  curric:displayOrder "2"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-reproduction ;
-  skos:inScheme natcurric:knowledge-taxonomy ;
-  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
-
-natcurric:contentdescriptor-effects-of-recreational-drugs
-  a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel """The effects of recreational drugs (including substance misuse) on behaviour, 
-  health and life processes."""@en ;
-  curric:displayOrder "1"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-health ;
+  skos:prefLabel """Identifying scientific evidence that has been used to support or refute ideas 
+  or arguments."""@en ;
+  curric:displayOrder "21"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-practical-scientific-methods-processes-skills ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
 
@@ -1076,6 +1178,541 @@ natcurric:contentdescriptor-significant-figures-in-calculations
   skos:prefLabel "Using an appropriate number of significant figures in calculations."@en ;
   curric:displayOrder "6"^^xsd:positiveInteger ;
   skos:broader natcurric:substrand-vocabulary-units-symbols-nomenclature ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-differences-living-dead-never-alive
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Explore and compare the differences between things that are living, dead, and 
+  things that have never been alive."""@en ;
+  curric:displayOrder "1"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-living-things-and-their-habitats ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-different-habitats-basic-needs
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Identify that most living things live in habitats to which they are suited and 
+  describe how different habitats provide for the basic needs of different kinds of animals and 
+  plants, and how they depend on each other."""@en ;
+  curric:displayOrder "2"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-living-things-and-their-habitats ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-plants-animals-in-their-habitats
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Identify and name a variety of plants and animals in their habitats, including 
+  microhabitats."""@en ;
+  curric:displayOrder "3"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-living-things-and-their-habitats ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-how-animals-obtain-their-food
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Describe how animals obtain their food from plants and other animals, using the 
+  idea of a simple food chain, and identify and name different sources of food."""@en ;
+  curric:displayOrder "4"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-living-things-and-their-habitats ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-living-things-can-be-grouped
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Recognise that living things can be grouped in a variety of ways."@en ;
+  curric:displayOrder "5"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-living-things-and-their-habitats ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-explore-and-use-classification-keys
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Explore and use classification keys to help group, identify and name a variety 
+  of living things in their local and wider environment."""@en ;
+  curric:displayOrder "6"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-living-things-and-their-habitats ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-environments-can-change-dangers
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Recognise that environments can change and that this can sometimes pose dangers 
+  to living things."""@en ;
+  curric:displayOrder "7"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-living-things-and-their-habitats ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-lifecycles-mammal-amphibian-insect-bird
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Describe the differences in the life cycles of a mammal, an amphibian, an 
+  insect and a bird."""@en ;
+  curric:displayOrder "8"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-living-things-and-their-habitats ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-life-process-of-reproduction
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Describe the life process of reproduction in some plants and animals."@en ;
+  curric:displayOrder "9"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-living-things-and-their-habitats ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-living-things-classified-broad-groups
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Describe how living things are classified into broad groups according to common 
+  observable characteristics and based on similarities and differences, including micro-organisms, 
+  plants and animals."""@en ;
+  curric:displayOrder "10"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-living-things-and-their-habitats ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-classifying-plants-animals-specific-characteristics
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Give reasons for classifying plants and animals based on specific 
+  characteristics."""@en ;
+  curric:displayOrder "11"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-living-things-and-their-habitats ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-identify-wild-and-garden-plants
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Identify and name a variety of common wild and garden plants, including 
+  deciduous and evergreen trees."""@en ;
+  curric:displayOrder "1"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-plants ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-basic-structure-common-flowering-plants
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Identify and describe the basic structure of a variety of common flowering 
+  plants, including trees."""@en ;
+  curric:displayOrder "2"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-plants ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-seeds-bulbs-grow-into-plants
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Observe and describe how seeds and bulbs grow into mature plants."@en ;
+  curric:displayOrder "3"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-plants ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-plants-need-water-light-temperature
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Find out and describe how plants need water, light and a suitable temperature 
+  to grow and stay healthy."""@en ;
+  curric:displayOrder "4"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-plants ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-functions-different-parts-flowering-plants
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Identify and describe the functions of different parts of flowering plants: 
+  roots, stem/trunk, leaves and flowers."""@en ;
+  curric:displayOrder "5"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-plants ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-requirements-plants-for-life-growth
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Explore the requirements of plants for life and growth (air, light, water, 
+  nutrients from soil, and room to grow) and how they vary from plant to plant."""@en ;
+  curric:displayOrder "6"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-plants ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-water-transported-within-plants
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Investigate the way in which water is transported within plants."@en ;
+  curric:displayOrder "7"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-plants ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-life-cycle-of-flowering-plants
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Explore the part that flowers play in the life cycle of flowering plants, 
+  including pollination, seed formation and seed dispersal."""@en ;
+  curric:displayOrder "8"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-plants ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-fish-amphibians-reptiles-birds-mammals
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Identify and name a variety of common animals including fish, amphibians, 
+  reptiles, birds and mammals."""@en ;
+  curric:displayOrder "1"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-animals-including-humans ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-carnivores-herbivores-omnivores
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Identify and name a variety of common animals that are carnivores, herbivores 
+  and omnivores."""@en ;
+  curric:displayOrder "2"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-animals-including-humans ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-compare-structure-variety-common-animals
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Describe and compare the structure of a variety of common animals (fish, 
+  amphibians, reptiles, birds and mammals including pets)."""@en ;
+  curric:displayOrder "3"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-animals-including-humans ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-basic-parts-of-human-body
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Identify, name, draw and label the basic parts of the human body and say which 
+  part of the body is associated with each sense."""@en ;
+  curric:displayOrder "4"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-animals-including-humans ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-humans-offspring-grow-into-adults
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Notice that animals, including humans, have offspring which grow into 
+  adults."""@en ;
+  curric:displayOrder "5"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-animals-including-humans ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-basic-needs-animals-for-survival
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Find out about and describe the basic needs of animals, including humans, for 
+  survival (water, food and air)."""@en ;
+  curric:displayOrder "6"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-animals-including-humans ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-importance-humans-exercise-eating-hygiene
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Describe the importance for humans of exercise, eating the right amounts of 
+  different types of food, and hygiene."""@en ;
+  curric:displayOrder "7"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-animals-including-humans ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-animals-need-the-right-nutrition
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Identify that animals, including humans, need the right types and amount of 
+  nutrition, and that they cannot make their own food; they get nutrition from what they 
+  eat."""@en ;
+  curric:displayOrder "8"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-animals-including-humans ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-skeletons-muscles-support-protection-movement
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Identify that humans and some other animals have skeletons and muscles for 
+  support, protection and movement."""@en ;
+  curric:displayOrder "9"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-animals-including-humans ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-functions-parts-digestive-system-humans
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Describe the simple functions of the basic parts of the digestive system in 
+  humans."""@en ;
+  curric:displayOrder "10"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-animals-including-humans ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-types-teeth-humans-simple-functions
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Identify the different types of teeth in humans and their simple functions."@en ;
+  curric:displayOrder "11"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-animals-including-humans ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-food-chains-producers-predators-prey
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Construct and interpret a variety of food chains, identifying producers, 
+  predators and prey."""@en ;
+  curric:displayOrder "12"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-animals-including-humans ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-changes-humans-develop-old-age
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Describe the changes as humans develop to old age."@en ;
+  curric:displayOrder "13"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-animals-including-humans ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-main-parts-human-circulatory-system
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Identify and name the main parts of the human circulatory system, and describe 
+  the functions of the heart, blood vessels and blood."""@en ;
+  curric:displayOrder "14"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-animals-including-humans ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-impact-diet-exercise-drugs-lifestyle
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Recognise the impact of diet, exercise, drugs and lifestyle on the way their 
+  bodies function."""@en ;
+  curric:displayOrder "15"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-animals-including-humans ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-nutrients-water-transported-within-animals
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Describe the ways in which nutrients and water are transported within animals, 
+  including humans."""@en ;
+  curric:displayOrder "16"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-animals-including-humans ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-living-things-changed-over-time
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Recognise that living things have changed over time and that fossils provide 
+  information about living things that inhabited the Earth millions of years ago."""@en ;
+  curric:displayOrder "1"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-evolution-and-inheritance ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-living-things-offspring-same-kind
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Recognise that living things produce offspring of the same kind, but normally 
+  offspring vary and are not identical to their parents."""@en ;
+  curric:displayOrder "2"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-evolution-and-inheritance ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-animals-plants-adapted-suit-environment
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Identify how animals and plants are adapted to suit their environment in 
+  different ways and that adaptation may lead to evolution."""@en ;
+  curric:displayOrder "3"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-evolution-and-inheritance ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-cells-fundamental-unit-living-organisms
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Cells as the fundamental unit of living organisms, including how to observe, 
+  interpret and record cell structure using a light microscope."""@en ;
+  curric:displayOrder "1"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-cells-and-organisation ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-functions-cell-wall-membrane-cytoplasm
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """The functions of the cell wall, cell membrane, cytoplasm, nucleus, vacuole, 
+  mitochondria and chloroplasts."""@en ;
+  curric:displayOrder "2"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-cells-and-organisation ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-similarities-differences-plant-animal-cells
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "The similarities and differences between plant and animal cells."@en ;
+  curric:displayOrder "3"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-cells-and-organisation ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-diffusion-materials-in-between-cells
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "The role of diffusion in the movement of materials in and between cells."@en ;
+  curric:displayOrder "4"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-cells-and-organisation ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-structural-adaptations-of-unicellular-organisms
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "The structural adaptations of some unicellular organisms."@en ;
+  curric:displayOrder "5"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-cells-and-organisation ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-hierarchical-organisation-of-multicellular-organisms
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """The hierarchical organisation of multicellular organisms: from cells to tissues 
+  to organs to systems to organisms."""@en ;
+  curric:displayOrder "6"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-cells-and-organisation ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-structure-functions-of-human-skeleton
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """The structure and functions of the human skeleton, to include support, 
+  protection, movement and making blood cells."""@en ;
+  curric:displayOrder "1"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-skeletal-and-muscular-systems ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-biomechanics-skeleton-and-muscles
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Biomechanics – the interaction between skeleton and muscles, including the 
+  measurement of force exerted by different muscles."""@en ;
+  curric:displayOrder "2"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-skeletal-and-muscular-systems ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-function-of-muscles-and-examples
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "The function of muscles and examples of antagonistic muscles."@en ;
+  curric:displayOrder "3"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-skeletal-and-muscular-systems ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-content-of-healthy-human-diet
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """The content of a healthy human diet: carbohydrates, lipids (fats and oils), 
+  proteins, vitamins, minerals, dietary fibre and water, and why each is needed."""@en ;
+  curric:displayOrder "1"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-nutrition-and-digestion ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-energy-requirements-healthy-daily-diet
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Calculations of energy requirements in a healthy daily diet."@en ;
+  curric:displayOrder "2"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-nutrition-and-digestion ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-consequences-of-imbalances-in-diet
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """The consequences of imbalances in the diet, including obesity, starvation and 
+  deficiency diseases."""@en ;
+  curric:displayOrder "3"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-nutrition-and-digestion ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-tissues-organs-human-digestive-system
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """The tissues and organs of the human digestive system, including adaptations to 
+  function and how the digestive system digests food (enzymes simply as biological 
+  catalysts)."""@en ;
+  curric:displayOrder "4"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-nutrition-and-digestion ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-bacteria-in-human-digestive-system
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "The importance of bacteria in the human digestive system."@en ;
+  curric:displayOrder "5"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-nutrition-and-digestion ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-plants-making-carbohydrates
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Plants making carbohydrates in their leaves by photosynthesis and gaining 
+  mineral nutrients and water from the soil via their roots."""@en ;
+  curric:displayOrder "6"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-nutrition-and-digestion ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-gas-exchange-system-in-humans
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """The structure and functions of the gas exchange system in humans, including 
+  adaptations to function."""@en ;
+  curric:displayOrder "1"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-gas-exchange-systems ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-mechanism-of-breathing
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """The mechanism of breathing to move air in and out of the lungs, using a 
+  pressure model to explain the movement of gases, including simple measurements of lung 
+  volume."""@en ;
+  curric:displayOrder "2"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-gas-exchange-systems ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-impact-of-exercise-asthma-smoking
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """The impact of exercise, asthma and smoking on the human gas exchange 
+  system."""@en ;
+  curric:displayOrder "3"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-gas-exchange-systems ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-leaf-stomata-gas-exchange-plants
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "The role of leaf stomata in gas exchange in plants."@en ;
+  curric:displayOrder "4"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-gas-exchange-systems ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-reproduction-in-humans
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Reproduction in humans (as an example of a mammal), including the structure and 
+  function of the male and female reproductive systems, menstrual cycle (without details of 
+  hormones), gametes, fertilisation, gestation and birth, to include the effect of maternal 
+  lifestyle on the foetus through the placenta."""@en ;
+  curric:displayOrder "1"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-reproduction ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-reproduction-in-plants
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Reproduction in plants, including flower structure, wind and insect 
+  pollination, fertilisation, seed and fruit formation and dispersal, including quantitative 
+  investigation of some dispersal mechanisms."""@en ;
+  curric:displayOrder "2"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-reproduction ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-effects-of-recreational-drugs
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """The effects of recreational drugs (including substance misuse) on behaviour, 
+  health and life processes."""@en ;
+  curric:displayOrder "1"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-health ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
 
