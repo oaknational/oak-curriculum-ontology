@@ -552,9 +552,7 @@ Alternatively, see [CITATION.cff](CITATION.cff) for machine-readable citation me
 - Public SPARQL endpoint deployment
 - HTTP content negotiation supporting HTML, TTL, JSON-LD, RDF/XML and N-Triples
 - Learning resource integration using LRMI standards (videos, worksheets, assessments etc.)
-- Cross-curriculum concepts and skills
 - Progression models and learning pathways
-- Assessment objective mappings
 - Enhanced documentation
 
 **Feedback welcome!** If you have suggestions for the roadmap, [open an issue](https://github.com/oaknational/oak-curriculum-ontology-public/issues).
