@@ -276,25 +276,25 @@ natcurric:progression-science-year-group-1-animals-including-humans
     natcurric:contentdescriptor-compare-structure-variety-common-animals ,
     natcurric:contentdescriptor-basic-parts-of-human-body .
 
-eng:progression-chemistry-year-group-1-everyday-materials
+natcurric:progression-science-year-group-1-everyday-materials
   a curric:Progression ;
   rdfs:label "Chemistry Year Group 1 Everyday Materials"@en ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
-  curric:isProgressionOf eng:scheme-chemistry-key-stage-1 ;
+  curric:isProgressionOf natcurric:scheme-science-key-stage-1 ;
   curric:coversContent
-    eng:contentdescriptor-distinguish-between-object-and-material ,
-    eng:contentdescriptor-identify-variety-of-everyday-materials ,
-    eng:contentdescriptor-simple-physical-properties-everyday-materials ,
-    eng:contentdescriptor-compare-and-group-everyday-materials .
+    natcurric:contentdescriptor-distinguish-between-object-and-material ,
+    natcurric:contentdescriptor-identify-variety-of-everyday-materials ,
+    natcurric:contentdescriptor-simple-physical-properties-everyday-materials ,
+    natcurric:contentdescriptor-compare-and-group-everyday-materials .
 
-eng:progression-physics-year-group-1-seasonal-changes
+natcurric:progression-science-year-group-1-seasonal-changes
   a curric:Progression ;
   rdfs:label "Physics Year Group 1 Seasonal Changes"@en ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
-  curric:isProgressionOf eng:scheme-physics-key-stage-1 ;
+  curric:isProgressionOf natcurric:scheme-science-key-stage-1 ;
   curric:coversContent
-    eng:contentdescriptor-observe-changes-across-4-seasons ,
-    eng:contentdescriptor-weather-associated-with-seasons .
+    natcurric:contentdescriptor-observe-changes-across-4-seasons ,
+    natcurric:contentdescriptor-weather-associated-with-seasons .
 
 natcurric:progression-science-year-group-2-living-things-and-their-habitats
   a curric:Progression ;
@@ -326,14 +326,14 @@ natcurric:progression-science-year-group-2-animals-including-humans
     natcurric:contentdescriptor-basic-needs-animals-for-survival ,
     natcurric:contentdescriptor-importance-humans-exercise-eating-hygiene .
 
-eng:progression-chemistry-year-group-2-everyday-materials
+natcurric:progression-science-year-group-2-everyday-materials
   a curric:Progression ;
   rdfs:label "Chemistry Year Group 2 Everyday Materials"@en ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
-  curric:isProgressionOf eng:scheme-chemistry-key-stage-1 ;
+  curric:isProgressionOf natcurric:scheme-science-key-stage-1 ;
   curric:coversContent
-    eng:contentdescriptor-suitability-variety-of-everyday-materials ,
-    eng:contentdescriptor-shapes-of-solid-objects-changed .
+    natcurric:contentdescriptor-suitability-variety-of-everyday-materials ,
+    natcurric:contentdescriptor-shapes-of-solid-objects-changed .
 
 natcurric:progression-science-lower-key-stage-2-practical-scientific-methods-processes-skills
   a curric:Progression ;
@@ -371,40 +371,40 @@ natcurric:progression-science-year-group-3-animals-including-humans
     natcurric:contentdescriptor-animals-need-the-right-nutrition ,
     natcurric:contentdescriptor-skeletons-muscles-support-protection-movement .
 
-eng:progression-chemistry-year-group-3-rocks
+natcurric:progression-science-year-group-3-rocks
   a curric:Progression ;
   rdfs:label "Chemistry Year Group 3 Rocks"@en ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
-  curric:isProgressionOf eng:scheme-chemistry-lower-key-stage-2 ;
+  curric:isProgressionOf natcurric:scheme-science-lower-key-stage-2 ;
   curric:coversContent
-    eng:contentdescriptor-compare-rocks-appearance-physical-properties ,
-    eng:contentdescriptor-how-fossils-are-formed ,
-    eng:contentdescriptor-soils-from-rocks-organic-matter .
+    natcurric:contentdescriptor-compare-rocks-appearance-physical-properties ,
+    natcurric:contentdescriptor-how-fossils-are-formed ,
+    natcurric:contentdescriptor-soils-from-rocks-organic-matter .
 
-eng:progression-physics-year-group-3-light
+natcurric:progression-science-year-group-3-light
   a curric:Progression ;
   rdfs:label "Physics Year Group 3 Light"@en ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
-  curric:isProgressionOf eng:scheme-physics-lower-key-stage-2 ;
+  curric:isProgressionOf natcurric:scheme-science-lower-key-stage-2 ;
   curric:coversContent
-    eng:contentdescriptor-light-dark ,
-    eng:contentdescriptor-light-reflected-from-surfaces ,
-    eng:contentdescriptor-light-from-sun-dangerous ,
-    eng:contentdescriptor-shadows-when-light-is-blocked ,
-    eng:contentdescriptor-patterns-size-of-shadows-change .
+    natcurric:contentdescriptor-light-dark ,
+    natcurric:contentdescriptor-light-reflected-from-surfaces ,
+    natcurric:contentdescriptor-light-from-sun-dangerous ,
+    natcurric:contentdescriptor-shadows-when-light-is-blocked ,
+    natcurric:contentdescriptor-patterns-size-of-shadows-change .
 
-eng:progression-physics-year-group-3-forces-and-magnets
+natcurric:progression-science-year-group-3-forces-and-magnets
   a curric:Progression ;
   rdfs:label "Physics Year Group 3 Forces and Magnets"@en ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
-  curric:isProgressionOf eng:scheme-physics-lower-key-stage-2 ;
+  curric:isProgressionOf natcurric:scheme-science-lower-key-stage-2 ;
   curric:coversContent
-    eng:contentdescriptor-how-things-move-different-surfaces ,
-    eng:contentdescriptor-some-forces-need-contact ,
-    eng:contentdescriptor-how-magnets-attract-or-repel ,
-    eng:contentdescriptor-everyday-materials-attracted-to-magnet ,
-    eng:contentdescriptor-magnets-having-2-poles ,
-    eng:contentdescriptor-predict-2-magnets-attract-repel .
+    natcurric:contentdescriptor-how-things-move-different-surfaces ,
+    natcurric:contentdescriptor-some-forces-need-contact ,
+    natcurric:contentdescriptor-how-magnets-attract-or-repel ,
+    natcurric:contentdescriptor-everyday-materials-attracted-to-magnet ,
+    natcurric:contentdescriptor-magnets-having-2-poles ,
+    natcurric:contentdescriptor-predict-2-magnets-attract-repel .
 
 natcurric:progression-science-year-group-4-living-things-and-their-habitats
   a curric:Progression ;
@@ -426,39 +426,39 @@ natcurric:progression-science-year-group-4-animals-including-humans
     natcurric:contentdescriptor-types-teeth-humans-simple-functions ,
     natcurric:contentdescriptor-food-chains-producers-predators-prey .
 
-eng:progression-chemistry-year-group-4-states-of-matter
+natcurric:progression-science-year-group-4-states-of-matter
   a curric:Progression ;
   rdfs:label "Chemistry Year Group 4 States of Matter"@en ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
-  curric:isProgressionOf eng:scheme-chemistry-lower-key-stage-2 ;
+  curric:isProgressionOf natcurric:scheme-science-lower-key-stage-2 ;
   curric:coversContent
-    eng:contentdescriptor-compare-group-solids-liquids-gases ,
-    eng:contentdescriptor-materials-change-state-heated-cooled ,
-    eng:contentdescriptor-evaporation-condensation-in-water-cycle .
+    natcurric:contentdescriptor-compare-group-solids-liquids-gases ,
+    natcurric:contentdescriptor-materials-change-state-heated-cooled ,
+    natcurric:contentdescriptor-evaporation-condensation-in-water-cycle .
 
-eng:progression-physics-year-group-4-sound
+natcurric:progression-science-year-group-4-sound
   a curric:Progression ;
   rdfs:label "Physics Year Group 4 Sound"@en ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
-  curric:isProgressionOf eng:scheme-physics-lower-key-stage-2 ;
+  curric:isProgressionOf natcurric:scheme-science-lower-key-stage-2 ;
   curric:coversContent
-    eng:contentdescriptor-how-sounds-are-made ,
-    eng:contentdescriptor-vibrations-from-sounds-travel ,
-    eng:contentdescriptor-pitch-of-a-sound ,
-    eng:contentdescriptor-volume-of-a-sound ,
-    eng:contentdescriptor-sounds-fainter-as-distance-increases .
+    natcurric:contentdescriptor-how-sounds-are-made ,
+    natcurric:contentdescriptor-vibrations-from-sounds-travel ,
+    natcurric:contentdescriptor-pitch-of-a-sound ,
+    natcurric:contentdescriptor-volume-of-a-sound ,
+    natcurric:contentdescriptor-sounds-fainter-as-distance-increases .
 
-eng:progression-physics-year-group-4-electricity
+natcurric:progression-science-year-group-4-electricity
   a curric:Progression ;
   rdfs:label "Physics Year Group 4 Electricity"@en ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
-  curric:isProgressionOf eng:scheme-physics-lower-key-stage-2 ;
+  curric:isProgressionOf natcurric:scheme-science-lower-key-stage-2 ;
   curric:coversContent
-    eng:contentdescriptor-common-appliances-run-on-electricity ,
-    eng:contentdescriptor-simple-series-electrical-circuit ,
-    eng:contentdescriptor-lamp-in-simple-series-circuit ,
-    eng:contentdescriptor-switch-opens-and-closes-circuit ,
-    eng:contentdescriptor-common-conductors-and-insulators .
+    natcurric:contentdescriptor-common-appliances-run-on-electricity ,
+    natcurric:contentdescriptor-simple-series-electrical-circuit ,
+    natcurric:contentdescriptor-lamp-in-simple-series-circuit ,
+    natcurric:contentdescriptor-switch-opens-and-closes-circuit ,
+    natcurric:contentdescriptor-common-conductors-and-insulators .
 
 natcurric:progression-science-upper-key-stage-2-practical-scientific-methods-processes-skills
   a curric:Progression ;
@@ -490,39 +490,39 @@ natcurric:progression-science-year-group-5-animals-including-humans
   curric:coversContent
     natcurric:contentdescriptor-changes-humans-develop-old-age .
 
-eng:progression-chemistry-year-group-5-properties-and-changes-of-materials
+natcurric:progression-science-year-group-5-properties-and-changes-of-materials
   a curric:Progression ;
   rdfs:label "Chemistry Year Group 5 Properties and Changes of Materials"@en ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
-  curric:isProgressionOf eng:scheme-chemistry-upper-key-stage-2 ;
+  curric:isProgressionOf natcurric:scheme-science-upper-key-stage-2 ;
   curric:coversContent
-    eng:contentdescriptor-compare-materials-based-on-properties ,
-    eng:contentdescriptor-materials-dissolve-to-form-solution ,
-    eng:contentdescriptor-how-mixtures-might-be-separated ,
-    eng:contentdescriptor-particular-uses-of-everyday-materials ,
-    eng:contentdescriptor-dissolving-mixing-are-reversible-changes ,
-    eng:contentdescriptor-formation-of-new-materials .
+    natcurric:contentdescriptor-compare-materials-based-on-properties ,
+    natcurric:contentdescriptor-materials-dissolve-to-form-solution ,
+    natcurric:contentdescriptor-how-mixtures-might-be-separated ,
+    natcurric:contentdescriptor-particular-uses-of-everyday-materials ,
+    natcurric:contentdescriptor-dissolving-mixing-are-reversible-changes ,
+    natcurric:contentdescriptor-formation-of-new-materials .
 
-eng:progression-physics-year-group-5-earth-and-space
+natcurric:progression-science-year-group-5-earth-and-space
   a curric:Progression ;
   rdfs:label "Physics Year Group 5 Earth and Space"@en ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
-  curric:isProgressionOf eng:scheme-physics-upper-key-stage-2 ;
+  curric:isProgressionOf natcurric:scheme-science-upper-key-stage-2 ;
   curric:coversContent
-    eng:contentdescriptor-movement-earth-planets-relative-sun ,
-    eng:contentdescriptor-movement-moon-relative-earth ,
-    eng:contentdescriptor-sun-earth-moon-spherical-bodies ,
-    eng:contentdescriptor-earths-rotation-explain-day-night .
+    natcurric:contentdescriptor-movement-earth-planets-relative-sun ,
+    natcurric:contentdescriptor-movement-moon-relative-earth ,
+    natcurric:contentdescriptor-sun-earth-moon-spherical-bodies ,
+    natcurric:contentdescriptor-earths-rotation-explain-day-night .
 
-eng:progression-physics-year-group-5-forces
+natcurric:progression-science-year-group-5-forces
   a curric:Progression ;
   rdfs:label "Physics Year Group 5 Forces"@en ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
-  curric:isProgressionOf eng:scheme-physics-upper-key-stage-2 ;
+  curric:isProgressionOf natcurric:scheme-science-upper-key-stage-2 ;
   curric:coversContent
-    eng:contentdescriptor-objects-fall-force-of-gravity ,
-    eng:contentdescriptor-air-water-resistance-and-friction ,
-    eng:contentdescriptor-levers-pulleys-and-gears .
+    natcurric:contentdescriptor-objects-fall-force-of-gravity ,
+    natcurric:contentdescriptor-air-water-resistance-and-friction ,
+    natcurric:contentdescriptor-levers-pulleys-and-gears .
 
 natcurric:progression-science-year-group-6-living-things-and-their-habitats
   a curric:Progression ;
@@ -553,26 +553,26 @@ natcurric:progression-science-year-group-6-evolution-and-inheritance
     natcurric:contentdescriptor-living-things-offspring-same-kind ,
     natcurric:contentdescriptor-animals-plants-adapted-suit-environment .
 
-eng:progression-physics-year-group-6-light
+natcurric:progression-science-year-group-6-light
   a curric:Progression ;
   rdfs:label "Physics Year Group 6 Light"@en ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
-  curric:isProgressionOf eng:scheme-physics-upper-key-stage-2 ;
+  curric:isProgressionOf natcurric:scheme-science-upper-key-stage-2 ;
   curric:coversContent
-    eng:contentdescriptor-light-travel-straight-lines ,
-    eng:contentdescriptor-objects-reflect-light-into-eye ,
-    eng:contentdescriptor-light-from-sources-to-eyes ,
-    eng:contentdescriptor-shadows-same-shape-as-objects .
+    natcurric:contentdescriptor-light-travel-straight-lines ,
+    natcurric:contentdescriptor-objects-reflect-light-into-eye ,
+    natcurric:contentdescriptor-light-from-sources-to-eyes ,
+    natcurric:contentdescriptor-shadows-same-shape-as-objects .
 
-eng:progression-physics-year-group-6-electricity
+natcurric:progression-science-year-group-6-electricity
   a curric:Progression ;
   rdfs:label "Physics Year Group 6 Electricity"@en ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
-  curric:isProgressionOf eng:scheme-physics-upper-key-stage-2 ;
+  curric:isProgressionOf natcurric:scheme-science-upper-key-stage-2 ;
   curric:coversContent
-    eng:contentdescriptor-number-and-voltage-cells-used ,
-    eng:contentdescriptor-variations-in-how-components-function ,
-    eng:contentdescriptor-symbols-representing-circuit-in-diagram .
+    natcurric:contentdescriptor-number-and-voltage-cells-used ,
+    natcurric:contentdescriptor-variations-in-how-components-function ,
+    natcurric:contentdescriptor-symbols-representing-circuit-in-diagram .
 
 natcurric:progression-science-key-stage-3-scientific-attitudes
   a curric:Progression ;
