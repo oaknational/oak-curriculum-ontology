@@ -78,7 +78,7 @@ natcurric:discipline-science
 natcurric:strand-working-scientifically
   a skos:Concept, curric:Strand ;
   skos:prefLabel "Working Scientifically"@en ;
-  skos:definition "Description of strand..." ;
+  skos:definition "Description of strand..."@en ;
   curric:displayOrder "1"^^xsd:positiveInteger ;
   skos:broader natcurric:discipline-science ;
   skos:narrower 
@@ -96,8 +96,8 @@ natcurric:strand-working-scientifically
 natcurric:strand-physical-science
   a skos:Concept, curric:Strand ;
   skos:prefLabel "Physical Science"@en ;
-  skos:definition "Description of strand..." ;
-  curric:displayOrder "2"^^xsd:positiveInteger ;
+  skos:definition "Description of strand..."@en ;
+  curric:displayOrder "4"^^xsd:positiveInteger ;
   skos:broader natcurric:discipline-science ;
   skos:narrower 
     natcurric:substrand-seasonal-changes ,
@@ -109,7 +109,7 @@ natcurric:strand-physical-science
     natcurric:substrand-forces ,
     natcurric:substrand-forces-and-motion ,
     natcurric:substrand-wave-motion ,
-    natcurricnatcurric: ,
+    natcurric:substrand-electricity ,
     natcurric:substrand-magnetism-and-electromagnetism ,
     natcurric:substrand-structure-of-matter ,
     natcurric:substrand-atomic-structure ,
@@ -406,7 +406,7 @@ natcurric:substrand-wave-motion
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
 
-natcurricnatcurric:
+natcurric:substrand-electricity
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Electricity"@en ;
   skos:definition "Description of sub-strand..."@en ;

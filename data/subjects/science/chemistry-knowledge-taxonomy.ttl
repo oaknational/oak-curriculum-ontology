@@ -95,8 +95,8 @@ natcurric:strand-working-scientifically
 natcurric:strand-chemical-science
   a skos:Concept, curric:Strand ;
   skos:prefLabel "Chemical Science"@en ;
-  skos:definition "Description of strand..." ;
-  curric:displayOrder "2"^^xsd:positiveInteger ;
+  skos:definition "Description of strand..."@en ;
+  curric:displayOrder "3"^^xsd:positiveInteger ;
   skos:broader natcurric:discipline-science ;
   skos:narrower
     natcurric:substrand-everyday-materials ,

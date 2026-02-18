@@ -406,7 +406,7 @@ natcurric:substrand-wave-motion
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
 
-natcurricnatcurric:
+natcurric:substrand-electricity
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Electricity"@en ;
   skos:definition "Description of sub-strand..."@en ;
