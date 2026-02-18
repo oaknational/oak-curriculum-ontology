@@ -10,25 +10,25 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 # ======================================================================
-# National Curriculum for England - Chemistry Knowledge Taxonomy 
+# National Curriculum for England - Physics Knowledge Taxonomy 
 # ======================================================================
 
 # ----------------------------------------------------------------------
 # Ontology Declaration
 # ----------------------------------------------------------------------
 
-<https://w3id.org/uk/oak/curriculum/nationalcurriculum/chemistry-knowledge-taxonomy>
+<https://w3id.org/uk/oak/curriculum/nationalcurriculum/physics-knowledge-taxonomy>
   rdf:type owl:Ontology ;
 
-  rdfs:label "National Curriculum for England - Chemistry Knowledge Taxonomy"@en ;
-  dc:title "National Curriculum for England - Chemistry Knowledge Taxonomy"@en ;
-  rdfs:comment """The chemistry knowledge taxonomy for the National Curriculum in England, organizing 
+  rdfs:label "National Curriculum for England - Physics Knowledge Taxonomy"@en ;
+  dc:title "National Curriculum for England - Physics Knowledge Taxonomy"@en ;
+  rdfs:comment """The physics knowledge taxonomy for the National Curriculum in England, organizing 
   content through strands, sub-strands, content descriptors, and sub-content descriptors."""@en ;
 
   owl:versionInfo "0.1.0" ;
-  owl:versionIRI <https://w3id.org/uk/oak/curriculum/nationalcurriculum/chemistry-knowledge-taxonomy/0.1.0> ;
+  owl:versionIRI <https://w3id.org/uk/oak/curriculum/nationalcurriculum/physics-knowledge-taxonomy/0.1.0> ;
   
-  dcterms:description """The chemistry knowledge taxonomy for the National Curriculum in England, 
+  dcterms:description """The physics knowledge taxonomy for the National Curriculum in England, 
   organizing content through strands, sub-strands, content descriptors, and sub-content 
   descriptors."""@en ;
   dcterms:created "2025-11-24T12:33:32Z"^^xsd:dateTime ;
@@ -43,7 +43,8 @@
   vann:preferredNamespaceUri "https://w3id.org/uk/oak/curriculum/nationalcurriculum/" ;
 
   owl:imports <https://w3id.org/uk/oak/curriculum/ontology> ;
-  owl:imports <https://w3id.org/uk/oak/curriculum/nationalcurriculum/chemistry-programme-structure> .
+  owl:imports <https://w3id.org/uk/oak/curriculum/core/> ;
+  owl:imports <https://w3id.org/uk/oak/curriculum/nationalcurriculum/physics-programme-structure> .
 
 # ----------------------------------------------------------------------
 # Knowledge Taxonomy
@@ -66,7 +67,7 @@ natcurric:discipline-science
   skos:topConceptOf natcurric:knowledge-taxonomy ;
   skos:narrower 
     natcurric:strand-working-scientifically ,
-    natcurric:strand-chemical-science ;
+    natcurric:strand-physical-science ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
 
@@ -77,7 +78,7 @@ natcurric:discipline-science
 natcurric:strand-working-scientifically
   a skos:Concept, curric:Strand ;
   skos:prefLabel "Working Scientifically"@en ;
-  skos:definition "Description of strand..."@en ;
+  skos:definition "Description of strand..." ;
   curric:displayOrder "1"^^xsd:positiveInteger ;
   skos:broader natcurric:discipline-science ;
   skos:narrower 
@@ -92,25 +93,27 @@ natcurric:strand-working-scientifically
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
 
-natcurric:strand-chemical-science
+natcurric:strand-physical-science
   a skos:Concept, curric:Strand ;
-  skos:prefLabel "Chemical Science"@en ;
-  skos:definition "Description of strand..."@en ;
-  curric:displayOrder "3"^^xsd:positiveInteger ;
+  skos:prefLabel "Physical Science"@en ;
+  skos:definition "Description of strand..." ;
+  curric:displayOrder "2"^^xsd:positiveInteger ;
   skos:broader natcurric:discipline-science ;
-  skos:narrower
-    natcurric:substrand-everyday-materials ,
-    natcurric:substrand-rocks ,
-    natcurric:substrand-states-of-matter ,
-    natcurric:substrand-properties-and-changes-of-materials ,
-    natcurric:substrand-atomic-structure-periodic-table ,
-    natcurric:substrand-structure-bonding-properties-of-matter ,
-    natcurric:substrand-chemical-changes ,
-    natcurric:substrand-energy-changes-in-chemistry ,
-    natcurric:substrand-rate-extent-of-chemical-change ,
-    natcurric:substrand-chemical-analysis ,
-    natcurric:substrand-chemical-and-allied-industries ,
-    natcurric:substrand-earth-and-atmospheric-science ;
+  skos:narrower 
+    natcurric:substrand-seasonal-changes ,
+    natcurric:substrand-light ,
+    natcurric:substrand-forces-and-magnets ,
+    natcurric:substrand-sound ,
+    natcurric:substrand-earth-and-space ,
+    natcurric:substrand-energy ,
+    natcurric:substrand-forces ,
+    natcurric:substrand-forces-and-motion ,
+    natcurric:substrand-wave-motion ,
+    natcurricnatcurric: ,
+    natcurric:substrand-magnetism-and-electromagnetism ,
+    natcurric:substrand-structure-of-matter ,
+    natcurric:substrand-atomic-structure ,
+    natcurric:substrand-space-physics ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
 
@@ -264,178 +267,220 @@ natcurric:substrand-scientific-measurement
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
 
-natcurric:substrand-everyday-materials
+natcurric:substrand-seasonal-changes
   a skos:Concept, curric:SubStrand ;
-  skos:prefLabel "Everyday Materials"@en ;
+  skos:prefLabel "Seasonal changes"@en ;
   skos:definition "Description of sub-strand..." ;
   curric:displayOrder "1"^^xsd:positiveInteger ;
-  skos:broader natcurric:strand-chemical-science ;
+  skos:broader natcurric:strand-physical-science ;
   skos:narrower 
-    natcurric:contentdescriptor-distinguish-between-object-and-material ,
-    natcurric:contentdescriptor-identify-variety-of-everyday-materials ,
-    natcurric:contentdescriptor-simple-physical-properties-everyday-materials ,
-    natcurric:contentdescriptor-compare-and-group-everyday-materials ,
-    natcurric:contentdescriptor-suitability-variety-of-everyday-materials ,
-    natcurric:contentdescriptor-shapes-of-solid-objects-changed ;
+    natcurric:contentdescriptor-observe-changes-across-4-seasons ,
+    natcurric:contentdescriptor-weather-associated-with-seasons ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
 
-natcurric:substrand-rocks
+natcurric:substrand-light
   a skos:Concept, curric:SubStrand ;
-  skos:prefLabel "Rocks"@en ;
+  skos:prefLabel "Light"@en ;
   skos:definition "Description of sub-strand..." ;
   curric:displayOrder "2"^^xsd:positiveInteger ;
-  skos:broader natcurric:strand-chemical-science ;
+  skos:broader natcurric:strand-physical-science ;
   skos:narrower 
-    natcurric:contentdescriptor-compare-rocks-appearance-physical-properties ,
-    natcurric:contentdescriptor-how-fossils-are-formed ,
-    natcurric:contentdescriptor-soils-from-rocks-organic-matter ;
+    natcurric:contentdescriptor-light-dark ,
+    natcurric:contentdescriptor-light-reflected-from-surfaces ,
+    natcurric:contentdescriptor-light-from-sun-dangerous ,
+    natcurric:contentdescriptor-shadows-when-light-is-blocked ,
+    natcurric:contentdescriptor-patterns-size-of-shadows-change ,
+    natcurric:contentdescriptor-light-travel-straight-lines ,
+    natcurric:contentdescriptor-objects-reflect-light-into-eye ,
+    natcurric:contentdescriptor-light-from-sources-to-eyes ,
+    natcurric:contentdescriptor-shadows-same-shape-as-objects ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
 
-natcurric:substrand-states-of-matter
+natcurric:substrand-forces-and-magnets
   a skos:Concept, curric:SubStrand ;
-  skos:prefLabel "States of Matter"@en ;
+  skos:prefLabel "Forces and Magnets"@en ;
   skos:definition "Description of sub-strand..." ;
   curric:displayOrder "3"^^xsd:positiveInteger ;
-  skos:broader natcurric:strand-chemical-science ;
+  skos:broader natcurric:strand-physical-science ;
   skos:narrower 
-    natcurric:contentdescriptor-compare-group-solids-liquids-gases ,
-    natcurric:contentdescriptor-materials-change-state-heated-cooled ,
-    natcurric:contentdescriptor-evaporation-condensation-in-water-cycle ;
+    natcurric:contentdescriptor-how-things-move-different-surfaces ,
+    natcurric:contentdescriptor-some-forces-need-contact ,
+    natcurric:contentdescriptor-how-magnets-attract-or-repel ,
+    natcurric:contentdescriptor-everyday-materials-attracted-to-magnet ,
+    natcurric:contentdescriptor-magnets-having-2-poles ,
+    natcurric:contentdescriptor-predict-2-magnets-attract-repel ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
 
-natcurric:substrand-properties-and-changes-of-materials
+natcurric:substrand-sound
   a skos:Concept, curric:SubStrand ;
-  skos:prefLabel "Properties and Changes of Materials"@en ;
+  skos:prefLabel "Sound"@en ;
   skos:definition "Description of sub-strand..." ;
   curric:displayOrder "4"^^xsd:positiveInteger ;
-  skos:broader natcurric:strand-chemical-science ;
+  skos:broader natcurric:strand-physical-science ;
   skos:narrower 
-    natcurric:contentdescriptor-compare-materials-based-on-properties ,
-    natcurric:contentdescriptor-materials-dissolve-to-form-solution ,
-    natcurric:contentdescriptor-how-mixtures-might-be-separated ,
-    natcurric:contentdescriptor-particular-uses-of-everyday-materials ,
-    natcurric:contentdescriptor-dissolving-mixing-are-reversible-changes ,
-    natcurric:contentdescriptor-formation-of-new-materials ;
+    natcurric:contentdescriptor-how-sounds-are-made ,
+    natcurric:contentdescriptor-vibrations-from-sounds-travel ,
+    natcurric:contentdescriptor-pitch-of-a-sound ,
+    natcurric:contentdescriptor-volume-of-a-sound ,
+    natcurric:contentdescriptor-sounds-fainter-as-distance-increases ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
 
-natcurric:substrand-atomic-structure-periodic-table
+natcurric:substrand-earth-and-space
   a skos:Concept, curric:SubStrand ;
-  skos:prefLabel "Atomic structure and the Periodic Table"@en ;
+  skos:prefLabel "Earth and Space"@en ;
+  skos:definition "Description of sub-strand..." ;
+  curric:displayOrder "5"^^xsd:positiveInteger ;
+  skos:broader natcurric:strand-physical-science ;
+  skos:narrower 
+    natcurric:contentdescriptor-movement-earth-planets-relative-sun ,
+    natcurric:contentdescriptor-movement-moon-relative-earth ,
+    natcurric:contentdescriptor-sun-earth-moon-spherical-bodies ,
+    natcurric:contentdescriptor-earths-rotation-explain-day-night ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:substrand-energy
+  a skos:Concept, curric:SubStrand ;
+  skos:prefLabel "Energy"@en ;
   skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "1"^^xsd:positiveInteger ;
-  skos:broader natcurric:strand-chemical-science ;
+  skos:broader natcurric:strand-physical-science ;
   skos:narrower 
-    natcurric:contentdescriptor-simple-model-of-atom ,
-    natcurric:contentdescriptor-number-particles-in-given-mass ,
-    natcurric:contentdescriptor-modern-periodic-table ,
-    natcurric:contentdescriptor-position-of-elements-in-periodic-table ,
-    natcurric:contentdescriptor-properties-of-elements-same-group ,
-    natcurric:contentdescriptor-properties-of-metals-and-nonmetals ,
-    natcurric:contentdescriptor-chemical-reactivity-of-elements ;
+    natcurric:contentdescriptor-energy-changes-in-a-system ,
+    natcurric:contentdescriptor-power-as-rate-transfer-energy ,
+    natcurric:contentdescriptor-conservation-of-energy-closed-system ,
+    natcurric:contentdescriptor-energy-efficiency-for-energy-transfers ,
+    natcurric:contentdescriptor-renewable-non-renewable-energy-sources ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
 
-natcurric:substrand-structure-bonding-properties-of-matter
+natcurric:substrand-forces
   a skos:Concept, curric:SubStrand ;
-  skos:prefLabel "Structure, bonding and the properties of matter"@en ;
+  skos:prefLabel "Forces"@en ;
   skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "2"^^xsd:positiveInteger ;
-  skos:broader natcurric:strand-chemical-science ;
+  skos:broader natcurric:strand-physical-science ;
   skos:narrower 
-    natcurric:contentdescriptor-changes-of-state-of-matter ,
-    natcurric:contentdescriptor-types-of-chemical-bonding ,
-    natcurric:contentdescriptor-bonding-and-intermolecular-forces ,
-    natcurric:contentdescriptor-bonding-of-carbon ,
-    natcurric:contentdescriptor-diamond-graphite-fullerenes-graphene ;
+    natcurric:contentdescriptor-objects-fall-force-of-gravity ,
+    natcurric:contentdescriptor-air-water-resistance-and-friction ,
+    natcurric:contentdescriptor-levers-pulleys-and-gears ,
+    natcurric:contentdescriptor-forces-and-fields ,
+    natcurric:contentdescriptor-forces-as-vectors ,
+    natcurric:contentdescriptor-calculating-work-done ,
+    natcurric:contentdescriptor-pressure-in-fluids ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
 
-natcurric:substrand-chemical-changes
+natcurric:substrand-forces-and-motion
   a skos:Concept, curric:SubStrand ;
-  skos:prefLabel "Chemical changes"@en ;
+  skos:prefLabel "Forces and motion"@en ;
   skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "3"^^xsd:positiveInteger ;
-  skos:broader natcurric:strand-chemical-science ;
+  skos:broader natcurric:strand-physical-science ;
   skos:narrower 
-    natcurric:contentdescriptor-determination-of-empirical-formulae ,
-    natcurric:contentdescriptor-balanced-chemical-equations ,
-    natcurric:contentdescriptor-identification-of-common-gases ,
-    natcurric:contentdescriptor-chemistry-of-acids ,
-    natcurric:contentdescriptor-hydrogen-ion-concentration ,
-    natcurric:contentdescriptor-electrolysis-of-molten-ionic-liquids ,
-    natcurric:contentdescriptor-reduction-and-oxidation ;
+    natcurric:contentdescriptor-speed-of-sound ,
+    natcurric:contentdescriptor-graphs-of-distance-time-speed ,
+    natcurric:contentdescriptor-acceleration-caused-by-forces ,
+    natcurric:contentdescriptor-weight-and-gravitational-field-strength ,
+    natcurric:contentdescriptor-decelerations-and-braking-distances ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
 
-natcurric:substrand-energy-changes-in-chemistry
+natcurric:substrand-wave-motion
   a skos:Concept, curric:SubStrand ;
-  skos:prefLabel "Energy changes in chemistry"@en ;
+  skos:prefLabel "Wave motion"@en ;
   skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "4"^^xsd:positiveInteger ;
-  skos:broader natcurric:strand-chemical-science ;
+  skos:broader natcurric:strand-physical-science ;
   skos:narrower 
-    natcurric:contentdescriptor-energy-changes-in-chemical-reactions ,
-    natcurric:contentdescriptor-bond-breaking-bond-making ;
+    natcurric:contentdescriptor-amplitude-wavelength-frequency ,
+    natcurric:contentdescriptor-transverse-and-longitudinal-waves ,
+    natcurric:contentdescriptor-electromagnetic-waves ,
+    natcurric:contentdescriptor-velocities-differing-between-media ,
+    natcurric:contentdescriptor-production-detection-by-electrical-circuits ,
+    natcurric:contentdescriptor-electromagnetic-spectrum-uses-and-hazards ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
 
-natcurric:substrand-rate-extent-of-chemical-change
+natcurricnatcurric:
   a skos:Concept, curric:SubStrand ;
-  skos:prefLabel "Rate and extent of chemical change"@en ;
+  skos:prefLabel "Electricity"@en ;
   skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "5"^^xsd:positiveInteger ;
-  skos:broader natcurric:strand-chemical-science ;
-  skos:narrower 
-    natcurric:contentdescriptor-factors-influencing-rate-of-reaction ,
-    natcurric:contentdescriptor-factors-affecting-reversible-reactions ;
+  skos:broader natcurric:strand-physical-science ;
+  skos:narrower
+    natcurric:contentdescriptor-common-appliances-run-on-electricity ,
+    natcurric:contentdescriptor-simple-series-electrical-circuit ,
+    natcurric:contentdescriptor-lamp-in-simple-series-circuit ,
+    natcurric:contentdescriptor-switch-opens-and-closes-circuit ,
+    natcurric:contentdescriptor-common-conductors-and-insulators ,
+    natcurric:contentdescriptor-number-and-voltage-cells-used ,
+    natcurric:contentdescriptor-variations-in-how-components-function ,
+    natcurric:contentdescriptor-symbols-representing-circuit-in-diagram ,
+    natcurric:contentdescriptor-measuring-resistance ,
+    natcurric:contentdescriptor-current-resistance-voltage-relationships ,
+    natcurric:contentdescriptor-quantity-of-charge-flowing ,
+    natcurric:contentdescriptor-drawing-circuit-diagrams ,
+    natcurric:contentdescriptor-domestic-ac-supply ,
+    natcurric:contentdescriptor-power-transfer ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
 
-natcurric:substrand-chemical-analysis
+natcurric:substrand-magnetism-and-electromagnetism
   a skos:Concept, curric:SubStrand ;
-  skos:prefLabel "Chemical analysis"@en ;
+  skos:prefLabel "Magnetism and electromagnetism"@en ;
   skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "6"^^xsd:positiveInteger ;
-  skos:broader natcurric:strand-chemical-science ;
+  skos:broader natcurric:strand-physical-science ;
   skos:narrower 
-    natcurric:contentdescriptor-distinguishing-pure-and-impure-substances ,
-    natcurric:contentdescriptor-separation-techniques-mixtures-of-substances ,
-    natcurric:contentdescriptor-quantitative-interpretation-of-balanced-equations ,
-    natcurric:contentdescriptor-concentrations-of-solutions ;
+    natcurric:contentdescriptor-exploring-magnetic-fields ,
+    natcurric:contentdescriptor-magnetic-effects-of-currents ,
+    natcurric:contentdescriptor-transformers-in-national-grid ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
 
-natcurric:substrand-chemical-and-allied-industries
+natcurric:substrand-structure-of-matter
   a skos:Concept, curric:SubStrand ;
-  skos:prefLabel "Chemical and allied industries"@en ;
+  skos:prefLabel "The structure of matter"@en ;
   skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "7"^^xsd:positiveInteger ;
-  skos:broader natcurric:strand-chemical-science ;
-  skos:narrower
-    natcurric:contentdescriptor-life-cycle-assessment-and-recycling ,
-    natcurric:contentdescriptor-viability-of-recycling-certain-materials ,
-    natcurric:contentdescriptor-carbon-compounds-as-fuels-feedstock ,
-    natcurric:contentdescriptor-fractional-distillation-of-crude-oil ,
-    natcurric:contentdescriptor-extraction-and-purification-of-metals ;
+  skos:broader natcurric:strand-physical-science ;
+  skos:narrower 
+    natcurric:contentdescriptor-molecules-in-solid-liquid-gas ,
+    natcurric:contentdescriptor-melting-evaporation-sublimation ,
+    natcurric:contentdescriptor-energy-changes-involved-on-heating ,
+    natcurric:contentdescriptor-pressure-temperature-gas-constant-volume ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
 
-natcurric:substrand-earth-and-atmospheric-science
+natcurric:substrand-atomic-structure
   a skos:Concept, curric:SubStrand ;
-  skos:prefLabel "Earth and atmospheric science"@en ;
+  skos:prefLabel "Atomic structure"@en ;
   skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "8"^^xsd:positiveInteger ;
-  skos:broader natcurric:strand-chemical-science ;
+  skos:broader natcurric:strand-physical-science ;
   skos:narrower 
-    natcurric:contentdescriptor-composition-evolution-of-earths-atmosphere ,
-    natcurric:contentdescriptor-anthropogenic-causes-of-climate-change ,
-    natcurric:contentdescriptor-increased-levels-carbon-dioxide-methane ,
-    natcurric:contentdescriptor-common-atmospheric-pollutants ,
-    natcurric:contentdescriptor-earths-water-resources ;
+    natcurric:contentdescriptor-nuclear-model ,
+    natcurric:contentdescriptor-masses-sizes-nuclei-atoms-molecules ,
+    natcurric:contentdescriptor-protons-neutrons-isotopes ,
+    natcurric:contentdescriptor-ionisation-absorption-emission-radiation ,
+    natcurric:contentdescriptor-radioactive-nuclei ,
+    natcurric:contentdescriptor-radioactive-materials-halflife-irradiation ,
+    natcurric:contentdescriptor-nuclear-fission-fusion-sun-energy ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:substrand-space-physics
+  a skos:Concept, curric:SubStrand ;
+  skos:prefLabel "Space physics"@en ;
+  skos:definition "Description of sub-strand..."@en ;
+  curric:displayOrder "9"^^xsd:positiveInteger ;
+  skos:broader natcurric:strand-physical-science ;
+  skos:narrower natcurric:contentdescriptor-main-features-of-solar-system ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
 
@@ -626,7 +671,7 @@ natcurric:contentdescriptor-scientific-evidence-support-refute-arguments
   skos:broader natcurric:substrand-practical-scientific-methods-processes-skills ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
-  
+
 natcurric:contentdescriptor-objectivity-concern-for-accuracy-precision
   a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel """Pay attention to objectivity and concern for accuracy, precision, repeatability 
@@ -1027,481 +1072,674 @@ natcurric:contentdescriptor-significant-figures-in-calculations
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
 
-natcurric:contentdescriptor-distinguish-between-object-and-material
+natcurric:contentdescriptor-observe-changes-across-4-seasons
   a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel "Distinguish between an object and the material from which it is made."@en ;
+  skos:prefLabel "Observe changes across the 4 seasons."@en ;
   curric:displayOrder "1"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-everyday-materials ;
+  skos:broader natcurric:substrand-seasonal-changes ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
 
-natcurric:contentdescriptor-identify-variety-of-everyday-materials
+natcurric:contentdescriptor-weather-associated-with-seasons
   a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel """Identify and name a variety of everyday materials, including wood, plastic, 
-  glass, metal, water, and rock."""@en ;
+  skos:prefLabel """Observe and describe weather associated with the seasons and how day length 
+  varies."""@en ;
   curric:displayOrder "2"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-everyday-materials ;
+  skos:broader natcurric:substrand-seasonal-changes ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
 
-natcurric:contentdescriptor-simple-physical-properties-everyday-materials
+natcurric:contentdescriptor-light-dark
   a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel "Describe the simple physical properties of a variety of everyday materials."@en ;
-  curric:displayOrder "3"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-everyday-materials ;
+  skos:prefLabel """Recognise that they need light in order to see things and that dark is the 
+  absence of light."""@en ;
+  curric:displayOrder "1"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-light ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
 
-natcurric:contentdescriptor-compare-and-group-everyday-materials
+natcurric:contentdescriptor-light-reflected-from-surfaces
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Notice that light is reflected from surfaces."@en ;
+  curric:displayOrder "2"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-light ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-light-from-sun-dangerous
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Recognise that light from the sun can be dangerous and that there are ways to 
+  protect their eyes."""@en ;
+  curric:displayOrder "3"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-light ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-shadows-when-light-is-blocked
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Recognise that shadows are formed when the light from a light source is blocked 
+  by an opaque object."""@en ;
+  curric:displayOrder "4"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-light ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-patterns-size-of-shadows-change
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Find patterns in the way that the size of shadows change."@en ;
+  curric:displayOrder "5"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-light ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-light-travel-straight-lines
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Recognise that light appears to travel in straight lines."@en ;
+  curric:displayOrder "6"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-light ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-objects-reflect-light-into-eye
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Use the idea that light travels in straight lines to explain that objects are 
+  seen because they give out or reflect light into the eye."""@en ;
+  curric:displayOrder "7"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-light ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-light-from-sources-to-eyes
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Explain that we see things because light travels from light sources to our eyes 
+  or from light sources to objects and then to our eyes."""@en ;
+  curric:displayOrder "8"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-light ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-shadows-same-shape-as-objects
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Use the idea that light travels in straight lines to explain why shadows have 
+  the same shape as the objects that cast them."""@en ;
+  curric:displayOrder "9"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-light ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-how-things-move-different-surfaces
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Compare how things move on different surfaces."@en ;
+  curric:displayOrder "1"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-forces-and-magnets ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-some-forces-need-contact
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Notice that some forces need contact between 2 objects, but magnetic forces can 
+  act at a distance."""@en ;
+  curric:displayOrder "2"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-forces-and-magnets ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-how-magnets-attract-or-repel
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Observe how magnets attract or repel each other and attract some materials and 
+  not others."""@en ;
+  curric:displayOrder "3"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-forces-and-magnets ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-everyday-materials-attracted-to-magnet
   a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel """Compare and group together a variety of everyday materials on the basis of 
-  their simple physical properties."""@en ;
+  whether they are attracted to a magnet, and identify some magnetic materials."""@en ;
   curric:displayOrder "4"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-everyday-materials ;
+  skos:broader natcurric:substrand-forces-and-magnets ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
 
-natcurric:contentdescriptor-suitability-variety-of-everyday-materials
+natcurric:contentdescriptor-magnets-having-2-poles
   a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel """Identify and compare the suitability of a variety of everyday materials, 
-  including wood, metal, plastic, glass, brick, rock, paper and cardboard for particular 
-  uses."""@en ;
+  skos:prefLabel "Describe magnets as having 2 poles."@en ;
   curric:displayOrder "5"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-everyday-materials ;
+  skos:broader natcurric:substrand-forces-and-magnets ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
 
-natcurric:contentdescriptor-shapes-of-solid-objects-changed
+natcurric:contentdescriptor-predict-2-magnets-attract-repel
   a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel """Find out how the shapes of solid objects made from some materials can be 
-  changed by squashing, bending, twisting and stretching."""@en ;
+  skos:prefLabel """Predict whether 2 magnets will attract or repel each other, depending on which 
+  poles are facing."""@en ;
   curric:displayOrder "6"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-everyday-materials ;
+  skos:broader natcurric:substrand-forces-and-magnets ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
 
-natcurric:contentdescriptor-compare-rocks-appearance-physical-properties
+natcurric:contentdescriptor-how-sounds-are-made
   a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel """Compare and group together different kinds of rocks on the basis of their 
-  appearance and simple physical properties."""@en ;
+  skos:prefLabel """Identify how sounds are made, associating some of them with something 
+  vibrating."""@en ;
   curric:displayOrder "1"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-rocks ;
+  skos:broader natcurric:substrand-sound ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
 
-natcurric:contentdescriptor-how-fossils-are-formed
+natcurric:contentdescriptor-vibrations-from-sounds-travel
   a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel """Describe in simple terms how fossils are formed when things that have lived are 
-  trapped within rock."""@en ;
+  skos:prefLabel "Recognise that vibrations from sounds travel through a medium to the ear."@en ;
   curric:displayOrder "2"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-rocks ;
+  skos:broader natcurric:substrand-sound ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
 
-natcurric:contentdescriptor-soils-from-rocks-organic-matter
+natcurric:contentdescriptor-pitch-of-a-sound
   a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel "Recognise that soils are made from rocks and organic matter."@en ;
+  skos:prefLabel """Find patterns between the pitch of a sound and features of the object that 
+  produced it."""@en ;
   curric:displayOrder "3"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-rocks ;
+  skos:broader natcurric:substrand-sound ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
 
-natcurric:contentdescriptor-compare-group-solids-liquids-gases
+natcurric:contentdescriptor-volume-of-a-sound
   a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel """Compare and group materials together, according to whether they are solids, 
-  liquids or gases."""@en ;
-  curric:displayOrder "1"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-states-of-matter ;
-  skos:inScheme natcurric:knowledge-taxonomy ;
-  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
-
-natcurric:contentdescriptor-materials-change-state-heated-cooled
-  a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel """Observe that some materials change state when they are heated or cooled, and 
-  measure or research the temperature at which this happens in degrees Celsius (°C)."""@en ;
-  curric:displayOrder "2"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-states-of-matter ;
-  skos:inScheme natcurric:knowledge-taxonomy ;
-  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
-
-natcurric:contentdescriptor-evaporation-condensation-in-water-cycle
-  a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel """Identify the part played by evaporation and condensation in the water cycle and 
-  associate the rate of evaporation with temperature."""@en ;
-  curric:displayOrder "3"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-states-of-matter ;
-  skos:inScheme natcurric:knowledge-taxonomy ;
-  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
-
-natcurric:contentdescriptor-compare-materials-based-on-properties
-  a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel """Compare and group together everyday materials on the basis of their properties, 
-  including their hardness, solubility, transparency, conductivity (electrical and thermal), and 
-  response to magnets."""@en ;
-  curric:displayOrder "1"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-properties-and-changes-of-materials ;
-  skos:inScheme natcurric:knowledge-taxonomy ;
-  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
-
-natcurric:contentdescriptor-materials-dissolve-to-form-solution
-  a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel """Know that some materials will dissolve in liquid to form a solution, and 
-  describe how to recover a substance from a solution."""@en ;
-  curric:displayOrder "2"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-properties-and-changes-of-materials ;
-  skos:inScheme natcurric:knowledge-taxonomy ;
-  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
-
-natcurric:contentdescriptor-how-mixtures-might-be-separated
-  a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel """Use knowledge of solids, liquids and gases to decide how mixtures might be 
-  separated, including through filtering, sieving and evaporating."""@en ;
-  curric:displayOrder "3"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-properties-and-changes-of-materials ;
-  skos:inScheme natcurric:knowledge-taxonomy ;
-  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
-
-natcurric:contentdescriptor-particular-uses-of-everyday-materials
-  a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel """Give reasons, based on evidence from comparative and fair tests, for the 
-  particular uses of everyday materials, including metals, wood and plastic."""@en ;
+  skos:prefLabel """Find patterns between the volume of a sound and the strength of the vibrations 
+  that produced it."""@en ;
   curric:displayOrder "4"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-properties-and-changes-of-materials ;
+  skos:broader natcurric:substrand-sound ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
 
-natcurric:contentdescriptor-dissolving-mixing-are-reversible-changes
+natcurric:contentdescriptor-sounds-fainter-as-distance-increases
   a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel """Demonstrate that dissolving, mixing and changes of state are reversible 
-  changes."""@en ;
+  skos:prefLabel """recognise that sounds get fainter as the distance from the sound source 
+  increases."""@en ;
   curric:displayOrder "5"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-properties-and-changes-of-materials ;
+  skos:broader natcurric:substrand-sound ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
 
-natcurric:contentdescriptor-formation-of-new-materials
+natcurric:contentdescriptor-movement-earth-planets-relative-sun
   a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel """Explain that some changes result in the formation of new materials, and that 
-  this kind of change is not usually reversible, including changes associated with burning and the 
-  action of acid on bicarbonate of soda."""@en ;
-  curric:displayOrder "6"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-properties-and-changes-of-materials ;
-  skos:inScheme natcurric:knowledge-taxonomy ;
-  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
-
-natcurric:contentdescriptor-simple-model-of-atom
-  a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel """A simple model of the atom consisting of the nucleus and electrons, relative 
-  atomic mass, electronic charge and isotopes."""@en ;
+  skos:prefLabel """Describe the movement of the Earth and other planets relative to the sun in the 
+  solar system."""@en ;
   curric:displayOrder "1"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-atomic-structure-periodic-table ;
+  skos:broader natcurric:substrand-earth-and-space ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
 
-natcurric:contentdescriptor-number-particles-in-given-mass
+natcurric:contentdescriptor-movement-moon-relative-earth
   a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel "The number of particles in a given mass of a substance."@en ;
+  skos:prefLabel "Describe the movement of the moon relative to the Earth."@en ;
   curric:displayOrder "2"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-atomic-structure-periodic-table ;
+  skos:broader natcurric:substrand-earth-and-space ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
 
-natcurric:contentdescriptor-modern-periodic-table
+natcurric:contentdescriptor-sun-earth-moon-spherical-bodies
   a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel """The modern Periodic Table, showing elements arranged in order of atomic 
-  number."""@en ;
+  skos:prefLabel "Describe the sun, Earth and moon as approximately spherical bodies."@en ;
   curric:displayOrder "3"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-atomic-structure-periodic-table ;
+  skos:broader natcurric:substrand-earth-and-space ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
 
-natcurric:contentdescriptor-position-of-elements-in-periodic-table
+natcurric:contentdescriptor-earths-rotation-explain-day-night
   a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel """Position of elements in the Periodic Table in relation to their atomic 
-  structure and arrangement of outer electrons."""@en ;
+  skos:prefLabel """Use the idea of the Earth’s rotation to explain day and night and the apparent 
+  movement of the sun across the sky."""@en ;
   curric:displayOrder "4"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-atomic-structure-periodic-table ;
+  skos:broader natcurric:substrand-earth-and-space ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
 
-natcurric:contentdescriptor-properties-of-elements-same-group
+natcurric:contentdescriptor-energy-changes-in-a-system
   a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel "Properties and trends in properties of elements in the same group."@en ;
+  skos:prefLabel """Energy changes in a system involving heating, doing work using forces, or doing 
+  work using an electric current: calculating the stored energies and energy changes 
+  involved."""@en ;
+  curric:displayOrder "1"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-energy ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-power-as-rate-transfer-energy
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Power as the rate of transfer of energy."@en ;
+  curric:displayOrder "2"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-energy ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-conservation-of-energy-closed-system
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Conservation of energy in a closed system, dissipation."@en ;
+  curric:displayOrder "3"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-energy ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-energy-efficiency-for-energy-transfers
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Calculating energy efficiency for any energy transfers."@en ;
+  curric:displayOrder "4"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-energy ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-renewable-non-renewable-energy-sources
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Renewable and non-renewable energy sources used on Earth, changes in how these 
+  are used."""@en ;
   curric:displayOrder "5"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-atomic-structure-periodic-table ;
+  skos:broader natcurric:substrand-energy ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
 
-natcurric:contentdescriptor-properties-of-metals-and-nonmetals
+natcurric:contentdescriptor-objects-fall-force-of-gravity
   a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel "Characteristic properties of metals and non-metals."@en ;
+  skos:prefLabel """Explain that unsupported objects fall towards the Earth because of the force of 
+  gravity acting between the Earth and the falling object."""@en ;
+  curric:displayOrder "1"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-forces ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-air-water-resistance-and-friction
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Identify the effects of air resistance, water resistance and friction, that act 
+  between moving surfaces."""@en ;
+  curric:displayOrder "2"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-forces ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-levers-pulleys-and-gears
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Recognise that some mechanisms including levers, pulleys and gears allow a 
+  smaller force to have a greater effect."""@en ;
+  curric:displayOrder "3"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-forces ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-forces-and-fields
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Forces and fields: electrostatic, magnetic, gravity."@en ;
+  curric:displayOrder "4"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-forces ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-forces-as-vectors
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Forces as vectors."@en ;
+  curric:displayOrder "5"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-forces ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-calculating-work-done
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Calculating work done as force x distance; elastic and inelastic stretching."@en ;
   curric:displayOrder "6"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-atomic-structure-periodic-table ;
+  skos:broader natcurric:substrand-forces ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
 
-natcurric:contentdescriptor-chemical-reactivity-of-elements
+natcurric:contentdescriptor-pressure-in-fluids
   a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel """Chemical reactivity of elements in relation to their position in the Periodic 
-  Table."""@en ;
+  skos:prefLabel """Pressure in fluids acts in all directions: variation in Earth’s atmosphere with 
+  height, with depth for liquids, up-thrust force (qualitative)."""@en ;
   curric:displayOrder "7"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-atomic-structure-periodic-table ;
+  skos:broader natcurric:substrand-forces ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
 
-natcurric:contentdescriptor-changes-of-state-of-matter
+natcurric:contentdescriptor-speed-of-sound
   a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel """Changes of state of matter in terms of particle kinetics, energy transfers and 
-  the relative strength of chemical bonds and intermolecular forces."""@en ;
+  skos:prefLabel "Speed of sound, estimating speeds and accelerations in everyday contexts."@en ;
   curric:displayOrder "1"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-structure-bonding-properties-of-matter ;
+  skos:broader natcurric:substrand-forces-and-motion ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
 
-natcurric:contentdescriptor-types-of-chemical-bonding
+natcurric:contentdescriptor-graphs-of-distance-time-speed
   a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel "Types of chemical bonding: ionic, covalent, and metallic."@en ;
+  skos:prefLabel "Interpreting quantitatively graphs of distance, time, and speed."@en ;
   curric:displayOrder "2"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-structure-bonding-properties-of-matter ;
+  skos:broader natcurric:substrand-forces-and-motion ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
 
-natcurric:contentdescriptor-bonding-and-intermolecular-forces
+natcurric:contentdescriptor-acceleration-caused-by-forces
   a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel "Bulk properties of materials related to bonding and intermolecular forces."@en ;
+  skos:prefLabel "Acceleration caused by forces; Newton’s First Law."@en ;
   curric:displayOrder "3"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-structure-bonding-properties-of-matter ;
+  skos:broader natcurric:substrand-forces-and-motion ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
 
-natcurric:contentdescriptor-bonding-of-carbon
+natcurric:contentdescriptor-weight-and-gravitational-field-strength
   a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel """Bonding of carbon leading to the vast array of natural and synthetic organic 
-  compounds that occur due to the ability of carbon to form families of similar compounds, chains 
-  and rings."""@en ;
+  skos:prefLabel "Weight and gravitational field strength."@en ;
   curric:displayOrder "4"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-structure-bonding-properties-of-matter ;
+  skos:broader natcurric:substrand-forces-and-motion ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
 
-natcurric:contentdescriptor-diamond-graphite-fullerenes-graphene
+natcurric:contentdescriptor-decelerations-and-braking-distances
   a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel """Structures, bonding and properties of diamond, graphite, fullerenes and 
-  graphene."""@en ;
+  skos:prefLabel "Decelerations and braking distances involved on roads, safety."@en ;
   curric:displayOrder "5"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-structure-bonding-properties-of-matter ;
+  skos:broader natcurric:substrand-forces-and-motion ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
 
-natcurric:contentdescriptor-determination-of-empirical-formulae
+natcurric:contentdescriptor-amplitude-wavelength-frequency
   a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel """Determination of empirical formulae from the ratio of atoms of different 
-  kinds."""@en ;
+  skos:prefLabel """Amplitude, wavelength, frequency, relating velocity to frequency and 
+  wavelength."""@en ;
   curric:displayOrder "1"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-chemical-changes ;
+  skos:broader natcurric:substrand-wave-motion ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
 
-natcurric:contentdescriptor-balanced-chemical-equations
+natcurric:contentdescriptor-transverse-and-longitudinal-waves
   a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel "Balanced chemical equations, ionic equations and state symbols."@en ;
+  skos:prefLabel "Transverse and longitudinal waves."@en ;
   curric:displayOrder "2"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-chemical-changes ;
+  skos:broader natcurric:substrand-wave-motion ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
 
-natcurric:contentdescriptor-identification-of-common-gases
+natcurric:contentdescriptor-electromagnetic-waves
   a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel "Identification of common gases."@en ;
+  skos:prefLabel """Electromagnetic waves, velocity in vacuum; waves transferring energy; 
+  wavelengths and frequencies from radio to gamma-rays."""@en ;
   curric:displayOrder "3"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-chemical-changes ;
+  skos:broader natcurric:substrand-wave-motion ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
 
-natcurric:contentdescriptor-chemistry-of-acids
+natcurric:contentdescriptor-velocities-differing-between-media
   a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel "The chemistry of acids; reactions with some metals and carbonates."@en ;
+  skos:prefLabel """Velocities differing between media: absorption, reflection, refraction 
+  effects."""@en ;
   curric:displayOrder "4"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-chemical-changes ;
+  skos:broader natcurric:substrand-wave-motion ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
 
-natcurric:contentdescriptor-hydrogen-ion-concentration
+natcurric:contentdescriptor-production-detection-by-electrical-circuits
   a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel "pH as a measure of hydrogen ion concentration and its numerical scale."@en ;
+  skos:prefLabel """Production and detection, by electrical circuits, or by changes in atoms and 
+  nuclei."""@en ;
   curric:displayOrder "5"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-chemical-changes ;
+  skos:broader natcurric:substrand-wave-motion ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
 
-natcurric:contentdescriptor-electrolysis-of-molten-ionic-liquids
+natcurric:contentdescriptor-electromagnetic-spectrum-uses-and-hazards
   a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel "Electrolysis of molten ionic liquids and aqueous ionic solutions."@en ;
+  skos:prefLabel """Uses in the radio, microwave, infra-red, visible, ultra-violet, X-ray and 
+  gamma-ray regions, hazardous effects on bodily tissues."""@en ;
   curric:displayOrder "6"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-chemical-changes ;
+  skos:broader natcurric:substrand-wave-motion ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
 
-natcurric:contentdescriptor-reduction-and-oxidation
+natcurric:contentdescriptor-common-appliances-run-on-electricity
   a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel "Reduction and oxidation in terms of loss or gain of oxygen."@en ;
+  skos:prefLabel "Identify common appliances that run on electricity."@en ;
+  curric:displayOrder "1"^^xsd:positiveInteger ;
+  skos:broader engnatcurric: ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-simple-series-electrical-circuit
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Construct a simple series electrical circuit, identifying and naming its basic 
+  parts, including cells, wires, bulbs, switches and buzzers."""@en ;
+  curric:displayOrder "2"^^xsd:positiveInteger ;
+  skos:broader engnatcurric: ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-lamp-in-simple-series-circuit
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Identify whether or not a lamp will light in a simple series circuit, based on 
+  whether or not the lamp is part of a complete loop with a battery."""@en ;
+  curric:displayOrder "3"^^xsd:positiveInteger ;
+  skos:broader engnatcurric: ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-switch-opens-and-closes-circuit
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Recognise that a switch opens and closes a circuit and associate this with 
+  whether or not a lamp lights in a simple series circuit."""@en ;
+  curric:displayOrder "4"^^xsd:positiveInteger ;
+  skos:broader engnatcurric: ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-common-conductors-and-insulators
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Recognise some common conductors and insulators, and associate metals with 
+  being good conductors."""@en ;
+  curric:displayOrder "5"^^xsd:positiveInteger ;
+  skos:broader engnatcurric: ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-number-and-voltage-cells-used
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Associate the brightness of a lamp or the volume of a buzzer with the number 
+  and voltage of cells used in the circuit."""@en ;
+  curric:displayOrder "6"^^xsd:positiveInteger ;
+  skos:broader engnatcurric: ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-variations-in-how-components-function
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Compare and give reasons for variations in how components function, including 
+  the brightness of bulbs, the loudness of buzzers and the on/off position of switches."""@en ;
   curric:displayOrder "7"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-chemical-changes ;
+  skos:broader engnatcurric: ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
 
-natcurric:contentdescriptor-energy-changes-in-chemical-reactions
+natcurric:contentdescriptor-symbols-representing-circuit-in-diagram
   a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel "Measurement of energy changes in chemical reactions (qualitative)."@en ;
+  skos:prefLabel "Use recognised symbols when representing a simple circuit in a diagram."@en ;
+  curric:displayOrder "8"^^xsd:positiveInteger ;
+  skos:broader engnatcurric: ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-measuring-resistance
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Measuring resistance using p.d. and current measurements."@en ;
+  curric:displayOrder "9"^^xsd:positiveInteger ;
+  skos:broader engnatcurric: ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-current-resistance-voltage-relationships
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Exploring current, resistance and voltage relationships for different circuit 
+  elements; including their graphical representations."""@en ;
+  curric:displayOrder "10"^^xsd:positiveInteger ;
+  skos:broader engnatcurric: ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-quantity-of-charge-flowing
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Quantity of charge flowing as the product of current and time."@en ;
+  curric:displayOrder "11"^^xsd:positiveInteger ;
+  skos:broader engnatcurric: ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-drawing-circuit-diagrams
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Drawing circuit diagrams; exploring equivalent resistance for resistors in 
+  series."""@en ;
+  curric:displayOrder "12"^^xsd:positiveInteger ;
+  skos:broader engnatcurric: ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-domestic-ac-supply
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """The domestic a.c. supply; live, neutral and earth mains wires, safety 
+  measures."""@en ;
+  curric:displayOrder "13"^^xsd:positiveInteger ;
+  skos:broader engnatcurric: ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-power-transfer
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Power transfer related to p.d. and current, or current and resistance."@en ;
+  curric:displayOrder "14"^^xsd:positiveInteger ;
+  skos:broader engnatcurric: ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-exploring-magnetic-fields
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Exploring the magnetic fields of permanent and induced magnets, and the Earth’s 
+  magnetic field, using a compass."""@en ;
   curric:displayOrder "1"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-energy-changes-in-chemistry ;
+  skos:broader natcurric:substrand-magnetism-and-electromagnetism ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
 
-natcurric:contentdescriptor-bond-breaking-bond-making
+natcurric:contentdescriptor-magnetic-effects-of-currents
   a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel """Bond breaking, bond making, activation energy and reaction profiles 
-  (qualitative)."""@en ;
+  skos:prefLabel "Magnetic effects of currents, how solenoids enhance the effect."@en ;
   curric:displayOrder "2"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-energy-changes-in-chemistry ;
+  skos:broader natcurric:substrand-magnetism-and-electromagnetism ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
 
-natcurric:contentdescriptor-factors-influencing-rate-of-reaction
+natcurric:contentdescriptor-transformers-in-national-grid
   a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel """Factors that influence the rate of reaction: varying temperature or 
-  concentration, changing the surface area of a solid reactant or by adding a catalyst."""@en ;
-  curric:displayOrder "1"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-rate-extent-of-chemical-change ;
-  skos:inScheme natcurric:knowledge-taxonomy ;
-  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
-
-natcurric:contentdescriptor-factors-affecting-reversible-reactions
-  a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel "Factors affecting reversible reactions."@en ;
-  curric:displayOrder "2"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-rate-extent-of-chemical-change ;
-  skos:inScheme natcurric:knowledge-taxonomy ;
-  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
-
-natcurric:contentdescriptor-distinguishing-pure-and-impure-substances
-  a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel "Distinguishing between pure and impure substances."@en ;
-  curric:displayOrder "1"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-chemical-analysis ;
-  skos:inScheme natcurric:knowledge-taxonomy ;
-  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
-
-natcurric:contentdescriptor-separation-techniques-mixtures-of-substances
-  a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel """Separation techniques for mixtures of substances: filtration, crystallisation, 
-  chromatography, simple and fractional distillation."""@en ;
-  curric:displayOrder "2"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-chemical-analysis ;
-  skos:inScheme natcurric:knowledge-taxonomy ;
-  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
-
-natcurric:contentdescriptor-quantitative-interpretation-of-balanced-equations
-  a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel "Quantitative interpretation of balanced equations."@en ;
+  skos:prefLabel """How transformers are used in the national grid and the reasons for their 
+  use."""@en ;
   curric:displayOrder "3"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-chemical-analysis ;
+  skos:broader natcurric:substrand-magnetism-and-electromagnetism ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
 
-natcurric:contentdescriptor-concentrations-of-solutions
+natcurric:contentdescriptor-molecules-in-solid-liquid-gas
   a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel """Concentrations of solutions in relation to mass of solute and volume of 
-  solvent."""@en ;
-  curric:displayOrder "4"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-chemical-analysis ;
-  skos:inScheme natcurric:knowledge-taxonomy ;
-  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
-
-natcurric:contentdescriptor-life-cycle-assessment-and-recycling
-  a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel """Life cycle assessment and recycling to assess environmental impacts associated 
-  with all the stages of a product’s life."""@en ;
+  skos:prefLabel """Relating models of arrangements and motions of the molecules in solid, liquid 
+  and gas phases to their densities."""@en ;
   curric:displayOrder "1"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-chemical-and-allied-industries ;
+  skos:broader natcurric:substrand-structure-of-matter ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
 
-natcurric:contentdescriptor-viability-of-recycling-certain-materials
+natcurric:contentdescriptor-melting-evaporation-sublimation
   a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel "The viability of recycling of certain materials."@en ;
+  skos:prefLabel "Melting, evaporation, and sublimation as reversible changes."@en ;
   curric:displayOrder "2"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-chemical-and-allied-industries ;
+  skos:broader natcurric:substrand-structure-of-matter ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
 
-natcurric:contentdescriptor-carbon-compounds-as-fuels-feedstock
+natcurric:contentdescriptor-energy-changes-involved-on-heating
   a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel """Carbon compounds, both as fuels and feedstock, and the competing demands for 
-  limited resources."""@en ;
+  skos:prefLabel """Calculating energy changes involved on heating, using specific heat capacity; 
+  and those involved in changes of state, using specific latent heat."""@en ;
   curric:displayOrder "3"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-chemical-and-allied-industries ;
+  skos:broader natcurric:substrand-structure-of-matter ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
 
-natcurric:contentdescriptor-fractional-distillation-of-crude-oil
+natcurric:contentdescriptor-pressure-temperature-gas-constant-volume
   a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel """Fractional distillation of crude oil and cracking to make more useful 
-  materials."""@en ;
+  skos:prefLabel """Links between pressure and temperature of a gas at constant volume, related to 
+  the motion of its particles (qualitative)."""@en ;
   curric:displayOrder "4"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-chemical-and-allied-industries ;
+  skos:broader natcurric:substrand-structure-of-matter ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
 
-natcurric:contentdescriptor-extraction-and-purification-of-metals
+natcurric:contentdescriptor-nuclear-model
   a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel """Extraction and purification of metals related to the position of carbon in a 
-  reactivity series."""@en ;
+  skos:prefLabel "The nuclear model and its development in the light of changing evidence."@en ;
+  curric:displayOrder "1"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-atomic-structure ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-masses-sizes-nuclei-atoms-molecules
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Masses and sizes of nuclei, atoms and small molecules."@en ;
+  curric:displayOrder "2"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-atomic-structure ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-protons-neutrons-isotopes
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Differences in numbers of protons, and neutrons related to masses and 
+  identities of nuclei, isotope characteristics and equations to represent changes."""@en ;
+  curric:displayOrder "3"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-atomic-structure ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-ionisation-absorption-emission-radiation
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Ionisation; absorption or emission of radiation related to changes in electron 
+  orbits."""@en ;
+  curric:displayOrder "4"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-atomic-structure ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-radioactive-nuclei
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Radioactive nuclei: emission of alpha or beta particles, neutrons, or 
+  gamma-rays, related to changes in the nuclear mass and/or charge."""@en ;
   curric:displayOrder "5"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-chemical-and-allied-industries ;
+  skos:broader natcurric:substrand-atomic-structure ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
 
-natcurric:contentdescriptor-composition-evolution-of-earths-atmosphere
+natcurric:contentdescriptor-radioactive-materials-halflife-irradiation
   a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel """Evidence for composition and evolution of the Earth’s atmosphere since its 
-  formation."""@en ;
+  skos:prefLabel """Radioactive materials, half-life, irradiation, contamination and their 
+  associated hazardous effects, waste disposal."""@en ;
+  curric:displayOrder "6"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-atomic-structure ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-nuclear-fission-fusion-sun-energy
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Nuclear fission, nuclear fusion and our sun’s energy."@en ;
+  curric:displayOrder "7"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-atomic-structure ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-main-features-of-solar-system
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "The main features of the solar system."@en ;
   curric:displayOrder "1"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-earth-and-atmospheric-science ;
+  skos:broader natcurric:substrand-space-physics ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
-
-natcurric:contentdescriptor-anthropogenic-causes-of-climate-change
-  a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel """Evidence, and uncertainties in evidence, for additional anthropogenic causes of 
-  climate change."""@en ;
-  curric:displayOrder "2"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-earth-and-atmospheric-science ;
-  skos:inScheme natcurric:knowledge-taxonomy ;
-  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
-
-natcurric:contentdescriptor-increased-levels-carbon-dioxide-methane
-  a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel """Potential effects of, and mitigation of, increased levels of carbon dioxide and 
-  methane on the Earth's climate."""@en ;
-  curric:displayOrder "3"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-earth-and-atmospheric-science ;
-  skos:inScheme natcurric:knowledge-taxonomy ;
-  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
-
-natcurric:contentdescriptor-common-atmospheric-pollutants
-  a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel """Common atmospheric pollutants: sulphur dioxide, oxides of nitrogen, 
-  particulates and their sources."""@en ;
-  curric:displayOrder "4"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-earth-and-atmospheric-science ;
-  skos:inScheme natcurric:knowledge-taxonomy ;
-  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
-
-natcurric:contentdescriptor-earths-water-resources
-  a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel "The Earth's water resources and obtaining potable water."@en ;
-  curric:displayOrder "5"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-earth-and-atmospheric-science ;
-  skos:inScheme natcurric:knowledge-taxonomy ;
-  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+  

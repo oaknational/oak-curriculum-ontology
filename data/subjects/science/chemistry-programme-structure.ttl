@@ -1,0 +1,396 @@
+@prefix curric: <https://w3id.org/uk/oak/curriculum/ontology/> .
+@prefix natcurric: <https://w3id.org/uk/oak/curriculum/nationalcurriculum/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ======================================================================
+# National Curriculum for England - Chemistry Programme Structure
+# ======================================================================
+
+# ----------------------------------------------------------------------
+# Ontology Declaration
+# ----------------------------------------------------------------------
+
+<https://w3id.org/uk/oak/curriculum/nationalcurriculum/chemistry-programme-structure>
+  rdf:type owl:Ontology ;
+
+  rdfs:label "National Curriculum for England - Chemistry Programme Structure"@en ;
+  dc:title "National Curriculum for England - Chemistry Programme Structure"@en ;
+  rdfs:comment """Chemistry programme structure that specifies schemes and progressions, and a 
+  mapping to strands and content descriptors within the knowledge taxonomy."""@en ;
+
+  owl:versionInfo "0.1.0" ;
+  owl:versionIRI <https://w3id.org/uk/oak/curriculum/nationalcurriculum/chemistry-programme-structure/0.1.0> ;
+  
+  dcterms:description """Chemistry programme structure that specifies schemes and progressions, and a 
+  mapping to strands and content descriptors within the knowledge taxonomy."""@en ;
+  dcterms:created "2025-11-24T12:33:32Z"^^xsd:dateTime ;
+  dcterms:modified "2025-12-03T12:33:32Z"^^xsd:dateTime ;
+  dcterms:issued "2025-12-03T12:33:32Z"^^xsd:dateTime ;
+  
+  # OGL 3.0 License
+  dcterms:license <http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/> ;
+  dcterms:rights "Crown Copyright"@en ;
+
+  vann:preferredNamespacePrefix "natcurric" ;
+  vann:preferredNamespaceUri "https://w3id.org/uk/oak/curriculum/nationalcurriculum/" ;
+
+  owl:imports <https://w3id.org/uk/oak/curriculum/ontology> ;
+  owl:imports <https://w3id.org/uk/oak/curriculum/nationalcurriculum/temporal-structure> ;
+  owl:imports <https://w3id.org/uk/oak/curriculum/nationalcurriculum/chemistry-knowledge-taxonomy> .
+
+# ----------------------------------------------------------------------
+# Subject Group
+# ----------------------------------------------------------------------
+
+natcurric:subjectgroup-science
+  a curric:SubjectGroup ;
+  rdfs:label "Science"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:coversDiscipline natcurric:discipline-science .
+  
+# ----------------------------------------------------------------------
+# Subject
+# ----------------------------------------------------------------------
+
+  natcurric:subject-chemistry
+  a curric:Subject ;
+  rdfs:label "Chemistry"@en ;
+  curric:aims (
+    """Develop scientific knowledge and conceptual understanding through the specific disciplines 
+    of biology, chemistry and physics."""@en
+    """Develop understanding of the nature, processes and methods of science through different 
+    types of science enquiries that help them to answer scientific questions about the world around 
+    them."""@en
+    """Are equipped with the scientific knowledge required to understand the uses and implications 
+    of science, today and for the future."""@en
+  ) ;
+  curric:rationale """A high-quality science education provides the foundations for understanding 
+  the world through the specific disciplines of biology, chemistry and physics. Science has changed 
+  our lives and is vital to the world’s future prosperity, and all pupils should be taught 
+  essential aspects of the knowledge, methods, processes and uses of science. Through building up a 
+  body of key foundational knowledge and concepts, pupils should be encouraged to recognise the 
+  power of rational explanation and develop a sense of excitement and curiosity about natural 
+  phenomena. They should be encouraged to understand how science can be used to explain what is 
+  occurring, predict how things will behave, and analyse causes.
+
+  The programmes of study describe a sequence of knowledge and concepts. While it is important that 
+  pupils make progress, it is also vitally important that they develop secure understanding of each 
+  key block of knowledge and concepts in order to progress to the next stage. Insecure, superficial 
+  understanding will not allow genuine progression: pupils may struggle at key points of transition 
+  (such as between primary and secondary school), build up serious misconceptions, and/or have 
+  significant difficulties in understanding higher-order content.
+  
+  Pupils should be able to describe associated processes and key characteristics in common 
+  language, but they should also be familiar with, and use, technical terminology accurately and 
+  precisely. They should build up an extended specialist vocabulary. They should also apply their 
+  mathematical knowledge to their understanding of science, including collecting, presenting and 
+  analysing data. The social and economic implications of science are important but, generally, 
+  they are taught most appropriately within the wider school curriculum: teachers will wish to use 
+  different contexts to maximise their pupils’ engagement with and motivation to study science.
+
+  ‘Working scientifically’ specifies the understanding of the nature, processes and methods of 
+  science for each year group. It should not be taught as a separate strand. The notes and guidance 
+  give examples of how ‘working scientifically’ might be embedded within the content of biology, 
+  chemistry and physics, focusing on the key features of scientific enquiry, so that pupils learn 
+  to use a variety of approaches to answer relevant scientific questions. These types of scientific 
+  enquiry should include: observing over time; pattern seeking; identifying, classifying and 
+  grouping; comparative and fair testing (controlled investigations); and researching using 
+  secondary sources. Pupils should seek answers to questions through collecting, analysing and 
+  presenting data. ‘Working scientifically’ will be developed further at key stages 3 and 4, once 
+  pupils have built up sufficient understanding of science to engage meaningfully in more 
+  sophisticated discussion of experimental design and control."""@en ;
+  curric:structure "Text for structure..."@en ;
+  curric:schoolCurriculum """The programmes of study for science are set out year-by-year for key 
+  stages 1 and 2. Schools are, however, only required to teach the relevant programme of study by 
+  the end of the key stage. Within each key stage, schools therefore have the flexibility to 
+  introduce content earlier or later than set out in the programme of study. In addition, schools 
+  can introduce key stage content during an earlier key stage if appropriate. All schools are also 
+  required to set out their school curriculum for science on a year-by-year basis and make this 
+  information available online."""@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isSubjectOf natcurric:subjectgroup-science ;
+  curric:coversStrand natcurric:strand-working-scientifically ,
+                      natcurric:strand-chemical-science .
+
+# ----------------------------------------------------------------------
+# Schemes 
+# ----------------------------------------------------------------------
+
+natcurric:scheme-chemistry-key-stage-1
+  a curric:Scheme ;
+  rdfs:label "Chemistry Key Stage 1"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isSchemeOf natcurric:subject-chemistry ;
+  curric:coversKeyStage natcurric:key-stage-1 .
+
+natcurric:scheme-chemistry-key-stage-2
+  a curric:Scheme ;
+  rdfs:label "Chemistry Key Stage 2"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isSchemeOf natcurric:subject-chemistry ;
+  curric:coversKeyStage natcurric:key-stage-2 .
+
+natcurric:scheme-chemistry-key-stage-3
+  a curric:Scheme ;
+  rdfs:label "Chemistry Key Stage 3"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isSchemeOf natcurric:subject-chemistry ;
+  curric:coversKeyStage natcurric:key-stage-3 .
+
+natcurric:scheme-chemistry-key-stage-4
+  a curric:Scheme ;
+  rdfs:label "Chemistry Key Stage 4"@en ;
+  dcterms:description """Chemistry is the science of the composition, structure, properties and 
+  reactions of matter, understood in terms of atoms, atomic particles and the way they are arranged 
+  and link together. It is concerned with the synthesis, formulation, analysis and characteristic 
+  properties of substances and materials of all kinds.
+  
+  Students should be helped to appreciate the achievements of chemistry in showing how the complex 
+  and diverse phenomena of both the natural and man-made worlds can be described in terms of a 
+  number of key ideas which are of universal application, and which can be illustrated in the 
+  separate topics set out below. These ideas include:
+
+  - matter is composed of tiny particles called atoms and there are about 100 different 
+  naturally-occurring types of atoms called elements
+  
+  - elements show periodic relationships in their chemical and physical properties
+  
+  - these periodic properties can be explained in terms of the atomic structure of the elements
+  
+  - atoms bond either by transferring electrons from one atom to another or by sharing electrons
+  
+  - the shapes of molecules (groups of atoms bonded together) and the way giant structures are 
+  arranged is of great importance in terms of the way they behave
+  
+  - reactions can occur when molecules collide and do so at different rates due to differences in 
+  molecular collisions
+  
+  - chemical reactions take place in only three different ways: proton transfer, electron transfer, 
+  electron sharing
+  
+  - energy is conserved in chemical reactions so can therefore be neither created nor 
+  destroyed"""@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isSchemeOf natcurric:subject-chemistry ;
+  curric:coversKeyStage natcurric:key-stage-4 .
+
+# ----------------------------------------------------------------------
+# Progressions
+# ----------------------------------------------------------------------
+
+#natcurric:progression-chemistry-key-stage-1-xxx
+#  a curric:Progression ;
+#  rdfs:label "Chemistry Key Stage 1 xxx"@en ;
+#  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+#  curric:isProgressionOf natcurric:scheme-chemistry-key-stage-1 ;
+#  curric:coversContent
+#    natcurric:contentdescriptor-xxx ,
+
+#natcurric:progression-chemistry-key-stage-2-xxx
+#  a curric:Progression ;
+#  rdfs:label "Chemistry Key Stage 2 xxx"@en ;
+#  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+#  curric:isProgressionOf natcurric:scheme-chemistry-key-stage-2 ;
+#  curric:coversContent
+#    natcurric:contentdescriptor-xxx ,
+
+natcurric:progression-chemistry-key-stage-3-scientific-attitudes
+  a curric:Progression ;
+  rdfs:label "Chemistry Key Stage 3 Scientific Attitudes"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-chemistry-key-stage-3 ;
+  curric:coversContent
+    natcurric:contentdescriptor-objectivity-concern-for-accuracy-precision ,
+    natcurric:contentdescriptor-scientific-methods-and-theories-develop ,
+    natcurric:contentdescriptor-evaluate-risks .
+
+natcurric:progression-chemistry-key-stage-3-experimental-skills-and-investigations
+  a curric:Progression ;
+  rdfs:label "Chemistry Key Stage 3 Experimental Skills and Investigations"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-chemistry-key-stage-3 ;
+  curric:coversContent
+    natcurric:contentdescriptor-enquiry-observations-of-real-world ,
+    natcurric:contentdescriptor-predictions-using-scientific-knowledge-understanding ,
+    natcurric:contentdescriptor-scientific-enquiries-to-test-predictions ,
+    natcurric:contentdescriptor-use-appropriate-techniques-apparatus-materials ,
+    natcurric:contentdescriptor-make-record-observations-measurements ,
+    natcurric:contentdescriptor-apply-sampling-techniques .
+
+natcurric:progression-chemistry-key-stage-3-analysis-and-evaluation
+  a curric:Progression ;
+  rdfs:label "Chemistry Key Stage 3 Analysis and Evaluation"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-chemistry-key-stage-3 ;
+  curric:coversContent
+    natcurric:contentdescriptor-apply-mathematical-concepts-calculate-results ,
+    natcurric:contentdescriptor-present-observations-and-data ,
+    natcurric:contentdescriptor-interpret-observations-and-data ,
+    natcurric:contentdescriptor-present-reasoned-explanations ,
+    natcurric:contentdescriptor-evaluate-data-random-systematic-error ,
+    natcurric:contentdescriptor-identify-questions-arising-from-results .
+
+natcurric:progression-chemistry-key-stage-3-measurement
+  a curric:Progression ;
+  rdfs:label "Chemistry Key Stage 3 Measurement"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-chemistry-key-stage-3 ;
+  curric:coversContent
+    natcurric:contentdescriptor-si-units-iupac-chemical-nomenclature ,
+    natcurric:contentdescriptor-simple-equations-and-calculations ,
+    natcurric:contentdescriptor-basic-data-analysis-statistical-techniques .
+
+natcurric:progression-chemistry-key-stage-4-development-of-scientific-thinking
+  a curric:Progression ;
+  rdfs:label "Chemistry Key Stage 4 Development of Scientific Thinking"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-chemistry-key-stage-4 ;
+  curric:coversContent
+    natcurric:contentdescriptor-scientific-methods-theories-over-time ,
+    natcurric:contentdescriptor-concepts-models-scientific-explanations ,
+    natcurric:contentdescriptor-power-limitations-ethical-issues ,
+    natcurric:contentdescriptor-explaining-technological-applications-science ,
+    natcurric:contentdescriptor-evaluating-risks-in-practical-science ,
+    natcurric:contentdescriptor-peer-review-and-communication-of-results .
+
+natcurric:progression-chemistry-key-stage-4-experimental-skills-and-strategies
+  a curric:Progression ;
+  rdfs:label "Chemistry Key Stage 4 Experimental Skills and Strategies"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-chemistry-key-stage-4 ;
+  curric:coversContent
+    natcurric:contentdescriptor-theories-explanations-hypotheses ,
+    natcurric:contentdescriptor-experiments-observations-hypotheses-phenomena ,
+    natcurric:contentdescriptor-techniques-apparatus-materials ,
+    natcurric:contentdescriptor-carrying-out-experiments ,
+    natcurric:contentdescriptor-knowledge-of-sampling-techniques ,
+    natcurric:contentdescriptor-observations-measurements-using-apparatus-methods ,
+    natcurric:contentdescriptor-evaluating-methods-and-suggesting-improvements .
+
+natcurric:progression-chemistry-key-stage-4-analysis-and-evaluation
+  a curric:Progression ;
+  rdfs:label "Chemistry Key Stage 4 Analysis and Evaluation"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-chemistry-key-stage-4 ;
+  curric:coversContent
+    natcurric:contentdescriptor-presenting-observations-and-other-data ,
+    natcurric:contentdescriptor-translating-data ,
+    natcurric:contentdescriptor-mathematical-and-statistical-analysis ,
+    natcurric:contentdescriptor-representing-distributions-uncertainty ,
+    natcurric:contentdescriptor-patterns-trends-inferences-conclusions ,
+    natcurric:contentdescriptor-explanations-relating-data-to-hypotheses ,
+    natcurric:contentdescriptor-objective-evaluating-data-accuracy-precision ,
+    natcurric:contentdescriptor-communicating-scientific-rationale .
+
+natcurric:progression-chemistry-key-stage-4-vocabulary-units-symbols-nomenclature
+  a curric:Progression ;
+  rdfs:label "Chemistry Key Stage 4 Vocabulary Units Symbols Nomenclature"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-chemistry-key-stage-4 ;
+  curric:coversContent
+    natcurric:contentdescriptor-developing-scientific-vocabulary-nomenclature ,
+    natcurric:contentdescriptor-importance-of-scientific-quantities ,
+    natcurric:contentdescriptor-si-units-and-iupac-chemical-nomenclature ,
+    natcurric:contentdescriptor-prefixes-powers-orders-of-magnitude ,
+    natcurric:contentdescriptor-interconverting-units ,
+    natcurric:contentdescriptor-significant-figures-in-calculations .
+
+natcurric:progression-chemistry-key-stage-4-atomic-structure-periodic-table
+  a curric:Progression ;
+  rdfs:label "Chemistry Key Stage 4 Atomic Structure Periodic Table"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-chemistry-key-stage-4 ;
+  curric:coversContent
+    natcurric:contentdescriptor-simple-model-of-atom ,
+    natcurric:contentdescriptor-number-particles-in-given-mass ,
+    natcurric:contentdescriptor-modern-periodic-table ,
+    natcurric:contentdescriptor-position-of-elements-in-periodic-table ,
+    natcurric:contentdescriptor-properties-of-elements-same-group ,
+    natcurric:contentdescriptor-properties-of-metals-and-nonmetals ,
+    natcurric:contentdescriptor-chemical-reactivity-of-elements .
+
+natcurric:progression-chemistry-key-stage-4-structure-bonding-properties-of-matter
+  a curric:Progression ;
+  rdfs:label "Chemistry Key Stage 4 Structure Bonding- Properties of Matter"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-chemistry-key-stage-4 ;
+  curric:coversContent
+    natcurric:contentdescriptor-changes-of-state-of-matter ,
+    natcurric:contentdescriptor-types-of-chemical-bonding ,
+    natcurric:contentdescriptor-bonding-and-intermolecular-forces ,
+    natcurric:contentdescriptor-bonding-of-carbon ,
+    natcurric:contentdescriptor-diamond-graphite-fullerenes-graphene .
+
+natcurric:progression-chemistry-key-stage-4-chemical-changes
+  a curric:Progression ;
+  rdfs:label "Chemistry Key Stage 4 Chemical Changes"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-chemistry-key-stage-4 ;
+  curric:coversContent
+    natcurric:contentdescriptor-determination-of-empirical-formulae ,
+    natcurric:contentdescriptor-balanced-chemical-equations ,
+    natcurric:contentdescriptor-identification-of-common-gases ,
+    natcurric:contentdescriptor-chemistry-of-acids ,
+    natcurric:contentdescriptor-hydrogen-ion-concentration ,
+    natcurric:contentdescriptor-electrolysis-of-molten-ionic-liquids ,
+    natcurric:contentdescriptor-reduction-and-oxidation .
+
+natcurric:progression-chemistry-key-stage-4-energy-changes-in-chemistry
+  a curric:Progression ;
+  rdfs:label "Chemistry Key Stage 4 Energy Changes in Chemistry"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-chemistry-key-stage-4 ;
+  curric:coversContent
+    natcurric:contentdescriptor-energy-changes-in-chemical-reactions ,
+    natcurric:contentdescriptor-bond-breaking-bond-making .
+
+natcurric:progression-chemistry-key-stage-4-rate-extent-of-chemical-change
+  a curric:Progression ;
+  rdfs:label "Chemistry Key Stage 4 Rate Extent of Chemical Change"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-chemistry-key-stage-4 ;
+  curric:coversContent
+    natcurric:contentdescriptor-factors-influencing-rate-of-reaction ,
+    natcurric:contentdescriptor-factors-affecting-reversible-reactions .
+
+natcurric:progression-chemistry-key-stage-4-chemical-analysis
+  a curric:Progression ;
+  rdfs:label "Chemistry Key Stage 4 Chemical Analysis"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-chemistry-key-stage-4 ;
+  curric:coversContent
+    natcurric:contentdescriptor-distinguishing-pure-and-impure-substances ,
+    natcurric:contentdescriptor-separation-techniques-mixtures-of-substances ,
+    natcurric:contentdescriptor-quantitative-interpretation-of-balanced-equations ,
+    natcurric:contentdescriptor-concentrations-of-solutions .
+
+natcurric:progression-chemistry-key-stage-4-chemical-and-allied-industries
+  a curric:Progression ;
+  rdfs:label "Chemistry Key Stage 4 Chemical and Allied Industries"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-chemistry-key-stage-4 ;
+  curric:coversContent
+    natcurric:contentdescriptor-life-cycle-assessment-and-recycling ,
+    natcurric:contentdescriptor-viability-of-recycling-certain-materials ,
+    natcurric:contentdescriptor-carbon-compounds-as-fuels-feedstock ,
+    natcurric:contentdescriptor-fractional-distillation-of-crude-oil ,
+    natcurric:contentdescriptor-extraction-and-purification-of-metals .
+
+natcurric:progression-chemistry-key-stage-4-earth-and-atmospheric-science
+  a curric:Progression ;
+  rdfs:label "Chemistry Key Stage 4 Earth and Atmospheric Science"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-chemistry-key-stage-4 ;
+  curric:coversContent
+    natcurric:contentdescriptor-composition-evolution-of-earths-atmosphere ,
+    natcurric:contentdescriptor-anthropogenic-causes-of-climate-change ,
+    natcurric:contentdescriptor-increased-levels-carbon-dioxide-methane ,
+    natcurric:contentdescriptor-common-atmospheric-pollutants ,
+    natcurric:contentdescriptor-earths-water-resources .
