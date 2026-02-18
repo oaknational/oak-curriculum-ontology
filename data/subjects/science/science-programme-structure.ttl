@@ -43,8 +43,8 @@
 
   owl:imports <https://w3id.org/uk/oak/curriculum/ontology> ;
   owl:imports <https://w3id.org/uk/oak/curriculum/nationalcurriculum/temporal-structure> ;
-  owl:imports <https://w3id.org/uk/oak/curriculum/nationalcurriculum/biology-knowledge-taxonomy> .
-  owl:imports <https://w3id.org/uk/oak/curriculum/nationalcurriculum/chemistry-knowledge-taxonomy> .
+  owl:imports <https://w3id.org/uk/oak/curriculum/nationalcurriculum/biology-knowledge-taxonomy> ;
+  owl:imports <https://w3id.org/uk/oak/curriculum/nationalcurriculum/chemistry-knowledge-taxonomy> ;
   owl:imports <https://w3id.org/uk/oak/curriculum/nationalcurriculum/physics-knowledge-taxonomy> .
 
 # ----------------------------------------------------------------------
