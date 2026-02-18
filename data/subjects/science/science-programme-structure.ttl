@@ -1,0 +1,729 @@
+@prefix curric: <https://w3id.org/uk/oak/curriculum/ontology/> .
+@prefix natcurric: <https://w3id.org/uk/oak/curriculum/nationalcurriculum/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ======================================================================
+# National Curriculum for England - Science KS1-KS3 Programme Structure
+# ======================================================================
+
+# ----------------------------------------------------------------------
+# Ontology Declaration
+# ----------------------------------------------------------------------
+
+<https://w3id.org/uk/oak/curriculum/nationalcurriculum/science-programme-structure>
+  rdf:type owl:Ontology ;
+
+  rdfs:label "National Curriculum for England - Science Programme Structure"@en ;
+  dc:title "National Curriculum for England - Science Programme Structure"@en ;
+  rdfs:comment """Science programme structure that specifies schemes and progressions, and a 
+  mapping to strands and content descriptors within the knowledge taxonomy."""@en ;
+
+  owl:versionInfo "0.1.0" ;
+  owl:versionIRI <https://w3id.org/uk/oak/curriculum/nationalcurriculum/science-programme-structure/0.1.0> ;
+
+  dcterms:description """Science programme structure that specifies schemes and progressions, and a 
+  mapping to strands and content descriptors within the knowledge taxonomy."""@en ;
+  dcterms:created "2025-11-24T12:33:32Z"^^xsd:dateTime ;
+  dcterms:modified "2025-12-03T12:33:32Z"^^xsd:dateTime ;
+  dcterms:issued "2025-12-03T12:33:32Z"^^xsd:dateTime ;
+  
+  # OGL 3.0 License
+  dcterms:license <http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/> ;
+  dcterms:rights "Crown Copyright"@en ;
+
+  vann:preferredNamespacePrefix "natcurric" ;
+  vann:preferredNamespaceUri "https://w3id.org/uk/oak/curriculum/nationalcurriculum/" ;
+
+  owl:imports <https://w3id.org/uk/oak/curriculum/ontology> ;
+  owl:imports <https://w3id.org/uk/oak/curriculum/nationalcurriculum/temporal-structure> ;
+  owl:imports <https://w3id.org/uk/oak/curriculum/nationalcurriculum/biology-knowledge-taxonomy> .
+  owl:imports <https://w3id.org/uk/oak/curriculum/nationalcurriculum/chemistry-knowledge-taxonomy> .
+  owl:imports <https://w3id.org/uk/oak/curriculum/nationalcurriculum/physics-knowledge-taxonomy> .
+
+# ----------------------------------------------------------------------
+# Subject Group
+# ----------------------------------------------------------------------
+
+natcurric:subjectgroup-science
+  a curric:SubjectGroup ;
+  rdfs:label "Science"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:coversDiscipline natcurric:discipline-science .
+  
+# ----------------------------------------------------------------------
+# Subject
+# ----------------------------------------------------------------------
+
+natcurric:subject-science
+  a curric:Subject ;
+  rdfs:label "Science"@en ;
+  curric:aims (
+    """Develop scientific knowledge and conceptual understanding through the specific disciplines 
+    of biology, chemistry and physics."""@en
+    """Develop understanding of the nature, processes and methods of science through different 
+    types of science enquiries that help them to answer scientific questions about the world around 
+    them."""@en
+    """Are equipped with the scientific knowledge required to understand the uses and implications 
+    of science, today and for the future."""@en
+  ) ;
+  curric:rationale """A high-quality science education provides the foundations for understanding 
+  the world through the specific disciplines of biology, chemistry and physics. Science has changed 
+  our lives and is vital to the world’s future prosperity, and all pupils should be taught 
+  essential aspects of the knowledge, methods, processes and uses of science. Through building up a 
+  body of key foundational knowledge and concepts, pupils should be encouraged to recognise the 
+  power of rational explanation and develop a sense of excitement and curiosity about natural 
+  phenomena. They should be encouraged to understand how science can be used to explain what is 
+  occurring, predict how things will behave, and analyse causes.
+
+  The programmes of study describe a sequence of knowledge and concepts. While it is important that 
+  pupils make progress, it is also vitally important that they develop secure understanding of each 
+  key block of knowledge and concepts in order to progress to the next stage. Insecure, superficial 
+  understanding will not allow genuine progression: pupils may struggle at key points of transition 
+  (such as between primary and secondary school), build up serious misconceptions, and/or have 
+  significant difficulties in understanding higher-order content.
+  
+  Pupils should be able to describe associated processes and key characteristics in common 
+  language, but they should also be familiar with, and use, technical terminology accurately and 
+  precisely. They should build up an extended specialist vocabulary. They should also apply their 
+  mathematical knowledge to their understanding of science, including collecting, presenting and 
+  analysing data. The social and economic implications of science are important but, generally, 
+  they are taught most appropriately within the wider school curriculum: teachers will wish to use 
+  different contexts to maximise their pupils’ engagement with and motivation to study science.
+
+  ‘Working scientifically’ specifies the understanding of the nature, processes and methods of 
+  science for each year group. It should not be taught as a separate strand. The notes and guidance 
+  give examples of how ‘working scientifically’ might be embedded within the content of biology, 
+  chemistry and physics, focusing on the key features of scientific enquiry, so that pupils learn 
+  to use a variety of approaches to answer relevant scientific questions. These types of scientific 
+  enquiry should include: observing over time; pattern seeking; identifying, classifying and 
+  grouping; comparative and fair testing (controlled investigations); and researching using 
+  secondary sources. Pupils should seek answers to questions through collecting, analysing and 
+  presenting data. ‘Working scientifically’ will be developed further at key stages 3 and 4, once 
+  pupils have built up sufficient understanding of science to engage meaningfully in more 
+  sophisticated discussion of experimental design and control."""@en ;
+  curric:structure "Text for structure..."@en ;
+  curric:schoolCurriculum """The programmes of study for science are set out year-by-year for key 
+  stages 1 and 2. Schools are, however, only required to teach the relevant programme of study by 
+  the end of the key stage. Within each key stage, schools therefore have the flexibility to 
+  introduce content earlier or later than set out in the programme of study. In addition, schools 
+  can introduce key stage content during an earlier key stage if appropriate. All schools are also 
+  required to set out their school curriculum for science on a year-by-year basis and make this 
+  information available online."""@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isSubjectOf natcurric:subjectgroup-science ;
+  curric:coversStrand natcurric:strand-working-scientifically ,
+                      natcurric:strand-biological-science ,
+                      natcurric:strand-chemical-science ,
+                      natcurric:strand-physical-science .
+
+# ----------------------------------------------------------------------
+# Schemes 
+# ----------------------------------------------------------------------
+
+natcurric:scheme-science-key-stage-1
+  a curric:Scheme ;
+  rdfs:label "Science Key Stage 1"@en ;
+  dcterms:description """The principal focus of science teaching in key stage 1 is to enable pupils 
+  to experience and observe phenomena, looking more closely at the natural and humanly constructed 
+  world around them. They should be encouraged to be curious and ask questions about what they 
+  notice. They should be helped to develop their understanding of scientific ideas by using 
+  different types of scientific enquiry to answer their own questions, including observing changes 
+  over a period of time, noticing patterns, grouping and classifying things, carrying out simple 
+  comparative tests, and finding things out using secondary sources of information. They should 
+  begin to use simple scientific language to talk about what they have found out and communicate 
+  their ideas to a range of audiences in a variety of ways. Most of the learning about science 
+  should be done through the use of first-hand practical experiences, but there should also be some 
+  use of appropriate secondary sources, such as books, photographs and videos.
+  
+  ‘Working scientifically’ is described separately in the programme of study, but must always be 
+  taught through and clearly related to the teaching of substantive science content in the 
+  programme of study. Throughout the notes and guidance, examples show how scientific methods and 
+  skills might be linked to specific elements of the content.
+  
+  Pupils should read and spell scientific vocabulary at a level consistent with their increasing 
+  word-reading and spelling knowledge at key stage 1."""@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isSchemeOf natcurric:subject-science ;
+  curric:coversKeyStage natcurric:key-stage-1 .
+
+natcurric:scheme-science-lower-key-stage-2
+  a curric:Scheme ;
+  rdfs:label "Science Lower Key Stage 2"@en ;
+  dcterms:description """The principal focus of science teaching in lower key stage 2 is to enable 
+  pupils to broaden their scientific view of the world around them. They should do this through 
+  exploring, talking about, testing and developing ideas about everyday phenomena and the 
+  relationships between living things and familiar environments, and by beginning to develop their 
+  ideas about functions, relationships and interactions. They should ask their own questions about 
+  what they observe and make some decisions about which types of scientific enquiry are likely to 
+  be the best ways of answering them, including observing changes over time, noticing patterns, 
+  grouping and classifying things, carrying out simple comparative and fair tests and finding 
+  things out using secondary sources of information. They should draw simple conclusions and use 
+  some scientific language, first, to talk about and, later, to write about what they have found 
+  out.
+  
+  ‘Working scientifically’ is described separately at the beginning of the programme of study, but 
+  must always be taught through and clearly related to substantive science content in the programme 
+  of study. Throughout the notes and guidance, examples show how scientific methods and skills 
+  might be linked to specific elements of the content.
+  
+  Pupils should read and spell scientific vocabulary correctly and with confidence, using their 
+  growing word-reading and spelling knowledge."""@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isSchemeOf natcurric:subject-science ;
+  curric:coversKeyStage natcurric:key-stage-2 .
+
+natcurric:scheme-science-upper-key-stage-2
+  a curric:Scheme ;
+  rdfs:label "Science Upper Key Stage 2"@en ;
+  dcterms:description """The principal focus of science teaching in upper key stage 2 is to enable 
+  pupils to develop a deeper understanding of a wide range of scientific ideas. They should do this 
+  through exploring and talking about their ideas; asking their own questions about scientific 
+  phenomena; and analysing functions, relationships and interactions more systematically. At upper 
+  key stage 2, they should encounter more abstract ideas and begin to recognise how these ideas 
+  help them to understand and predict how the world operates. They should also begin to recognise 
+  that scientific ideas change and develop over time. They should select the most appropriate ways 
+  to answer science questions using different types of scientific enquiry, including observing 
+  changes over different periods of time, noticing patterns, grouping and classifying things, 
+  carrying out comparative and fair tests and finding things out using a wide range of secondary 
+  sources of information. Pupils should draw conclusions based on their data and observations, use 
+  evidence to justify their ideas, and use their scientific knowledge and understanding to explain 
+  their findings.
+  
+  ‘Working and thinking scientifically’ is described separately at the beginning of the programme 
+  of study, but must always be taught through and clearly related to substantive science content in 
+  the programme of study. Throughout the notes and guidance, examples show how scientific methods 
+  and skills might be linked to specific elements of the content.
+  
+  Pupils should read, spell and pronounce scientific vocabulary correctly."""@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isSchemeOf natcurric:subject-science ;
+  curric:coversKeyStage natcurric:key-stage-2 .
+
+natcurric:scheme-science-key-stage-3
+  a curric:Scheme ;
+  rdfs:label "Science Key Stage 3"@en ;
+  dcterms:description """The principal focus of science teaching in key stage 3 is to develop a 
+  deeper understanding of a range of scientific ideas in the subject disciplines of biology, 
+  chemistry and physics. Pupils should begin to see the connections between these subject areas and 
+  become aware of some of the big ideas underpinning scientific knowledge and understanding. 
+  Examples of these big ideas are the links between structure and function in living organisms, the 
+  particulate model as the key to understanding the properties and interactions of matter in all 
+  its forms, and the resources and means of transfer of energy as key determinants of all of these 
+  interactions. They should be encouraged to relate scientific explanations to phenomena in the 
+  world around them and start to use modelling and abstract ideas to develop and evaluate 
+  explanations.
+  
+  Pupils should understand that science is about working objectively, modifying explanations to 
+  take account of new evidence and ideas and subjecting results to peer review. Pupils should 
+  decide on the appropriate type of scientific enquiry to undertake to answer their own questions 
+  and develop a deeper understanding of factors to be taken into account when collecting, recording 
+  and processing data. They should evaluate their results and identify further questions arising 
+  from them.
+  
+  ‘Working scientifically’ is described separately at the beginning of the programme of study, but 
+  must always be taught through and clearly related to substantive science content in the programme 
+  of study. Teachers should feel free to choose examples that serve a variety of purposes, from 
+  showing how scientific ideas have developed historically to reflecting modern developments in 
+  science.
+  
+  Pupils should develop their use of scientific vocabulary, including the use of scientific 
+  nomenclature and units and mathematical representations."""@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isSchemeOf natcurric:subject-science ;
+  curric:coversKeyStage natcurric:key-stage-3 .
+
+# ----------------------------------------------------------------------
+# Progressions
+# ----------------------------------------------------------------------
+
+natcurric:progression-science-key-stage-1-practical-scientific-methods-processes-skills
+  a curric:Progression ;
+  rdfs:label "Science Key Stage 1 Practical Scientific Methods Processes Skills"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-science-key-stage-1 ;
+  curric:coversContent
+    natcurric:contentdescriptor-asking-simple-questions ,
+    natcurric:contentdescriptor-observing-closely-using-simple-equipment ,
+    natcurric:contentdescriptor-performing-simple-tests ,
+    natcurric:contentdescriptor-identifying-and-classifying ,
+    natcurric:contentdescriptor-observations-ideas-to-suggest-answers ,
+    natcurric:contentdescriptor-gathering-recording-data-answering-questions .
+
+natcurric:progression-science-year-group-1-plants
+  a curric:Progression ;
+  rdfs:label "Science Year Group 1 Plants"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-science-key-stage-1 ;
+  curric:coversContent
+    natcurric:contentdescriptor-identify-wild-and-garden-plants ,
+    natcurric:contentdescriptor-basic-structure-common-flowering-plants .
+
+natcurric:progression-science-year-group-1-animals-including-humans
+  a curric:Progression ;
+  rdfs:label "Science Year Group 1 Animals Including Humans"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-science-key-stage-1 ;
+  curric:coversContent
+    natcurric:contentdescriptor-fish-amphibians-reptiles-birds-mammals ,
+    natcurric:contentdescriptor-carnivores-herbivores-omnivores ,
+    natcurric:contentdescriptor-compare-structure-variety-common-animals ,
+    natcurric:contentdescriptor-basic-parts-of-human-body .
+
+eng:progression-chemistry-year-group-1-everyday-materials
+  a curric:Progression ;
+  rdfs:label "Chemistry Year Group 1 Everyday Materials"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf eng:scheme-chemistry-key-stage-1 ;
+  curric:coversContent
+    eng:contentdescriptor-distinguish-between-object-and-material ,
+    eng:contentdescriptor-identify-variety-of-everyday-materials ,
+    eng:contentdescriptor-simple-physical-properties-everyday-materials ,
+    eng:contentdescriptor-compare-and-group-everyday-materials .
+
+eng:progression-physics-year-group-1-seasonal-changes
+  a curric:Progression ;
+  rdfs:label "Physics Year Group 1 Seasonal Changes"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf eng:scheme-physics-key-stage-1 ;
+  curric:coversContent
+    eng:contentdescriptor-observe-changes-across-4-seasons ,
+    eng:contentdescriptor-weather-associated-with-seasons .
+
+natcurric:progression-science-year-group-2-living-things-and-their-habitats
+  a curric:Progression ;
+  rdfs:label "Science Year Group 2 Living Things and their Habitats"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-science-key-stage-1 ;
+  curric:coversContent
+    natcurric:contentdescriptor-differences-living-dead-never-alive ,
+    natcurric:contentdescriptor-different-habitats-basic-needs ,
+    natcurric:contentdescriptor-plants-animals-in-their-habitats ,
+    natcurric:contentdescriptor-how-animals-obtain-their-food .
+
+natcurric:progression-science-year-group-2-plants
+  a curric:Progression ;
+  rdfs:label "Science Year Group 2 Plants"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-science-key-stage-1 ;
+  curric:coversContent
+    natcurric:contentdescriptor-seeds-bulbs-grow-into-plants ,
+    natcurric:contentdescriptor-plants-need-water-light-temperature .
+
+natcurric:progression-science-year-group-2-animals-including-humans
+  a curric:Progression ;
+  rdfs:label "Science Year Group 2 Animals Including Humans"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-science-key-stage-1 ;
+  curric:coversContent
+    natcurric:contentdescriptor-humans-offspring-grow-into-adults ,
+    natcurric:contentdescriptor-basic-needs-animals-for-survival ,
+    natcurric:contentdescriptor-importance-humans-exercise-eating-hygiene .
+
+eng:progression-chemistry-year-group-2-everyday-materials
+  a curric:Progression ;
+  rdfs:label "Chemistry Year Group 2 Everyday Materials"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf eng:scheme-chemistry-key-stage-1 ;
+  curric:coversContent
+    eng:contentdescriptor-suitability-variety-of-everyday-materials ,
+    eng:contentdescriptor-shapes-of-solid-objects-changed .
+
+natcurric:progression-science-lower-key-stage-2-practical-scientific-methods-processes-skills
+  a curric:Progression ;
+  rdfs:label "Science Lower Key Stage 2 Practical Scientific Methods Processes Skills"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-science-lower-key-stage-2 ;
+  curric:coversContent
+    natcurric:contentdescriptor-asking-relevant-questions ,
+    natcurric:contentdescriptor-practical-enquiries-comparative-fair-tests ,
+    natcurric:contentdescriptor-making-systematic-and-careful-observations ,
+    natcurric:contentdescriptor-gathering-recording-classifying-presenting-data ,
+    natcurric:contentdescriptor-scientific-language-diagrams-charts-tables ,
+    natcurric:contentdescriptor-reporting-on-findings-from-enquiries ,
+    natcurric:contentdescriptor-results-draw-conclusions-make-predictions ,
+    natcurric:contentdescriptor-differences-similarities-scientific-ideas-processes ,
+    natcurric:contentdescriptor-scientific-evidence-to-support-findings .
+
+natcurric:progression-science-year-group-3-plants
+  a curric:Progression ;
+  rdfs:label "Science Year group 3 Plants"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-science-lower-key-stage-2 ;
+  curric:coversContent
+    natcurric:contentdescriptor-functions-different-parts-flowering-plants ,
+    natcurric:contentdescriptor-requirements-plants-for-life-growth ,
+    natcurric:contentdescriptor-water-transported-within-plants ,
+    natcurric:contentdescriptor-life-cycle-of-flowering-plants .
+
+natcurric:progression-science-year-group-3-animals-including-humans
+  a curric:Progression ;
+  rdfs:label "Science Year group 3 Animals Including Humans"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-science-lower-key-stage-2 ;
+  curric:coversContent
+    natcurric:contentdescriptor-animals-need-the-right-nutrition ,
+    natcurric:contentdescriptor-skeletons-muscles-support-protection-movement .
+
+eng:progression-chemistry-year-group-3-rocks
+  a curric:Progression ;
+  rdfs:label "Chemistry Year Group 3 Rocks"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf eng:scheme-chemistry-lower-key-stage-2 ;
+  curric:coversContent
+    eng:contentdescriptor-compare-rocks-appearance-physical-properties ,
+    eng:contentdescriptor-how-fossils-are-formed ,
+    eng:contentdescriptor-soils-from-rocks-organic-matter .
+
+eng:progression-physics-year-group-3-light
+  a curric:Progression ;
+  rdfs:label "Physics Year Group 3 Light"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf eng:scheme-physics-lower-key-stage-2 ;
+  curric:coversContent
+    eng:contentdescriptor-light-dark ,
+    eng:contentdescriptor-light-reflected-from-surfaces ,
+    eng:contentdescriptor-light-from-sun-dangerous ,
+    eng:contentdescriptor-shadows-when-light-is-blocked ,
+    eng:contentdescriptor-patterns-size-of-shadows-change .
+
+eng:progression-physics-year-group-3-forces-and-magnets
+  a curric:Progression ;
+  rdfs:label "Physics Year Group 3 Forces and Magnets"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf eng:scheme-physics-lower-key-stage-2 ;
+  curric:coversContent
+    eng:contentdescriptor-how-things-move-different-surfaces ,
+    eng:contentdescriptor-some-forces-need-contact ,
+    eng:contentdescriptor-how-magnets-attract-or-repel ,
+    eng:contentdescriptor-everyday-materials-attracted-to-magnet ,
+    eng:contentdescriptor-magnets-having-2-poles ,
+    eng:contentdescriptor-predict-2-magnets-attract-repel .
+
+natcurric:progression-science-year-group-4-living-things-and-their-habitats
+  a curric:Progression ;
+  rdfs:label "Science Year group 4 Living Things and their Habitats"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-science-lower-key-stage-2 ;
+  curric:coversContent
+    natcurric:contentdescriptor-living-things-can-be-grouped ,
+    natcurric:contentdescriptor-explore-and-use-classification-keys ,
+    natcurric:contentdescriptor-environments-can-change-dangers .
+
+natcurric:progression-science-year-group-4-animals-including-humans
+  a curric:Progression ;
+  rdfs:label "Science Year group 4 Animals Including Humans"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-science-lower-key-stage-2 ;
+  curric:coversContent
+    natcurric:contentdescriptor-functions-parts-digestive-system-humans ,
+    natcurric:contentdescriptor-types-teeth-humans-simple-functions ,
+    natcurric:contentdescriptor-food-chains-producers-predators-prey .
+
+eng:progression-chemistry-year-group-4-states-of-matter
+  a curric:Progression ;
+  rdfs:label "Chemistry Year Group 4 States of Matter"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf eng:scheme-chemistry-lower-key-stage-2 ;
+  curric:coversContent
+    eng:contentdescriptor-compare-group-solids-liquids-gases ,
+    eng:contentdescriptor-materials-change-state-heated-cooled ,
+    eng:contentdescriptor-evaporation-condensation-in-water-cycle .
+
+eng:progression-physics-year-group-4-sound
+  a curric:Progression ;
+  rdfs:label "Physics Year Group 4 Sound"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf eng:scheme-physics-lower-key-stage-2 ;
+  curric:coversContent
+    eng:contentdescriptor-how-sounds-are-made ,
+    eng:contentdescriptor-vibrations-from-sounds-travel ,
+    eng:contentdescriptor-pitch-of-a-sound ,
+    eng:contentdescriptor-volume-of-a-sound ,
+    eng:contentdescriptor-sounds-fainter-as-distance-increases .
+
+eng:progression-physics-year-group-4-electricity
+  a curric:Progression ;
+  rdfs:label "Physics Year Group 4 Electricity"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf eng:scheme-physics-lower-key-stage-2 ;
+  curric:coversContent
+    eng:contentdescriptor-common-appliances-run-on-electricity ,
+    eng:contentdescriptor-simple-series-electrical-circuit ,
+    eng:contentdescriptor-lamp-in-simple-series-circuit ,
+    eng:contentdescriptor-switch-opens-and-closes-circuit ,
+    eng:contentdescriptor-common-conductors-and-insulators .
+
+natcurric:progression-science-upper-key-stage-2-practical-scientific-methods-processes-skills
+  a curric:Progression ;
+  rdfs:label "Science Upper Key Stage 2 Practical Scientific Methods Processes Skills"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-science-upper-key-stage-2 ;
+  curric:coversContent
+    natcurric:contentdescriptor-planning-different-types-scientific-enquiries ,
+    natcurric:contentdescriptor-taking-measurements-range-scientific-equipment ,
+    natcurric:contentdescriptor-recording-data-results-increasing-complexity ,
+    natcurric:contentdescriptor-test-results-to-make-predictions ,
+    natcurric:contentdescriptor-findings-conclusions-relationships-explanations-trust ,
+    natcurric:contentdescriptor-scientific-evidence-support-refute-arguments .
+
+natcurric:progression-science-year-group-5-living-things-and-their-habitats
+  a curric:Progression ;
+  rdfs:label "Science Year Group 5 Living Things and their Habitats"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-science-upper-key-stage-2 ;
+  curric:coversContent
+    natcurric:contentdescriptor-lifecycles-mammal-amphibian-insect-bird ,
+    natcurric:contentdescriptor-life-process-of-reproduction .
+
+natcurric:progression-science-year-group-5-animals-including-humans
+  a curric:Progression ;
+  rdfs:label "Science Year Group 5 Animals Including Humans"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-science-upper-key-stage-2 ;
+  curric:coversContent
+    natcurric:contentdescriptor-changes-humans-develop-old-age .
+
+eng:progression-chemistry-year-group-5-properties-and-changes-of-materials
+  a curric:Progression ;
+  rdfs:label "Chemistry Year Group 5 Properties and Changes of Materials"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf eng:scheme-chemistry-upper-key-stage-2 ;
+  curric:coversContent
+    eng:contentdescriptor-compare-materials-based-on-properties ,
+    eng:contentdescriptor-materials-dissolve-to-form-solution ,
+    eng:contentdescriptor-how-mixtures-might-be-separated ,
+    eng:contentdescriptor-particular-uses-of-everyday-materials ,
+    eng:contentdescriptor-dissolving-mixing-are-reversible-changes ,
+    eng:contentdescriptor-formation-of-new-materials .
+
+eng:progression-physics-year-group-5-earth-and-space
+  a curric:Progression ;
+  rdfs:label "Physics Year Group 5 Earth and Space"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf eng:scheme-physics-upper-key-stage-2 ;
+  curric:coversContent
+    eng:contentdescriptor-movement-earth-planets-relative-sun ,
+    eng:contentdescriptor-movement-moon-relative-earth ,
+    eng:contentdescriptor-sun-earth-moon-spherical-bodies ,
+    eng:contentdescriptor-earths-rotation-explain-day-night .
+
+eng:progression-physics-year-group-5-forces
+  a curric:Progression ;
+  rdfs:label "Physics Year Group 5 Forces"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf eng:scheme-physics-upper-key-stage-2 ;
+  curric:coversContent
+    eng:contentdescriptor-objects-fall-force-of-gravity ,
+    eng:contentdescriptor-air-water-resistance-and-friction ,
+    eng:contentdescriptor-levers-pulleys-and-gears .
+
+natcurric:progression-science-year-group-6-living-things-and-their-habitats
+  a curric:Progression ;
+  rdfs:label "Science Year Group 6 Living Things and their Habitats"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-science-upper-key-stage-2 ;
+  curric:coversContent
+    natcurric:contentdescriptor-living-things-classified-broad-groups ,
+    natcurric:contentdescriptor-classifying-plants-animals-specific-characteristics .
+
+natcurric:progression-science-year-group-6-animals-including-humans
+  a curric:Progression ;
+  rdfs:label "Science Year Group 6 Animals Including Humans"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-science-upper-key-stage-2 ;
+  curric:coversContent
+    natcurric:contentdescriptor-main-parts-human-circulatory-system ,
+    natcurric:contentdescriptor-impact-diet-exercise-drugs-lifestyle ,
+    natcurric:contentdescriptor-nutrients-water-transported-within-animals .
+
+natcurric:progression-science-year-group-6-evolution-and-inheritance
+  a curric:Progression ;
+  rdfs:label "Science Year Group 6 Animals Evolution and Inheritance"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-science-upper-key-stage-2 ;
+  curric:coversContent
+    natcurric:contentdescriptor-living-things-changed-over-time ,
+    natcurric:contentdescriptor-living-things-offspring-same-kind ,
+    natcurric:contentdescriptor-animals-plants-adapted-suit-environment .
+
+eng:progression-physics-year-group-6-light
+  a curric:Progression ;
+  rdfs:label "Physics Year Group 6 Light"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf eng:scheme-physics-upper-key-stage-2 ;
+  curric:coversContent
+    eng:contentdescriptor-light-travel-straight-lines ,
+    eng:contentdescriptor-objects-reflect-light-into-eye ,
+    eng:contentdescriptor-light-from-sources-to-eyes ,
+    eng:contentdescriptor-shadows-same-shape-as-objects .
+
+eng:progression-physics-year-group-6-electricity
+  a curric:Progression ;
+  rdfs:label "Physics Year Group 6 Electricity"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf eng:scheme-physics-upper-key-stage-2 ;
+  curric:coversContent
+    eng:contentdescriptor-number-and-voltage-cells-used ,
+    eng:contentdescriptor-variations-in-how-components-function ,
+    eng:contentdescriptor-symbols-representing-circuit-in-diagram .
+
+natcurric:progression-science-key-stage-3-scientific-attitudes
+  a curric:Progression ;
+  rdfs:label "Science Key Stage 3 Scientific Attitudes"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-science-key-stage-3 ;
+  curric:coversContent
+    natcurric:contentdescriptor-objectivity-concern-for-accuracy-precision ,
+    natcurric:contentdescriptor-scientific-methods-and-theories-develop ,
+    natcurric:contentdescriptor-evaluate-risks .
+
+natcurric:progression-science-key-stage-3-experimental-skills-and-investigations
+  a curric:Progression ;
+  rdfs:label "Science Key Stage 3 Experimental Skills and Investigations"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-science-key-stage-3 ;
+  curric:coversContent
+    natcurric:contentdescriptor-enquiry-observations-of-real-world ,
+    natcurric:contentdescriptor-predictions-using-scientific-knowledge-understanding ,
+    natcurric:contentdescriptor-scientific-enquiries-to-test-predictions ,
+    natcurric:contentdescriptor-use-appropriate-techniques-apparatus-materials ,
+    natcurric:contentdescriptor-make-record-observations-measurements ,
+    natcurric:contentdescriptor-apply-sampling-techniques .
+
+natcurric:progression-science-key-stage-3-analysis-and-evaluation
+  a curric:Progression ;
+  rdfs:label "Science Key Stage 3 Analysis and Evaluation"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-science-key-stage-3 ;
+  curric:coversContent
+    natcurric:contentdescriptor-apply-mathematical-concepts-calculate-results ,
+    natcurric:contentdescriptor-present-observations-and-data ,
+    natcurric:contentdescriptor-interpret-observations-and-data ,
+    natcurric:contentdescriptor-present-reasoned-explanations ,
+    natcurric:contentdescriptor-evaluate-data-random-systematic-error ,
+    natcurric:contentdescriptor-identify-questions-arising-from-results .
+
+natcurric:progression-science-key-stage-3-measurement
+  a curric:Progression ;
+  rdfs:label "Science Key Stage 3 Measurement"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-science-key-stage-3 ;
+  curric:coversContent
+    natcurric:contentdescriptor-si-units-iupac-chemical-nomenclature ,
+    natcurric:contentdescriptor-simple-equations-and-calculations ,
+    natcurric:contentdescriptor-basic-data-analysis-statistical-techniques .
+
+natcurric:progression-science-key-stage-3-cells-and-organisation
+  a curric:Progression ;
+  rdfs:label "Science Key Stage 3 Cells and Organisation"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-science-key-stage-3 ;
+  curric:coversContent
+    natcurric:contentdescriptor-cells-fundamental-unit-living-organisms ,
+    natcurric:contentdescriptor-functions-cell-wall-membrane-cytoplasm ,
+    natcurric:contentdescriptor-similarities-differences-plant-animal-cells ,
+    natcurric:contentdescriptor-diffusion-materials-in-between-cells ,
+    natcurric:contentdescriptor-structural-adaptations-of-unicellular-organisms ,
+    natcurric:contentdescriptor-hierarchical-organisation-of-multicellular-organisms .
+
+natcurric:progression-science-key-stage-3-skeletal-and-muscular-systems
+  a curric:Progression ;
+  rdfs:label "Science Key Stage 3 The Skeletal and Muscular Systems"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-science-key-stage-3 ;
+  curric:coversContent
+    natcurric:contentdescriptor-structure-functions-of-human-skeleton ,
+    natcurric:contentdescriptor-biomechanics-skeleton-and-muscles ,
+    natcurric:contentdescriptor-function-of-muscles-and-examples .
+
+natcurric:progression-science-key-stage-3-nutrition-and-digestion
+  a curric:Progression ;
+  rdfs:label "Science Key Stage 3 Nutrition and Digestion"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-science-key-stage-3 ;
+  curric:coversContent
+    natcurric:contentdescriptor-content-of-healthy-human-diet ,
+    natcurric:contentdescriptor-energy-requirements-healthy-daily-diet ,
+    natcurric:contentdescriptor-consequences-of-imbalances-in-diet ,
+    natcurric:contentdescriptor-tissues-organs-human-digestive-system ,
+    natcurric:contentdescriptor-bacteria-in-human-digestive-system ,
+    natcurric:contentdescriptor-plants-making-carbohydrates .
+
+natcurric:progression-science-key-stage-3-gas-exchange-systems
+  a curric:Progression ;
+  rdfs:label "Science Key Stage 3 Gas Exchange Systems"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-science-key-stage-3 ;
+  curric:coversContent
+    natcurric:contentdescriptor-gas-exchange-system-in-humans ,
+    natcurric:contentdescriptor-mechanism-of-breathing ,
+    natcurric:contentdescriptor-impact-of-exercise-asthma-smoking ,
+    natcurric:contentdescriptor-leaf-stomata-gas-exchange-plants .
+
+natcurric:progression-science-key-stage-3-reproduction
+  a curric:Progression ;
+  rdfs:label "Science Key Stage 3 Reproduction"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-science-key-stage-3 ;
+  curric:coversContent
+    natcurric:contentdescriptor-reproduction-in-humans ,
+    natcurric:contentdescriptor-reproduction-in-plants .
+
+natcurric:progression-science-key-stage-3-health
+  a curric:Progression ;
+  rdfs:label "Science Key Stage 3 Health"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-science-key-stage-3 ;
+  curric:coversContent natcurric:contentdescriptor-effects-of-recreational-drugs .
+
+natcurric:progression-science-key-stage-3-photosynthesis
+  a curric:Progression ;
+  rdfs:label "Science Key Stage 3 Photosynthesis"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-science-key-stage-3 ;
+  curric:coversContent
+    natcurric:contentdescriptor-reactants-products-photosynthesis ,
+    natcurric:contentdescriptor-dependence-life-on-photosynthetic-organisms ,
+    natcurric:contentdescriptor-adaptations-of-leaves-for-photosynthesis .
+
+natcurric:progression-science-key-stage-3-cellular-respiration
+  a curric:Progression ;
+  rdfs:label "Science Key Stage 3 Cellular Respiration"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-science-key-stage-3 ;
+  curric:coversContent
+    natcurric:contentdescriptor-aerobic-anaerobic-respiration-living-organisms ,
+    natcurric:contentdescriptor-word-summary-for-aerobic-respiration ,
+    natcurric:contentdescriptor-anaerobic-respiration-humans-and-microorganisms ,
+    natcurric:contentdescriptor-differences-aerobic-and-anaerobic-respiration .
+
+natcurric:progression-science-key-stage-3-relationships-in-an-ecosystem
+  a curric:Progression ;
+  rdfs:label "Science Key Stage 3 Relationships in an Ecosystem"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-science-key-stage-3 ;
+  curric:coversContent
+    natcurric:contentdescriptor-interdependence-of-organisms-in-ecosystem ,
+    natcurric:contentdescriptor-plant-reproduction-through-insect-pollination ,
+    natcurric:contentdescriptor-how-organisms-affect-their-environment .
+
+natcurric:progression-science-key-stage-3-inheritance-chromosomes-dna-genes
+  a curric:Progression ;
+  rdfs:label "Science Key Stage 3 Inheritance, Chromosomes, DNA and Genes"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-science-key-stage-3 ;
+  curric:coversContent
+    natcurric:contentdescriptor-heredity-genetic-information-transmitted ,
+    natcurric:contentdescriptor-simple-model-chromosomes-genes-dna ,
+    natcurric:contentdescriptor-differences-between-species ,
+    natcurric:contentdescriptor-variation-between-individuals-within-species ,
+    natcurric:contentdescriptor-variation-between-species ,
+    natcurric:contentdescriptor-changes-in-environment-less-adapted ,
+    natcurric:contentdescriptor-importance-of-maintaining-biodiversity .

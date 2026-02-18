@@ -10,7 +10,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 # ======================================================================
-# National Curriculum for England - Biology Programme Structure
+# National Curriculum for England - Biology KS4 Programme Structure
 # ======================================================================
 
 # ----------------------------------------------------------------------
@@ -123,27 +123,6 @@ natcurric:subject-biology
 # Schemes 
 # ----------------------------------------------------------------------
 
-natcurric:scheme-biology-key-stage-1
-  a curric:Scheme ;
-  rdfs:label "Biology Key Stage 1"@en ;
-  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
-  curric:isSchemeOf natcurric:subject-biology ;
-  curric:coversKeyStage natcurric:key-stage-1 .
-
-natcurric:scheme-biology-key-stage-2
-  a curric:Scheme ;
-  rdfs:label "Biology Key Stage 2"@en ;
-  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
-  curric:isSchemeOf natcurric:subject-biology ;
-  curric:coversKeyStage natcurric:key-stage-2 .
-
-natcurric:scheme-biology-key-stage-3
-  a curric:Scheme ;
-  rdfs:label "Biology Key Stage 3"@en ;
-  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
-  curric:isSchemeOf natcurric:subject-biology ;
-  curric:coversKeyStage natcurric:key-stage-3 .
-
 natcurric:scheme-biology-key-stage-4
   a curric:Scheme ;
   rdfs:label "Biology Key Stage 4"@en ;
@@ -191,176 +170,6 @@ natcurric:scheme-biology-key-stage-4
 # ----------------------------------------------------------------------
 # Progressions
 # ----------------------------------------------------------------------
-
-#natcurric:progression-biology-key-stage-1-xxx
-#  a curric:Progression ;
-#  rdfs:label "Biology Key Stage 1 xxx"@en ;
-#  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
-#  curric:isProgressionOf natcurric:scheme-biology-key-stage-1 ;
-#  curric:coversContent
-#    natcurric:contentdescriptor-xxx ,
-
-#natcurric:progression-biology-key-stage-2-xxx
-#  a curric:Progression ;
-#  rdfs:label "Biology Key Stage 2 xxx"@en ;
-#  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
-#  curric:isProgressionOf natcurric:scheme-biology-key-stage-2 ;
-#  curric:coversContent
-#    natcurric:contentdescriptor-xxx ,
-
-natcurric:progression-biology-key-stage-3-scientific-attitudes
-  a curric:Progression ;
-  rdfs:label "Biology Key Stage 3 Scientific Attitudes"@en ;
-  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
-  curric:isProgressionOf natcurric:scheme-biology-key-stage-3 ;
-  curric:coversContent
-    natcurric:contentdescriptor-objectivity-concern-for-accuracy-precision ,
-    natcurric:contentdescriptor-scientific-methods-and-theories-develop ,
-    natcurric:contentdescriptor-evaluate-risks .
-
-natcurric:progression-biology-key-stage-3-experimental-skills-and-investigations
-  a curric:Progression ;
-  rdfs:label "Biology Key Stage 3 Experimental Skills and Investigations"@en ;
-  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
-  curric:isProgressionOf natcurric:scheme-biology-key-stage-3 ;
-  curric:coversContent
-    natcurric:contentdescriptor-enquiry-observations-of-real-world ,
-    natcurric:contentdescriptor-predictions-using-scientific-knowledge-understanding ,
-    natcurric:contentdescriptor-scientific-enquiries-to-test-predictions ,
-    natcurric:contentdescriptor-use-appropriate-techniques-apparatus-materials ,
-    natcurric:contentdescriptor-make-record-observations-measurements ,
-    natcurric:contentdescriptor-apply-sampling-techniques .
-
-natcurric:progression-biology-key-stage-3-analysis-and-evaluation
-  a curric:Progression ;
-  rdfs:label "Biology Key Stage 3 Analysis and Evaluation"@en ;
-  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
-  curric:isProgressionOf natcurric:scheme-biology-key-stage-3 ;
-  curric:coversContent
-    natcurric:contentdescriptor-apply-mathematical-concepts-calculate-results ,
-    natcurric:contentdescriptor-present-observations-and-data ,
-    natcurric:contentdescriptor-interpret-observations-and-data ,
-    natcurric:contentdescriptor-present-reasoned-explanations ,
-    natcurric:contentdescriptor-evaluate-data-random-systematic-error ,
-    natcurric:contentdescriptor-identify-questions-arising-from-results .
-
-natcurric:progression-biology-key-stage-3-measurement
-  a curric:Progression ;
-  rdfs:label "Biology Key Stage 3 Measurement"@en ;
-  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
-  curric:isProgressionOf natcurric:scheme-biology-key-stage-3 ;
-  curric:coversContent
-    natcurric:contentdescriptor-si-units-iupac-chemical-nomenclature ,
-    natcurric:contentdescriptor-simple-equations-and-calculations ,
-    natcurric:contentdescriptor-basic-data-analysis-statistical-techniques .
-
-natcurric:progression-biology-key-stage-3-cells-and-organisation
-  a curric:Progression ;
-  rdfs:label "Biology Key Stage 3 Cells and Organisation"@en ;
-  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
-  curric:isProgressionOf natcurric:scheme-biology-key-stage-3 ;
-  curric:coversContent
-    natcurric:contentdescriptor-cells-fundamental-unit-living-organisms ,
-    natcurric:contentdescriptor-functions-cell-wall-membrane-cytoplasm ,
-    natcurric:contentdescriptor-similarities-differences-plant-animal-cells ,
-    natcurric:contentdescriptor-diffusion-materials-in-between-cells ,
-    natcurric:contentdescriptor-structural-adaptations-of-unicellular-organisms ,
-    natcurric:contentdescriptor-hierarchical-organisation-of-multicellular-organisms .
-
-natcurric:progression-biology-key-stage-3-skeletal-and-muscular-systems
-  a curric:Progression ;
-  rdfs:label "Biology Key Stage 3 The Skeletal and Muscular Systems"@en ;
-  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
-  curric:isProgressionOf natcurric:scheme-biology-key-stage-3 ;
-  curric:coversContent
-    natcurric:contentdescriptor-structure-functions-of-human-skeleton ,
-    natcurric:contentdescriptor-biomechanics-skeleton-and-muscles ,
-    natcurric:contentdescriptor-function-of-muscles-and-examples .
-
-natcurric:progression-biology-key-stage-3-nutrition-and-digestion
-  a curric:Progression ;
-  rdfs:label "Biology Key Stage 3 Nutrition and Digestion"@en ;
-  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
-  curric:isProgressionOf natcurric:scheme-biology-key-stage-3 ;
-  curric:coversContent
-    natcurric:contentdescriptor-content-of-healthy-human-diet ,
-    natcurric:contentdescriptor-energy-requirements-healthy-daily-diet ,
-    natcurric:contentdescriptor-consequences-of-imbalances-in-diet ,
-    natcurric:contentdescriptor-tissues-organs-human-digestive-system ,
-    natcurric:contentdescriptor-bacteria-in-human-digestive-system ,
-    natcurric:contentdescriptor-plants-making-carbohydrates .
-
-natcurric:progression-biology-key-stage-3-gas-exchange-systems
-  a curric:Progression ;
-  rdfs:label "Biology Key Stage 3 Gas Exchange Systems"@en ;
-  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
-  curric:isProgressionOf natcurric:scheme-biology-key-stage-3 ;
-  curric:coversContent
-    natcurric:contentdescriptor-gas-exchange-system-in-humans ,
-    natcurric:contentdescriptor-mechanism-of-breathing ,
-    natcurric:contentdescriptor-impact-of-exercise-asthma-smoking ,
-    natcurric:contentdescriptor-leaf-stomata-gas-exchange-plants .
-
-natcurric:progression-biology-key-stage-3-reproduction
-  a curric:Progression ;
-  rdfs:label "Biology Key Stage 3 Reproduction"@en ;
-  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
-  curric:isProgressionOf natcurric:scheme-biology-key-stage-3 ;
-  curric:coversContent
-    natcurric:contentdescriptor-reproduction-in-humans ,
-    natcurric:contentdescriptor-reproduction-in-plants .
-
-natcurric:progression-biology-key-stage-3-health
-  a curric:Progression ;
-  rdfs:label "Biology Key Stage 3 Health"@en ;
-  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
-  curric:isProgressionOf natcurric:scheme-biology-key-stage-3 ;
-  curric:coversContent natcurric:contentdescriptor-effects-of-recreational-drugs .
-
-natcurric:progression-biology-key-stage-3-photosynthesis
-  a curric:Progression ;
-  rdfs:label "Biology Key Stage 3 Photosynthesis"@en ;
-  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
-  curric:isProgressionOf natcurric:scheme-biology-key-stage-3 ;
-  curric:coversContent
-    natcurric:contentdescriptor-reactants-products-photosynthesis ,
-    natcurric:contentdescriptor-dependence-life-on-photosynthetic-organisms ,
-    natcurric:contentdescriptor-adaptations-of-leaves-for-photosynthesis .
-
-natcurric:progression-biology-key-stage-3-cellular-respiration
-  a curric:Progression ;
-  rdfs:label "Biology Key Stage 3 Cellular Respiration"@en ;
-  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
-  curric:isProgressionOf natcurric:scheme-biology-key-stage-3 ;
-  curric:coversContent
-    natcurric:contentdescriptor-aerobic-anaerobic-respiration-living-organisms ,
-    natcurric:contentdescriptor-word-summary-for-aerobic-respiration ,
-    natcurric:contentdescriptor-anaerobic-respiration-humans-and-microorganisms ,
-    natcurric:contentdescriptor-differences-aerobic-and-anaerobic-respiration .
-
-natcurric:progression-biology-key-stage-3-relationships-in-an-ecosystem
-  a curric:Progression ;
-  rdfs:label "Biology Key Stage 3 Relationships in an Ecosystem"@en ;
-  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
-  curric:isProgressionOf natcurric:scheme-biology-key-stage-3 ;
-  curric:coversContent
-    natcurric:contentdescriptor-interdependence-of-organisms-in-ecosystem ,
-    natcurric:contentdescriptor-plant-reproduction-through-insect-pollination ,
-    natcurric:contentdescriptor-how-organisms-affect-their-environment .
-
-natcurric:progression-biology-key-stage-3-inheritance-chromosomes-dna-genes
-  a curric:Progression ;
-  rdfs:label "Biology Key Stage 3 Inheritance, Chromosomes, DNA and Genes"@en ;
-  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
-  curric:isProgressionOf natcurric:scheme-biology-key-stage-3 ;
-  curric:coversContent
-    natcurric:contentdescriptor-heredity-genetic-information-transmitted ,
-    natcurric:contentdescriptor-simple-model-chromosomes-genes-dna ,
-    natcurric:contentdescriptor-differences-between-species ,
-    natcurric:contentdescriptor-variation-between-individuals-within-species ,
-    natcurric:contentdescriptor-variation-between-species ,
-    natcurric:contentdescriptor-changes-in-environment-less-adapted ,
-    natcurric:contentdescriptor-importance-of-maintaining-biodiversity .
 
 natcurric:progression-biology-key-stage-4-development-of-scientific-thinking
   a curric:Progression ;

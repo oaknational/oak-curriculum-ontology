@@ -10,7 +10,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 # ======================================================================
-# National Curriculum for England - Chemistry Programme Structure
+# National Curriculum for England - Chemistry KS4 Programme Structure
 # ======================================================================
 
 # ----------------------------------------------------------------------
@@ -123,27 +123,6 @@ natcurric:subjectgroup-science
 # Schemes 
 # ----------------------------------------------------------------------
 
-natcurric:scheme-chemistry-key-stage-1
-  a curric:Scheme ;
-  rdfs:label "Chemistry Key Stage 1"@en ;
-  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
-  curric:isSchemeOf natcurric:subject-chemistry ;
-  curric:coversKeyStage natcurric:key-stage-1 .
-
-natcurric:scheme-chemistry-key-stage-2
-  a curric:Scheme ;
-  rdfs:label "Chemistry Key Stage 2"@en ;
-  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
-  curric:isSchemeOf natcurric:subject-chemistry ;
-  curric:coversKeyStage natcurric:key-stage-2 .
-
-natcurric:scheme-chemistry-key-stage-3
-  a curric:Scheme ;
-  rdfs:label "Chemistry Key Stage 3"@en ;
-  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
-  curric:isSchemeOf natcurric:subject-chemistry ;
-  curric:coversKeyStage natcurric:key-stage-3 .
-
 natcurric:scheme-chemistry-key-stage-4
   a curric:Scheme ;
   rdfs:label "Chemistry Key Stage 4"@en ;
@@ -184,68 +163,6 @@ natcurric:scheme-chemistry-key-stage-4
 # ----------------------------------------------------------------------
 # Progressions
 # ----------------------------------------------------------------------
-
-#natcurric:progression-chemistry-key-stage-1-xxx
-#  a curric:Progression ;
-#  rdfs:label "Chemistry Key Stage 1 xxx"@en ;
-#  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
-#  curric:isProgressionOf natcurric:scheme-chemistry-key-stage-1 ;
-#  curric:coversContent
-#    natcurric:contentdescriptor-xxx ,
-
-#natcurric:progression-chemistry-key-stage-2-xxx
-#  a curric:Progression ;
-#  rdfs:label "Chemistry Key Stage 2 xxx"@en ;
-#  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
-#  curric:isProgressionOf natcurric:scheme-chemistry-key-stage-2 ;
-#  curric:coversContent
-#    natcurric:contentdescriptor-xxx ,
-
-natcurric:progression-chemistry-key-stage-3-scientific-attitudes
-  a curric:Progression ;
-  rdfs:label "Chemistry Key Stage 3 Scientific Attitudes"@en ;
-  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
-  curric:isProgressionOf natcurric:scheme-chemistry-key-stage-3 ;
-  curric:coversContent
-    natcurric:contentdescriptor-objectivity-concern-for-accuracy-precision ,
-    natcurric:contentdescriptor-scientific-methods-and-theories-develop ,
-    natcurric:contentdescriptor-evaluate-risks .
-
-natcurric:progression-chemistry-key-stage-3-experimental-skills-and-investigations
-  a curric:Progression ;
-  rdfs:label "Chemistry Key Stage 3 Experimental Skills and Investigations"@en ;
-  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
-  curric:isProgressionOf natcurric:scheme-chemistry-key-stage-3 ;
-  curric:coversContent
-    natcurric:contentdescriptor-enquiry-observations-of-real-world ,
-    natcurric:contentdescriptor-predictions-using-scientific-knowledge-understanding ,
-    natcurric:contentdescriptor-scientific-enquiries-to-test-predictions ,
-    natcurric:contentdescriptor-use-appropriate-techniques-apparatus-materials ,
-    natcurric:contentdescriptor-make-record-observations-measurements ,
-    natcurric:contentdescriptor-apply-sampling-techniques .
-
-natcurric:progression-chemistry-key-stage-3-analysis-and-evaluation
-  a curric:Progression ;
-  rdfs:label "Chemistry Key Stage 3 Analysis and Evaluation"@en ;
-  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
-  curric:isProgressionOf natcurric:scheme-chemistry-key-stage-3 ;
-  curric:coversContent
-    natcurric:contentdescriptor-apply-mathematical-concepts-calculate-results ,
-    natcurric:contentdescriptor-present-observations-and-data ,
-    natcurric:contentdescriptor-interpret-observations-and-data ,
-    natcurric:contentdescriptor-present-reasoned-explanations ,
-    natcurric:contentdescriptor-evaluate-data-random-systematic-error ,
-    natcurric:contentdescriptor-identify-questions-arising-from-results .
-
-natcurric:progression-chemistry-key-stage-3-measurement
-  a curric:Progression ;
-  rdfs:label "Chemistry Key Stage 3 Measurement"@en ;
-  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
-  curric:isProgressionOf natcurric:scheme-chemistry-key-stage-3 ;
-  curric:coversContent
-    natcurric:contentdescriptor-si-units-iupac-chemical-nomenclature ,
-    natcurric:contentdescriptor-simple-equations-and-calculations ,
-    natcurric:contentdescriptor-basic-data-analysis-statistical-techniques .
 
 natcurric:progression-chemistry-key-stage-4-development-of-scientific-thinking
   a curric:Progression ;
