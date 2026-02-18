@@ -623,51 +623,6 @@ shapes:StrandShape
   ] ;
 
   sh:sparql [
-    sh:message "Display order must be unique within the same discipline" ;
-    sh:select """
-      PREFIX curric: <https://w3id.org/uk/oak/curriculum/ontology/>
-      PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
-      SELECT $this WHERE {
-        $this a curric:Strand ;
-              curric:displayOrder ?order ;
-              skos:broader ?parent .
-
-        ?other a curric:Strand ;
-               curric:displayOrder ?order ;
-               skos:broader ?parent .
-
-        FILTER ($this != ?other)
-      }
-    """ ;
-  ] ;
-
-  sh:sparql [
-    sh:message "Display order must be consecutive within the same discipline (no gaps allowed)" ;
-    sh:select """
-      PREFIX curric: <https://w3id.org/uk/oak/curriculum/ontology/>
-      PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
-      SELECT $this WHERE {
-        # Find the discipline that contains this strand
-        $this skos:broader ?discipline .
-
-        # Get all display orders for this discipline
-        {
-          SELECT $this ?discipline (MIN(?order) as ?minOrder) (MAX(?order) as ?maxOrder) (COUNT(DISTINCT ?order) as ?count) WHERE {
-            $this skos:broader ?discipline .
-            ?strand a curric:Strand ;
-                    skos:broader ?discipline ;
-                    curric:displayOrder ?order .
-          }
-          GROUP BY $this ?discipline
-        }
-
-        # Check if count equals max-min+1 (i.e., consecutive sequence)
-        FILTER (?count != (?maxOrder - ?minOrder + 1))
-      }
-    """ ;
-  ] ;
-
-  sh:sparql [
     sh:severity sh:Warning ;
     sh:message "Strand is not referenced by any subject (WARNING - orphaned)" ;
     sh:select """
@@ -768,51 +723,6 @@ shapes:SubStrandShape
   ] ;
 
   sh:sparql [
-    sh:message "Display order must be unique within the same strand" ;
-    sh:select """
-      PREFIX curric: <https://w3id.org/uk/oak/curriculum/ontology/>
-      PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
-      SELECT $this WHERE {
-        $this a curric:SubStrand ;
-              curric:displayOrder ?order ;
-              skos:broader ?parent .
-
-        ?other a curric:SubStrand ;
-               curric:displayOrder ?order ;
-               skos:broader ?parent .
-
-        FILTER ($this != ?other)
-      }
-    """ ;
-  ] ;
-
-  sh:sparql [
-    sh:message "Display order must be consecutive within the same strand (no gaps allowed)" ;
-    sh:select """
-      PREFIX curric: <https://w3id.org/uk/oak/curriculum/ontology/>
-      PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
-      SELECT $this WHERE {
-        # Find the strand that contains this sub-strand
-        $this skos:broader ?strand .
-
-        # Get all display orders for this strand
-        {
-          SELECT $this ?strand (MIN(?order) as ?minOrder) (MAX(?order) as ?maxOrder) (COUNT(DISTINCT ?order) as ?count) WHERE {
-            $this skos:broader ?strand .
-            ?substrand a curric:SubStrand ;
-                       skos:broader ?strand ;
-                       curric:displayOrder ?order .
-          }
-          GROUP BY $this ?strand
-        }
-
-        # Check if count equals max-min+1 (i.e., consecutive sequence)
-        FILTER (?count != (?maxOrder - ?minOrder + 1))
-      }
-    """ ;
-  ] ;
-
-  sh:sparql [
     sh:severity sh:Warning ;
     sh:message "Sub-strand is not referenced by any strand via skos:narrower (WARNING - orphaned)" ;
     sh:select """
@@ -875,51 +785,6 @@ shapes:ContentDescriptorShape
     sh:name "broader" ;
     sh:description "Every content descriptor must belong to exactly one sub-strand." ;
     sh:message "Content descriptors must specify which sub-strand they belong to via skos:broader." ;
-  ] ;
-
-  sh:sparql [
-    sh:message "Display order must be unique within the same sub-strand" ;
-    sh:select """
-      PREFIX curric: <https://w3id.org/uk/oak/curriculum/ontology/>
-      PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
-      SELECT $this WHERE {
-        $this a curric:ContentDescriptor ;
-              curric:displayOrder ?order ;
-              skos:broader ?parent .
-
-        ?other a curric:ContentDescriptor ;
-               curric:displayOrder ?order ;
-               skos:broader ?parent .
-
-        FILTER ($this != ?other)
-      }
-    """ ;
-  ] ;
-
-  sh:sparql [
-    sh:message "Display order must be consecutive within the same sub-strand (no gaps allowed)" ;
-    sh:select """
-      PREFIX curric: <https://w3id.org/uk/oak/curriculum/ontology/>
-      PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
-      SELECT $this WHERE {
-        # Find the sub-strand that contains this content descriptor
-        $this skos:broader ?substrand .
-
-        # Get all display orders for this sub-strand
-        {
-          SELECT $this ?substrand (MIN(?order) as ?minOrder) (MAX(?order) as ?maxOrder) (COUNT(DISTINCT ?order) as ?count) WHERE {
-            $this skos:broader ?substrand .
-            ?descriptor a curric:ContentDescriptor ;
-                        skos:broader ?substrand ;
-                        curric:displayOrder ?order .
-          }
-          GROUP BY $this ?substrand
-        }
-
-        # Check if count equals max-min+1 (i.e., consecutive sequence)
-        FILTER (?count != (?maxOrder - ?minOrder + 1))
-      }
-    """ ;
   ] ;
 
   sh:sparql [
