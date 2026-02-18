@@ -121,7 +121,7 @@ natcurric:strand-chemical-science
 natcurric:substrand-practical-scientific-methods-processes-skills
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Practical scientific methods, processes and skills"@en ;
-  skos:definition "Description of sub-strand..." ;
+  skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "1"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-working-scientifically ;
   skos:narrower 
@@ -267,7 +267,7 @@ natcurric:substrand-scientific-measurement
 natcurric:substrand-everyday-materials
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Everyday Materials"@en ;
-  skos:definition "Description of sub-strand..." ;
+  skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "1"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-chemical-science ;
   skos:narrower 
@@ -283,7 +283,7 @@ natcurric:substrand-everyday-materials
 natcurric:substrand-rocks
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Rocks"@en ;
-  skos:definition "Description of sub-strand..." ;
+  skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "2"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-chemical-science ;
   skos:narrower 
@@ -296,7 +296,7 @@ natcurric:substrand-rocks
 natcurric:substrand-states-of-matter
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "States of Matter"@en ;
-  skos:definition "Description of sub-strand..." ;
+  skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "3"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-chemical-science ;
   skos:narrower 
@@ -309,7 +309,7 @@ natcurric:substrand-states-of-matter
 natcurric:substrand-properties-and-changes-of-materials
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Properties and Changes of Materials"@en ;
-  skos:definition "Description of sub-strand..." ;
+  skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "4"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-chemical-science ;
   skos:narrower 

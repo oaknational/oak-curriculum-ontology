@@ -124,7 +124,7 @@ natcurric:strand-physical-science
 natcurric:substrand-practical-scientific-methods-processes-skills
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Practical scientific methods, processes and skills"@en ;
-  skos:definition "Description of sub-strand..." ;
+  skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "1"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-working-scientifically ;
   skos:narrower 
@@ -270,7 +270,7 @@ natcurric:substrand-scientific-measurement
 natcurric:substrand-seasonal-changes
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Seasonal changes"@en ;
-  skos:definition "Description of sub-strand..." ;
+  skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "1"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-physical-science ;
   skos:narrower 
@@ -282,7 +282,7 @@ natcurric:substrand-seasonal-changes
 natcurric:substrand-light
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Light"@en ;
-  skos:definition "Description of sub-strand..." ;
+  skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "2"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-physical-science ;
   skos:narrower 
@@ -301,7 +301,7 @@ natcurric:substrand-light
 natcurric:substrand-forces-and-magnets
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Forces and Magnets"@en ;
-  skos:definition "Description of sub-strand..." ;
+  skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "3"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-physical-science ;
   skos:narrower 
@@ -317,7 +317,7 @@ natcurric:substrand-forces-and-magnets
 natcurric:substrand-sound
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Sound"@en ;
-  skos:definition "Description of sub-strand..." ;
+  skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "4"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-physical-science ;
   skos:narrower 
@@ -332,7 +332,7 @@ natcurric:substrand-sound
 natcurric:substrand-earth-and-space
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Earth and Space"@en ;
-  skos:definition "Description of sub-strand..." ;
+  skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "5"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-physical-science ;
   skos:narrower 

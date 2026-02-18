@@ -129,7 +129,7 @@ natcurric:strand-biological-science
 natcurric:substrand-practical-scientific-methods-processes-skills
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Practical scientific methods, processes and skills"@en ;
-  skos:definition "Description of sub-strand..." ;
+  skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "1"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-working-scientifically ;
   skos:narrower 
@@ -275,7 +275,7 @@ natcurric:substrand-scientific-measurement
 natcurric:substrand-living-things-and-their-habitats
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Living things and their habitats"@en ;
-  skos:definition "Description of sub-strand..." ;
+  skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "1"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-biological-science ;
   skos:narrower 
@@ -296,7 +296,7 @@ natcurric:substrand-living-things-and-their-habitats
 natcurric:substrand-plants
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Plants"@en ;
-  skos:definition "Description of sub-strand..." ;
+  skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "2"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-biological-science ;
   skos:narrower 
@@ -314,7 +314,7 @@ natcurric:substrand-plants
 natcurric:substrand-animals-including-humans
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Animals including humans"@en ;
-  skos:definition "Description of sub-strand..." ;
+  skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "3"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-biological-science ;
   skos:narrower 
@@ -340,7 +340,7 @@ natcurric:substrand-animals-including-humans
 natcurric:substrand-evolution-and-inheritance
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Evolution and inheritance"@en ;
-  skos:definition "Description of sub-strand..." ;
+  skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "4"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-biological-science ;
   skos:narrower 
