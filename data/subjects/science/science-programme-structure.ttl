@@ -819,3 +819,198 @@ natcurric:progression-science-key-stage-3-earth-and-atmosphere
     natcurric:contentdescriptor-resources-and-recycling ,
     natcurric:contentdescriptor-composition-of-atmosphere ,
     natcurric:contentdescriptor-carbon-dioxide-impact-on-climate .
+
+natcurric:progression-science-key-stage-3-fuel-uses-costs-domestic-context
+  a curric:Progression ;
+  rdfs:label "Physics Key Stage 3 Fuel Uses Costs Domestic Context"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-science-key-stage-3 ;
+  curric:coversContent
+    natcurric:contentdescriptor-energy-values-of-different-foods ,
+    natcurric:contentdescriptor-power-ratings-of-appliances ,
+    natcurric:contentdescriptor-amounts-of-energy-transferred ,
+    natcurric:contentdescriptor-domestic-fuel-bills ,
+    natcurric:contentdescriptor-fuels-and-energy-resources .
+
+natcurric:progression-science-key-stage-3-energy-changes-and-transfers
+  a curric:Progression ;
+  rdfs:label "Physics Key Stage 3 Energy Changes and Transfers"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-science-key-stage-3 ;
+  curric:coversContent
+    natcurric:contentdescriptor-product-force-and-displacement-unchanged ,
+    natcurric:contentdescriptor-heating-and-thermal-equilibrium ,
+    natcurric:contentdescriptor-other-processes-involve-energy-transfer .
+
+natcurric:progression-science-key-stage-3-changes-in-systems
+  a curric:Progression ;
+  rdfs:label "Physics Key Stage 3 Changes in Systems"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-science-key-stage-3 ;
+  curric:coversContent
+    natcurric:contentdescriptor-energy-quantified-and-calculated ,
+    natcurric:contentdescriptor-describing-increases-decreases-amounts-energy ,
+    natcurric:contentdescriptor-physical-processes-and-mechanisms .
+
+natcurric:progression-science-key-stage-3-describing-motion
+  a curric:Progression ;
+  rdfs:label "Physics Key Stage 3 Describing Motion"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-science-key-stage-3 ;
+  curric:coversContent
+    natcurric:contentdescriptor-average-speed-distance-and-time ,
+    natcurric:contentdescriptor-distance-time-graph ,
+    natcurric:contentdescriptor-relative-motion .
+
+natcurric:progression-science-key-stage-3-forces
+  a curric:Progression ;
+  rdfs:label "Physics Key Stage 3 Forces"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-science-key-stage-3 ;
+  curric:coversContent
+    natcurric:contentdescriptor-forces-as-pushes-or-pulls ,
+    natcurric:contentdescriptor-using-force-arrows-in-diagrams ,
+    natcurric:contentdescriptor-moment-turning-effect-of-force ,
+    natcurric:contentdescriptor-forces-associated-with-deforming-objects ,
+    natcurric:contentdescriptor-forces-measured-in-newtons ,
+    natcurric:contentdescriptor-force-extension-linear-relation ,
+    natcurric:contentdescriptor-work-done-energy-changes-deformation ,
+    natcurric:contentdescriptor-non-contact-forces .
+
+natcurric:progression-science-key-stage-3-pressure-in-fluids
+  a curric:Progression ;
+  rdfs:label "Physics Key Stage 3 Pressure in Fluids"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-science-key-stage-3 ;
+  curric:coversContent
+    natcurric:contentdescriptor-atmospheric-pressure ,
+    natcurric:contentdescriptor-pressure-in-liquids ,
+    natcurric:contentdescriptor-ratio-of-force-over-area .
+
+natcurric:progression-science-key-stage-3-balanced-forces
+  a curric:Progression ;
+  rdfs:label "Physics Key Stage 3 Balanced Forces"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-science-key-stage-3 ;
+  curric:coversContent
+    natcurric:contentdescriptor-opposing-forces-and-equilibrium .
+
+natcurric:progression-science-key-stage-3-forces-and-motion
+  a curric:Progression ;
+  rdfs:label "Physics Key Stage 3 Forces and Motion"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-science-key-stage-3 ;
+  curric:coversContent
+    natcurric:contentdescriptor-forces-cause-stop-start-motion ,
+    natcurric:contentdescriptor-change-depending-on-direction-size .
+
+natcurric:progression-science-key-stage-3-observed-waves
+  a curric:Progression ;
+  rdfs:label "Physics Key Stage 3 Observed Waves"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-science-key-stage-3 ;
+  curric:coversContent
+    natcurric:contentdescriptor-waves-undulations-with-transverse-motion .
+
+natcurric:progression-science-key-stage-3-sound-waves
+  a curric:Progression ;
+  rdfs:label "Physics Key Stage 3 Sound Waves"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-science-key-stage-3 ;
+  curric:coversContent
+    natcurric:contentdescriptor-frequencies-of-sound-waves ,
+    natcurric:contentdescriptor-speed-sound-air-water-solids ,
+    natcurric:contentdescriptor-sound-produced-by-vibrations-objects ,
+    natcurric:contentdescriptor-auditory-range-humans-and-animals .
+
+natcurric:progression-science-key-stage-3-energy-and-waves
+  a curric:Progression ;
+  rdfs:label "Physics Key Stage 3 Energy and Waves"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-science-key-stage-3 ;
+  curric:coversContent
+    natcurric:contentdescriptor-pressure-waves-transferring-energy .
+
+natcurric:progression-science-key-stage-3-light-waves
+  a curric:Progression ;
+  rdfs:label "Physics Key Stage 3 Light Waves"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-science-key-stage-3 ;
+  curric:coversContent
+    natcurric:contentdescriptor-similarities-differences-light-waves-matter ,
+    natcurric:contentdescriptor-light-waves-travelling-through-vacuum ,
+    natcurric:contentdescriptor-transmission-of-light-through-materials ,
+    natcurric:contentdescriptor-ray-model-to-explain-imaging ,
+    natcurric:contentdescriptor-light-energy-source-to-absorber ,
+    natcurric:contentdescriptor-colours-different-frequencies-of-light .
+
+natcurric:progression-science-key-stage-3-current-electricity
+  a curric:Progression ;
+  rdfs:label "Physics Key Stage 3 Current Electricity"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-science-key-stage-3 ;
+  curric:coversContent
+    natcurric:contentdescriptor-current-amperes-circuits-series-parallel ,
+    natcurric:contentdescriptor-potential-difference-volts-battery-bulb ,
+    natcurric:contentdescriptor-differences-resistance-conducting-insulating-components .
+
+natcurric:progression-science-key-stage-3-static-electricity
+  a curric:Progression ;
+  rdfs:label "Physics Key Stage 3 Static Electricity"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-science-key-stage-3 ;
+  curric:coversContent
+    natcurric:contentdescriptor-separation-positive-or-negative-charges ,
+    natcurric:contentdescriptor-idea-of-electric-field .
+
+natcurric:progression-science-key-stage-3-magnetism
+  a curric:Progression ;
+  rdfs:label "Physics Key Stage 3 Magnetism"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-science-key-stage-3 ;
+  curric:coversContent
+    natcurric:contentdescriptor-magnetic-poles-attraction-and-repulsion ,
+    natcurric:contentdescriptor-magnetic-fields-plotting-with-compass ,
+    natcurric:contentdescriptor-earths-magnetism-compass-and-navigation ,
+    natcurric:contentdescriptor-magnetic-effect-current-electromagnets-motors .
+
+natcurric:progression-science-key-stage-3-physical-changes
+  a curric:Progression ;
+  rdfs:label "Physics Key Stage 3 Physical Changes"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-science-key-stage-3 ;
+  curric:coversContent
+    natcurric:contentdescriptor-conservation-material-mass-reversibility ,
+    natcurric:contentdescriptor-similarities-differences-solids-liquids-gases ,
+    natcurric:contentdescriptor-brownian-motion-in-gases ,
+    natcurric:contentdescriptor-diffusion-in-liquids-aand-gases ,
+    natcurric:contentdescriptor-difference-chemical-and-physical-changes .
+
+natcurric:progression-science-key-stage-3-particle-model
+  a curric:Progression ;
+  rdfs:label "Physics Key Stage 3 Particle Model"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-science-key-stage-3 ;
+  curric:coversContent
+    natcurric:contentdescriptor-arrangements-motion-closeness-of-particles ,
+    natcurric:contentdescriptor-atoms-and-molecules-as-particles .
+
+natcurric:progression-science-key-stage-3-energy-in-matter
+  a curric:Progression ;
+  rdfs:label "Physics Key Stage 3 Energy in Matter"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-science-key-stage-3 ;
+  curric:coversContent
+    natcurric:contentdescriptor-changes-temperature-motion-spacing-particles ,
+    natcurric:contentdescriptor-internal-energy-stored-in-particles .
+
+natcurric:progression-science-key-stage-3-space-science
+  a curric:Progression ;
+  rdfs:label "Physics Key Stage 3 Space Physics"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-science-key-stage-3 ;
+  curric:coversContent
+    natcurric:contentdescriptor-gravity-force-weight-on-earth ,
+    natcurric:contentdescriptor-sun-stars-galaxies ,
+    natcurric:contentdescriptor-seasons-earths-tilt-day-length ,
+    natcurric:contentdescriptor-light-year-unit-astronomical-distance .
