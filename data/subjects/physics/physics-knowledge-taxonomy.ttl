@@ -1497,7 +1497,7 @@ natcurric:contentdescriptor-common-appliances-run-on-electricity
   a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel "Identify common appliances that run on electricity."@en ;
   curric:displayOrder "1"^^xsd:positiveInteger ;
-  skos:broader engnatcurric: ;
+  skos:broader natcurric:substrand-electricity ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
 
@@ -1506,7 +1506,7 @@ natcurric:contentdescriptor-simple-series-electrical-circuit
   skos:prefLabel """Construct a simple series electrical circuit, identifying and naming its basic 
   parts, including cells, wires, bulbs, switches and buzzers."""@en ;
   curric:displayOrder "2"^^xsd:positiveInteger ;
-  skos:broader engnatcurric: ;
+  skos:broader natcurric:substrand-electricity ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
 
@@ -1515,7 +1515,7 @@ natcurric:contentdescriptor-lamp-in-simple-series-circuit
   skos:prefLabel """Identify whether or not a lamp will light in a simple series circuit, based on 
   whether or not the lamp is part of a complete loop with a battery."""@en ;
   curric:displayOrder "3"^^xsd:positiveInteger ;
-  skos:broader engnatcurric: ;
+  skos:broader natcurric:substrand-electricity ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
 
@@ -1524,7 +1524,7 @@ natcurric:contentdescriptor-switch-opens-and-closes-circuit
   skos:prefLabel """Recognise that a switch opens and closes a circuit and associate this with 
   whether or not a lamp lights in a simple series circuit."""@en ;
   curric:displayOrder "4"^^xsd:positiveInteger ;
-  skos:broader engnatcurric: ;
+  skos:broader natcurric:substrand-electricity ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
 
@@ -1533,7 +1533,7 @@ natcurric:contentdescriptor-common-conductors-and-insulators
   skos:prefLabel """Recognise some common conductors and insulators, and associate metals with 
   being good conductors."""@en ;
   curric:displayOrder "5"^^xsd:positiveInteger ;
-  skos:broader engnatcurric: ;
+  skos:broader natcurric:substrand-electricity ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
 
@@ -1542,7 +1542,7 @@ natcurric:contentdescriptor-number-and-voltage-cells-used
   skos:prefLabel """Associate the brightness of a lamp or the volume of a buzzer with the number 
   and voltage of cells used in the circuit."""@en ;
   curric:displayOrder "6"^^xsd:positiveInteger ;
-  skos:broader engnatcurric: ;
+  skos:broader natcurric:substrand-electricity ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
 
@@ -1551,7 +1551,7 @@ natcurric:contentdescriptor-variations-in-how-components-function
   skos:prefLabel """Compare and give reasons for variations in how components function, including 
   the brightness of bulbs, the loudness of buzzers and the on/off position of switches."""@en ;
   curric:displayOrder "7"^^xsd:positiveInteger ;
-  skos:broader engnatcurric: ;
+  skos:broader natcurric:substrand-electricity ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
 
@@ -1559,7 +1559,7 @@ natcurric:contentdescriptor-symbols-representing-circuit-in-diagram
   a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel "Use recognised symbols when representing a simple circuit in a diagram."@en ;
   curric:displayOrder "8"^^xsd:positiveInteger ;
-  skos:broader engnatcurric: ;
+  skos:broader natcurric:substrand-electricity ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
 
@@ -1567,7 +1567,7 @@ natcurric:contentdescriptor-measuring-resistance
   a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel "Measuring resistance using p.d. and current measurements."@en ;
   curric:displayOrder "9"^^xsd:positiveInteger ;
-  skos:broader engnatcurric: ;
+  skos:broader natcurric:substrand-electricity ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
 
@@ -1576,7 +1576,7 @@ natcurric:contentdescriptor-current-resistance-voltage-relationships
   skos:prefLabel """Exploring current, resistance and voltage relationships for different circuit 
   elements; including their graphical representations."""@en ;
   curric:displayOrder "10"^^xsd:positiveInteger ;
-  skos:broader engnatcurric: ;
+  skos:broader natcurric:substrand-electricity ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
 
@@ -1584,7 +1584,7 @@ natcurric:contentdescriptor-quantity-of-charge-flowing
   a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel "Quantity of charge flowing as the product of current and time."@en ;
   curric:displayOrder "11"^^xsd:positiveInteger ;
-  skos:broader engnatcurric: ;
+  skos:broader natcurric:substrand-electricity ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
 
@@ -1593,7 +1593,7 @@ natcurric:contentdescriptor-drawing-circuit-diagrams
   skos:prefLabel """Drawing circuit diagrams; exploring equivalent resistance for resistors in 
   series."""@en ;
   curric:displayOrder "12"^^xsd:positiveInteger ;
-  skos:broader engnatcurric: ;
+  skos:broader natcurric:substrand-electricity ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
 
@@ -1602,7 +1602,7 @@ natcurric:contentdescriptor-domestic-ac-supply
   skos:prefLabel """The domestic a.c. supply; live, neutral and earth mains wires, safety 
   measures."""@en ;
   curric:displayOrder "13"^^xsd:positiveInteger ;
-  skos:broader engnatcurric: ;
+  skos:broader natcurric:substrand-electricity ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
 
@@ -1610,7 +1610,7 @@ natcurric:contentdescriptor-power-transfer
   a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel "Power transfer related to p.d. and current, or current and resistance."@en ;
   curric:displayOrder "14"^^xsd:positiveInteger ;
-  skos:broader engnatcurric: ;
+  skos:broader natcurric:substrand-electricity ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
 
