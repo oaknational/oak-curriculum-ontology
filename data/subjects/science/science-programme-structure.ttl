@@ -727,3 +727,95 @@ natcurric:progression-science-key-stage-3-inheritance-chromosomes-dna-genes
     natcurric:contentdescriptor-variation-between-species ,
     natcurric:contentdescriptor-changes-in-environment-less-adapted ,
     natcurric:contentdescriptor-importance-of-maintaining-biodiversity .
+
+natcurric:progression-science-key-stage-3-particulate-nature-of-matter
+  a curric:Progression ;
+  rdfs:label "Chemistry Key Stage 3 Particulate Nature of Matter"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-science-key-stage-3 ;
+  curric:coversContent
+    natcurric:contentdescriptor-properties-different-states-of-matter ,
+    natcurric:contentdescriptor-changes-of-state-particle-model .
+
+natcurric:progression-science-key-stage-3-atoms-elements-compounds
+  a curric:Progression ;
+  rdfs:label "Chemistry Key Stage 3 Atoms Elements and Compounds"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-science-key-stage-3 ;
+  curric:coversContent
+    natcurric:contentdescriptor-simple-dalton-atomic-model ,
+    natcurric:contentdescriptor-differences-atoms-elements-compounds ,
+    natcurric:contentdescriptor-symbols-formulae-for-elements-compounds ,
+    natcurric:contentdescriptor-conservation-of-mass-changes-state .
+
+natcurric:progression-science-key-stage-3-pure-and-impure-substances
+  a curric:Progression ;
+  rdfs:label "Chemistry Key Stage 3 Pure and Impure Substances"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-science-key-stage-3 ;
+  curric:coversContent
+    natcurric:contentdescriptor-cocept-of-a-pure-substance ,
+    natcurric:contentdescriptor-mixtures-including-dissolving ,
+    natcurric:contentdescriptor-diffusion-terms-of-particle-model ,
+    natcurric:contentdescriptor-filtration-evaporation-distillation-chromatography ,
+    natcurric:contentdescriptor-identification-of-pure-substances .
+
+natcurric:progression-science-key-stage-3-chemical-reactions
+  a curric:Progression ;
+  rdfs:label "Chemistry Key Stage 3 Chemical Reactions"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-science-key-stage-3 ;
+  curric:coversContent
+    natcurric:contentdescriptor-reactions-as-rearrangement-of-atoms ,
+    natcurric:contentdescriptor-reactions-using-formulae-and-equations ,
+    natcurric:contentdescriptor-combustion-thermal-decomposition-oxidation-displacement ,
+    natcurric:contentdescriptor-defining-acids-and-alkalis ,
+    natcurric:contentdescriptor-ph-scale-measuring-acidity-alkalinity ,
+    natcurric:contentdescriptor-reactions-of-acids-with-metals ,
+    natcurric:contentdescriptor-reactions-of-acids-with-alkalis ,
+    natcurric:contentdescriptor-what-catalysts-do .
+
+natcurric:progression-science-key-stage-3-energetics
+  a curric:Progression ;
+  rdfs:label "Chemistry Key Stage 3 Energetics"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-science-key-stage-3 ;
+  curric:coversContent
+    natcurric:contentdescriptor-energy-changes-changes-of-state ,
+    natcurric:contentdescriptor-exothermic-and-endothermic-chemical-reactions .
+
+natcurric:progression-science-key-stage-3-the-periodic-table
+  a curric:Progression ;
+  rdfs:label "Chemistry Key Stage 3 The Periodic Table"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-science-key-stage-3 ;
+  curric:coversContent
+    natcurric:contentdescriptor-physical-chemical-properties-different-elements ,
+    natcurric:contentdescriptor-principles-mendeleev-periodic-table ,
+    natcurric:contentdescriptor-periods-groups-metals-nonmetals ,
+    natcurric:contentdescriptor-reactions-predicted-reference-periodic-table ,
+    natcurric:contentdescriptor-properties-metals-and-nonmetals ,
+    natcurric:contentdescriptor-properties-metal-and-nonmetal-oxides .
+
+natcurric:progression-science-key-stage-3-materials
+  a curric:Progression ;
+  rdfs:label "Chemistry Key Stage 3 Materials"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-science-key-stage-3 ;
+  curric:coversContent
+    natcurric:contentdescriptor-order-metals-carbon-reactivity-series ,
+    natcurric:contentdescriptor-carbon-metal-from-metal-oxides ,
+    natcurric:contentdescriptor-properties-ceramics-polymers-composites .
+
+natcurric:progression-science-key-stage-3-earth-and-atmosphere
+  a curric:Progression ;
+  rdfs:label "Chemistry Key Stage 3 Earth and Atmosphere"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-science-key-stage-3 ;
+  curric:coversContent
+    natcurric:contentdescriptor-composition-of-earth ,
+    natcurric:contentdescriptor-structure-of-earth ,
+    natcurric:contentdescriptor-rock-cycle ,
+    natcurric:contentdescriptor-resources-and-recycling ,
+    natcurric:contentdescriptor-composition-of-atmosphere ,
+    natcurric:contentdescriptor-carbon-dioxide-impact-on-climate .

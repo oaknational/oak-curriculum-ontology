@@ -103,6 +103,14 @@ natcurric:strand-chemical-science
     natcurric:substrand-rocks ,
     natcurric:substrand-states-of-matter ,
     natcurric:substrand-properties-and-changes-of-materials ,
+    natcurric:substrand-particulate-nature-of-matter ,
+    natcurric:substrand-atoms-elements-compounds ,
+    natcurric:substrand-pure-and-impure-substances ,
+    natcurric:substrand-chemical-reactions ,
+    natcurric:substrand-energetics ,
+    natcurric:substrand-the-periodic-table ,
+    natcurric:substrand-materials ,
+    natcurric:substrand-earth-and-atmosphere,
     natcurric:substrand-atomic-structure-periodic-table ,
     natcurric:substrand-structure-bonding-properties-of-matter ,
     natcurric:substrand-chemical-changes ,
@@ -319,6 +327,122 @@ natcurric:substrand-properties-and-changes-of-materials
     natcurric:contentdescriptor-particular-uses-of-everyday-materials ,
     natcurric:contentdescriptor-dissolving-mixing-are-reversible-changes ,
     natcurric:contentdescriptor-formation-of-new-materials ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:substrand-particulate-nature-of-matter
+  a skos:Concept, curric:SubStrand ;
+  skos:prefLabel "The particulate nature of matter"@en ;
+  skos:definition "Description of sub-strand..." ;
+  curric:displayOrder "5"^^xsd:positiveInteger ;
+  skos:broader natcurric:strand-chemical-science ;
+  skos:narrower 
+    natcurric:contentdescriptor-properties-different-states-of-matter ,
+    natcurric:contentdescriptor-changes-of-state-particle-model ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:substrand-atoms-elements-compounds
+  a skos:Concept, curric:SubStrand ;
+  skos:prefLabel "Atoms, Elements and Compounds"@en ;
+  skos:definition "Description of sub-strand..." ;
+  curric:displayOrder "6"^^xsd:positiveInteger ;
+  skos:broader natcurric:strand-chemical-science ;
+  skos:narrower 
+    natcurric:contentdescriptor-simple-dalton-atomic-model ,
+    natcurric:contentdescriptor-differences-atoms-elements-compounds ,
+    natcurric:contentdescriptor-symbols-formulae-for-elements-compounds ,
+    natcurric:contentdescriptor-conservation-of-mass-changes-state ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:substrand-pure-and-impure-substances
+  a skos:Concept, curric:SubStrand ;
+  skos:prefLabel "Pure and Impure Substances"@en ;
+  skos:definition "Description of sub-strand..." ;
+  curric:displayOrder "7"^^xsd:positiveInteger ;
+  skos:broader natcurric:strand-chemical-science ;
+  skos:narrower 
+    natcurric:contentdescriptor-cocept-of-a-pure-substance ,
+    natcurric:contentdescriptor-mixtures-including-dissolving ,
+    natcurric:contentdescriptor-diffusion-terms-of-particle-model ,
+    natcurric:contentdescriptor-filtration-evaporation-distillation-chromatography ,
+    natcurric:contentdescriptor-identification-of-pure-substances ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:substrand-chemical-reactions
+  a skos:Concept, curric:SubStrand ;
+  skos:prefLabel "Chemical Reactions"@en ;
+  skos:definition "Description of sub-strand..." ;
+  curric:displayOrder "8"^^xsd:positiveInteger ;
+  skos:broader natcurric:strand-chemical-science ;
+  skos:narrower 
+    natcurric:contentdescriptor-reactions-as-rearrangement-of-atoms ,
+    natcurric:contentdescriptor-reactions-using-formulae-and-equations ,
+    natcurric:contentdescriptor-combustion-thermal-decomposition-oxidation-displacement ,
+    natcurric:contentdescriptor-defining-acids-and-alkalis ,
+    natcurric:contentdescriptor-ph-scale-measuring-acidity-alkalinity ,
+    natcurric:contentdescriptor-reactions-of-acids-with-metals ,
+    natcurric:contentdescriptor-reactions-of-acids-with-alkalis ,
+    natcurric:contentdescriptor-what-catalysts-do ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:substrand-energetics
+  a skos:Concept, curric:SubStrand ;
+  skos:prefLabel "Energetics"@en ;
+  skos:definition "Description of sub-strand..." ;
+  curric:displayOrder "9"^^xsd:positiveInteger ;
+  skos:broader natcurric:strand-chemical-science ;
+  skos:narrower 
+    natcurric:contentdescriptor-energy-changes-changes-of-state ,
+    natcurric:contentdescriptor-exothermic-and-endothermic-chemical-reactions ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:substrand-the-periodic-table
+  a skos:Concept, curric:SubStrand ;
+  skos:prefLabel "The Periodic Table"@en ;
+  skos:definition "Description of sub-strand..." ;
+  curric:displayOrder "10"^^xsd:positiveInteger ;
+  skos:broader natcurric:strand-chemical-science ;
+  skos:narrower 
+    natcurric:contentdescriptor-physical-chemical-properties-different-elements ,
+    natcurric:contentdescriptor-principles-mendeleev-periodic-table ,
+    natcurric:contentdescriptor-periods-groups-metals-nonmetals ,
+    natcurric:contentdescriptor-reactions-predicted-reference-periodic-table ,
+    natcurric:contentdescriptor-properties-metals-and-nonmetals ,
+    natcurric:contentdescriptor-properties-metal-and-nonmetal-oxides ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:substrand-materials
+  a skos:Concept, curric:SubStrand ;
+  skos:prefLabel "Materials"@en ;
+  skos:definition "Description of sub-strand..." ;
+  curric:displayOrder "11"^^xsd:positiveInteger ;
+  skos:broader natcurric:strand-chemical-science ;
+  skos:narrower 
+    natcurric:contentdescriptor-order-metals-carbon-reactivity-series ,
+    natcurric:contentdescriptor-carbon-metal-from-metal-oxides ,
+    natcurric:contentdescriptor-properties-ceramics-polymers-composites ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:substrand-earth-and-atmosphere
+  a skos:Concept, curric:SubStrand ;
+  skos:prefLabel "Earth and Atmosphere"@en ;
+  skos:definition "Description of sub-strand..." ;
+  curric:displayOrder "12"^^xsd:positiveInteger ;
+  skos:broader natcurric:strand-chemical-science ;
+  skos:narrower 
+    natcurric:contentdescriptor-composition-of-earth ,
+    natcurric:contentdescriptor-structure-of-earth ,
+    natcurric:contentdescriptor-rock-cycle ,
+    natcurric:contentdescriptor-resources-and-recycling ,
+    natcurric:contentdescriptor-composition-of-atmosphere ,
+    natcurric:contentdescriptor-carbon-dioxide-impact-on-climate ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
 
@@ -1187,6 +1311,300 @@ natcurric:contentdescriptor-formation-of-new-materials
   curric:displayOrder "6"^^xsd:positiveInteger ;
   skos:broader natcurric:substrand-properties-and-changes-of-materials ;
   skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+eng:contentdescriptor-properties-different-states-of-matter
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """The properties of the different states of matter (solid, liquid and gas) in 
+  terms of the particle model, including gas pressure."""@en ;
+  curric:displayOrder "1"^^xsd:positiveInteger ;
+  skos:broader eng:substrand-particulate-nature-of-matter ;
+  skos:inScheme eng:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+eng:contentdescriptor-changes-of-state-particle-model
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Changes of state in terms of the particle model."@en ;
+  curric:displayOrder "2"^^xsd:positiveInteger ;
+  skos:broader eng:substrand-particulate-nature-of-matter ;
+  skos:inScheme eng:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+eng:contentdescriptor-simple-dalton-atomic-model
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "A simple (Dalton) atomic model."@en ;
+  curric:displayOrder "1"^^xsd:positiveInteger ;
+  skos:broader eng:substrand-atoms-elements-compounds ;
+  skos:inScheme eng:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+eng:contentdescriptor-differences-atoms-elements-compounds
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Differences between atoms, elements and compounds."@en ;
+  curric:displayOrder "2"^^xsd:positiveInteger ;
+  skos:broader eng:substrand-atoms-elements-compounds ;
+  skos:inScheme eng:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+eng:contentdescriptor-symbols-formulae-for-elements-compounds
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Chemical symbols and formulae for elements and compounds."@en ;
+  curric:displayOrder "3"^^xsd:positiveInteger ;
+  skos:broader eng:substrand-atoms-elements-compounds ;
+  skos:inScheme eng:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+eng:contentdescriptor-conservation-of-mass-changes-state
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Conservation of mass changes of state and chemical reactions."@en ;
+  curric:displayOrder "4"^^xsd:positiveInteger ;
+  skos:broader eng:substrand-atoms-elements-compounds ;
+  skos:inScheme eng:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+eng:contentdescriptor-cocept-of-a-pure-substance
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "The concept of a pure substance."@en ;
+  curric:displayOrder "1"^^xsd:positiveInteger ;
+  skos:broader eng:substrand-pure-and-impure-substances ;
+  skos:inScheme eng:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+eng:contentdescriptor-mixtures-including-dissolving
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Mixtures, including dissolving."@en ;
+  curric:displayOrder "2"^^xsd:positiveInteger ;
+  skos:broader eng:substrand-pure-and-impure-substances ;
+  skos:inScheme eng:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+eng:contentdescriptor-diffusion-terms-of-particle-model
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Diffusion in terms of the particle model."@en ;
+  curric:displayOrder "3"^^xsd:positiveInteger ;
+  skos:broader eng:substrand-pure-and-impure-substances ;
+  skos:inScheme eng:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+eng:contentdescriptor-filtration-evaporation-distillation-chromatography
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Simple techniques for separating mixtures: filtration, evaporation, 
+  distillation and chromatography."""@en ;
+  curric:displayOrder "4"^^xsd:positiveInteger ;
+  skos:broader eng:substrand-pure-and-impure-substances ;
+  skos:inScheme eng:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+eng:contentdescriptor-identification-of-pure-substances
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "The identification of pure substances."@en ;
+  curric:displayOrder "5"^^xsd:positiveInteger ;
+  skos:broader eng:substrand-pure-and-impure-substances ;
+  skos:inScheme eng:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+eng:contentdescriptor-reactions-as-rearrangement-of-atoms
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Chemical reactions as the rearrangement of atoms."@en ;
+  curric:displayOrder "1"^^xsd:positiveInteger ;
+  skos:broader eng:substrand-chemical-reactions ;
+  skos:inScheme eng:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+eng:contentdescriptor-reactions-using-formulae-and-equations
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Representing chemical reactions using formulae and using equations."@en ;
+  curric:displayOrder "2"^^xsd:positiveInteger ;
+  skos:broader eng:substrand-chemical-reactions ;
+  skos:inScheme eng:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+eng:contentdescriptor-combustion-thermal-decomposition-oxidation-displacement
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Combustion, thermal decomposition, oxidation and displacement reactions."@en ;
+  curric:displayOrder "3"^^xsd:positiveInteger ;
+  skos:broader eng:substrand-chemical-reactions ;
+  skos:inScheme eng:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+eng:contentdescriptor-defining-acids-and-alkalis
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Defining acids and alkalis in terms of neutralisation reactions."@en ;
+  curric:displayOrder "4"^^xsd:positiveInteger ;
+  skos:broader eng:substrand-chemical-reactions ;
+  skos:inScheme eng:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+eng:contentdescriptor-ph-scale-measuring-acidity-alkalinity
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "The pH scale for measuring acidity/alkalinity; and indicators."@en ;
+  curric:displayOrder "5"^^xsd:positiveInteger ;
+  skos:broader eng:substrand-chemical-reactions ;
+  skos:inScheme eng:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+eng:contentdescriptor-reactions-of-acids-with-metals
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Reactions of acids with metals to produce a salt plus hydrogen."@en ;
+  curric:displayOrder "6"^^xsd:positiveInteger ;
+  skos:broader eng:substrand-chemical-reactions ;
+  skos:inScheme eng:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+eng:contentdescriptor-reactions-of-acids-with-alkalis
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Reactions of acids with alkalis to produce a salt plus water."@en ;
+  curric:displayOrder "7"^^xsd:positiveInteger ;
+  skos:broader eng:substrand-chemical-reactions ;
+  skos:inScheme eng:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+eng:contentdescriptor-what-catalysts-do
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "What catalysts do."@en ;
+  curric:displayOrder "8"^^xsd:positiveInteger ;
+  skos:broader eng:substrand-chemical-reactions ;
+  skos:inScheme eng:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+eng:contentdescriptor-energy-changes-changes-of-state
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Energy changes on changes of state (qualitative)."@en ;
+  curric:displayOrder "1"^^xsd:positiveInteger ;
+  skos:broader eng:substrand-energetics ;
+  skos:inScheme eng:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+eng:contentdescriptor-exothermic-and-endothermic-chemical-reactions
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Exothermic and endothermic chemical reactions (qualitative)."@en ;
+  curric:displayOrder "2"^^xsd:positiveInteger ;
+  skos:broader eng:substrand-energetics ;
+  skos:inScheme eng:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+eng:contentdescriptor-physical-chemical-properties-different-elements
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "The varying physical and chemical properties of different elements."@en ;
+  curric:displayOrder "1"^^xsd:positiveInteger ;
+  skos:broader eng:substrand-the-periodic-table ;
+  skos:inScheme eng:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+eng:contentdescriptor-principles-mendeleev-periodic-table
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "The principles underpinning the Mendeleev periodic table."@en ;
+  curric:displayOrder "2"^^xsd:positiveInteger ;
+  skos:broader eng:substrand-the-periodic-table ;
+  skos:inScheme eng:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+eng:contentdescriptor-periods-groups-metals-nonmetals
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "The periodic table: periods and groups; metals and non-metals."@en ;
+  curric:displayOrder "3"^^xsd:positiveInteger ;
+  skos:broader eng:substrand-the-periodic-table ;
+  skos:inScheme eng:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+eng:contentdescriptor-reactions-predicted-reference-periodic-table
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """How patterns in reactions can be predicted with reference to the periodic 
+  table."""@en ;
+  curric:displayOrder "4"^^xsd:positiveInteger ;
+  skos:broader eng:substrand-the-periodic-table ;
+  skos:inScheme eng:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+eng:contentdescriptor-properties-metals-and-nonmetals
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "The properties of metals and non-metals."@en ;
+  curric:displayOrder "5"^^xsd:positiveInteger ;
+  skos:broader eng:substrand-the-periodic-table ;
+  skos:inScheme eng:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+eng:contentdescriptor-properties-metal-and-nonmetal-oxides
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """The chemical properties of metal and non-metal oxides with respect to 
+  acidity."""@en ;
+  curric:displayOrder "6"^^xsd:positiveInteger ;
+  skos:broader eng:substrand-the-periodic-table ;
+  skos:inScheme eng:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+eng:contentdescriptor-order-metals-carbon-reactivity-series
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "The order of metals and carbon in the reactivity series."@en ;
+  curric:displayOrder "1"^^xsd:positiveInteger ;
+  skos:broader eng:substrand-materials ;
+  skos:inScheme eng:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+eng:contentdescriptor-carbon-metal-from-metal-oxides
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "The use of carbon in obtaining metals from metal oxides."@en ;
+  curric:displayOrder "2"^^xsd:positiveInteger ;
+  skos:broader eng:substrand-materials ;
+  skos:inScheme eng:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+eng:contentdescriptor-properties-ceramics-polymers-composites
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Properties of ceramics, polymers and composites (qualitative)."@en ;
+  curric:displayOrder "3"^^xsd:positiveInteger ;
+  skos:broader eng:substrand-materials ;
+  skos:inScheme eng:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+eng:contentdescriptor-composition-of-earth
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "The composition of the Earth."@en ;
+  curric:displayOrder "1"^^xsd:positiveInteger ;
+  skos:broader eng:substrand-earth-and-atmosphere ;
+  skos:inScheme eng:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+eng:contentdescriptor-structure-of-earth
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "The structure of the Earth."@en ;
+  curric:displayOrder "2"^^xsd:positiveInteger ;
+  skos:broader eng:substrand-earth-and-atmosphere ;
+  skos:inScheme eng:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+eng:contentdescriptor-rock-cycle
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """The rock cycle and the formation of igneous, sedimentary and metamorphic 
+  rocks."""@en ;
+  curric:displayOrder "3"^^xsd:positiveInteger ;
+  skos:broader eng:substrand-earth-and-atmosphere ;
+  skos:inScheme eng:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+eng:contentdescriptor-resources-and-recycling
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Earth as a source of limited resources and the efficacy of recycling."@en ;
+  curric:displayOrder "4"^^xsd:positiveInteger ;
+  skos:broader eng:substrand-earth-and-atmosphere ;
+  skos:inScheme eng:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+eng:contentdescriptor-composition-of-atmosphere
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "The composition of the atmosphere."@en ;
+  curric:displayOrder "5"^^xsd:positiveInteger ;
+  skos:broader eng:substrand-earth-and-atmosphere ;
+  skos:inScheme eng:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+eng:contentdescriptor-carbon-dioxide-impact-on-climate
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """The production of carbon dioxide by human activity and the impact on 
+  climate."""@en ;
+  curric:displayOrder "6"^^xsd:positiveInteger ;
+  skos:broader eng:substrand-earth-and-atmosphere ;
+  skos:inScheme eng:knowledge-taxonomy ;
   dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
 
 natcurric:contentdescriptor-simple-model-of-atom
