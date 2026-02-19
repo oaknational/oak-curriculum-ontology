@@ -105,6 +105,23 @@ natcurric:strand-physical-science
     natcurric:substrand-forces-and-magnets ,
     natcurric:substrand-sound ,
     natcurric:substrand-earth-and-space ,
+    natcurric:substrand-fuel-uses-costs-domestic-context ,
+    natcurric:substrand-energy-changes-and-transfers ,
+    natcurric:substrand-changes-in-systems ,
+    natcurric:substrand-describing-motion ,
+    natcurric:substrand-pressure-in-fluids ,
+    natcurric:substrand-balanced-forces ,
+    natcurric:substrand-observed-waves ,
+    natcurric:substrand-sound-waves ,
+    natcurric:substrand-energy-and-waves ,
+    natcurric:substrand-light-waves ,
+    natcurric:substrand-current-electricity ,
+    natcurric:substrand-static-electricity ,
+    natcurric:substrand-magnetism ,
+    natcurric:substrand-physical-changes ,
+    natcurric:substrand-particle-model ,
+    natcurric:substrand-energy-in-matter ,
+    natcurric:substrand-space-physics ,
     natcurric:substrand-energy ,
     natcurric:substrand-forces ,
     natcurric:substrand-forces-and-motion ,
@@ -343,11 +360,219 @@ natcurric:substrand-earth-and-space
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
 
+eng:substrand-fuel-uses-costs-domestic-context
+  a skos:Concept, curric:SubStrand ;
+  skos:prefLabel "Fuel Uses Costs Domestic Context"@en ;
+  skos:definition "Description of sub-strand..." ;
+  curric:displayOrder "6"^^xsd:positiveInteger ;
+  skos:broader eng:strand-physical-science ;
+  skos:narrower 
+    eng:contentdescriptor-energy-values-of-different-foods ,
+    eng:contentdescriptor-power-ratings-of-appliances ,
+    eng:contentdescriptor-amounts-of-energy-transferred ,
+    eng:contentdescriptor-domestic-fuel-bills ,
+    eng:contentdescriptor-fuels-and-energy-resources ;
+  skos:inScheme eng:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+eng:substrand-energy-changes-and-transfers
+  a skos:Concept, curric:SubStrand ;
+  skos:prefLabel "Energy Changes and Transfers"@en ;
+  skos:definition "Description of sub-strand..." ;
+  curric:displayOrder "7"^^xsd:positiveInteger ;
+  skos:broader eng:strand-physical-science ;
+  skos:narrower 
+    eng:contentdescriptor-product-force-and-displacement-unchanged ,
+    eng:contentdescriptor-heating-and-thermal-equilibrium ,
+    eng:contentdescriptor-other-processes-involve-energy-transfer ;
+  skos:inScheme eng:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+eng:substrand-changes-in-systems
+  a skos:Concept, curric:SubStrand ;
+  skos:prefLabel "Changes in Systems"@en ;
+  skos:definition "Description of sub-strand..." ;
+  curric:displayOrder "8"^^xsd:positiveInteger ;
+  skos:broader eng:strand-physical-science ;
+  skos:narrower 
+    eng:contentdescriptor-energy-quantified-and-calculated ,
+    eng:contentdescriptor-describing-increases-decreases-amounts-energy ,
+    eng:contentdescriptor-physical-processes-and-mechanisms ;
+  skos:inScheme eng:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+eng:substrand-describing-motion
+  a skos:Concept, curric:SubStrand ;
+  skos:prefLabel "Describing Motion"@en ;
+  skos:definition "Description of sub-strand..." ;
+  curric:displayOrder "9"^^xsd:positiveInteger ;
+  skos:broader eng:strand-physical-science ;
+  skos:narrower 
+    eng:contentdescriptor-average-speed-distance-and-time ,
+    eng:contentdescriptor-distance-time-graph ,
+    eng:contentdescriptor-relative-motion ;
+  skos:inScheme eng:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+eng:substrand-pressure-in-fluids
+  a skos:Concept, curric:SubStrand ;
+  skos:prefLabel "Pressure in Fluids"@en ;
+  skos:definition "Description of sub-strand..." ;
+  curric:displayOrder "10"^^xsd:positiveInteger ;
+  skos:broader eng:strand-physical-science ;
+  skos:narrower 
+    eng:contentdescriptor-atmospheric-pressure ,
+    eng:contentdescriptor-pressure-in-liquids ,
+    eng:contentdescriptor-ratio-of-force-over-area ;
+  skos:inScheme eng:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+eng:substrand-balanced-forces
+  a skos:Concept, curric:SubStrand ;
+  skos:prefLabel "Balanced Forces"@en ;
+  skos:definition "Description of sub-strand..." ;
+  curric:displayOrder "11"^^xsd:positiveInteger ;
+  skos:broader eng:strand-physical-science ;
+  skos:narrower 
+    eng:contentdescriptor-opposing-forces-and-equilibrium ;
+  skos:inScheme eng:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+eng:substrand-observed-waves
+  a skos:Concept, curric:SubStrand ;
+  skos:prefLabel "Observed Waves"@en ;
+  skos:definition "Description of sub-strand..." ;
+  curric:displayOrder "12"^^xsd:positiveInteger ;
+  skos:broader eng:strand-physical-science ;
+  skos:narrower 
+    eng:contentdescriptor-waves-undulations-with-transverse-motion ;
+  skos:inScheme eng:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+eng:substrand-sound-waves
+  a skos:Concept, curric:SubStrand ;
+  skos:prefLabel "Sound Waves"@en ;
+  skos:definition "Description of sub-strand..." ;
+  curric:displayOrder "13"^^xsd:positiveInteger ;
+  skos:broader eng:strand-physical-science ;
+  skos:narrower 
+    eng:contentdescriptor-frequencies-of-sound-waves ,
+    eng:contentdescriptor-speed-sound-air-water-solids ,
+    eng:contentdescriptor-sound-produced-by-vibrations-objects ,
+    eng:contentdescriptor-auditory-range-humans-and-animals ;
+  skos:inScheme eng:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+eng:substrand-energy-and-waves
+  a skos:Concept, curric:SubStrand ;
+  skos:prefLabel "Energy and Waves"@en ;
+  skos:definition "Description of sub-strand..." ;
+  curric:displayOrder "14"^^xsd:positiveInteger ;
+  skos:broader eng:strand-physical-science ;
+  skos:narrower 
+    eng:contentdescriptor-pressure-waves-transferring-energy ;
+  skos:inScheme eng:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+eng:substrand-light-waves
+  a skos:Concept, curric:SubStrand ;
+  skos:prefLabel "Light Waves"@en ;
+  skos:definition "Description of sub-strand..." ;
+  curric:displayOrder "15"^^xsd:positiveInteger ;
+  skos:broader eng:strand-physical-science ;
+  skos:narrower 
+    eng:contentdescriptor-similarities-differences-light-waves-matter ,
+    eng:contentdescriptor-light-waves-travelling-through-vacuum ,
+    eng:contentdescriptor-transmission-of-light-through-materials ,
+    eng:contentdescriptor-ray-model-to-explain-imaging ,
+    eng:contentdescriptor-light-energy-source-to-absorber ,
+    eng:contentdescriptor-colours-different-frequencies-of-light ;
+  skos:inScheme eng:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+eng:substrand-current-electricity
+  a skos:Concept, curric:SubStrand ;
+  skos:prefLabel "Current Electricity"@en ;
+  skos:definition "Description of sub-strand..." ;
+  curric:displayOrder "16"^^xsd:positiveInteger ;
+  skos:broader eng:strand-physical-science ;
+  skos:narrower 
+    eng:contentdescriptor-current-amperes-circuits-series-parallel ,
+    eng:contentdescriptor-potential-difference-volts-battery-bulb ,
+    eng:contentdescriptor-differences-resistance-conducting-insulating-components ;
+  skos:inScheme eng:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+eng:substrand-static-electricity
+  a skos:Concept, curric:SubStrand ;
+  skos:prefLabel "Static Electricity"@en ;
+  skos:definition "Description of sub-strand..." ;
+  curric:displayOrder "17"^^xsd:positiveInteger ;
+  skos:broader eng:strand-physical-science ;
+  skos:narrower 
+    eng:contentdescriptor-separation-positive-or-negative-charges ,
+    eng:contentdescriptor-idea-of-electric-field ;
+  skos:inScheme eng:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+eng:substrand-magnetism
+  a skos:Concept, curric:SubStrand ;
+  skos:prefLabel "Magnetism"@en ;
+  skos:definition "Description of sub-strand..." ;
+  curric:displayOrder "18"^^xsd:positiveInteger ;
+  skos:broader eng:strand-physical-science ;
+  skos:narrower 
+    eng:contentdescriptor-magnetic-poles-attraction-and-repulsion ,
+    eng:contentdescriptor-magnetic-fields-plotting-with-compass ,
+    eng:contentdescriptor-earths-magnetism-compass-and-navigation ,
+    eng:contentdescriptor-magnetic-effect-current-electromagnets-motors ;
+  skos:inScheme eng:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+eng:substrand-physical-changes
+  a skos:Concept, curric:SubStrand ;
+  skos:prefLabel "Physical Changes"@en ;
+  skos:definition "Description of sub-strand..." ;
+  curric:displayOrder "19"^^xsd:positiveInteger ;
+  skos:broader eng:strand-physical-science ;
+  skos:narrower 
+    eng:contentdescriptor-conservation-material-mass-reversibility ,
+    eng:contentdescriptor-similarities-differences-solids-liquids-gases ,
+    eng:contentdescriptor-brownian-motion-in-gases ,
+    eng:contentdescriptor-diffusion-in-liquids-aand-gases ,
+    eng:contentdescriptor-difference-chemical-and-physical-changes ;
+  skos:inScheme eng:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+eng:substrand-particle-model
+  a skos:Concept, curric:SubStrand ;
+  skos:prefLabel "Particle Model"@en ;
+  skos:definition "Description of sub-strand..." ;
+  curric:displayOrder "20"^^xsd:positiveInteger ;
+  skos:broader eng:strand-physical-science ;
+  skos:narrower 
+    eng:contentdescriptor-arrangements-motion-closeness-of-particles ,
+    eng:contentdescriptor-atoms-and-molecules-as-particles ;
+  skos:inScheme eng:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+eng:substrand-energy-in-matter
+  a skos:Concept, curric:SubStrand ;
+  skos:prefLabel "Energy in Matter"@en ;
+  skos:definition "Description of sub-strand..." ;
+  curric:displayOrder "21"^^xsd:positiveInteger ;
+  skos:broader eng:strand-physical-science ;
+  skos:narrower 
+    eng:contentdescriptor-changes-temperature-motion-spacing-particles ,
+    eng:contentdescriptor-internal-energy-stored-in-particles ;
+  skos:inScheme eng:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
 natcurric:substrand-energy
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Energy"@en ;
   skos:definition "Description of sub-strand..."@en ;
-  curric:displayOrder "1"^^xsd:positiveInteger ;
+  curric:displayOrder "22"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-physical-science ;
   skos:narrower 
     natcurric:contentdescriptor-energy-changes-in-a-system ,
@@ -358,43 +583,53 @@ natcurric:substrand-energy
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
 
-natcurric:substrand-forces
+eng:substrand-forces
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Forces"@en ;
-  skos:definition "Description of sub-strand..."@en ;
-  curric:displayOrder "2"^^xsd:positiveInteger ;
-  skos:broader natcurric:strand-physical-science ;
+  skos:definition "Description of sub-strand..." ;
+  curric:displayOrder "23"^^xsd:positiveInteger ;
+  skos:broader eng:strand-physical-science ;
   skos:narrower 
-    natcurric:contentdescriptor-objects-fall-force-of-gravity ,
-    natcurric:contentdescriptor-air-water-resistance-and-friction ,
-    natcurric:contentdescriptor-levers-pulleys-and-gears ,
-    natcurric:contentdescriptor-forces-and-fields ,
-    natcurric:contentdescriptor-forces-as-vectors ,
-    natcurric:contentdescriptor-calculating-work-done ,
-    natcurric:contentdescriptor-pressure-in-fluids ;
-  skos:inScheme natcurric:knowledge-taxonomy ;
+    eng:contentdescriptor-forces-as-pushes-or-pulls ,
+    eng:contentdescriptor-using-force-arrows-in-diagrams ,
+    eng:contentdescriptor-moment-turning-effect-of-force ,
+    eng:contentdescriptor-forces-associated-with-deforming-objects ,
+    eng:contentdescriptor-forces-measured-in-newtons ,
+    eng:contentdescriptor-force-extension-linear-relation ,
+    eng:contentdescriptor-work-done-energy-changes-deformation ,
+    eng:contentdescriptor-non-contact-forces ,
+    eng:contentdescriptor-objects-fall-force-of-gravity ,
+    eng:contentdescriptor-air-water-resistance-and-friction ,
+    eng:contentdescriptor-levers-pulleys-and-gears ,
+    eng:contentdescriptor-forces-and-fields ,
+    eng:contentdescriptor-forces-as-vectors ,
+    eng:contentdescriptor-calculating-work-done ,
+    eng:contentdescriptor-pressure-in-fluids ;
+  skos:inScheme eng:knowledge-taxonomy ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
 
-natcurric:substrand-forces-and-motion
+eng:substrand-forces-and-motion
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Forces and motion"@en ;
-  skos:definition "Description of sub-strand..."@en ;
-  curric:displayOrder "3"^^xsd:positiveInteger ;
-  skos:broader natcurric:strand-physical-science ;
+  skos:definition "Description of sub-strand..." ;
+  curric:displayOrder "24"^^xsd:positiveInteger ;
+  skos:broader eng:strand-physical-science ;
   skos:narrower 
-    natcurric:contentdescriptor-speed-of-sound ,
-    natcurric:contentdescriptor-graphs-of-distance-time-speed ,
-    natcurric:contentdescriptor-acceleration-caused-by-forces ,
-    natcurric:contentdescriptor-weight-and-gravitational-field-strength ,
-    natcurric:contentdescriptor-decelerations-and-braking-distances ;
-  skos:inScheme natcurric:knowledge-taxonomy ;
+    eng:contentdescriptor-forces-cause-stop-start-motion ,
+    eng:contentdescriptor-change-depending-on-direction-size ,
+    eng:contentdescriptor-speed-of-sound ,
+    eng:contentdescriptor-graphs-of-distance-time-speed ,
+    eng:contentdescriptor-acceleration-caused-by-forces ,
+    eng:contentdescriptor-weight-and-gravitational-field-strength ,
+    eng:contentdescriptor-decelerations-and-braking-distances ;
+  skos:inScheme eng:knowledge-taxonomy ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
 
 natcurric:substrand-wave-motion
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Wave motion"@en ;
   skos:definition "Description of sub-strand..."@en ;
-  curric:displayOrder "4"^^xsd:positiveInteger ;
+  curric:displayOrder "25"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-physical-science ;
   skos:narrower 
     natcurric:contentdescriptor-amplitude-wavelength-frequency ,
@@ -410,7 +645,7 @@ natcurric:substrand-electricity
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Electricity"@en ;
   skos:definition "Description of sub-strand..."@en ;
-  curric:displayOrder "5"^^xsd:positiveInteger ;
+  curric:displayOrder "26"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-physical-science ;
   skos:narrower
     natcurric:contentdescriptor-common-appliances-run-on-electricity ,
@@ -434,7 +669,7 @@ natcurric:substrand-magnetism-and-electromagnetism
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Magnetism and electromagnetism"@en ;
   skos:definition "Description of sub-strand..."@en ;
-  curric:displayOrder "6"^^xsd:positiveInteger ;
+  curric:displayOrder "27"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-physical-science ;
   skos:narrower 
     natcurric:contentdescriptor-exploring-magnetic-fields ,
@@ -447,7 +682,7 @@ natcurric:substrand-structure-of-matter
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "The structure of matter"@en ;
   skos:definition "Description of sub-strand..."@en ;
-  curric:displayOrder "7"^^xsd:positiveInteger ;
+  curric:displayOrder "28"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-physical-science ;
   skos:narrower 
     natcurric:contentdescriptor-molecules-in-solid-liquid-gas ,
@@ -461,7 +696,7 @@ natcurric:substrand-atomic-structure
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Atomic structure"@en ;
   skos:definition "Description of sub-strand..."@en ;
-  curric:displayOrder "8"^^xsd:positiveInteger ;
+  curric:displayOrder "29"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-physical-science ;
   skos:narrower 
     natcurric:contentdescriptor-nuclear-model ,
@@ -474,14 +709,19 @@ natcurric:substrand-atomic-structure
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
 
-natcurric:substrand-space-physics
+eng:substrand-space-physics
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Space physics"@en ;
-  skos:definition "Description of sub-strand..."@en ;
-  curric:displayOrder "9"^^xsd:positiveInteger ;
-  skos:broader natcurric:strand-physical-science ;
-  skos:narrower natcurric:contentdescriptor-main-features-of-solar-system ;
-  skos:inScheme natcurric:knowledge-taxonomy ;
+  skos:definition "Description of sub-strand..." ;
+  curric:displayOrder "30"^^xsd:positiveInteger ;
+  skos:broader eng:strand-physical-science ;
+  skos:narrower 
+    eng:contentdescriptor-gravity-force-weight-on-earth ,
+    eng:contentdescriptor-sun-stars-galaxies ,
+    eng:contentdescriptor-seasons-earths-tilt-day-length ,
+    eng:contentdescriptor-light-year-unit-astronomical-distance ,
+    eng:contentdescriptor-main-features-of-solar-system ;
+  skos:inScheme eng:knowledge-taxonomy ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
 
 # ----------------------------------------------------------------------
@@ -1297,6 +1537,423 @@ natcurric:contentdescriptor-earths-rotation-explain-day-night
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
 
+eng:contentdescriptor-energy-values-of-different-foods
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Comparing energy values of different foods (from labels) (kJ)."@en ;
+  curric:displayOrder "1"^^xsd:positiveInteger ;
+  skos:broader eng:substrand-fuel-uses-costs-domestic-context ;
+  skos:inScheme eng:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+eng:contentdescriptor-power-ratings-of-appliances
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Comparing power ratings of appliances in watts (W, kW)."@en ;
+  curric:displayOrder "2"^^xsd:positiveInteger ;
+  skos:broader eng:substrand-fuel-uses-costs-domestic-context ;
+  skos:inScheme eng:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+eng:contentdescriptor-amounts-of-energy-transferred
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Comparing amounts of energy transferred (J, kJ, kW hour)."@en ;
+  curric:displayOrder "3"^^xsd:positiveInteger ;
+  skos:broader eng:substrand-fuel-uses-costs-domestic-context ;
+  skos:inScheme eng:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+eng:contentdescriptor-domestic-fuel-bills
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Domestic fuel bills, fuel use and costs."@en ;
+  curric:displayOrder "4"^^xsd:positiveInteger ;
+  skos:broader eng:substrand-fuel-uses-costs-domestic-context ;
+  skos:inScheme eng:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+eng:contentdescriptor-fuels-and-energy-resources
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Fuels and energy resources."@en ;
+  curric:displayOrder "5"^^xsd:positiveInteger ;
+  skos:broader eng:substrand-fuel-uses-costs-domestic-context ;
+  skos:inScheme eng:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+eng:contentdescriptor-product-force-and-displacement-unchanged
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Simple machines give bigger force but at the expense of smaller movement (and 
+  vice versa): product of force and displacement unchanged."""@en ;
+  curric:displayOrder "1"^^xsd:positiveInteger ;
+  skos:broader eng:substrand-energy-changes-and-transfers ;
+  skos:inScheme eng:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+eng:contentdescriptor-heating-and-thermal-equilibrium
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Heating and thermal equilibrium: temperature difference between 2 objects 
+  leading to energy transfer from the hotter to the cooler one, through contact (conduction) or 
+  radiation; such transfers tending to reduce the temperature difference; use of insulators."""@en ;
+  curric:displayOrder "2"^^xsd:positiveInteger ;
+  skos:broader eng:substrand-energy-changes-and-transfers ;
+  skos:inScheme eng:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+eng:contentdescriptor-other-processes-involve-energy-transfer
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Other processes that involve energy transfer: changing motion, dropping an 
+  object, completing an electrical circuit, stretching a spring, metabolism of food, burning 
+  fuels."""@en ;
+  curric:displayOrder "3"^^xsd:positiveInteger ;
+  skos:broader eng:substrand-energy-changes-and-transfers ;
+  skos:inScheme eng:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+eng:contentdescriptor-energy-quantified-and-calculated
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Energy as a quantity that can be quantified and calculated; the total energy 
+  has the same value before and after a change."""@en ;
+  curric:displayOrder "1"^^xsd:positiveInteger ;
+  skos:broader eng:substrand-changes-in-systems ;
+  skos:inScheme eng:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+eng:contentdescriptor-describing-increases-decreases-amounts-energy
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Comparing the starting with the final conditions of a system and describing 
+  increases and decreases in the amounts of energy associated with movements, temperatures, changes 
+  in positions in a field, in elastic distortions and in chemical compositions."""@en ;
+  curric:displayOrder "2"^^xsd:positiveInteger ;
+  skos:broader eng:substrand-changes-in-systems ;
+  skos:inScheme eng:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+eng:contentdescriptor-physical-processes-and-mechanisms
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Using physical processes and mechanisms, rather than energy, to explain the 
+  intermediate steps that bring about such changes."""@en ;
+  curric:displayOrder "3"^^xsd:positiveInteger ;
+  skos:broader eng:substrand-changes-in-systems ;
+  skos:inScheme eng:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+eng:contentdescriptor-average-speed-distance-and-time
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Speed and the quantitative relationship between average speed, distance and 
+  time (speed = distance ÷ time)."""@en ;
+  curric:displayOrder "1"^^xsd:positiveInteger ;
+  skos:broader eng:substrand-describing-motion ;
+  skos:inScheme eng:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+eng:contentdescriptor-distance-time-graph
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "The representation of a journey on a distance-time graph."@en ;
+  curric:displayOrder "2"^^xsd:positiveInteger ;
+  skos:broader eng:substrand-describing-motion ;
+  skos:inScheme eng:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+eng:contentdescriptor-relative-motion
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "relative motion: trains and cars passing one another."@en ;
+  curric:displayOrder "3"^^xsd:positiveInteger ;
+  skos:broader eng:substrand-describing-motion ;
+  skos:inScheme eng:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+eng:contentdescriptor-atmospheric-pressure
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Atmospheric pressure, decreases with increase of height as weight of air above 
+  decreases with height."""@en ;
+  curric:displayOrder "1"^^xsd:positiveInteger ;
+  skos:broader eng:substrand-pressure-in-fluids ;
+  skos:inScheme eng:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+eng:contentdescriptor-pressure-in-liquids
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Pressure in liquids, increasing with depth; upthrust effects, floating and 
+  sinking."""@en ;
+  curric:displayOrder "2"^^xsd:positiveInteger ;
+  skos:broader eng:substrand-pressure-in-fluids ;
+  skos:inScheme eng:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+eng:contentdescriptor-ratio-of-force-over-area
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Pressure measured by ratio of force over area – acting normal to any 
+  surface."""@en ;
+  curric:displayOrder "3"^^xsd:positiveInteger ;
+  skos:broader eng:substrand-pressure-in-fluids ;
+  skos:inScheme eng:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+eng:contentdescriptor-opposing-forces-and-equilibrium
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Opposing forces and equilibrium: weight held by stretched spring or supported 
+  on a compressed surface."""@en ;
+  curric:displayOrder "1"^^xsd:positiveInteger ;
+  skos:broader eng:substrand-balanced-forces ;
+  skos:inScheme eng:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+eng:contentdescriptor-waves-undulations-with-transverse-motion
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Waves on water as undulations which travel through water with transverse 
+  motion; these waves can be reflected, and add or cancel – superposition."""@en ;
+  curric:displayOrder "1"^^xsd:positiveInteger ;
+  skos:broader eng:substrand-observed-waves ;
+  skos:inScheme eng:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+eng:contentdescriptor-frequencies-of-sound-waves
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Frequencies of sound waves, measured in hertz (Hz); echoes, reflection and 
+  absorption of sound."""@en ;
+  curric:displayOrder "1"^^xsd:positiveInteger ;
+  skos:broader eng:substrand-sound-waves ;
+  skos:inScheme eng:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+eng:contentdescriptor-speed-sound-air-water-solids
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Sound needs a medium to travel, the speed of sound in air, in water, in 
+  solids."""@en ;
+  curric:displayOrder "2"^^xsd:positiveInteger ;
+  skos:broader eng:substrand-sound-waves ;
+  skos:inScheme eng:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+eng:contentdescriptor-sound-produced-by-vibrations-objects
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Sound produced by vibrations of objects, in loudspeakers, detected by their 
+  effects on microphone diaphragm and the ear drum; sound waves are longitudinal."""@en ;
+  curric:displayOrder "3"^^xsd:positiveInteger ;
+  skos:broader eng:substrand-sound-waves ;
+  skos:inScheme eng:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+eng:contentdescriptor-auditory-range-humans-and-animals
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "The auditory range of humans and animals."@en ;
+  curric:displayOrder "4"^^xsd:positiveInteger ;
+  skos:broader eng:substrand-sound-waves ;
+  skos:inScheme eng:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+eng:contentdescriptor-pressure-waves-transferring-energy
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Pressure waves transferring energy; use for cleaning and physiotherapy by 
+  ultrasound; waves transferring information for conversion to electrical signals by 
+  microphone."""@en ;
+  curric:displayOrder "1"^^xsd:positiveInteger ;
+  skos:broader eng:substrand-energy-and-waves ;
+  skos:inScheme eng:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+eng:contentdescriptor-similarities-differences-light-waves-matter
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "The similarities and differences between light waves and waves in matter."@en ;
+  curric:displayOrder "1"^^xsd:positiveInteger ;
+  skos:broader eng:substrand-light-waves ;
+  skos:inScheme eng:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+eng:contentdescriptor-light-waves-travelling-through-vacuum
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Light waves travelling through a vacuum; speed of light."@en ;
+  curric:displayOrder "2"^^xsd:positiveInteger ;
+  skos:broader eng:substrand-light-waves ;
+  skos:inScheme eng:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+eng:contentdescriptor-transmission-of-light-through-materials
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """The transmission of light through materials: absorption, diffuse scattering and 
+  specular reflection at a surface."""@en ;
+  curric:displayOrder "3"^^xsd:positiveInteger ;
+  skos:broader eng:substrand-light-waves ;
+  skos:inScheme eng:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+eng:contentdescriptor-ray-model-to-explain-imaging
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Use of ray model to explain imaging in mirrors, the pinhole camera, the 
+  refraction of light and action of convex lens in focusing (qualitative); the human eye."""@en ;
+  curric:displayOrder "4"^^xsd:positiveInteger ;
+  skos:broader eng:substrand-light-waves ;
+  skos:inScheme eng:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+eng:contentdescriptor-light-energy-source-to-absorber
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Light transferring energy from source to absorber, leading to chemical and 
+  electrical effects; photosensitive material in the retina and in cameras."""@en ;
+  curric:displayOrder "5"^^xsd:positiveInteger ;
+  skos:broader eng:substrand-light-waves ;
+  skos:inScheme eng:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+eng:contentdescriptor-colours-different-frequencies-of-light
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Colours and the different frequencies of light, white light and prisms 
+  (qualitative only); differential colour effects in absorption and diffuse reflection."""@en ;
+  curric:displayOrder "6"^^xsd:positiveInteger ;
+  skos:broader eng:substrand-light-waves ;
+  skos:inScheme eng:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+eng:contentdescriptor-current-amperes-circuits-series-parallel
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Electric current, measured in amperes, in circuits, series and parallel 
+  circuits, currents add where branches meet and current as flow of charge."""@en ;
+  curric:displayOrder "1"^^xsd:positiveInteger ;
+  skos:broader eng:substrand-current-electricity ;
+  skos:inScheme eng:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+eng:contentdescriptor-potential-difference-volts-battery-bulb
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Potential difference, measured in volts, battery and bulb ratings; resistance, 
+  measured in ohms, as the ratio of potential difference (p.d.) to current."""@en ;
+  curric:displayOrder "2"^^xsd:positiveInteger ;
+  skos:broader eng:substrand-current-electricity ;
+  skos:inScheme eng:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+eng:contentdescriptor-differences-resistance-conducting-insulating-components
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Differences in resistance between conducting and insulating components 
+  (quantitative)."""@en ;
+  curric:displayOrder "3"^^xsd:positiveInteger ;
+  skos:broader eng:substrand-current-electricity ;
+  skos:inScheme eng:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+eng:contentdescriptor-separation-positive-or-negative-charges
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Separation of positive or negative charges when objects are rubbed together: 
+  transfer of electrons, forces between charged objects."""@en ;
+  curric:displayOrder "1"^^xsd:positiveInteger ;
+  skos:broader eng:substrand-static-electricity ;
+  skos:inScheme eng:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+eng:contentdescriptor-idea-of-electric-field
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """The idea of electric field, forces acting across the space between objects not 
+  in contact."""@en ;
+  curric:displayOrder "2"^^xsd:positiveInteger ;
+  skos:broader eng:substrand-static-electricity ;
+  skos:inScheme eng:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+eng:contentdescriptor-magnetic-poles-attraction-and-repulsion
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Magnetic poles, attraction and repulsion."@en ;
+  curric:displayOrder "1"^^xsd:positiveInteger ;
+  skos:broader eng:substrand-magnetism ;
+  skos:inScheme eng:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+eng:contentdescriptor-magnetic-fields-plotting-with-compass
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Magnetic fields by plotting with compass, representation by field lines."@en ;
+  curric:displayOrder "2"^^xsd:positiveInteger ;
+  skos:broader eng:substrand-magnetism ;
+  skos:inScheme eng:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+eng:contentdescriptor-earths-magnetism-compass-and-navigation
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Earth’s magnetism, compass and navigation."@en ;
+  curric:displayOrder "3"^^xsd:positiveInteger ;
+  skos:broader eng:substrand-magnetism ;
+  skos:inScheme eng:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+eng:contentdescriptor-magnetic-effect-current-electromagnets-motors
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """The magnetic effect of a current, electromagnets, DC motors (principles 
+  only)."""@en ;
+  curric:displayOrder "4"^^xsd:positiveInteger ;
+  skos:broader eng:substrand-magnetism ;
+  skos:inScheme eng:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+eng:contentdescriptor-conservation-material-mass-reversibility
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Conservation of material and of mass, and reversibility, in melting, freezing, 
+  evaporation, sublimation, condensation, dissolving."""@en ;
+  curric:displayOrder "1"^^xsd:positiveInteger ;
+  skos:broader eng:substrand-physical-changes ;
+  skos:inScheme eng:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+eng:contentdescriptor-similarities-differences-solids-liquids-gases
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Similarities and differences, including density differences, between solids, 
+  liquids and gases."""@en ;
+  curric:displayOrder "2"^^xsd:positiveInteger ;
+  skos:broader eng:substrand-physical-changes ;
+  skos:inScheme eng:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+eng:contentdescriptor-brownian-motion-in-gases
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Brownian motion in gases."@en ;
+  curric:displayOrder "3"^^xsd:positiveInteger ;
+  skos:broader eng:substrand-physical-changes ;
+  skos:inScheme eng:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+eng:contentdescriptor-diffusion-in-liquids-aand-gases
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Diffusion in liquids and gases driven by differences in concentration."@en ;
+  curric:displayOrder "4"^^xsd:positiveInteger ;
+  skos:broader eng:substrand-physical-changes ;
+  skos:inScheme eng:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+eng:contentdescriptor-difference-chemical-and-physical-changes
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "The difference between chemical and physical changes."@en ;
+  curric:displayOrder "5"^^xsd:positiveInteger ;
+  skos:broader eng:substrand-physical-changes ;
+  skos:inScheme eng:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+eng:contentdescriptor-arrangements-motion-closeness-of-particles
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """The differences in arrangements, in motion and in closeness of particles 
+  explaining changes of state, shape and density; the anomaly of ice-water transition."""@en ;
+  curric:displayOrder "1"^^xsd:positiveInteger ;
+  skos:broader eng:substrand-particle-model ;
+  skos:inScheme eng:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+eng:contentdescriptor-atoms-and-molecules-as-particles
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Atoms and molecules as particles."@en ;
+  curric:displayOrder "2"^^xsd:positiveInteger ;
+  skos:broader eng:substrand-particle-model ;
+  skos:inScheme eng:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+eng:contentdescriptor-changes-temperature-motion-spacing-particles
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Changes with temperature in motion and spacing of particles."@en ;
+  curric:displayOrder "1"^^xsd:positiveInteger ;
+  skos:broader eng:substrand-energy-in-matter ;
+  skos:inScheme eng:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+eng:contentdescriptor-internal-energy-stored-in-particles
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Internal energy stored in materials."@en ;
+  curric:displayOrder "2"^^xsd:positiveInteger ;
+  skos:broader eng:substrand-energy-in-matter ;
+  skos:inScheme eng:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
 natcurric:contentdescriptor-energy-changes-in-a-system
   a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel """Energy changes in a system involving heating, doing work using forces, or doing 
@@ -1340,11 +1997,80 @@ natcurric:contentdescriptor-renewable-non-renewable-energy-sources
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
 
+eng:contentdescriptor-forces-as-pushes-or-pulls
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Forces as pushes or pulls, arising from the interaction between 2 objects."@en ;
+  curric:displayOrder "1"^^xsd:positiveInteger ;
+  skos:broader eng:substrand-forces ;
+  skos:inScheme eng:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+eng:contentdescriptor-using-force-arrows-in-diagrams
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Using force arrows in diagrams, adding forces in 1 dimension, balanced and 
+  unbalanced forces."""@en ;
+  curric:displayOrder "2"^^xsd:positiveInteger ;
+  skos:broader eng:substrand-forces ;
+  skos:inScheme eng:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+eng:contentdescriptor-moment-turning-effect-of-force
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Moment as the turning effect of a force."@en ;
+  curric:displayOrder "3"^^xsd:positiveInteger ;
+  skos:broader eng:substrand-forces ;
+  skos:inScheme eng:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+eng:contentdescriptor-forces-associated-with-deforming-objects
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Forces: associated with deforming objects; stretching and squashing – springs; 
+  with rubbing and friction between surfaces, with pushing things out of the way; resistance to 
+  motion of air and water."""@en ;
+  curric:displayOrder "4"^^xsd:positiveInteger ;
+  skos:broader eng:substrand-forces ;
+  skos:inScheme eng:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+eng:contentdescriptor-forces-measured-in-newtons
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Forces measured in newtons, measurements of stretch or compression as force is 
+  changed."""@en ;
+  curric:displayOrder "5"^^xsd:positiveInteger ;
+  skos:broader eng:substrand-forces ;
+  skos:inScheme eng:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+eng:contentdescriptor-force-extension-linear-relation
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Force-extension linear relation; Hooke’s Law as a special case."@en ;
+  curric:displayOrder "6"^^xsd:positiveInteger ;
+  skos:broader eng:substrand-forces ;
+  skos:inScheme eng:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+eng:contentdescriptor-work-done-energy-changes-deformation
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Work done and energy changes on deformation."@en ;
+  curric:displayOrder "7"^^xsd:positiveInteger ;
+  skos:broader eng:substrand-forces ;
+  skos:inScheme eng:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+eng:contentdescriptor-non-contact-forces
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Non-contact forces: gravity forces acting at a distance on Earth and in space, 
+  forces between magnets, and forces due to static electricity."""@en ;
+  curric:displayOrder "8"^^xsd:positiveInteger ;
+  skos:broader eng:substrand-forces ;
+  skos:inScheme eng:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
 natcurric:contentdescriptor-objects-fall-force-of-gravity
   a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel """Explain that unsupported objects fall towards the Earth because of the force of 
   gravity acting between the Earth and the falling object."""@en ;
-  curric:displayOrder "1"^^xsd:positiveInteger ;
+  curric:displayOrder "9"^^xsd:positiveInteger ;
   skos:broader natcurric:substrand-forces ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
@@ -1353,7 +2079,7 @@ natcurric:contentdescriptor-air-water-resistance-and-friction
   a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel """Identify the effects of air resistance, water resistance and friction, that act 
   between moving surfaces."""@en ;
-  curric:displayOrder "2"^^xsd:positiveInteger ;
+  curric:displayOrder "10"^^xsd:positiveInteger ;
   skos:broader natcurric:substrand-forces ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
@@ -1362,7 +2088,7 @@ natcurric:contentdescriptor-levers-pulleys-and-gears
   a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel """Recognise that some mechanisms including levers, pulleys and gears allow a 
   smaller force to have a greater effect."""@en ;
-  curric:displayOrder "3"^^xsd:positiveInteger ;
+  curric:displayOrder "11"^^xsd:positiveInteger ;
   skos:broader natcurric:substrand-forces ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
@@ -1370,7 +2096,7 @@ natcurric:contentdescriptor-levers-pulleys-and-gears
 natcurric:contentdescriptor-forces-and-fields
   a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel "Forces and fields: electrostatic, magnetic, gravity."@en ;
-  curric:displayOrder "4"^^xsd:positiveInteger ;
+  curric:displayOrder "12"^^xsd:positiveInteger ;
   skos:broader natcurric:substrand-forces ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
@@ -1378,7 +2104,7 @@ natcurric:contentdescriptor-forces-and-fields
 natcurric:contentdescriptor-forces-as-vectors
   a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel "Forces as vectors."@en ;
-  curric:displayOrder "5"^^xsd:positiveInteger ;
+  curric:displayOrder "13"^^xsd:positiveInteger ;
   skos:broader natcurric:substrand-forces ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
@@ -1386,7 +2112,7 @@ natcurric:contentdescriptor-forces-as-vectors
 natcurric:contentdescriptor-calculating-work-done
   a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel "Calculating work done as force x distance; elastic and inelastic stretching."@en ;
-  curric:displayOrder "6"^^xsd:positiveInteger ;
+  curric:displayOrder "14"^^xsd:positiveInteger ;
   skos:broader natcurric:substrand-forces ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
@@ -1395,15 +2121,32 @@ natcurric:contentdescriptor-pressure-in-fluids
   a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel """Pressure in fluids acts in all directions: variation in Earth’s atmosphere with 
   height, with depth for liquids, up-thrust force (qualitative)."""@en ;
-  curric:displayOrder "7"^^xsd:positiveInteger ;
+  curric:displayOrder "15"^^xsd:positiveInteger ;
   skos:broader natcurric:substrand-forces ;
   skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+eng:contentdescriptor-forces-cause-stop-start-motion
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Forces being needed to cause objects to stop or start moving, or to change 
+  their speed or direction of motion (qualitative only)."""@en ;
+  curric:displayOrder "1"^^xsd:positiveInteger ;
+  skos:broader eng:substrand-forces-and-motion ;
+  skos:inScheme eng:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+eng:contentdescriptor-change-depending-on-direction-size
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Change depending on direction of force and its size."@en ;
+  curric:displayOrder "2"^^xsd:positiveInteger ;
+  skos:broader eng:substrand-forces-and-motion ;
+  skos:inScheme eng:knowledge-taxonomy ;
   dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
 
 natcurric:contentdescriptor-speed-of-sound
   a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel "Speed of sound, estimating speeds and accelerations in everyday contexts."@en ;
-  curric:displayOrder "1"^^xsd:positiveInteger ;
+  curric:displayOrder "3"^^xsd:positiveInteger ;
   skos:broader natcurric:substrand-forces-and-motion ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
@@ -1411,7 +2154,7 @@ natcurric:contentdescriptor-speed-of-sound
 natcurric:contentdescriptor-graphs-of-distance-time-speed
   a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel "Interpreting quantitatively graphs of distance, time, and speed."@en ;
-  curric:displayOrder "2"^^xsd:positiveInteger ;
+  curric:displayOrder "4"^^xsd:positiveInteger ;
   skos:broader natcurric:substrand-forces-and-motion ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
@@ -1419,7 +2162,7 @@ natcurric:contentdescriptor-graphs-of-distance-time-speed
 natcurric:contentdescriptor-acceleration-caused-by-forces
   a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel "Acceleration caused by forces; Newton’s First Law."@en ;
-  curric:displayOrder "3"^^xsd:positiveInteger ;
+  curric:displayOrder "5"^^xsd:positiveInteger ;
   skos:broader natcurric:substrand-forces-and-motion ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
@@ -1427,7 +2170,7 @@ natcurric:contentdescriptor-acceleration-caused-by-forces
 natcurric:contentdescriptor-weight-and-gravitational-field-strength
   a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel "Weight and gravitational field strength."@en ;
-  curric:displayOrder "4"^^xsd:positiveInteger ;
+  curric:displayOrder "6"^^xsd:positiveInteger ;
   skos:broader natcurric:substrand-forces-and-motion ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
@@ -1435,7 +2178,7 @@ natcurric:contentdescriptor-weight-and-gravitational-field-strength
 natcurric:contentdescriptor-decelerations-and-braking-distances
   a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel "Decelerations and braking distances involved on roads, safety."@en ;
-  curric:displayOrder "5"^^xsd:positiveInteger ;
+  curric:displayOrder "7"^^xsd:positiveInteger ;
   skos:broader natcurric:substrand-forces-and-motion ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
@@ -1735,10 +2478,45 @@ natcurric:contentdescriptor-nuclear-fission-fusion-sun-energy
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
 
+eng:contentdescriptor-gravity-force-weight-on-earth
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Gravity force, weight = mass x gravitational field strength (g), on Earth g=10 
+  N/kg, different on other planets and stars; gravity forces between Earth and Moon, and between 
+  Earth and sun (qualitative only)."""@en ;
+  curric:displayOrder "1"^^xsd:positiveInteger ;
+  skos:broader eng:substrand-space-physics ;
+  skos:inScheme eng:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+eng:contentdescriptor-sun-stars-galaxies
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Our sun as a star, other stars in our galaxy, other galaxies."@en ;
+  curric:displayOrder "2"^^xsd:positiveInteger ;
+  skos:broader eng:substrand-space-physics ;
+  skos:inScheme eng:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+ eng:contentdescriptor-seasons-earths-tilt-day-length
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """The seasons and the Earth’s tilt, day length at different times of year, in 
+  different hemispheres."""@en ;
+  curric:displayOrder "3"^^xsd:positiveInteger ;
+  skos:broader eng:substrand-space-physics ;
+  skos:inScheme eng:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+ eng:contentdescriptor-light-year-unit-astronomical-distance
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "The light year as a unit of astronomical distance."@en ;
+  curric:displayOrder "4"^^xsd:positiveInteger ;
+  skos:broader eng:substrand-space-physics ;
+  skos:inScheme eng:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .  
+
 natcurric:contentdescriptor-main-features-of-solar-system
   a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel "The main features of the solar system."@en ;
-  curric:displayOrder "1"^^xsd:positiveInteger ;
+  curric:displayOrder "5"^^xsd:positiveInteger ;
   skos:broader natcurric:substrand-space-physics ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
