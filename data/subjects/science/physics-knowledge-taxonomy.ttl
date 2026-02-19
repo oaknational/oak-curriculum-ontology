@@ -2050,7 +2050,7 @@ natcurric:contentdescriptor-conservation-dissipation-national-global-sources
 
 natcurric:contentdescriptor-renergy-use-of-mathematics
   a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel "Use of mathematics."""@en ;
+  skos:prefLabel "Use of mathematics."@en ;
   curric:displayOrder "7"^^xsd:positiveInteger ;
   skos:broader natcurric:substrand-energy ;
   skos:inScheme natcurric:knowledge-taxonomy ;
