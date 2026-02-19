@@ -49,9 +49,9 @@
 # Subject Group
 # ----------------------------------------------------------------------
 
-natcurric:subjectgroup-sciences
+natcurric:subjectgroup-science
   a curric:SubjectGroup ;
-  rdfs:label "Sciences"@en ;
+  rdfs:label "Science"@en ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
   curric:coversDiscipline natcurric:discipline-science .
   
@@ -115,7 +115,7 @@ natcurric:subjectgroup-sciences
   required to set out their school curriculum for science on a year-by-year basis and make this 
   information available online."""@en ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
-  curric:isSubjectOf natcurric:subjectgroup-sciences ;
+  curric:isSubjectOf natcurric:subjectgroup-science ;
   curric:coversStrand natcurric:strand-working-scientifically ,
                       natcurric:strand-chemical-science .
 

@@ -49,9 +49,9 @@
 # Subject Group
 # ----------------------------------------------------------------------
 
-natcurric:subjectgroup-humanities
+natcurric:subjectgroup-history
   a curric:SubjectGroup ;
-  rdfs:label "Humanities"@en ;
+  rdfs:label "History"@en ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
   curric:coversDiscipline natcurric:discipline-history .
   
@@ -74,7 +74,7 @@ natcurric:subject-history
   curric:structure "Text for structure..."@en ;
   curric:schoolCurriculum "Text for school curriculum..."@en ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
-  curric:isSubjectOf natcurric:subjectgroup-humanities ;
+  curric:isSubjectOf natcurric:subjectgroup-history ;
   curric:coversStrand natcurric:strand-knowledge-of-past ,
                    natcurric:strand-knowledge-of-history .
   
