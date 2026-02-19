@@ -701,7 +701,7 @@ natcurric:substrand-magnetism-and-electromagnetism
     natcurric:contentdescriptor-exploring-magnetic-fields ,
     natcurric:contentdescriptor-magnetic-effects-of-currents ,
     natcurric:contentdescriptor-transformers-in-national-grid ,
-    natcurric:contentdescriptor-magnetism-magnetic-forces-and-fields .
+    natcurric:contentdescriptor-magnetism-magnetic-forces-and-fields ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
 
