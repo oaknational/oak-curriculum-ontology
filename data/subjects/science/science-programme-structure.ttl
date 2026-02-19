@@ -242,7 +242,84 @@ natcurric:scheme-science-key-stage-3
 natcurric:scheme-science-key-stage-4
   a curric:Scheme ;
   rdfs:label "Science Key Stage 4"@en ;
-  dcterms:description """Science Key Stage 4 description..."""@en ;
+  dcterms:description """These GCSE subject content criteria sets out the assessment objectives, 
+  knowledge, understanding and skills, for GCSE specifications in combined science, to ensure 
+  progression from key stage 3 national curriculum requirements and the possibility of development 
+  into A level. They provide the framework within which awarding organisations create the detail of 
+  the subject specifications.
+  
+  This document sets out the learning outcomes and content coverage required for GCSE in combined 
+  science. In subjects such as the sciences, where topics are taught in progressively greater depth 
+  over the course of key stage 3 and key stage 4, GCSE outcomes may reflect or build upon subject 
+  content which is typically taught at key stage 3. There is no expectation that teaching of such 
+  content should be repeated during the GCSE course where it has already been covered at an earlier 
+  stage.
+  
+  GCSE study in combined science provides the foundations for understanding the material world. 
+  Scientific understanding is changing our lives and is vital to the world’s future prosperity, and 
+  all students should be taught essential aspects of the knowledge, methods, processes and uses of 
+  science. They should be helped to appreciate how the complex and diverse phenomena of the natural 
+  world can be described in terms of a small number of key ideas relating to the sciences which are 
+  both inter-linked, and are of universal application. These key ideas include:
+  
+  - the use of conceptual models and theories to make sense of the observed diversity of natural 
+  phenomena
+  - the assumption that every effect has one or more cause
+  - that change is driven by differences between different objects and systems when they interact
+  - that many such interactions occur over a distance and over time without direct contact
+  - that science progresses through a cycle of hypothesis, practical experimentation, observation, 
+  theory development and review
+  - that quantitative analysis is a central element both of many theories and of scientific methods 
+  of inquiry
+  
+  These key ideas are relevant in different ways and with different emphases in the three subjects 
+  as part of combined science: examples of their relevance are given for each subject in the 
+  separate sections below for biology, chemistry and physics components of combined science. 
+  
+  GCSE specifications in combined award science should enable students to:
+  
+  - develop scientific knowledge and conceptual understanding through the specific disciplines of 
+  biology, chemistry and physics
+  - develop understanding of the nature, processes and methods of science, through different types 
+  of scientific enquiries that help them to answer scientific questions about the world around them
+  - develop and learn to apply observational, practical, modelling, enquiry and problem-solving 
+  skills, both in the laboratory, in the field and in other learning environments
+  - develop their ability to evaluate claims based on science through critical analysis of the 
+  methodology, evidence and conclusions, both qualitatively and quantitatively.
+  
+  Furthermore, the sciences should be studied in ways that help students to develop curiosity about 
+  the natural world, insight into how science works, and appreciation of its relevance to their 
+  everyday lives. The scope and nature of such study should be broad, coherent, practical and 
+  satisfying, and thereby encourage students to be inspired, motivated and challenged by the 
+  subject and its achievements.
+  
+  The two main dimensions of the content
+  
+  The ways in which GCSE specifications in combined science should enable students to show their 
+  understanding of the concepts and methods of science are spelt out below in two main sections.
+  
+  The first section section explains the main ways in which working scientifically should be 
+  developed and assessed. Specifications should encourage the development of knowledge and 
+  understanding in science through opportunities for working scientifically. Awarding organisations 
+  should identify in their assessment strategy how, over a cycle of assessments, they will ensure 
+  that working scientifically is developed and assessed through the subject content.
+  
+  The second section sets out the key ideas and subject contents for the biology, chemistry and 
+  physics components of combined science. In combined science there should be a minimum of 30% of 
+  each of biology, chemistry and physics. 
+  
+  These content sections also set out the depth of treatment for both teaching and learning. 
+  Awarding organisations’ specifications should be designed to set out the level of understanding 
+  which pupils are expected to acquire. 
+  
+  The content sections also set out the mathematical skills required for combined science. In order 
+  to be able to develop their skills, knowledge and understanding in science, students need to have 
+  been taught, and demonstrate competence, to select and apply the appropriate areas of mathematics 
+  relevant to the subject as set out under each topic and the mathematical skills listed in 
+  appendix 3. The mathematics should be at levels up to, but not beyond, the requirements specified 
+  in GCSE mathematics for the appropriate tier.
+  
+  All mathematics content must be assessed within the lifetime of the specification."""@en ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
   curric:isSchemeOf natcurric:subject-science ;
   curric:coversKeyStage natcurric:key-stage-4 .
@@ -286,7 +363,7 @@ natcurric:progression-science-year-group-1-animals-including-humans
 
 natcurric:progression-science-year-group-1-everyday-materials
   a curric:Progression ;
-  rdfs:label "Chemistry Year Group 1 Everyday Materials"@en ;
+  rdfs:label "Science Year Group 1 Everyday Materials"@en ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
   curric:isProgressionOf natcurric:scheme-science-key-stage-1 ;
   curric:coversContent
@@ -297,7 +374,7 @@ natcurric:progression-science-year-group-1-everyday-materials
 
 natcurric:progression-science-year-group-1-seasonal-changes
   a curric:Progression ;
-  rdfs:label "Physics Year Group 1 Seasonal Changes"@en ;
+  rdfs:label "Science Year Group 1 Seasonal Changes"@en ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
   curric:isProgressionOf natcurric:scheme-science-key-stage-1 ;
   curric:coversContent
@@ -336,7 +413,7 @@ natcurric:progression-science-year-group-2-animals-including-humans
 
 natcurric:progression-science-year-group-2-everyday-materials
   a curric:Progression ;
-  rdfs:label "Chemistry Year Group 2 Everyday Materials"@en ;
+  rdfs:label "Science Year Group 2 Everyday Materials"@en ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
   curric:isProgressionOf natcurric:scheme-science-key-stage-1 ;
   curric:coversContent
@@ -381,7 +458,7 @@ natcurric:progression-science-year-group-3-animals-including-humans
 
 natcurric:progression-science-year-group-3-rocks
   a curric:Progression ;
-  rdfs:label "Chemistry Year Group 3 Rocks"@en ;
+  rdfs:label "Science Year Group 3 Rocks"@en ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
   curric:isProgressionOf natcurric:scheme-science-lower-key-stage-2 ;
   curric:coversContent
@@ -391,7 +468,7 @@ natcurric:progression-science-year-group-3-rocks
 
 natcurric:progression-science-year-group-3-light
   a curric:Progression ;
-  rdfs:label "Physics Year Group 3 Light"@en ;
+  rdfs:label "Science Year Group 3 Light"@en ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
   curric:isProgressionOf natcurric:scheme-science-lower-key-stage-2 ;
   curric:coversContent
@@ -403,7 +480,7 @@ natcurric:progression-science-year-group-3-light
 
 natcurric:progression-science-year-group-3-forces-and-magnets
   a curric:Progression ;
-  rdfs:label "Physics Year Group 3 Forces and Magnets"@en ;
+  rdfs:label "Science Year Group 3 Forces and Magnets"@en ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
   curric:isProgressionOf natcurric:scheme-science-lower-key-stage-2 ;
   curric:coversContent
@@ -436,7 +513,7 @@ natcurric:progression-science-year-group-4-animals-including-humans
 
 natcurric:progression-science-year-group-4-states-of-matter
   a curric:Progression ;
-  rdfs:label "Chemistry Year Group 4 States of Matter"@en ;
+  rdfs:label "Science Year Group 4 States of Matter"@en ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
   curric:isProgressionOf natcurric:scheme-science-lower-key-stage-2 ;
   curric:coversContent
@@ -446,7 +523,7 @@ natcurric:progression-science-year-group-4-states-of-matter
 
 natcurric:progression-science-year-group-4-sound
   a curric:Progression ;
-  rdfs:label "Physics Year Group 4 Sound"@en ;
+  rdfs:label "Science Year Group 4 Sound"@en ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
   curric:isProgressionOf natcurric:scheme-science-lower-key-stage-2 ;
   curric:coversContent
@@ -458,7 +535,7 @@ natcurric:progression-science-year-group-4-sound
 
 natcurric:progression-science-year-group-4-electricity
   a curric:Progression ;
-  rdfs:label "Physics Year Group 4 Electricity"@en ;
+  rdfs:label "Science Year Group 4 Electricity"@en ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
   curric:isProgressionOf natcurric:scheme-science-lower-key-stage-2 ;
   curric:coversContent
@@ -500,7 +577,7 @@ natcurric:progression-science-year-group-5-animals-including-humans
 
 natcurric:progression-science-year-group-5-properties-and-changes-of-materials
   a curric:Progression ;
-  rdfs:label "Chemistry Year Group 5 Properties and Changes of Materials"@en ;
+  rdfs:label "Science Year Group 5 Properties and Changes of Materials"@en ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
   curric:isProgressionOf natcurric:scheme-science-upper-key-stage-2 ;
   curric:coversContent
@@ -513,7 +590,7 @@ natcurric:progression-science-year-group-5-properties-and-changes-of-materials
 
 natcurric:progression-science-year-group-5-earth-and-space
   a curric:Progression ;
-  rdfs:label "Physics Year Group 5 Earth and Space"@en ;
+  rdfs:label "Science Year Group 5 Earth and Space"@en ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
   curric:isProgressionOf natcurric:scheme-science-upper-key-stage-2 ;
   curric:coversContent
@@ -524,7 +601,7 @@ natcurric:progression-science-year-group-5-earth-and-space
 
 natcurric:progression-science-year-group-5-forces
   a curric:Progression ;
-  rdfs:label "Physics Year Group 5 Forces"@en ;
+  rdfs:label "Science Year Group 5 Forces"@en ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
   curric:isProgressionOf natcurric:scheme-science-upper-key-stage-2 ;
   curric:coversContent
@@ -563,7 +640,7 @@ natcurric:progression-science-year-group-6-evolution-and-inheritance
 
 natcurric:progression-science-year-group-6-light
   a curric:Progression ;
-  rdfs:label "Physics Year Group 6 Light"@en ;
+  rdfs:label "Science Year Group 6 Light"@en ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
   curric:isProgressionOf natcurric:scheme-science-upper-key-stage-2 ;
   curric:coversContent
@@ -574,7 +651,7 @@ natcurric:progression-science-year-group-6-light
 
 natcurric:progression-science-year-group-6-electricity
   a curric:Progression ;
-  rdfs:label "Physics Year Group 6 Electricity"@en ;
+  rdfs:label "Science Year Group 6 Electricity"@en ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
   curric:isProgressionOf natcurric:scheme-science-upper-key-stage-2 ;
   curric:coversContent
@@ -738,7 +815,7 @@ natcurric:progression-science-key-stage-3-inheritance-chromosomes-dna-genes
 
 natcurric:progression-science-key-stage-3-particulate-nature-of-matter
   a curric:Progression ;
-  rdfs:label "Chemistry Key Stage 3 Particulate Nature of Matter"@en ;
+  rdfs:label "Science Key Stage 3 Particulate Nature of Matter"@en ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
   curric:isProgressionOf natcurric:scheme-science-key-stage-3 ;
   curric:coversContent
@@ -747,7 +824,7 @@ natcurric:progression-science-key-stage-3-particulate-nature-of-matter
 
 natcurric:progression-science-key-stage-3-atoms-elements-compounds
   a curric:Progression ;
-  rdfs:label "Chemistry Key Stage 3 Atoms Elements and Compounds"@en ;
+  rdfs:label "Science Key Stage 3 Atoms Elements and Compounds"@en ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
   curric:isProgressionOf natcurric:scheme-science-key-stage-3 ;
   curric:coversContent
@@ -758,7 +835,7 @@ natcurric:progression-science-key-stage-3-atoms-elements-compounds
 
 natcurric:progression-science-key-stage-3-pure-and-impure-substances
   a curric:Progression ;
-  rdfs:label "Chemistry Key Stage 3 Pure and Impure Substances"@en ;
+  rdfs:label "Science Key Stage 3 Pure and Impure Substances"@en ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
   curric:isProgressionOf natcurric:scheme-science-key-stage-3 ;
   curric:coversContent
@@ -770,7 +847,7 @@ natcurric:progression-science-key-stage-3-pure-and-impure-substances
 
 natcurric:progression-science-key-stage-3-chemical-reactions
   a curric:Progression ;
-  rdfs:label "Chemistry Key Stage 3 Chemical Reactions"@en ;
+  rdfs:label "Science Key Stage 3 Chemical Reactions"@en ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
   curric:isProgressionOf natcurric:scheme-science-key-stage-3 ;
   curric:coversContent
@@ -785,7 +862,7 @@ natcurric:progression-science-key-stage-3-chemical-reactions
 
 natcurric:progression-science-key-stage-3-energetics
   a curric:Progression ;
-  rdfs:label "Chemistry Key Stage 3 Energetics"@en ;
+  rdfs:label "Science Key Stage 3 Energetics"@en ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
   curric:isProgressionOf natcurric:scheme-science-key-stage-3 ;
   curric:coversContent
@@ -794,7 +871,7 @@ natcurric:progression-science-key-stage-3-energetics
 
 natcurric:progression-science-key-stage-3-the-periodic-table
   a curric:Progression ;
-  rdfs:label "Chemistry Key Stage 3 The Periodic Table"@en ;
+  rdfs:label "Science Key Stage 3 The Periodic Table"@en ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
   curric:isProgressionOf natcurric:scheme-science-key-stage-3 ;
   curric:coversContent
@@ -807,7 +884,7 @@ natcurric:progression-science-key-stage-3-the-periodic-table
 
 natcurric:progression-science-key-stage-3-materials
   a curric:Progression ;
-  rdfs:label "Chemistry Key Stage 3 Materials"@en ;
+  rdfs:label "Science Key Stage 3 Materials"@en ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
   curric:isProgressionOf natcurric:scheme-science-key-stage-3 ;
   curric:coversContent
@@ -817,7 +894,7 @@ natcurric:progression-science-key-stage-3-materials
 
 natcurric:progression-science-key-stage-3-earth-and-atmosphere
   a curric:Progression ;
-  rdfs:label "Chemistry Key Stage 3 Earth and Atmosphere"@en ;
+  rdfs:label "Science Key Stage 3 Earth and Atmosphere"@en ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
   curric:isProgressionOf natcurric:scheme-science-key-stage-3 ;
   curric:coversContent
@@ -830,7 +907,7 @@ natcurric:progression-science-key-stage-3-earth-and-atmosphere
 
 natcurric:progression-science-key-stage-3-fuel-uses-costs-domestic-context
   a curric:Progression ;
-  rdfs:label "Physics Key Stage 3 Fuel Uses Costs Domestic Context"@en ;
+  rdfs:label "Science Key Stage 3 Fuel Uses Costs Domestic Context"@en ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
   curric:isProgressionOf natcurric:scheme-science-key-stage-3 ;
   curric:coversContent
@@ -842,7 +919,7 @@ natcurric:progression-science-key-stage-3-fuel-uses-costs-domestic-context
 
 natcurric:progression-science-key-stage-3-energy-changes-and-transfers
   a curric:Progression ;
-  rdfs:label "Physics Key Stage 3 Energy Changes and Transfers"@en ;
+  rdfs:label "Science Key Stage 3 Energy Changes and Transfers"@en ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
   curric:isProgressionOf natcurric:scheme-science-key-stage-3 ;
   curric:coversContent
@@ -852,7 +929,7 @@ natcurric:progression-science-key-stage-3-energy-changes-and-transfers
 
 natcurric:progression-science-key-stage-3-changes-in-systems
   a curric:Progression ;
-  rdfs:label "Physics Key Stage 3 Changes in Systems"@en ;
+  rdfs:label "Science Key Stage 3 Changes in Systems"@en ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
   curric:isProgressionOf natcurric:scheme-science-key-stage-3 ;
   curric:coversContent
@@ -862,7 +939,7 @@ natcurric:progression-science-key-stage-3-changes-in-systems
 
 natcurric:progression-science-key-stage-3-describing-motion
   a curric:Progression ;
-  rdfs:label "Physics Key Stage 3 Describing Motion"@en ;
+  rdfs:label "Science Key Stage 3 Describing Motion"@en ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
   curric:isProgressionOf natcurric:scheme-science-key-stage-3 ;
   curric:coversContent
@@ -872,7 +949,7 @@ natcurric:progression-science-key-stage-3-describing-motion
 
 natcurric:progression-science-key-stage-3-forces
   a curric:Progression ;
-  rdfs:label "Physics Key Stage 3 Forces"@en ;
+  rdfs:label "Science Key Stage 3 Forces"@en ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
   curric:isProgressionOf natcurric:scheme-science-key-stage-3 ;
   curric:coversContent
@@ -887,7 +964,7 @@ natcurric:progression-science-key-stage-3-forces
 
 natcurric:progression-science-key-stage-3-pressure-in-fluids
   a curric:Progression ;
-  rdfs:label "Physics Key Stage 3 Pressure in Fluids"@en ;
+  rdfs:label "Science Key Stage 3 Pressure in Fluids"@en ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
   curric:isProgressionOf natcurric:scheme-science-key-stage-3 ;
   curric:coversContent
@@ -897,7 +974,7 @@ natcurric:progression-science-key-stage-3-pressure-in-fluids
 
 natcurric:progression-science-key-stage-3-balanced-forces
   a curric:Progression ;
-  rdfs:label "Physics Key Stage 3 Balanced Forces"@en ;
+  rdfs:label "Science Key Stage 3 Balanced Forces"@en ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
   curric:isProgressionOf natcurric:scheme-science-key-stage-3 ;
   curric:coversContent
@@ -905,7 +982,7 @@ natcurric:progression-science-key-stage-3-balanced-forces
 
 natcurric:progression-science-key-stage-3-forces-and-motion
   a curric:Progression ;
-  rdfs:label "Physics Key Stage 3 Forces and Motion"@en ;
+  rdfs:label "Science Key Stage 3 Forces and Motion"@en ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
   curric:isProgressionOf natcurric:scheme-science-key-stage-3 ;
   curric:coversContent
@@ -914,7 +991,7 @@ natcurric:progression-science-key-stage-3-forces-and-motion
 
 natcurric:progression-science-key-stage-3-observed-waves
   a curric:Progression ;
-  rdfs:label "Physics Key Stage 3 Observed Waves"@en ;
+  rdfs:label "Science Key Stage 3 Observed Waves"@en ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
   curric:isProgressionOf natcurric:scheme-science-key-stage-3 ;
   curric:coversContent
@@ -922,7 +999,7 @@ natcurric:progression-science-key-stage-3-observed-waves
 
 natcurric:progression-science-key-stage-3-sound-waves
   a curric:Progression ;
-  rdfs:label "Physics Key Stage 3 Sound Waves"@en ;
+  rdfs:label "Science Key Stage 3 Sound Waves"@en ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
   curric:isProgressionOf natcurric:scheme-science-key-stage-3 ;
   curric:coversContent
@@ -933,7 +1010,7 @@ natcurric:progression-science-key-stage-3-sound-waves
 
 natcurric:progression-science-key-stage-3-energy-and-waves
   a curric:Progression ;
-  rdfs:label "Physics Key Stage 3 Energy and Waves"@en ;
+  rdfs:label "Science Key Stage 3 Energy and Waves"@en ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
   curric:isProgressionOf natcurric:scheme-science-key-stage-3 ;
   curric:coversContent
@@ -941,7 +1018,7 @@ natcurric:progression-science-key-stage-3-energy-and-waves
 
 natcurric:progression-science-key-stage-3-light-waves
   a curric:Progression ;
-  rdfs:label "Physics Key Stage 3 Light Waves"@en ;
+  rdfs:label "Science Key Stage 3 Light Waves"@en ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
   curric:isProgressionOf natcurric:scheme-science-key-stage-3 ;
   curric:coversContent
@@ -954,7 +1031,7 @@ natcurric:progression-science-key-stage-3-light-waves
 
 natcurric:progression-science-key-stage-3-current-electricity
   a curric:Progression ;
-  rdfs:label "Physics Key Stage 3 Current Electricity"@en ;
+  rdfs:label "Science Key Stage 3 Current Electricity"@en ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
   curric:isProgressionOf natcurric:scheme-science-key-stage-3 ;
   curric:coversContent
@@ -964,7 +1041,7 @@ natcurric:progression-science-key-stage-3-current-electricity
 
 natcurric:progression-science-key-stage-3-static-electricity
   a curric:Progression ;
-  rdfs:label "Physics Key Stage 3 Static Electricity"@en ;
+  rdfs:label "Science Key Stage 3 Static Electricity"@en ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
   curric:isProgressionOf natcurric:scheme-science-key-stage-3 ;
   curric:coversContent
@@ -973,7 +1050,7 @@ natcurric:progression-science-key-stage-3-static-electricity
 
 natcurric:progression-science-key-stage-3-magnetism
   a curric:Progression ;
-  rdfs:label "Physics Key Stage 3 Magnetism"@en ;
+  rdfs:label "Science Key Stage 3 Magnetism"@en ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
   curric:isProgressionOf natcurric:scheme-science-key-stage-3 ;
   curric:coversContent
@@ -984,7 +1061,7 @@ natcurric:progression-science-key-stage-3-magnetism
 
 natcurric:progression-science-key-stage-3-physical-changes
   a curric:Progression ;
-  rdfs:label "Physics Key Stage 3 Physical Changes"@en ;
+  rdfs:label "Science Key Stage 3 Physical Changes"@en ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
   curric:isProgressionOf natcurric:scheme-science-key-stage-3 ;
   curric:coversContent
@@ -996,7 +1073,7 @@ natcurric:progression-science-key-stage-3-physical-changes
 
 natcurric:progression-science-key-stage-3-particle-model
   a curric:Progression ;
-  rdfs:label "Physics Key Stage 3 Particle Model"@en ;
+  rdfs:label "Science Key Stage 3 Particle Model"@en ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
   curric:isProgressionOf natcurric:scheme-science-key-stage-3 ;
   curric:coversContent
@@ -1005,7 +1082,7 @@ natcurric:progression-science-key-stage-3-particle-model
 
 natcurric:progression-science-key-stage-3-energy-in-matter
   a curric:Progression ;
-  rdfs:label "Physics Key Stage 3 Energy in Matter"@en ;
+  rdfs:label "Science Key Stage 3 Energy in Matter"@en ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
   curric:isProgressionOf natcurric:scheme-science-key-stage-3 ;
   curric:coversContent
@@ -1014,7 +1091,7 @@ natcurric:progression-science-key-stage-3-energy-in-matter
 
 natcurric:progression-science-key-stage-3-space-science
   a curric:Progression ;
-  rdfs:label "Physics Key Stage 3 Space Physics"@en ;
+  rdfs:label "Science Key Stage 3 Space Physics"@en ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
   curric:isProgressionOf natcurric:scheme-science-key-stage-3 ;
   curric:coversContent
@@ -1022,3 +1099,314 @@ natcurric:progression-science-key-stage-3-space-science
     natcurric:contentdescriptor-sun-stars-galaxies ,
     natcurric:contentdescriptor-seasons-earths-tilt-day-length ,
     natcurric:contentdescriptor-light-year-unit-astronomical-distance .
+
+natcurric:progression-science-key-stage-4-development-of-scientific-thinking
+  a curric:Progression ;
+  rdfs:label "Science Key Stage 4 Development of Scientific Thinking"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-science-key-stage-4 ;
+  curric:coversContent
+    natcurric:contentdescriptor-scientific-methods-theories-over-time ,
+    natcurric:contentdescriptor-concepts-models-scientific-explanations ,
+    natcurric:contentdescriptor-power-limitations-ethical-issues ,
+    natcurric:contentdescriptor-explaining-technological-applications-science ,
+    natcurric:contentdescriptor-evaluating-risks-in-practical-science ,
+    natcurric:contentdescriptor-peer-review-and-communication-of-results .
+
+natcurric:progression-science-key-stage-4-experimental-skills-and-strategies
+  a curric:Progression ;
+  rdfs:label "Science Key Stage 4 Experimental Skills and Strategies"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-science-key-stage-4 ;
+  curric:coversContent
+    natcurric:contentdescriptor-theories-explanations-hypotheses ,
+    natcurric:contentdescriptor-experiments-observations-hypotheses-phenomena ,
+    natcurric:contentdescriptor-techniques-apparatus-materials ,
+    natcurric:contentdescriptor-carrying-out-experiments ,
+    natcurric:contentdescriptor-knowledge-of-sampling-techniques ,
+    natcurric:contentdescriptor-observations-measurements-using-apparatus-methods ,
+    natcurric:contentdescriptor-evaluating-methods-and-suggesting-improvements .
+
+natcurric:progression-science-key-stage-4-analysis-and-evaluation
+  a curric:Progression ;
+  rdfs:label "Science Key Stage 4 Analysis and Evaluation"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-science-key-stage-4 ;
+  curric:coversContent
+    natcurric:contentdescriptor-presenting-observations-and-other-data ,
+    natcurric:contentdescriptor-translating-data ,
+    natcurric:contentdescriptor-mathematical-and-statistical-analysis ,
+    natcurric:contentdescriptor-representing-distributions-uncertainty ,
+    natcurric:contentdescriptor-patterns-trends-inferences-conclusions ,
+    natcurric:contentdescriptor-explanations-relating-data-to-hypotheses ,
+    natcurric:contentdescriptor-objective-evaluating-data-accuracy-precision ,
+    natcurric:contentdescriptor-communicating-scientific-rationale .
+
+natcurric:progression-science-key-stage-4-vocabulary-units-symbols-nomenclature
+  a curric:Progression ;
+  rdfs:label "Science Key Stage 4 Vocabulary Units Symbols Nomenclature"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-science-key-stage-4 ;
+  curric:coversContent
+    natcurric:contentdescriptor-developing-scientific-vocabulary-nomenclature ,
+    natcurric:contentdescriptor-importance-of-scientific-quantities ,
+    natcurric:contentdescriptor-si-units-and-iupac-chemical-nomenclature ,
+    natcurric:contentdescriptor-prefixes-powers-orders-of-magnitude ,
+    natcurric:contentdescriptor-interconverting-units ,
+    natcurric:contentdescriptor-significant-figures-in-calculations .
+
+natcurric:progression-science-key-stage-4-cell-biology
+  a curric:Progression ;
+  rdfs:label "Science Key Stage 4 Cell Biology"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-science-key-stage-4 ;
+  curric:coversContent
+    natcurric:contentdescriptor-prokaryotic-and-eukaryotic-cells ,
+    natcurric:contentdescriptor-growth-and-development-of-cells ,
+    natcurric:contentdescriptor-cell-metabolism ,
+    natcurric:contentdescriptor-cell-biology-use-of-mathematics .
+
+natcurric:progression-science-key-stage-4-transport-systems
+  a curric:Progression ;
+  rdfs:label "Science Key Stage 4 Transport Systems"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-science-key-stage-4 ;
+  curric:coversContent
+    natcurric:contentdescriptor-transport-in-cells ,
+    natcurric:contentdescriptor-transport-systems-in-multicellular-organisms ,
+    natcurric:contentdescriptor-human-circulatory-system ,
+    natcurric:contentdescriptor-transport-systems-in-plants ,
+    natcurric:contentdescriptor-transport-systems-use-of-mathematics .
+
+natcurric:progression-science-key-stage-4-health-disease-medicines
+  a curric:Progression ;
+  rdfs:label "Science Key Stage 4 Health Disease Medicines"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-science-key-stage-4 ;
+  curric:coversContent
+    natcurric:contentdescriptor-health-and-disease ,
+    natcurric:contentdescriptor-communicable-diseases ,
+    natcurric:contentdescriptor-treating-curing-and-preventing-disease ,
+    natcurric:contentdescriptor-non-communicable-diseases ,
+    natcurric:contentdescriptor-health-disease-medicines-use-of-mathematics .
+    
+natcurric:progression-science-key-stage-4-coordination-and-control
+  a curric:Progression ;
+  rdfs:label "Science Key Stage 4 Coordination and Control"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-science-key-stage-4 ;
+  curric:coversContent
+    natcurric:contentdescriptor-nervous-coordination-and-control-humans ,
+    natcurric:contentdescriptor-hormonal-coordination-and-control-humans ,
+    natcurric:contentdescriptor-homeostasis ,
+    natcurric:contentdescriptor-coordination-and-control-use-of-mathematics .
+
+natcurric:progression-science-key-stage-4-photosynthesis
+  a curric:Progression ;
+  rdfs:label "Science Key Stage 4 Photosynthesis"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-science-key-stage-4 ;
+  curric:coversContent
+    natcurric:contentdescriptor-importance-of-photosynthesis ,
+    natcurric:contentdescriptor-photosynthesis-use-of-mathematics .
+
+natcurric:progression-science-key-stage-4-ecosystems
+  a curric:Progression ;
+  rdfs:label "Science Key Stage 4 Ecosystems"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-science-key-stage-4 ;
+  curric:coversContent
+    natcurric:contentdescriptor-organisation-within-an-ecosystem ,
+    natcurric:contentdescriptor-principle-of-material-cycling ,
+    natcurric:contentdescriptor-importance-of-biodiversity ,
+    natcurric:contentdescriptor-ecosystems-use-of-mathematics .
+
+natcurric:progression-science-key-stage-4-evolution-inheritance-variation
+  a curric:Progression ;
+  rdfs:label "Science Key Stage 4 Evolution Inheritance Variation"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-science-key-stage-4 ;
+  curric:coversContent
+    natcurric:contentdescriptor-genome-and-gene-expression ,
+    natcurric:contentdescriptor-inheritance ,
+    natcurric:contentdescriptor-variation-and-evolution ,
+    natcurric:contentdescriptor-selective-breeding-and-gene-technology ,
+    natcurric:contentdescriptor-evolution-inheritance-variation-use-of-mathematics .
+
+natcurric:progression-science-key-stage-4-atomic-structure-periodic-table
+  a curric:Progression ;
+  rdfs:label "Science Key Stage 4 Atomic Structure Periodic Table"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-science-key-stage-4 ;
+  curric:coversContent
+    natcurric:contentdescriptor-simple-model-of-atom ,
+    natcurric:contentdescriptor-modern-periodic-table .
+
+natcurric:progression-science-key-stage-4-structure-bonding-properties-of-matter
+  a curric:Progression ;
+  rdfs:label "Science Key Stage 4 Structure Bonding Properties of Matter"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-science-key-stage-4 ;
+  curric:coversContent
+    natcurric:contentdescriptor-changes-of-state-of-matter ,
+    natcurric:contentdescriptor-types-of-chemical-bonding , 
+    natcurric:contentdescriptor-bonding-of-carbon ,
+    natcurric:contentdescriptor-structure-bonding-properties-of-matter-use-of-mathematics .
+
+natcurric:progression-science-key-stage-4-chemical-changes
+  a curric:Progression ;
+  rdfs:label "Science Key Stage 4 Chemical Changes"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-science-key-stage-4 ;
+  curric:coversContent
+    natcurric:contentdescriptor-chemical-symbols-formulae-and-equations ,
+    natcurric:contentdescriptor-identification-of-common-gases ,
+    natcurric:contentdescriptor-chemistry-of-acids ,
+    natcurric:contentdescriptor-reactivity-series-of-metals ,
+    natcurric:contentdescriptor-electrolysis-of-molten-ionic-liquids ,
+    natcurric:contentdescriptor-reduction-and-oxidation ,
+    natcurric:contentdescriptor-chemical-changes-use-of-mathematics .
+
+natcurric:progression-science-key-stage-4-energy-changes-in-chemistry
+  a curric:Progression ;
+  rdfs:label "Science Key Stage 4 Energy Changes in Chemistry"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-science-key-stage-4 ;
+  curric:coversContent
+    natcurric:contentdescriptor-exothermic-and-endothermic-reactions ,
+    natcurric:contentdescriptor-carbon-compounds-fuels-and-feedstock ,
+    natcurric:contentdescriptor-energy-changes-in-chemistry-use-of-mathematics .
+
+natcurric:progression-science-key-stage-4-rate-extent-of-chemical-change
+  a curric:Progression ;
+  rdfs:label "Science Key Stage 4 Rate Extent of Chemical Change"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-science-key-stage-4 ;
+  curric:coversContent
+    natcurric:contentdescriptor-factors-influencing-rate-of-reaction ,
+    natcurric:contentdescriptor-factors-affecting-reversible-reactions ,
+    natcurric:contentdescriptor-rate-extent-of-chemical-change-use-of-mathematics .
+
+natcurric:progression-science-key-stage-4-chemical-analysis
+  a curric:Progression ;
+  rdfs:label "Science Key Stage 4 Chemical Analysis"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-science-key-stage-4 ;
+  curric:coversContent
+    natcurric:contentdescriptor-assessing-purity-and-separating-mixtures ,
+    natcurric:contentdescriptor-quantitative-interpretation-of-balanced-equations ,
+    natcurric:contentdescriptor-use-of-amount-of-substance ,
+    natcurric:contentdescriptor-chemical-analysis-use-of-mathematics .
+
+natcurric:progression-science-key-stage-4-chemical-and-allied-industries
+  a curric:Progression ;
+  rdfs:label "Science Key Stage 4 Chemical and Allied Industries"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-science-key-stage-4 ;
+  curric:coversContent
+    natcurric:contentdescriptor-life-cycle-assessment-and-recycling ,
+    natcurric:contentdescriptor-fractional-distillation-of-crude-oil ,
+    natcurric:contentdescriptor-extraction-and-purification-of-metals .
+
+natcurric:progression-science-key-stage-4-earth-and-atmospheric-science
+  a curric:Progression ;
+  rdfs:label "Science Key Stage 4 Earth and Atmospheric Science"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-science-key-stage-4 ;
+  curric:coversContent
+    natcurric:contentdescriptor-composition-evolution-of-earths-atmosphere ,
+    natcurric:contentdescriptor-increased-levels-carbon-dioxide-methane ,
+    natcurric:contentdescriptor-common-atmospheric-pollutants ,
+    natcurric:contentdescriptor-earths-water-resources ,
+    natcurric:contentdescriptor-earth-and-atmospheric-science-use-of-mathematics .
+
+natcurric:progression-science-key-stage-4-energy
+  a curric:Progression ;
+  rdfs:label "Science Key Stage 4 Energy"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-science-key-stage-4 ;
+  curric:coversContent
+    natcurric:contentdescriptor-energy-changes-in-a-system ,
+    natcurric:contentdescriptor-conservation-dissipation-national-global-sources ,
+    natcurric:contentdescriptor-energy-use-of-mathematics .
+
+natcurric:progression-science-key-stage-4-forces
+  a curric:Progression ;
+  rdfs:label "Science Key Stage 4 Forces"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-science-key-stage-4 ;
+  curric:coversContent
+    natcurric:contentdescriptor-forces-and-their-interactions ,
+    natcurric:contentdescriptor-calculating-work-done ,
+    natcurric:contentdescriptor-forces-use-of-mathematics .
+
+natcurric:progression-science-key-stage-4-forces-and-motion
+  a curric:Progression ;
+  rdfs:label "Science Key Stage 4 Forces and Motion"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-science-key-stage-4 ;
+  curric:coversContent
+    natcurric:contentdescriptor-speed-and-velocity ,
+    natcurric:contentdescriptor-acceleration-caused-by-forces ,
+    natcurric:contentdescriptor-safety-in-public-transport ,
+    natcurric:contentdescriptor-forces-and-motion-use-of-mathematics .
+
+natcurric:progression-science-key-stage-4-wave-motion
+  a curric:Progression ;
+  rdfs:label "Science Key Stage 4 Wave Motion"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-science-key-stage-4 ;
+  curric:coversContent
+    natcurric:contentdescriptor-waves-in-air-fluids-solids ,
+    natcurric:contentdescriptor-wave-motion-use-of-mathematics .
+
+natcurric:progression-science-key-stage-4-light-and-electromagnetic-waves
+  a curric:Progression ;
+  rdfs:label "Science Key Stage 4 Light and Electromagnetic Waves"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-science-key-stage-4 ;
+  curric:coversContent
+    natcurric:contentdescriptor-frequency-range-of-the-spectrum ,
+    natcurric:contentdescriptor-interactions-electromagnetic-radiation-with-matter ,
+    natcurric:contentdescriptor-light-and-electromagnetic-waves-use-of-mathematics .
+
+natcurric:progression-science-key-stage-4-electricity
+  a curric:Progression ;
+  rdfs:label "Science Key Stage 4 Electricity"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-science-key-stage-4 ;
+  curric:coversContent
+    natcurric:contentdescriptor-current-potential-difference-resistance ,
+    natcurric:contentdescriptor-series-and-parallel-circuits ,
+    natcurric:contentdescriptor-domestic-uses-and-safety ,
+    natcurric:contentdescriptor-energy-transfers ,
+    natcurric:contentdescriptor-electricity-use-of-mathematics .
+
+natcurric:progression-science-key-stage-4-magnetism-and-electromagnetism
+  a curric:Progression ;
+  rdfs:label "Science Key Stage 4 Magnetism and Electromagnetism"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-science-key-stage-4 ;
+  curric:coversContent
+    natcurric:contentdescriptor-magnetism-magnetic-forces-and-fields ,
+    natcurric:contentdescriptor-magnetic-effects-of-currents .
+
+natcurric:progression-science-key-stage-4-particle-model-of-matter
+  a curric:Progression ;
+  rdfs:label "Science Key Stage 4 Particle Model of Matter"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-science-key-stage-4 ;
+  curric:coversContent
+    natcurric:contentdescriptor-changes-of-state-particle-model ,
+    natcurric:contentdescriptor-energy-transfers-and-particle-motions ,
+    natcurric:contentdescriptor-particle-model-of-matter-use-of-mathematics .
+
+natcurric:progression-science-key-stage-4-atomic-structure
+  a curric:Progression ;
+  rdfs:label "Science Key Stage 4 Atomic Structure"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-science-key-stage-4 ;
+  curric:coversContent
+    natcurric:contentdescriptor-nuclear-atom-and-isotopes ,
+    natcurric:contentdescriptor-absorption-and-emission-ionizing-radiations ,
+    natcurric:contentdescriptor-atomic-structure-use-of-mathematics .

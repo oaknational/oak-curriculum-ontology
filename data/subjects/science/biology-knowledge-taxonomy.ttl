@@ -443,7 +443,11 @@ natcurric:substrand-cell-biology
     natcurric:contentdescriptor-enzymes ,
     natcurric:contentdescriptor-rate-of-enzymatic-reactions ,
     natcurric:contentdescriptor-aerobic-anaerobic-cellular-respiration ,
-    natcurric:contentdescriptor-key-biological-molecules ;
+    natcurric:contentdescriptor-key-biological-molecules ,
+    natcurric:contentdescriptor-prokaryotic-and-eukaryotic-cells ,
+    natcurric:contentdescriptor-growth-and-development-of-cells ,
+    natcurric:contentdescriptor-cell-metabolism ,
+    natcurric:contentdescriptor-cell-biology-use-of-mathematics ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
 
@@ -455,7 +459,10 @@ natcurric:substrand-transport-systems
   skos:broader natcurric:strand-biological-science ;
   skos:narrower 
     natcurric:contentdescriptor-transport-systems-in-multicellular-organisms ,
-    natcurric:contentdescriptor-human-circulatory-system ;
+    natcurric:contentdescriptor-human-circulatory-system ,
+    natcurric:contentdescriptor-transport-in-cells ,
+    natcurric:contentdescriptor-transport-systems-in-plants ,
+    natcurric:contentdescriptor-transport-systems-use-of-mathematics ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
 
@@ -473,7 +480,10 @@ natcurric:substrand-health-disease-medicines
     natcurric:contentdescriptor-body-defences-and-immune-system ,
     natcurric:contentdescriptor-preventing-spread-of-infectious-diseases ,
     natcurric:contentdescriptor-discovery-development-of-new-medicines ,
-    natcurric:contentdescriptor-lifestyle-factors-on-incidence-diseases ;
+    natcurric:contentdescriptor-lifestyle-factors-on-incidence-diseases ,
+    natcurric:contentdescriptor-health-and-disease ,
+    natcurric:contentdescriptor-treating-curing-and-preventing-disease ,
+    natcurric:contentdescriptor-health-disease-medicines-use-of-mathematics ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
 
@@ -489,7 +499,8 @@ natcurric:substrand-coordination-and-control
     natcurric:contentdescriptor-structure-function-reflex-arc ,
     natcurric:contentdescriptor-hormonal-coordination-and-control-humans ,
     natcurric:contentdescriptor-hormones-in-human-reproduction ,
-    natcurric:contentdescriptor-homeostasis ;
+    natcurric:contentdescriptor-homeostasis ,
+    natcurric:contentdescriptor-coordination-and-control-use-of-mathematics ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
 
@@ -505,7 +516,9 @@ natcurric:substrand-photosynthesis
     natcurric:contentdescriptor-adaptations-of-leaves-for-photosynthesis ,
     natcurric:contentdescriptor-photosynthesis-for-food-production ,
     natcurric:contentdescriptor-process-of-photosynthesis ,
-    natcurric:contentdescriptor-factors-affecting-rate-of-photosynthesis ;
+    natcurric:contentdescriptor-factors-affecting-rate-of-photosynthesis ,
+    natcurric:contentdescriptor-importance-of-photosynthesis ,
+    natcurric:contentdescriptor-photosynthesis-use-of-mathematics ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
 
@@ -523,7 +536,9 @@ natcurric:substrand-ecosystems
     natcurric:contentdescriptor-organisms-interdependent-adapted-to-environment ,
     natcurric:contentdescriptor-importance-of-biodiversity ,
     natcurric:contentdescriptor-distribution-frequency-abundance-species-habitat ,
-    natcurric:contentdescriptor-human-interactions-with-ecosystems ;
+    natcurric:contentdescriptor-human-interactions-with-ecosystems ,
+    natcurric:contentdescriptor-principle-of-material-cycling ,
+    natcurric:contentdescriptor-ecosystems-use-of-mathematics ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
 
@@ -545,7 +560,12 @@ natcurric:substrand-evolution-inheritance-variation
     natcurric:contentdescriptor-evidence-for-evolution ,
     natcurric:contentdescriptor-developments-in-biology-affecting-classification ,
     natcurric:contentdescriptor-selective-breeding-in-agriculture ,
-    natcurric:contentdescriptor-modern-biotechnology ;
+    natcurric:contentdescriptor-modern-biotechnology ,
+    natcurric:contentdescriptor-genome-and-gene-expression ,
+    natcurric:contentdescriptor-inheritance ,
+    natcurric:contentdescriptor-variation-and-evolution ,
+    natcurric:contentdescriptor-selective-breeding-and-gene-technology ,
+    natcurric:contentdescriptor-evolution-inheritance-variation-use-of-mathematics ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
 
@@ -1768,6 +1788,38 @@ natcurric:contentdescriptor-key-biological-molecules
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
 
+natcurric:contentdescriptor-prokaryotic-and-eukaryotic-cells
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Prokaryotic and eukaryotic cells."@en ;
+  curric:displayOrder "7"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-cell-biology ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-growth-and-development-of-cells
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Growth and development of cells."@en ;
+  curric:displayOrder "8"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-cell-biology ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-cell-metabolism
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Cell metabolism."@en ;
+  curric:displayOrder "9"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-cell-biology ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-cell-biology-use-of-mathematics
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Use of mathematics."@en ;
+  curric:displayOrder "10"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-cell-biology ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
 natcurric:contentdescriptor-transport-systems-in-multicellular-organisms
   a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel """The need for transport systems in multicellular organisms, including 
@@ -1782,6 +1834,30 @@ natcurric:contentdescriptor-human-circulatory-system
   skos:prefLabel """The relationship between the structure and functions of the human circulatory 
   system."""@en ;
   curric:displayOrder "2"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-transport-systems ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-transport-in-cells
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Transport in cells."@en ;
+  curric:displayOrder "3"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-transport-systems ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-transport-systems-in-plants
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Transport systems in plants."@en ;
+  curric:displayOrder "4"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-transport-systems ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-transport-systems-use-of-mathematics
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Use of mathematics."@en ;
+  curric:displayOrder "5"^^xsd:positiveInteger ;
   skos:broader natcurric:substrand-transport-systems ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
@@ -1854,6 +1930,30 @@ natcurric:contentdescriptor-lifestyle-factors-on-incidence-diseases
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
 
+natcurric:contentdescriptor-health-and-disease
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Health and disease."@en ;
+  curric:displayOrder "9"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-health-disease-medicines ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-treating-curing-and-preventing-disease
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Treating, curing and preventing disease."@en ;
+  curric:displayOrder "10"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-health-disease-medicines ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-health-disease-medicines-use-of-mathematics
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Use of mathematics."@en ;
+  curric:displayOrder "11"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-health-disease-medicines ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
 natcurric:contentdescriptor-nervous-coordination-and-control-humans
   a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel "Principles of nervous coordination and control in humans."@en ;
@@ -1900,6 +2000,14 @@ natcurric:contentdescriptor-homeostasis
   a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel "Homeostasis."@en ;
   curric:displayOrder "6"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-coordination-and-control ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-coordination-and-control-use-of-mathematics
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Use of mathematics."@en ;
+  curric:displayOrder "7"^^xsd:positiveInteger ;
   skos:broader natcurric:substrand-coordination-and-control ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
@@ -1953,6 +2061,22 @@ natcurric:contentdescriptor-factors-affecting-rate-of-photosynthesis
   a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel "Factors affecting the rate of photosynthesis."@en ;
   curric:displayOrder "6"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-photosynthesis ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-importance-of-photosynthesis
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Importance of photosynthesis."@en ;
+  curric:displayOrder "7"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-photosynthesis ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-photosynthesis-use-of-mathematics
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Use of mathematics."@en ;
+  curric:displayOrder "8"^^xsd:positiveInteger ;
   skos:broader natcurric:substrand-photosynthesis ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
@@ -2020,6 +2144,22 @@ natcurric:contentdescriptor-human-interactions-with-ecosystems
   a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel "Positive and negative human interactions with ecosystems."@en ;
   curric:displayOrder "8"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-ecosystems ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-principle-of-material-cycling
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "The principle of material cycling."@en ;
+  curric:displayOrder "9"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-ecosystems ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-ecosystems-use-of-mathematics
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Use of mathematics."@en ;
+  curric:displayOrder "10"^^xsd:positiveInteger ;
   skos:broader natcurric:substrand-ecosystems ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
@@ -2120,6 +2260,46 @@ natcurric:contentdescriptor-modern-biotechnology
   skos:prefLabel """The uses of modern biotechnology including gene technology; some of the 
   practical and ethical considerations of modern biotechnology."""@en ;
   curric:displayOrder "12"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-evolution-inheritance-variation ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-genome-and-gene-expression
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "The genome and gene expression."@en ;
+  curric:displayOrder "13"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-evolution-inheritance-variation ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-inheritance
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Inheritance."@en ;
+  curric:displayOrder "14"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-evolution-inheritance-variation ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-variation-and-evolution
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Variation and evolution."@en ;
+  curric:displayOrder "15"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-evolution-inheritance-variation ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-selective-breeding-and-gene-technology
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Selective breeding and gene technology."@en ;
+  curric:displayOrder "16"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-evolution-inheritance-variation ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-evolution-inheritance-variation-use-of-mathematics
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Use of mathematics."@en ;
+  curric:displayOrder "17"^^xsd:positiveInteger ;
   skos:broader natcurric:substrand-evolution-inheritance-variation ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
