@@ -578,11 +578,11 @@ natcurric:substrand-energy
     natcurric:contentdescriptor-power-as-rate-transfer-energy ,
     natcurric:contentdescriptor-conservation-of-energy-closed-system ,
     natcurric:contentdescriptor-energy-efficiency-for-energy-transfers ,
-    natcurric:contentdescriptor-renewable-non-renewable-energy-sources '
+    natcurric:contentdescriptor-renewable-non-renewable-energy-sources ,
     natcurric:contentdescriptor-conservation-dissipation-national-global-sources ,
     natcurric:contentdescriptor-energy-use-of-mathematics ;
   skos:inScheme natcurric:knowledge-taxonomy ;
-  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .s
 
 natcurric:substrand-forces
   a skos:Concept, curric:SubStrand ;
