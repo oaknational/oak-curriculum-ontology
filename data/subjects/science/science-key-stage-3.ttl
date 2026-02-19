@@ -16880,7 +16880,7 @@ oakcurric:keyword-categoric
 
 oakcurric:keyword-continuous
   a curric:Keyword ;
-  schema:name "continuous"@en ;
+  schema:name "Continuous"@en ;
   schema:description """A variable is continuous if it can take any value, including decimals, on a scale of numbers."""@en ;
   dcterms:modified "2026-02-19T08:26:07.147171Z"^^xsd:dateTime .
 
@@ -16982,7 +16982,7 @@ oakcurric:keyword-property
 
 oakcurric:keyword-compare
   a curric:Keyword ;
-  schema:name "compare"@en ;
+  schema:name "Compare"@en ;
   schema:description """involves identifying similarities between two or more things, ideas, concepts or texts"""@en ;
   dcterms:modified "2026-02-19T08:26:07.147665Z"^^xsd:dateTime .
 
@@ -17072,7 +17072,7 @@ oakcurric:keyword-qualitative
 
 oakcurric:keyword-power
   a curric:Keyword ;
-  schema:name "Power"@en ;
+  schema:name "power"@en ;
   schema:description "Having power means being able to control people or events."@en ;
   dcterms:modified "2026-02-19T08:26:07.148817Z"^^xsd:dateTime .
 
@@ -17180,7 +17180,7 @@ oakcurric:keyword-enzyme
 
 oakcurric:keyword-reflection
   a curric:Keyword ;
-  schema:name "reflection"@en ;
+  schema:name "Reflection"@en ;
   schema:description "casting back a light or heat, mirroring or giving back or showing an image"@en ;
   dcterms:modified "2026-02-19T08:26:07.150211Z"^^xsd:dateTime .
 
@@ -17222,7 +17222,7 @@ oakcurric:keyword-pulse
 
 oakcurric:keyword-line-graph
   a curric:Keyword ;
-  schema:name "line graph"@en ;
+  schema:name "Line graph"@en ;
   schema:description "a graph displaying continuous data plotted as points joined with a line"@en ;
   dcterms:modified "2026-02-19T08:26:07.151146Z"^^xsd:dateTime .
 
@@ -17318,7 +17318,7 @@ oakcurric:keyword-noble-gas
 
 oakcurric:keyword-group
   a curric:Keyword ;
-  schema:name "group"@en ;
+  schema:name "Group"@en ;
   schema:description "To group things is to put similar things together."@en ;
   dcterms:modified "2026-02-19T08:26:07.151735Z"^^xsd:dateTime .
 
@@ -17468,13 +17468,13 @@ oakcurric:keyword-kingdom
 
 oakcurric:keyword-temperature
   a curric:Keyword ;
-  schema:name "temperature"@en ;
+  schema:name "Temperature"@en ;
   schema:description "Temperature is a measure of how hot or cold something is."@en ;
   dcterms:modified "2026-02-19T08:26:07.152603Z"^^xsd:dateTime .
 
 oakcurric:keyword-thermometer
   a curric:Keyword ;
-  schema:name "thermometer"@en ;
+  schema:name "Thermometer"@en ;
   schema:description "A thermometer is a piece of equipment for measuring temperature."@en ;
   dcterms:modified "2026-02-19T08:26:07.152608Z"^^xsd:dateTime .
 
@@ -17582,13 +17582,13 @@ oakcurric:keyword-apparatus
 
 oakcurric:keyword-mass
   a curric:Keyword ;
-  schema:name "mass"@en ;
+  schema:name "Mass"@en ;
   schema:description "Mass is the amount of matter in an object, usually measured in grams."@en ;
   dcterms:modified "2026-02-19T08:26:07.153600Z"^^xsd:dateTime .
 
 oakcurric:keyword-volume
   a curric:Keyword ;
-  schema:name "volume"@en ;
+  schema:name "Volume"@en ;
   schema:description "Volume is how much 3D space a material occupies.  It is usually measured in cm³."@en ;
   dcterms:modified "2026-02-19T08:26:07.153605Z"^^xsd:dateTime .
 
@@ -17672,7 +17672,7 @@ oakcurric:keyword-temperature-change
 
 oakcurric:keyword-mean
   a curric:Keyword ;
-  schema:name "mean"@en ;
+  schema:name "Mean"@en ;
   schema:description """An average of several measurements, which is calculated by adding them up and dividing by the number of measurements."""@en ;
   dcterms:modified "2026-02-19T08:26:07.154069Z"^^xsd:dateTime .
 
@@ -18158,7 +18158,7 @@ oakcurric:keyword-ore
 
 oakcurric:keyword-sphere
   a curric:Keyword ;
-  schema:name "sphere"@en ;
+  schema:name "Sphere"@en ;
   schema:description "An object that is shaped like a ball is a sphere."@en ;
   dcterms:modified "2026-02-19T08:26:07.159273Z"^^xsd:dateTime .
 
@@ -18194,7 +18194,7 @@ oakcurric:keyword-cementation
 
 oakcurric:keyword-strata
   a curric:Keyword ;
-  schema:name "strata"@en ;
+  schema:name "Strata"@en ;
   schema:description "layers of rock (i.e. several rock beds) formed by the deposition of sediment"@en ;
   dcterms:modified "2026-02-19T08:26:07.159434Z"^^xsd:dateTime .
 
@@ -18782,7 +18782,7 @@ oakcurric:keyword-solubility
 
 oakcurric:keyword-line-of-best-fit
   a curric:Keyword ;
-  schema:name "line of best fit"@en ;
+  schema:name "Line of best fit"@en ;
   schema:description "A line that depicts the trend of scattered data plots on a graph."@en ;
   dcterms:modified "2026-02-19T08:26:07.168563Z"^^xsd:dateTime .
 
@@ -19208,7 +19208,7 @@ oakcurric:keyword-terminal-velocity
 
 oakcurric:keyword-ray
   a curric:Keyword ;
-  schema:name "ray"@en ;
+  schema:name "Ray"@en ;
   schema:description """A ray is a straight line drawn to represent the direction that a light wave travels."""@en ;
   dcterms:modified "2026-02-19T08:26:07.169584Z"^^xsd:dateTime .
 
@@ -19406,7 +19406,7 @@ oakcurric:keyword-renewable-resource
 
 oakcurric:keyword-protractor
   a curric:Keyword ;
-  schema:name "protractor"@en ;
+  schema:name "Protractor"@en ;
   schema:description "a device used to measure angles"@en ;
   dcterms:modified "2026-02-19T08:26:07.170172Z"^^xsd:dateTime .
 
@@ -19454,13 +19454,13 @@ oakcurric:keyword-spin
 
 oakcurric:keyword-day
   a curric:Keyword ;
-  schema:name "day"@en ;
+  schema:name "Day"@en ;
   schema:description "One day is the time taken for Earth to complete one spin (24 hours)."@en ;
   dcterms:modified "2026-02-19T08:26:07.170648Z"^^xsd:dateTime .
 
 oakcurric:keyword-year
   a curric:Keyword ;
-  schema:name "year"@en ;
+  schema:name "Year"@en ;
   schema:description "One year is the time taken for Earth to orbit the Sun (365.25 days)."@en ;
   dcterms:modified "2026-02-19T08:26:07.170653Z"^^xsd:dateTime .
 
@@ -19514,7 +19514,7 @@ oakcurric:keyword-branch
 
 oakcurric:keyword-function
   a curric:Keyword ;
-  schema:name "function"@en ;
+  schema:name "Function"@en ;
   schema:description "The task that something has is its function."@en ;
   dcterms:modified "2026-02-19T08:26:07.170888Z"^^xsd:dateTime .
 
@@ -19796,7 +19796,7 @@ oakcurric:keyword-repel
 
 oakcurric:keyword-force
   a curric:Keyword ;
-  schema:name "force"@en ;
+  schema:name "Force"@en ;
   schema:description "Forces are the pushes and pulls that objects exert on each other."@en ;
   dcterms:modified "2026-02-19T08:26:07.173184Z"^^xsd:dateTime .
 
@@ -19814,7 +19814,7 @@ oakcurric:keyword-water-cycle
 
 oakcurric:keyword-distance
   a curric:Keyword ;
-  schema:name "distance"@en ;
+  schema:name "Distance"@en ;
   schema:description "a length between two points, usually measured in metres (m)"@en ;
   dcterms:modified "2026-02-19T08:26:07.173339Z"^^xsd:dateTime .
 
@@ -20522,7 +20522,7 @@ oakcurric:keyword-genetics
 
 oakcurric:keyword-lava
   a curric:Keyword ;
-  schema:name "lava"@en ;
+  schema:name "Lava"@en ;
   schema:description "Molten (i.e. melted) rock that has broken through Earth's crust."@en ;
   dcterms:modified "2026-02-19T08:26:07.177986Z"^^xsd:dateTime .
 
@@ -20540,7 +20540,7 @@ oakcurric:keyword-extrusive
 
 oakcurric:keyword-intrusive
   a curric:Keyword ;
-  schema:name "intrusive"@en ;
+  schema:name "Intrusive"@en ;
   schema:description """A type of igneous rock that form when magma has cooled and crystallised; they form under Earth's surface."""@en ;
   dcterms:modified "2026-02-19T08:26:07.177999Z"^^xsd:dateTime .
 
@@ -20960,7 +20960,7 @@ oakcurric:keyword-translucent
 
 oakcurric:keyword-inverted
   a curric:Keyword ;
-  schema:name "inverted"@en ;
+  schema:name "Inverted"@en ;
   schema:description "Describes an image that is upside down."@en ;
   dcterms:modified "2026-02-19T08:26:07.179710Z"^^xsd:dateTime .
 
@@ -21416,7 +21416,7 @@ oakcurric:keyword-random-arrangement
 
 oakcurric:keyword-displaced
   a curric:Keyword ;
-  schema:name "displaced"@en ;
+  schema:name "Displaced"@en ;
   schema:description "Water is displaced (moved) when an object floats on it or sinks in it."@en ;
   dcterms:modified "2026-02-19T08:26:07.183716Z"^^xsd:dateTime .
 

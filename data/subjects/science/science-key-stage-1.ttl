@@ -4510,7 +4510,7 @@ oakcurric:keyword-observe
 
 oakcurric:keyword-compare
   a curric:Keyword ;
-  schema:name "compare"@en ;
+  schema:name "Compare"@en ;
   schema:description """involves identifying similarities between two or more things, ideas, concepts or texts"""@en ;
   dcterms:modified "2026-02-19T08:26:07.147665Z"^^xsd:dateTime .
 
@@ -4558,7 +4558,7 @@ oakcurric:keyword-rain-gauge
 
 oakcurric:keyword-measure
   a curric:Keyword ;
-  schema:name "measure"@en ;
+  schema:name "Measure"@en ;
   schema:description """To measure is to find out the size of something or how much of something there is."""@en ;
   dcterms:modified "2026-02-19T08:26:07.148496Z"^^xsd:dateTime .
 
@@ -4606,7 +4606,7 @@ oakcurric:keyword-material
 
 oakcurric:keyword-properties
   a curric:Keyword ;
-  schema:name "properties"@en ;
+  schema:name "Properties"@en ;
   schema:description "The describing words we use for a material are called its properties."@en ;
   dcterms:modified "2026-02-19T08:26:07.150725Z"^^xsd:dateTime .
 
@@ -4720,7 +4720,7 @@ oakcurric:keyword-wild-animal
 
 oakcurric:keyword-group
   a curric:Keyword ;
-  schema:name "group"@en ;
+  schema:name "Group"@en ;
   schema:description "To group things is to put similar things together."@en ;
   dcterms:modified "2026-02-19T08:26:07.151735Z"^^xsd:dateTime .
 
@@ -4780,13 +4780,13 @@ oakcurric:keyword-skin
 
 oakcurric:keyword-temperature
   a curric:Keyword ;
-  schema:name "temperature"@en ;
+  schema:name "Temperature"@en ;
   schema:description "Temperature is a measure of how hot or cold something is."@en ;
   dcterms:modified "2026-02-19T08:26:07.152603Z"^^xsd:dateTime .
 
 oakcurric:keyword-thermometer
   a curric:Keyword ;
-  schema:name "thermometer"@en ;
+  schema:name "Thermometer"@en ;
   schema:description "A thermometer is a piece of equipment for measuring temperature."@en ;
   dcterms:modified "2026-02-19T08:26:07.152608Z"^^xsd:dateTime .
 
@@ -4804,7 +4804,7 @@ oakcurric:keyword-germs
 
 oakcurric:keyword-prevent
   a curric:Keyword ;
-  schema:name "prevent"@en ;
+  schema:name "Prevent"@en ;
   schema:description "To prevent something is to stop it from happening."@en ;
   dcterms:modified "2026-02-19T08:26:07.152899Z"^^xsd:dateTime .
 
@@ -4834,7 +4834,7 @@ oakcurric:keyword-presenting
 
 oakcurric:keyword-roots
   a curric:Keyword ;
-  schema:name "roots"@en ;
+  schema:name "Roots"@en ;
   schema:description """The part of a plant that anchors it in the soil is called the root. Roots take in water for the plant."""@en ;
   dcterms:modified "2026-02-19T08:26:07.153394Z"^^xsd:dateTime .
 
@@ -4864,13 +4864,13 @@ oakcurric:keyword-food
 
 oakcurric:keyword-amount
   a curric:Keyword ;
-  schema:name "amount"@en ;
+  schema:name "Amount"@en ;
   schema:description "An amount is a quantity of something."@en ;
   dcterms:modified "2026-02-19T08:26:07.153736Z"^^xsd:dateTime .
 
 oakcurric:keyword-portion
   a curric:Keyword ;
-  schema:name "portion"@en ;
+  schema:name "Portion"@en ;
   schema:description "A portion is the amount of food that is given to one person at a meal."@en ;
   dcterms:modified "2026-02-19T08:26:07.153741Z"^^xsd:dateTime .
 
@@ -5098,7 +5098,7 @@ oakcurric:keyword-root
 
 oakcurric:keyword-results
   a curric:Keyword ;
-  schema:name "results"@en ;
+  schema:name "Results"@en ;
   schema:description "The result of a test or enquiry is what happened or what was found out."@en ;
   dcterms:modified "2026-02-19T08:26:07.168981Z"^^xsd:dateTime .
 

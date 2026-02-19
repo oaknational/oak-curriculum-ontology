@@ -33876,7 +33876,7 @@ oakcurric:keyword-hormone
 
 oakcurric:keyword-compound
   a curric:Keyword ;
-  schema:name "compound"@en ;
+  schema:name "Compound"@en ;
   schema:description "A compound is made of two or more different elements chemically bonded together."@en ;
   dcterms:modified "2026-02-19T08:26:07.147627Z"^^xsd:dateTime .
 
@@ -34008,7 +34008,7 @@ oakcurric:keyword-qualitative
 
 oakcurric:keyword-power
   a curric:Keyword ;
-  schema:name "Power"@en ;
+  schema:name "power"@en ;
   schema:description "Having power means being able to control people or events."@en ;
   dcterms:modified "2026-02-19T08:26:07.148817Z"^^xsd:dateTime .
 
@@ -34026,7 +34026,7 @@ oakcurric:keyword-tension
 
 oakcurric:keyword-ethical
   a curric:Keyword ;
-  schema:name "Ethical"@en ;
+  schema:name "ethical"@en ;
   schema:description "in accordance with moral conduct"@en ;
   dcterms:modified "2026-02-19T08:26:07.149409Z"^^xsd:dateTime .
 
@@ -34110,7 +34110,7 @@ oakcurric:keyword-relative-formula-mass
 
 oakcurric:keyword-line-graph
   a curric:Keyword ;
-  schema:name "line graph"@en ;
+  schema:name "Line graph"@en ;
   schema:description "a graph displaying continuous data plotted as points joined with a line"@en ;
   dcterms:modified "2026-02-19T08:26:07.151146Z"^^xsd:dateTime .
 
@@ -34164,7 +34164,7 @@ oakcurric:keyword-noble-gas
 
 oakcurric:keyword-group
   a curric:Keyword ;
-  schema:name "group"@en ;
+  schema:name "Group"@en ;
   schema:description "To group things is to put similar things together."@en ;
   dcterms:modified "2026-02-19T08:26:07.151735Z"^^xsd:dateTime .
 
@@ -34194,7 +34194,7 @@ oakcurric:keyword-resolution
 
 oakcurric:keyword-prefix
   a curric:Keyword ;
-  schema:name "Prefix"@en ;
+  schema:name "prefix"@en ;
   schema:description """A prefix is a group of letters attached to the front of a root (word) to make a new word, for example tricycle."""@en ;
   dcterms:modified "2026-02-19T08:26:07.152183Z"^^xsd:dateTime .
 
@@ -34278,7 +34278,7 @@ oakcurric:keyword-kingdom
 
 oakcurric:keyword-temperature
   a curric:Keyword ;
-  schema:name "temperature"@en ;
+  schema:name "Temperature"@en ;
   schema:description "Temperature is a measure of how hot or cold something is."@en ;
   dcterms:modified "2026-02-19T08:26:07.152603Z"^^xsd:dateTime .
 
@@ -34326,13 +34326,13 @@ oakcurric:keyword-apparatus
 
 oakcurric:keyword-mass
   a curric:Keyword ;
-  schema:name "mass"@en ;
+  schema:name "Mass"@en ;
   schema:description "Mass is the amount of matter in an object, usually measured in grams."@en ;
   dcterms:modified "2026-02-19T08:26:07.153600Z"^^xsd:dateTime .
 
 oakcurric:keyword-volume
   a curric:Keyword ;
-  schema:name "volume"@en ;
+  schema:name "Volume"@en ;
   schema:description "Volume is how much 3D space a material occupies.  It is usually measured in cm³."@en ;
   dcterms:modified "2026-02-19T08:26:07.153605Z"^^xsd:dateTime .
 
@@ -34398,7 +34398,7 @@ oakcurric:keyword-structure
 
 oakcurric:keyword-mean
   a curric:Keyword ;
-  schema:name "mean"@en ;
+  schema:name "Mean"@en ;
   schema:description """An average of several measurements, which is calculated by adding them up and dividing by the number of measurements."""@en ;
   dcterms:modified "2026-02-19T08:26:07.154069Z"^^xsd:dateTime .
 
@@ -34428,7 +34428,7 @@ oakcurric:keyword-bacteria
 
 oakcurric:keyword-ratio
   a curric:Keyword ;
-  schema:name "Ratio"@en ;
+  schema:name "ratio"@en ;
   schema:description """shows the relative sizes of 2 or more values and allows you to compare a part with another part in a whole."""@en ;
   dcterms:modified "2026-02-19T08:26:07.154553Z"^^xsd:dateTime .
 
@@ -36072,7 +36072,7 @@ oakcurric:keyword-dot-and-cross-diagram
 
 oakcurric:keyword-ray
   a curric:Keyword ;
-  schema:name "ray"@en ;
+  schema:name "Ray"@en ;
   schema:description """A ray is a straight line drawn to represent the direction that a light wave travels."""@en ;
   dcterms:modified "2026-02-19T08:26:07.169584Z"^^xsd:dateTime .
 
@@ -37392,7 +37392,7 @@ oakcurric:keyword-collision-theory
 
 oakcurric:keyword-end-point-method
   a curric:Keyword ;
-  schema:name "end-point method"@en ;
+  schema:name "End-Point Method"@en ;
   schema:description """An end-point method is used to measure the progress of a reaction until it has reached completion or a desirable point, e.g. a colour change."""@en ;
   dcterms:modified "2026-02-19T08:26:07.174877Z"^^xsd:dateTime .
 
