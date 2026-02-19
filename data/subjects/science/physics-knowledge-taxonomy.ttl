@@ -125,9 +125,11 @@ natcurric:strand-physical-science
     natcurric:substrand-forces ,
     natcurric:substrand-forces-and-motion ,
     natcurric:substrand-wave-motion ,
+    natcurric:substrand-light-and-electromagnetic-waves ,
     natcurric:substrand-electricity ,
     natcurric:substrand-magnetism-and-electromagnetism ,
     natcurric:substrand-structure-of-matter ,
+    natcurric:substrand-particle-model-of-matter ,
     natcurric:substrand-atomic-structure ,
     natcurric:substrand-space-physics ;
   skos:inScheme natcurric:knowledge-taxonomy ;
