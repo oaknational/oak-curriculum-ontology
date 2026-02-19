@@ -121,7 +121,6 @@ natcurric:strand-physical-science
     natcurric:substrand-physical-changes ,
     natcurric:substrand-particle-model ,
     natcurric:substrand-energy-in-matter ,
-    natcurric:substrand-space-physics ,
     natcurric:substrand-energy ,
     natcurric:substrand-forces ,
     natcurric:substrand-forces-and-motion ,
@@ -586,7 +585,7 @@ natcurric:substrand-energy
 natcurric:substrand-forces
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Forces"@en ;
-  skos:definition "Description of sub-strand..." ;
+  skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "23"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-physical-science ;
   skos:narrower 
@@ -611,7 +610,7 @@ natcurric:substrand-forces
 natcurric:substrand-forces-and-motion
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Forces and motion"@en ;
-  skos:definition "Description of sub-strand..." ;
+  skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "24"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-physical-science ;
   skos:narrower 
@@ -712,7 +711,7 @@ natcurric:substrand-atomic-structure
 natcurric:substrand-space-physics
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Space physics"@en ;
-  skos:definition "Description of sub-strand..." ;
+  skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "30"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-physical-science ;
   skos:narrower 
