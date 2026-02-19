@@ -49,9 +49,9 @@
 # Subject Group
 # ----------------------------------------------------------------------
 
-natcurric:subjectgroup-geography
+natcurric:subjectgroup-humanities
   a curric:SubjectGroup ;
-  rdfs:label "Geography"@en ;
+  rdfs:label "Humanities"@en ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
   curric:coversDiscipline natcurric:discipline-geography .
   
@@ -91,7 +91,7 @@ natcurric:subject-geography
   curric:structure "Text for structure..."@en ;
   curric:schoolCurriculum "Text for school curriculum..."@en ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
-  curric:isSubjectOf natcurric:subjectgroup-geography ;
+  curric:isSubjectOf natcurric:subjectgroup-humanities ;
   curric:coversStrand 
     natcurric:strand-world-knowledge ,
     natcurric:strand-thinking-geographically ,

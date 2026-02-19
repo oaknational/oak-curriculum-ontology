@@ -51,9 +51,9 @@
 # Subject Group
 # ----------------------------------------------------------------------
 
-natcurric:subjectgroup-science
+natcurric:subjectgroup-sciences
   a curric:SubjectGroup ;
-  rdfs:label "Science"@en ;
+  rdfs:label "Sciences"@en ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
   curric:coversDiscipline natcurric:discipline-science .
   
@@ -117,7 +117,7 @@ natcurric:subject-science
   required to set out their school curriculum for science on a year-by-year basis and make this 
   information available online."""@en ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
-  curric:isSubjectOf natcurric:subjectgroup-science ;
+  curric:isSubjectOf natcurric:subjectgroup-sciences ;
   curric:coversStrand natcurric:strand-working-scientifically ,
                       natcurric:strand-biological-science ,
                       natcurric:strand-chemical-science ,
@@ -238,6 +238,14 @@ natcurric:scheme-science-key-stage-3
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
   curric:isSchemeOf natcurric:subject-science ;
   curric:coversKeyStage natcurric:key-stage-3 .
+
+natcurric:scheme-science-key-stage-4
+  a curric:Scheme ;
+  rdfs:label "Science Key Stage 4"@en ;
+  dcterms:description """Science Key Stage 4 description..."""@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isSchemeOf natcurric:subject-science ;
+  curric:coversKeyStage natcurric:key-stage-4 .
 
 # ----------------------------------------------------------------------
 # Progressions

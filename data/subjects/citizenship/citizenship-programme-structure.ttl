@@ -49,9 +49,9 @@
 # Subject Group
 # ----------------------------------------------------------------------
 
-natcurric:subjectgroup-citizenship
+natcurric:subjectgroup-humanities
   a curric:SubjectGroup ;
-  rdfs:label "Citizenship"@en ;
+  rdfs:label "Humanities"@en ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
   curric:coversDiscipline natcurric:discipline-citizenship .
   
@@ -83,7 +83,7 @@ natcurric:subject-citizenship
   curric:structure "Text for structure..."@en ;
   curric:schoolCurriculum "Text for school curriculum..."@en ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
-  curric:isSubjectOf natcurric:subjectgroup-citizenship ;
+  curric:isSubjectOf natcurric:subjectgroup-humanities ;
   curric:coversStrand natcurric:strand-democracy ,
                       natcurric:strand-government ,
                       natcurric:strand-rights-and-responsibilities-of-citizens .
