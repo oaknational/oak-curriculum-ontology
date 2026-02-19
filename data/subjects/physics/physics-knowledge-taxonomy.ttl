@@ -363,7 +363,7 @@ natcurric:substrand-earth-and-space
 natcurric:substrand-fuel-uses-costs-domestic-context
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Fuel Uses Costs Domestic Context"@en ;
-  skos:definition "Description of sub-strand..." ;
+  skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "6"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-physical-science ;
   skos:narrower 
@@ -378,7 +378,7 @@ natcurric:substrand-fuel-uses-costs-domestic-context
 natcurric:substrand-energy-changes-and-transfers
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Energy Changes and Transfers"@en ;
-  skos:definition "Description of sub-strand..." ;
+  skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "7"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-physical-science ;
   skos:narrower 
@@ -391,7 +391,7 @@ natcurric:substrand-energy-changes-and-transfers
 natcurric:substrand-changes-in-systems
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Changes in Systems"@en ;
-  skos:definition "Description of sub-strand..." ;
+  skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "8"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-physical-science ;
   skos:narrower 
@@ -404,7 +404,7 @@ natcurric:substrand-changes-in-systems
 natcurric:substrand-describing-motion
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Describing Motion"@en ;
-  skos:definition "Description of sub-strand..." ;
+  skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "9"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-physical-science ;
   skos:narrower 
@@ -417,7 +417,7 @@ natcurric:substrand-describing-motion
 natcurric:substrand-pressure-in-fluids
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Pressure in Fluids"@en ;
-  skos:definition "Description of sub-strand..." ;
+  skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "10"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-physical-science ;
   skos:narrower 
@@ -430,7 +430,7 @@ natcurric:substrand-pressure-in-fluids
 natcurric:substrand-balanced-forces
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Balanced Forces"@en ;
-  skos:definition "Description of sub-strand..." ;
+  skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "11"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-physical-science ;
   skos:narrower 
@@ -441,7 +441,7 @@ natcurric:substrand-balanced-forces
 natcurric:substrand-observed-waves
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Observed Waves"@en ;
-  skos:definition "Description of sub-strand..." ;
+  skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "12"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-physical-science ;
   skos:narrower 
@@ -452,7 +452,7 @@ natcurric:substrand-observed-waves
 natcurric:substrand-sound-waves
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Sound Waves"@en ;
-  skos:definition "Description of sub-strand..." ;
+  skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "13"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-physical-science ;
   skos:narrower 
@@ -466,7 +466,7 @@ natcurric:substrand-sound-waves
 natcurric:substrand-energy-and-waves
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Energy and Waves"@en ;
-  skos:definition "Description of sub-strand..." ;
+  skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "14"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-physical-science ;
   skos:narrower 
@@ -477,7 +477,7 @@ natcurric:substrand-energy-and-waves
 natcurric:substrand-light-waves
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Light Waves"@en ;
-  skos:definition "Description of sub-strand..." ;
+  skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "15"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-physical-science ;
   skos:narrower 
@@ -493,7 +493,7 @@ natcurric:substrand-light-waves
 natcurric:substrand-current-electricity
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Current Electricity"@en ;
-  skos:definition "Description of sub-strand..." ;
+  skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "16"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-physical-science ;
   skos:narrower 
@@ -506,7 +506,7 @@ natcurric:substrand-current-electricity
 natcurric:substrand-static-electricity
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Static Electricity"@en ;
-  skos:definition "Description of sub-strand..." ;
+  skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "17"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-physical-science ;
   skos:narrower 
@@ -518,7 +518,7 @@ natcurric:substrand-static-electricity
 natcurric:substrand-magnetism
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Magnetism"@en ;
-  skos:definition "Description of sub-strand..." ;
+  skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "18"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-physical-science ;
   skos:narrower 
@@ -532,7 +532,7 @@ natcurric:substrand-magnetism
 natcurric:substrand-physical-changes
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Physical Changes"@en ;
-  skos:definition "Description of sub-strand..." ;
+  skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "19"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-physical-science ;
   skos:narrower 
@@ -547,7 +547,7 @@ natcurric:substrand-physical-changes
 natcurric:substrand-particle-model
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Particle Model"@en ;
-  skos:definition "Description of sub-strand..." ;
+  skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "20"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-physical-science ;
   skos:narrower 
@@ -559,7 +559,7 @@ natcurric:substrand-particle-model
 natcurric:substrand-energy-in-matter
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Energy in Matter"@en ;
-  skos:definition "Description of sub-strand..." ;
+  skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "21"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-physical-science ;
   skos:narrower 
