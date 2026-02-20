@@ -39202,8 +39202,8 @@ oakcurric:misconception-students-think-elemental-diatomic-molecule
 
 oakcurric:misconception-pupils-mistake-common-everyday-usage
   a curric:Misconception ;
-  curric:statement """Pupils mistake common (everyday) usage of pure (i.e. pure orange juice) as being a pure substance when it is, in fact, a mixture."""@en ;
-  curric:correction """'Everyday' usage refers to one source whereas scientific usage refers to particle composition."""@en ;
+  curric:statement """Pupils mistake common (everyday) usage of pure (e.g. pure orange juice) as being a pure substance when it is, in fact, a mixture."""@en ;
+  curric:correction """'Everyday' usage refers to one source, whereas scientific usage refers to particle composition."""@en ;
   dcterms:modified "2026-02-19T08:26:10.347489Z"^^xsd:dateTime .
 
 oakcurric:misconception-pupils-consider-control-variables-carefully
@@ -39275,7 +39275,7 @@ oakcurric:misconception-human-other-animals-catch-diseases
 oakcurric:misconception-linking-idea-glucose-concentration-important
   a curric:Misconception ;
   curric:statement """Not linking the idea that glucose concentration is important for cellular respiration, even during times of rest."""@en ;
-  curric:correction """There are a selection of slides in LC1 that specifically link glucose and respiration and discuss the idea of respiration occurring during rest."""@en ;
+  curric:correction """There are a selection of slides in LC2 that specifically link glucose and respiration and discuss the idea of respiration occurring during rest."""@en ;
   dcterms:modified "2026-02-19T08:26:10.351697Z"^^xsd:dateTime .
 
 oakcurric:misconception-describing-identifying-independent-dependent-control
@@ -39509,7 +39509,7 @@ oakcurric:misconception-acid-rain-immediately-harmful-human
 oakcurric:misconception-pupils-confuse-mass-weight-object
   a curric:Misconception ;
   curric:statement "Pupils confuse the mass or weight of an object with density."@en ;
-  curric:correction """Provide pupils with a range of objects of varying sizes that they are going to measure the density of. Before measuring density, ask the pupils to rank the objects in order of density with explanations. Compare results to the list after measurements."""@en ;
+  curric:correction """Provide pupils with a range of objects of varying sizes they are going to measure the density of and, before starting to do so, ask the pupils to rank the objects in order of density with explanations. Compare results to the list after measurements."""@en ;
   dcterms:modified "2026-02-19T08:26:10.354992Z"^^xsd:dateTime .
 
 oakcurric:misconception-animals-multicellular-specialised-cells-individual
@@ -39652,8 +39652,8 @@ oakcurric:misconception-common-misconception-excessive-growth-plants
 
 oakcurric:misconception-pupils-think-heating-substance-strongly
   a curric:Misconception ;
-  curric:statement """Pupils think that heating a substance strongly and for extended periods will improve distillation."""@en ;
-  curric:correction """Stress that distillation is a skill which requires careful control of heating so only one substance is in the condenser at a time."""@en ;
+  curric:statement """Pupils sometimes think that heating a substance strongly and for extended periods will improve the quality of separation via distillation."""@en ;
+  curric:correction """Stress that distillation is a skill which requires careful control of heating so only one substance is in the condenser at a time. Understanding the link between application of heat to the mixture, boiling point and reading a thermometer is essential"""@en ;
   dcterms:modified "2026-02-19T08:26:10.359848Z"^^xsd:dateTime .
 
 oakcurric:misconception-pupils-understand-observing-excess-metal
@@ -40769,7 +40769,7 @@ oakcurric:misconception-majority-pupils-struggle-differentiate-ionising
 oakcurric:misconception-magnetic-field-same-electric-field
   a curric:Misconception ;
   curric:statement "A magnetic field is the same as the electric field around a charged object."@en ;
-  curric:correction """Demonstrate that a balloon with a static electric charge does not affect the magnet in a plotting compass."""@en ;
+  curric:correction """Demonstrate that an electromagnet does not attract small pieces of tissue paper, as a balloon with a static charge can do."""@en ;
   dcterms:modified "2026-02-19T08:26:10.492075Z"^^xsd:dateTime .
 
 oakcurric:misconception-pupils-think-final-velocity-proportional
@@ -40894,7 +40894,7 @@ oakcurric:misconception-extension-extra-amount-spring-stretched
 
 oakcurric:misconception-pupils-understand-even-sub-microscopic
   a curric:Misconception ;
-  curric:statement """Pupils often do not understand that even sub–microscopic particles have a mass and volume, which affect the density of a substance."""@en ;
+  curric:statement """Pupils often do not understand that even sub–microscopic particles have a mass and volume which affect the density of a substance."""@en ;
   curric:correction """Use the anomaly of ice floating on water to consolidate understanding that molecules have mass and that the spacing of water molecules can affect density."""@en ;
   dcterms:modified "2026-02-19T08:26:10.494256Z"^^xsd:dateTime .
 

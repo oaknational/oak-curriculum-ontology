@@ -21570,8 +21570,8 @@ oakcurric:misconception-pupils-struggle-idea-small-atom
 
 oakcurric:misconception-pupils-mistake-common-everyday-usage
   a curric:Misconception ;
-  curric:statement """Pupils mistake common (everyday) usage of pure (i.e. pure orange juice) as being a pure substance when it is, in fact, a mixture."""@en ;
-  curric:correction """'Everyday' usage refers to one source whereas scientific usage refers to particle composition."""@en ;
+  curric:statement """Pupils mistake common (everyday) usage of pure (e.g. pure orange juice) as being a pure substance when it is, in fact, a mixture."""@en ;
+  curric:correction """'Everyday' usage refers to one source, whereas scientific usage refers to particle composition."""@en ;
   dcterms:modified "2026-02-19T08:26:10.347489Z"^^xsd:dateTime .
 
 oakcurric:misconception-compounds-same-properties-elements-made
@@ -21823,7 +21823,7 @@ oakcurric:misconception-friction-solids-rubbing-together
 oakcurric:misconception-sun-star
   a curric:Misconception ;
   curric:statement "The Sun is not a star."@en ;
-  curric:correction """Make it clear that the only reason the Sun looks different to the stars in the night sky is because it is so much closer to Earth. Use visual examples to show what the Sun and/or other stars would look like at greater distances."""@en ;
+  curric:correction "Compare the properties of the Sun with those of stars to show they are similar."@en ;
   dcterms:modified "2026-02-19T08:26:10.359565Z"^^xsd:dateTime .
 
 oakcurric:misconception-pupils-reluctant-struggle-plot-multiple
@@ -21888,8 +21888,8 @@ oakcurric:misconception-funnel-same-filter-dissolved-substances
 
 oakcurric:misconception-pupils-think-heating-substance-strongly
   a curric:Misconception ;
-  curric:statement """Pupils think that heating a substance strongly and for extended periods will improve distillation."""@en ;
-  curric:correction """Stress that distillation is a skill which requires careful control of heating so only one substance is in the condenser at a time."""@en ;
+  curric:statement """Pupils sometimes think that heating a substance strongly and for extended periods will improve the quality of separation via distillation."""@en ;
+  curric:correction """Stress that distillation is a skill which requires careful control of heating so only one substance is in the condenser at a time. Understanding the link between application of heat to the mixture, boiling point and reading a thermometer is essential"""@en ;
   dcterms:modified "2026-02-19T08:26:10.359848Z"^^xsd:dateTime .
 
 oakcurric:misconception-features-caused-environment-lifestyle-passed
@@ -22381,7 +22381,7 @@ oakcurric:misconception-pupils-struggle-understand-products-water
 oakcurric:misconception-magnetic-field-same-electric-field
   a curric:Misconception ;
   curric:statement "A magnetic field is the same as the electric field around a charged object."@en ;
-  curric:correction """Demonstrate that a balloon with a static electric charge does not affect the magnet in a plotting compass."""@en ;
+  curric:correction """Demonstrate that an electromagnet does not attract small pieces of tissue paper, as a balloon with a static charge can do."""@en ;
   dcterms:modified "2026-02-19T08:26:10.492075Z"^^xsd:dateTime .
 
 oakcurric:misconception-pupils-believe-driving-forces-needed
