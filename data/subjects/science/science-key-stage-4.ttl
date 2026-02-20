@@ -37392,7 +37392,7 @@ oakcurric:keyword-collision-theory
 
 oakcurric:keyword-end-point-method
   a curric:Keyword ;
-  schema:name "End-Point Method"@en ;
+  schema:name "end point method"@en ;
   schema:description """An end-point method is used to measure the progress of a reaction until it has reached completion or a desirable point, e.g. a colour change."""@en ;
   dcterms:modified "2026-02-19T08:26:07.174877Z"^^xsd:dateTime .
 

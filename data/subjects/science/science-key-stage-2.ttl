@@ -19542,7 +19542,7 @@ oakcurric:keyword-sun
 
 oakcurric:keyword-moon
   a curric:Keyword ;
-  schema:name "Moon"@en ;
+  schema:name "moon"@en ;
   schema:description "Our Moon is an object that travels around planet Earth."@en ;
   dcterms:modified "2026-02-19T08:26:07.174527Z"^^xsd:dateTime .
 
