@@ -11,26 +11,26 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 # ======================================================================
-# Oak Curriculum Data - Science KS4 Instance Data
+# Oak Curriculum Data - Combined Science KS4 Instance Data
 # ======================================================================
 
 # ----------------------------------------------------------------------
 # Ontology Declaration
 # ----------------------------------------------------------------------
 
-<https://w3id.org/uk/curriculum/oakcurriculum/science-key-stage-4>
+<https://w3id.org/uk/curriculum/oakcurriculum/combined-science-key-stage-4>
   rdf:type owl:Ontology ;
 
-  rdfs:label "Oak Curriculum Data - Science KS4 Instance Data"@en ;
-  dc:title "Oak Curriculum Data - Science KS4 Instance Data"@en ;
-  rdfs:comment """Instance data defining the Oak National Academy Curriculum
-  programmes for Science KS4."""@en ;
+  rdfs:label "Oak Curriculum Data - Combined Science KS4 Instance Data"@en ;
+  dc:title "Oak Curriculum Data - Combined Science KS4 Instance Data"@en ;
+  rdfs:comment """Instance data defining the Oak National Academy Curriculum programmes for 
+  Combined Science KS4."""@en ;
 
   owl:versionInfo "0.1.0" ;
-  owl:versionIRI <https://w3id.org/uk/curriculum/oakcurriculum/science-key-stage-4/0.1.0> ;
+  owl:versionIRI <https://w3id.org/uk/curriculum/oakcurriculum/combined-science-key-stage-4/0.1.0> ;
 
   dcterms:description """This file contains Programme, Unit, Unit Variant, and Lesson instances for
-  Science KS4, including exam board-specific unit variants and lesson sequences."""@en ;
+  Combined Science KS4, including exam board-specific unit variants and lesson sequences."""@en ;
   dc:creator "Oak National Academy" ;
   dcterms:created "2026-02-19T08:26:21.193722Z"^^xsd:dateTime ;
   dcterms:modified "2026-02-19T08:26:21.193802Z"^^xsd:dateTime ;
@@ -43,7 +43,7 @@
   vann:preferredNamespacePrefix "oakcurric" ; 
   vann:preferredNamespaceUri "https://w3id.org/uk/oak/curriculum/oakcurriculum/" ;
 
- owl:imports <https://w3id.org/uk/oak/curriculum/ontology> ,
+  owl:imports <https://w3id.org/uk/oak/curriculum/ontology> ,
               <https://w3id.org/uk/curriculum/nationalcurriculum/science-programme-structure> ,
               <https://w3id.org/uk/curriculum/oakcurriculum/programme-structure> ,
               <https://w3id.org/uk/curriculum/oakcurriculum/threads> .
@@ -55,7 +55,7 @@
 
 oakcurric:programme-science-year-group-10-foundation-aqa
   a curric:Programme ;
-  rdfs:label "Science Year Group 10 Foundation AQA"@en ;
+  rdfs:label "Combined Science Year Group 10 Foundation AQA"@en ;
   curric:isNationalCurriculum true ;
   curric:isRequired true ;
   curric:isExamined true ;
@@ -63,7 +63,7 @@ oakcurric:programme-science-year-group-10-foundation-aqa
   curric:examType "GCSE" ;
   curric:hasTier oakcurric:tier-foundation ;
   curric:hasExamBoard oakcurric:examboard-aqa ;
-  curric:isProgrammeOf natcurric:scheme-science-key-stage-4 ;
+  curric:isProgrammeOf natcurric:scheme-combined-science-key-stage-4 ;
   curric:coversYearGroup natcurric:year-group-10 ;
   curric:hasUnitVariantInclusion
     oakcurric:inclusion-programme-science-year-group-10-foundation-aqa-pos-1 ,
@@ -97,7 +97,7 @@ oakcurric:programme-science-year-group-10-foundation-aqa
 
 oakcurric:programme-science-year-group-10-foundation-edexcel
   a curric:Programme ;
-  rdfs:label "Science Year Group 10 Foundation Edexcel"@en ;
+  rdfs:label "Combined Science Year Group 10 Foundation Edexcel"@en ;
   curric:isNationalCurriculum true ;
   curric:isRequired true ;
   curric:isExamined true ;
@@ -105,7 +105,7 @@ oakcurric:programme-science-year-group-10-foundation-edexcel
   curric:examType "GCSE" ;
   curric:hasTier oakcurric:tier-foundation ;
   curric:hasExamBoard oakcurric:examboard-edexcel ;
-  curric:isProgrammeOf natcurric:scheme-science-key-stage-4 ;
+  curric:isProgrammeOf natcurric:scheme-combined-science-key-stage-4 ;
   curric:coversYearGroup natcurric:year-group-10 ;
   curric:hasUnitVariantInclusion
     oakcurric:inclusion-programme-science-year-group-10-foundation-edexcel-pos-1 ,
@@ -139,7 +139,7 @@ oakcurric:programme-science-year-group-10-foundation-edexcel
 
 oakcurric:programme-science-year-group-11-foundation-ocr
   a curric:Programme ;
-  rdfs:label "Science Year Group 11 Foundation OCR"@en ;
+  rdfs:label "Combined Science Year Group 11 Foundation OCR"@en ;
   curric:isNationalCurriculum true ;
   curric:isRequired true ;
   curric:isExamined true ;
@@ -147,7 +147,7 @@ oakcurric:programme-science-year-group-11-foundation-ocr
   curric:examType "GCSE" ;
   curric:hasTier oakcurric:tier-foundation ;
   curric:hasExamBoard oakcurric:examboard-ocr ;
-  curric:isProgrammeOf natcurric:scheme-science-key-stage-4 ;
+  curric:isProgrammeOf natcurric:scheme-combined-science-key-stage-4 ;
   curric:coversYearGroup natcurric:year-group-11 ;
   curric:hasUnitVariantInclusion
     oakcurric:inclusion-programme-science-year-group-11-foundation-ocr-pos-1 ,
@@ -175,7 +175,7 @@ oakcurric:programme-science-year-group-11-foundation-ocr
 
 oakcurric:programme-science-year-group-11-higher-edexcel
   a curric:Programme ;
-  rdfs:label "Science Year Group 11 Higher Edexcel"@en ;
+  rdfs:label "Combined Science Year Group 11 Higher Edexcel"@en ;
   curric:isNationalCurriculum true ;
   curric:isRequired true ;
   curric:isExamined true ;
@@ -183,7 +183,7 @@ oakcurric:programme-science-year-group-11-higher-edexcel
   curric:examType "GCSE" ;
   curric:hasTier oakcurric:tier-higher ;
   curric:hasExamBoard oakcurric:examboard-edexcel ;
-  curric:isProgrammeOf natcurric:scheme-science-key-stage-4 ;
+  curric:isProgrammeOf natcurric:scheme-combined-science-key-stage-4 ;
   curric:coversYearGroup natcurric:year-group-11 ;
   curric:hasUnitVariantInclusion
     oakcurric:inclusion-programme-science-year-group-11-higher-edexcel-pos-1 ,
@@ -211,7 +211,7 @@ oakcurric:programme-science-year-group-11-higher-edexcel
 
 oakcurric:programme-science-year-group-11-higher-ocr
   a curric:Programme ;
-  rdfs:label "Science Year Group 11 Higher OCR"@en ;
+  rdfs:label "Combined Science Year Group 11 Higher OCR"@en ;
   curric:isNationalCurriculum true ;
   curric:isRequired true ;
   curric:isExamined true ;
@@ -219,7 +219,7 @@ oakcurric:programme-science-year-group-11-higher-ocr
   curric:examType "GCSE" ;
   curric:hasTier oakcurric:tier-higher ;
   curric:hasExamBoard oakcurric:examboard-ocr ;
-  curric:isProgrammeOf natcurric:scheme-science-key-stage-4 ;
+  curric:isProgrammeOf natcurric:scheme-combined-science-key-stage-4 ;
   curric:coversYearGroup natcurric:year-group-11 ;
   curric:hasUnitVariantInclusion
     oakcurric:inclusion-programme-science-year-group-11-higher-ocr-pos-1 ,
@@ -247,7 +247,7 @@ oakcurric:programme-science-year-group-11-higher-ocr
 
 oakcurric:programme-science-year-group-10-higher-edexcel
   a curric:Programme ;
-  rdfs:label "Science Year Group 10 Higher Edexcel"@en ;
+  rdfs:label "Combined Science Year Group 10 Higher Edexcel"@en ;
   curric:isNationalCurriculum true ;
   curric:isRequired true ;
   curric:isExamined true ;
@@ -255,7 +255,7 @@ oakcurric:programme-science-year-group-10-higher-edexcel
   curric:examType "GCSE" ;
   curric:hasTier oakcurric:tier-higher ;
   curric:hasExamBoard oakcurric:examboard-edexcel ;
-  curric:isProgrammeOf natcurric:scheme-science-key-stage-4 ;
+  curric:isProgrammeOf natcurric:scheme-combined-science-key-stage-4 ;
   curric:coversYearGroup natcurric:year-group-10 ;
   curric:hasUnitVariantInclusion
     oakcurric:inclusion-programme-science-year-group-10-higher-edexcel-pos-1 ,
@@ -289,7 +289,7 @@ oakcurric:programme-science-year-group-10-higher-edexcel
 
 oakcurric:programme-science-year-group-10-higher-aqa
   a curric:Programme ;
-  rdfs:label "Science Year Group 10 Higher AQA"@en ;
+  rdfs:label "Combined Science Year Group 10 Higher AQA"@en ;
   curric:isNationalCurriculum true ;
   curric:isRequired true ;
   curric:isExamined true ;
@@ -297,7 +297,7 @@ oakcurric:programme-science-year-group-10-higher-aqa
   curric:examType "GCSE" ;
   curric:hasTier oakcurric:tier-higher ;
   curric:hasExamBoard oakcurric:examboard-aqa ;
-  curric:isProgrammeOf natcurric:scheme-science-key-stage-4 ;
+  curric:isProgrammeOf natcurric:scheme-combined-science-key-stage-4 ;
   curric:coversYearGroup natcurric:year-group-10 ;
   curric:hasUnitVariantInclusion
     oakcurric:inclusion-programme-science-year-group-10-higher-aqa-pos-1 ,
@@ -331,7 +331,7 @@ oakcurric:programme-science-year-group-10-higher-aqa
 
 oakcurric:programme-science-year-group-11-foundation-edexcel
   a curric:Programme ;
-  rdfs:label "Science Year Group 11 Foundation Edexcel"@en ;
+  rdfs:label "Combined Science Year Group 11 Foundation Edexcel"@en ;
   curric:isNationalCurriculum true ;
   curric:isRequired true ;
   curric:isExamined true ;
@@ -339,7 +339,7 @@ oakcurric:programme-science-year-group-11-foundation-edexcel
   curric:examType "GCSE" ;
   curric:hasTier oakcurric:tier-foundation ;
   curric:hasExamBoard oakcurric:examboard-edexcel ;
-  curric:isProgrammeOf natcurric:scheme-science-key-stage-4 ;
+  curric:isProgrammeOf natcurric:scheme-combined-science-key-stage-4 ;
   curric:coversYearGroup natcurric:year-group-11 ;
   curric:hasUnitVariantInclusion
     oakcurric:inclusion-programme-science-year-group-11-foundation-edexcel-pos-1 ,
@@ -367,7 +367,7 @@ oakcurric:programme-science-year-group-11-foundation-edexcel
 
 oakcurric:programme-science-year-group-10-higher-ocr
   a curric:Programme ;
-  rdfs:label "Science Year Group 10 Higher OCR"@en ;
+  rdfs:label "Combined Science Year Group 10 Higher OCR"@en ;
   curric:isNationalCurriculum true ;
   curric:isRequired true ;
   curric:isExamined true ;
@@ -375,7 +375,7 @@ oakcurric:programme-science-year-group-10-higher-ocr
   curric:examType "GCSE" ;
   curric:hasTier oakcurric:tier-higher ;
   curric:hasExamBoard oakcurric:examboard-ocr ;
-  curric:isProgrammeOf natcurric:scheme-science-key-stage-4 ;
+  curric:isProgrammeOf natcurric:scheme-combined-science-key-stage-4 ;
   curric:coversYearGroup natcurric:year-group-10 ;
   curric:hasUnitVariantInclusion
     oakcurric:inclusion-programme-science-year-group-10-higher-ocr-pos-1 ,
@@ -409,7 +409,7 @@ oakcurric:programme-science-year-group-10-higher-ocr
 
 oakcurric:programme-science-year-group-11-foundation-aqa
   a curric:Programme ;
-  rdfs:label "Science Year Group 11 Foundation AQA"@en ;
+  rdfs:label "Combined Science Year Group 11 Foundation AQA"@en ;
   curric:isNationalCurriculum true ;
   curric:isRequired true ;
   curric:isExamined true ;
@@ -417,7 +417,7 @@ oakcurric:programme-science-year-group-11-foundation-aqa
   curric:examType "GCSE" ;
   curric:hasTier oakcurric:tier-foundation ;
   curric:hasExamBoard oakcurric:examboard-aqa ;
-  curric:isProgrammeOf natcurric:scheme-science-key-stage-4 ;
+  curric:isProgrammeOf natcurric:scheme-combined-science-key-stage-4 ;
   curric:coversYearGroup natcurric:year-group-11 ;
   curric:hasUnitVariantInclusion
     oakcurric:inclusion-programme-science-year-group-11-foundation-aqa-pos-1 ,
@@ -445,7 +445,7 @@ oakcurric:programme-science-year-group-11-foundation-aqa
 
 oakcurric:programme-science-year-group-10-foundation-ocr
   a curric:Programme ;
-  rdfs:label "Science Year Group 10 Foundation OCR"@en ;
+  rdfs:label "Combined Science Year Group 10 Foundation OCR"@en ;
   curric:isNationalCurriculum true ;
   curric:isRequired true ;
   curric:isExamined true ;
@@ -453,7 +453,7 @@ oakcurric:programme-science-year-group-10-foundation-ocr
   curric:examType "GCSE" ;
   curric:hasTier oakcurric:tier-foundation ;
   curric:hasExamBoard oakcurric:examboard-ocr ;
-  curric:isProgrammeOf natcurric:scheme-science-key-stage-4 ;
+  curric:isProgrammeOf natcurric:scheme-combined-science-key-stage-4 ;
   curric:coversYearGroup natcurric:year-group-10 ;
   curric:hasUnitVariantInclusion
     oakcurric:inclusion-programme-science-year-group-10-foundation-ocr-pos-1 ,
@@ -487,7 +487,7 @@ oakcurric:programme-science-year-group-10-foundation-ocr
 
 oakcurric:programme-science-year-group-11-higher-aqa
   a curric:Programme ;
-  rdfs:label "Science Year Group 11 Higher AQA"@en ;
+  rdfs:label "Combined Science Year Group 11 Higher AQA"@en ;
   curric:isNationalCurriculum true ;
   curric:isRequired true ;
   curric:isExamined true ;
@@ -495,7 +495,7 @@ oakcurric:programme-science-year-group-11-higher-aqa
   curric:examType "GCSE" ;
   curric:hasTier oakcurric:tier-higher ;
   curric:hasExamBoard oakcurric:examboard-aqa ;
-  curric:isProgrammeOf natcurric:scheme-science-key-stage-4 ;
+  curric:isProgrammeOf natcurric:scheme-combined-science-key-stage-4 ;
   curric:coversYearGroup natcurric:year-group-11 ;
   curric:hasUnitVariantInclusion
     oakcurric:inclusion-programme-science-year-group-11-higher-aqa-pos-1 ,
@@ -602,7 +602,7 @@ Group 7 elements get less reactive as you go down the group.
 The transition metals in the middle of the periodic table are not very reactive.""" ;
   curric:id "959"^^xsd:positiveInteger;
   dcterms:modified "2026-02-19T08:25:58.125004Z"^^xsd:dateTime ;
-  curric:isUnitOf natcurric:scheme-science-key-stage-4 ;
+  curric:isUnitOf natcurric:scheme-combined-science-key-stage-4 ;
   curric:includesThread
     oakcurric:thread-bq06-chemistry-how-do-we-explain-how-substances-behave ,
     oakcurric:thread-bq07-chemistry-what-are-things-made-of .
@@ -621,7 +621,7 @@ Fluids can be poured (they can flow)
 The particle model shows how solids, liquids and gases are organised together""" ;
   curric:id "1145"^^xsd:positiveInteger;
   dcterms:modified "2026-02-19T08:25:58.126273Z"^^xsd:dateTime ;
-  curric:isUnitOf natcurric:scheme-science-key-stage-4 ;
+  curric:isUnitOf natcurric:scheme-combined-science-key-stage-4 ;
   curric:includesThread
     oakcurric:thread-bq08-chemistry-how-can-substances-be-made-and-changed ,
     oakcurric:thread-bq06-chemistry-how-do-we-explain-how-substances-behave .
@@ -642,7 +642,7 @@ Photosynthesis involves many chemical reactions, catalysed by enzymes.
 Enzymes work best in optimum conditions and less well when conditions change away from the optimum.""" ;
   curric:id "574"^^xsd:positiveInteger;
   dcterms:modified "2026-02-19T08:25:58.134276Z"^^xsd:dateTime ;
-  curric:isUnitOf natcurric:scheme-science-key-stage-4 ;
+  curric:isUnitOf natcurric:scheme-combined-science-key-stage-4 ;
   curric:includesThread
     oakcurric:thread-bq01-biology-what-are-living-things-and-what-are-they-made-of .
 
@@ -677,7 +677,7 @@ Humans and plants can reproduce sexually to have offspring that inherit some, bu
 During sexual reproduction, male and female gametes fuse in process called fertilisation.""" ;
   curric:id "900"^^xsd:positiveInteger;
   dcterms:modified "2026-02-19T08:25:58.220256Z"^^xsd:dateTime ;
-  curric:isUnitOf natcurric:scheme-science-key-stage-4 ;
+  curric:isUnitOf natcurric:scheme-combined-science-key-stage-4 ;
   curric:includesThread
     oakcurric:thread-bq02-biology-how-do-living-things-grow-and-reproduce .
 
@@ -722,7 +722,7 @@ Disease is a cause of ill health.
 Diseases can be caused by pathogens and lifestyle factors.""" ;
   curric:id "761"^^xsd:positiveInteger;
   dcterms:modified "2026-02-19T08:25:58.222107Z"^^xsd:dateTime ;
-  curric:isUnitOf natcurric:scheme-science-key-stage-4 ;
+  curric:isUnitOf natcurric:scheme-combined-science-key-stage-4 ;
   curric:includesThread
     oakcurric:thread-bq05-biology-how-do-living-things-stay-healthy .
 
@@ -740,7 +740,7 @@ Sensory neurons transmit nerve impulses from receptors to processing centres suc
 Motor neurons transmit nerve impulses from the CNS to effectors that carry out responses.""" ;
   curric:id "568"^^xsd:positiveInteger;
   dcterms:modified "2026-02-19T08:25:58.223186Z"^^xsd:dateTime ;
-  curric:isUnitOf natcurric:scheme-science-key-stage-4 ;
+  curric:isUnitOf natcurric:scheme-combined-science-key-stage-4 ;
   curric:includesThread
     oakcurric:thread-bq01-biology-what-are-living-things-and-what-are-they-made-of .
 
@@ -788,7 +788,7 @@ Humans and plants can reproduce sexually to have offspring that inherit some, bu
 During sexual reproduction, male and female gametes fuse in process called fertilisation.""" ;
   curric:id "901"^^xsd:positiveInteger;
   dcterms:modified "2026-02-19T08:25:58.224970Z"^^xsd:dateTime ;
-  curric:isUnitOf natcurric:scheme-science-key-stage-4 ;
+  curric:isUnitOf natcurric:scheme-combined-science-key-stage-4 ;
   curric:includesThread
     oakcurric:thread-bq02-biology-how-do-living-things-grow-and-reproduce .
 
@@ -807,7 +807,7 @@ Plant leaves are adapted for photosynthesis; they have stomata for gas exchange,
 The cells that make up leaves have chloroplasts that contain chlorophyll, where photosynthesis takes place.""" ;
   curric:id "569"^^xsd:positiveInteger;
   dcterms:modified "2026-02-19T08:25:58.226335Z"^^xsd:dateTime ;
-  curric:isUnitOf natcurric:scheme-science-key-stage-4 ;
+  curric:isUnitOf natcurric:scheme-combined-science-key-stage-4 ;
   curric:includesThread
     oakcurric:thread-bq01-biology-what-are-living-things-and-what-are-they-made-of .
 
@@ -841,7 +841,7 @@ In the atmosphere, some gases are greenhouse gases and have properties that enab
 Combustion increases the amount of carbon dioxide in the atmosphere.""" ;
   curric:id "968"^^xsd:positiveInteger;
   dcterms:modified "2026-02-19T08:25:58.288977Z"^^xsd:dateTime ;
-  curric:isUnitOf natcurric:scheme-science-key-stage-4 ;
+  curric:isUnitOf natcurric:scheme-combined-science-key-stage-4 ;
   curric:includesThread
     oakcurric:thread-bq09-chemistry-how-can-we-explain-changes-in-the-air-land-and-oceans ,
     oakcurric:thread-bq15-how-can-we-live-sustainably-to-protect-earth-for-a-better-future .
@@ -862,7 +862,7 @@ Heating a solid, liquid or gas causes it to expand.
 The faster the particles in something are vibrating or moving, the higher its temperature.""" ;
   curric:id "928"^^xsd:positiveInteger;
   dcterms:modified "2026-02-19T08:25:58.308915Z"^^xsd:dateTime ;
-  curric:isUnitOf natcurric:scheme-science-key-stage-4 ;
+  curric:isUnitOf natcurric:scheme-combined-science-key-stage-4 ;
   curric:includesThread
     oakcurric:thread-physics-why-do-materials-have-different-properties .
 
@@ -880,7 +880,7 @@ Sections of chromosomes are called genes, which store instructions for making pr
 The proteins that are made are used to build other structures and control chemical reactions.""" ;
   curric:id "902"^^xsd:positiveInteger;
   dcterms:modified "2026-02-19T08:25:58.332593Z"^^xsd:dateTime ;
-  curric:isUnitOf natcurric:scheme-science-key-stage-4 ;
+  curric:isUnitOf natcurric:scheme-combined-science-key-stage-4 ;
   curric:includesThread
     oakcurric:thread-bq02-biology-how-do-living-things-grow-and-reproduce .
 
@@ -919,7 +919,7 @@ This ‘natural selection’ of better adapted individuals causes advantageous f
 Natural selection can cause the common features of a species to change (evolve) over generations.""" ;
   curric:id "669"^^xsd:positiveInteger;
   dcterms:modified "2026-02-19T08:25:58.336621Z"^^xsd:dateTime ;
-  curric:isUnitOf natcurric:scheme-science-key-stage-4 ;
+  curric:isUnitOf natcurric:scheme-combined-science-key-stage-4 ;
   curric:includesThread
     oakcurric:thread-bq04-biology-why-are-there-similarities-and-differences-between-living-things .
 
@@ -940,7 +940,7 @@ The products of combustion.
 Which fuels are fossil fuels.""" ;
   curric:id "667"^^xsd:positiveInteger;
   dcterms:modified "2026-02-19T08:25:58.353752Z"^^xsd:dateTime ;
-  curric:isUnitOf natcurric:scheme-science-key-stage-4 ;
+  curric:isUnitOf natcurric:scheme-combined-science-key-stage-4 ;
   curric:includesThread
     oakcurric:thread-bq03-biology-how-do-living-things-live-together-in-their-environments ,
     oakcurric:thread-bq15-how-can-we-live-sustainably-to-protect-earth-for-a-better-future .
@@ -962,7 +962,7 @@ Metal hydroxide / metal oxide + acid → salt + water
 Metal carbonate + acid → salt + water + carbon dioxide""" ;
   curric:id "963"^^xsd:positiveInteger;
   dcterms:modified "2026-02-19T08:25:58.372377Z"^^xsd:dateTime ;
-  curric:isUnitOf natcurric:scheme-science-key-stage-4 ;
+  curric:isUnitOf natcurric:scheme-combined-science-key-stage-4 ;
   curric:includesThread
     oakcurric:thread-bq07-chemistry-what-are-things-made-of ,
     oakcurric:thread-bq08-chemistry-how-can-substances-be-made-and-changed .
@@ -983,7 +983,7 @@ For a given waves speed, the longer the wavelength, the lower the frequency.
 Wave speed = frequency x wavelength.""" ;
   curric:id "494"^^xsd:positiveInteger;
   dcterms:modified "2026-02-19T08:25:58.373265Z"^^xsd:dateTime ;
-  curric:isUnitOf natcurric:scheme-science-key-stage-4 ;
+  curric:isUnitOf natcurric:scheme-combined-science-key-stage-4 ;
   curric:includesThread
     oakcurric:thread-bq12-physics-how-do-we-see-hear-and-communicate .
 
@@ -1002,7 +1002,7 @@ The human body has an endocrine system that uses hormones to control changes in 
 The human endocrine and nervous systems work together to maintain a constant environment in the body.""" ;
   curric:id "573"^^xsd:positiveInteger;
   dcterms:modified "2026-02-19T08:25:58.373965Z"^^xsd:dateTime ;
-  curric:isUnitOf natcurric:scheme-science-key-stage-4 ;
+  curric:isUnitOf natcurric:scheme-combined-science-key-stage-4 ;
   curric:includesThread
     oakcurric:thread-bq01-biology-what-are-living-things-and-what-are-they-made-of .
 
@@ -1019,7 +1019,7 @@ The current through each branch of a parallel circuit adds up to the current thr
 Current = potential difference / resistance""" ;
   curric:id "491"^^xsd:positiveInteger;
   dcterms:modified "2026-02-19T08:25:58.374708Z"^^xsd:dateTime ;
-  curric:isUnitOf natcurric:scheme-science-key-stage-4 ;
+  curric:isUnitOf natcurric:scheme-combined-science-key-stage-4 ;
   curric:includesThread
     oakcurric:thread-bq13-physics-how-do-electricity-and-magnetism-work .
 
@@ -1040,7 +1040,7 @@ The mass number of an atom is approximately equal to the number of protons added
 Isotopes of an element all have the same number of protons and electrons, but different numbers of neutrons.""" ;
   curric:id "497"^^xsd:positiveInteger;
   dcterms:modified "2026-02-19T08:25:58.375655Z"^^xsd:dateTime ;
-  curric:isUnitOf natcurric:scheme-science-key-stage-4 ;
+  curric:isUnitOf natcurric:scheme-combined-science-key-stage-4 ;
   curric:includesThread
     oakcurric:thread-physics-why-do-materials-have-different-properties .
 
@@ -1096,7 +1096,7 @@ Fluids can be poured (they can flow)
 The particle model shows how solids, liquids and gases are organised together""" ;
   curric:id "1148"^^xsd:positiveInteger;
   dcterms:modified "2026-02-19T08:25:58.378660Z"^^xsd:dateTime ;
-  curric:isUnitOf natcurric:scheme-science-key-stage-4 ;
+  curric:isUnitOf natcurric:scheme-combined-science-key-stage-4 ;
   curric:includesThread
     oakcurric:thread-bq08-chemistry-how-can-substances-be-made-and-changed ,
     oakcurric:thread-bq06-chemistry-how-do-we-explain-how-substances-behave .
@@ -1118,7 +1118,7 @@ The more tightly wound the coil of wire is in an electromagnet, the stronger its
 A soft iron core increases the strength of an electromagnet because it becomes magnetised when it is turned on.""" ;
   curric:id "493"^^xsd:positiveInteger;
   dcterms:modified "2026-02-19T08:25:58.379394Z"^^xsd:dateTime ;
-  curric:isUnitOf natcurric:scheme-science-key-stage-4 ;
+  curric:isUnitOf natcurric:scheme-combined-science-key-stage-4 ;
   curric:includesThread
     oakcurric:thread-bq13-physics-how-do-electricity-and-magnetism-work .
 
@@ -1158,7 +1158,7 @@ Each loop in a parallel circuit is equivalent to a series circuit connected to t
 The current through each branch of a parallel circuit adds up to the current through the battery.""" ;
   curric:id "489"^^xsd:positiveInteger;
   dcterms:modified "2026-02-19T08:25:58.386125Z"^^xsd:dateTime ;
-  curric:isUnitOf natcurric:scheme-science-key-stage-4 ;
+  curric:isUnitOf natcurric:scheme-combined-science-key-stage-4 ;
   curric:includesThread
     oakcurric:thread-bq13-physics-how-do-electricity-and-magnetism-work .
 
@@ -1198,7 +1198,7 @@ Air does not move forwards with a sound wave.
 A sound wave is a longitudinal wave.""" ;
   curric:id "490"^^xsd:positiveInteger;
   dcterms:modified "2026-02-19T08:25:58.404189Z"^^xsd:dateTime ;
-  curric:isUnitOf natcurric:scheme-science-key-stage-4 ;
+  curric:isUnitOf natcurric:scheme-combined-science-key-stage-4 ;
   curric:includesThread
     oakcurric:thread-bq12-physics-how-do-we-see-hear-and-communicate .
 
@@ -1259,7 +1259,7 @@ Gravitational force (weight), W = m × g
 Work done = force × distance""" ;
   curric:id "476"^^xsd:positiveInteger;
   dcterms:modified "2026-02-19T08:25:58.422412Z"^^xsd:dateTime ;
-  curric:isUnitOf natcurric:scheme-science-key-stage-4 ;
+  curric:isUnitOf natcurric:scheme-combined-science-key-stage-4 ;
   curric:includesThread
     oakcurric:thread-bq11-physics-how-do-forces-make-things-happen .
 
@@ -1278,7 +1278,7 @@ The same amount of different materials at the same temperature can cause differe
 The particles and the bonds between particles are different in different substances.""" ;
   curric:id "478"^^xsd:positiveInteger;
   dcterms:modified "2026-02-19T08:25:58.435273Z"^^xsd:dateTime ;
-  curric:isUnitOf natcurric:scheme-science-key-stage-4 ;
+  curric:isUnitOf natcurric:scheme-combined-science-key-stage-4 ;
   curric:includesThread
     oakcurric:thread-physics-why-do-materials-have-different-properties .
 
@@ -1294,7 +1294,7 @@ Ways in which pathogens can be spread.
 Some common communicable diseases caused by viruses, bacteria, protists and fungi.""" ;
   curric:id "762"^^xsd:positiveInteger;
   dcterms:modified "2026-02-19T08:25:58.439415Z"^^xsd:dateTime ;
-  curric:isUnitOf natcurric:scheme-science-key-stage-4 ;
+  curric:isUnitOf natcurric:scheme-combined-science-key-stage-4 ;
   curric:includesThread
     oakcurric:thread-bq05-biology-how-do-living-things-stay-healthy .
 
@@ -1327,7 +1327,7 @@ Chemical equations represent how the atoms in the reactants rearrange to form th
 Evidence for a chemical reaction can include: bubbles, smell, colour or temperature change.""" ;
   curric:id "961"^^xsd:positiveInteger;
   dcterms:modified "2026-02-19T08:25:58.465401Z"^^xsd:dateTime ;
-  curric:isUnitOf natcurric:scheme-science-key-stage-4 ;
+  curric:isUnitOf natcurric:scheme-combined-science-key-stage-4 ;
   curric:includesThread
     oakcurric:thread-bq08-chemistry-how-can-substances-be-made-and-changed .
 
@@ -1344,7 +1344,7 @@ Characteristics of chemical reactions include changes in colour, bubbling, or a 
 Bubbles appear when a gas is produced in a chemical reaction.""" ;
   curric:id "965"^^xsd:positiveInteger;
   dcterms:modified "2026-02-19T08:25:58.474254Z"^^xsd:dateTime ;
-  curric:isUnitOf natcurric:scheme-science-key-stage-4 ;
+  curric:isUnitOf natcurric:scheme-combined-science-key-stage-4 ;
   curric:includesThread
     oakcurric:thread-bq08-chemistry-how-can-substances-be-made-and-changed ,
     oakcurric:thread-bq06-chemistry-how-do-we-explain-how-substances-behave .
@@ -1395,7 +1395,7 @@ Hydrogen used in fuel cells can be extracted from fossil fuels or produced by el
 During chemical reactions atomic nuclei and electrons are rearranged and new substances are formed.""" ;
   curric:id "972"^^xsd:positiveInteger;
   dcterms:modified "2026-02-19T08:25:58.476975Z"^^xsd:dateTime ;
-  curric:isUnitOf natcurric:scheme-science-key-stage-4 ;
+  curric:isUnitOf natcurric:scheme-combined-science-key-stage-4 ;
   curric:includesThread
     oakcurric:thread-bq08-chemistry-how-can-substances-be-made-and-changed .
 
@@ -1448,7 +1448,7 @@ As you go down Group 7, the state of the elements at room temperature change fro
 Group 7 elements get less reactive as you go down the group.""" ;
   curric:id "1147"^^xsd:positiveInteger;
   dcterms:modified "2026-02-19T08:25:58.486845Z"^^xsd:dateTime ;
-  curric:isUnitOf natcurric:scheme-science-key-stage-4 ;
+  curric:isUnitOf natcurric:scheme-combined-science-key-stage-4 ;
   curric:includesThread
     oakcurric:thread-bq08-chemistry-how-can-substances-be-made-and-changed ,
     oakcurric:thread-bq06-chemistry-how-do-we-explain-how-substances-behave .

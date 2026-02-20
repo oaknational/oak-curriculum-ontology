@@ -44,7 +44,7 @@
   vann:preferredNamespacePrefix "oakcurric" ; 
   vann:preferredNamespaceUri "https://w3id.org/uk/oak/curriculum/oakcurriculum/" ;
 
- owl:imports <https://w3id.org/uk/oak/curriculum/ontology> ,
+  owl:imports <https://w3id.org/uk/oak/curriculum/ontology> ,
              <https://w3id.org/uk/oak/curriculum/nationalcurriculum/biology-programme-structure> ,
              <https://w3id.org/uk/oak/curriculum/oakcurriculum/programme-structure> ,
              <https://w3id.org/uk/oak/curriculum/oakcurriculum/threads> .
