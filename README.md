@@ -278,23 +278,24 @@ PREFIX curric: <https://w3id.org/uk/oak/curriculum/ontology/>
 PREFIX natcurric: <https://w3id.org/uk/oak/curriculum/nationalcurriculum/>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 
-SELECT ?programme ?subject ?label WHERE {
-  ?programme curric:hasYearGroup natcurric:year-group-7 ;
-             curric:hasSubject ?subject ;
+SELECT ?programme ?label WHERE {
+  ?programme a curric:Programme ;
+             curric:coversYearGroup natcurric:year-group-7 ;
              rdfs:label ?label .
 }
-ORDER BY ?subject
+ORDER BY ?label
 ```
 
 ### Find Mathematics content descriptors
 
 ```sparql
+PREFIX curric: <https://w3id.org/uk/oak/curriculum/ontology/>
 PREFIX natcurric: <https://w3id.org/uk/oak/curriculum/nationalcurriculum/>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 
 SELECT ?descriptor ?label WHERE {
   natcurric:discipline-mathematics skos:narrower+ ?descriptor .
-  ?descriptor a <https://w3id.org/uk/oak/curriculum/ontology/ContentDescriptor> ;
+  ?descriptor a curric:ContentDescriptor ;
               skos:prefLabel ?label .
 }
 ORDER BY ?label
@@ -307,14 +308,31 @@ PREFIX curric: <https://w3id.org/uk/oak/curriculum/ontology/>
 PREFIX oakcurric: <https://w3id.org/uk/oak/curriculum/oakcurriculum/>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 
-SELECT ?position ?unit ?label WHERE {
-  oakcurric:programme-science-year-7
+SELECT ?position ?unitVariant ?label WHERE {
+  oakcurric:programme-mathematics-year-group-7
     curric:hasUnitVariantInclusion ?inclusion .
   ?inclusion curric:sequencePosition ?position ;
-             curric:includesUnitVariant/curric:isUnitVariantOf ?unit .
-  ?unit rdfs:label ?label .
+             curric:includesUnitVariant ?unitVariant .
+  ?unitVariant rdfs:label ?label .
 }
 ORDER BY ?position
+```
+
+### Find programmes by subject
+
+```sparql
+PREFIX curric: <https://w3id.org/uk/oak/curriculum/ontology/>
+PREFIX natcurric: <https://w3id.org/uk/oak/curriculum/nationalcurriculum/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT ?subject ?subjectLabel ?programme ?programmeLabel WHERE {
+  ?programme a curric:Programme ;
+             rdfs:label ?programmeLabel ;
+             curric:isProgrammeOf ?scheme .
+  ?scheme curric:isSchemeOf ?subject .
+  ?subject rdfs:label ?subjectLabel .
+}
+ORDER BY ?subjectLabel ?programmeLabel
 ```
 
 ### Find all Key Stage 3 Science content
@@ -325,11 +343,7 @@ PREFIX natcurric: <https://w3id.org/uk/oak/curriculum/nationalcurriculum/>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 
 SELECT DISTINCT ?content ?label WHERE {
-  ?discipline a curric:Discipline ;
-              skos:prefLabel ?disciplineLabel .
-  FILTER(CONTAINS(LCASE(?disciplineLabel), "science"))
-
-  ?discipline skos:narrower+ ?content .
+  natcurric:discipline-science skos:narrower+ ?content .
   ?content skos:prefLabel ?label .
 }
 ORDER BY ?label
