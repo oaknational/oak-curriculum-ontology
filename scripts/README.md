@@ -10,6 +10,7 @@ Utility scripts for working with the Oak Curriculum Ontology.
 | [`export_to_neo4j.py`](#export-to-neo4j) | Export RDF to Neo4j graph database | Deploy data to Neo4j for querying |
 | [`merge_ttls_with_imports.py`](#merge-ttl-files) | Merge TTL files resolving imports | Create single combined RDF file |
 | [`build_static_data.sh`](#build-distributions) | Generate distribution files | Publish data in multiple formats |
+| [`test_sparql_queries.py`](#test-sparql-queries) | Test SPARQL queries against data | Verify queries work after data changes |
 
 ---
 
@@ -186,6 +187,43 @@ python scripts/merge_ttls_with_imports.py -q
 - Publishing curriculum data in standard RDF formats
 - Providing downloadable distribution files
 - Supporting different RDF tooling ecosystems
+
+---
+
+## test_sparql_queries.py
+
+**Purpose:** Test SPARQL queries against the merged curriculum data to verify they work correctly
+
+**Usage:**
+```bash
+uv run python scripts/test_sparql_queries.py
+```
+
+**What it does:**
+1. Merges all TTL files using `merge_ttls_with_imports.py`
+2. Loads the merged data into an RDF graph
+3. Runs a suite of example SPARQL queries
+4. Reports results and verifies queries return data
+
+**Included Queries:**
+- Find all Year 7 programmes
+- Find Mathematics content descriptors
+- List units in sequence for a programme
+- Find programmes by subject
+- Find all Key Stage 3 Science content
+
+**Requirements:**
+- Python with `rdflib`
+
+**Output:**
+- Query results (limited to first 10 per query)
+- Total result counts
+- Success/failure summary
+
+**Use Case:**
+- Verifying SPARQL queries work after data changes
+- Testing query patterns before use in applications
+- Validating data relationships are correctly modelled
 
 ---
 
