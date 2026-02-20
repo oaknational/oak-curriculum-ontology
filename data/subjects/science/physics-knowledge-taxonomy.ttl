@@ -2050,7 +2050,7 @@ natcurric:contentdescriptor-conservation-dissipation-national-global-sources
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
 
-natcurric:contentdescriptor-renergy-use-of-mathematics
+natcurric:contentdescriptor-energy-use-of-mathematics
   a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel "Use of mathematics."@en ;
   curric:displayOrder "7"^^xsd:positiveInteger ;
