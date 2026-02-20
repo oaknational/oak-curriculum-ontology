@@ -4,7 +4,7 @@ version = "0.1.0"
 description = "Oak National Academy Curriculum Ontology - A formal semantic representation of the Oak Curriculum and linkage to the National Curriculum for England (2014)"
 readme = "README.md"
 requires-python = ">=3.12"
-license = {text = "MIT"}
+license = "MIT"
 authors = [
     {name = "Oak National Academy"}
 ]
@@ -52,3 +52,10 @@ ignore_missing_imports = true
 [[tool.mypy.overrides]]
 module = ["tqdm", "tqdm.*"]
 ignore_missing_imports = true
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["oak_curriculum*"]
