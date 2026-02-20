@@ -338,7 +338,7 @@ natcurric:substrand-particulate-nature-of-matter
   skos:broader natcurric:strand-chemical-science ;
   skos:narrower 
     natcurric:contentdescriptor-properties-different-states-of-matter ,
-    natcurric:contentdescriptor-changes-of-state-particle-model ;
+    natcurric:contentdescriptor-chemistry-changes-of-state-particle-model ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
 
@@ -1334,7 +1334,7 @@ natcurric:contentdescriptor-properties-different-states-of-matter
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
 
-natcurric:contentdescriptor-changes-of-state-particle-model
+natcurric:contentdescriptor-chemistry-changes-of-state-particle-model
   a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel "Changes of state in terms of the particle model."@en ;
   curric:displayOrder "2"^^xsd:positiveInteger ;

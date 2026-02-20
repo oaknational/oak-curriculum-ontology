@@ -728,7 +728,7 @@ natcurric:substrand-particle-model-of-matter
   curric:displayOrder "30"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-physical-science ;
   skos:narrower 
-    natcurric:contentdescriptor-changes-of-state-particle-model ,
+    natcurric:contentdescriptor-physics-changes-of-state-particle-model ,
     natcurric:contentdescriptor-energy-transfers-and-particle-motions ,
     natcurric:contentdescriptor-particle-model-of-matter-use-of-mathematics ;
   skos:inScheme natcurric:knowledge-taxonomy ;
@@ -2608,7 +2608,7 @@ natcurric:contentdescriptor-pressure-temperature-gas-constant-volume
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
 
-natcurric:contentdescriptor-changes-of-state-particle-model
+natcurric:contentdescriptor-physics-changes-of-state-particle-model
   a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel "Changes of state and the particle model."@en ;
   curric:displayOrder "1"^^xsd:positiveInteger ;
