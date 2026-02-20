@@ -31,7 +31,13 @@ URI_PATTERNS: list[tuple[str, tuple[str, ...]]] = [
     ("w3id.org/uk/oak/curriculum/oakcurriculum/programme-structure", ("data", "programme-structure.ttl")),
     ("w3id.org/uk/oak/curriculum/oakcurriculum/threads", ("data", "threads.ttl")),
     ("w3id.org/uk/oak/curriculum/nationalcurriculum/temporal-structure", ("data", "temporal-structure.ttl")),
+    # Handle URIs with typo (missing "oak" in path)
+    ("w3id.org/uk/curriculum/oakcurriculum/programme-structure", ("data", "programme-structure.ttl")),
+    ("w3id.org/uk/curriculum/oakcurriculum/threads", ("data", "threads.ttl")),
 ]
+
+# Science-related subjects that are stored in data/subjects/science/
+SCIENCE_SUBJECTS = {"biology", "chemistry", "physics", "combined-science", "science"}
 
 # Default configuration
 DEFAULT_OUTPUT_FILE = Path("/tmp/combined-data.ttl")
@@ -75,18 +81,22 @@ class TTLMerger:
                 return local_path
 
         # Handle nationalcurriculum/{subject}-programme-structure
-        match = re.search(r"nationalcurriculum/(\w+)-programme-structure", import_uri_str)
+        match = re.search(r"nationalcurriculum/([\w-]+)-programme-structure", import_uri_str)
         if match:
             subject = match.group(1)
-            local_path = self.repo_root / "data" / "subjects" / subject / f"{subject}-programme-structure.ttl"
+            # Science subjects are in data/subjects/science/, others in their own directory
+            subject_dir = "science" if subject in SCIENCE_SUBJECTS else subject
+            local_path = self.repo_root / "data" / "subjects" / subject_dir / f"{subject}-programme-structure.ttl"
             if local_path.exists():
                 return local_path
 
         # Handle nationalcurriculum/{subject}-knowledge-taxonomy
-        match = re.search(r"nationalcurriculum/(\w+)-knowledge-taxonomy", import_uri_str)
+        match = re.search(r"nationalcurriculum/([\w-]+)-knowledge-taxonomy", import_uri_str)
         if match:
             subject = match.group(1)
-            local_path = self.repo_root / "data" / "subjects" / subject / f"{subject}-knowledge-taxonomy.ttl"
+            # Science subjects are in data/subjects/science/, others in their own directory
+            subject_dir = "science" if subject in SCIENCE_SUBJECTS else subject
+            local_path = self.repo_root / "data" / "subjects" / subject_dir / f"{subject}-knowledge-taxonomy.ttl"
             if local_path.exists():
                 return local_path
 
