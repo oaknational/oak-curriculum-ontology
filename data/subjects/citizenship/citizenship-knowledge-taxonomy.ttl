@@ -14,7 +14,7 @@
 # ======================================================================
 
 # ----------------------------------------------------------------------
-# Ontology Declaration
+# Ontology Declaration 
 # ----------------------------------------------------------------------
 
 <https://w3id.org/uk/oak/curriculum/nationalcurriculum/citizenship-knowledge-taxonomy>
@@ -68,7 +68,7 @@ natcurric:discipline-citizenship
   skos:narrower 
     natcurric:strand-democracy ,
     natcurric:strand-government ,
-    natcurric:strand-rights-and-responsibilities-of-citizens ;
+    natcurric:strand-rights-justice-and-the-law ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
 
@@ -98,14 +98,14 @@ natcurric:strand-government
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
 
-natcurric:strand-rights-and-responsibilities-of-citizens
+natcurric:strand-rights-justice-and-the-law
   a skos:Concept, curric:Strand ;
-  skos:prefLabel "Rights and Responsibilities of Citizens"@en ;
+  skos:prefLabel "Rights, Justice and the Law"@en ;
   skos:definition "Description of strand..."@en ;
   curric:displayOrder "3"^^xsd:positiveInteger ;
   skos:broader natcurric:discipline-citizenship ;
   skos:narrower 
-    natcurric:substrand-rights-and-responsibilities-of-citizens ;
+    natcurric:substrand-rights-justice-and-the-law ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
 
@@ -141,12 +141,12 @@ natcurric:substrand-government
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
 
-natcurric:substrand-rights-and-responsibilities-of-citizens
+natcurric:substrand-rights-justice-and-the-law
   a skos:Concept, curric:SubStrand ;
-  skos:prefLabel "Rights and Responsibilities of Citizens"@en ;
+  skos:prefLabel "Rights, Justice and the Law"@en ;
   skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "1"^^xsd:positiveInteger ;
-  skos:broader natcurric:strand-rights-and-responsibilities-of-citizens ;
+  skos:broader natcurric:strand-rights-justice-and-the-law ;
   skos:narrower 
     natcurric:contentdescriptor-precious-liberties ,
     natcurric:contentdescriptor-money-budgeting-risk ,
@@ -242,7 +242,7 @@ natcurric:contentdescriptor-precious-liberties
   a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel "The precious liberties enjoyed by the citizens of the United Kingdom."@en ;
   curric:displayOrder "1"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-rights-and-responsibilities-of-citizens ;
+  skos:broader natcurric:substrand-rights-justice-and-the-law ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
 
@@ -251,7 +251,7 @@ natcurric:contentdescriptor-money-budgeting-risk
   skos:prefLabel """The functions and uses of money, the importance and practice of budgeting, and 
   managing risk."""@en ;
   curric:displayOrder "2"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-rights-and-responsibilities-of-citizens ;
+  skos:broader natcurric:substrand-rights-justice-and-the-law ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
 
@@ -259,7 +259,7 @@ natcurric:contentdescriptor-human-rights-international-law
   a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel "Human rights and international law."@en ;
   curric:displayOrder "3"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-rights-and-responsibilities-of-citizens ;
+  skos:broader natcurric:substrand-rights-justice-and-the-law ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
 
@@ -268,7 +268,7 @@ natcurric:contentdescriptor-legal-system-in-united-kingdom
   skos:prefLabel """The legal system in the UK, different sources of law and how the law helps 
   society deal with complex problems."""@en ;
   curric:displayOrder "4"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-rights-and-responsibilities-of-citizens ;
+  skos:broader natcurric:substrand-rights-justice-and-the-law ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
 
@@ -277,7 +277,7 @@ natcurric:contentdescriptor-national-regional-religious-ethnic-identities
   skos:prefLabel """Diverse national, regional, religious and ethnic identities in the United 
   Kingdom and the need for mutual respect and understanding."""@en ;
   curric:displayOrder "5"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-rights-and-responsibilities-of-citizens ;
+  skos:broader natcurric:substrand-rights-justice-and-the-law ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
 
@@ -287,7 +287,7 @@ natcurric:contentdescriptor-community-improvement
   or her community, to include the opportunity to participate actively in community volunteering, 
   as well as other forms of responsible activity."""@en ;
   curric:displayOrder "6"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-rights-and-responsibilities-of-citizens ;
+  skos:broader natcurric:substrand-rights-justice-and-the-law ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
 
@@ -296,7 +296,7 @@ natcurric:contentdescriptor-financial-products-and-public-money
   skos:prefLabel """Income and expenditure, credit and debt, insurance, savings and pensions, 
   financial products and services, and how public money is raised and spent."""@en ;
   curric:displayOrder "7"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-rights-and-responsibilities-of-citizens ;
+  skos:broader natcurric:substrand-rights-justice-and-the-law ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
   

@@ -450,7 +450,7 @@ natcurric:substrand-atomic-structure-periodic-table
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Atomic structure and the Periodic Table"@en ;
   skos:definition "Description of sub-strand..."@en ;
-  curric:displayOrder "1"^^xsd:positiveInteger ;
+  curric:displayOrder "13"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-chemical-science ;
   skos:narrower 
     natcurric:contentdescriptor-simple-model-of-atom ,
@@ -467,7 +467,7 @@ natcurric:substrand-structure-bonding-properties-of-matter
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Structure, bonding and the properties of matter"@en ;
   skos:definition "Description of sub-strand..."@en ;
-  curric:displayOrder "2"^^xsd:positiveInteger ;
+  curric:displayOrder "14"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-chemical-science ;
   skos:narrower 
     natcurric:contentdescriptor-changes-of-state-of-matter ,
@@ -483,7 +483,7 @@ natcurric:substrand-chemical-changes
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Chemical changes"@en ;
   skos:definition "Description of sub-strand..."@en ;
-  curric:displayOrder "3"^^xsd:positiveInteger ;
+  curric:displayOrder "15"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-chemical-science ;
   skos:narrower 
     natcurric:contentdescriptor-determination-of-empirical-formulae ,
@@ -503,7 +503,7 @@ natcurric:substrand-energy-changes-in-chemistry
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Energy changes in chemistry"@en ;
   skos:definition "Description of sub-strand..."@en ;
-  curric:displayOrder "4"^^xsd:positiveInteger ;
+  curric:displayOrder "16"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-chemical-science ;
   skos:narrower 
     natcurric:contentdescriptor-energy-changes-in-chemical-reactions ,
@@ -518,7 +518,7 @@ natcurric:substrand-rate-extent-of-chemical-change
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Rate and extent of chemical change"@en ;
   skos:definition "Description of sub-strand..."@en ;
-  curric:displayOrder "5"^^xsd:positiveInteger ;
+  curric:displayOrder "17"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-chemical-science ;
   skos:narrower 
     natcurric:contentdescriptor-factors-influencing-rate-of-reaction ,
@@ -531,7 +531,7 @@ natcurric:substrand-chemical-analysis
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Chemical analysis"@en ;
   skos:definition "Description of sub-strand..."@en ;
-  curric:displayOrder "6"^^xsd:positiveInteger ;
+  curric:displayOrder "18"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-chemical-science ;
   skos:narrower 
     natcurric:contentdescriptor-distinguishing-pure-and-impure-substances ,
@@ -548,7 +548,7 @@ natcurric:substrand-chemical-and-allied-industries
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Chemical and allied industries"@en ;
   skos:definition "Description of sub-strand..."@en ;
-  curric:displayOrder "7"^^xsd:positiveInteger ;
+  curric:displayOrder "19"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-chemical-science ;
   skos:narrower
     natcurric:contentdescriptor-life-cycle-assessment-and-recycling ,
@@ -563,7 +563,7 @@ natcurric:substrand-earth-and-atmospheric-science
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Earth and atmospheric science"@en ;
   skos:definition "Description of sub-strand..."@en ;
-  curric:displayOrder "8"^^xsd:positiveInteger ;
+  curric:displayOrder "20"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-chemical-science ;
   skos:narrower 
     natcurric:contentdescriptor-composition-evolution-of-earths-atmosphere ,

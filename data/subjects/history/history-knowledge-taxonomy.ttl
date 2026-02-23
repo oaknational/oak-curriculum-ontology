@@ -81,7 +81,7 @@ natcurric:strand-knowledge-of-past
   curric:displayOrder "1"^^xsd:positiveInteger ;
   skos:broader natcurric:discipline-history ;
   skos:narrower natcurric:substrand-substantive-concepts ,
-                natcurric:substrand-history-of-diverse-britain ,
+                natcurric:substrand-history-of-britain ,
                 natcurric:substrand-significant-aspects-of-world-history ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
@@ -138,9 +138,9 @@ natcurric:substrand-substantive-concepts
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
 
-natcurric:substrand-history-of-diverse-britain
+natcurric:substrand-history-of-britain
   a skos:Concept, curric:SubStrand ;
-  skos:prefLabel "The history of a diverse Britain and its connections to the wider world"@en ;
+  skos:prefLabel "The history Britain and its connections to the wider world"@en ;
   skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "2"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-knowledge-of-past ;
@@ -280,7 +280,7 @@ natcurric:contentdescriptor-changes-within-living-memory
   reveal aspects of change in national life."""@en ;
   curric:supportingGuidance "Supporting guidance text..."@en ;
   curric:displayOrder "1"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-history-of-diverse-britain ;
+  skos:broader natcurric:substrand-history-of-britain ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
 
@@ -291,7 +291,7 @@ natcurric:contentdescriptor-events-beyond-living-memory
   festivals or anniversaries]."""@en ;
   curric:supportingGuidance "Supporting guidance text..."@en ;
   curric:displayOrder "2"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-history-of-diverse-britain ;
+  skos:broader natcurric:substrand-history-of-britain ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
 
@@ -302,7 +302,7 @@ natcurric:contentdescriptor-lives-of-significant-individuals
   different periods."""@en ;
   curric:supportingGuidance "Supporting guidance text..."@en ;
   curric:displayOrder "3"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-history-of-diverse-britain ;
+  skos:broader natcurric:substrand-history-of-britain ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
 
@@ -312,7 +312,7 @@ natcurric:contentdescriptor-significant-historical-events-own-locality
   locality."""@en ;
   curric:supportingGuidance "Supporting guidance text..."@en ;
   curric:displayOrder "4"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-history-of-diverse-britain ;
+  skos:broader natcurric:substrand-history-of-britain ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
 
@@ -321,7 +321,7 @@ natcurric:contentdescriptor-changes-in-britain-stone-age-to-iron-age
   skos:prefLabel "About changes in Britain from the Stone Age to the Iron Age."@en ;
   curric:supportingGuidance "Supporting guidance text..."@en ;
   curric:displayOrder "5"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-history-of-diverse-britain ;
+  skos:broader natcurric:substrand-history-of-britain ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
 
@@ -330,7 +330,7 @@ natcurric:contentdescriptor-roman-empire-impact-on-britain
   skos:prefLabel "About the Roman Empire and its impact on Britain."@en ;
   curric:supportingGuidance "Supporting guidance text..."@en ;
   curric:displayOrder "6"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-history-of-diverse-britain ;
+  skos:broader natcurric:substrand-history-of-britain ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
 
@@ -339,7 +339,7 @@ natcurric:contentdescriptor-settlement-by-anglo-saxons-and-scots
   skos:prefLabel "About Britain’s settlement by Anglo-Saxons and Scots."@en ;
   curric:supportingGuidance "Supporting guidance text..."@en ;
   curric:displayOrder "7"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-history-of-diverse-britain ;
+  skos:broader natcurric:substrand-history-of-britain ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
 
@@ -349,7 +349,7 @@ natcurric:contentdescriptor-viking-and-anglo-saxon-struggle
   time of Edward the Confessor."""@en ;
   curric:supportingGuidance "Supporting guidance text..."@en ;
   curric:displayOrder "8"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-history-of-diverse-britain ;
+  skos:broader natcurric:substrand-history-of-britain ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
 
@@ -358,7 +358,7 @@ natcurric:contentdescriptor-local-history-study
   skos:prefLabel "About a local history study."@en ;
   curric:supportingGuidance "Supporting guidance text..."@en ;
   curric:displayOrder "9"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-history-of-diverse-britain ;
+  skos:broader natcurric:substrand-history-of-britain ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
 
@@ -368,7 +368,7 @@ natcurric:contentdescriptor-aspect-british-history-beyond-1066
   chronological knowledge beyond 1066."""@en ;
   curric:supportingGuidance "Supporting guidance text..."@en ;
   curric:displayOrder "10"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-history-of-diverse-britain ;
+  skos:broader natcurric:substrand-history-of-britain ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
 
@@ -378,7 +378,7 @@ natcurric:contentdescriptor-church-state-society-1066-1509
   connections to the wider world 1066-1509."""@en ;
   curric:supportingGuidance "Supporting guidance text..."@en ;
   curric:displayOrder "11"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-history-of-diverse-britain ;
+  skos:broader natcurric:substrand-history-of-britain ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
 
@@ -388,7 +388,7 @@ natcurric:contentdescriptor-church-state-society-1509-1745
   connections to the wider world 1509-1745."""@en ;
   curric:supportingGuidance "Supporting guidance text..."@en ;
   curric:displayOrder "12"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-history-of-diverse-britain ;
+  skos:broader natcurric:substrand-history-of-britain ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
 
@@ -397,7 +397,7 @@ natcurric:contentdescriptor-ideas-power-industry-empire-1745-1901
   skos:prefLabel "About ideas, political power, industry and empire: Britain, 1745-1901."@en ;
   curric:supportingGuidance "Supporting guidance text..."@en ;
   curric:displayOrder "13"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-history-of-diverse-britain ;
+  skos:broader natcurric:substrand-history-of-britain ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
 
@@ -407,7 +407,7 @@ natcurric:contentdescriptor-challenges-britain-europe-world-1901-present
   day In addition to studying the Holocaust, this could include:."""@en ;
   curric:supportingGuidance "Supporting guidance text..."@en ;
   curric:displayOrder "14"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-history-of-diverse-britain ;
+  skos:broader natcurric:substrand-history-of-britain ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
 
@@ -417,7 +417,7 @@ natcurric:contentdescriptor-aspect-british-history-before-1066
   pupils’ chronological knowledge from before 1066."""@en ;
   curric:supportingGuidance "Supporting guidance text..."@en ;
   curric:displayOrder "15"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-history-of-diverse-britain ;
+  skos:broader natcurric:substrand-history-of-britain ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
 

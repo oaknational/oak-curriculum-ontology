@@ -176,9 +176,9 @@ natcurric:progression-history-key-stage-1-substantive-concepts
   curric:coversContent
     natcurric:contentdescriptor-abstract-terms-historically-grounded .
 
-natcurric:progression-history-key-stage-1-history-of-diverse-britain
+natcurric:progression-history-key-stage-1-history-of-britain
   a curric:Progression ;
-  rdfs:label "History Key Stage 1 History of Diverse Britain"@en ;
+  rdfs:label "History Key Stage 1 History of Britain"@en ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
   curric:isProgressionOf natcurric:scheme-history-key-stage-1 ;
   curric:coversContent
@@ -218,9 +218,9 @@ natcurric:progression-history-key-stage-2-substantive-concepts
   curric:coversContent
     natcurric:contentdescriptor-abstract-terms-historically-grounded .
 
-natcurric:progression-history-key-stage-2-history-of-diverse-britain
+natcurric:progression-history-key-stage-2-history-of-britain
   a curric:Progression ;
-  rdfs:label "History Key Stage 2 History of Diverse Britain"@en ;
+  rdfs:label "History Key Stage 2 History of Britain"@en ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
   curric:isProgressionOf natcurric:scheme-history-key-stage-2 ;
   curric:coversContent
@@ -272,9 +272,9 @@ natcurric:progression-history-key-stage-3-substantive-concepts
   curric:coversContent
     natcurric:contentdescriptor-abstract-terms-historically-grounded .
 
-natcurric:progression-history-key-stage-3-history-of-diverse-britain
+natcurric:progression-history-key-stage-3-history-of-britain
   a curric:Progression ;
-  rdfs:label "History Key Stage 3 History of Diverse Britain"@en ;
+  rdfs:label "History Key Stage 3 History of Britain"@en ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
   curric:isProgressionOf natcurric:scheme-history-key-stage-3 ;
   curric:coversContent

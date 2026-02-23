@@ -677,8 +677,7 @@ natcurric:contentdescriptor-build-fluency-confidence-word-reading
 natcurric:contentdescriptor-knowledge-root-words-prefixes-suffixes
   a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel """Apply their growing knowledge of root words, prefixes and suffixes (etymology 
-  and morphology) as listed in - see English appendix 1 , both to read aloud and to understand the 
-  meaning of new words they meet."""@en ;
+  and morphology), both to read aloud and to understand the meaning of new words they meet."""@en ;
   curric:supportingGuidance "Supporting guidance text..."@en ;
   curric:displayOrder "18"^^xsd:positiveInteger ;
   skos:broader natcurric:substrand-word-reading ;
@@ -698,8 +697,8 @@ natcurric:contentdescriptor-further-exception-words-unusual-correspondence
 natcurric:contentdescriptor-further-root-words-prefixes-suffixes
   a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel """Apply their growing knowledge of root words, prefixes and suffixes (morphology 
-  and etymology), as listed in English appendix 1, both to read aloud and to understand the meaning 
-  of new words that they meet."""@en ;
+  and etymology), both to read aloud and to understand the meaning of new words that they 
+  meet."""@en ;
   curric:supportingGuidance "Supporting guidance text..."@en ;
   curric:displayOrder "20"^^xsd:positiveInteger ;
   skos:broader natcurric:substrand-word-reading ;
@@ -1063,7 +1062,7 @@ natcurric:contentdescriptor-add-suffixes-spell-longer-words
 
 natcurric:contentdescriptor-apply-spelling-rules-and-guidance
   a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel "Apply spelling rules and guidance, as listed in English appendix 1."@en ;
+  skos:prefLabel "Apply spelling rules and guidance."@en ;
   curric:supportingGuidance "Supporting guidance text..."@en ;
   curric:displayOrder "9"^^xsd:positiveInteger ;
   skos:broader natcurric:substrand-transcription ;
@@ -1129,7 +1128,7 @@ natcurric:contentdescriptor-using-ing-ed-er-est
 
 natcurric:contentdescriptor-apply-simple-spelling-rules-guidance
   a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel "Apply simple spelling rules and guidance, as listed in English appendix 1."@en ;
+  skos:prefLabel "Apply simple spelling rules and guidance."@en ;
   curric:supportingGuidance "Supporting guidance text..."@en ;
   curric:displayOrder "16"^^xsd:positiveInteger ;
   skos:broader natcurric:substrand-transcription ;
@@ -1138,8 +1137,7 @@ natcurric:contentdescriptor-apply-simple-spelling-rules-guidance
 
 natcurric:contentdescriptor-further-prefixes-suffixes-understand-add
   a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel """Use further prefixes and suffixes and understand how to add them - see English 
-  appendix 1."""@en ;
+  skos:prefLabel "Use further prefixes and suffixes and understand how to add them."@en ;
   curric:supportingGuidance "Supporting guidance text..."@en ;
   curric:displayOrder "17"^^xsd:positiveInteger ;
   skos:broader natcurric:substrand-transcription ;
@@ -1157,7 +1155,7 @@ natcurric:contentdescriptor-spell-further-homophones
 
 natcurric:contentdescriptor-spell-words-often-misspelt
   a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel "Spell words that are often misspelt - see English appendix 1."@en ;
+  skos:prefLabel "Spell words that are often misspelt."@en ;
   curric:supportingGuidance "Supporting guidance text..."@en ;
   curric:displayOrder "19"^^xsd:positiveInteger ;
   skos:broader natcurric:substrand-transcription ;
@@ -1226,7 +1224,7 @@ natcurric:contentdescriptor-distinguish-homophones-other-words-confused
 natcurric:contentdescriptor-knowledge-morphology-etymology-in-spelling
   a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel """Use knowledge of morphology and etymology in spelling and understand that the 
-  spelling of some words needs to be learnt specifically, as listed in English appendix 1."""@en ;
+  spelling of some words needs to be learnt specifically."""@en ;
   curric:supportingGuidance "Supporting guidance text..."@en ;
   curric:displayOrder "26"^^xsd:positiveInteger ;
   skos:broader natcurric:substrand-transcription ;
@@ -1575,7 +1573,7 @@ natcurric:contentdescriptor-capital-letter-for-names
 
 natcurric:contentdescriptor-learning-grammar-year-1
   a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel "Learning the grammar for year 1 in English appendix 2."@en ;
+  skos:prefLabel "Learning the grammar for year 1."@en ;
   curric:supportingGuidance "Supporting guidance text..."@en ;
   curric:displayOrder "5"^^xsd:positiveInteger ;
   skos:broader natcurric:substrand-vocabulary-grammar-punctuation ;
@@ -1584,8 +1582,7 @@ natcurric:contentdescriptor-learning-grammar-year-1
 
 natcurric:contentdescriptor-use-grammatical-terminology-in-english
   a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel """Use the grammatical terminology in English English appendix 2 in discussing 
-  their writing."""@en ;
+  skos:prefLabel "Use the grammatical terminology in English in discussing their writing."@en ;
   curric:supportingGuidance "Supporting guidance text..."@en ;
   curric:displayOrder "6"^^xsd:positiveInteger ;
   skos:broader natcurric:substrand-vocabulary-grammar-punctuation ;
@@ -1594,9 +1591,9 @@ natcurric:contentdescriptor-use-grammatical-terminology-in-english
 
 natcurric:contentdescriptor-use-familiar-and-new-punctuation
   a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel """Learning how to use both familiar and new punctuation correctly - see English 
-  appendix 2, including full stops, capital letters, exclamation marks, question marks, commas for 
-  lists and apostrophes for contracted forms and the possessive (singular)."""@en ;
+  skos:prefLabel """Learning how to use both familiar and new punctuation correctly, including full 
+  stops, capital letters, exclamation marks, question marks, commas for lists and apostrophes for 
+  contracted forms and the possessive (singular)."""@en ;
   curric:supportingGuidance "Supporting guidance text..."@en ;
   curric:displayOrder "7"^^xsd:positiveInteger ;
   skos:broader natcurric:substrand-vocabulary-grammar-punctuation ;
@@ -1644,7 +1641,7 @@ natcurric:contentdescriptor-subordination-and-coordination
 
 natcurric:contentdescriptor-learning-grammar-year-2
   a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel "The grammar for year 2 in English appendix 2."@en ;
+  skos:prefLabel "The grammar for year 2."@en ;
   curric:supportingGuidance "Supporting guidance text..."@en ;
   curric:displayOrder "12"^^xsd:positiveInteger ;
   skos:broader natcurric:substrand-vocabulary-grammar-punctuation ;
@@ -1709,7 +1706,7 @@ natcurric:contentdescriptor-using-fronted-adverbials
 
 natcurric:contentdescriptor-learning-grammar-years-3-4
   a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel "Learning the grammar for years 3 and 4 in [English appendix 2]."@en ;
+  skos:prefLabel "Learning the grammar for years 3 and 4."@en ;
   curric:supportingGuidance "Supporting guidance text..."@en ;
   curric:displayOrder "19"^^xsd:positiveInteger ;
   skos:broader natcurric:substrand-vocabulary-grammar-punctuation ;
@@ -1801,7 +1798,7 @@ natcurric:contentdescriptor-who-which-where-when-whose
   
 natcurric:contentdescriptor-learning-grammar-years-5-6
   a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel "Learning the grammar for years 5 and 6 in English appendix 2."@en ;
+  skos:prefLabel "Learning the grammar for years 5 and 6."@en ;
   curric:supportingGuidance "Supporting guidance text..."@en ;
   curric:displayOrder "29"^^xsd:positiveInteger ;
   skos:broader natcurric:substrand-vocabulary-grammar-punctuation ;
@@ -1865,8 +1862,8 @@ natcurric:contentdescriptor-punctuating-bullet-points-consistently
 
 natcurric:contentdescriptor-use-understand-grammatical-terminology
   a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel """Use and understand the grammatical terminology in English appendix 2 accurately 
-  and appropriately in discussing their writing and reading."""@en ;
+  skos:prefLabel """Use and understand the grammatical terminology accurately and appropriately in 
+  discussing their writing and reading."""@en ;
   curric:supportingGuidance "Supporting guidance text..."@en ;
   curric:displayOrder "36"^^xsd:positiveInteger ;
   skos:broader natcurric:substrand-vocabulary-grammar-punctuation ;
@@ -2099,8 +2096,7 @@ natcurric:contentdescriptor-amending-vocabulary-grammar-structure
 natcurric:contentdescriptor-accurate-grammar-punctuation-and-spelling
   a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel """Paying attention to accurate grammar, punctuation and spelling; applying the 
-  spelling patterns and rules set out in English appendix 1 to the key stage 1 and 2 programmes of 
-  study for English."""@en ;
+  spelling patterns and rules to the key stage 1 and 2 programmes of study for English."""@en ;
   curric:supportingGuidance "Supporting guidance text..."@en ;
   curric:displayOrder "3"^^xsd:positiveInteger ;
   skos:broader natcurric:substrand-plan-draft-edit-and-proofread ;
@@ -2290,7 +2286,8 @@ natcurric:contentdescriptor-accuracy-effectiveness-grammar-punctuation-spelling
 
 natcurric:contentdescriptor-effectiveness-and-impact-in-texts
   a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel "Studying their effectiveness and impact in the texts they read."@en ;
+  skos:prefLabel """Consolidate and build on their knowledge of grammar and vocabulary through 
+  studying their effectiveness and impact in the texts they read."""@en ;
   curric:supportingGuidance "Supporting guidance text..."@en ;
   curric:displayOrder "1"^^xsd:positiveInteger ;
   skos:broader natcurric:substrand-consolidate-knowledge-grammar-vocabulary ;
@@ -2331,8 +2328,8 @@ natcurric:contentdescriptor-using-linguistic-literary-terminology-accurately
 
 natcurric:contentdescriptor-extending-applying-grammatical-knowledge
   a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel """Extending and applying the grammatical knowledge set out in English appendix 2 
-  to the key stage 1 and 2 programmes of study to analyse more challenging texts."""@en ;
+  skos:prefLabel """Extending and applying the grammatical knowledge to the key stage 1 and 2 
+  programmes of study to analyse more challenging texts."""@en ;
   curric:supportingGuidance "Supporting guidance text..."@en ;
   curric:displayOrder "5"^^xsd:positiveInteger ;
   skos:broader natcurric:substrand-consolidate-knowledge-grammar-vocabulary ;
