@@ -22,7 +22,7 @@ SOFTWARE.
 
 ---
 
-All Python scripts, GitHub Actions workflows, and software tools are licensed under this [MIT License](LICENSE-CODE).
+All Python scripts, GitHub Actions workflows, and software tools are licensed under this MIT License.
 
 **Applies to:**
 - `scripts/` - Python utilities
