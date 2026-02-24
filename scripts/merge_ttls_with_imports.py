@@ -24,10 +24,13 @@ logger = logging.getLogger(__name__)
 # OWL imports predicate
 OWL_IMPORTS = URIRef("http://www.w3.org/2002/07/owl#imports")
 
+# Core ontology filename
+OAK_ONTOLOGY_FILENAME = "oak-curriculum-ontology.ttl"
+
 # Static URI pattern mappings: (pattern_substring, path_parts)
 URI_PATTERNS: list[tuple[str, tuple[str, ...]]] = [
-    ("w3id.org/uk/oak/curriculum/core", ("ontology", "oak-curriculum-ontology.ttl")),
-    ("w3id.org/uk/oak/curriculum/oak-ontology", ("ontology", "oak-curriculum-ontology.ttl")),
+    ("w3id.org/uk/oak/curriculum/core", ("ontology", OAK_ONTOLOGY_FILENAME)),
+    ("w3id.org/uk/oak/curriculum/oak-ontology", ("ontology", OAK_ONTOLOGY_FILENAME)),
     ("w3id.org/uk/oak/curriculum/oakcurriculum/programme-structure", ("data", "programme-structure.ttl")),
     ("w3id.org/uk/oak/curriculum/oakcurriculum/threads", ("data", "threads.ttl")),
     ("w3id.org/uk/oak/curriculum/nationalcurriculum/temporal-structure", ("data", "temporal-structure.ttl")),
@@ -53,6 +56,29 @@ class TTLMerger:
     seen_files: set[Path] = field(default_factory=set)
     seen_uris: set[str] = field(default_factory=set)
 
+    def _try_path(self, *path_parts: str) -> Path | None:
+        """Return path if it exists, otherwise None."""
+        path = self.repo_root.joinpath(*path_parts)
+        return path if path.exists() else None
+
+    def _resolve_subject_uri(self, import_uri_str: str) -> Path | None:
+        """
+        Resolve nationalcurriculum subject URIs (programme-structure or knowledge-taxonomy).
+
+        Handles patterns like:
+        - nationalcurriculum/{subject}-programme-structure
+        - nationalcurriculum/{subject}-knowledge-taxonomy
+        """
+        for suffix in ("programme-structure", "knowledge-taxonomy"):
+            match = re.search(rf"nationalcurriculum/([\w-]+)-{suffix}", import_uri_str)
+            if match:
+                subject = match.group(1)
+                subject_dir = "science" if subject in SCIENCE_SUBJECTS else subject
+                path = self._try_path("data", "subjects", subject_dir, f"{subject}-{suffix}.ttl")
+                if path:
+                    return path
+        return None
+
     def resolve_import_uri(self, import_uri: URIRef | str) -> Path | str | None:
         """Resolve an import URI to a local path or remote URL."""
         import_uri_str = str(import_uri)
@@ -64,48 +90,28 @@ class TTLMerger:
         # Check static pattern mappings
         for pattern, path_parts in URI_PATTERNS:
             if pattern in import_uri_str:
-                local_path = self.repo_root.joinpath(*path_parts)
-                if local_path.exists():
-                    return local_path
+                if path := self._try_path(*path_parts):
+                    return path
 
         # Handle /ontology suffix (without oak- prefix)
         if import_uri_str.rstrip("/").endswith("w3id.org/uk/oak/curriculum/ontology"):
-            local_path = self.repo_root / "ontology" / "oak-curriculum-ontology.ttl"
-            if local_path.exists():
-                return local_path
+            if path := self._try_path("ontology", OAK_ONTOLOGY_FILENAME):
+                return path
 
         # Handle nationalcurriculum base URI
         if import_uri_str.rstrip("/").endswith("w3id.org/uk/oak/curriculum/nationalcurriculum"):
-            local_path = self.repo_root / "data" / "temporal-structure.ttl"
-            if local_path.exists():
-                return local_path
+            if path := self._try_path("data", "temporal-structure.ttl"):
+                return path
 
-        # Handle nationalcurriculum/{subject}-programme-structure
-        match = re.search(r"nationalcurriculum/([\w-]+)-programme-structure", import_uri_str)
-        if match:
-            subject = match.group(1)
-            # Science subjects are in data/subjects/science/, others in their own directory
-            subject_dir = "science" if subject in SCIENCE_SUBJECTS else subject
-            local_path = self.repo_root / "data" / "subjects" / subject_dir / f"{subject}-programme-structure.ttl"
-            if local_path.exists():
-                return local_path
-
-        # Handle nationalcurriculum/{subject}-knowledge-taxonomy
-        match = re.search(r"nationalcurriculum/([\w-]+)-knowledge-taxonomy", import_uri_str)
-        if match:
-            subject = match.group(1)
-            # Science subjects are in data/subjects/science/, others in their own directory
-            subject_dir = "science" if subject in SCIENCE_SUBJECTS else subject
-            local_path = self.repo_root / "data" / "subjects" / subject_dir / f"{subject}-knowledge-taxonomy.ttl"
-            if local_path.exists():
-                return local_path
+        # Handle nationalcurriculum/{subject}-programme-structure and knowledge-taxonomy
+        if path := self._resolve_subject_uri(import_uri_str):
+            return path
 
         # Handle oak-data files
         if "w3id.org/uk/oak/curriculum/oak-data/" in import_uri_str:
             filename = import_uri_str.split("oak-data/")[-1].rstrip("/")
-            local_path = self.repo_root / "data" / f"{filename}.ttl"
-            if local_path.exists():
-                return local_path
+            if path := self._try_path("data", f"{filename}.ttl"):
+                return path
 
         # Check if it's a local file path
         import_path = Path(import_uri_str)

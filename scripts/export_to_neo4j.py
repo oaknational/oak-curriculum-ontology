@@ -349,6 +349,16 @@ class RDFLoader:
                 return pred_uri
         return None
 
+    def _should_include_file(self, file_path: Path, existing_files: list[Path]) -> bool:
+        """Check if a file should be included in the discovery results."""
+        if file_path.suffix != '.ttl':
+            return False
+        if self._is_excluded(file_path):
+            return False
+        if file_path in existing_files:
+            return False
+        return True
+
     def discover_files(self) -> list[Path]:
         """
         Discover TTL files based on configuration.
@@ -360,7 +370,7 @@ class RDFLoader:
         Returns:
             List of paths to TTL files (in discovery order)
         """
-        ttl_files = []
+        ttl_files: list[Path] = []
 
         # Process include_files first (in order)
         for file in self.config.file_discovery.include_files:
@@ -372,21 +382,9 @@ class RDFLoader:
 
         # Process include_patterns (in order)
         for pattern in self.config.file_discovery.include_patterns:
-            # Use glob directly on the data_dir
-            # Supports both ** (recursive) and * (single level) patterns
             matched_files = sorted(self.data_dir.glob(pattern))
-
             for ttl_file in matched_files:
-                # Only include .ttl files
-                if ttl_file.suffix != '.ttl':
-                    continue
-
-                # Check exclude patterns
-                if self._is_excluded(ttl_file):
-                    continue
-
-                # Avoid duplicates (file might already be in include_files)
-                if ttl_file not in ttl_files:
+                if self._should_include_file(ttl_file, ttl_files):
                     ttl_files.append(ttl_file)
 
         return ttl_files
@@ -583,6 +581,60 @@ class RDFLoader:
             graph.remove((s, p, old_o))
             graph.add((s, p, new_o))
 
+    def _extract_rdf_list_values(
+        self,
+        graph: Graph,
+        subject: URIRef,
+        predicate: URIRef,
+        prop_name: str
+    ) -> tuple[list[str] | None, tuple | None]:
+        """
+        Extract values from an RDF list property for a single subject.
+
+        Returns:
+            Tuple of (list of values or None, triple to remove or None)
+        """
+        for obj in graph.objects(subject, predicate):
+            # Object should be an RDF list (blank node with rdf:first)
+            if not (isinstance(obj, BNode) and (obj, self.RDF.first, None) in graph):
+                logger.warning(f"Property {prop_name} for {subject} is not an RDF list - skipping")
+                return None, None
+
+            try:
+                values = [str(item) for item in Collection(graph, obj)]
+                logger.debug(f"  Extracted RDF list for {subject} {prop_name}: {len(values)} items")
+                return values, (subject, predicate, obj)
+            except Exception as e:
+                logger.warning(f"Could not parse RDF list for {subject} property {prop_name}: {e}")
+                return None, None
+
+        return None, None
+
+    def _process_multi_valued_property(
+        self,
+        graph: Graph,
+        subjects: set,
+        predicate: URIRef,
+        prop_name: str
+    ) -> tuple[dict[str, list[str]], list[tuple]]:
+        """
+        Process a single multi-valued property across all subjects.
+
+        Returns:
+            Tuple of (property data dict, list of triples to remove)
+        """
+        prop_data: dict[str, list[str]] = {}
+        triples_to_remove: list[tuple] = []
+
+        for subject in subjects:
+            values, triple = self._extract_rdf_list_values(graph, subject, predicate, prop_name)
+            if values is not None:
+                prop_data[str(subject)] = values
+            if triple is not None:
+                triples_to_remove.append(triple)
+
+        return prop_data, triples_to_remove
+
     def _extract_multi_valued_properties(self, graph: Graph) -> dict[str, dict[str, dict[str, list[str]]]]:
         """
         Extract RDF lists and convert them to Neo4j array properties.
@@ -604,7 +656,7 @@ class RDFLoader:
             return {}
 
         multi_valued_data: dict[str, dict[str, dict[str, list[str]]]] = {}
-        triples_to_remove = []
+        all_triples_to_remove: list[tuple] = []
 
         for node_label, properties in self.export_config.multi_valued_properties.items():
             type_uri = self._resolve_rdf_type(graph, node_label)
@@ -618,27 +670,10 @@ class RDFLoader:
                 if not predicate:
                     continue
 
-                # Extract RDF list values for each subject
-                prop_data = {}
-                for subject in subjects:
-                    for obj in graph.objects(subject, predicate):
-                        # Object should be an RDF list (blank node with rdf:first)
-                        if isinstance(obj, BNode) and (obj, self.RDF.first, None) in graph:
-                            try:
-                                # Extract all members from the RDF list
-                                values = [str(item) for item in Collection(graph, obj)]
-                                prop_data[str(subject)] = values
-
-                                # Mark main triple for removal
-                                # The blank node structure (rdf:first/rdf:rest) will be removed
-                                # by the predicate filtering step that happens later
-                                triples_to_remove.append((subject, predicate, obj))
-
-                                logger.debug(f"  Extracted RDF list for {subject} {prop}: {len(values)} items")
-                            except Exception as e:
-                                logger.warning(f"Could not parse RDF list for {subject} property {prop}: {e}")
-                        else:
-                            logger.warning(f"Property {prop} for {subject} is not an RDF list - skipping")
+                prop_data, triples_to_remove = self._process_multi_valued_property(
+                    graph, subjects, predicate, prop
+                )
+                all_triples_to_remove.extend(triples_to_remove)
 
                 if prop_data:
                     if node_label not in multi_valued_data:
@@ -646,11 +681,11 @@ class RDFLoader:
                     multi_valued_data[node_label][prop] = prop_data
 
         # Remove the extracted triples from the graph
-        for triple in triples_to_remove:
+        for triple in all_triples_to_remove:
             graph.remove(triple)
 
-        if triples_to_remove:
-            logger.info(f"  Extracted and removed {len(triples_to_remove)} multi-valued property triples to prevent duplicates")
+        if all_triples_to_remove:
+            logger.info(f"  Extracted and removed {len(all_triples_to_remove)} multi-valued property triples to prevent duplicates")
 
         return multi_valued_data
 
@@ -680,6 +715,28 @@ class RDFLoader:
 
         return slug_data
 
+    def _extract_uri_property_for_subjects(
+        self,
+        graph: Graph,
+        subjects: set,
+        predicate: URIRef
+    ) -> tuple[dict[str, str], list[tuple]]:
+        """
+        Extract object URIs for a single predicate across all subjects.
+
+        Returns:
+            Tuple of (property data dict mapping subject_uri -> object_uri, list of triples to remove)
+        """
+        prop_data: dict[str, str] = {}
+        triples_to_remove: list[tuple] = []
+
+        for subject in subjects:
+            for obj in graph.objects(subject, predicate):
+                prop_data[str(subject)] = str(obj)
+                triples_to_remove.append((subject, predicate, obj))
+
+        return prop_data, triples_to_remove
+
     def _extract_object_uri_properties(self, graph: Graph) -> dict[str, dict[str, dict[str, str]]]:
         """
         Extract object URIs from specific predicates to be set as properties.
@@ -692,7 +749,7 @@ class RDFLoader:
             return {}
 
         uri_property_data: dict[str, dict[str, dict[str, str]]] = {}
-        triples_to_remove = []
+        all_triples_to_remove: list[tuple] = []
 
         for node_label, predicate_mappings in self.export_config.extract_object_uris_as_properties.items():
             type_uri = self._resolve_rdf_type(graph, node_label)
@@ -706,14 +763,10 @@ class RDFLoader:
                 if not predicate:
                     continue
 
-                # Extract object URIs for each subject
-                prop_data = {}
-                for subject in subjects:
-                    for obj in graph.objects(subject, predicate):
-                        # Store the object URI as a string
-                        prop_data[str(subject)] = str(obj)
-                        # Mark triple for removal
-                        triples_to_remove.append((subject, predicate, obj))
+                prop_data, triples_to_remove = self._extract_uri_property_for_subjects(
+                    graph, subjects, predicate
+                )
+                all_triples_to_remove.extend(triples_to_remove)
 
                 if prop_data:
                     if node_label not in uri_property_data:
@@ -721,7 +774,7 @@ class RDFLoader:
                     uri_property_data[node_label][property_name] = prop_data
 
         # Remove the extracted triples from the graph
-        for triple in triples_to_remove:
+        for triple in all_triples_to_remove:
             graph.remove(triple)
 
         return uri_property_data
@@ -1104,42 +1157,40 @@ class PropertyMappingTransformation(Transformation):
     def should_run(self, config: Neo4jExportConfig) -> bool:
         return bool(config.property_mappings)
 
+    def _build_rename_query(self, node_label: str, main_label: str, mappings: dict[str, str]) -> str:
+        """Build a consolidated Cypher query to rename multiple properties."""
+        set_clauses = [f"n.{new_prop} = n.{old_prop}" for old_prop, new_prop in mappings.items()]
+        remove_clauses = [f"n.{old_prop}" for old_prop in mappings.keys()]
+        where_clauses = [f"n.{old_prop} IS NOT NULL" for old_prop in mappings.keys()]
+
+        return f"""
+            MATCH (n:{node_label}:{main_label})
+            WHERE {" OR ".join(where_clauses)}
+            SET {", ".join(set_clauses)}
+            REMOVE {", ".join(remove_clauses)}
+            RETURN count(n) as count
+        """
+
+    def _rename_properties(self, session: Session, node_label: str, main_label: str, mappings: dict[str, str]) -> int:
+        """Rename properties for a single node type and return count of affected nodes."""
+        query = self._build_rename_query(node_label, main_label, mappings)
+        result = session.run(query)
+        record = result.single()
+        count = record["count"] if record else 0
+
+        if count > 0:
+            props_str = ", ".join([f"'{old}'→'{new}'" for old, new in mappings.items()])
+            logger.info(f"✓ {node_label}:{main_label}: {props_str} ({count} nodes)")
+
+        return count
+
     def execute(self, session: Session, config: Neo4jExportConfig, main_labels: list[str], data: TransformationData) -> int:
         total_renamed = 0
 
         for main_label in main_labels:
             for node_label, mappings in config.property_mappings.items():
-                if not mappings:
-                    continue
-
-                # Build consolidated SET and REMOVE clauses for all properties
-                set_clauses = []
-                remove_clauses = []
-                where_clauses = []
-
-                for old_prop, new_prop in mappings.items():
-                    set_clauses.append(f"n.{new_prop} = n.{old_prop}")
-                    remove_clauses.append(f"n.{old_prop}")
-                    where_clauses.append(f"n.{old_prop} IS NOT NULL")
-
-                # Combined query: rename all properties for this node type in one go
-                # Use CASE to handle properties that may not exist on all nodes
-                query = f"""
-                    MATCH (n:{node_label}:{main_label})
-                    WHERE {" OR ".join(where_clauses)}
-                    SET {", ".join(set_clauses)}
-                    REMOVE {", ".join(remove_clauses)}
-                    RETURN count(n) as count
-                """
-
-                result = session.run(query)
-                record = result.single()
-                count = record["count"] if record else 0
-
-                if count > 0:
-                    props_str = ", ".join([f"'{old}'→'{new}'" for old, new in mappings.items()])
-                    logger.info(f"✓ {node_label}:{main_label}: {props_str} ({count} nodes)")
-                    total_renamed += count
+                if mappings:
+                    total_renamed += self._rename_properties(session, node_label, main_label, mappings)
 
         return total_renamed
 
@@ -1188,46 +1239,52 @@ class RelationshipTypeMappingTransformation(Transformation):
     def should_run(self, config: Neo4jExportConfig) -> bool:
         return bool(config.relationship_type_mappings)
 
+    def _rename_simple(self, session: Session, old_type: str, new_type: str) -> int:
+        """Rename all relationships of old_type to new_type."""
+        result = session.run(f"""
+            MATCH (a)-[old:{old_type}]->(b)
+            CREATE (a)-[new:{new_type}]->(b)
+            SET new = properties(old)
+            WITH old, count(*) as count
+            DELETE old
+            RETURN count
+        """)
+        record = result.single()
+        count = record["count"] if record else 0
+        if count > 0:
+            logger.info(f"✓ '{old_type}' → '{new_type}' ({count} relationships)")
+        return count
+
+    def _rename_conditional(self, session: Session, old_type: str, conditions: list) -> int:
+        """Rename relationships based on target label conditions."""
+        total = 0
+        for condition in conditions:
+            target_label = condition.when_target_label
+            new_type = condition.new_type
+
+            result = session.run(f"""
+                MATCH (a)-[old:{old_type}]->(b:{target_label})
+                CREATE (a)-[new:{new_type}]->(b)
+                SET new = properties(old)
+                WITH old, count(*) as count
+                DELETE old
+                RETURN count
+            """)
+            record = result.single()
+            count = record["count"] if record else 0
+            if count > 0:
+                logger.info(f"✓ '{old_type}' → '{new_type}' (target: {target_label}, {count} relationships)")
+                total += count
+        return total
+
     def execute(self, session: Session, config: Neo4jExportConfig, main_labels: list[str], data: TransformationData) -> int:
         total_renamed = 0
 
         for old_type, mapping in config.relationship_type_mappings.items():
-            # Case 1: Simple string mapping (backward compatible)
             if isinstance(mapping, str):
-                new_type = mapping
-                result = session.run(f"""
-                    MATCH (a)-[old:{old_type}]->(b)
-                    CREATE (a)-[new:{new_type}]->(b)
-                    SET new = properties(old)
-                    WITH old, count(*) as count
-                    DELETE old
-                    RETURN count
-                """)
-                record = result.single()
-                count = record["count"] if record else 0
-                if count > 0:
-                    logger.info(f"✓ '{old_type}' → '{new_type}' ({count} relationships)")
-                    total_renamed += count
-
-            # Case 2: Conditional mapping based on target label
+                total_renamed += self._rename_simple(session, old_type, mapping)
             elif isinstance(mapping, list):
-                for condition in mapping:
-                    target_label = condition.when_target_label
-                    new_type = condition.new_type
-
-                    result = session.run(f"""
-                        MATCH (a)-[old:{old_type}]->(b:{target_label})
-                        CREATE (a)-[new:{new_type}]->(b)
-                        SET new = properties(old)
-                        WITH old, count(*) as count
-                        DELETE old
-                        RETURN count
-                    """)
-                    record = result.single()
-                    count = record["count"] if record else 0
-                    if count > 0:
-                        logger.info(f"✓ '{old_type}' → '{new_type}' (target: {target_label}, {count} relationships)")
-                        total_renamed += count
+                total_renamed += self._rename_conditional(session, old_type, mapping)
 
         return total_renamed
 
@@ -1720,6 +1777,46 @@ class TransformationPipeline:
 # UTILITY FUNCTIONS
 # ============================================================================
 
+def _delete_label_in_batches(session: Session, label: str, batch_size: int) -> int:
+    """
+    Delete all nodes with a given label in batches.
+
+    Returns:
+        Number of nodes deleted.
+    """
+    # Count nodes before deletion
+    count_result = session.run(f"MATCH (n:{label}) RETURN count(n) as count")
+    count_record = count_result.single()
+    node_count = count_record["count"] if count_record else 0
+
+    if node_count == 0:
+        logger.info(f"No {label} nodes found")
+        return 0
+
+    logger.info(f"Found {node_count:,} {label} nodes to delete")
+    logger.info("Deleting in batches to prevent connection timeout...")
+
+    deleted_count = 0
+    while True:
+        result = session.run(f"""
+            MATCH (n:{label})
+            WITH n LIMIT {batch_size}
+            DETACH DELETE n
+            RETURN count(n) as deleted
+        """)
+        record = result.single()
+        batch_deleted = record["deleted"] if record else 0
+
+        if batch_deleted == 0:
+            break
+
+        deleted_count += batch_deleted
+        logger.info(f"  Deleted {deleted_count:,} / {node_count:,} {label} nodes...")
+
+    logger.info(f"✓ Deleted {deleted_count:,} {label} nodes and their relationships")
+    return deleted_count
+
+
 def clear_neo4j_data(auth_data: dict[str, str], labels: Union[str, list[str]]) -> None:
     """
     Clear all nodes with the specified label(s) from Neo4j.
@@ -1730,7 +1827,6 @@ def clear_neo4j_data(auth_data: dict[str, str], labels: Union[str, list[str]]) -
                   (uri, database, user, pwd)
         labels: The node label(s) to clear (e.g., 'NatCurric', 'OakCurric')
     """
-    # Normalize to list
     label_list = labels if isinstance(labels, list) else [labels]
     label_str = ", ".join(label_list)
 
@@ -1746,49 +1842,13 @@ def clear_neo4j_data(auth_data: dict[str, str], labels: Union[str, list[str]]) -
 
     try:
         with driver.session(database=auth_data['database']) as session:
-            total_deleted = 0
-
-            for label in label_list:
-                # Count nodes before deletion
-                count_result = session.run(
-                    f"MATCH (n:{label}) RETURN count(n) as count"
-                )
-                count_record = count_result.single()
-                node_count = count_record["count"] if count_record else 0
-
-                if node_count == 0:
-                    logger.info(f"No {label} nodes found")
-                    continue
-
-                logger.info(f"Found {node_count:,} {label} nodes to delete")
-                logger.info(f"Deleting in batches to prevent connection timeout...")
-
-                # Delete in batches to prevent connection timeout
-                batch_size = DELETE_BATCH_SIZE
-                deleted_count = 0
-
-                while True:
-                    # Delete one batch at a time
-                    result = session.run(f"""
-                        MATCH (n:{label})
-                        WITH n LIMIT {batch_size}
-                        DETACH DELETE n
-                        RETURN count(n) as deleted
-                    """)
-                    record = result.single()
-                    batch_deleted = record["deleted"] if record else 0
-
-                    if batch_deleted == 0:
-                        break
-
-                    deleted_count += batch_deleted
-                    logger.info(f"  Deleted {deleted_count:,} / {node_count:,} {label} nodes...")
-
-                logger.info(f"✓ Deleted {deleted_count:,} {label} nodes and their relationships")
-                total_deleted += deleted_count
+            total_deleted = sum(
+                _delete_label_in_batches(session, label, DELETE_BATCH_SIZE)
+                for label in label_list
+            )
 
             if total_deleted == 0:
-                logger.info(f"Database is already clear")
+                logger.info("Database is already clear")
             else:
                 logger.info(f"\n✓ Total deleted: {total_deleted:,} nodes across all labels")
                 logger.info("✓ Database cleared - ready for fresh import")
@@ -1912,6 +1972,51 @@ def discover_ttl_files(export_config: ExportConfig, project_root: Path) -> list[
     return ttl_files
 
 
+def _merge_two_level_dict(
+    target: dict[str, dict[str, str]],
+    source: dict[str, dict[str, str]]
+) -> None:
+    """Merge a 2-level nested dict (source) into target."""
+    for key, value_dict in source.items():
+        if key not in target:
+            target[key] = {}
+        target[key].update(value_dict)
+
+
+def _merge_three_level_dict(
+    target: dict[str, dict[str, dict]],
+    source: dict[str, dict[str, dict]]
+) -> None:
+    """Merge a 3-level nested dict (source) into target."""
+    for level1_key, level2_dict in source.items():
+        if level1_key not in target:
+            target[level1_key] = {}
+        for level2_key, level3_dict in level2_dict.items():
+            if level2_key not in target[level1_key]:
+                target[level1_key][level2_key] = {}
+            target[level1_key][level2_key].update(level3_dict)
+
+
+def _commit_triples_in_batches(
+    source_graph: Graph,
+    target_graph: Graph,
+    batch_size: int
+) -> int:
+    """Add triples from source to target graph, committing in batches.
+
+    Returns:
+        Number of triples added.
+    """
+    triple_count = 0
+    for triple in source_graph:
+        target_graph.add(triple)
+        triple_count += 1
+        if triple_count % batch_size == 0:
+            target_graph.commit()
+    target_graph.commit()
+    return triple_count
+
+
 def load_and_aggregate_ttl_files(
     ttl_files: list[Path],
     export_config: ExportConfig,
@@ -1952,50 +2057,16 @@ def load_and_aggregate_ttl_files(
             # Load and filter
             result = rdf_loader.load_and_filter(ttl_file)
 
-            # Merge multi-valued data
-            for node_label, prop_data in result.multi_valued_data.items():
-                if node_label not in all_multi_valued_data:
-                    all_multi_valued_data[node_label] = {}
-                for prop, uri_values in prop_data.items():
-                    if prop not in all_multi_valued_data[node_label]:
-                        all_multi_valued_data[node_label][prop] = {}
-                    all_multi_valued_data[node_label][prop].update(uri_values)
-
-            # Merge slug data
-            for node_label, uri_slug_map in result.slug_data.items():
-                if node_label not in all_slug_data:
-                    all_slug_data[node_label] = {}
-                all_slug_data[node_label].update(uri_slug_map)
-
-            # Merge URI property data
-            for node_label, prop_data_uri in result.uri_property_data.items():
-                if node_label not in all_uri_property_data:
-                    all_uri_property_data[node_label] = {}
-                for prop, uri_values_single in prop_data_uri.items():
-                    if prop not in all_uri_property_data[node_label]:
-                        all_uri_property_data[node_label][prop] = {}
-                    all_uri_property_data[node_label][prop].update(uri_values_single)
-
-            # Merge RDF types data
+            # Merge extracted data into aggregated collections
+            _merge_three_level_dict(all_multi_valued_data, result.multi_valued_data)
+            _merge_two_level_dict(all_slug_data, result.slug_data)
+            _merge_three_level_dict(all_uri_property_data, result.uri_property_data)
             all_rdf_types_data.update(result.rdf_types_data)
-
-            # Merge external relationships
             all_external_relationships.extend(result.external_relationships)
 
             # Add to Neo4j with commits after each batch to flush buffer
             batch_size = export_config.config.neo4j_connection.batch_size
-            triple_count = 0
-
-            for triple in result.graph:
-                neo4j_graph.add(triple)
-                triple_count += 1
-
-                # Commit after each batch to flush buffer completely
-                if triple_count % batch_size == 0:
-                    neo4j_graph.commit()
-
-            # Final commit for any remaining triples
-            neo4j_graph.commit()
+            _commit_triples_in_batches(result.graph, neo4j_graph, batch_size)
 
             file_triple_count = len(result.graph)
             total_triples += file_triple_count
