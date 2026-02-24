@@ -587,7 +587,7 @@ class RDFLoader:
         subject: URIRef,
         predicate: URIRef,
         prop_name: str
-    ) -> tuple[list[str] | None, tuple | None]:
+    ) -> tuple[list[str] | None, tuple[Any, Any, Any] | None]:
         """
         Extract values from an RDF list property for a single subject.
 
@@ -613,10 +613,10 @@ class RDFLoader:
     def _process_multi_valued_property(
         self,
         graph: Graph,
-        subjects: set,
+        subjects: set[Any],
         predicate: URIRef,
         prop_name: str
-    ) -> tuple[dict[str, list[str]], list[tuple]]:
+    ) -> tuple[dict[str, list[str]], list[tuple[Any, Any, Any]]]:
         """
         Process a single multi-valued property across all subjects.
 
@@ -624,7 +624,7 @@ class RDFLoader:
             Tuple of (property data dict, list of triples to remove)
         """
         prop_data: dict[str, list[str]] = {}
-        triples_to_remove: list[tuple] = []
+        triples_to_remove: list[tuple[Any, Any, Any]] = []
 
         for subject in subjects:
             values, triple = self._extract_rdf_list_values(graph, subject, predicate, prop_name)
@@ -656,7 +656,7 @@ class RDFLoader:
             return {}
 
         multi_valued_data: dict[str, dict[str, dict[str, list[str]]]] = {}
-        all_triples_to_remove: list[tuple] = []
+        all_triples_to_remove: list[tuple[Any, Any, Any]] = []
 
         for node_label, properties in self.export_config.multi_valued_properties.items():
             type_uri = self._resolve_rdf_type(graph, node_label)
@@ -676,9 +676,7 @@ class RDFLoader:
                 all_triples_to_remove.extend(triples_to_remove)
 
                 if prop_data:
-                    if node_label not in multi_valued_data:
-                        multi_valued_data[node_label] = {}
-                    multi_valued_data[node_label][prop] = prop_data
+                    multi_valued_data.setdefault(node_label, {})[prop] = prop_data
 
         # Remove the extracted triples from the graph
         for triple in all_triples_to_remove:
@@ -718,9 +716,9 @@ class RDFLoader:
     def _extract_uri_property_for_subjects(
         self,
         graph: Graph,
-        subjects: set,
+        subjects: set[Any],
         predicate: URIRef
-    ) -> tuple[dict[str, str], list[tuple]]:
+    ) -> tuple[dict[str, str], list[tuple[Any, Any, Any]]]:
         """
         Extract object URIs for a single predicate across all subjects.
 
@@ -728,7 +726,7 @@ class RDFLoader:
             Tuple of (property data dict mapping subject_uri -> object_uri, list of triples to remove)
         """
         prop_data: dict[str, str] = {}
-        triples_to_remove: list[tuple] = []
+        triples_to_remove: list[tuple[Any, Any, Any]] = []
 
         for subject in subjects:
             for obj in graph.objects(subject, predicate):
@@ -749,7 +747,7 @@ class RDFLoader:
             return {}
 
         uri_property_data: dict[str, dict[str, dict[str, str]]] = {}
-        all_triples_to_remove: list[tuple] = []
+        all_triples_to_remove: list[tuple[Any, Any, Any]] = []
 
         for node_label, predicate_mappings in self.export_config.extract_object_uris_as_properties.items():
             type_uri = self._resolve_rdf_type(graph, node_label)
@@ -769,9 +767,7 @@ class RDFLoader:
                 all_triples_to_remove.extend(triples_to_remove)
 
                 if prop_data:
-                    if node_label not in uri_property_data:
-                        uri_property_data[node_label] = {}
-                    uri_property_data[node_label][property_name] = prop_data
+                    uri_property_data.setdefault(node_label, {})[property_name] = prop_data
 
         # Remove the extracted triples from the graph
         for triple in all_triples_to_remove:
@@ -1255,7 +1251,7 @@ class RelationshipTypeMappingTransformation(Transformation):
             logger.info(f"✓ '{old_type}' → '{new_type}' ({count} relationships)")
         return count
 
-    def _rename_conditional(self, session: Session, old_type: str, conditions: list) -> int:
+    def _rename_conditional(self, session: Session, old_type: str, conditions: list[ConditionalRelationshipMapping]) -> int:
         """Rename relationships based on target label conditions."""
         total = 0
         for condition in conditions:
@@ -1585,6 +1581,73 @@ class ExternalRelationshipsTransformation(Transformation):
         # No transformation needed
         return predicate_name, False
 
+    def _group_relationships(
+        self,
+        external_rels: list[tuple[str, str, str]],
+        config: Neo4jExportConfig,
+        label_cache: dict[str, list[str]]
+    ) -> tuple[dict[tuple[str, bool], list[tuple[str, str]]], list[str]]:
+        """Group relationships by type and direction, tracking missing targets."""
+        grouped_rels: dict[tuple[str, bool], list[tuple[str, str]]] = {}
+        missing_targets: list[str] = []
+
+        for subject_uri, predicate_uri, object_uri in external_rels:
+            if object_uri not in label_cache:
+                missing_targets.append(object_uri)
+                continue
+
+            predicate_name = predicate_uri.split('/')[-1].split('#')[-1]
+            final_rel_type, should_reverse = self._apply_relationship_transformations(
+                predicate_name, config, object_uri, label_cache
+            )
+            final_rel_type = re.sub(r'([a-z])([A-Z])', r'\1_\2', final_rel_type).upper()
+
+            grouped_rels.setdefault((final_rel_type, should_reverse), []).append((subject_uri, object_uri))
+
+        return grouped_rels, missing_targets
+
+    def _create_batched_relationships(
+        self,
+        session: Session,
+        grouped_rels: dict[tuple[str, bool], list[tuple[str, str]]]
+    ) -> int:
+        """Create relationships in batches and return total count."""
+        created_count = 0
+
+        for (rel_type, should_reverse), rel_pairs in grouped_rels.items():
+            batch_data = [{"subject": s, "object": o} for s, o in rel_pairs]
+            direction_clause = "(target)-[r:{rel_type}]->(source)" if should_reverse else "(source)-[r:{rel_type}]->(target)"
+            query = f"""
+                UNWIND $batch AS rel
+                MATCH (source {{uri: rel.subject}})
+                MATCH (target {{uri: rel.object}})
+                CREATE {direction_clause.format(rel_type=rel_type)}
+                RETURN count(*) as count
+            """
+
+            try:
+                result = session.run(query, batch=batch_data)
+                record = result.single()
+                count = record["count"] if record else 0
+                created_count += count
+                direction = "reversed" if should_reverse else "forward"
+                logger.info(f"  ✓ Created {count} {rel_type} relationships ({direction})")
+            except Exception as e:
+                logger.error(f"  ✗ Failed to create {rel_type} relationships: {e}")
+
+        return created_count
+
+    def _log_missing_targets(self, missing_targets: list[str]) -> None:
+        """Log warning about missing target nodes."""
+        if not missing_targets:
+            return
+        unique_missing = set(missing_targets)
+        logger.warning(f"⚠ Could not create {len(missing_targets)} relationships - {len(unique_missing)} unique target nodes don't exist:")
+        for uri in list(unique_missing)[:5]:
+            logger.warning(f"  - {uri}")
+        if len(unique_missing) > 5:
+            logger.warning(f"  ... and {len(unique_missing) - 5} more unique targets")
+
     def execute(self, session: Session, config: Neo4jExportConfig, main_labels: list[str], data: TransformationData) -> int:
         external_rels = data.get('external_relationships', [])
         if not external_rels:
@@ -1598,84 +1661,18 @@ class ExternalRelationshipsTransformation(Transformation):
         for subj, pred, obj in external_rels[:3]:
             logger.info(f"  {subj.split('/')[-1]} -[{pred.split('/')[-1]}]-> {obj.split('/')[-1]}")
 
-        # Option 5: Pre-cache all target node labels in a single query
+        # Pre-cache all target node labels
         target_uris = [obj for _, _, obj in external_rels]
         label_cache = self._pre_cache_target_labels(session, target_uris)
 
-        # Group relationships by (rel_type, should_reverse) for batched execution
-        # Key: (rel_type, should_reverse), Value: [(subject_uri, object_uri), ...]
-        grouped_rels: dict[tuple[str, bool], list[tuple[str, str]]] = {}
-        missing_targets = []
-
-        for subject_uri, predicate_uri, object_uri in external_rels:
-            # Check if target exists in cache
-            if object_uri not in label_cache:
-                missing_targets.append(object_uri)
-                continue
-
-            # Extract predicate name from URI (e.g., "isProgrammeOf")
-            predicate_name = predicate_uri.split('/')[-1].split('#')[-1]
-
-            # Apply transformations using cached labels (no query needed)
-            final_rel_type, should_reverse = self._apply_relationship_transformations(
-                predicate_name, config, object_uri, label_cache
-            )
-
-            # Convert camelCase to UPPER_CASE
-            final_rel_type = re.sub(r'([a-z])([A-Z])', r'\1_\2', final_rel_type).upper()
-
-            # Group by relationship type and direction
-            key = (final_rel_type, should_reverse)
-            if key not in grouped_rels:
-                grouped_rels[key] = []
-            grouped_rels[key].append((subject_uri, object_uri))
-
-        # Option 1: Execute batched UNWIND queries per relationship type
-        created_count = 0
-
-        for (rel_type, should_reverse), rel_pairs in grouped_rels.items():
-            # Build batch data
-            batch_data = [{"subject": s, "object": o} for s, o in rel_pairs]
-
-            if should_reverse:
-                # Create: (target)-[REL]->(source)
-                query = f"""
-                    UNWIND $batch AS rel
-                    MATCH (source {{uri: rel.subject}})
-                    MATCH (target {{uri: rel.object}})
-                    CREATE (target)-[r:{rel_type}]->(source)
-                    RETURN count(*) as count
-                """
-            else:
-                # Create: (source)-[REL]->(target)
-                query = f"""
-                    UNWIND $batch AS rel
-                    MATCH (source {{uri: rel.subject}})
-                    MATCH (target {{uri: rel.object}})
-                    CREATE (source)-[r:{rel_type}]->(target)
-                    RETURN count(*) as count
-                """
-
-            try:
-                result = session.run(query, batch=batch_data)
-                record = result.single()
-                count = record["count"] if record else 0
-                created_count += count
-                direction = "reversed" if should_reverse else "forward"
-                logger.info(f"  ✓ Created {count} {rel_type} relationships ({direction})")
-            except Exception as e:
-                logger.error(f"  ✗ Failed to create {rel_type} relationships: {e}")
+        # Group and create relationships
+        grouped_rels, missing_targets = self._group_relationships(external_rels, config, label_cache)
+        created_count = self._create_batched_relationships(session, grouped_rels)
 
         if created_count > 0:
             logger.info(f"✓ Created {created_count} total relationships to external nodes")
 
-        if missing_targets:
-            unique_missing = set(missing_targets)
-            logger.warning(f"⚠ Could not create {len(missing_targets)} relationships - {len(unique_missing)} unique target nodes don't exist:")
-            for uri in list(unique_missing)[:5]:  # Show first 5 unique
-                logger.warning(f"  - {uri}")
-            if len(unique_missing) > 5:
-                logger.warning(f"  ... and {len(unique_missing) - 5} more unique targets")
+        self._log_missing_targets(missing_targets)
 
         return created_count
 
@@ -1984,8 +1981,8 @@ def _merge_two_level_dict(
 
 
 def _merge_three_level_dict(
-    target: dict[str, dict[str, dict]],
-    source: dict[str, dict[str, dict]]
+    target: dict[str, dict[str, dict[str, Any]]],
+    source: dict[str, dict[str, dict[str, Any]]]
 ) -> None:
     """Merge a 3-level nested dict (source) into target."""
     for level1_key, level2_dict in source.items():

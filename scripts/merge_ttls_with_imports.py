@@ -79,6 +79,25 @@ class TTLMerger:
                     return path
         return None
 
+    def _resolve_special_uri(self, uri_str: str) -> Path | None:
+        """Resolve special URI patterns to local paths."""
+        stripped = uri_str.rstrip("/")
+
+        # Handle /ontology suffix (without oak- prefix)
+        if stripped.endswith("w3id.org/uk/oak/curriculum/ontology"):
+            return self._try_path("ontology", OAK_ONTOLOGY_FILENAME)
+
+        # Handle nationalcurriculum base URI
+        if stripped.endswith("w3id.org/uk/oak/curriculum/nationalcurriculum"):
+            return self._try_path("data", "temporal-structure.ttl")
+
+        # Handle oak-data files
+        if "w3id.org/uk/oak/curriculum/oak-data/" in uri_str:
+            filename = uri_str.split("oak-data/")[-1].rstrip("/")
+            return self._try_path("data", f"{filename}.ttl")
+
+        return None
+
     def resolve_import_uri(self, import_uri: URIRef | str) -> Path | str | None:
         """Resolve an import URI to a local path or remote URL."""
         import_uri_str = str(import_uri)
@@ -93,32 +112,17 @@ class TTLMerger:
                 if path := self._try_path(*path_parts):
                     return path
 
-        # Handle /ontology suffix (without oak- prefix)
-        if import_uri_str.rstrip("/").endswith("w3id.org/uk/oak/curriculum/ontology"):
-            if path := self._try_path("ontology", OAK_ONTOLOGY_FILENAME):
-                return path
+        # Try special URI patterns
+        if path := self._resolve_special_uri(import_uri_str):
+            return path
 
-        # Handle nationalcurriculum base URI
-        if import_uri_str.rstrip("/").endswith("w3id.org/uk/oak/curriculum/nationalcurriculum"):
-            if path := self._try_path("data", "temporal-structure.ttl"):
-                return path
-
-        # Handle nationalcurriculum/{subject}-programme-structure and knowledge-taxonomy
+        # Handle nationalcurriculum subject URIs
         if path := self._resolve_subject_uri(import_uri_str):
             return path
 
-        # Handle oak-data files
-        if "w3id.org/uk/oak/curriculum/oak-data/" in import_uri_str:
-            filename = import_uri_str.split("oak-data/")[-1].rstrip("/")
-            if path := self._try_path("data", f"{filename}.ttl"):
-                return path
-
         # Check if it's a local file path
         import_path = Path(import_uri_str)
-        if import_path.exists():
-            return import_path
-
-        return None
+        return import_path if import_path.exists() else None
 
     def parse_with_imports(self, file_path_or_uri: Path | URIRef | str) -> None:
         """Parse a TTL file and recursively parse any owl:imports."""
