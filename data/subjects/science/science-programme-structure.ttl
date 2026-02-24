@@ -735,7 +735,7 @@ natcurric:progression-science-key-stage-3-particulate-nature-of-matter
   curric:isProgressionOf natcurric:scheme-science-key-stage-3 ;
   curric:coversContent
     natcurric:contentdescriptor-properties-different-states-of-matter ,
-    natcurric:contentdescriptor-chemistry-changes-of-state-particle-model .
+    natcurric:contentdescriptor-changes-of-state-particle-model .
 
 natcurric:progression-science-key-stage-3-atoms-elements-compounds
   a curric:Progression ;

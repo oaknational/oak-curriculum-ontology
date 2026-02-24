@@ -338,7 +338,7 @@ natcurric:substrand-particulate-nature-of-matter
   skos:broader natcurric:strand-chemical-science ;
   skos:narrower 
     natcurric:contentdescriptor-properties-different-states-of-matter ,
-    natcurric:contentdescriptor-chemistry-changes-of-state-particle-model ;
+    natcurric:contentdescriptor-changes-of-state-particle-model ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
 
@@ -474,8 +474,7 @@ natcurric:substrand-structure-bonding-properties-of-matter
     natcurric:contentdescriptor-types-of-chemical-bonding ,
     natcurric:contentdescriptor-bonding-and-intermolecular-forces ,
     natcurric:contentdescriptor-bonding-of-carbon ,
-    natcurric:contentdescriptor-diamond-graphite-fullerenes-graphene ,
-    natcurric:contentdescriptor-structure-bonding-properties-of-matter-use-of-mathematics ;
+    natcurric:contentdescriptor-diamond-graphite-fullerenes-graphene ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
 
@@ -492,10 +491,7 @@ natcurric:substrand-chemical-changes
     natcurric:contentdescriptor-chemistry-of-acids ,
     natcurric:contentdescriptor-hydrogen-ion-concentration ,
     natcurric:contentdescriptor-electrolysis-of-molten-ionic-liquids ,
-    natcurric:contentdescriptor-reduction-and-oxidation ,
-    natcurric:contentdescriptor-chemical-symbols-formulae-and-equations ,
-    natcurric:contentdescriptor-reactivity-series-of-metals ,
-    natcurric:contentdescriptor-chemical-changes-use-of-mathematics ;
+    natcurric:contentdescriptor-reduction-and-oxidation ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
 
@@ -507,10 +503,7 @@ natcurric:substrand-energy-changes-in-chemistry
   skos:broader natcurric:strand-chemical-science ;
   skos:narrower 
     natcurric:contentdescriptor-energy-changes-in-chemical-reactions ,
-    natcurric:contentdescriptor-bond-breaking-bond-making ,
-    natcurric:contentdescriptor-exothermic-and-endothermic-reactions ,
-    natcurric:contentdescriptor-carbon-compounds-fuels-and-feedstock ,
-    natcurric:contentdescriptor-energy-changes-in-chemistry-use-of-mathematics ;
+    natcurric:contentdescriptor-bond-breaking-bond-making ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
 
@@ -522,8 +515,7 @@ natcurric:substrand-rate-extent-of-chemical-change
   skos:broader natcurric:strand-chemical-science ;
   skos:narrower 
     natcurric:contentdescriptor-factors-influencing-rate-of-reaction ,
-    natcurric:contentdescriptor-factors-affecting-reversible-reactions ,
-    natcurric:contentdescriptor-rate-extent-of-chemical-change-use-of-mathematics ;
+    natcurric:contentdescriptor-factors-affecting-reversible-reactions ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
 
@@ -537,10 +529,7 @@ natcurric:substrand-chemical-analysis
     natcurric:contentdescriptor-distinguishing-pure-and-impure-substances ,
     natcurric:contentdescriptor-separation-techniques-mixtures-of-substances ,
     natcurric:contentdescriptor-quantitative-interpretation-of-balanced-equations ,
-    natcurric:contentdescriptor-concentrations-of-solutions ,
-    natcurric:contentdescriptor-assessing-purity-and-separating-mixtures ,
-    natcurric:contentdescriptor-use-of-amount-of-substance ,
-    natcurric:contentdescriptor-chemical-analysis-use-of-mathematics ;
+    natcurric:contentdescriptor-concentrations-of-solutions ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
 
@@ -570,8 +559,7 @@ natcurric:substrand-earth-and-atmospheric-science
     natcurric:contentdescriptor-anthropogenic-causes-of-climate-change ,
     natcurric:contentdescriptor-increased-levels-carbon-dioxide-methane ,
     natcurric:contentdescriptor-common-atmospheric-pollutants ,
-    natcurric:contentdescriptor-earths-water-resources ,
-    natcurric:contentdescriptor-earth-and-atmospheric-science-use-of-mathematics ;
+    natcurric:contentdescriptor-earths-water-resources ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
 
@@ -1334,7 +1322,7 @@ natcurric:contentdescriptor-properties-different-states-of-matter
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
 
-natcurric:contentdescriptor-chemistry-changes-of-state-particle-model
+natcurric:contentdescriptor-changes-of-state-particle-model
   a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel "Changes of state in terms of the particle model."@en ;
   curric:displayOrder "2"^^xsd:positiveInteger ;
@@ -1723,14 +1711,6 @@ natcurric:contentdescriptor-diamond-graphite-fullerenes-graphene
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
 
-natcurric:contentdescriptor-structure-bonding-properties-of-matter-use-of-mathematics
-  a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel "Use of mathematics."@en ;
-  curric:displayOrder "6"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-structure-bonding-properties-of-matter ;
-  skos:inScheme natcurric:knowledge-taxonomy ;
-  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
-
 natcurric:contentdescriptor-determination-of-empirical-formulae
   a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel """Determination of empirical formulae from the ratio of atoms of different 
@@ -1788,31 +1768,6 @@ natcurric:contentdescriptor-reduction-and-oxidation
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
 
-natcurric:contentdescriptor-chemical-symbols-formulae-and-equations
-  a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel "Chemical symbols, formulae and equations."@en ;
-  curric:displayOrder "8"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-chemical-changes ;
-  skos:inScheme natcurric:knowledge-taxonomy ;
-  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
-
-natcurric:contentdescriptor-reactivity-series-of-metals
-  a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel """A reactivity series of metals as the tendency of a metal to form its positive 
-  ion."""@en ;
-  curric:displayOrder "9"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-chemical-changes ;
-  skos:inScheme natcurric:knowledge-taxonomy ;
-  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
-
-natcurric:contentdescriptor-chemical-changes-use-of-mathematics
-  a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel "Use of mathematics."@en ;
-  curric:displayOrder "10"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-chemical-changes ;
-  skos:inScheme natcurric:knowledge-taxonomy ;
-  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
-
 natcurric:contentdescriptor-energy-changes-in-chemical-reactions
   a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel "Measurement of energy changes in chemical reactions (qualitative)."@en ;
@@ -1830,30 +1785,6 @@ natcurric:contentdescriptor-bond-breaking-bond-making
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
 
-natcurric:contentdescriptor-exothermic-and-endothermic-reactions
-  a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel "Exothermic and endothermic reactions, including reaction profiles."@en ;
-  curric:displayOrder "3"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-energy-changes-in-chemistry ;
-  skos:inScheme natcurric:knowledge-taxonomy ;
-  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
-
-natcurric:contentdescriptor-carbon-compounds-fuels-and-feedstock
-  a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel "Carbon compounds both as fuels and feedstock."@en ;
-  curric:displayOrder "4"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-energy-changes-in-chemistry ;
-  skos:inScheme natcurric:knowledge-taxonomy ;
-  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
-
-natcurric:contentdescriptor-energy-changes-in-chemistry-use-of-mathematics
-  a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel "Uses of mathematics."@en ;
-  curric:displayOrder "5"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-energy-changes-in-chemistry ;
-  skos:inScheme natcurric:knowledge-taxonomy ;
-  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
-
 natcurric:contentdescriptor-factors-influencing-rate-of-reaction
   a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel """Factors that influence the rate of reaction: varying temperature or 
@@ -1867,14 +1798,6 @@ natcurric:contentdescriptor-factors-affecting-reversible-reactions
   a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel "Factors affecting reversible reactions."@en ;
   curric:displayOrder "2"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-rate-extent-of-chemical-change ;
-  skos:inScheme natcurric:knowledge-taxonomy ;
-  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
-
-natcurric:contentdescriptor-rate-extent-of-chemical-change-use-of-mathematics
-  a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel "Use of mathematics."@en ;
-  curric:displayOrder "3"^^xsd:positiveInteger ;
   skos:broader natcurric:substrand-rate-extent-of-chemical-change ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
@@ -1909,30 +1832,6 @@ natcurric:contentdescriptor-concentrations-of-solutions
   skos:prefLabel """Concentrations of solutions in relation to mass of solute and volume of 
   solvent."""@en ;
   curric:displayOrder "4"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-chemical-analysis ;
-  skos:inScheme natcurric:knowledge-taxonomy ;
-  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
-
-natcurric:contentdescriptor-assessing-purity-and-separating-mixtures
-  a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel "Assessing purity and separating mixtures."@en ;
-  curric:displayOrder "5"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-chemical-analysis ;
-  skos:inScheme natcurric:knowledge-taxonomy ;
-  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
-
-natcurric:contentdescriptor-use-of-amount-of-substance
-  a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel "Use of amount of substance in relation to masses of pure substances."@en ;
-  curric:displayOrder "6"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-chemical-analysis ;
-  skos:inScheme natcurric:knowledge-taxonomy ;
-  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
-
-natcurric:contentdescriptor-chemical-analysis-use-of-mathematics
-  a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel "Use of mathematics."@en ;
-  curric:displayOrder "7"^^xsd:positiveInteger ;
   skos:broader natcurric:substrand-chemical-analysis ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
@@ -2021,14 +1920,6 @@ natcurric:contentdescriptor-earths-water-resources
   a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel "The Earth's water resources and obtaining potable water."@en ;
   curric:displayOrder "5"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-earth-and-atmospheric-science ;
-  skos:inScheme natcurric:knowledge-taxonomy ;
-  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
-
-natcurric:contentdescriptor-earth-and-atmospheric-science-use-of-mathematics
-  a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel "Use of mathematics."@en ;
-  curric:displayOrder "6"^^xsd:positiveInteger ;
   skos:broader natcurric:substrand-earth-and-atmospheric-science ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .

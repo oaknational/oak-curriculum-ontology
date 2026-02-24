@@ -125,11 +125,9 @@ natcurric:strand-physical-science
     natcurric:substrand-forces ,
     natcurric:substrand-forces-and-motion ,
     natcurric:substrand-wave-motion ,
-    natcurric:substrand-light-and-electromagnetic-waves ,
     natcurric:substrand-electricity ,
     natcurric:substrand-magnetism-and-electromagnetism ,
     natcurric:substrand-structure-of-matter ,
-    natcurric:substrand-particle-model-of-matter ,
     natcurric:substrand-atomic-structure ,
     natcurric:substrand-space-physics ;
   skos:inScheme natcurric:knowledge-taxonomy ;
@@ -580,9 +578,7 @@ natcurric:substrand-energy
     natcurric:contentdescriptor-power-as-rate-transfer-energy ,
     natcurric:contentdescriptor-conservation-of-energy-closed-system ,
     natcurric:contentdescriptor-energy-efficiency-for-energy-transfers ,
-    natcurric:contentdescriptor-renewable-non-renewable-energy-sources ,
-    natcurric:contentdescriptor-conservation-dissipation-national-global-sources ,
-    natcurric:contentdescriptor-energy-use-of-mathematics ;
+    natcurric:contentdescriptor-renewable-non-renewable-energy-sources ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
 
@@ -607,9 +603,7 @@ natcurric:substrand-forces
     natcurric:contentdescriptor-forces-and-fields ,
     natcurric:contentdescriptor-forces-as-vectors ,
     natcurric:contentdescriptor-calculating-work-done ,
-    natcurric:contentdescriptor-pressure-in-fluids ,
-    natcurric:contentdescriptor-forces-and-their-interactions ,
-    natcurric:contentdescriptor-forces-use-of-mathematics ;
+    natcurric:contentdescriptor-pressure-in-fluids ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
 
@@ -626,10 +620,7 @@ natcurric:substrand-forces-and-motion
     natcurric:contentdescriptor-graphs-of-distance-time-speed ,
     natcurric:contentdescriptor-acceleration-caused-by-forces ,
     natcurric:contentdescriptor-weight-and-gravitational-field-strength ,
-    natcurric:contentdescriptor-decelerations-and-braking-distances ,
-    natcurric:contentdescriptor-speed-and-velocity ,
-    natcurric:contentdescriptor-safety-in-public-transport ,
-    natcurric:contentdescriptor-forces-and-motion-use-of-mathematics ;
+    natcurric:contentdescriptor-decelerations-and-braking-distances ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
 
@@ -645,22 +636,7 @@ natcurric:substrand-wave-motion
     natcurric:contentdescriptor-electromagnetic-waves ,
     natcurric:contentdescriptor-velocities-differing-between-media ,
     natcurric:contentdescriptor-production-detection-by-electrical-circuits ,
-    natcurric:contentdescriptor-electromagnetic-spectrum-uses-and-hazards ,
-    natcurric:contentdescriptor-waves-in-air-fluids-solids ,
-    natcurric:contentdescriptor-wave-motion-use-of-mathematics ;
-  skos:inScheme natcurric:knowledge-taxonomy ;
-  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
-
-natcurric:substrand-light-and-electromagnetic-waves
-  a skos:Concept, curric:SubStrand ;
-  skos:prefLabel "Light and Electromagnetic Waves"@en ;
-  skos:definition "Description of sub-strand..."@en ;
-  curric:displayOrder "26"^^xsd:positiveInteger ;
-  skos:broader natcurric:strand-physical-science ;
-  skos:narrower 
-    natcurric:contentdescriptor-frequency-range-of-the-spectrum ,
-    natcurric:contentdescriptor-interactions-electromagnetic-radiation-with-matter ,
-    natcurric:contentdescriptor-light-and-electromagnetic-waves-use-of-mathematics ;
+    natcurric:contentdescriptor-electromagnetic-spectrum-uses-and-hazards ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
 
@@ -668,7 +644,7 @@ natcurric:substrand-electricity
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Electricity"@en ;
   skos:definition "Description of sub-strand..."@en ;
-  curric:displayOrder "27"^^xsd:positiveInteger ;
+  curric:displayOrder "26"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-physical-science ;
   skos:narrower
     natcurric:contentdescriptor-common-appliances-run-on-electricity ,
@@ -684,12 +660,7 @@ natcurric:substrand-electricity
     natcurric:contentdescriptor-quantity-of-charge-flowing ,
     natcurric:contentdescriptor-drawing-circuit-diagrams ,
     natcurric:contentdescriptor-domestic-ac-supply ,
-    natcurric:contentdescriptor-power-transfer ,
-    natcurric:contentdescriptor-current-potential-difference-resistance ,
-    natcurric:contentdescriptor-series-and-parallel-circuits ,
-    natcurric:contentdescriptor-domestic-uses-and-safety ,
-    natcurric:contentdescriptor-energy-transfers ,
-    natcurric:contentdescriptor-electricity-use-of-mathematics ;
+    natcurric:contentdescriptor-power-transfer ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
 
@@ -697,13 +668,12 @@ natcurric:substrand-magnetism-and-electromagnetism
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Magnetism and electromagnetism"@en ;
   skos:definition "Description of sub-strand..."@en ;
-  curric:displayOrder "28"^^xsd:positiveInteger ;
+  curric:displayOrder "27"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-physical-science ;
   skos:narrower 
     natcurric:contentdescriptor-exploring-magnetic-fields ,
     natcurric:contentdescriptor-magnetic-effects-of-currents ,
-    natcurric:contentdescriptor-transformers-in-national-grid ,
-    natcurric:contentdescriptor-magnetism-magnetic-forces-and-fields ;
+    natcurric:contentdescriptor-transformers-in-national-grid ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
 
@@ -711,7 +681,7 @@ natcurric:substrand-structure-of-matter
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "The structure of matter"@en ;
   skos:definition "Description of sub-strand..."@en ;
-  curric:displayOrder "29"^^xsd:positiveInteger ;
+  curric:displayOrder "28"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-physical-science ;
   skos:narrower 
     natcurric:contentdescriptor-molecules-in-solid-liquid-gas ,
@@ -721,24 +691,11 @@ natcurric:substrand-structure-of-matter
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
 
-natcurric:substrand-particle-model-of-matter
-  a skos:Concept, curric:SubStrand ;
-  skos:prefLabel "Particle model of matter"@en ;
-  skos:definition "Description of sub-strand..."@en ;
-  curric:displayOrder "30"^^xsd:positiveInteger ;
-  skos:broader natcurric:strand-physical-science ;
-  skos:narrower 
-    natcurric:contentdescriptor-physics-changes-of-state-particle-model ,
-    natcurric:contentdescriptor-energy-transfers-and-particle-motions ,
-    natcurric:contentdescriptor-particle-model-of-matter-use-of-mathematics ;
-  skos:inScheme natcurric:knowledge-taxonomy ;
-  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
-
 natcurric:substrand-atomic-structure
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Atomic structure"@en ;
   skos:definition "Description of sub-strand..."@en ;
-  curric:displayOrder "31"^^xsd:positiveInteger ;
+  curric:displayOrder "29"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-physical-science ;
   skos:narrower 
     natcurric:contentdescriptor-nuclear-model ,
@@ -747,10 +704,7 @@ natcurric:substrand-atomic-structure
     natcurric:contentdescriptor-ionisation-absorption-emission-radiation ,
     natcurric:contentdescriptor-radioactive-nuclei ,
     natcurric:contentdescriptor-radioactive-materials-halflife-irradiation ,
-    natcurric:contentdescriptor-nuclear-fission-fusion-sun-energy ,
-    natcurric:contentdescriptor-nuclear-atom-and-isotopes ,
-    natcurric:contentdescriptor-absorption-and-emission-ionizing-radiations ,
-    natcurric:contentdescriptor-atomic-structure-use-of-mathematics ;
+    natcurric:contentdescriptor-nuclear-fission-fusion-sun-energy ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
 
@@ -758,7 +712,7 @@ natcurric:substrand-space-physics
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Space physics"@en ;
   skos:definition "Description of sub-strand..."@en ;
-  curric:displayOrder "32"^^xsd:positiveInteger ;
+  curric:displayOrder "30"^^xsd:positiveInteger ;
   skos:broader natcurric:strand-physical-science ;
   skos:narrower 
     natcurric:contentdescriptor-gravity-force-weight-on-earth ,
@@ -2042,22 +1996,6 @@ natcurric:contentdescriptor-renewable-non-renewable-energy-sources
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
 
-natcurric:contentdescriptor-conservation-dissipation-national-global-sources
-  a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel "Conservation, dissipation and national and global energy sources."@en ;
-  curric:displayOrder "6"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-energy ;
-  skos:inScheme natcurric:knowledge-taxonomy ;
-  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
-
-natcurric:contentdescriptor-energy-use-of-mathematics
-  a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel "Use of mathematics."@en ;
-  curric:displayOrder "7"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-energy ;
-  skos:inScheme natcurric:knowledge-taxonomy ;
-  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
-
 natcurric:contentdescriptor-forces-as-pushes-or-pulls
   a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel "Forces as pushes or pulls, arising from the interaction between 2 objects."@en ;
@@ -2187,22 +2125,6 @@ natcurric:contentdescriptor-pressure-in-fluids
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
 
-natcurric:contentdescriptor-forces-and-their-interactions
-  a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel "Forces and their interactions."@en ;
-  curric:displayOrder "16"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-forces ;
-  skos:inScheme natcurric:knowledge-taxonomy ;
-  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
-
-natcurric:contentdescriptor-forces-use-of-mathematics
-  a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel "Use of mathematics."@en ;
-  curric:displayOrder "17"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-forces ;
-  skos:inScheme natcurric:knowledge-taxonomy ;
-  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
-
 natcurric:contentdescriptor-forces-cause-stop-start-motion
   a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel """Forces being needed to cause objects to stop or start moving, or to change 
@@ -2260,30 +2182,6 @@ natcurric:contentdescriptor-decelerations-and-braking-distances
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
 
-natcurric:contentdescriptor-speed-and-velocity
-  a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel "Speed and velocity."@en ;
-  curric:displayOrder "8"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-forces-and-motion ;
-  skos:inScheme natcurric:knowledge-taxonomy ;
-  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
-
-natcurric:contentdescriptor-safety-in-public-transport
-  a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel "Safety in public transport."@en ;
-  curric:displayOrder "9"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-forces-and-motion ;
-  skos:inScheme natcurric:knowledge-taxonomy ;
-  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
-
-natcurric:contentdescriptor-forces-and-motion-use-of-mathematics
-  a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel "Use of mathematics."@en ;
-  curric:displayOrder "10"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-forces-and-motion ;
-  skos:inScheme natcurric:knowledge-taxonomy ;
-  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
-
 natcurric:contentdescriptor-amplitude-wavelength-frequency
   a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel """Amplitude, wavelength, frequency, relating velocity to frequency and 
@@ -2334,47 +2232,6 @@ natcurric:contentdescriptor-electromagnetic-spectrum-uses-and-hazards
   gamma-ray regions, hazardous effects on bodily tissues."""@en ;
   curric:displayOrder "6"^^xsd:positiveInteger ;
   skos:broader natcurric:substrand-wave-motion ;
-  skos:inScheme natcurric:knowledge-taxonomy ;
-  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
-
-natcurric:contentdescriptor-waves-in-air-fluids-solids
-  a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel "Waves in air, fluids and solids."@en ;
-  curric:displayOrder "7"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-wave-motion ;
-  skos:inScheme natcurric:knowledge-taxonomy ;
-  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
-
-natcurric:contentdescriptor-wave-motion-use-of-mathematics
-  a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel "Use of mathematics."@en ;
-  curric:displayOrder "8"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-wave-motion ;
-  skos:inScheme natcurric:knowledge-taxonomy ;
-  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
-
-natcurric:contentdescriptor-frequency-range-of-the-spectrum
-  a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel "Frequency range of the spectrum."@en ;
-  curric:displayOrder "1"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-light-and-electromagnetic-waves ;
-  skos:inScheme natcurric:knowledge-taxonomy ;
-  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
-
-natcurric:contentdescriptor-interactions-electromagnetic-radiation-with-matter
-  a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel """Interactions of electromagnetic radiation with matter and their 
-  applications."""@en ;
-  curric:displayOrder "2"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-light-and-electromagnetic-waves ;
-  skos:inScheme natcurric:knowledge-taxonomy ;
-  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
-
-natcurric:contentdescriptor-light-and-electromagnetic-waves-use-of-mathematics
-  a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel "Use of mathematics."@en ;
-  curric:displayOrder "3"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-light-and-electromagnetic-waves ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
 
@@ -2499,46 +2356,6 @@ natcurric:contentdescriptor-power-transfer
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
 
-natcurric:contentdescriptor-current-potential-difference-resistance
-  a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel "Current, potential difference and resistance."@en ;
-  curric:displayOrder "15"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-electricity ;
-  skos:inScheme natcurric:knowledge-taxonomy ;
-  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
-
-natcurric:contentdescriptor-series-and-parallel-circuits
-  a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel "Series and parallel circuits."@en ;
-  curric:displayOrder "16"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-electricity ;
-  skos:inScheme natcurric:knowledge-taxonomy ;
-  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
-
-natcurric:contentdescriptor-domestic-uses-and-safety
-  a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel "Domestic uses and safety."@en ;
-  curric:displayOrder "17"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-electricity ;
-  skos:inScheme natcurric:knowledge-taxonomy ;
-  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
-
-natcurric:contentdescriptor-energy-transfers
-  a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel "Energy transfers."@en ;
-  curric:displayOrder "18"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-electricity ;
-  skos:inScheme natcurric:knowledge-taxonomy ;
-  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
-
-natcurric:contentdescriptor-electricity-use-of-mathematics
-  a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel "Use of mathematics."@en ;
-  curric:displayOrder "19"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-electricity ;
-  skos:inScheme natcurric:knowledge-taxonomy ;
-  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
-
 natcurric:contentdescriptor-exploring-magnetic-fields
   a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel """Exploring the magnetic fields of permanent and induced magnets, and the Earth’s 
@@ -2561,14 +2378,6 @@ natcurric:contentdescriptor-transformers-in-national-grid
   skos:prefLabel """How transformers are used in the national grid and the reasons for their 
   use."""@en ;
   curric:displayOrder "3"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-magnetism-and-electromagnetism ;
-  skos:inScheme natcurric:knowledge-taxonomy ;
-  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
-
-natcurric:contentdescriptor-magnetism-magnetic-forces-and-fields
-  a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel "Permanent and induced magnetism, magnetic forces and fields."@en ;
-  curric:displayOrder "4"^^xsd:positiveInteger ;
   skos:broader natcurric:substrand-magnetism-and-electromagnetism ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
@@ -2605,30 +2414,6 @@ natcurric:contentdescriptor-pressure-temperature-gas-constant-volume
   the motion of its particles (qualitative)."""@en ;
   curric:displayOrder "4"^^xsd:positiveInteger ;
   skos:broader natcurric:substrand-structure-of-matter ;
-  skos:inScheme natcurric:knowledge-taxonomy ;
-  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
-
-natcurric:contentdescriptor-physics-changes-of-state-particle-model
-  a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel "Changes of state and the particle model."@en ;
-  curric:displayOrder "1"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-particle-model-of-matter ;
-  skos:inScheme natcurric:knowledge-taxonomy ;
-  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
-
-natcurric:contentdescriptor-energy-transfers-and-particle-motions
-  a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel "Internal energy, energy transfers and particle motions."@en ;
-  curric:displayOrder "2"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-particle-model-of-matter ;
-  skos:inScheme natcurric:knowledge-taxonomy ;
-  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
-
-natcurric:contentdescriptor-particle-model-of-matter-use-of-mathematics
-  a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel "Use of mathematics."@en ;
-  curric:displayOrder "3"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-particle-model-of-matter ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
 
@@ -2688,31 +2473,6 @@ natcurric:contentdescriptor-nuclear-fission-fusion-sun-energy
   a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel "Nuclear fission, nuclear fusion and our sun’s energy."@en ;
   curric:displayOrder "7"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-atomic-structure ;
-  skos:inScheme natcurric:knowledge-taxonomy ;
-  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
-
-natcurric:contentdescriptor-nuclear-atom-and-isotopes
-  a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel "Nuclear atom and isotopes."@en ;
-  curric:displayOrder "8"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-atomic-structure ;
-  skos:inScheme natcurric:knowledge-taxonomy ;
-  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
-
-natcurric:contentdescriptor-absorption-and-emission-ionizing-radiations
-  a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel """Absorption and emission of ionizing radiations and of electrons and nuclear 
-  particles."""@en ;
-  curric:displayOrder "9"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-atomic-structure ;
-  skos:inScheme natcurric:knowledge-taxonomy ;
-  dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
-
-natcurric:contentdescriptor-atomic-structure-use-of-mathematics
-  a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel "Use of mathematics."@en ;
-  curric:displayOrder "10"^^xsd:positiveInteger ;
   skos:broader natcurric:substrand-atomic-structure ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-01-16T17:33:58Z"^^xsd:dateTime .
