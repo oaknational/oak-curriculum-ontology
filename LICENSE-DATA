@@ -37,3 +37,18 @@ Oak National Academy is not liable for any errors or omissions in the informatio
 ## Governing law
 
 This licence is governed by the laws of England and Wales.
+
+---
+
+The curriculum ontology, vocabulary definitions, and curriculum data are licensed under this Open Government Licence v3.0.
+
+**Applies to:**
+- `ontology/` - OWL/SKOS ontology files
+- `data/` - Curriculum instance data
+- `docs/` - Documentation
+
+**What you can do:**
+- ✅ Use for any purpose (commercial or non-commercial)
+- ✅ Copy, modify, and redistribute
+- ✅ Build applications and services
+- ⚠️ Must provide attribution: "Oak National Academy"
