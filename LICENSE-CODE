@@ -19,3 +19,18 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+---
+
+All Python scripts, GitHub Actions workflows, and software tools are licensed under this [MIT License](LICENSE-CODE).
+
+**Applies to:**
+- `scripts/` - Python utilities
+- `.github/workflows/` - CI/CD automation
+
+**What you can do:**
+- ✅ Use, modify, and redistribute freely
+- ✅ Use in commercial projects
+- ✅ Minimal restrictions
+
+**Attribution:** When using this work, please credit **"Oak National Academy"**
