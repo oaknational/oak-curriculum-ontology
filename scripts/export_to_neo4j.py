@@ -298,8 +298,8 @@ class RDFLoader:
             self.namespaces[prefix] = Namespace(uri)
 
         # Keep shortcuts for commonly used namespaces
-        self.OWL = self.namespaces.get('owl', Namespace("http://www.w3.org/2002/07/owl#"))
-        self.RDF = self.namespaces.get('rdf', Namespace("http://www.w3.org/1999/02/22-rdf-syntax-ns#"))
+        self.OWL = self.namespaces.get('owl', Namespace("https://www.w3.org/2002/07/owl#"))
+        self.RDF = self.namespaces.get('rdf', Namespace("https://www.w3.org/1999/02/22-rdf-syntax-ns#"))
 
     def _parse_namespaced_identifier(self, identifier: str) -> Optional[URIRef]:
         """

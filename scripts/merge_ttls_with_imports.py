@@ -12,6 +12,7 @@ import argparse
 import logging
 import re
 import sys
+import tempfile
 import urllib.error
 import urllib.request
 from dataclasses import dataclass, field
@@ -22,7 +23,7 @@ from rdflib import Graph, URIRef
 logger = logging.getLogger(__name__)
 
 # OWL imports predicate
-OWL_IMPORTS = URIRef("http://www.w3.org/2002/07/owl#imports")
+OWL_IMPORTS = URIRef("https://www.w3.org/2002/07/owl#imports")
 
 # Core ontology filename
 OAK_ONTOLOGY_FILENAME = "oak-curriculum-ontology.ttl"
@@ -43,7 +44,7 @@ URI_PATTERNS: list[tuple[str, tuple[str, ...]]] = [
 SCIENCE_SUBJECTS = {"biology", "chemistry", "physics", "combined-science", "science"}
 
 # Default configuration
-DEFAULT_OUTPUT_FILE = Path("/tmp/combined-data.ttl")
+DEFAULT_OUTPUT_FILE = Path(tempfile.gettempdir()) / "combined-data.ttl"
 DEFAULT_ROOT_PATHS = ["data"]
 
 
