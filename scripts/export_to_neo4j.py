@@ -201,11 +201,11 @@ def retry_on_transient_error(func: Callable[..., T], *args: Any, max_retries: in
         except AuthError as e:
             # Don't retry auth errors
             logger.error(f"Authentication failed: {e}")
-            raise RuntimeError(f"Neo4j authentication failed. Check NEO4J_PASSWORD in .env") from e
+            raise RuntimeError("Neo4j authentication failed. Check NEO4J_PASSWORD in .env") from e
         except CypherSyntaxError as e:
             # Don't retry syntax errors
             logger.error(f"Cypher syntax error: {e}")
-            raise RuntimeError(f"Invalid Cypher query - this is a bug in the script") from e
+            raise RuntimeError("Invalid Cypher query - this is a bug in the script") from e
 
     # Should not reach here but satisfy type checker
     if last_exception:
@@ -865,7 +865,7 @@ class RDFLoader:
             logger.info(f"✓ Extracted and removed {len(external_rels)} external relationships from graph")
             logger.info(f"  Removed {removed_count} triples to prevent Resource node creation")
         else:
-            logger.info(f"No external relationships found in this file")
+            logger.info("No external relationships found in this file")
 
         return external_rels
 
@@ -1594,7 +1594,7 @@ class ExternalRelationshipsTransformation(Transformation):
         logger.info(f"Processing {len(external_rels)} external relationships...")
 
         # Show sample relationships
-        logger.info(f"Sample relationships to create:")
+        logger.info("Sample relationships to create:")
         for subj, pred, obj in external_rels[:3]:
             logger.info(f"  {subj.split('/')[-1]} -[{pred.split('/')[-1]}]-> {obj.split('/')[-1]}")
 
@@ -1753,7 +1753,7 @@ class TransformationPipeline:
                     count = transformation.execute(session, config, main_labels, data)
 
                     if count == 0:
-                        logger.info(f"  No changes made")
+                        logger.info("  No changes made")
 
         logger.info("\n" + "=" * 60)
         logger.info("✓ All transformations complete")
@@ -1923,7 +1923,7 @@ def load_and_validate_config(config_path: Path) -> ExportConfig:
     logger.info("=" * 60)
 
     export_config = ExportConfig(config_path)
-    logger.info(f"✓ Configuration loaded and validated")
+    logger.info("✓ Configuration loaded and validated")
     logger.info(f"Target: {export_config.neo4j_uri}")
     logger.info(f"Database: {export_config.neo4j_database}")
     logger.info("-" * 60)
@@ -2224,12 +2224,12 @@ def main() -> None:
             logger.info("\n" + "=" * 60)
             logger.info("DRY RUN MODE - No changes will be made")
             logger.info("=" * 60)
-            logger.info(f"✓ Configuration valid")
+            logger.info("✓ Configuration valid")
             logger.info(f"✓ {len(ttl_files)} TTL files discovered")
             logger.info(f"✓ Target: {export_config.neo4j_uri}")
             logger.info(f"✓ Database: {export_config.neo4j_database}")
             if args.clear:
-                logger.info(f"✓ Would clear database before import")
+                logger.info("✓ Would clear database before import")
             logger.info("\nDry run complete - no data modified")
             return
 

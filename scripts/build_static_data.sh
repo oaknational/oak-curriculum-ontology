@@ -12,7 +12,7 @@ echo ""
 
 # Check for riot (Apache Jena)
 if ! command -v riot &> /dev/null; then
-    echo "❌ Error: riot (Apache Jena) not found"
+    echo "❌ Error: riot (Apache Jena) not found" >&2
     echo ""
     echo "Install Apache Jena and ensure 'riot' is in your PATH."
     echo "See: https://jena.apache.org/download/"
@@ -22,7 +22,7 @@ fi
 # Output directory with safety guard
 OUTPUT_DIR="distributions"
 if [[ -z "$OUTPUT_DIR" ]]; then
-    echo "❌ Error: OUTPUT_DIR is not set"
+    echo "❌ Error: OUTPUT_DIR is not set" >&2
     exit 1
 fi
 rm -rf "$OUTPUT_DIR"
@@ -58,7 +58,7 @@ done
 
 # Check files are found
 if [[ ${#SOURCE_FILES[@]} -eq 0 ]]; then
-    echo "❌ Error: No TTL source files found"
+    echo "❌ Error: No TTL source files found" >&2
     exit 1
 fi
 
@@ -88,9 +88,9 @@ riot --output=NTRIPLES "$OUTPUT_DIR/oak-curriculum-full.ttl" > "$OUTPUT_DIR/oak-
 echo "    Created oak-curriculum-full.nt"
 
 echo ""
-echo "=========================================="
+echo "========================================="
 echo "Distribution Summary"
-echo "=========================================="
+echo "========================================="
 echo ""
 
 # Show file sizes

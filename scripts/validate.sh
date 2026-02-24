@@ -2,24 +2,24 @@
 # Local validation script that matches CI/CD exactly
 set -eo pipefail
 
-echo "========================================================================"
+echo "======================================================================="
 echo "LOCAL VALIDATION (matches CI/CD)"
-echo "========================================================================"
+echo "======================================================================="
 echo ""
 
 # Pre-flight checks
 if [[ ! -f "scripts/merge_ttls_with_imports.py" ]]; then
-    echo "❌ Error: scripts/merge_ttls_with_imports.py not found"
+    echo "❌ Error: scripts/merge_ttls_with_imports.py not found" >&2
     exit 1
 fi
 
 if [[ ! -f "ontology/oak-curriculum-constraints.ttl" ]]; then
-    echo "❌ Error: ontology/oak-curriculum-constraints.ttl not found"
+    echo "❌ Error: ontology/oak-curriculum-constraints.ttl not found" >&2
     exit 1
 fi
 
 if [[ ! -f "ontology/oak-curriculum-ontology.ttl" ]]; then
-    echo "❌ Error: ontology/oak-curriculum-ontology.ttl not found"
+    echo "❌ Error: ontology/oak-curriculum-ontology.ttl not found" >&2
     exit 1
 fi
 
@@ -32,7 +32,7 @@ fi
 
 # Verify merge output exists
 if [[ ! -f "/tmp/combined-data.ttl" ]]; then
-    echo "❌ Error: Merge script did not produce /tmp/combined-data.ttl"
+    echo "❌ Error: Merge script did not produce /tmp/combined-data.ttl" >&2
     exit 1
 fi
 
@@ -86,7 +86,7 @@ elif command -v pyshacl &> /dev/null; then
         --format human \
         /tmp/combined-data.ttl
 else
-    echo "❌ Error: pyshacl not found"
+    echo "❌ Error: pyshacl not found" >&2
     echo ""
     echo "Install it with:"
     echo "  uv add pyshacl"
