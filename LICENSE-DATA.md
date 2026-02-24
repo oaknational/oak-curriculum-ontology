@@ -1,10 +1,10 @@
-# Open Government Licence v3.0
+## Open Government Licence v3.0
 
 You are encouraged to use and re-use the information in this publication freely. This work is made available under the Open Government Licence v3.0.
 
 To view this licence, visit https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/
 
-## Using this information
+### Using this information
 
 Under the Open Government Licence, you are free to:
 
@@ -18,7 +18,7 @@ You must, where you do any of the above:
 
   > Contains public sector information licensed under the Open Government Licence v3.0.
 
-## Exemptions
+### Exemptions
 
 This licence does not cover the use of:
 
@@ -28,13 +28,13 @@ This licence does not cover the use of:
 * third party rights Oak National Academy is not authorised to license
 * information subject to other intellectual property rights, including patents, trademarks, and design rights
 
-## No warranty
+### No warranty
 
 The information is licensed 'as is' and Oak National Academy excludes all representations, warranties, obligations and liabilities in relation to the information to the maximum extent permitted by law.
 
 Oak National Academy is not liable for any errors or omissions in the information and shall not be liable for any loss, injury or damage of any kind caused by its use. Oak National Academy does not guarantee the continued supply of the information.
 
-## Governing law
+### Governing law
 
 This licence is governed by the laws of England and Wales.
 
