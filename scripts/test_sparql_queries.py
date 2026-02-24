@@ -11,10 +11,12 @@ This script:
 3. Reports results to verify queries work correctly
 """
 
-from rdflib import Graph
 import subprocess
 import sys
+import tempfile
 from pathlib import Path
+
+from rdflib import Graph
 
 
 def merge_data():
@@ -34,7 +36,8 @@ def merge_data():
 def load_graph():
     """Load the merged data into an RDF graph."""
     g = Graph()
-    g.parse("/tmp/combined-data.ttl", format="turtle")
+    combined_data_path = Path(tempfile.gettempdir()) / "combined-data.ttl"
+    g.parse(combined_data_path, format="turtle")
     return g
 
 
