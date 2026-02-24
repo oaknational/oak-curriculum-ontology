@@ -65,9 +65,9 @@ natcurric:discipline-geography
   skos:prefLabel "Geography"@en ;
   skos:definition "Description of discipline..."@en ;
   skos:topConceptOf natcurric:knowledge-taxonomy ;
-  skos:narrower natcurric:strand-world-knowledge ,
-                natcurric:strand-thinking-geographically ,
-                natcurric:strand-working-geographically ;
+  skos:narrower
+    natcurric:strand-substantive-knowledge ,
+    natcurric:strand-disciplinary-knowledge ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
 
@@ -75,34 +75,29 @@ natcurric:discipline-geography
 # Strands
 # ----------------------------------------------------------------------
 
-natcurric:strand-world-knowledge
+natcurric:strand-substantive-knowledge
   a skos:Concept, curric:Strand ;
-  skos:prefLabel "World Knowledge"@en ;
+  skos:prefLabel "Substantive Knowledge"@en ;
   skos:definition "Description of strand..."@en ;
   curric:displayOrder "1"^^xsd:positiveInteger ;
   skos:broader natcurric:discipline-geography ;
-  skos:narrower natcurric:substrand-locational-knowledge ,
-                natcurric:substrand-place-knowledge ;
+  skos:narrower
+    natcurric:substrand-human-and-physical-geography ,
+    natcurric:substrand-locational-knowledge ,
+    natcurric:substrand-place-knowledge ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
 
-natcurric:strand-thinking-geographically
+natcurric:strand-disciplinary-knowledge
   a skos:Concept, curric:Strand ;
-  skos:prefLabel "Thinking Geographically"@en ;
+  skos:prefLabel "Disciplinary Knowledge"@en ;
   skos:definition "Description of strand..."@en ;
   curric:displayOrder "2"^^xsd:positiveInteger ;
   skos:broader natcurric:discipline-geography ;
-  skos:narrower natcurric:substrand-human-and-physical-geography ;
-  skos:inScheme natcurric:knowledge-taxonomy ;
-  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
-
-natcurric:strand-working-geographically
-  a skos:Concept, curric:Strand ;
-  skos:prefLabel "Working Geographically"@en ;
-  skos:definition "Description of strand..."@en ;
-  curric:displayOrder "3"^^xsd:positiveInteger ;
-  skos:broader natcurric:discipline-geography ;
-  skos:narrower natcurric:substrand-geographical-skills-and-fieldwork ;
+  skos:narrower
+    natcurric:substrand-concepts ,
+    natcurric:substrand-geographical-skills ,
+    natcurric:substrand-fieldwork ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
 
@@ -115,7 +110,7 @@ natcurric:substrand-locational-knowledge
   skos:prefLabel "Locational Knowledge"@en ;
   skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "1"^^xsd:positiveInteger ;
-  skos:broader natcurric:strand-world-knowledge ;
+  skos:broader natcurric:strand-substantive-knowledge ;
   skos:narrower 
     natcurric:contentdescriptor-locate-continents-oceans ,
     natcurric:contentdescriptor-countries-capitals-united-kingdom ,
@@ -131,7 +126,7 @@ natcurric:substrand-place-knowledge
   skos:prefLabel "Place Knowledge"@en ;
   skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "2"^^xsd:positiveInteger ;
-  skos:broader natcurric:strand-world-knowledge ;
+  skos:broader natcurric:strand-substantive-knowledge ;
   skos:narrower 
     natcurric:contentdescriptor-uk-and-contrasting-non-european-areas ,
     natcurric:contentdescriptor-uk-european-america-regions ,
@@ -144,7 +139,7 @@ natcurric:substrand-human-and-physical-geography
   skos:prefLabel "Human and Physical Geography"@en ;
   skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "3"^^xsd:positiveInteger ;
-  skos:broader natcurric:strand-thinking-geographically ;
+  skos:broader natcurric:strand-substantive-knowledge ;
   skos:narrower 
     natcurric:contentdescriptor-weather-patterns-hot-cold-areas ,
     natcurric:contentdescriptor-key-features-physical-geography ,
@@ -152,28 +147,48 @@ natcurric:substrand-human-and-physical-geography
     natcurric:contentdescriptor-key-aspects-physical-geography ,
     natcurric:contentdescriptor-key-aspects-human-geography ,
     natcurric:contentdescriptor-key-processes-physical-geography ,
-    natcurric:contentdescriptor-key-processes-human-geography ,
-    natcurric:contentdescriptor-landscapes-environment-climate ;
+    natcurric:contentdescriptor-key-processes-human-geography ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
 
-natcurric:substrand-geographical-skills-and-fieldwork
+natcurric:substrand-concepts
   a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Geographical Skills and Fieldwork"@en ;
   skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "4"^^xsd:positiveInteger ;
-  skos:broader natcurric:strand-working-geographically ;
+  skos:broader natcurric:strand-disciplinary-knowledge ;
+  skos:narrower
+    natcurric:contentdescriptor-landscapes-environment-climate ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+  natcurric:substrand-geographical-skills
+  a skos:Concept, curric:SubStrand ;
+  skos:prefLabel "Geographical Skills"@en ;
+  skos:definition "Description of sub-strand..."@en ;
+  curric:displayOrder "5"^^xsd:positiveInteger ;
+  skos:broader natcurric:strand-disciplinary-knowledge ;
   skos:narrower
     natcurric:contentdescriptor-world-maps-atlases-globes ,
     natcurric:contentdescriptor-simple-compass-directions ,
     natcurric:contentdescriptor-aerial-photographs-and-plan-perspectives ,
-    natcurric:contentdescriptor-simple-fieldwork-and-observational-skills ,
     natcurric:contentdescriptor-maps-digital-computer-mapping ,
     natcurric:contentdescriptor-compass-grid-references-symbols-key ,
-    natcurric:contentdescriptor-measure-record-human-physical-features ,
     natcurric:contentdescriptor-develop-knowledge-maps-atlases-globes ,
     natcurric:contentdescriptor-interpret-ordnance-survey-maps ,
-    natcurric:contentdescriptor-geographical-information-systems ,
+    natcurric:contentdescriptor-geographical-information-systems ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+  natcurric:substrand-fieldwork
+  a skos:Concept, curric:SubStrand ;
+  skos:prefLabel "Fieldwork"@en ;
+  skos:definition "Description of sub-strand..."@en ;
+  curric:displayOrder "6"^^xsd:positiveInteger ;
+  skos:broader natcurric:strand-disciplinary-knowledge ;
+  skos:narrower
+    natcurric:contentdescriptor-simple-fieldwork-and-observational-skills ,
+    natcurric:contentdescriptor-measure-record-human-physical-features ,
     natcurric:contentdescriptor-analyse-geographical-data ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
@@ -364,8 +379,8 @@ natcurric:contentdescriptor-landscapes-environment-climate
   landscapes, environments and the climate; and how human activity relies on the effective 
   functioning of natural systems."""@en ;
   curric:supportingGuidance "Supporting guidance text..."@en ;
-  curric:displayOrder "8"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-human-and-physical-geography ;
+  curric:displayOrder "1"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-concepts ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
 
@@ -375,7 +390,7 @@ natcurric:contentdescriptor-world-maps-atlases-globes
   countries, as well as the countries, continents and oceans studied at this key stage."""@en ;
   curric:supportingGuidance "Supporting guidance text..."@en ;
   curric:displayOrder "1"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-geographical-skills-and-fieldwork ;
+  skos:broader natcurric:substrand-geographical-skills ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
 
@@ -386,7 +401,7 @@ natcurric:contentdescriptor-simple-compass-directions
   features and routes on a map."""@en ;
   curric:supportingGuidance "Supporting guidance text..."@en ;
   curric:displayOrder "2"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-geographical-skills-and-fieldwork ;
+  skos:broader natcurric:substrand-geographical-skills ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
 
@@ -397,18 +412,7 @@ natcurric:contentdescriptor-aerial-photographs-and-plan-perspectives
   key."""@en ;
   curric:supportingGuidance "Supporting guidance text..."@en ;
   curric:displayOrder "3"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-geographical-skills-and-fieldwork ;
-  skos:inScheme natcurric:knowledge-taxonomy ;
-  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
-
-natcurric:contentdescriptor-simple-fieldwork-and-observational-skills
-  a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel """Use simple fieldwork and observational skills to study the geography of their 
-  school and its grounds and the key human and physical features of its surrounding 
-  environment."""@en ;
-  curric:supportingGuidance "Supporting guidance text..."@en ;
-  curric:displayOrder "4"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-geographical-skills-and-fieldwork ;
+  skos:broader natcurric:substrand-geographical-skills ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
 
@@ -417,8 +421,8 @@ natcurric:contentdescriptor-maps-digital-computer-mapping
   skos:prefLabel """Use maps, atlases, globes and digital/computer mapping to locate countries and 
   describe features studied."""@en ;
   curric:supportingGuidance "Supporting guidance text..."@en ;
-  curric:displayOrder "5"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-geographical-skills-and-fieldwork ;
+  curric:displayOrder "4"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-geographical-skills ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
 
@@ -428,19 +432,8 @@ natcurric:contentdescriptor-compass-grid-references-symbols-key
   (including the use of Ordnance Survey maps) to build their knowledge of the United Kingdom and 
   the wider world."""@en ;
   curric:supportingGuidance "Supporting guidance text..."@en ;
-  curric:displayOrder "6"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-geographical-skills-and-fieldwork ;
-  skos:inScheme natcurric:knowledge-taxonomy ;
-  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
-
-natcurric:contentdescriptor-measure-record-human-physical-features
-  a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel """Use fieldwork to observe, measure record and present the human and physical 
-  features in the local area using a range of methods, including sketch maps, plans and graphs, and 
-  digital technologies."""@en ;
-  curric:supportingGuidance "Supporting guidance text..."@en ;
-  curric:displayOrder "7"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-geographical-skills-and-fieldwork ;
+  curric:displayOrder "5"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-geographical-skills ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
 
@@ -449,8 +442,8 @@ natcurric:contentdescriptor-develop-knowledge-maps-atlases-globes
   skos:prefLabel """Build on their knowledge of globes, maps and atlases, and apply and develop 
   this knowledge routinely in the classroom and in the field."""@en ;
   curric:supportingGuidance "Supporting guidance text..."@en ;
-  curric:displayOrder "8"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-geographical-skills-and-fieldwork ;
+  curric:displayOrder "6"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-geographical-skills ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
 
@@ -460,8 +453,8 @@ natcurric:contentdescriptor-interpret-ordnance-survey-maps
   grid references and scale, topographical and other thematic mapping, and aerial and satellite 
   photographs."""@en ;
   curric:supportingGuidance "Supporting guidance text..."@en ;
-  curric:displayOrder "9"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-geographical-skills-and-fieldwork ;
+  curric:displayOrder "7"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-geographical-skills ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
 
@@ -470,8 +463,30 @@ natcurric:contentdescriptor-geographical-information-systems
   skos:prefLabel """Use Geographical Information Systems (GIS) to view, analyse and interpret 
   places and data."""@en ;
   curric:supportingGuidance "Supporting guidance text..."@en ;
-  curric:displayOrder "10"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-geographical-skills-and-fieldwork ;
+  curric:displayOrder "8"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-geographical-skills ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-simple-fieldwork-and-observational-skills
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Use simple fieldwork and observational skills to study the geography of their 
+  school and its grounds and the key human and physical features of its surrounding 
+  environment."""@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "1"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-fieldwork ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-measure-record-human-physical-features
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Use fieldwork to observe, measure record and present the human and physical 
+  features in the local area using a range of methods, including sketch maps, plans and graphs, and 
+  digital technologies."""@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "2"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-fieldwork ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
 
@@ -480,8 +495,8 @@ natcurric:contentdescriptor-analyse-geographical-data
   skos:prefLabel """Use fieldwork in contrasting locations to collect, analyse and draw conclusions 
   from geographical data, using multiple sources of increasingly complex information."""@en ;
   curric:supportingGuidance "Supporting guidance text..."@en ;
-  curric:displayOrder "11"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-geographical-skills-and-fieldwork ;
+  curric:displayOrder "3"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-fieldwork ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
 
