@@ -19,7 +19,7 @@
 
 > **A formal semantic representation of the Oak National Academy Curriculum and its alignment to the National Curriculum for England (2014)**
 
-Machine-readable curriculum data in W3C-standard formats (RDF, OWL, SKOS, SHACL) enabling interoperability, semantic queries, and data-driven educational tools.
+Machine-readable curriculum data in W3C-standard formats (RDF, OWL, SKOS, SHACL) enabling interoperability, semantic queries, and data-driven educational tools. This repository is an Oak-developed representation and does not constitute an official DfE National Curriculum publication.
 
 📘 **[Browse Full Documentation](https://oaknational.github.io/oak-curriculum-ontology-public/)** |
 🔍 **[View Ontology](ontology/oak-curriculum-ontology.ttl)** |
@@ -532,7 +532,7 @@ The curriculum ontology, vocabulary definitions, and curriculum data are license
 All Python scripts, GitHub Actions workflows, and software tools are licensed under the [MIT License](LICENSE-CODE).
 
 **Applies to:**
-- `scripts/` - Python utilities
+- `scripts/` - Scripts and Python code
 - `.github/workflows/` - CI/CD automation
 
 **What you can do:**
