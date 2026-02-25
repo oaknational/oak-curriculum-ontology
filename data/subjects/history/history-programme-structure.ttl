@@ -145,82 +145,55 @@ natcurric:scheme-history-key-stage-3
 # Progressions
 # ----------------------------------------------------------------------
 
-natcurric:progression-history-key-stage-1-second-order-concepts
+natcurric:progression-history-key-stage-1-british-history
   a curric:Progression ;
-  rdfs:label "History Key Stage 1 Second Order Concepts"@en ;
-  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
-  curric:isProgressionOf natcurric:scheme-history-key-stage-1 ;
-  curric:coversContent
-    natcurric:contentdescriptor-narratives-analyses-accounts ,
-    natcurric:contentdescriptor-narratives-analyses-accounts-consequence ,
-    natcurric:contentdescriptor-narratives-analyses-accounts-change-and-continuity ,
-    natcurric:contentdescriptor-narratives-analyses-accounts-similarity-and-difference ,
-    natcurric:contentdescriptor-narratives-analyses-accounts-historical-significance ,
-    natcurric:contentdescriptor-narratives-analyses-accounts-sources-and-evidence ,
-    natcurric:contentdescriptor-narratives-analyses-accounts-historical-interpretations .
-
-natcurric:progression-history-key-stage-1-nature-of-historical-enquiry
-  a curric:Progression ;
-  rdfs:label "History Key Stage 1 Nature of Historical Enquiry"@en ;
-  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
-  curric:isProgressionOf natcurric:scheme-history-key-stage-1 ;
-  curric:coversContent
-    natcurric:contentdescriptor-historians-investigate-the-past ,
-    natcurric:contentdescriptor-historians-construct-arguments .
-
-natcurric:progression-history-key-stage-1-substantive-concepts
-  a curric:Progression ;
-  rdfs:label "History Key Stage 1 Substantive Concepts"@en ;
-  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
-  curric:isProgressionOf natcurric:scheme-history-key-stage-1 ;
-  curric:coversContent
-    natcurric:contentdescriptor-abstract-terms-historically-grounded .
-
-natcurric:progression-history-key-stage-1-history-of-britain
-  a curric:Progression ;
-  rdfs:label "History Key Stage 1 History of Britain"@en ;
+  rdfs:label "History Key Stage 1 British History"@en ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
   curric:isProgressionOf natcurric:scheme-history-key-stage-1 ;
   curric:coversContent
     natcurric:contentdescriptor-changes-within-living-memory ,
     natcurric:contentdescriptor-events-beyond-living-memory ,
-    natcurric:contentdescriptor-lives-of-significant-individuals ,
+    natcurric:contentdescriptor-lives-of-significant-individuals .
+
+natcurric:progression-history-key-stage-1-local-history
+  a curric:Progression ;
+  rdfs:label "History Key Stage 1 Local History"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-history-key-stage-1 ;
+  curric:coversContent
     natcurric:contentdescriptor-significant-historical-events-own-locality .
 
-natcurric:progression-history-key-stage-2-second-order-concepts
+natcurric:progression-history-key-stage-1-chronological-understanding
   a curric:Progression ;
-  rdfs:label "History Key Stage 2 Second Order Concepts"@en ;
+  rdfs:label "History Key Stage 1 Chronological Understanding"@en ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
-  curric:isProgressionOf natcurric:scheme-history-key-stage-2 ;
+  curric:isProgressionOf natcurric:scheme-history-key-stage-1 ;
   curric:coversContent
-    natcurric:contentdescriptor-narratives-analyses-accounts ,
-    natcurric:contentdescriptor-narratives-analyses-accounts-consequence ,
-    natcurric:contentdescriptor-narratives-analyses-accounts-change-and-continuity ,
-    natcurric:contentdescriptor-narratives-analyses-accounts-similarity-and-difference ,
-    natcurric:contentdescriptor-narratives-analyses-accounts-historical-significance ,
-    natcurric:contentdescriptor-narratives-analyses-accounts-sources-and-evidence ,
-    natcurric:contentdescriptor-narratives-analyses-accounts-historical-interpretations .
+    natcurric:contentdescriptor-develop-awareness-of-the-past ,
+    natcurric:contentdescriptor-people-events-within-chronological-framework .
 
-natcurric:progression-history-key-stage-2-nature-of-historical-enquiry
+natcurric:progression-history-key-stage-1-historical-concepts
   a curric:Progression ;
-  rdfs:label "History Key Stage 2 Nature of Historical Enquiry"@en ;
+  rdfs:label "History Key Stage 1 Historical Concepts"@en ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
-  curric:isProgressionOf natcurric:scheme-history-key-stage-2 ;
+  curric:isProgressionOf natcurric:scheme-history-key-stage-1 ;
   curric:coversContent
-    natcurric:contentdescriptor-historians-investigate-the-past ,
-    natcurric:contentdescriptor-historians-construct-arguments .
+    natcurric:contentdescriptor-ways-of-life-different-periods ,
+    natcurric:contentdescriptor-wide-vocabulary-everyday-historical-terms .
 
-natcurric:progression-history-key-stage-2-substantive-concepts
+natcurric:progression-history-key-stage-1-historical-enquiry
   a curric:Progression ;
-  rdfs:label "History Key Stage 2 Substantive Concepts"@en ;
+  rdfs:label "History Key Stage 1 Historical Enquiry"@en ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
-  curric:isProgressionOf natcurric:scheme-history-key-stage-2 ;
+  curric:isProgressionOf natcurric:scheme-history-key-stage-1 ;
   curric:coversContent
-    natcurric:contentdescriptor-abstract-terms-historically-grounded .
+    natcurric:contentdescriptor-ask-and-answer-questions ,
+    natcurric:contentdescriptor-ways-find-out-about-past ,
+    natcurric:contentdescriptor-different-ways-past-is-represented .
 
-natcurric:progression-history-key-stage-2-history-of-britain
+natcurric:progression-history-key-stage-2-british-history
   a curric:Progression ;
-  rdfs:label "History Key Stage 2 History of Britain"@en ;
+  rdfs:label "History Key Stage 2 British History"@en ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
   curric:isProgressionOf natcurric:scheme-history-key-stage-2 ;
   curric:coversContent
@@ -228,12 +201,11 @@ natcurric:progression-history-key-stage-2-history-of-britain
     natcurric:contentdescriptor-roman-empire-impact-on-britain ,
     natcurric:contentdescriptor-settlement-by-anglo-saxons-and-scots ,
     natcurric:contentdescriptor-viking-and-anglo-saxon-struggle ,
-    natcurric:contentdescriptor-local-history-study ,
     natcurric:contentdescriptor-aspect-british-history-beyond-1066 .
 
-natcurric:progression-history-key-stage-2-significant-aspects-of-world-history
+natcurric:progression-history-key-stage-2-world-history
   a curric:Progression ;
-  rdfs:label "History Key Stage 2 Significant Aspects of World History"@en ;
+  rdfs:label "History Key Stage 2 World History"@en ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
   curric:isProgressionOf natcurric:scheme-history-key-stage-2 ;
   curric:coversContent
@@ -241,54 +213,94 @@ natcurric:progression-history-key-stage-2-significant-aspects-of-world-history
     natcurric:contentdescriptor-ancient-greece ,
     natcurric:contentdescriptor-non-european-society .
 
-natcurric:progression-history-key-stage-3-second-order-concepts
+natcurric:progression-history-key-stage-2-local-history
   a curric:Progression ;
-  rdfs:label "History Key Stage 3 Second Order Concepts"@en ;
+  rdfs:label "History Key Stage 2 Local History"@en ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
-  curric:isProgressionOf natcurric:scheme-history-key-stage-3 ;
+  curric:isProgressionOf natcurric:scheme-history-key-stage-2 ;
   curric:coversContent
-    natcurric:contentdescriptor-narratives-analyses-accounts ,
-    natcurric:contentdescriptor-narratives-analyses-accounts-consequence ,
-    natcurric:contentdescriptor-narratives-analyses-accounts-change-and-continuity ,
-    natcurric:contentdescriptor-narratives-analyses-accounts-similarity-and-difference ,
-    natcurric:contentdescriptor-narratives-analyses-accounts-historical-significance ,
-    natcurric:contentdescriptor-narratives-analyses-accounts-sources-and-evidence ,
-    natcurric:contentdescriptor-narratives-analyses-accounts-historical-interpretations .
+    natcurric:contentdescriptor-local-history-study .
 
-natcurric:progression-history-key-stage-3-nature-of-historical-enquiry
+natcurric:progression-history-key-stage-2-chronological-understanding
   a curric:Progression ;
-  rdfs:label "History Key Stage 3 Nature of Historical Enquiry"@en ;
+  rdfs:label "History Key Stage 2 Chronological Understanding"@en ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
-  curric:isProgressionOf natcurric:scheme-history-key-stage-3 ;
+  curric:isProgressionOf natcurric:scheme-history-key-stage-2 ;
   curric:coversContent
-    natcurric:contentdescriptor-historians-investigate-the-past ,
-    natcurric:contentdescriptor-historians-construct-arguments .
+    natcurric:contentdescriptor-chronologically-secure-knowledge-understanding-history ,
+    natcurric:contentdescriptor-clear-narratives-across-periods-studied .
 
-natcurric:progression-history-key-stage-3-substantive-concepts
+natcurric:progression-history-key-stage-2-historical-concepts
   a curric:Progression ;
-  rdfs:label "History Key Stage 3 Substantive Concepts"@en ;
+  rdfs:label "History Key Stage 2 Historical Concepts"@en ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
-  curric:isProgressionOf natcurric:scheme-history-key-stage-3 ;
+  curric:isProgressionOf natcurric:scheme-history-key-stage-2 ;
   curric:coversContent
-    natcurric:contentdescriptor-abstract-terms-historically-grounded .
+    natcurric:contentdescriptor-connections-contrasts-trends-over-time ,
+    natcurric:contentdescriptor-appropriate-use-of-historical-terms .
 
-natcurric:progression-history-key-stage-3-history-of-britain
+natcurric:progression-history-key-stage-2-historical-enquiry
   a curric:Progression ;
-  rdfs:label "History Key Stage 3 History of Britain"@en ;
+  rdfs:label "History Key Stage 2 Historical Enquiry"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-history-key-stage-2 ;
+  curric:coversContent
+    natcurric:contentdescriptor-how-knowledge-of-past-constructed ,
+    natcurric:contentdescriptor-historically-valid-questions ,
+    natcurric:contentdescriptor-construct-informed-responses .
+
+natcurric:progression-history-key-stage-3-british-history
+  a curric:Progression ;
+  rdfs:label "History Key Stage 3 British History"@en ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
   curric:isProgressionOf natcurric:scheme-history-key-stage-3 ;
   curric:coversContent
-    natcurric:contentdescriptor-local-history-study ,
     natcurric:contentdescriptor-church-state-society-1066-1509 ,
     natcurric:contentdescriptor-church-state-society-1509-1745 ,
     natcurric:contentdescriptor-ideas-power-industry-empire-1745-1901 ,
     natcurric:contentdescriptor-challenges-britain-europe-world-1901-present ,
     natcurric:contentdescriptor-aspect-british-history-before-1066 .
 
-natcurric:progression-history-key-stage-3-significant-aspects-of-world-history
+natcurric:progression-history-key-stage-3-world-history
   a curric:Progression ;
-  rdfs:label "History Key Stage 3 Significant Aspects of World History"@en ;
+  rdfs:label "History Key Stage 3 World History"@en ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
   curric:isProgressionOf natcurric:scheme-history-key-stage-3 ;
   curric:coversContent
     natcurric:contentdescriptor-significant-society-or-issue .
+
+natcurric:progression-history-key-stage-3-local-history
+  a curric:Progression ;
+  rdfs:label "History Key Stage 3 Local History"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-history-key-stage-3 ;
+  curric:coversContent
+    natcurric:contentdescriptor-local-history-study .
+
+natcurric:progression-history-key-stage-3-chronological-understanding
+  a curric:Progression ;
+  rdfs:label "History Key Stage 3 Chronological Understanding"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-history-key-stage-3 ;
+  curric:coversContent
+    natcurric:contentdescriptor-extend-deepen-chronologically-secure-knowledge .
+
+natcurric:progression-history-key-stage-3-historical-concepts
+  a curric:Progression ;
+  rdfs:label "History Key Stage 3 Historical Concepts"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-history-key-stage-3 ;
+  curric:coversContent
+    natcurric:contentdescriptor-identify-significant-events-analyse-trends ,
+    natcurric:contentdescriptor-use-historical-terms-increasingly-sophisticated .
+
+natcurric:progression-history-key-stage-3-historical-enquiry
+  a curric:Progression ;
+  rdfs:label "History Key Stage 3 Historical Enquiry"@en ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-history-key-stage-3 ;
+  curric:coversContent
+    natcurric:contentdescriptor-pursue-historically-valid-enquiries ,
+    natcurric:contentdescriptor-different-types-of-historical-sources ,
+    natcurric:contentdescriptor-contrasting-arguments-interpretations-of-past .
+    

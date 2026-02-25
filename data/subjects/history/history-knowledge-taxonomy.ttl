@@ -57,7 +57,7 @@ natcurric:knowledge-taxonomy
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
   
 # ----------------------------------------------------------------------
-# Disciplines
+# Disciplines 
 # ----------------------------------------------------------------------
 
 natcurric:discipline-history
@@ -74,26 +74,27 @@ natcurric:discipline-history
 # Strands
 # ----------------------------------------------------------------------
 
-natcurric:strand-knowledge-of-past
+natcurric:strand-substantive-knowledge
   a skos:Concept, curric:Strand ;
-  skos:prefLabel "Knowledge of the past"@en ;
+  skos:prefLabel "Substantive Knowledge"@en ;
   skos:definition "Description of strand..."@en ;
   curric:displayOrder "1"^^xsd:positiveInteger ;
   skos:broader natcurric:discipline-history ;
-  skos:narrower natcurric:substrand-substantive-concepts ,
-                natcurric:substrand-history-of-britain ,
-                natcurric:substrand-significant-aspects-of-world-history ;
+  skos:narrower natcurric:substrand-british-history ,
+                natcurric:substrand-world-history ,
+                natcurric:substrand-local-history ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
 
-natcurric:strand-knowledge-of-history
+natcurric:strand-disciplinary-knowledge
   a skos:Concept, curric:Strand ;
-  skos:prefLabel "Knowledge of history as a discipline"@en ;
+  skos:prefLabel "Disciplinary Knowledge"@en ;
   skos:definition "Description of strand..."@en ;
   curric:displayOrder "2"^^xsd:positiveInteger ;
   skos:broader natcurric:discipline-history ;
-  skos:narrower natcurric:substrand-second-order-concepts ,
-                natcurric:substrand-nature-of-historical-enquiry ;
+  skos:narrower natcurric:substrand-chronological-understanding ,
+                natcurric:substrand-historical-concepts ,
+                natcurric:substrand-historical-enquiry ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
 
@@ -101,58 +102,19 @@ natcurric:strand-knowledge-of-history
 # Sub-Strands
 # ----------------------------------------------------------------------
 
-natcurric:substrand-second-order-concepts
+natcurric:substrand-british-history
   a skos:Concept, curric:SubStrand ;
-  skos:prefLabel "Second order concepts"@en ;
+  skos:prefLabel "British History"@en ;
   skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "1"^^xsd:positiveInteger ;
-  skos:broader natcurric:strand-knowledge-of-history ;
-  skos:narrower natcurric:contentdescriptor-narratives-analyses-accounts ,
-                natcurric:contentdescriptor-narratives-analyses-accounts-consequence ,
-                natcurric:contentdescriptor-narratives-analyses-accounts-change-and-continuity,
-                natcurric:contentdescriptor-narratives-analyses-accounts-similarity-and-difference ,
-                natcurric:contentdescriptor-narratives-analyses-accounts-historical-significance ,
-                natcurric:contentdescriptor-narratives-analyses-accounts-sources-and-evidence,
-                natcurric:contentdescriptor-narratives-analyses-accounts-historical-interpretations ;
-  skos:inScheme natcurric:knowledge-taxonomy ;
-  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
-
-natcurric:substrand-nature-of-historical-enquiry
-  a skos:Concept, curric:SubStrand ;
-  skos:prefLabel "The nature of historical enquiry"@en ;
-  skos:definition "Description of sub-strand..."@en ;
-  curric:displayOrder "2"^^xsd:positiveInteger ;
-  skos:broader natcurric:strand-knowledge-of-history ;
-  skos:narrower natcurric:contentdescriptor-historians-investigate-the-past ,
-                natcurric:contentdescriptor-historians-construct-arguments ;
-  skos:inScheme natcurric:knowledge-taxonomy ;
-  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
-
-natcurric:substrand-substantive-concepts
-  a skos:Concept, curric:SubStrand ;
-  skos:prefLabel "Substantive concepts"@en ;
-  skos:definition "Description of sub-strand..."@en ;
-  curric:displayOrder "1"^^xsd:positiveInteger ;
-  skos:broader natcurric:strand-knowledge-of-past ;
-  skos:narrower natcurric:contentdescriptor-abstract-terms-historically-grounded ;
-  skos:inScheme natcurric:knowledge-taxonomy ;
-  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
-
-natcurric:substrand-history-of-britain
-  a skos:Concept, curric:SubStrand ;
-  skos:prefLabel "The history Britain and its connections to the wider world"@en ;
-  skos:definition "Description of sub-strand..."@en ;
-  curric:displayOrder "2"^^xsd:positiveInteger ;
-  skos:broader natcurric:strand-knowledge-of-past ;
+  skos:broader natcurric:strand-substantive-knowledge ;
   skos:narrower natcurric:contentdescriptor-changes-within-living-memory ,
                 natcurric:contentdescriptor-events-beyond-living-memory ,
                 natcurric:contentdescriptor-lives-of-significant-individuals ,
-                natcurric:contentdescriptor-significant-historical-events-own-locality ,
                 natcurric:contentdescriptor-changes-in-britain-stone-age-to-iron-age ,
                 natcurric:contentdescriptor-roman-empire-impact-on-britain ,
                 natcurric:contentdescriptor-settlement-by-anglo-saxons-and-scots ,
                 natcurric:contentdescriptor-viking-and-anglo-saxon-struggle ,
-                natcurric:contentdescriptor-local-history-study ,
                 natcurric:contentdescriptor-aspect-british-history-beyond-1066 ,
                 natcurric:contentdescriptor-church-state-society-1066-1509 ,
                 natcurric:contentdescriptor-church-state-society-1509-1745 ,
@@ -162,12 +124,12 @@ natcurric:substrand-history-of-britain
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
 
-natcurric:substrand-significant-aspects-of-world-history
+natcurric:substrand-world-history
   a skos:Concept, curric:SubStrand ;
-  skos:prefLabel "Significant aspects of the history of the wider world"@en ;
+  skos:prefLabel "World History"@en ;
   skos:definition "Description of sub-strand..."@en ;
-  curric:displayOrder "3"^^xsd:positiveInteger ;
-  skos:broader natcurric:strand-knowledge-of-past ;
+  curric:displayOrder "2"^^xsd:positiveInteger ;
+  skos:broader natcurric:strand-substantive-knowledge ;
   skos:narrower natcurric:contentdescriptor-earliest-civilizations ,
                 natcurric:contentdescriptor-ancient-greece ,
                 natcurric:contentdescriptor-non-european-society ,
@@ -175,104 +137,67 @@ natcurric:substrand-significant-aspects-of-world-history
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
 
+natcurric:substrand-local-history
+  a skos:Concept, curric:SubStrand ;
+  skos:prefLabel "Local History"@en ;
+  skos:definition "Description of sub-strand..."@en ;
+  curric:displayOrder "3"^^xsd:positiveInteger ;
+  skos:broader natcurric:strand-substantive-knowledge ;
+  skos:narrower natcurric:contentdescriptor-significant-historical-events-own-locality ,
+                natcurric:contentdescriptor-local-history-study ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:substrand-chronological-understanding
+  a skos:Concept, curric:SubStrand ;
+  skos:prefLabel "Chronological Understanding"@en ;
+  skos:definition "Description of sub-strand..."@en ;
+  curric:displayOrder "1"^^xsd:positiveInteger ;
+  skos:broader natcurric:strand-disciplinary-knowledge ;
+  skos:narrower natcurric:contentdescriptor-develop-awareness-of-the-past ,
+                natcurric:contentdescriptor-people-events-within-chronological-framework ,
+                natcurric:contentdescriptor-chronologically-secure-knowledge-understanding-history ,
+                natcurric:contentdescriptor-clear-narratives-across-periods-studied ,
+                natcurric:contentdescriptor-extend-deepen-chronologically-secure-knowledge ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:substrand-historical-concepts
+  a skos:Concept, curric:SubStrand ;
+  skos:prefLabel "Historical Concepts"@en ;
+  skos:definition "Description of sub-strand..."@en ;
+  curric:displayOrder "2"^^xsd:positiveInteger ;
+  skos:broader natcurric:strand-disciplinary-knowledge ;
+  skos:narrower natcurric:contentdescriptor-ways-of-life-different-periods ,
+                natcurric:contentdescriptor-wide-vocabulary-everyday-historical-terms ,
+                natcurric:contentdescriptor-connections-contrasts-trends-over-time ,
+                natcurric:contentdescriptor-appropriate-use-of-historical-terms ,
+                natcurric:contentdescriptor-identify-significant-events-analyse-trends ,
+                natcurric:contentdescriptor-use-historical-terms-increasingly-sophisticated ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:substrand-historical-enquiry
+  a skos:Concept, curric:SubStrand ;
+  skos:prefLabel "Historical Enquiry"@en ;
+  skos:definition "Description of sub-strand..."@en ;
+  curric:displayOrder "3"^^xsd:positiveInteger ;
+  skos:broader natcurric:strand-disciplinary-knowledge ;
+  skos:narrower natcurric:contentdescriptor-ask-and-answer-questions ,
+                natcurric:contentdescriptor-ways-find-out-about-past ,
+                natcurric:contentdescriptor-different-ways-past-is-represented ,
+                natcurric:contentdescriptor-how-knowledge-of-past-constructed ,
+                natcurric:contentdescriptor-historically-valid-questions ,
+                natcurric:contentdescriptor-construct-informed-responses ,
+                natcurric:contentdescriptor-pursue-historically-valid-enquiries ,
+                natcurric:contentdescriptor-different-types-of-historical-sources ,
+                natcurric:contentdescriptor-contrasting-arguments-interpretations-of-past ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
 # ----------------------------------------------------------------------
 # Content Descriptors
 # ----------------------------------------------------------------------
-
-natcurric:contentdescriptor-narratives-analyses-accounts
-  a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel "How to construct causal narratives, analyses, arguments and accounts."@en ;
-  curric:supportingGuidance "Supporting guidance text..."@en ;
-  curric:displayOrder "1"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-second-order-concepts ;
-  skos:inScheme natcurric:knowledge-taxonomy ;
-  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
-
-natcurric:contentdescriptor-narratives-analyses-accounts-consequence
-  a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel "How to construct narratives, analyses and accounts that focus on consequence."@en ;
-  curric:supportingGuidance "Supporting guidance text..."@en ;
-  curric:displayOrder "2"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-second-order-concepts ;
-  skos:inScheme natcurric:knowledge-taxonomy ;
-  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
-
-natcurric:contentdescriptor-narratives-analyses-accounts-change-and-continuity
-  a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel """How to construct narratives, analyses and accounts that focus on change and 
-  continuity."""@en ;
-  curric:supportingGuidance "Supporting guidance text..."@en ;
-  curric:displayOrder "3"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-second-order-concepts ;
-  skos:inScheme natcurric:knowledge-taxonomy ;
-  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
-
-natcurric:contentdescriptor-narratives-analyses-accounts-similarity-and-difference
-  a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel """How to construct narratives, analyses and accounts that focus on similarity and 
-  difference."""@en ;
-  curric:supportingGuidance "Supporting guidance text..."@en ;
-  curric:displayOrder "4"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-second-order-concepts ;
-  skos:inScheme natcurric:knowledge-taxonomy ;
-  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
-
-natcurric:contentdescriptor-narratives-analyses-accounts-historical-significance
-  a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel """How to construct narratives, analyses and accounts that focus on how historical 
-  significance."""@en ;
-  curric:supportingGuidance "Supporting guidance text..."@en ;
-  curric:displayOrder "5"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-second-order-concepts ;
-  skos:inScheme natcurric:knowledge-taxonomy ;
-  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
-
-natcurric:contentdescriptor-narratives-analyses-accounts-sources-and-evidence
-  a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel """How to construct narratives, analyses and accounts that focus on the ways in 
-  which historians interact with sources and evidence."""@en ;
-  curric:supportingGuidance "Supporting guidance text..."@en ;
-  curric:displayOrder "6"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-second-order-concepts ;
-  skos:inScheme natcurric:knowledge-taxonomy ;
-  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
-
-natcurric:contentdescriptor-narratives-analyses-accounts-historical-interpretations
-  a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel """How to construct narratives, analyses and accounts that focus on the 
-  construction of historical interpretations."""@en ;
-  curric:supportingGuidance "Supporting guidance text..."@en ;
-  curric:displayOrder "7"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-second-order-concepts ;
-  skos:inScheme natcurric:knowledge-taxonomy ;
-  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
-
-natcurric:contentdescriptor-historians-investigate-the-past
-  a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel "About how historians investigate the past."@en ;
-  curric:supportingGuidance "Supporting guidance text..."@en ;
-  curric:displayOrder "1"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-nature-of-historical-enquiry ;
-  skos:inScheme natcurric:knowledge-taxonomy ;
-  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
-
-natcurric:contentdescriptor-historians-construct-arguments
-  a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel "About how historians construct historical claims, arguments and accounts."@en ;
-  curric:supportingGuidance "Supporting guidance text..."@en ;
-  curric:displayOrder "2"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-nature-of-historical-enquiry ;
-  skos:inScheme natcurric:knowledge-taxonomy ;
-  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
-
-natcurric:contentdescriptor-abstract-terms-historically-grounded
-  a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel "About abstract terms in a historically grounded manner."@en ;
-  curric:supportingGuidance "Supporting guidance text..."@en ;
-  curric:displayOrder "1"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-substantive-concepts ;
-  skos:inScheme natcurric:knowledge-taxonomy ;
-  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
 
 natcurric:contentdescriptor-changes-within-living-memory
   a skos:Concept, curric:ContentDescriptor ;
@@ -280,7 +205,7 @@ natcurric:contentdescriptor-changes-within-living-memory
   reveal aspects of change in national life."""@en ;
   curric:supportingGuidance "Supporting guidance text..."@en ;
   curric:displayOrder "1"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-history-of-britain ;
+  skos:broader natcurric:substrand-british-history ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
 
@@ -291,7 +216,7 @@ natcurric:contentdescriptor-events-beyond-living-memory
   festivals or anniversaries]."""@en ;
   curric:supportingGuidance "Supporting guidance text..."@en ;
   curric:displayOrder "2"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-history-of-britain ;
+  skos:broader natcurric:substrand-british-history ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
 
@@ -302,17 +227,7 @@ natcurric:contentdescriptor-lives-of-significant-individuals
   different periods."""@en ;
   curric:supportingGuidance "Supporting guidance text..."@en ;
   curric:displayOrder "3"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-history-of-britain ;
-  skos:inScheme natcurric:knowledge-taxonomy ;
-  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
-
-natcurric:contentdescriptor-significant-historical-events-own-locality
-  a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel """About significant historical events, people and places in their own 
-  locality."""@en ;
-  curric:supportingGuidance "Supporting guidance text..."@en ;
-  curric:displayOrder "4"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-history-of-britain ;
+  skos:broader natcurric:substrand-british-history ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
 
@@ -320,8 +235,8 @@ natcurric:contentdescriptor-changes-in-britain-stone-age-to-iron-age
   a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel "About changes in Britain from the Stone Age to the Iron Age."@en ;
   curric:supportingGuidance "Supporting guidance text..."@en ;
-  curric:displayOrder "5"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-history-of-britain ;
+  curric:displayOrder "4"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-british-history ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
 
@@ -329,8 +244,8 @@ natcurric:contentdescriptor-roman-empire-impact-on-britain
   a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel "About the Roman Empire and its impact on Britain."@en ;
   curric:supportingGuidance "Supporting guidance text..."@en ;
-  curric:displayOrder "6"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-history-of-britain ;
+  curric:displayOrder "5"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-british-history ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
 
@@ -338,8 +253,8 @@ natcurric:contentdescriptor-settlement-by-anglo-saxons-and-scots
   a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel "About Britain’s settlement by Anglo-Saxons and Scots."@en ;
   curric:supportingGuidance "Supporting guidance text..."@en ;
-  curric:displayOrder "7"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-history-of-britain ;
+  curric:displayOrder "6"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-british-history ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
 
@@ -348,17 +263,8 @@ natcurric:contentdescriptor-viking-and-anglo-saxon-struggle
   skos:prefLabel """About the Viking and Anglo-Saxon struggle for the Kingdom of England to the 
   time of Edward the Confessor."""@en ;
   curric:supportingGuidance "Supporting guidance text..."@en ;
-  curric:displayOrder "8"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-history-of-britain ;
-  skos:inScheme natcurric:knowledge-taxonomy ;
-  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
-
-natcurric:contentdescriptor-local-history-study
-  a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel "About a local history study."@en ;
-  curric:supportingGuidance "Supporting guidance text..."@en ;
-  curric:displayOrder "9"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-history-of-britain ;
+  curric:displayOrder "7"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-british-history ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
 
@@ -367,8 +273,8 @@ natcurric:contentdescriptor-aspect-british-history-beyond-1066
   skos:prefLabel """About a study of an aspect or theme in British history that extends pupils’ 
   chronological knowledge beyond 1066."""@en ;
   curric:supportingGuidance "Supporting guidance text..."@en ;
-  curric:displayOrder "10"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-history-of-britain ;
+  curric:displayOrder "8"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-british-history ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
 
@@ -377,8 +283,8 @@ natcurric:contentdescriptor-church-state-society-1066-1509
   skos:prefLabel """About the development of Church, state and society in Medieval Britain, and its 
   connections to the wider world 1066-1509."""@en ;
   curric:supportingGuidance "Supporting guidance text..."@en ;
-  curric:displayOrder "11"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-history-of-britain ;
+  curric:displayOrder "9"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-british-history ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
 
@@ -387,8 +293,8 @@ natcurric:contentdescriptor-church-state-society-1509-1745
   skos:prefLabel """About the development of Church, state and society in Britain and its 
   connections to the wider world 1509-1745."""@en ;
   curric:supportingGuidance "Supporting guidance text..."@en ;
-  curric:displayOrder "12"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-history-of-britain ;
+  curric:displayOrder "10"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-british-history ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
 
@@ -396,8 +302,8 @@ natcurric:contentdescriptor-ideas-power-industry-empire-1745-1901
   a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel "About ideas, political power, industry and empire: Britain, 1745-1901."@en ;
   curric:supportingGuidance "Supporting guidance text..."@en ;
-  curric:displayOrder "13"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-history-of-britain ;
+  curric:displayOrder "11"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-british-history ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
 
@@ -406,8 +312,8 @@ natcurric:contentdescriptor-challenges-britain-europe-world-1901-present
   skos:prefLabel """About challenges for Britain, Europe and the wider world 1901 to the present 
   day In addition to studying the Holocaust, this could include:."""@en ;
   curric:supportingGuidance "Supporting guidance text..."@en ;
-  curric:displayOrder "14"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-history-of-britain ;
+  curric:displayOrder "12"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-british-history ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
 
@@ -416,8 +322,8 @@ natcurric:contentdescriptor-aspect-british-history-before-1066
   skos:prefLabel """About an aspect or theme in British history that consolidates and extends 
   pupils’ chronological knowledge from before 1066."""@en ;
   curric:supportingGuidance "Supporting guidance text..."@en ;
-  curric:displayOrder "15"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-history-of-britain ;
+  curric:displayOrder "13"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-british-history ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
 
@@ -428,7 +334,7 @@ natcurric:contentdescriptor-earliest-civilizations
   The Indus Valley; Ancient Egypt; The Shang Dynasty of Ancient China."""@en ;
   curric:supportingGuidance "Supporting guidance text..."@en ;
   curric:displayOrder "1"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-significant-aspects-of-world-history ;
+  skos:broader natcurric:substrand-world-history ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
 
@@ -438,7 +344,7 @@ natcurric:contentdescriptor-ancient-greece
   influence on the western world."""@en ;
   curric:supportingGuidance "Supporting guidance text..."@en ;
   curric:displayOrder "2"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-significant-aspects-of-world-history ;
+  skos:broader natcurric:substrand-world-history ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
 
@@ -450,7 +356,7 @@ natcurric:contentdescriptor-non-european-society
   civilization c. AD 900; Benin (West Africa) c. AD 900-1300."""@en ;
   curric:supportingGuidance "Supporting guidance text..."@en ;
   curric:displayOrder "3"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-significant-aspects-of-world-history ;
+  skos:broader natcurric:substrand-world-history ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
 
@@ -460,7 +366,218 @@ natcurric:contentdescriptor-significant-society-or-issue
   interconnections with other world developments."""@en ;
   curric:supportingGuidance "Supporting guidance text..."@en ;
   curric:displayOrder "4"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-significant-aspects-of-world-history ;
+  skos:broader natcurric:substrand-world-history ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-significant-historical-events-own-locality
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """About significant historical events, people and places in their own 
+  locality."""@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "1"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-local-history ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-local-history-study
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "About a local history study."@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "2"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-local-history ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-develop-awareness-of-the-past
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Develop an awareness of the past, using common words and phrases relating to 
+  the passing of time."""@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "1"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-chronological-understanding ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-people-events-within-chronological-framework
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Know where people and events fit within a chronological framework."@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "2"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-chronological-understanding ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-chronologically-secure-knowledge-understanding-history
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Develop a chronologically secure knowledge and understanding of British, local 
+  and world history."""@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "3"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-chronological-understanding ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-clear-narratives-across-periods-studied
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Establish clear narratives within and across the periods studied."@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "4"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-chronological-understanding ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-extend-deepen-chronologically-secure-knowledge
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Extend and deepen chronologically secure knowledge to provide a well-informed 
+  context for wider learning."""@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "5"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-chronological-understanding ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-ways-of-life-different-periods
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Identify similarities and differences between ways of life in different 
+  periods."""@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "1"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-historical-concepts ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-wide-vocabulary-everyday-historical-terms
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Use a wide vocabulary of everyday historical terms."@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "2"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-historical-concepts ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-connections-contrasts-trends-over-time
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Note connections, contrasts and trends over time."@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "3"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-historical-concepts ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-appropriate-use-of-historical-terms
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Develop the appropriate use of historical terms."@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "4"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-historical-concepts ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-identify-significant-events-analyse-trends
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Identify significant events, make connections, draw contrasts, and analyse 
+  trends within periods and over long arcs of time."""@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "5"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-historical-concepts ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-use-historical-terms-increasingly-sophisticated
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Use historical terms and concepts in increasingly sophisticated ways."@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "6"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-historical-concepts ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-ask-and-answer-questions
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Ask and answer questions, choosing and using parts of stories and other sources 
+  to show understanding of key features of events."""@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "1"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-historical-enquiry ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-ways-find-out-about-past
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Understand some of the ways in which we find out about the past."@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "2"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-historical-enquiry ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-different-ways-past-is-represented
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Identify different ways in which the past is represented."@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "3"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-historical-enquiry ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-how-knowledge-of-past-constructed
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Understand how our knowledge of the past is constructed from a range of 
+  sources."""@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "4"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-historical-enquiry ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-historically-valid-questions
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Address and sometimes devise historically valid questions about change, cause, 
+  similarity and difference, and significance."""@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "5"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-historical-enquiry ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-construct-informed-responses
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Construct informed responses that involve thoughtful selection and organisation 
+  of relevant historical information."""@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "6"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-historical-enquiry ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-pursue-historically-valid-enquiries
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Pursue historically valid enquiries including some framed by pupils themselves, 
+  and create relevant, structured and evidentially supported accounts in response."""@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "7"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-historical-enquiry ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-different-types-of-historical-sources
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Understand how different types of historical sources are used rigorously to 
+  make historical claims."""@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "8"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-historical-enquiry ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-contrasting-arguments-interpretations-of-past
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Discern how and why contrasting arguments and interpretations of the past have 
+  been constructed."""@en ;
+  curric:supportingGuidance "Supporting guidance text..."@en ;
+  curric:displayOrder "9"^^xsd:positiveInteger ;
+  skos:broader natcurric:substrand-historical-enquiry ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
 
