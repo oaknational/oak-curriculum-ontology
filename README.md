@@ -59,6 +59,8 @@ The ontology structure, URIs, and data are under active development and **subjec
 - 🔄 Data validation and refinement ongoing
 - 📝 Feedback and suggestions are welcome!
 
+> **Data Notice:** National Curriculum (2014) data is included to demonstrate machine-readable formats ahead of the 2027 revision. As the 2014 curriculum was not designed as structured data, mappings may be incomplete. For educational purposes, use [official sources](https://www.gov.uk/government/collections/national-curriculum).
+
 **We welcome:**
 - 🐛 Bug reports (structure, data, documentation)
 - 💡 Feature requests and suggestions
