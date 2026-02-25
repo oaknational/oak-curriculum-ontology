@@ -368,62 +368,69 @@ oak-curriculum-ontology-public/
 │   ├── programme-structure.ttl           # Exam Boards, Tiers
 │   ├── threads.ttl                       # Cross-cutting Threads
 │   └── subjects/
+│       ├── citizenship/
+│       │   ├── citizenship-programme-structure.ttl     # Subject, Schemes, Progressions
+│       │   ├── citizenship-knowledge-taxonomy.ttl      # Strands, Sub-Strands, Content Descriptors
+│       │   └── citizenship-key-stage-*.ttl             # KS1-KS4 Programmes, Units, Unit Variants, Lessons
 │       ├── english/
-│       │   ├── english-programme-structure.ttl     # Subject, Schemes, Progressions
-│       │   ├── english-knowledge-taxonomy.ttl      # Strands, Sub-Strands, Content Descriptors
-│       │   └── english-key-stage-*.ttl             # KS1-KS4 Programmes, Units, Unit Variants, Lessons
-│       ├── mathematics/
-│       │   ├── mathematics-programme-structure.ttl
-│       │   ├── mathematics-knowledge-taxonomy.ttl
-│       │   └── mathematics-key-stage-*.ttl
-│       ├── biology/
-│       │   ├── biology-programme-structure.ttl
-│       │   ├── biology-knowledge-taxonomy.ttl
-│       │   └── biology-key-stage-4.ttl
-│       ├── chemistry/
-│       │   ├── chemistry-programme-structure.ttl
-│       │   ├── chemistry-knowledge-taxonomy.ttl
-│       │   └── chemistry-key-stage-4.ttl
-│       ├── physics/
-│       │   ├── physics-programme-structure.ttl
-│       │   ├── physics-knowledge-taxonomy.ttl
-│       │   └── physics-key-stage-4.ttl
-│       ├── history/
-│       │   ├── history-programme-structure.ttl
-│       │   ├── history-knowledge-taxonomy.ttl
-│       │   └── history-key-stage-*.ttl
+│       │   ├── english-programme-structure.ttl
+│       │   ├── english-knowledge-taxonomy.ttl
+│       │   └── english-key-stage-*.ttl
 │       ├── geography/
 │       │   ├── geography-programme-structure.ttl
 │       │   ├── geography-knowledge-taxonomy.ttl
 │       │   └── geography-key-stage-*.ttl
-│       └── citizenship/
-│           ├── citizenship-programme-structure.ttl
-│           ├── citizenship-knowledge-taxonomy.ttl
-│           └── citizenship-key-stage-*.ttl
-│
-├── scripts/
-│   ├── validate.sh                      # Local SHACL validation
-│   ├── export_to_neo4j.py               # Export to Neo4j with transformations
-│   ├── export_to_neo4j_config.json      # Neo4j export configuration
-│   ├── export_to_neo4j_ARCHITECTURE.md  # Neo4j export architecture documentation
-│   ├── merge_ttls_with_imports.py       # Merge TTL files with import resolution
-│   ├── build_static_data.sh             # Generate distribution files (for releases)
-│   └── README.md                        # Scripts documentation
+│       ├── history/
+│       │   ├── history-programme-structure.ttl
+│       │   ├── history-knowledge-taxonomy.ttl
+│       │   └── history-key-stage-*.ttl
+│       ├── mathematics/
+│       │   ├── mathematics-programme-structure.ttl
+│       │   ├── mathematics-knowledge-taxonomy.ttl
+│       │   └── mathematics-key-stage-*.ttl
+│       └── science/
+│           ├── biology-key-stage-4.ttl
+│           ├── biology-knowledge-taxonomy.ttl
+│           ├── biology-programme-structure.ttl
+│           ├── chemistry-key-stage-4.ttl
+│           ├── chemistry-knowledge-taxonomy.ttl
+│           ├── chemistry-programme-structure.ttl
+│           ├── combined-science-key-stage-4.ttl
+│           ├── physics-key-stage-4.ttl
+│           ├── physics-knowledge-taxonomy.ttl
+│           ├── physics-programme-structure.ttl
+│           ├── science-key-stage-1.ttl
+│           ├── science-key-stage-2.ttl
+│           ├── science-key-stage-3.ttl
+│           └── science-programme-structure.ttl
 │
 ├── docs/
 │   └── standards-compliance.md           # W3C standards documentation
 │
-├── .github/workflows/
-│   ├── validate-ontology.yml             # Automated SHACL validation
-│   ├── generate-docs-widoco.yml          # Auto-generate documentation
-│   └── generate-distributions.yml        # Build distribution files
+├── scripts/
+│   ├── build_static_data.sh              # Generate distribution files (for releases)
+│   ├── export_to_neo4j_ARCHITECTURE.md   # Neo4j export architecture documentation
+│   ├── export_to_neo4j_config.json       # Neo4j export configuration
+│   ├── export_to_neo4j.py                # Export to Neo4j with transformations
+│   ├── merge_ttls_with_imports.py        # Merge TTL files with import resolution
+│   ├── README.md                         # Scripts documentation
+│   ├── test_sparql_queries.py            # Testing for valid SPARQL queries
+│   └── validate.sh                       # Local SHACL validation
 │
-├── LICENSE-CODE                          # MIT License (for code)
-├── LICENSE-DATA                          # OGL 3.0 (for ontology/data)
+├── .github/workflows/
+│   ├── generate-distributions.yml        # Build distribution files
+│   ├── generate-docs-widoco.yml          # Auto-generate documentation
+│   ├── README.md                         # Workflows documentation
+│   └── validate-ontology.yml             # Automated SHACL validation
+│
+├── .env.example                          # Example environment configuration for Neo4j
 ├── CITATION.cff                          # Citation metadata
 ├── CONTRIBUTING.md                       # Contribution guidelines
-├── SECURITY.md                           # Policy and vulnerability reporting
-└── README.md                             # This file
+├── LICENSE-CODE                          # MIT License (for code)
+├── LICENSE-DATA                          # OGL 3.0 (for ontology/data)
+├── pyproject.toml                        # Python configuration and dependencies
+├── README.md                             # This file
+└── SECURITY.md                           # Policy and vulnerability reporting
 ```
 
 ---
