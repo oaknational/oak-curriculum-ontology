@@ -21,6 +21,8 @@
 
 Machine-readable curriculum data in W3C-standard formats (RDF, OWL, SKOS, SHACL) enabling interoperability, semantic queries, and data-driven educational tools. This repository is an Oak-developed representation and does not constitute an official DfE National Curriculum publication.
 
+This repository contains public sector information licensed under the [Open Government Licence v3.0](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/).
+
 📘 **[Browse Full Documentation](https://oaknational.github.io/oak-curriculum-ontology-public/)** |
 🔍 **[View Ontology](ontology/oak-curriculum-ontology.ttl)** |
 📊 **[Download Distributions](https://github.com/oaknational/oak-curriculum-ontology-public/releases)**
