@@ -66,8 +66,8 @@ natcurric:discipline-geography
   skos:definition "Description of discipline..."@en ;
   skos:topConceptOf natcurric:knowledge-taxonomy ;
   skos:narrower
-    natcurric:strand-substantive-knowledge ,
-    natcurric:strand-disciplinary-knowledge ;
+    natcurric:strand-geography-substantive-knowledge ,
+    natcurric:strand-geography-disciplinary-knowledge ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
 
@@ -75,7 +75,7 @@ natcurric:discipline-geography
 # Strands
 # ----------------------------------------------------------------------
 
-natcurric:strand-substantive-knowledge
+natcurric:strand-geography-substantive-knowledge
   a skos:Concept, curric:Strand ;
   skos:prefLabel "Substantive Knowledge"@en ;
   skos:definition "Description of strand..."@en ;
@@ -88,7 +88,7 @@ natcurric:strand-substantive-knowledge
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
 
-natcurric:strand-disciplinary-knowledge
+natcurric:strand-geography-disciplinary-knowledge
   a skos:Concept, curric:Strand ;
   skos:prefLabel "Disciplinary Knowledge"@en ;
   skos:definition "Description of strand..."@en ;
@@ -110,7 +110,7 @@ natcurric:substrand-locational-knowledge
   skos:prefLabel "Locational Knowledge"@en ;
   skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "1"^^xsd:positiveInteger ;
-  skos:broader natcurric:strand-substantive-knowledge ;
+  skos:broader natcurric:strand-geography-substantive-knowledge ;
   skos:narrower 
     natcurric:contentdescriptor-locate-continents-oceans ,
     natcurric:contentdescriptor-countries-capitals-united-kingdom ,
@@ -126,7 +126,7 @@ natcurric:substrand-place-knowledge
   skos:prefLabel "Place Knowledge"@en ;
   skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "2"^^xsd:positiveInteger ;
-  skos:broader natcurric:strand-substantive-knowledge ;
+  skos:broader natcurric:strand-geography-substantive-knowledge ;
   skos:narrower 
     natcurric:contentdescriptor-uk-and-contrasting-non-european-areas ,
     natcurric:contentdescriptor-uk-european-america-regions ,
@@ -139,7 +139,7 @@ natcurric:substrand-human-and-physical-geography
   skos:prefLabel "Human and Physical Geography"@en ;
   skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "3"^^xsd:positiveInteger ;
-  skos:broader natcurric:strand-substantive-knowledge ;
+  skos:broader natcurric:strand-geography-substantive-knowledge ;
   skos:narrower 
     natcurric:contentdescriptor-weather-patterns-hot-cold-areas ,
     natcurric:contentdescriptor-key-features-physical-geography ,
@@ -156,7 +156,7 @@ natcurric:substrand-concepts
   skos:prefLabel "Geographical Skills and Fieldwork"@en ;
   skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "4"^^xsd:positiveInteger ;
-  skos:broader natcurric:strand-disciplinary-knowledge ;
+  skos:broader natcurric:strand-geography-disciplinary-knowledge ;
   skos:narrower
     natcurric:contentdescriptor-landscapes-environment-climate ;
   skos:inScheme natcurric:knowledge-taxonomy ;
@@ -167,7 +167,7 @@ natcurric:substrand-concepts
   skos:prefLabel "Geographical Skills"@en ;
   skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "5"^^xsd:positiveInteger ;
-  skos:broader natcurric:strand-disciplinary-knowledge ;
+  skos:broader natcurric:strand-geography-disciplinary-knowledge ;
   skos:narrower
     natcurric:contentdescriptor-world-maps-atlases-globes ,
     natcurric:contentdescriptor-simple-compass-directions ,
@@ -185,7 +185,7 @@ natcurric:substrand-concepts
   skos:prefLabel "Fieldwork"@en ;
   skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "6"^^xsd:positiveInteger ;
-  skos:broader natcurric:strand-disciplinary-knowledge ;
+  skos:broader natcurric:strand-geography-disciplinary-knowledge ;
   skos:narrower
     natcurric:contentdescriptor-simple-fieldwork-and-observational-skills ,
     natcurric:contentdescriptor-measure-record-human-physical-features ,

@@ -65,8 +65,8 @@ natcurric:discipline-history
   skos:prefLabel "History"@en ;
   skos:definition "Description of discipline..."@en ;
   skos:topConceptOf natcurric:knowledge-taxonomy ;
-  skos:narrower natcurric:strand-substantive-knowledge ,
-                natcurric:strand-disciplinary-knowledge ;
+  skos:narrower natcurric:strand-history-substantive-knowledge ,
+                natcurric:strand-history-disciplinary-knowledge ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
 
@@ -74,7 +74,7 @@ natcurric:discipline-history
 # Strands
 # ----------------------------------------------------------------------
 
-natcurric:strand-substantive-knowledge
+natcurric:strand-history-substantive-knowledge
   a skos:Concept, curric:Strand ;
   skos:prefLabel "Substantive Knowledge"@en ;
   skos:definition "Description of strand..."@en ;
@@ -86,7 +86,7 @@ natcurric:strand-substantive-knowledge
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
 
-natcurric:strand-disciplinary-knowledge
+natcurric:strand-history-disciplinary-knowledge
   a skos:Concept, curric:Strand ;
   skos:prefLabel "Disciplinary Knowledge"@en ;
   skos:definition "Description of strand..."@en ;
@@ -107,7 +107,7 @@ natcurric:substrand-british-history
   skos:prefLabel "British History"@en ;
   skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "1"^^xsd:positiveInteger ;
-  skos:broader natcurric:strand-substantive-knowledge ;
+  skos:broader natcurric:strand-history-substantive-knowledge ;
   skos:narrower natcurric:contentdescriptor-changes-within-living-memory ,
                 natcurric:contentdescriptor-events-beyond-living-memory ,
                 natcurric:contentdescriptor-lives-of-significant-individuals ,
@@ -129,7 +129,7 @@ natcurric:substrand-world-history
   skos:prefLabel "World History"@en ;
   skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "2"^^xsd:positiveInteger ;
-  skos:broader natcurric:strand-substantive-knowledge ;
+  skos:broader natcurric:strand-history-substantive-knowledge ;
   skos:narrower natcurric:contentdescriptor-earliest-civilizations ,
                 natcurric:contentdescriptor-ancient-greece ,
                 natcurric:contentdescriptor-non-european-society ,
@@ -142,7 +142,7 @@ natcurric:substrand-local-history
   skos:prefLabel "Local History"@en ;
   skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "3"^^xsd:positiveInteger ;
-  skos:broader natcurric:strand-substantive-knowledge ;
+  skos:broader natcurric:strand-history-substantive-knowledge ;
   skos:narrower natcurric:contentdescriptor-significant-historical-events-own-locality ,
                 natcurric:contentdescriptor-local-history-study ;
   skos:inScheme natcurric:knowledge-taxonomy ;
@@ -153,7 +153,7 @@ natcurric:substrand-chronological-understanding
   skos:prefLabel "Chronological Understanding"@en ;
   skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "1"^^xsd:positiveInteger ;
-  skos:broader natcurric:strand-disciplinary-knowledge ;
+  skos:broader natcurric:strand-history-disciplinary-knowledge ;
   skos:narrower natcurric:contentdescriptor-develop-awareness-of-the-past ,
                 natcurric:contentdescriptor-people-events-within-chronological-framework ,
                 natcurric:contentdescriptor-chronologically-secure-knowledge-understanding-history ,
@@ -167,7 +167,7 @@ natcurric:substrand-historical-concepts
   skos:prefLabel "Historical Concepts"@en ;
   skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "2"^^xsd:positiveInteger ;
-  skos:broader natcurric:strand-disciplinary-knowledge ;
+  skos:broader natcurric:strand-history-disciplinary-knowledge ;
   skos:narrower natcurric:contentdescriptor-ways-of-life-different-periods ,
                 natcurric:contentdescriptor-wide-vocabulary-everyday-historical-terms ,
                 natcurric:contentdescriptor-connections-contrasts-trends-over-time ,
@@ -182,7 +182,7 @@ natcurric:substrand-historical-enquiry
   skos:prefLabel "Historical Enquiry"@en ;
   skos:definition "Description of sub-strand..."@en ;
   curric:displayOrder "3"^^xsd:positiveInteger ;
-  skos:broader natcurric:strand-disciplinary-knowledge ;
+  skos:broader natcurric:strand-history-disciplinary-knowledge ;
   skos:narrower natcurric:contentdescriptor-ask-and-answer-questions ,
                 natcurric:contentdescriptor-ways-find-out-about-past ,
                 natcurric:contentdescriptor-different-ways-past-is-represented ,

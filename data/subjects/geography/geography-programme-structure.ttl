@@ -93,8 +93,8 @@ natcurric:subject-geography
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
   curric:isSubjectOf natcurric:subjectgroup-geography ;
   curric:coversStrand 
-    natcurric:strand-substantive-knowledge ,
-    natcurric:strand-disciplinary-knowledge .
+    natcurric:strand-geography-substantive-knowledge ,
+    natcurric:strand-geography-disciplinary-knowledge .
   
 # ----------------------------------------------------------------------
 # Schemes
