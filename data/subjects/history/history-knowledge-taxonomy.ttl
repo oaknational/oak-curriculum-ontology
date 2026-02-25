@@ -65,8 +65,8 @@ natcurric:discipline-history
   skos:prefLabel "History"@en ;
   skos:definition "Description of discipline..."@en ;
   skos:topConceptOf natcurric:knowledge-taxonomy ;
-  skos:narrower natcurric:strand-knowledge-of-past ,
-                natcurric:strand-knowledge-of-history ;
+  skos:narrower natcurric:strand-substantive-knowledge ,
+                natcurric:strand-disciplinary-knowledge ;
   skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
 
