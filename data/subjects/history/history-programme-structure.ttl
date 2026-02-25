@@ -75,8 +75,8 @@ natcurric:subject-history
   curric:schoolCurriculum "Text for school curriculum..."@en ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
   curric:isSubjectOf natcurric:subjectgroup-history ;
-  curric:coversStrand natcurric:strand-knowledge-of-past ,
-                   natcurric:strand-knowledge-of-history .
+  curric:coversStrand natcurric:strand-substantive-knowledge ,
+                      natcurric:strand-disciplinary-knowledge .
   
 # ----------------------------------------------------------------------
 # Schemes

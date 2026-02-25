@@ -160,7 +160,7 @@ Subject (e.g., Mathematics)
 
 ### Key Classes
 
-**Programme**: A structured sequence of units for a specific year group, and optionally for a specific exam board and tier. For example, "English Year 3" or "Combined Science Year 10 (AQA Foundation)".
+**Programme**: A structured sequence of units for a specific year group, and optionally for a specific exam board and tier. For example, "English Year 3" or "Biology Year 10 (AQA Foundation)".
 
 **Unit**: A coherent body of knowledge and skills, such as "'Marcy and the Riddle of the Sphinx': book club". Units can have multiple unit variants for different exam boards or pedagogical approaches.
 
