@@ -99,7 +99,7 @@ natcurric:strand-disciplinary-knowledge
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
 
 # ----------------------------------------------------------------------
-# Sub-Strands
+# Sub-Strands 
 # ----------------------------------------------------------------------
 
 natcurric:substrand-british-history
