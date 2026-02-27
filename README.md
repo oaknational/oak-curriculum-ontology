@@ -427,9 +427,9 @@ oak-curriculum-ontology/
 │
 ├── .env.example                          # Example environment configuration for Neo4j
 ├── CITATION.cff                          # Citation metadata
+├── CODE-LICENSE.md                       # MIT License (for code)
 ├── CONTRIBUTING.md                       # Contribution guidelines
-├── LICENSE-CODE                          # MIT License (for code)
-├── LICENSE-DATA                          # OGL 3.0 (for ontology/data)
+├── DATA-LICENSE.md                       # OGL 3.0 (for ontology/data)
 ├── pyproject.toml                        # Python configuration and dependencies
 ├── README.md                             # This file
 └── SECURITY.md                           # Policy and vulnerability reporting
@@ -525,7 +525,7 @@ This repository uses **dual licensing** to appropriately cover different types o
 
 ### Ontology and Data (OGL 3.0)
 
-The curriculum ontology, vocabulary definitions, and curriculum data are licensed under [Open Government Licence v3.0 (OGL 3.0)](LICENSE-DATA).
+The curriculum ontology, vocabulary definitions, and curriculum data are licensed under [Open Government Licence v3.0 (OGL 3.0)](DATA-LICENSE.md).
 
 **Applies to:**
 - `ontology/` - OWL/SKOS ontology files
@@ -540,7 +540,7 @@ The curriculum ontology, vocabulary definitions, and curriculum data are license
 
 ### Code (MIT License)
 
-All Python scripts, GitHub Actions workflows, and software tools are licensed under the [MIT License](LICENSE-CODE).
+All Python scripts, GitHub Actions workflows, and software tools are licensed under the [MIT License](CODE-LICENSE.md).
 
 **Applies to:**
 - `scripts/` - Scripts and Python code
