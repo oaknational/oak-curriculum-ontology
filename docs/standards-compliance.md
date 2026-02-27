@@ -309,7 +309,7 @@ User requests: https://w3id.org/uk/oak/curriculum/ontology/Programme
        ↓
 w3id.org redirects (HTTP 303) to:
        ↓
-GitHub: https://raw.githubusercontent.com/oaknational/oak-curriculum-ontology-public/main/ontology/oak-curriculum-ontology.ttl
+GitHub: https://raw.githubusercontent.com/oaknational/oak-curriculum-ontology/main/ontology/oak-curriculum-ontology.ttl
 ```
 
 **Benefits:**

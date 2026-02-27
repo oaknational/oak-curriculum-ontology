@@ -34,7 +34,7 @@ All workflows in this directory are designed to ensure the quality, accessibilit
 ### 1. Validate Ontology
 
 **File:** [`validate-ontology.yml`](./validate-ontology.yml)
-**Badge:** [![Validate Ontology](https://github.com/oaknational/oak-curriculum-ontology-public/workflows/Validate%20Ontology/badge.svg)](https://github.com/oaknational/oak-curriculum-ontology-public/actions/workflows/validate-ontology.yml)
+**Badge:** [![Validate Ontology](https://github.com/oaknational/oak-curriculum-ontology/workflows/Validate%20Ontology/badge.svg)](https://github.com/oaknational/oak-curriculum-ontology/actions/workflows/validate-ontology.yml)
 
 #### Purpose
 
@@ -114,7 +114,7 @@ concurrency:
 ### 2. Generate Documentation
 
 **File:** [`generate-docs-widoco.yml`](./generate-docs-widoco.yml)
-**Badge:** [![Generate Documentation](https://github.com/oaknational/oak-curriculum-ontology-public/workflows/Generate%20GH%20Pages%20with%20Widoco/badge.svg)](https://github.com/oaknational/oak-curriculum-ontology-public/actions/workflows/generate-docs-widoco.yml)
+**Badge:** [![Generate Documentation](https://github.com/oaknational/oak-curriculum-ontology/workflows/Generate%20GH%20Pages%20with%20Widoco/badge.svg)](https://github.com/oaknational/oak-curriculum-ontology/actions/workflows/generate-docs-widoco.yml)
 
 #### Purpose
 
@@ -155,7 +155,7 @@ Generates comprehensive HTML documentation from the ontology and deploys it to G
 
 #### Generated Documentation
 
-**URL:** https://oaknational.github.io/oak-curriculum-ontology-public/
+**URL:** https://oaknational.github.io/oak-curriculum-ontology/
 
 **Includes:**
 - 📖 Complete ontology documentation
@@ -194,7 +194,7 @@ concurrency:
 ### 3. Generate Distributions
 
 **File:** [`generate-distributions.yml`](./generate-distributions.yml)
-**Badge:** [![Generate Distributions](https://github.com/oaknational/oak-curriculum-ontology-public/workflows/Generate%20Static%20Distribution%20Files/badge.svg)](https://github.com/oaknational/oak-curriculum-ontology-public/actions/workflows/generate-distributions.yml)
+**Badge:** [![Generate Distributions](https://github.com/oaknational/oak-curriculum-ontology/workflows/Generate%20Static%20Distribution%20Files/badge.svg)](https://github.com/oaknational/oak-curriculum-ontology/actions/workflows/generate-distributions.yml)
 
 #### Purpose
 
@@ -260,8 +260,8 @@ Users can verify file integrity:
 
 ```bash
 # Download files
-wget https://github.com/oaknational/oak-curriculum-ontology-public/releases/latest/download/oak-curriculum-full.ttl
-wget https://github.com/oaknational/oak-curriculum-ontology-public/releases/latest/download/checksums-sha256.txt
+wget https://github.com/oaknational/oak-curriculum-ontology/releases/latest/download/oak-curriculum-full.ttl
+wget https://github.com/oaknational/oak-curriculum-ontology/releases/latest/download/checksums-sha256.txt
 
 # Verify checksum
 sha256sum -c checksums-sha256.txt

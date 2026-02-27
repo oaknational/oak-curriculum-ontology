@@ -19,7 +19,7 @@ We value your input! Please share:
 
 **How to provide feedback:**
 
-1. [Open an issue](https://github.com/oaknational/oak-curriculum-ontology-public/issues/new) on GitHub
+1. [Open an issue](https://github.com/oaknational/oak-curriculum-ontology/issues/new) on GitHub
 2. Use a clear, descriptive title
 3. Provide as much context as possible:
    - What you were trying to do
@@ -82,7 +82,7 @@ We expect all contributors to:
 
 ## Questions?
 
-If you're unsure whether something is appropriate feedback, go ahead and [open an issue](https://github.com/oaknational/oak-curriculum-ontology-public/issues/new) - we're happy to discuss!
+If you're unsure whether something is appropriate feedback, go ahead and [open an issue](https://github.com/oaknational/oak-curriculum-ontology/issues/new) - we're happy to discuss!
 
 ---
 

@@ -6,8 +6,8 @@ type: dataset
 authors:
   - name: "Oak National Academy"
     website: "https://thenational.academy"
-repository-code: "https://github.com/oaknational/oak-curriculum-ontology-public"
-url: "https://oaknational.github.io/oak-curriculum-ontology-public/"
+repository-code: "https://github.com/oaknational/oak-curriculum-ontology"
+url: "https://oaknational.github.io/oak-curriculum-ontology/"
 license: OGL-UK-3.0
 version: 0.1.0
 date-released: "2026-02-15"
@@ -28,5 +28,5 @@ preferred-citation:
   authors:
     - name: "Oak National Academy"
   year: 2026
-  url: "https://oaknational.github.io/oak-curriculum-ontology-public/"
+  url: "https://oaknational.github.io/oak-curriculum-ontology/"
   version: 0.1.0
