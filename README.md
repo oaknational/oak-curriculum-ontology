@@ -17,7 +17,7 @@
 [![W3C SKOS](https://img.shields.io/badge/W3C-SKOS-005A9C)](https://www.w3.org/TR/skos-reference/)
 [![W3C SHACL](https://img.shields.io/badge/W3C-SHACL-005A9C)](https://www.w3.org/TR/shacl/)
 
-> **A formal semantic representation of the Oak National Academy Curriculum and its alignment to the National Curriculum for England (2014)**
+> **A formal semantic representation of the Oak National Academy Curriculum and its alignment to the National Curriculum for England (2014).**
 
 Machine-readable curriculum data in W3C-standard formats (RDF, OWL, SKOS, SHACL) enabling interoperability, semantic queries, and data-driven educational tools. This repository is an Oak-developed representation and does not constitute an official DfE National Curriculum publication.
 
@@ -84,6 +84,8 @@ The Oak Curriculum Ontology provides:
 
 This ontology bridges official curriculum requirements (National Curriculum 2014) with practical teaching programmes, making curriculum data queryable, analyzable, and machine-processable.
 
+In this version, our knowledge taxonomy is being applied to the knowledge specified in the National Curriculum for England (2014). The data in this repository represents our best efforts to apply a consistent structure where this does not exist in the source content. The taxonomy takes inspiration from a variety of open curriculum sources (see #Acknowledgements below).
+
 ---
 
 ## Quick Start
@@ -112,14 +114,14 @@ oakcurric:programme-mathematics-year-7
 
 ## Key Features
 
-✅ **26 ontology classes** defining curriculum structure (Programme, Unit, Lesson, Discipline, Strand, etc.)
-✅ **26 SHACL validation shapes** ensuring data integrity
-✅ **8 subject areas** with full knowledge taxonomies
-✅ **National Curriculum alignment** linking Oak content to statutory requirements
-✅ **Automated validation** via GitHub Actions CI/CD
-✅ **Multi-format distributions** (Turtle, JSON-LD, RDF/XML, N-Triples)
-✅ **Standards-compliant** (RDF 1.1, OWL 2, SKOS, SHACL, Dublin Core)
-✅ **Open data** (OGL 3.0 license for ontology/data, MIT for code)
+✅ **26 ontology classes** defining curriculum structure (Programme, Unit, Lesson, Discipline, Strand, etc.)  
+✅ **26 SHACL validation shapes** ensuring data integrity  
+✅ **8 subject areas** with full knowledge taxonomies  
+✅ **National Curriculum alignment** linking Oak content to statutory requirements  
+✅ **Automated validation** via GitHub Actions CI/CD  
+✅ **Multi-format distributions** (Turtle, JSON-LD, RDF/XML, N-Triples)  
+✅ **Standards-compliant** (RDF 1.1, OWL 2, SKOS, SHACL, Dublin Core)  
+✅ **Open data** (OGL 3.0 license for ontology/data, MIT for code)  
 
 ---
 
@@ -201,14 +203,14 @@ Oak units reference National Curriculum content via:
 
 ## Use Cases
 
-**Educational Platforms** - Load curriculum data into learning management systems
-**Curriculum Analysis** - Query relationships between subjects, key stages, and topics
-**AI/ML Training** - Use structured curriculum data for educational AI models
-**Research** - Analyze curriculum structure, progression, and coverage
-**Data Integration** - Link to other educational datasets via persistent URIs
-**Quality Assurance** - Validate custom curriculum data against standard shapes
-**Graph Databases** - Export to Neo4j for network analysis and visualization
-**Semantic Search** - Enable intelligent discovery of curriculum content
+**Educational Platforms** - Load curriculum data into learning management systems  
+**Curriculum Analysis** - Query relationships between subjects, key stages, and topics  
+**AI/ML Training** - Use structured curriculum data for educational AI models  
+**Research** - Analyze curriculum structure, progression, and coverage  
+**Data Integration** - Link to other educational datasets via persistent URIs  
+**Quality Assurance** - Validate custom curriculum data against standard shapes  
+**Graph Databases** - Export to Neo4j for network analysis and visualization  
+**Semantic Search** - Enable intelligent discovery of curriculum content  
 
 ---
 
@@ -602,7 +604,11 @@ This ontology was developed by Oak National Academy with input from:
 - UK curriculum specialists
 - Open data community
 
-Special thanks to the broader semantic web and open education communities for their tools, standards, and best practices.
+Special thanks to the broader semantic web and open education communities for their tools, standards, and best practices. In particular, our knowledge taxonomy has been inspired by the following work:
+
+- [Australian Curriculum](https://www.bbc.co.uk/ontologies/curriculum) published by the Australian Curriculum , Assessment and Reporting Authority (ACARA)
+- [BBC Curriculum Ontology](https://www.bbc.co.uk/ontologies/curriculum) for describing the National Curricula within the UK
+- Australian Curriculum: https://www.australiancurriculum.edu.au/
 
 ---
 
