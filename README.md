@@ -550,8 +550,7 @@ All Python scripts, GitHub Actions workflows, and software tools are licensed un
 - ✅ Use, modify, and redistribute freely
 - ✅ Use in commercial projects
 - ✅ Minimal restrictions
-
-**Attribution:** When using this work, please credit **"Oak National Academy"**
+- ⚠️ Must provide attribution: "Oak National Academy"
 
 ---
 
