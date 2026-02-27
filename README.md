@@ -114,14 +114,14 @@ oakcurric:programme-mathematics-year-7
 
 ## Key Features
 
-✅ **26 ontology classes** defining curriculum structure (Programme, Unit, Lesson, Discipline, Strand, etc.)  
-✅ **26 SHACL validation shapes** ensuring data integrity  
-✅ **8 subject areas** with full knowledge taxonomies  
-✅ **National Curriculum alignment** linking Oak content to statutory requirements  
-✅ **Automated validation** via GitHub Actions CI/CD  
-✅ **Multi-format distributions** (Turtle, JSON-LD, RDF/XML, N-Triples)  
-✅ **Standards-compliant** (RDF 1.1, OWL 2, SKOS, SHACL, Dublin Core)  
-✅ **Open data** (OGL 3.0 license for ontology/data, MIT for code)  
+✅ **26 ontology classes** defining curriculum structure (Programme, Unit, Lesson, Discipline, Strand, etc.).  
+✅ **26 SHACL validation shapes** ensuring data integrity.  
+✅ **8 subject areas** with full knowledge taxonomies.  
+✅ **National Curriculum alignment** linking Oak content to statutory requirements.  
+✅ **Automated validation** via GitHub Actions CI/CD.  
+✅ **Multi-format distributions** (Turtle, JSON-LD, RDF/XML, N-Triples).  
+✅ **Standards-compliant** (RDF 1.1, OWL 2, SKOS, SHACL, Dublin Core).  
+✅ **Open data** (OGL 3.0 license for ontology/data, MIT for code).  
 
 ---
 
@@ -203,14 +203,14 @@ Oak units reference National Curriculum content via:
 
 ## Use Cases
 
-**Educational Platforms** - Load curriculum data into learning management systems  
-**Curriculum Analysis** - Query relationships between subjects, key stages, and topics  
-**AI/ML Training** - Use structured curriculum data for educational AI models  
-**Research** - Analyze curriculum structure, progression, and coverage  
-**Data Integration** - Link to other educational datasets via persistent URIs  
-**Quality Assurance** - Validate custom curriculum data against standard shapes  
-**Graph Databases** - Export to Neo4j for network analysis and visualization  
-**Semantic Search** - Enable intelligent discovery of curriculum content  
+**Educational Platforms** - Load curriculum data into learning management systems.  
+**Curriculum Analysis** - Query relationships between subjects, key stages, and topics.  
+**AI/ML Training** - Use structured curriculum data for educational AI models.  
+**Research** - Analyze curriculum structure, progression, and coverage.  
+**Data Integration** - Link to other educational datasets via persistent URIs.  
+**Quality Assurance** - Validate custom curriculum data against standard shapes.  
+**Graph Databases** - Export to Neo4j for network analysis and visualization.  
+**Semantic Search** - Enable intelligent discovery of curriculum content.  
 
 ---
 
