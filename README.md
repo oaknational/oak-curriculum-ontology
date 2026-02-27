@@ -7,9 +7,9 @@
 ![Python](https://img.shields.io/badge/python-3.12+-blue.svg)
 
 <!-- Build and Quality Badges -->
-[![Validate Ontology](https://github.com/oaknational/oak-curriculum-ontology-public/workflows/Validate%20Ontology/badge.svg)](https://github.com/oaknational/oak-curriculum-ontology-public/actions/workflows/validate-ontology.yml)
-[![Generate Documentation](https://github.com/oaknational/oak-curriculum-ontology-public/workflows/Generate%20GH%20Pages%20with%20Widoco/badge.svg)](https://github.com/oaknational/oak-curriculum-ontology-public/actions/workflows/generate-docs-widoco.yml)
-[![Generate Distributions](https://github.com/oaknational/oak-curriculum-ontology-public/workflows/Generate%20Static%20Distribution%20Files/badge.svg)](https://github.com/oaknational/oak-curriculum-ontology-public/actions/workflows/generate-distributions.yml)
+[![Validate Ontology](https://github.com/oaknational/oak-curriculum-ontology/workflows/Validate%20Ontology/badge.svg)](https://github.com/oaknational/oak-curriculum-ontology/actions/workflows/validate-ontology.yml)
+[![Generate Documentation](https://github.com/oaknational/oak-curriculum-ontology/workflows/Generate%20GH%20Pages%20with%20Widoco/badge.svg)](https://github.com/oaknational/oak-curriculum-ontology/actions/workflows/generate-docs-widoco.yml)
+[![Generate Distributions](https://github.com/oaknational/oak-curriculum-ontology/workflows/Generate%20Static%20Distribution%20Files/badge.svg)](https://github.com/oaknational/oak-curriculum-ontology/actions/workflows/generate-distributions.yml)
 
 <!-- Standards Badges -->
 [![W3C RDF](https://img.shields.io/badge/W3C-RDF%201.1-005A9C)](https://www.w3.org/TR/rdf11-primer/)
@@ -23,9 +23,9 @@ Machine-readable curriculum data in W3C-standard formats (RDF, OWL, SKOS, SHACL)
 
 This repository contains public sector information licensed under the [Open Government Licence v3.0](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/).
 
-📘 **[Browse Full Documentation](https://oaknational.github.io/oak-curriculum-ontology-public/)** |
+📘 **[Browse Full Documentation](https://oaknational.github.io/oak-curriculum-ontology/)** |
 🔍 **[View Ontology](ontology/oak-curriculum-ontology.ttl)** |
-📊 **[Download Distributions](https://github.com/oaknational/oak-curriculum-ontology-public/releases)**
+📊 **[Download Distributions](https://github.com/oaknational/oak-curriculum-ontology/releases)**
 
 Developed by [Oak National Academy](https://thenational.academy)
 
@@ -218,20 +218,20 @@ Oak units reference National Curriculum content via:
 
 ### Option 1: Download Distribution Files
 
-Pre-generated RDF files in multiple formats available from [GitHub Releases](https://github.com/oaknational/oak-curriculum-ontology-public/releases):
+Pre-generated RDF files in multiple formats available from [GitHub Releases](https://github.com/oaknational/oak-curriculum-ontology/releases):
 
 ```bash
 # Download Turtle (compact, human-readable)
-curl -L -O https://github.com/oaknational/oak-curriculum-ontology-public/releases/download/v0.1.0/oak-curriculum-full.ttl
+curl -L -O https://github.com/oaknational/oak-curriculum-ontology/releases/download/v0.1.0/oak-curriculum-full.ttl
 
 # Download JSON-LD (for web apps)
-curl -L -O https://github.com/oaknational/oak-curriculum-ontology-public/releases/download/v0.1.0/oak-curriculum-full.jsonld
+curl -L -O https://github.com/oaknational/oak-curriculum-ontology/releases/download/v0.1.0/oak-curriculum-full.jsonld
 
 # Download RDF/XML (for legacy tools)
-curl -L -O https://github.com/oaknational/oak-curriculum-ontology-public/releases/download/v0.1.0/oak-curriculum-full.rdf
+curl -L -O https://github.com/oaknational/oak-curriculum-ontology/releases/download/v0.1.0/oak-curriculum-full.rdf
 
 # Download N-Triples (for streaming/line-based processing)
-curl -L -O https://github.com/oaknational/oak-curriculum-ontology-public/releases/download/v0.1.0/oak-curriculum-full.nt
+curl -L -O https://github.com/oaknational/oak-curriculum-ontology/releases/download/v0.1.0/oak-curriculum-full.nt
 ```
 
 **Available formats:**
@@ -360,7 +360,7 @@ ORDER BY ?label
 ## File Structure
 
 ```
-oak-curriculum-ontology-public/
+oak-curriculum-ontology/
 ├── ontology/
 │   ├── oak-curriculum-ontology.ttl       # Core classes & properties (26 classes)
 │   └── oak-curriculum-constraints.ttl    # SHACL validation shapes (26 shapes)
@@ -482,7 +482,7 @@ This document explains:
 
 Complete HTML documentation with class hierarchies, properties, and visualizations:
 
-📘 **[Browse Full Documentation](https://oaknational.github.io/oak-curriculum-ontology-public/)**
+📘 **[Browse Full Documentation](https://oaknational.github.io/oak-curriculum-ontology/)**
 
 Generated automatically via WIDOCO on each release, includes:
 - Complete class and property definitions
@@ -512,7 +512,7 @@ We welcome feedback and suggestions from the community!
 
 **How to contribute:**
 1. Read [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines
-2. [Open an issue](https://github.com/oaknational/oak-curriculum-ontology-public/issues) to share your feedback
+2. [Open an issue](https://github.com/oaknational/oak-curriculum-ontology/issues) to share your feedback
 3. Provide clear context and examples
 
 **Note:** We are not accepting pull requests during v0.1.0 while we refine the ontology structure and establish governance processes. See [CONTRIBUTING.md](CONTRIBUTING.md) for details.
@@ -582,7 +582,7 @@ Alternatively, see [CITATION.cff](CITATION.cff) for machine-readable citation me
 - Progression models and learning pathways
 - Enhanced documentation
 
-**Feedback welcome!** If you have suggestions for the roadmap, [open an issue](https://github.com/oaknational/oak-curriculum-ontology-public/issues).
+**Feedback welcome!** If you have suggestions for the roadmap, [open an issue](https://github.com/oaknational/oak-curriculum-ontology/issues).
 
 ---
 
@@ -615,8 +615,8 @@ Special thanks to the broader semantic web and open education communities for th
 
 For questions, suggestions, or collaboration opportunities:
 
-- **GitHub Issues**: [Report an issue](https://github.com/oaknational/oak-curriculum-ontology-public/issues)
-- **Documentation**: [https://oaknational.github.io/oak-curriculum-ontology-public/](https://oaknational.github.io/oak-curriculum-ontology-public/)
+- **GitHub Issues**: [Report an issue](https://github.com/oaknational/oak-curriculum-ontology/issues)
+- **Documentation**: [https://oaknational.github.io/oak-curriculum-ontology/](https://oaknational.github.io/oak-curriculum-ontology/)
 
 ---
 
