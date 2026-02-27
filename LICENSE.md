@@ -59,12 +59,3 @@ For complete MIT License terms, see **[LICENSE-CODE](LICENSE-CODE)**.
 ## Attribution
 
 When using this work, please credit **"Oak National Academy"**.
-
----
-
-## Quick Reference
-
-| Content Type | License | File |
-|--------------|---------|------|
-| Ontology, Data, Documentation | Open Government Licence v3.0 | [LICENSE-DATA](LICENSE-DATA) |
-| Scripts, Code, Workflows | MIT License | [LICENSE-CODE](LICENSE-CODE) |
