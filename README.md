@@ -114,7 +114,7 @@ oakcurric:programme-mathematics-year-7
 
 ## Key Features
 
-✅ **26 ontology classes** defining curriculum structure (Programme, Unit, Lesson, Discipline, Strand, etc.).  
+✅ **26 ontology classes** defining curriculum structure (Programme, Unit, Lesson, Discipline, Strand, etc).  
 ✅ **26 SHACL validation shapes** ensuring data integrity.  
 ✅ **8 subject areas** with full knowledge taxonomies.  
 ✅ **National Curriculum alignment** linking Oak content to statutory requirements.  
