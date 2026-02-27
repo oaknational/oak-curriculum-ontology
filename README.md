@@ -607,7 +607,7 @@ This ontology was developed by Oak National Academy with input from:
 Special thanks to the broader semantic web and open education communities for their tools, standards, and best practices. In particular, our knowledge taxonomy has been inspired by the following work:
 
 - [Australian Curriculum](https://www.bbc.co.uk/ontologies/curriculum) published by the Australian Curriculum, Assessment and Reporting Authority (ACARA).  
-- [BBC Curriculum Ontology](https://www.bbc.co.uk/ontologies/curriculum) for describing the National Curricula within the UK.
+- [BBC Curriculum Ontology](https://www.bbc.co.uk/ontologies/curriculum) published by the BBC, for describing the National Curricula within the UK.
 
 ---
 
