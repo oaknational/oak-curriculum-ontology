@@ -25,7 +25,7 @@ You are free to:
 
 ### Full OGL 3.0 License
 
-For complete Open Government Licence v3.0 terms including exemptions, warranties, and governing law, see **[LICENSE-DATA](LICENSE-DATA)**.
+For complete Open Government Licence v3.0 terms including exemptions, warranties, and governing law, see **[DATA-LICENSE.md](DATA-LICENSE.md)**.
 
 **Official license:** https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/
 
@@ -52,7 +52,7 @@ You are free to:
 
 ### Full MIT License
 
-For complete MIT License terms, see **[LICENSE-CODE](LICENSE-CODE)**.
+For complete MIT License terms, see **[CODE-LICENSE.md](CODE-LICENSE.md)**.
 
 ---
 
