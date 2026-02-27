@@ -84,7 +84,7 @@ The Oak Curriculum Ontology provides:
 
 This ontology bridges official curriculum requirements (National Curriculum 2014) with practical teaching programmes, making curriculum data queryable, analyzable, and machine-processable.
 
-In this version, our knowledge taxonomy is being applied to the knowledge specified in the National Curriculum for England (2014). The data in this repository represents our best efforts to apply a consistent structure where this does not exist in the source content. The taxonomy takes inspiration from a variety of open curriculum sources (see #Acknowledgements below).
+In this version, our knowledge taxonomy is being applied to the knowledge specified in the National Curriculum for England (2014). The data in this repository represents our best efforts to apply a consistent structure where this does not exist in the source content. The taxonomy takes inspiration from a variety of open curriculum sources (see [Acknowledgments](#acknowledgments) below).
 
 ---
 
