@@ -5,6 +5,7 @@
 ![Status](https://img.shields.io/badge/status-early_release-yellow)
 ![License: MIT + OGL-3.0](https://img.shields.io/badge/License-MIT%20%2B%20OGL--UK--3.0-lightgrey.svg)
 ![Python](https://img.shields.io/badge/python-3.12+-blue.svg)
+![GitHub last commit](https://img.shields.io/github/last-commit/oaknational/oak-curriculum-ontology)
 
 <!-- Build and Quality Badges -->
 [![Validate Ontology](https://github.com/oaknational/oak-curriculum-ontology/workflows/Validate%20Ontology/badge.svg)](https://github.com/oaknational/oak-curriculum-ontology/actions/workflows/validate-ontology.yml)
