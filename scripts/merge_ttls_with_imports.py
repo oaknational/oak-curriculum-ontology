@@ -17,6 +17,7 @@ import urllib.error
 import urllib.request
 from dataclasses import dataclass, field
 from pathlib import Path
+from urllib.parse import urlparse
 
 from rdflib import Graph, URIRef
 
@@ -104,7 +105,8 @@ class TTLMerger:
         import_uri_str = str(import_uri)
 
         # Check if it's already a GitHub raw URL
-        if "raw.githubusercontent.com" in import_uri_str:
+        parsed = urlparse(import_uri_str)
+        if parsed.hostname == "raw.githubusercontent.com":
             return import_uri_str
 
         # Check static pattern mappings
