@@ -37,7 +37,7 @@
   
   # OGL 3.0 License
   dcterms:license <http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/> ;
-  dcterms:rights "Crown Copyright"@en ;
+  dcterms:rights "Copyright © 2026 Oak National Academy."@en ;
 
   vann:preferredNamespacePrefix "natcurric" ;
   vann:preferredNamespaceUri "https://w3id.org/uk/oak/curriculum/nationalcurriculum/" ;
