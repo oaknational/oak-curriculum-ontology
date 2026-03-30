@@ -28,7 +28,7 @@
     National Curriculum for England (2014)."""@en ;
 
     owl:versionInfo "0.1.0" ;
-    owl:versionIRI <https://w3id.org/uk/oak/curriculum/oak-ontology/0.1.0> ;
+    owl:versionIRI <https://w3id.org/uk/oak/curriculum/ontology/0.1.0> ;
 
     bibo:status "Oak Curriculum Ontology" ;
     dcterms:abstract """This ontology defines the structure of programmes, units, unit variants, and 
