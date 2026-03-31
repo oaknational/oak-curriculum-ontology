@@ -23,8 +23,8 @@ from rdflib import Graph, URIRef
 
 logger = logging.getLogger(__name__)
 
-# OWL imports predicate
-OWL_IMPORTS = URIRef("https://www.w3.org/2002/07/owl#imports")
+# OWL imports predicate (note: OWL uses http://, not https://)
+OWL_IMPORTS = URIRef("http://www.w3.org/2002/07/owl#imports")
 
 # Core ontology filename
 OAK_ONTOLOGY_FILENAME = "oak-curriculum-ontology.ttl"
