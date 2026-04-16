@@ -89,7 +89,7 @@ echo "    Created oak-curriculum-full.nt"
 
 # Generate Property Graph JSONL (nodes + relationships)
 echo "  Generating Property Graph JSONL..."
-uv run python scripts/generate_pg_jsonl.py "$OUTPUT_DIR/oak-curriculum-full.ttl" "$OUTPUT_DIR"
+python scripts/generate_pg_jsonl.py "$OUTPUT_DIR/oak-curriculum-full.ttl" "$OUTPUT_DIR"
 
 echo ""
 echo "========================================="
