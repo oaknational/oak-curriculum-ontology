@@ -65,11 +65,126 @@ def load_relationships(path: Path) -> tuple[list[dict], int]:
     return rels, len(rels)
 
 
+def _check_non_empty(node_count: int, rel_count: int) -> list[str]:
+    failures = []
+    if node_count == 0:
+        failures.append("nodes.jsonl is empty")
+    if rel_count == 0:
+        failures.append("relationships.jsonl is empty")
+    return failures
+
+
+def _check_dangling(nodes: dict, rels: list[dict]) -> list[str]:
+    dangling = {
+        r[key]
+        for r in rels
+        for key in ("startNodeId", "endNodeId")
+        if r[key] not in nodes
+    }
+    if dangling:
+        return [
+            f"{len(dangling):,} dangling relationship endpoint(s) — "
+            f"first: {next(iter(dangling))}"
+        ]
+    return []
+
+
+def _check_type_diversity(label_counts: Counter) -> tuple[list[str], list[str]]:
+    """Return (failures, non_stub_types)."""
+    non_stub_types = [t for t in label_counts if t != "ExternalReference"]
+    if len(non_stub_types) < 2:
+        return (
+            [f"Only {len(non_stub_types)} non-ExternalReference node type(s) found "
+             f"— possible namespace detection failure"],
+            non_stub_types,
+        )
+    return [], non_stub_types
+
+
+def _check_stub_ratio(label_counts: Counter, node_count: int) -> tuple[list[str], int, float]:
+    """Return (failures, stub_count, stub_ratio)."""
+    stub_count = label_counts.get("ExternalReference", 0)
+    stub_ratio = stub_count / node_count if node_count else 0
+    if stub_ratio >= 0.10:
+        return (
+            [f"ExternalReference stubs are {stub_ratio:.0%} of nodes "
+             f"({stub_count:,}/{node_count:,}) — expected < 10%"],
+            stub_count,
+            stub_ratio,
+        )
+    return [], stub_count, stub_ratio
+
+
+def _check_sample_traversal(
+    nodes: dict,
+    outgoing_index: dict,
+    non_stub_types: list[str],
+    label_counts: Counter,
+) -> tuple[list[str], str | None, str | None]:
+    """Return (failures, sample_node_uri, sample_type)."""
+    sample_node = None
+    sample_type = None
+    for label_type in sorted(non_stub_types, key=lambda t: -label_counts[t]):
+        candidate = next(
+            (uri for uri, labels in nodes.items()
+             if labels and labels[0] == label_type and uri in outgoing_index),
+            None,
+        )
+        if candidate:
+            sample_node = candidate
+            sample_type = label_type
+            break
+
+    if sample_node is None:
+        return ["No non-stub node with outgoing relationships found"], None, None
+
+    missing = [r["endNodeId"] for r in outgoing_index[sample_node] if r["endNodeId"] not in nodes]
+    if missing:
+        return [f"Sample traversal: {len(missing)} endpoint(s) missing from nodes"], sample_node, sample_type
+
+    return [], sample_node, sample_type
+
+
+def _print_report(
+    node_count: int,
+    rel_count: int,
+    stub_count: int,
+    stub_ratio: float,
+    label_counts: Counter,
+    rels: list[dict],
+    nodes: dict,
+    outgoing_index: dict,
+    sample_node: str | None,
+    sample_type: str | None,
+) -> None:
+    print(f"  Nodes:         {node_count:,}")
+    print(f"  Relationships: {rel_count:,}")
+    print(f"  Stubs:         {stub_count:,} ({stub_ratio:.1%})")
+    print()
+    print("  Node types:")
+    for label, count in label_counts.most_common():
+        print(f"    {label:<35} {count:>6,}")
+    print()
+    print("  Relationship types:")
+    rel_type_counts = Counter(r["type"] for r in rels)
+    for rel_type, count in rel_type_counts.most_common():
+        print(f"    {rel_type:<35} {count:>6,}")
+    print()
+    if sample_node:
+        outgoing = outgoing_index[sample_node]
+        print(f"  Sample traversal ({sample_type}):")
+        print(f"    {sample_node.split('/')[-1]}")
+        for r in outgoing[:5]:
+            endpoint_labels = nodes.get(r["endNodeId"], ["?"])
+            print(f"      --[{r['type']}]--> "
+                  f"{r['endNodeId'].split('/')[-1]}  {endpoint_labels}")
+        if len(outgoing) > 5:
+            print(f"      ... and {len(outgoing) - 5} more")
+
+
 def run_checks(output_dir: Path) -> bool:
     nodes_path = output_dir / "nodes.jsonl"
     rels_path = output_dir / "relationships.jsonl"
-    failures: list[str] = []
-    all_ok = True
 
     for p in (nodes_path, rels_path):
         if not p.exists():
@@ -79,125 +194,38 @@ def run_checks(output_dir: Path) -> bool:
     nodes, node_count = load_nodes(nodes_path)
     rels, rel_count = load_relationships(rels_path)
 
-    # ------------------------------------------------------------------ #
-    # CHECK 1: Non-empty files
-    # ------------------------------------------------------------------ #
-    if node_count == 0:
-        failures.append("nodes.jsonl is empty")
-    if rel_count == 0:
-        failures.append("relationships.jsonl is empty")
-
-    if node_count == 0 or rel_count == 0:
+    failures = _check_non_empty(node_count, rel_count)
+    if failures:
         for f in failures:
             print(f"  FAIL: {f}")
         return False
 
-    # ------------------------------------------------------------------ #
-    # CHECK 2: No dangling relationship endpoints
-    # ------------------------------------------------------------------ #
-    dangling = set()
-    for r in rels:
-        for key in ("startNodeId", "endNodeId"):
-            if r[key] not in nodes:
-                dangling.add(r[key])
+    failures += _check_dangling(nodes, rels)
 
-    if dangling:
-        failures.append(
-            f"{len(dangling):,} dangling relationship endpoint(s) — "
-            f"first: {next(iter(dangling))}"
-        )
+    label_counts = Counter(labels[0] for labels in nodes.values() if labels)
+    diversity_failures, non_stub_types = _check_type_diversity(label_counts)
+    failures += diversity_failures
 
-    # ------------------------------------------------------------------ #
-    # CHECK 3: Node type diversity
-    # ------------------------------------------------------------------ #
-    label_counts = Counter(
-        labels[0] for labels in nodes.values() if labels
-    )
-    non_stub_types = [t for t in label_counts if t != "ExternalReference"]
+    stub_failures, stub_count, stub_ratio = _check_stub_ratio(label_counts, node_count)
+    failures += stub_failures
 
-    if len(non_stub_types) < 2:
-        failures.append(
-            f"Only {len(non_stub_types)} non-ExternalReference node type(s) found "
-            f"— possible namespace detection failure"
-        )
-
-    # ------------------------------------------------------------------ #
-    # CHECK 4: Stub ratio < 10%
-    # ------------------------------------------------------------------ #
-    stub_count = label_counts.get("ExternalReference", 0)
-    stub_ratio = stub_count / node_count if node_count else 0
-
-    if stub_ratio >= 0.10:
-        failures.append(
-            f"ExternalReference stubs are {stub_ratio:.0%} of nodes ({stub_count:,}/{node_count:,}) "
-            f"— expected < 10%"
-        )
-
-    # ------------------------------------------------------------------ #
-    # CHECK 5: Sample traversal
-    # ------------------------------------------------------------------ #
-    # Find the first node (in non-stub type order) that has outgoing
-    # relationships, then verify all its endpoints exist in nodes.
     outgoing_index: dict[str, list[dict]] = defaultdict(list)
     for r in rels:
         outgoing_index[r["startNodeId"]].append(r)
 
-    sample_node = None
-    sample_type = None
-    for label_type in sorted(non_stub_types, key=lambda t: -label_counts[t]):
-        candidate = next(
-            (uri for uri, labels in nodes.items()
-             if labels and labels[0] == label_type and uri in outgoing_index),
-            None
-        )
-        if candidate:
-            sample_node = candidate
-            sample_type = label_type
-            break
+    traversal_failures, sample_node, sample_type = _check_sample_traversal(
+        nodes, outgoing_index, non_stub_types, label_counts
+    )
+    failures += traversal_failures
 
-    if sample_node is None:
-        failures.append("No non-stub node with outgoing relationships found")
-    else:
-        outgoing = outgoing_index[sample_node]
-        missing = [r["endNodeId"] for r in outgoing if r["endNodeId"] not in nodes]
-        if missing:
-            failures.append(
-                f"Sample traversal: {len(missing)} endpoint(s) missing from nodes"
-            )
-
-    # ------------------------------------------------------------------ #
-    # Report
-    # ------------------------------------------------------------------ #
     if failures:
         for f in failures:
             print(f"  FAIL: {f}")
-        all_ok = False
-    else:
-        print(f"  Nodes:         {node_count:,}")
-        print(f"  Relationships: {rel_count:,}")
-        print(f"  Stubs:         {stub_count:,} ({stub_ratio:.1%})")
-        print()
-        print("  Node types:")
-        for label, count in label_counts.most_common():
-            print(f"    {label:<35} {count:>6,}")
-        print()
-        print("  Relationship types:")
-        rel_type_counts = Counter(r["type"] for r in rels)
-        for rel_type, count in rel_type_counts.most_common():
-            print(f"    {rel_type:<35} {count:>6,}")
-        print()
-        if sample_node:
-            outgoing = outgoing_index[sample_node]
-            print(f"  Sample traversal ({sample_type}):")
-            print(f"    {sample_node.split('/')[-1]}")
-            for r in outgoing[:5]:
-                endpoint_labels = nodes.get(r["endNodeId"], ["?"])
-                print(f"      --[{r['type']}]--> "
-                      f"{r['endNodeId'].split('/')[-1]}  {endpoint_labels}")
-            if len(outgoing) > 5:
-                print(f"      ... and {len(outgoing) - 5} more")
+        return False
 
-    return all_ok
+    _print_report(node_count, rel_count, stub_count, stub_ratio,
+                  label_counts, rels, nodes, outgoing_index, sample_node, sample_type)
+    return True
 
 
 def main() -> None:

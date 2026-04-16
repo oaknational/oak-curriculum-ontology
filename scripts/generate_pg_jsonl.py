@@ -95,19 +95,11 @@ def coerce_literal(lit: Literal):
 
 
 # ---------------------------------------------------------------------------
-# Core generation
+# Core generation — private helpers (one per pass)
 # ---------------------------------------------------------------------------
 
-def generate(input_ttl: Path, output_dir: Path) -> dict:
-    print(f"  Loading {input_ttl} ...")
-    g = Graph()
-    g.parse(str(input_ttl), format="turtle")
-    print(f"  Graph contains {len(g):,} triples")
-
-    # PASS 1 — discover ontology classes and ontology file URIs
-    #
-    # Ontology classes: subjects declared as owl:Class or rdfs:Class.
-    # Used to identify data nodes (via rdf:type) and to produce node labels.
+def _discover_ontology_entities(g: Graph) -> tuple[set[URIRef], set[str], set[str]]:
+    """Pass 1: return (ontology_classes, ontology_file_uris, non_node_uris)."""
     ontology_classes: set[URIRef] = set()
     for s in g.subjects(RDF.type, OWL.Class):
         if isinstance(s, URIRef):
@@ -116,22 +108,21 @@ def generate(input_ttl: Path, output_dir: Path) -> dict:
         if isinstance(s, URIRef):
             ontology_classes.add(s)
 
-    # Ontology file URIs: subjects declared as owl:Ontology (file-level metadata,
-    # not data instances).
     ontology_files: set[str] = {
         str(s) for s in g.subjects(RDF.type, OWL.Ontology)
         if isinstance(s, URIRef)
     }
-
-    # Combined set of URIs to exclude from both data nodes and stubs.
     non_node_uris: set[str] = ontology_files | {str(c) for c in ontology_classes}
+    return ontology_classes, ontology_files, non_node_uris
 
-    # PASS 2 — collect primary data nodes
-    #
-    # A primary node is any URIRef whose rdf:type points to a known ontology
-    # class. Labels are the local names of those types.
+
+def _collect_primary_nodes(
+    g: Graph,
+    ontology_classes: set[URIRef],
+    ontology_files: set[str],
+) -> dict[str, dict]:
+    """Pass 2: return a node dict keyed by URI for every typed data instance."""
     nodes: dict[str, dict] = {}
-
     for subj, _, type_obj in g.triples((None, RDF.type, None)):
         if isinstance(subj, BNode) or not isinstance(type_obj, URIRef):
             continue
@@ -143,12 +134,15 @@ def generate(input_ttl: Path, output_dir: Path) -> dict:
         if s not in nodes:
             nodes[s] = {"labels": set(), "raw_props": defaultdict(list), "stub": False}
         nodes[s]["labels"].add(local_name(type_obj))
+    return nodes
 
-    # PASS 3 — collect stub nodes
-    #
-    # A stub is a URI that appears as a relationship endpoint from a primary
-    # data node but has no ontology class type of its own in this graph.
-    # Including stubs ensures no relationship has a dangling endpoint.
+
+def _collect_stub_nodes(
+    g: Graph,
+    nodes: dict[str, dict],
+    non_node_uris: set[str],
+) -> None:
+    """Pass 3: add ExternalReference stubs for dangling relationship endpoints."""
     for subj, pred, obj in g:
         if isinstance(subj, BNode) or isinstance(obj, BNode):
             continue
@@ -164,7 +158,9 @@ def generate(input_ttl: Path, output_dir: Path) -> dict:
             continue
         nodes[o_uri] = {"labels": set(), "raw_props": defaultdict(list), "stub": True}
 
-    # PASS 4 — populate literal properties on primary nodes
+
+def _populate_properties(g: Graph, nodes: dict[str, dict]) -> None:
+    """Pass 4: attach literal properties to primary (non-stub) nodes."""
     for subj, pred, obj in g:
         if isinstance(subj, BNode):
             continue
@@ -177,13 +173,12 @@ def generate(input_ttl: Path, output_dir: Path) -> dict:
         prop_key = "name" if pred == RDFS.label else local_name(pred)
         nodes[uri]["raw_props"][prop_key].append(coerce_literal(obj))
 
-    # PASS 5 — write nodes.jsonl
-    output_dir.mkdir(parents=True, exist_ok=True)
-    nodes_path = output_dir / "nodes.jsonl"
+
+def _write_nodes(nodes: dict[str, dict], output_dir: Path) -> tuple[int, int]:
+    """Pass 5: write nodes.jsonl; return (node_count, stub_count)."""
     node_count = 0
     stub_count = 0
-
-    with open(nodes_path, "w", encoding="utf-8") as f:
+    with open(output_dir / "nodes.jsonl", "w", encoding="utf-8") as f:
         for uri, data in nodes.items():
             if data["stub"]:
                 labels = ["ExternalReference"]
@@ -198,12 +193,13 @@ def generate(input_ttl: Path, output_dir: Path) -> dict:
             f.write(json.dumps({"id": uri, "labels": labels, "properties": props},
                                ensure_ascii=False) + "\n")
             node_count += 1
+    return node_count, stub_count
 
-    # PASS 6 — write relationships.jsonl
-    rels_path = output_dir / "relationships.jsonl"
+
+def _write_relationships(g: Graph, nodes: dict[str, dict], output_dir: Path) -> int:
+    """Pass 6: write relationships.jsonl; return relationship count."""
     rel_count = 0
-
-    with open(rels_path, "w", encoding="utf-8") as f:
+    with open(output_dir / "relationships.jsonl", "w", encoding="utf-8") as f:
         for subj, pred, obj in g:
             if isinstance(subj, BNode) or isinstance(obj, BNode):
                 continue
@@ -224,6 +220,23 @@ def generate(input_ttl: Path, output_dir: Path) -> dict:
                 "properties": {},
             }, ensure_ascii=False) + "\n")
             rel_count += 1
+    return rel_count
+
+
+def generate(input_ttl: Path, output_dir: Path) -> dict:
+    print(f"  Loading {input_ttl} ...")
+    g = Graph()
+    g.parse(str(input_ttl), format="turtle")
+    print(f"  Graph contains {len(g):,} triples")
+
+    ontology_classes, ontology_files, non_node_uris = _discover_ontology_entities(g)
+    nodes = _collect_primary_nodes(g, ontology_classes, ontology_files)
+    _collect_stub_nodes(g, nodes, non_node_uris)
+    _populate_properties(g, nodes)
+
+    output_dir.mkdir(parents=True, exist_ok=True)
+    node_count, stub_count = _write_nodes(nodes, output_dir)
+    rel_count = _write_relationships(g, nodes, output_dir)
 
     return {"nodes": node_count, "relationships": rel_count, "stubs": stub_count}
 
