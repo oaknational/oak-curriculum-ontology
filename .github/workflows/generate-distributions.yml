@@ -50,6 +50,14 @@ jobs:
         run: |
           echo "$PWD/apache-jena-${{ env.JENA_VERSION }}/bin" >> $GITHUB_PATH
 
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install Python dependencies
+        run: pip install rdflib
+
       - name: Generate distribution files
         run: ./scripts/build_static_data.sh
 
@@ -92,6 +100,20 @@ jobs:
 
           echo "✅ All distribution files validated successfully!"
 
+      - name: Validate Property Graph JSONL outputs
+        run: |
+          echo "Validating Property Graph JSONL files..."
+          python scripts/validate_pg_jsonl.py distributions
+          echo ""
+          echo "✅ JSONL distribution files validated successfully!"
+
+      - name: Smoke test Property Graph JSONL outputs
+        run: |
+          echo "Smoke testing Property Graph JSONL files..."
+          python scripts/test_pg_jsonl.py distributions
+          echo ""
+          echo "✅ JSONL smoke test passed!"
+
       - name: Generate checksums
         run: |
           echo "Generating checksums for distribution files..."
@@ -99,9 +121,11 @@ jobs:
 
           # Generate SHA256 checksums
           sha256sum oak-curriculum-full.* > checksums-sha256.txt
+          sha256sum nodes.jsonl relationships.jsonl >> checksums-sha256.txt
 
           # Generate MD5 checksums (for compatibility)
           md5sum oak-curriculum-full.* > checksums-md5.txt
+          md5sum nodes.jsonl relationships.jsonl >> checksums-md5.txt
 
           echo ""
           echo "✅ Checksums generated:"
@@ -139,6 +163,16 @@ jobs:
                 "format": "N-Triples",
                 "extension": ".nt",
                 "mime_type": "application/n-triples"
+              },
+              {
+                "format": "Property Graph Nodes (JSONL)",
+                "filename": "nodes.jsonl",
+                "mime_type": "application/x-ndjson"
+              },
+              {
+                "format": "Property Graph Relationships (JSONL)",
+                "filename": "relationships.jsonl",
+                "mime_type": "application/x-ndjson"
               }
             ]
           }
@@ -168,6 +202,8 @@ jobs:
             distributions/checksums-sha256.txt \
             distributions/checksums-md5.txt \
             distributions/distribution-info.json \
+            distributions/nodes.jsonl \
+            distributions/relationships.jsonl \
             --clobber
 
       - name: Display summary
@@ -196,6 +232,15 @@ jobs:
               echo "| $FORMAT | \`$BASENAME\` | $SIZE |" >> $GITHUB_STEP_SUMMARY
             fi
           done
+
+          if [ -f "distributions/nodes.jsonl" ]; then
+            SIZE=$(ls -lh distributions/nodes.jsonl | awk '{print $5}')
+            echo "| Property Graph Nodes (JSONL) | \`nodes.jsonl\` | $SIZE |" >> $GITHUB_STEP_SUMMARY
+          fi
+          if [ -f "distributions/relationships.jsonl" ]; then
+            SIZE=$(ls -lh distributions/relationships.jsonl | awk '{print $5}')
+            echo "| Property Graph Relationships (JSONL) | \`relationships.jsonl\` | $SIZE |" >> $GITHUB_STEP_SUMMARY
+          fi
 
           echo "" >> $GITHUB_STEP_SUMMARY
           TOTAL=$(du -sh distributions | cut -f1)
