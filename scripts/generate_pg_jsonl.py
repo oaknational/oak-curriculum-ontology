@@ -81,8 +81,18 @@ def local_name(uri: URIRef) -> str:
 
 
 def stub_namespace_label(uri: str) -> str:
-    """Return a short namespace label for an ExternalReference stub URI."""
+    """Return the namespace segment of a stub URI (penultimate path segment).
+
+    For https://w3id.org/uk/curriculum/nat-data-2014/year-group-1 → nat-data-2014
+    """
     s = uri.rstrip("/#")
+    # Drop the local name (last segment)
+    for sep in ("#", "/"):
+        idx = s.rfind(sep)
+        if idx != -1:
+            s = s[:idx]
+            break
+    # Return what is now the last segment (the namespace)
     for sep in ("#", "/"):
         idx = s.rfind(sep)
         if idx != -1:
