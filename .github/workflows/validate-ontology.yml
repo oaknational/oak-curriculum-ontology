@@ -10,11 +10,6 @@ on:
       - 'pyproject.toml'
   pull_request:
     branches: [ main ]
-    paths:
-      - '**/*.ttl'
-      - '.github/workflows/validate-ontology.yml'
-      - 'scripts/merge_ttls_with_imports.py'
-      - 'pyproject.toml'
   workflow_dispatch:
 
 # Explicit permissions for security
