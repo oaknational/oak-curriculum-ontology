@@ -51,7 +51,7 @@ jobs:
           echo "$PWD/apache-jena-${{ env.JENA_VERSION }}/bin" >> $GITHUB_PATH
 
       - name: Set up uv
-        uses: astral-sh/setup-uv@v5
+        uses: astral-sh/setup-uv@e58605a9b6da7c637471fab8847a5e5a6b8df081  # v5
         with:
           python-version: '3.12'
 
