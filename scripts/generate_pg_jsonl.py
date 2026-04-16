@@ -27,6 +27,20 @@ from collections import defaultdict
 from pathlib import Path
 
 from rdflib import OWL, RDF, RDFS, XSD, BNode, Graph, Literal, URIRef
+from rdflib.namespace import SKOS
+
+# ---------------------------------------------------------------------------
+# External vocabulary classes treated as proper data nodes
+#
+# Instances of these classes are fully-described data nodes in the graph but
+# are typed using external vocabularies (e.g. SKOS) rather than the project's
+# own owl:Class declarations. Seeding Pass 1 with them prevents their instances
+# from being misclassified as ExternalReference stubs.
+# ---------------------------------------------------------------------------
+
+EXTERNAL_CLASSES: set[URIRef] = {
+    SKOS.ConceptScheme,
+}
 
 # ---------------------------------------------------------------------------
 # Predicates excluded from the relationships output
@@ -100,7 +114,7 @@ def coerce_literal(lit: Literal):
 
 def _discover_ontology_entities(g: Graph) -> tuple[set[URIRef], set[str], set[str]]:
     """Pass 1: return (ontology_classes, ontology_file_uris, non_node_uris)."""
-    ontology_classes: set[URIRef] = set()
+    ontology_classes: set[URIRef] = set(EXTERNAL_CLASSES)
     for s in g.subjects(RDF.type, OWL.Class):
         if isinstance(s, URIRef):
             ontology_classes.add(s)
