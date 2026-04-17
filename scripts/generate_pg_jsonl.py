@@ -193,9 +193,15 @@ def _populate_properties(g: Graph, nodes: dict[str, dict]) -> None:
             continue
         if pred == RDF.type or not isinstance(obj, Literal):
             continue
-        # rdfs:label and skos:prefLabel → "name" to avoid collision with the                                                  
-        # graph concept of "label" / "prefLabel" in property graph databases.                                                 
-        prop_key = "name" if pred in (RDFS.label, SKOS.prefLabel) else local_name(pred)
+        # Normalise property names to match the SQL schema conventions.
+        # rdfs:label / skos:prefLabel → "name"
+        # rdfs:comment / skos:definition → "description"
+        if pred in (RDFS.label, SKOS.prefLabel):
+            prop_key = "name"
+        elif pred in (RDFS.comment, SKOS.definition):
+            prop_key = "description"
+        else:
+            prop_key = local_name(pred)
         nodes[uri]["raw_props"][prop_key].append(coerce_literal(obj))
 
 
