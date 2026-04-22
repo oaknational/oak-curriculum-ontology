@@ -64,12 +64,6 @@ natcurric:phase-secondary
   curric:upperAgeBoundary "16"^^xsd:positiveInteger ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
 
-natcurric:education-phases
-  a skos:OrderedCollection ;
-  rdfs:label "Education Phases"@en ;
-  skos:memberList (natcurric:phase-primary natcurric:phase-secondary) ;
-  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
-
 # ----------------------------------------------------------------------
 # Key Stages
 # ----------------------------------------------------------------------
@@ -108,18 +102,6 @@ natcurric:key-stage-4
   curric:lowerAgeBoundary "14"^^xsd:nonNegativeInteger ;
   curric:upperAgeBoundary "16"^^xsd:positiveInteger ;
   curric:isKeyStageOf natcurric:phase-secondary ;
-  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
-
-natcurric:primary-key-stages
-  a skos:OrderedCollection ;
-  rdfs:label "Primary Key Stages"@en ;
-  skos:memberList (natcurric:key-stage-1 natcurric:key-stage-2) ;
-  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
-
-natcurric:secondary-key-stages
-  a skos:OrderedCollection ;
-  rdfs:label "Secondary Key Stages"@en ;
-  skos:memberList (natcurric:key-stage-3 natcurric:key-stage-4) ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
 
 # ----------------------------------------------------------------------
@@ -224,28 +206,3 @@ natcurric:year-group-11
   curric:upperAgeBoundary "16"^^xsd:positiveInteger ;
   curric:isYearGroupOf natcurric:key-stage-4 ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
-
-natcurric:key-stage-1-year-groups
-  a skos:OrderedCollection ;
-  rdfs:label "Key Stage 1 Year Groups"@en ;
-  skos:memberList (natcurric:year-group-1 natcurric:year-group-2) ;
-  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
-
-natcurric:key-stage-2-year-groups
-  a skos:OrderedCollection ;
-  rdfs:label "Key Stage 2 Year Groups"@en ;
-  skos:memberList (natcurric:year-group-3 natcurric:year-group-4 natcurric:year-group-5 natcurric:year-group-6) ;
-  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
-
-natcurric:key-stage-3-year-groups
-  a skos:OrderedCollection ;
-  rdfs:label "Key Stage 3 Year Groups"@en ;
-  skos:memberList (natcurric:year-group-7 natcurric:year-group-8 natcurric:year-group-9) ;
-  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
-
-natcurric:key-stage-4-year-groups
-  a skos:OrderedCollection ;
-  rdfs:label "Key Stage 4 Year Groups"@en ;
-  skos:memberList (natcurric:year-group-10 natcurric:year-group-11) ;
-  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
-  
