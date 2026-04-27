@@ -134,8 +134,6 @@ NOT_NULL_DATA_PROPS = {
     "is_national_curriculum",
     "is_required",
     "is_examined",
-    "lower_age_boundary",
-    "upper_age_boundary",
 }
 
 # Column name overrides: OWL local name -> SQL column name
@@ -160,22 +158,21 @@ DOMAIN_OVERRIDE: dict[str, list[str]] = {
 
 # Tables that include a description column (maps to rdfs:comment or skos:definition)
 DESCRIPTION_TABLES = {
-    "phase",             # nullable
-    "discipline",        # skos:definition (NOT NULL per SHACL)
+    "phase",             # NOT NULL (aligned to national curriculum schema)
     "exam_board",        # nullable
     "tier",              # nullable
     "thread",            # nullable
     "keyword",           # schema:description (nullable)
-    "key_stage",         # nullable
-    "year_group",        # nullable
+    "key_stage",         # NOT NULL (aligned to national curriculum schema)
+    "year_group",        # NOT NULL (aligned to national curriculum schema)
     "scheme",            # nullable
     "strand",            # skos:definition (NOT NULL per SHACL)
-    "sub_strand",        # skos:definition (NOT NULL per SHACL)
+    "sub_strand",        # nullable (aligned to national curriculum schema)
     "unit",              # nullable
 }
 
 # Subset of DESCRIPTION_TABLES where description is required (NOT NULL) per SHACL
-NOT_NULL_DESCRIPTION_TABLES = {"discipline", "strand", "sub_strand"}
+NOT_NULL_DESCRIPTION_TABLES = {"strand", "phase", "key_stage", "year_group"}
 
 # Tables where the standard "name TEXT NOT NULL" column is not appropriate.
 # Provide replacement initial column definitions (after id and uri).

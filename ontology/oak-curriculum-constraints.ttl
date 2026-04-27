@@ -524,17 +524,6 @@ shapes:DisciplineShape
   ] ;
 
   sh:property [
-    sh:path skos:definition ;
-    sh:datatype rdf:langString ;
-    sh:languageIn ( "en" ) ;
-    sh:minCount 1 ;
-    sh:maxCount 1 ;
-    sh:name "definition" ;
-    sh:description "Every discipline must have exactly one skos:definition." ;
-    sh:message "Disciplines must have exactly one skos:definition with English language tag." ;
-  ] ;
-
-  sh:property [
     sh:path skos:inScheme ;
     sh:class skos:ConceptScheme ;
     sh:minCount 1 ;

@@ -119,10 +119,14 @@ jobs:
           # Generate SHA256 checksums
           sha256sum oak-curriculum-full.* > checksums-sha256.txt
           sha256sum nodes.jsonl relationships.jsonl >> checksums-sha256.txt
+          sha256sum oak-curriculum.sqlite >> checksums-sha256.txt
+          sha256sum oak-curriculum-schema-postgres.sql oak-curriculum-schema-sqlite.sql >> checksums-sha256.txt
 
           # Generate MD5 checksums (for compatibility)
           md5sum oak-curriculum-full.* > checksums-md5.txt
           md5sum nodes.jsonl relationships.jsonl >> checksums-md5.txt
+          md5sum oak-curriculum.sqlite >> checksums-md5.txt
+          md5sum oak-curriculum-schema-postgres.sql oak-curriculum-schema-sqlite.sql >> checksums-md5.txt
 
           echo ""
           echo "✅ Checksums generated:"
@@ -170,6 +174,21 @@ jobs:
                 "format": "Property Graph Relationships (JSONL)",
                 "filename": "relationships.jsonl",
                 "mime_type": "application/x-ndjson"
+              },
+              {
+                "format": "SQLite",
+                "filename": "oak-curriculum.sqlite",
+                "mime_type": "application/vnd.sqlite3"
+              },
+              {
+                "format": "SQL Schema (PostgreSQL)",
+                "filename": "oak-curriculum-schema-postgres.sql",
+                "mime_type": "application/sql"
+              },
+              {
+                "format": "SQL Schema (SQLite)",
+                "filename": "oak-curriculum-schema-sqlite.sql",
+                "mime_type": "application/sql"
               }
             ]
           }
@@ -201,6 +220,9 @@ jobs:
             distributions/distribution-info.json \
             distributions/nodes.jsonl \
             distributions/relationships.jsonl \
+            distributions/oak-curriculum.sqlite \
+            distributions/oak-curriculum-schema-postgres.sql \
+            distributions/oak-curriculum-schema-sqlite.sql \
             --clobber
 
       - name: Display summary
@@ -209,9 +231,6 @@ jobs:
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "**Triple Count:** ${{ steps.validate.outputs.triple_count }}" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
-          echo "Four RDF serialization formats for semantic web consumers:" >> $GITHUB_STEP_SUMMARY
-          echo "" >> $GITHUB_STEP_SUMMARY
-
           echo "| Format | File | Size |" >> $GITHUB_STEP_SUMMARY
           echo "|--------|------|------|" >> $GITHUB_STEP_SUMMARY
           for file in distributions/oak-curriculum-full.*; do
@@ -237,6 +256,18 @@ jobs:
           if [ -f "distributions/relationships.jsonl" ]; then
             SIZE=$(ls -lh distributions/relationships.jsonl | awk '{print $5}')
             echo "| Property Graph Relationships (JSONL) | \`relationships.jsonl\` | $SIZE |" >> $GITHUB_STEP_SUMMARY
+          fi
+          if [ -f "distributions/oak-curriculum.sqlite" ]; then
+            SIZE=$(ls -lh distributions/oak-curriculum.sqlite | awk '{print $5}')
+            echo "| SQLite | \`oak-curriculum.sqlite\` | $SIZE |" >> $GITHUB_STEP_SUMMARY
+          fi
+          if [ -f "distributions/oak-curriculum-schema-postgres.sql" ]; then
+            SIZE=$(ls -lh distributions/oak-curriculum-schema-postgres.sql | awk '{print $5}')
+            echo "| SQL Schema (PostgreSQL) | \`oak-curriculum-schema-postgres.sql\` | $SIZE |" >> $GITHUB_STEP_SUMMARY
+          fi
+          if [ -f "distributions/oak-curriculum-schema-sqlite.sql" ]; then
+            SIZE=$(ls -lh distributions/oak-curriculum-schema-sqlite.sql | awk '{print $5}')
+            echo "| SQL Schema (SQLite) | \`oak-curriculum-schema-sqlite.sql\` | $SIZE |" >> $GITHUB_STEP_SUMMARY
           fi
 
           echo "" >> $GITHUB_STEP_SUMMARY

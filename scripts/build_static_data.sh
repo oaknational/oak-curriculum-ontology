@@ -91,6 +91,18 @@ echo "    Created oak-curriculum-full.nt"
 echo "  Generating Property Graph JSONL..."
 uv run python scripts/generate_pg_jsonl.py "$OUTPUT_DIR/oak-curriculum-full.ttl" "$OUTPUT_DIR"
 
+# Generate SQL schemas
+echo "  Generating SQL schemas..."
+uv run python scripts/generate_sql_schema.py --dialect postgres -o "$OUTPUT_DIR/oak-curriculum-schema-postgres.sql"
+uv run python scripts/generate_sql_schema.py --dialect sqlite -o "$OUTPUT_DIR/oak-curriculum-schema-sqlite.sql"
+echo "    Created oak-curriculum-schema-postgres.sql"
+echo "    Created oak-curriculum-schema-sqlite.sql"
+
+# Generate SQLite database
+echo "  Generating SQLite database (.sqlite)..."
+uv run python scripts/load_rdf_to_sqlite.py --db "$OUTPUT_DIR/oak-curriculum.sqlite" --schema "$OUTPUT_DIR/oak-curriculum-schema-sqlite.sql"
+echo "    Created oak-curriculum.sqlite"
+
 echo ""
 echo "========================================="
 echo "Distribution Summary"
