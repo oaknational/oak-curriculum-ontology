@@ -235,11 +235,13 @@ class JunctionTable:
 
 # Constants that reference Column must come after the class definition.
 
+_TEXT_NOT_NULL = "TEXT NOT NULL"
+
 # Tables where the standard "name TEXT NOT NULL" column is not appropriate.
 NO_STANDARD_NAME_TABLES: dict[str, list[Column]] = {
     "misconception": [
-        Column("statement", "TEXT NOT NULL"),
-        Column("correction", "TEXT NOT NULL"),
+        Column("statement", _TEXT_NOT_NULL),
+        Column("correction", _TEXT_NOT_NULL),
     ],
     "unit_variant_inclusion": [],  # no name column; only data/FK columns
     "lesson_inclusion": [],        # no name column; only data/FK columns
@@ -318,8 +320,7 @@ def load_ontology(ttl_path: Path):
     g.parse(str(ttl_path), format="turtle")
 
     owl_imports = rdflib.URIRef("http://www.w3.org/2002/07/owl#imports")
-    for triple in list(g.triples((None, owl_imports, None))):
-        g.remove(triple)
+    g.remove((None, owl_imports, None))
 
     with tempfile.NamedTemporaryFile(suffix=".nt", delete=False) as tmp:
         nt_path = Path(tmp.name)
@@ -348,12 +349,26 @@ def _init_table_columns(classes, pk: str) -> dict[str, list[Column]]:
         if table in NO_STANDARD_NAME_TABLES:
             cols.extend(NO_STANDARD_NAME_TABLES[table])
         else:
-            cols.append(Column("name", "TEXT NOT NULL"))
+            cols.append(Column("name", _TEXT_NOT_NULL))
         if table in DESCRIPTION_TABLES:
             not_null = " NOT NULL" if table in NOT_NULL_DESCRIPTION_TABLES else ""
             cols.append(Column("description", f"TEXT{not_null}"))
         table_columns[table] = cols
     return table_columns
+
+
+def _get_target_tables(prop, prop_name: str) -> list[str]:
+    """Collect domain tables for a data property, including subclass tables."""
+    dom = domain_classes(prop)
+    tables = [camel_to_snake(local_name(cls.iri)) for cls in dom]
+    for cls in dom:
+        for sub in cls.subclasses():
+            sub_table = camel_to_snake(local_name(sub.iri))
+            if sub_table not in tables:
+                tables.append(sub_table)
+    if not tables and prop_name in DOMAIN_OVERRIDE:
+        return DOMAIN_OVERRIDE[prop_name]
+    return tables
 
 
 def _add_data_property_columns(
@@ -372,19 +387,7 @@ def _add_data_property_columns(
         col_name = COL_RENAMES.get(camel_to_snake(prop_name), camel_to_snake(prop_name))
         sql_t = _sql_type_for(prop.range, xsd_map)
 
-        dom_classes = domain_classes(prop)
-        target_tables = [camel_to_snake(local_name(cls.iri)) for cls in dom_classes]
-        # Include subclasses of any abstract parent classes
-        for cls in dom_classes:
-            for sub in cls.subclasses():
-                sub_table = camel_to_snake(local_name(sub.iri))
-                if sub_table not in target_tables:
-                    target_tables.append(sub_table)
-        # Fall back to explicit domain override when OWL detection yields nothing
-        if not target_tables and prop_name in DOMAIN_OVERRIDE:
-            target_tables = DOMAIN_OVERRIDE[prop_name]
-
-        for table in target_tables:
+        for table in _get_target_tables(prop, prop_name):
             if table not in table_columns:
                 continue
             existing = {c.name for c in table_columns[table]}
@@ -393,6 +396,68 @@ def _add_data_property_columns(
             specific_nn = (table, col_name) in NOT_NULL_SPECIFIC_COLS
             not_null = " NOT NULL" if (col_name in NOT_NULL_DATA_PROPS or specific_nn) else ""
             table_columns[table].append(Column(col_name, f"{sql_t}{not_null}"))
+
+
+def _handle_inverse_fk(
+    dom: list,
+    rng: list,
+    table_columns: dict[str, list[Column]],
+) -> None:
+    """Add FK on the child (range) table for inverse-direction properties."""
+    for rng_cls in rng:
+        child_table = camel_to_snake(local_name(rng_cls.iri))
+        if child_table not in table_columns:
+            continue
+        for dom_cls in dom:
+            parent_table = camel_to_snake(local_name(dom_cls.iri))
+            fk_col = f"{parent_table}_id"
+            if fk_col not in {c.name for c in table_columns[child_table]}:
+                table_columns[child_table].append(Column(
+                    fk_col,
+                    f"INTEGER NOT NULL REFERENCES {parent_table}(id) ON DELETE RESTRICT",
+                ))
+
+
+def _handle_m2m(
+    dom: list,
+    rng: list,
+    junction_tables: list[JunctionTable],
+) -> None:
+    """Collect junction table definitions for many-to-many properties."""
+    for dom_cls in dom:
+        src = camel_to_snake(local_name(dom_cls.iri))
+        for rng_cls in rng:
+            tgt = camel_to_snake(local_name(rng_cls.iri))
+            jt_name = JUNCTION_TABLE_NAMES.get((src, tgt), f"{src}_{tgt}")
+            junction_tables.append(JunctionTable(
+                name=jt_name,
+                col_a=f"{src}_id",
+                ref_a=src,
+                col_b=f"{tgt}_id",
+                ref_b=tgt,
+            ))
+
+
+def _handle_direct_fk(
+    dom: list,
+    rng: list,
+    table_columns: dict[str, list[Column]],
+) -> None:
+    """Add FK on the domain table for direct-direction properties."""
+    for dom_cls in dom:
+        table = camel_to_snake(local_name(dom_cls.iri))
+        if table not in table_columns:
+            continue
+        for rng_cls in rng:
+            ref_table = camel_to_snake(local_name(rng_cls.iri))
+            fk_col = f"{ref_table}_id"
+            if fk_col not in {c.name for c in table_columns[table]}:
+                nullable = (table, fk_col) in NULLABLE_FK_COLS
+                not_null = "" if nullable else "NOT NULL "
+                table_columns[table].append(Column(
+                    fk_col,
+                    f"INTEGER {not_null}REFERENCES {ref_table}(id) ON DELETE RESTRICT",
+                ))
 
 
 def _add_object_property_relations(
@@ -415,52 +480,11 @@ def _add_object_property_relations(
             continue
 
         if prop_name in INVERSE_FK_PROPS:
-            # FK belongs on the child (range) table
-            for rng_cls in rng:
-                child_table = camel_to_snake(local_name(rng_cls.iri))
-                for dom_cls in dom:
-                    parent_table = camel_to_snake(local_name(dom_cls.iri))
-                    fk_col = f"{parent_table}_id"
-                    if child_table in table_columns:
-                        existing = {c.name for c in table_columns[child_table]}
-                        if fk_col not in existing:
-                            table_columns[child_table].append(Column(
-                                fk_col,
-                                f"INTEGER NOT NULL REFERENCES {parent_table}(id)"
-                                " ON DELETE RESTRICT",
-                            ))
-
+            _handle_inverse_fk(dom, rng, table_columns)
         elif prop_name in M2M_PROPS:
-            for dom_cls in dom:
-                src = camel_to_snake(local_name(dom_cls.iri))
-                for rng_cls in rng:
-                    tgt = camel_to_snake(local_name(rng_cls.iri))
-                    jt_name = JUNCTION_TABLE_NAMES.get((src, tgt), f"{src}_{tgt}")
-                    junction_tables.append(JunctionTable(
-                        name=jt_name,
-                        col_a=f"{src}_id",
-                        ref_a=src,
-                        col_b=f"{tgt}_id",
-                        ref_b=tgt,
-                    ))
-
+            _handle_m2m(dom, rng, junction_tables)
         elif prop_name in DIRECT_FK_PROPS:
-            # FK belongs on the domain table
-            for dom_cls in dom:
-                table = camel_to_snake(local_name(dom_cls.iri))
-                for rng_cls in rng:
-                    ref_table = camel_to_snake(local_name(rng_cls.iri))
-                    fk_col = f"{ref_table}_id"
-                    if table in table_columns:
-                        existing = {c.name for c in table_columns[table]}
-                        if fk_col not in existing:
-                            nullable = (table, fk_col) in NULLABLE_FK_COLS
-                            not_null = "" if nullable else "NOT NULL "
-                            table_columns[table].append(Column(
-                                fk_col,
-                                f"INTEGER {not_null}REFERENCES {ref_table}(id)"
-                                " ON DELETE RESTRICT",
-                            ))
+            _handle_direct_fk(dom, rng, table_columns)
 
     return junction_tables
 
