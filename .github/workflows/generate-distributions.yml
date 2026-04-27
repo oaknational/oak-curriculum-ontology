@@ -82,7 +82,7 @@ jobs:
 
                   # Count triples for the main file
                   if [[ "$(basename $file)" == "oak-curriculum-full.$ext" ]]; then
-                    TRIPLE_COUNT=$(riot --count "$file" 2>/dev/null | grep -oP '\d+(?= triples)' || echo "0")
+                    TRIPLE_COUNT=$(riot --count "$file" 2>&1 | grep -oP '\d+(?= triples)' || echo "0")
                     echo "    📊 Triple count: $TRIPLE_COUNT"
                     echo "triple_count=$TRIPLE_COUNT" >> $GITHUB_OUTPUT
                   fi
