@@ -30,7 +30,7 @@ def create_database(db_path: Path, schema_path: Path) -> sqlite3.Connection:
         db_path.unlink()
     conn = sqlite3.connect(str(db_path))
     conn.execute("PRAGMA foreign_keys = ON")
-    conn.executescript(schema_path.read_text(encoding="utf-8"))  # NOSONAR: schema_path is a trusted DDL file from the repo, not user input
+    conn.executescript(schema_path.read_text(encoding="utf-8"))  # NOSONAR
     return conn
 
 

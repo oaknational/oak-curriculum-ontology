@@ -357,6 +357,13 @@ def _init_table_columns(classes, pk: str) -> dict[str, list[Column]]:
     return table_columns
 
 
+def _not_null_suffix(col_name: str, table: str) -> str:
+    """Return ' NOT NULL' if the column is required by SHACL, else ''."""
+    if col_name in NOT_NULL_DATA_PROPS or (table, col_name) in NOT_NULL_SPECIFIC_COLS:
+        return " NOT NULL"
+    return ""
+
+
 def _get_target_tables(prop, prop_name: str) -> list[str]:
     """Collect domain tables for a data property, including subclass tables."""
     dom = domain_classes(prop)
@@ -393,8 +400,7 @@ def _add_data_property_columns(
             existing = {c.name for c in table_columns[table]}
             if col_name in existing:
                 continue
-            specific_nn = (table, col_name) in NOT_NULL_SPECIFIC_COLS
-            not_null = " NOT NULL" if (col_name in NOT_NULL_DATA_PROPS or specific_nn) else ""
+            not_null = _not_null_suffix(col_name, table)
             table_columns[table].append(Column(col_name, f"{sql_t}{not_null}"))
 
 
