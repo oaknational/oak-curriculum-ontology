@@ -201,8 +201,11 @@ def load_data(g: Graph, cur: Any, adapter: DbAdapter) -> dict[str, int]:
     # ------------------------------------------------------------------
     # Tier 1: no FK dependencies
     # ------------------------------------------------------------------
+    log.info("Tier 1 — no FK dependencies")
 
-    for uri in instances(CURRIC.Phase):
+    _batch = instances(CURRIC.Phase)
+    log.info("  phase: %d", len(_batch))
+    for uri in _batch:
         insert("phase", uri, {
             "name": lit_str(g, uri, RDFS.label) or "",
             "description": lit_str(g, uri, RDFS.comment),
@@ -210,13 +213,16 @@ def load_data(g: Graph, cur: Any, adapter: DbAdapter) -> dict[str, int]:
             "upper_age_boundary": lit_int(g, uri, CURRIC.upperAgeBoundary),
         })
 
-    for uri in instances(CURRIC.Discipline):
+    _batch = instances(CURRIC.Discipline)
+    log.info("  discipline: %d", len(_batch))
+    for uri in _batch:
         insert("discipline", uri, {
             "name": lit_str(g, uri, SKOS.prefLabel) or "",
-            "description": lit_str(g, uri, SKOS.definition),
         })
 
-    for uri in instances(CURRIC.ExamBoard):
+    _batch = instances(CURRIC.ExamBoard)
+    log.info("  exam_board: %d", len(_batch))
+    for uri in _batch:
         insert("exam_board", uri, {
             "name": lit_str(g, uri, RDFS.label) or "",
             "description": lit_str(g, uri, RDFS.comment),
@@ -224,25 +230,33 @@ def load_data(g: Graph, cur: Any, adapter: DbAdapter) -> dict[str, int]:
             "accreditation_body": lit_str(g, uri, CURRIC.accreditationBody),
         })
 
-    for uri in instances(CURRIC.Tier):
+    _batch = instances(CURRIC.Tier)
+    log.info("  tier: %d", len(_batch))
+    for uri in _batch:
         insert("tier", uri, {
             "name": lit_str(g, uri, RDFS.label) or "",
             "description": lit_str(g, uri, RDFS.comment),
         })
 
-    for uri in instances(CURRIC.Thread):
+    _batch = instances(CURRIC.Thread)
+    log.info("  thread: %d", len(_batch))
+    for uri in _batch:
         insert("thread", uri, {
             "name": lit_str(g, uri, RDFS.label) or "",
             "description": lit_str(g, uri, RDFS.comment),
         })
 
-    for uri in instances(CURRIC.Keyword):
+    _batch = instances(CURRIC.Keyword)
+    log.info("  keyword: %d", len(_batch))
+    for uri in _batch:
         insert("keyword", uri, {
             "name": lit_str(g, uri, SCHEMA.name) or "",
             "description": lit_str(g, uri, SCHEMA.description),
         })
 
-    for uri in instances(CURRIC.Misconception):
+    _batch = instances(CURRIC.Misconception)
+    log.info("  misconception: %d", len(_batch))
+    for uri in _batch:
         insert("misconception", uri, {
             "statement": lit_str(g, uri, CURRIC.statement) or "",
             "correction": lit_str(g, uri, CURRIC.correction) or "",
@@ -251,8 +265,11 @@ def load_data(g: Graph, cur: Any, adapter: DbAdapter) -> dict[str, int]:
     # ------------------------------------------------------------------
     # Tier 2: depends on Tier 1
     # ------------------------------------------------------------------
+    log.info("Tier 2 — depends on Tier 1")
 
-    for uri in instances(CURRIC.KeyStage):
+    _batch = instances(CURRIC.KeyStage)
+    log.info("  key_stage: %d", len(_batch))
+    for uri in _batch:
         phase_uri = fk_uri(g, uri, CURRIC.isKeyStageOf)
         insert("key_stage", uri, {
             "name": lit_str(g, uri, RDFS.label) or "",
@@ -262,7 +279,9 @@ def load_data(g: Graph, cur: Any, adapter: DbAdapter) -> dict[str, int]:
             "phase_id": resolve_fk(phase_uri, lookup),
         })
 
-    for uri in instances(CURRIC.Strand):
+    _batch = instances(CURRIC.Strand)
+    log.info("  strand: %d", len(_batch))
+    for uri in _batch:
         broader_uri = fk_uri(g, uri, SKOS.broader)
         insert("strand", uri, {
             "name": lit_str(g, uri, SKOS.prefLabel) or "",
@@ -271,7 +290,9 @@ def load_data(g: Graph, cur: Any, adapter: DbAdapter) -> dict[str, int]:
             "discipline_id": resolve_fk(broader_uri, lookup),
         })
 
-    for uri in instances(CURRIC.SubjectGroup):
+    _batch = instances(CURRIC.SubjectGroup)
+    log.info("  subject_group: %d", len(_batch))
+    for uri in _batch:
         disc_uri = fk_uri(g, uri, CURRIC.coversDiscipline)
         insert("subject_group", uri, {
             "name": lit_str(g, uri, RDFS.label) or "",
@@ -281,8 +302,11 @@ def load_data(g: Graph, cur: Any, adapter: DbAdapter) -> dict[str, int]:
     # ------------------------------------------------------------------
     # Tier 3: depends on Tier 2
     # ------------------------------------------------------------------
+    log.info("Tier 3 — depends on Tier 2")
 
-    for uri in instances(CURRIC.YearGroup):
+    _batch = instances(CURRIC.YearGroup)
+    log.info("  year_group: %d", len(_batch))
+    for uri in _batch:
         ks_uri = fk_uri(g, uri, CURRIC.isYearGroupOf)
         insert("year_group", uri, {
             "name": lit_str(g, uri, RDFS.label) or "",
@@ -292,7 +316,9 @@ def load_data(g: Graph, cur: Any, adapter: DbAdapter) -> dict[str, int]:
             "key_stage_id": resolve_fk(ks_uri, lookup),
         })
 
-    for uri in instances(CURRIC.SubStrand):
+    _batch = instances(CURRIC.SubStrand)
+    log.info("  sub_strand: %d", len(_batch))
+    for uri in _batch:
         broader_uri = fk_uri(g, uri, SKOS.broader)
         insert("sub_strand", uri, {
             "name": lit_str(g, uri, SKOS.prefLabel) or "",
@@ -301,7 +327,9 @@ def load_data(g: Graph, cur: Any, adapter: DbAdapter) -> dict[str, int]:
             "strand_id": resolve_fk(broader_uri, lookup),
         })
 
-    for uri in instances(CURRIC.Subject):
+    _batch = instances(CURRIC.Subject)
+    log.info("  subject: %d", len(_batch))
+    for uri in _batch:
         sg_uri = fk_uri(g, uri, CURRIC.isSubjectOf)
         insert("subject", uri, {
             "name": lit_str(g, uri, RDFS.label) or "",
@@ -313,8 +341,11 @@ def load_data(g: Graph, cur: Any, adapter: DbAdapter) -> dict[str, int]:
     # ------------------------------------------------------------------
     # Tier 4: depends on Tier 3
     # ------------------------------------------------------------------
+    log.info("Tier 4 — depends on Tier 3")
 
-    for uri in instances(CURRIC.ContentDescriptor):
+    _batch = instances(CURRIC.ContentDescriptor)
+    log.info("  content_descriptor: %d", len(_batch))
+    for uri in _batch:
         broader_uri = fk_uri(g, uri, SKOS.broader)
         insert("content_descriptor", uri, {
             "name": lit_str(g, uri, SKOS.prefLabel) or "",
@@ -323,7 +354,9 @@ def load_data(g: Graph, cur: Any, adapter: DbAdapter) -> dict[str, int]:
             "sub_strand_id": resolve_fk(broader_uri, lookup),
         })
 
-    for uri in instances(CURRIC.Scheme):
+    _batch = instances(CURRIC.Scheme)
+    log.info("  scheme: %d", len(_batch))
+    for uri in _batch:
         subj_uri = fk_uri(g, uri, CURRIC.isSchemeOf)
         ks_uri = fk_uri(g, uri, CURRIC.coversKeyStage)
         insert("scheme", uri, {
@@ -336,15 +369,20 @@ def load_data(g: Graph, cur: Any, adapter: DbAdapter) -> dict[str, int]:
     # ------------------------------------------------------------------
     # Tier 5: depends on Tier 4
     # ------------------------------------------------------------------
+    log.info("Tier 5 — depends on Tier 4")
 
-    for uri in instances(CURRIC.Progression):
+    _batch = instances(CURRIC.Progression)
+    log.info("  progression: %d", len(_batch))
+    for uri in _batch:
         scheme_uri = fk_uri(g, uri, CURRIC.isProgressionOf)
         insert("progression", uri, {
             "name": lit_str(g, uri, RDFS.label) or "",
             "scheme_id": resolve_fk(scheme_uri, lookup),
         })
 
-    for uri in instances(CURRIC.Programme):
+    _batch = instances(CURRIC.Programme)
+    log.info("  programme: %d", len(_batch))
+    for uri in _batch:
         scheme_uri = fk_uri(g, uri, CURRIC.isProgrammeOf)
         yg_uri = fk_uri(g, uri, CURRIC.coversYearGroup)
         eb_uri = fk_uri(g, uri, CURRIC.hasExamBoard)
@@ -361,7 +399,9 @@ def load_data(g: Graph, cur: Any, adapter: DbAdapter) -> dict[str, int]:
             "tier_id": resolve_fk(tier_uri, lookup),
         })
 
-    for uri in instances(CURRIC.Unit):
+    _batch = instances(CURRIC.Unit)
+    log.info("  unit: %d", len(_batch))
+    for uri in _batch:
         scheme_uri = fk_uri(g, uri, CURRIC.isUnitOf)
         insert("unit", uri, {
             "oak_id": lit_int(g, uri, CURRIC.id),
@@ -377,13 +417,18 @@ def load_data(g: Graph, cur: Any, adapter: DbAdapter) -> dict[str, int]:
     # ------------------------------------------------------------------
     # Tier 6: depends on Tier 5
     # ------------------------------------------------------------------
+    log.info("Tier 6 — depends on Tier 5")
 
-    for uri in instances(CURRIC.UnitVariantChoice):
+    _batch = instances(CURRIC.UnitVariantChoice)
+    log.info("  unit_variant_choice: %d", len(_batch))
+    for uri in _batch:
         insert("unit_variant_choice", uri, {
             "name": lit_str(g, uri, RDFS.label) or "",
         })
 
-    for uri in instances(CURRIC.UnitVariant):
+    _batch = instances(CURRIC.UnitVariant)
+    log.info("  unit_variant: %d", len(_batch))
+    for uri in _batch:
         unit_uri = fk_uri(g, uri, CURRIC.isUnitVariantOf)
         insert("unit_variant", uri, {
             "oak_id": lit_int(g, uri, CURRIC.id),
@@ -391,7 +436,9 @@ def load_data(g: Graph, cur: Any, adapter: DbAdapter) -> dict[str, int]:
             "unit_id": resolve_fk(unit_uri, lookup),
         })
 
-    for uri in instances(CURRIC.Lesson):
+    _batch = instances(CURRIC.Lesson)
+    log.info("  lesson: %d", len(_batch))
+    for uri in _batch:
         insert("lesson", uri, {
             "oak_id": lit_int(g, uri, CURRIC.id) or 0,
             "name": lit_str(g, uri, RDFS.label) or "",
@@ -400,6 +447,7 @@ def load_data(g: Graph, cur: Any, adapter: DbAdapter) -> dict[str, int]:
     # ------------------------------------------------------------------
     # Tier 7: depends on Tier 6
     # ------------------------------------------------------------------
+    log.info("Tier 7 — unit_variant_inclusion, lesson_inclusion, key_learning_points, pupil_lesson_outcomes")
 
     # unit_variant_inclusion (FK -> programme; either unit_variant or unit_variant_choice)
     for prog_uri in instances(CURRIC.Programme):
@@ -457,7 +505,9 @@ def load_data(g: Graph, cur: Any, adapter: DbAdapter) -> dict[str, int]:
     # ------------------------------------------------------------------
     # Junction tables
     # ------------------------------------------------------------------
+    log.info("Junction tables")
 
+    log.info("  subject_strand")
     for subj_uri in instances(CURRIC.Subject):
         subj_id = lookup.get(str(subj_uri))
         if subj_id is None:
@@ -467,6 +517,7 @@ def load_data(g: Graph, cur: Any, adapter: DbAdapter) -> dict[str, int]:
             if strand_id is not None:
                 insert_m2m("subject_strand", "subject_id", subj_id, "strand_id", strand_id)
 
+    log.info("  progression_content_descriptor")
     for prog_uri in instances(CURRIC.Progression):
         prog_id = lookup.get(str(prog_uri))
         if prog_id is None:
@@ -480,6 +531,7 @@ def load_data(g: Graph, cur: Any, adapter: DbAdapter) -> dict[str, int]:
                     "content_descriptor_id", cd_id,
                 )
 
+    log.info("  unit_thread, unit_content_descriptor")
     for unit_uri in instances(CURRIC.Unit):
         unit_id = lookup.get(str(unit_uri))
         if unit_id is None:
@@ -497,6 +549,7 @@ def load_data(g: Graph, cur: Any, adapter: DbAdapter) -> dict[str, int]:
                     "content_descriptor_id", cd_id,
                 )
 
+    log.info("  unit_variant_choice_option")
     for uvc_uri in instances(CURRIC.UnitVariantChoice):
         uvc_id = lookup.get(str(uvc_uri))
         if uvc_id is None:
@@ -510,6 +563,7 @@ def load_data(g: Graph, cur: Any, adapter: DbAdapter) -> dict[str, int]:
                     "unit_variant_id", uv_id,
                 )
 
+    log.info("  lesson_keyword, lesson_misconception")
     for lesson_uri in instances(CURRIC.Lesson):
         lesson_id = lookup.get(str(lesson_uri))
         if lesson_id is None:
@@ -530,6 +584,7 @@ def load_data(g: Graph, cur: Any, adapter: DbAdapter) -> dict[str, int]:
     # ------------------------------------------------------------------
     # Subject aims (curric:aims -> rdf:List of literals)
     # ------------------------------------------------------------------
+    log.info("Subject aims")
 
     ph = adapter.ph
     for subj_uri in instances(CURRIC.Subject):
@@ -550,6 +605,7 @@ def load_data(g: Graph, cur: Any, adapter: DbAdapter) -> dict[str, int]:
                 (subj_id, ordinal, str(aim_literal)),
             )
 
+    log.info("Data load complete. %d URIs inserted.", len(lookup))
     return lookup
 
 
