@@ -25,6 +25,8 @@ dependencies = [
     "pydantic>=2.0.0",
     "python-dotenv>=1.0.0",
     "tqdm>=4.66.0",
+    "owlready2>=0.47",
+    "psycopg2-binary>=2.9.0",
 ]
 
 [project.optional-dependencies]

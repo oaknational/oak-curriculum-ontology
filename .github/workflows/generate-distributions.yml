@@ -82,7 +82,7 @@ jobs:
 
                   # Count triples for the main file
                   if [[ "$(basename $file)" == "oak-curriculum-full.$ext" ]]; then
-                    TRIPLE_COUNT=$(riot --count "$file" 2>/dev/null | grep -oP '\d+(?= triples)' || echo "0")
+                    TRIPLE_COUNT=$(riot --count "$file" 2>&1 | grep -i 'Triples' | grep -oP '[\d,]+' | tr -d ',' || echo "0")
                     echo "    📊 Triple count: $TRIPLE_COUNT"
                     echo "triple_count=$TRIPLE_COUNT" >> $GITHUB_OUTPUT
                   fi
@@ -111,72 +111,12 @@ jobs:
           echo ""
           echo "✅ JSONL smoke test passed!"
 
-      - name: Generate checksums
+      - name: Generate checksums, metadata and step summary
         run: |
-          echo "Generating checksums for distribution files..."
-          cd distributions
-
-          # Generate SHA256 checksums
-          sha256sum oak-curriculum-full.* > checksums-sha256.txt
-          sha256sum nodes.jsonl relationships.jsonl >> checksums-sha256.txt
-
-          # Generate MD5 checksums (for compatibility)
-          md5sum oak-curriculum-full.* > checksums-md5.txt
-          md5sum nodes.jsonl relationships.jsonl >> checksums-md5.txt
-
-          echo ""
-          echo "✅ Checksums generated:"
-          echo ""
-          cat checksums-sha256.txt
-
-      - name: Create distribution metadata
-        run: |
-          echo "Creating distribution metadata..."
-
-          cat > distributions/distribution-info.json <<EOF
-          {
-            "generated_at": "$(date -u +"%Y-%m-%dT%H:%M:%SZ")",
-            "commit_sha": "${{ github.sha }}",
-            "commit_short": "$(echo ${{ github.sha }} | cut -c1-7)",
-            "ref": "${{ github.ref }}",
-            "triple_count": ${{ steps.validate.outputs.triple_count }},
-            "formats": [
-              {
-                "format": "Turtle",
-                "extension": ".ttl",
-                "mime_type": "text/turtle"
-              },
-              {
-                "format": "JSON-LD",
-                "extension": ".jsonld",
-                "mime_type": "application/ld+json"
-              },
-              {
-                "format": "RDF/XML",
-                "extension": ".rdf",
-                "mime_type": "application/rdf+xml"
-              },
-              {
-                "format": "N-Triples",
-                "extension": ".nt",
-                "mime_type": "application/n-triples"
-              },
-              {
-                "format": "Property Graph Nodes (JSONL)",
-                "filename": "nodes.jsonl",
-                "mime_type": "application/x-ndjson"
-              },
-              {
-                "format": "Property Graph Relationships (JSONL)",
-                "filename": "relationships.jsonl",
-                "mime_type": "application/x-ndjson"
-              }
-            ]
-          }
-          EOF
-
-          echo "✅ Distribution metadata created"
-          cat distributions/distribution-info.json
+          uv run python scripts/generate_distribution_summary.py \
+            --triple-count ${{ steps.validate.outputs.triple_count }} \
+            --commit-sha ${{ github.sha }} \
+            --ref ${{ github.ref }}
 
       - name: Upload distribution artifacts
         uses: actions/upload-artifact@v4
@@ -201,49 +141,8 @@ jobs:
             distributions/distribution-info.json \
             distributions/nodes.jsonl \
             distributions/relationships.jsonl \
+            distributions/oak-curriculum.sqlite \
+            distributions/oak-curriculum-schema-postgres.sql \
+            distributions/oak-curriculum-schema-sqlite.sql \
             --clobber
 
-      - name: Display summary
-        run: |
-          echo "### Generated RDF Distribution Files" >> $GITHUB_STEP_SUMMARY
-          echo "" >> $GITHUB_STEP_SUMMARY
-          echo "**Triple Count:** ${{ steps.validate.outputs.triple_count }}" >> $GITHUB_STEP_SUMMARY
-          echo "" >> $GITHUB_STEP_SUMMARY
-          echo "Four RDF serialization formats for semantic web consumers:" >> $GITHUB_STEP_SUMMARY
-          echo "" >> $GITHUB_STEP_SUMMARY
-
-          echo "| Format | File | Size |" >> $GITHUB_STEP_SUMMARY
-          echo "|--------|------|------|" >> $GITHUB_STEP_SUMMARY
-          for file in distributions/oak-curriculum-full.*; do
-            if [ -f "$file" ]; then
-              SIZE=$(ls -lh "$file" | awk '{print $5}')
-              BASENAME=$(basename "$file")
-              EXT="${BASENAME##*.}"
-              case $EXT in
-                ttl) FORMAT="Turtle" ;;
-                jsonld) FORMAT="JSON-LD" ;;
-                rdf) FORMAT="RDF/XML" ;;
-                nt) FORMAT="N-Triples" ;;
-                *) continue ;;
-              esac
-              echo "| $FORMAT | \`$BASENAME\` | $SIZE |" >> $GITHUB_STEP_SUMMARY
-            fi
-          done
-
-          if [ -f "distributions/nodes.jsonl" ]; then
-            SIZE=$(ls -lh distributions/nodes.jsonl | awk '{print $5}')
-            echo "| Property Graph Nodes (JSONL) | \`nodes.jsonl\` | $SIZE |" >> $GITHUB_STEP_SUMMARY
-          fi
-          if [ -f "distributions/relationships.jsonl" ]; then
-            SIZE=$(ls -lh distributions/relationships.jsonl | awk '{print $5}')
-            echo "| Property Graph Relationships (JSONL) | \`relationships.jsonl\` | $SIZE |" >> $GITHUB_STEP_SUMMARY
-          fi
-
-          echo "" >> $GITHUB_STEP_SUMMARY
-          TOTAL=$(du -sh distributions | cut -f1)
-          echo "**Total size:** $TOTAL" >> $GITHUB_STEP_SUMMARY
-          echo "" >> $GITHUB_STEP_SUMMARY
-          echo "#### Additional Files" >> $GITHUB_STEP_SUMMARY
-          echo "- \`checksums-sha256.txt\` - SHA256 checksums for verification" >> $GITHUB_STEP_SUMMARY
-          echo "- \`checksums-md5.txt\` - MD5 checksums for compatibility" >> $GITHUB_STEP_SUMMARY
-          echo "- \`distribution-info.json\` - Metadata and build information" >> $GITHUB_STEP_SUMMARY
