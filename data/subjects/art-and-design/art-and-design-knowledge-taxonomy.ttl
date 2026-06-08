@@ -1,5 +1,5 @@
-@prefix natcurric: <https://w3id.org/uk/curriculum/nat-ontology/> .
-@prefix nat: <https://w3id.org/uk/curriculum/nat-data-2014/> .
+@prefix curric: <https://w3id.org/uk/oak/curriculum/ontology/> .
+@prefix natcurric: <https://w3id.org/uk/oak/curriculum/nationalcurriculum/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
@@ -17,7 +17,7 @@
 # Ontology Declaration
 # ----------------------------------------------------------------------
 
-<https://w3id.org/uk/curriculum/nat-data-2014/art-and-design-knowledge-taxonomy>
+<https://w3id.org/uk/oak/curriculum/nationalcurriculum/art-and-design-knowledge-taxonomy>
   rdf:type owl:Ontology ;
 
   rdfs:label "National Curriculum for England - Art and design Knowledge Taxonomy"@en ;
@@ -26,7 +26,7 @@
   content from strands through to sub-content descriptors."""@en ;
 
   owl:versionInfo "0.1.0" ;
-  owl:versionIRI <https://w3id.org/uk/curriculum/nat-data-2014/art-and-design-knowledge-taxonomy/0.1.0> ;
+  owl:versionIRI <https://w3id.org/uk/oak/curriculum/nationalcurriculum/art-and-design-knowledge-taxonomy/0.1.0> ;
 
   dcterms:description """This file defines the Art and design knowledge taxonomy for the National
   Curriculum in England, organising content through strands, sub-strands, content
@@ -40,277 +40,277 @@
   dcterms:license <http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/> ;
   dcterms:rights "Crown Copyright"@en ;
 
-  rdfs:seeAlso <https://w3id.org/uk/curriculum/nat-ontology> ;
+  rdfs:seeAlso <https://w3id.org/uk/oak/curriculum/ontology> ;
 
-  vann:preferredNamespacePrefix "nat" ;
-  vann:preferredNamespaceUri "https://w3id.org/uk/curriculum/nat-data-2014/" ;
+  vann:preferredNamespacePrefix "natcurric" ;
+  vann:preferredNamespaceUri "https://w3id.org/uk/oak/curriculum/nationalcurriculum/" ;
 
-  owl:imports <https://w3id.org/uk/curriculum/nat-ontology> ;
-  owl:imports <https://w3id.org/uk/curriculum/nat-data-2014/art-and-design-programme-structure> .
+  owl:imports <https://w3id.org/uk/oak/curriculum/ontology> ;
+  owl:imports <https://w3id.org/uk/oak/curriculum/nationalcurriculum/art-and-design-programme-structure> .
 
 # ----------------------------------------------------------------------
 # Knowledge Taxonomy
 # ----------------------------------------------------------------------
 
-nat:knowledge-taxonomy
+natcurric:knowledge-taxonomy
   a skos:ConceptScheme ;
   skos:prefLabel "National Curriculum for England Knowledge Taxonomy"@en ;
-  skos:hasTopConcept nat:discipline-art-and-design ;
+  skos:hasTopConcept natcurric:discipline-art-and-design ;
   dcterms:modified "2026-05-04T13:57:52Z"^^xsd:dateTime .
 
 # ----------------------------------------------------------------------
 # Disciplines
 # ----------------------------------------------------------------------
 
-nat:discipline-art-and-design
-  a skos:Concept, natcurric:Discipline ;
+natcurric:discipline-art-and-design
+  a skos:Concept, curric:Discipline ;
   skos:prefLabel "Art and design"@en ;
-  skos:topConceptOf nat:knowledge-taxonomy ;
-  skos:narrower nat:strand-art-and-design ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:topConceptOf natcurric:knowledge-taxonomy ;
+  skos:narrower natcurric:strand-art-and-design ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-04T13:57:52Z"^^xsd:dateTime .
 
 # ----------------------------------------------------------------------
 # Strands
 # ----------------------------------------------------------------------
 
-nat:strand-art-and-design
-  a skos:Concept, natcurric:Strand ;
+natcurric:strand-art-and-design
+  a skos:Concept, curric:Strand ;
   skos:prefLabel "Art and design"@en ;
   skos:definition "Description of strand..."@en ;
-  skos:broader nat:discipline-art-and-design ;
-  skos:narrower nat:substrand-art-and-design ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:discipline-art-and-design ;
+  skos:narrower natcurric:substrand-art-and-design ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-04T13:57:52Z"^^xsd:dateTime .
 
 # ----------------------------------------------------------------------
 # Sub-Strands
 # ----------------------------------------------------------------------
 
-nat:substrand-art-and-design
-  a skos:Concept, natcurric:SubStrand ;
+natcurric:substrand-art-and-design
+  a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Art and design"@en ;
-  skos:broader nat:strand-art-and-design ;
+  skos:broader natcurric:strand-art-and-design ;
   skos:narrower
-    nat:contentdescriptor-range-materials-design-products ,
-    nat:contentdescriptor-drawing-painting-sculpture-share-ideas ,
-    nat:contentdescriptor-wide-range-art-design-techniques ,
-    nat:contentdescriptor-range-artists-craft-makers-designers ,
-    nat:contentdescriptor-create-sketch-books-record-observations ,
-    nat:contentdescriptor-improve-mastery-art-design-techniques ,
-    nat:contentdescriptor-great-artists-architects-designers-history ,
-    nat:contentdescriptor-range-techniques-record-observations-sketchbooks ,
-    nat:contentdescriptor-range-techniques-media-painting ,
-    nat:contentdescriptor-increase-proficiency-handling-different-materials ,
-    nat:contentdescriptor-analyse-evaluate-own-others-order ,
-    nat:contentdescriptor-major-movements-ancient-times-present ;
-  skos:inScheme nat:knowledge-taxonomy ;
+    natcurric:contentdescriptor-range-materials-design-products ,
+    natcurric:contentdescriptor-drawing-painting-sculpture-share-ideas ,
+    natcurric:contentdescriptor-wide-range-art-design-techniques ,
+    natcurric:contentdescriptor-range-artists-craft-makers-designers ,
+    natcurric:contentdescriptor-create-sketch-books-record-observations ,
+    natcurric:contentdescriptor-improve-mastery-art-design-techniques ,
+    natcurric:contentdescriptor-great-artists-architects-designers-history ,
+    natcurric:contentdescriptor-range-techniques-record-observations-sketchbooks ,
+    natcurric:contentdescriptor-range-techniques-media-painting ,
+    natcurric:contentdescriptor-increase-proficiency-handling-different-materials ,
+    natcurric:contentdescriptor-analyse-evaluate-own-others-order ,
+    natcurric:contentdescriptor-major-movements-ancient-times-present ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-04T13:57:52Z"^^xsd:dateTime .
 
 # ----------------------------------------------------------------------
 # Content Descriptors
 # ----------------------------------------------------------------------
 
-nat:contentdescriptor-range-materials-design-products
-  a skos:Concept, natcurric:ContentDescriptor ;
+natcurric:contentdescriptor-range-materials-design-products
+  a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel "To use a range of materials creatively to design and make products."@en ;
-  skos:broader nat:substrand-art-and-design ;
-  skos:narrower nat:subcontentdescriptor-range-materials-design-products ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:substrand-art-and-design ;
+  skos:narrower natcurric:subcontentdescriptor-range-materials-design-products ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-04T13:57:52Z"^^xsd:dateTime .
 
-nat:contentdescriptor-drawing-painting-sculpture-share-ideas
-  a skos:Concept, natcurric:ContentDescriptor ;
+natcurric:contentdescriptor-drawing-painting-sculpture-share-ideas
+  a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel """To use drawing, painting and sculpture to develop and share their ideas,
   experiences and imagination."""@en ;
-  skos:broader nat:substrand-art-and-design ;
-  skos:narrower nat:subcontentdescriptor-drawing-painting-sculpture-share-ideas ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:substrand-art-and-design ;
+  skos:narrower natcurric:subcontentdescriptor-drawing-painting-sculpture-share-ideas ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-04T13:57:52Z"^^xsd:dateTime .
 
-nat:contentdescriptor-wide-range-art-design-techniques
-  a skos:Concept, natcurric:ContentDescriptor ;
+natcurric:contentdescriptor-wide-range-art-design-techniques
+  a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel """To develop a wide range of art and design techniques in using colour, pattern,
   texture, line, shape, form and space."""@en ;
-  skos:broader nat:substrand-art-and-design ;
-  skos:narrower nat:subcontentdescriptor-wide-range-art-design-techniques ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:substrand-art-and-design ;
+  skos:narrower natcurric:subcontentdescriptor-wide-range-art-design-techniques ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-04T13:57:52Z"^^xsd:dateTime .
 
-nat:contentdescriptor-range-artists-craft-makers-designers
-  a skos:Concept, natcurric:ContentDescriptor ;
+natcurric:contentdescriptor-range-artists-craft-makers-designers
+  a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel """About the work of a range of artists, craft makers and designers, describing 
   the differences and similarities between different practices and disciplines, and making links
   to their own work."""@en ;
-  skos:broader nat:substrand-art-and-design ;
-  skos:narrower nat:subcontentdescriptor-range-artists-craft-makers-designers ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:substrand-art-and-design ;
+  skos:narrower natcurric:subcontentdescriptor-range-artists-craft-makers-designers ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-04T13:57:52Z"^^xsd:dateTime .
 
-nat:contentdescriptor-create-sketch-books-record-observations
-  a skos:Concept, natcurric:ContentDescriptor ;
+natcurric:contentdescriptor-create-sketch-books-record-observations
+  a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel """To create sketch books to record their observations and use them to review and
   revisit ideas."""@en ;
-  skos:broader nat:substrand-art-and-design ;
-  skos:narrower nat:subcontentdescriptor-create-sketch-books-record-observations ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:substrand-art-and-design ;
+  skos:narrower natcurric:subcontentdescriptor-create-sketch-books-record-observations ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-04T13:57:52Z"^^xsd:dateTime .
 
-nat:contentdescriptor-improve-mastery-art-design-techniques
-  a skos:Concept, natcurric:ContentDescriptor ;
+natcurric:contentdescriptor-improve-mastery-art-design-techniques
+  a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel """To improve their mastery of art and design techniques, including drawing,
   painting and sculpture with a range of materials [for example, pencil, charcoal, paint,
   clay]."""@en ;
-  skos:broader nat:substrand-art-and-design ;
-  skos:narrower nat:subcontentdescriptor-improve-mastery-art-design-techniques ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:substrand-art-and-design ;
+  skos:narrower natcurric:subcontentdescriptor-improve-mastery-art-design-techniques ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-04T13:57:52Z"^^xsd:dateTime .
 
-nat:contentdescriptor-great-artists-architects-designers-history
-  a skos:Concept, natcurric:ContentDescriptor ;
+natcurric:contentdescriptor-great-artists-architects-designers-history
+  a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel "About great artists, architects and designers in history."@en ;
-  skos:broader nat:substrand-art-and-design ;
-  skos:narrower nat:subcontentdescriptor-great-artists-architects-designers-history ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:substrand-art-and-design ;
+  skos:narrower natcurric:subcontentdescriptor-great-artists-architects-designers-history ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-04T13:57:52Z"^^xsd:dateTime .
 
-nat:contentdescriptor-range-techniques-record-observations-sketchbooks
-  a skos:Concept, natcurric:ContentDescriptor ;
+natcurric:contentdescriptor-range-techniques-record-observations-sketchbooks
+  a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel """To use a range of techniques to record their observations in sketchbooks,
   journals and other media as a basis for exploring their ideas."""@en ;
-  skos:broader nat:substrand-art-and-design ;
-  skos:narrower nat:subcontentdescriptor-range-techniques-record-observations-sketchbooks ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:substrand-art-and-design ;
+  skos:narrower natcurric:subcontentdescriptor-range-techniques-record-observations-sketchbooks ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-04T13:57:52Z"^^xsd:dateTime .
 
-nat:contentdescriptor-range-techniques-media-painting
-  a skos:Concept, natcurric:ContentDescriptor ;
+natcurric:contentdescriptor-range-techniques-media-painting
+  a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel "To use a range of techniques and media, including painting."@en ;
-  skos:broader nat:substrand-art-and-design ;
-  skos:narrower nat:subcontentdescriptor-range-techniques-media-painting ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:substrand-art-and-design ;
+  skos:narrower natcurric:subcontentdescriptor-range-techniques-media-painting ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-04T13:57:52Z"^^xsd:dateTime .
 
-nat:contentdescriptor-increase-proficiency-handling-different-materials
-  a skos:Concept, natcurric:ContentDescriptor ;
+natcurric:contentdescriptor-increase-proficiency-handling-different-materials
+  a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel "To increase their proficiency in the handling of different materials."@en ;
-  skos:broader nat:substrand-art-and-design ;
-  skos:narrower nat:subcontentdescriptor-increase-proficiency-handling-different-materials ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:substrand-art-and-design ;
+  skos:narrower natcurric:subcontentdescriptor-increase-proficiency-handling-different-materials ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-04T13:57:52Z"^^xsd:dateTime .
 
-nat:contentdescriptor-analyse-evaluate-own-others-order
-  a skos:Concept, natcurric:ContentDescriptor ;
+natcurric:contentdescriptor-analyse-evaluate-own-others-order
+  a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel """To analyse and evaluate their own work, and that of others, in order to
   strengthen the visual impact or applications of their work."""@en ;
-  skos:broader nat:substrand-art-and-design ;
-  skos:narrower nat:subcontentdescriptor-analyse-evaluate-own-others-order ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:substrand-art-and-design ;
+  skos:narrower natcurric:subcontentdescriptor-analyse-evaluate-own-others-order ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-04T13:57:52Z"^^xsd:dateTime .
 
-nat:contentdescriptor-major-movements-ancient-times-present
-  a skos:Concept, natcurric:ContentDescriptor ;
+natcurric:contentdescriptor-major-movements-ancient-times-present
+  a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel """About the history of art, craft, design and architecture, including periods, 
   styles and major movements from ancient times up to the present day."""@en ;
-  skos:broader nat:substrand-art-and-design ;
-  skos:narrower nat:subcontentdescriptor-major-movements-ancient-times-present ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:substrand-art-and-design ;
+  skos:narrower natcurric:subcontentdescriptor-major-movements-ancient-times-present ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-04T13:57:52Z"^^xsd:dateTime .
 
 # ----------------------------------------------------------------------
 # Sub-Content Descriptors
 # ----------------------------------------------------------------------
 
-nat:subcontentdescriptor-range-materials-design-products
-  a skos:Concept, natcurric:SubContentDescriptor ;
+natcurric:subcontentdescriptor-range-materials-design-products
+  a skos:Concept, curric:SubContentDescriptor ;
   skos:prefLabel "To use a range of materials creatively to design and make products."@en ;
-  skos:broader nat:contentdescriptor-range-materials-design-products ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:contentdescriptor-range-materials-design-products ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-04T13:57:52Z"^^xsd:dateTime .
 
-nat:subcontentdescriptor-drawing-painting-sculpture-share-ideas
-  a skos:Concept, natcurric:SubContentDescriptor ;
+natcurric:subcontentdescriptor-drawing-painting-sculpture-share-ideas
+  a skos:Concept, curric:SubContentDescriptor ;
   skos:prefLabel """To use drawing, painting and sculpture to develop and share their ideas,
   experiences and imagination."""@en ;
-  skos:broader nat:contentdescriptor-drawing-painting-sculpture-share-ideas ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:contentdescriptor-drawing-painting-sculpture-share-ideas ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-04T13:57:52Z"^^xsd:dateTime .
 
-nat:subcontentdescriptor-wide-range-art-design-techniques
-  a skos:Concept, natcurric:SubContentDescriptor ;
+natcurric:subcontentdescriptor-wide-range-art-design-techniques
+  a skos:Concept, curric:SubContentDescriptor ;
   skos:prefLabel """To develop a wide range of art and design techniques in using colour, pattern,
   texture, line, shape, form and space."""@en ;
-  skos:broader nat:contentdescriptor-wide-range-art-design-techniques ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:contentdescriptor-wide-range-art-design-techniques ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-04T13:57:52Z"^^xsd:dateTime .
 
-nat:subcontentdescriptor-range-artists-craft-makers-designers
-  a skos:Concept, natcurric:SubContentDescriptor ;
+natcurric:subcontentdescriptor-range-artists-craft-makers-designers
+  a skos:Concept, curric:SubContentDescriptor ;
   skos:prefLabel """About the work of a range of artists, craft makers and designers, describing 
   the differences and similarities between different practices and disciplines, and making links
   to their own work."""@en ;
-  skos:broader nat:contentdescriptor-range-artists-craft-makers-designers ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:contentdescriptor-range-artists-craft-makers-designers ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-04T13:57:52Z"^^xsd:dateTime .
 
-nat:subcontentdescriptor-create-sketch-books-record-observations
-  a skos:Concept, natcurric:SubContentDescriptor ;
+natcurric:subcontentdescriptor-create-sketch-books-record-observations
+  a skos:Concept, curric:SubContentDescriptor ;
   skos:prefLabel """To create sketch books to record their observations and use them to review and
   revisit ideas."""@en ;
-  skos:broader nat:contentdescriptor-create-sketch-books-record-observations ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:contentdescriptor-create-sketch-books-record-observations ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-04T13:57:52Z"^^xsd:dateTime .
 
-nat:subcontentdescriptor-improve-mastery-art-design-techniques
-  a skos:Concept, natcurric:SubContentDescriptor ;
+natcurric:subcontentdescriptor-improve-mastery-art-design-techniques
+  a skos:Concept, curric:SubContentDescriptor ;
   skos:prefLabel """To improve their mastery of art and design techniques, including drawing,
   painting and sculpture with a range of materials [for example, pencil, charcoal, paint,
   clay]."""@en ;
-  skos:broader nat:contentdescriptor-improve-mastery-art-design-techniques ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:contentdescriptor-improve-mastery-art-design-techniques ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-04T13:57:52Z"^^xsd:dateTime .
 
-nat:subcontentdescriptor-great-artists-architects-designers-history
-  a skos:Concept, natcurric:SubContentDescriptor ;
+natcurric:subcontentdescriptor-great-artists-architects-designers-history
+  a skos:Concept, curric:SubContentDescriptor ;
   skos:prefLabel "About great artists, architects and designers in history."@en ;
-  skos:broader nat:contentdescriptor-great-artists-architects-designers-history ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:contentdescriptor-great-artists-architects-designers-history ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-04T13:57:52Z"^^xsd:dateTime .
 
-nat:subcontentdescriptor-range-techniques-record-observations-sketchbooks
-  a skos:Concept, natcurric:SubContentDescriptor ;
+natcurric:subcontentdescriptor-range-techniques-record-observations-sketchbooks
+  a skos:Concept, curric:SubContentDescriptor ;
   skos:prefLabel """To use a range of techniques to record their observations in sketchbooks,
   journals and other media as a basis for exploring their ideas."""@en ;
-  skos:broader nat:contentdescriptor-range-techniques-record-observations-sketchbooks ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:contentdescriptor-range-techniques-record-observations-sketchbooks ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-04T13:57:52Z"^^xsd:dateTime .
 
-nat:subcontentdescriptor-range-techniques-media-painting
-  a skos:Concept, natcurric:SubContentDescriptor ;
+natcurric:subcontentdescriptor-range-techniques-media-painting
+  a skos:Concept, curric:SubContentDescriptor ;
   skos:prefLabel "To use a range of techniques and media, including painting."@en ;
-  skos:broader nat:contentdescriptor-range-techniques-media-painting ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:contentdescriptor-range-techniques-media-painting ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-04T13:57:52Z"^^xsd:dateTime .
 
-nat:subcontentdescriptor-increase-proficiency-handling-different-materials
-  a skos:Concept, natcurric:SubContentDescriptor ;
+natcurric:subcontentdescriptor-increase-proficiency-handling-different-materials
+  a skos:Concept, curric:SubContentDescriptor ;
   skos:prefLabel "To increase their proficiency in the handling of different materials."@en ;
-  skos:broader nat:contentdescriptor-increase-proficiency-handling-different-materials ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:contentdescriptor-increase-proficiency-handling-different-materials ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-04T13:57:52Z"^^xsd:dateTime .
 
-nat:subcontentdescriptor-analyse-evaluate-own-others-order
-  a skos:Concept, natcurric:SubContentDescriptor ;
+natcurric:subcontentdescriptor-analyse-evaluate-own-others-order
+  a skos:Concept, curric:SubContentDescriptor ;
   skos:prefLabel """To analyse and evaluate their own work, and that of others, in order to
   strengthen the visual impact or applications of their work."""@en ;
-  skos:broader nat:contentdescriptor-analyse-evaluate-own-others-order ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:contentdescriptor-analyse-evaluate-own-others-order ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-04T13:57:52Z"^^xsd:dateTime .
 
-nat:subcontentdescriptor-major-movements-ancient-times-present
-  a skos:Concept, natcurric:SubContentDescriptor ;
+natcurric:subcontentdescriptor-major-movements-ancient-times-present
+  a skos:Concept, curric:SubContentDescriptor ;
   skos:prefLabel """About the history of art, craft, design and architecture, including periods, 
   styles and major movements from ancient times up to the present day."""@en ;
-  skos:broader nat:contentdescriptor-major-movements-ancient-times-present ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:contentdescriptor-major-movements-ancient-times-present ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-04T13:57:52Z"^^xsd:dateTime .

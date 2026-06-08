@@ -1,5 +1,5 @@
-@prefix natcurric: <https://w3id.org/uk/curriculum/nat-ontology/> .
-@prefix nat: <https://w3id.org/uk/curriculum/nat-data-2014/> .
+@prefix curric: <https://w3id.org/uk/oak/curriculum/ontology/> .
+@prefix natcurric: <https://w3id.org/uk/oak/curriculum/nationalcurriculum/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
@@ -17,7 +17,7 @@
 # Ontology Declaration
 # ----------------------------------------------------------------------
 
-<https://w3id.org/uk/curriculum/nat-data-2014/design-and-technology-knowledge-taxonomy>
+<https://w3id.org/uk/oak/curriculum/nationalcurriculum/design-and-technology-knowledge-taxonomy>
   rdf:type owl:Ontology ;
 
   rdfs:label "National Curriculum for England - Design and technology Knowledge Taxonomy"@en ;
@@ -26,7 +26,7 @@
   content from strands through to sub-content descriptors."""@en ;
 
   owl:versionInfo "0.1.0" ;
-  owl:versionIRI <https://w3id.org/uk/curriculum/nat-data-2014/design-and-technology-knowledge-taxonomy/0.1.0> ;
+  owl:versionIRI <https://w3id.org/uk/oak/curriculum/nationalcurriculum/design-and-technology-knowledge-taxonomy/0.1.0> ;
 
   dcterms:description """This file defines the Design and technology knowledge taxonomy for the
   National Curriculum in England, organising content through strands, sub-strands, content
@@ -40,912 +40,912 @@
   dcterms:license <http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/> ;
   dcterms:rights "Crown Copyright"@en ;
 
-  rdfs:seeAlso <https://w3id.org/uk/curriculum/nat-ontology> ;
+  rdfs:seeAlso <https://w3id.org/uk/oak/curriculum/ontology> ;
 
-  vann:preferredNamespacePrefix "nat" ;
-  vann:preferredNamespaceUri "https://w3id.org/uk/curriculum/nat-data-2014/" ;
+  vann:preferredNamespacePrefix "natcurric" ;
+  vann:preferredNamespaceUri "https://w3id.org/uk/oak/curriculum/nationalcurriculum/" ;
 
-  owl:imports <https://w3id.org/uk/curriculum/nat-ontology> ;
-  owl:imports <https://w3id.org/uk/curriculum/nat-data-2014/design-and-technology-programme-structure> .
+  owl:imports <https://w3id.org/uk/oak/curriculum/ontology> ;
+  owl:imports <https://w3id.org/uk/oak/curriculum/nationalcurriculum/design-and-technology-programme-structure> .
 
 # ----------------------------------------------------------------------
 # Knowledge Taxonomy
 # ----------------------------------------------------------------------
 
-nat:knowledge-taxonomy
+natcurric:knowledge-taxonomy
   a skos:ConceptScheme ;
   skos:prefLabel "National Curriculum for England Knowledge Taxonomy"@en ;
-  skos:hasTopConcept nat:discipline-design-and-technology ;
+  skos:hasTopConcept natcurric:discipline-design-and-technology ;
   dcterms:modified "2026-05-05T14:20:00Z"^^xsd:dateTime .
 
 # ----------------------------------------------------------------------
 # Disciplines
 # ----------------------------------------------------------------------
 
-nat:discipline-design-and-technology
-  a skos:Concept, natcurric:Discipline ;
+natcurric:discipline-design-and-technology
+  a skos:Concept, curric:Discipline ;
   skos:prefLabel "Design and technology"@en ;
-  skos:topConceptOf nat:knowledge-taxonomy ;
+  skos:topConceptOf natcurric:knowledge-taxonomy ;
   skos:narrower
-    nat:strand-design ,
-    nat:strand-make ,
-    nat:strand-evaluate ,
-    nat:strand-technical-knowledge ,
-    nat:strand-food-and-nutrition ;
-  skos:inScheme nat:knowledge-taxonomy ;
+    natcurric:strand-design ,
+    natcurric:strand-make ,
+    natcurric:strand-evaluate ,
+    natcurric:strand-technical-knowledge ,
+    natcurric:strand-food-and-nutrition ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-05T14:20:00Z"^^xsd:dateTime .
 
 # ----------------------------------------------------------------------
 # Strands
 # ----------------------------------------------------------------------
 
-nat:strand-design
-  a skos:Concept, natcurric:Strand ;
+natcurric:strand-design
+  a skos:Concept, curric:Strand ;
   skos:prefLabel "Design"@en ;
   skos:definition "Description of strand..."@en ;
-  skos:broader nat:discipline-design-and-technology ;
-  skos:narrower nat:substrand-design ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:discipline-design-and-technology ;
+  skos:narrower natcurric:substrand-design ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-05T14:20:00Z"^^xsd:dateTime .
 
-nat:strand-make
-  a skos:Concept, natcurric:Strand ;
+natcurric:strand-make
+  a skos:Concept, curric:Strand ;
   skos:prefLabel "Make"@en ;
   skos:definition "Description of strand..."@en ;
-  skos:broader nat:discipline-design-and-technology ;
-  skos:narrower nat:substrand-make ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:discipline-design-and-technology ;
+  skos:narrower natcurric:substrand-make ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-05T14:20:00Z"^^xsd:dateTime .
 
-nat:strand-evaluate
-  a skos:Concept, natcurric:Strand ;
+natcurric:strand-evaluate
+  a skos:Concept, curric:Strand ;
   skos:prefLabel "Evaluate"@en ;
   skos:definition "Description of strand..."@en ;
-  skos:broader nat:discipline-design-and-technology ;
-  skos:narrower nat:substrand-evaluate ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:discipline-design-and-technology ;
+  skos:narrower natcurric:substrand-evaluate ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-05T14:20:00Z"^^xsd:dateTime .
 
-nat:strand-technical-knowledge
-  a skos:Concept, natcurric:Strand ;
+natcurric:strand-technical-knowledge
+  a skos:Concept, curric:Strand ;
   skos:prefLabel "Technical knowledge"@en ;
   skos:definition "Description of strand..."@en ;
-  skos:broader nat:discipline-design-and-technology ;
-  skos:narrower nat:substrand-technical-knowledge ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:discipline-design-and-technology ;
+  skos:narrower natcurric:substrand-technical-knowledge ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-05T14:20:00Z"^^xsd:dateTime .
 
-nat:strand-food-and-nutrition
-  a skos:Concept, natcurric:Strand ;
+natcurric:strand-food-and-nutrition
+  a skos:Concept, curric:Strand ;
   skos:prefLabel "Food and nutrition"@en ;
   skos:definition "Description of strand..."@en ;
-  skos:broader nat:discipline-design-and-technology ;
-  skos:narrower nat:substrand-food-and-nutrition ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:discipline-design-and-technology ;
+  skos:narrower natcurric:substrand-food-and-nutrition ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-05T14:20:00Z"^^xsd:dateTime .
 
 # ----------------------------------------------------------------------
 # Sub-Strands
 # ----------------------------------------------------------------------
 
-nat:substrand-design
-  a skos:Concept, natcurric:SubStrand ;
+natcurric:substrand-design
+  a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Design"@en ;
-  skos:broader nat:strand-design ;
+  skos:broader natcurric:strand-design ;
   skos:narrower
-    nat:contentdescriptor-design-purposeful-functional-appealing-products ,
-    nat:contentdescriptor-generate-model-communicate-ideas-talking ,
-    nat:contentdescriptor-research-design-criteria-inform-design ,
-    nat:contentdescriptor-generate-model-communicate-ideas-discussion ,
-    nat:contentdescriptor-research-exploration-such-study-different ,
-    nat:contentdescriptor-identify-solve-own-design-problems ,
-    nat:contentdescriptor-specifications-inform-design-innovative-functional ,
-    nat:contentdescriptor-variety-approaches-example-biomimicry-user ,
-    nat:contentdescriptor-communicate-design-ideas-annotated-sketches ;
-  skos:inScheme nat:knowledge-taxonomy ;
+    natcurric:contentdescriptor-design-purposeful-functional-appealing-products ,
+    natcurric:contentdescriptor-generate-model-communicate-ideas-talking ,
+    natcurric:contentdescriptor-research-design-criteria-inform-design ,
+    natcurric:contentdescriptor-generate-model-communicate-ideas-discussion ,
+    natcurric:contentdescriptor-research-exploration-such-study-different ,
+    natcurric:contentdescriptor-identify-solve-own-design-problems ,
+    natcurric:contentdescriptor-specifications-inform-design-innovative-functional ,
+    natcurric:contentdescriptor-variety-approaches-example-biomimicry-user ,
+    natcurric:contentdescriptor-communicate-design-ideas-annotated-sketches ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-05T14:20:00Z"^^xsd:dateTime .
 
-nat:substrand-make
-  a skos:Concept, natcurric:SubStrand ;
+natcurric:substrand-make
+  a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Make"@en ;
-  skos:broader nat:strand-make ;
+  skos:broader natcurric:strand-make ;
   skos:narrower
-    nat:contentdescriptor-select-range-tools-equipment-perform ,
-    nat:contentdescriptor-select-wide-range-materials-components ,
-    nat:contentdescriptor-select-wider-range-tools-equipment ,
-    nat:contentdescriptor-select-wider-range-materials-components ,
-    nat:contentdescriptor-select-specialist-tools-techniques-processes ,
-    nat:contentdescriptor-select-wider-complex-range-materials ;
-  skos:inScheme nat:knowledge-taxonomy ;
+    natcurric:contentdescriptor-select-range-tools-equipment-perform ,
+    natcurric:contentdescriptor-select-wide-range-materials-components ,
+    natcurric:contentdescriptor-select-wider-range-tools-equipment ,
+    natcurric:contentdescriptor-select-wider-range-materials-components ,
+    natcurric:contentdescriptor-select-specialist-tools-techniques-processes ,
+    natcurric:contentdescriptor-select-wider-complex-range-materials ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-05T14:20:00Z"^^xsd:dateTime .
 
-nat:substrand-evaluate
-  a skos:Concept, natcurric:SubStrand ;
+natcurric:substrand-evaluate
+  a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Evaluate"@en ;
-  skos:broader nat:strand-evaluate ;
+  skos:broader natcurric:strand-evaluate ;
   skos:narrower
-    nat:contentdescriptor-evaluate-range-existing-products ,
-    nat:contentdescriptor-evaluate-ideas-products-design-criteria ,
-    nat:contentdescriptor-investigate-analyse-range-existing-products ,
-    nat:contentdescriptor-evaluate-ideas-products-own-design ,
-    nat:contentdescriptor-key-events-individuals-design-technology ,
-    nat:contentdescriptor-analyse-past-present-professionals-others ,
-    nat:contentdescriptor-investigate-new-and-emerging-technologies ,
-    nat:contentdescriptor-test-evaluate-refine-ideas-products ,
-    nat:contentdescriptor-developments-design-technology-impact-individuals ;
-  skos:inScheme nat:knowledge-taxonomy ;
+    natcurric:contentdescriptor-evaluate-range-existing-products ,
+    natcurric:contentdescriptor-evaluate-ideas-products-design-criteria ,
+    natcurric:contentdescriptor-investigate-analyse-range-existing-products ,
+    natcurric:contentdescriptor-evaluate-ideas-products-own-design ,
+    natcurric:contentdescriptor-key-events-individuals-design-technology ,
+    natcurric:contentdescriptor-analyse-past-present-professionals-others ,
+    natcurric:contentdescriptor-investigate-new-and-emerging-technologies ,
+    natcurric:contentdescriptor-test-evaluate-refine-ideas-products ,
+    natcurric:contentdescriptor-developments-design-technology-impact-individuals ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-05T14:20:00Z"^^xsd:dateTime .
 
-nat:substrand-technical-knowledge
-  a skos:Concept, natcurric:SubStrand ;
+natcurric:substrand-technical-knowledge
+  a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Technical knowledge"@en ;
-  skos:broader nat:strand-technical-knowledge ;
+  skos:broader natcurric:strand-technical-knowledge ;
   skos:narrower
-    nat:contentdescriptor-build-structures-made-stronger-stiffer ,
-    nat:contentdescriptor-mechanisms-example-levers-sliders-wheels ,
-    nat:contentdescriptor-apply-strengthen-stiffen-reinforce-complex ,
-    nat:contentdescriptor-mechanical-systems-products-example-gears ,
-    nat:contentdescriptor-electrical-systems-products-example-series ,
-    nat:contentdescriptor-apply-computing-program-monitor-control ,
-    nat:contentdescriptor-properties-materials-performance-structural-elements ,
-    nat:contentdescriptor-advanced-mechanical-systems-used-products ,
-    nat:contentdescriptor-advanced-electrical-electronic-systems-powered ,
-    nat:contentdescriptor-apply-computing-electronics-embed-intelligence ;
-  skos:inScheme nat:knowledge-taxonomy ;
+    natcurric:contentdescriptor-build-structures-made-stronger-stiffer ,
+    natcurric:contentdescriptor-mechanisms-example-levers-sliders-wheels ,
+    natcurric:contentdescriptor-apply-strengthen-stiffen-reinforce-complex ,
+    natcurric:contentdescriptor-mechanical-systems-products-example-gears ,
+    natcurric:contentdescriptor-electrical-systems-products-example-series ,
+    natcurric:contentdescriptor-apply-computing-program-monitor-control ,
+    natcurric:contentdescriptor-properties-materials-performance-structural-elements ,
+    natcurric:contentdescriptor-advanced-mechanical-systems-used-products ,
+    natcurric:contentdescriptor-advanced-electrical-electronic-systems-powered ,
+    natcurric:contentdescriptor-apply-computing-electronics-embed-intelligence ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-05T14:20:00Z"^^xsd:dateTime .
 
-nat:substrand-food-and-nutrition
-  a skos:Concept, natcurric:SubStrand ;
+natcurric:substrand-food-and-nutrition
+  a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Food and nutrition"@en ;
-  skos:broader nat:strand-food-and-nutrition ;
+  skos:broader natcurric:strand-food-and-nutrition ;
   skos:narrower
-    nat:contentdescriptor-basic-principles-healthy-varied-diet ,
-    nat:contentdescriptor-understand-where-food-comes-from ,
-    nat:contentdescriptor-apply-principles-healthy-varied-diet ,
-    nat:contentdescriptor-prepare-cook-variety-savoury-dishes ,
-    nat:contentdescriptor-seasonality-variety-ingredients-grown-reared ,
-    nat:contentdescriptor-apply-principles-nutrition-health ,
-    nat:contentdescriptor-cook-repertoire-savoury-dishes-able ,
-    nat:contentdescriptor-become-competent-range-cooking-techniques ,
-    nat:contentdescriptor-source-seasonality-characteristics-broad-range ;
-  skos:inScheme nat:knowledge-taxonomy ;
+    natcurric:contentdescriptor-basic-principles-healthy-varied-diet ,
+    natcurric:contentdescriptor-understand-where-food-comes-from ,
+    natcurric:contentdescriptor-apply-principles-healthy-varied-diet ,
+    natcurric:contentdescriptor-prepare-cook-variety-savoury-dishes ,
+    natcurric:contentdescriptor-seasonality-variety-ingredients-grown-reared ,
+    natcurric:contentdescriptor-apply-principles-nutrition-health ,
+    natcurric:contentdescriptor-cook-repertoire-savoury-dishes-able ,
+    natcurric:contentdescriptor-become-competent-range-cooking-techniques ,
+    natcurric:contentdescriptor-source-seasonality-characteristics-broad-range ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-05T14:20:00Z"^^xsd:dateTime .
 
 # ----------------------------------------------------------------------
 # Content Descriptors
 # ----------------------------------------------------------------------
 
-nat:contentdescriptor-design-purposeful-functional-appealing-products
-  a skos:Concept, natcurric:ContentDescriptor ;
+natcurric:contentdescriptor-design-purposeful-functional-appealing-products
+  a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel """Design purposeful, functional, appealing products for themselves and other 
   users based on design criteria."""@en ;
-  skos:broader nat:substrand-design ;
-  skos:narrower nat:subcontentdescriptor-design-purposeful-functional-appealing-products ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:substrand-design ;
+  skos:narrower natcurric:subcontentdescriptor-design-purposeful-functional-appealing-products ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-05T14:20:00Z"^^xsd:dateTime .
 
-nat:contentdescriptor-generate-model-communicate-ideas-talking
-  a skos:Concept, natcurric:ContentDescriptor ;
+natcurric:contentdescriptor-generate-model-communicate-ideas-talking
+  a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel """Generate, develop, model and communicate their ideas through talking, drawing,
   templates, mock-ups and, where appropriate, information and communication technology."""@en ;
-  skos:broader nat:substrand-design ;
-  skos:narrower nat:subcontentdescriptor-generate-model-communicate-ideas-talking ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:substrand-design ;
+  skos:narrower natcurric:subcontentdescriptor-generate-model-communicate-ideas-talking ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-05T14:20:00Z"^^xsd:dateTime .
 
-nat:contentdescriptor-select-range-tools-equipment-perform
-  a skos:Concept, natcurric:ContentDescriptor ;
+natcurric:contentdescriptor-select-range-tools-equipment-perform
+  a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel """Select from and use a range of tools and equipment to perform practical tasks
   [for example, cutting, shaping, joining and finishing]."""@en ;
-  skos:broader nat:substrand-make ;
-  skos:narrower nat:subcontentdescriptor-select-range-tools-equipment-perform ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:substrand-make ;
+  skos:narrower natcurric:subcontentdescriptor-select-range-tools-equipment-perform ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-05T14:20:00Z"^^xsd:dateTime .
 
-nat:contentdescriptor-select-wide-range-materials-components
-  a skos:Concept, natcurric:ContentDescriptor ;
+natcurric:contentdescriptor-select-wide-range-materials-components
+  a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel """Select from and use a wide range of materials and components, including
   construction materials, textiles and ingredients, according to their characteristics."""@en ;
-  skos:broader nat:substrand-make ;
-  skos:narrower nat:subcontentdescriptor-select-wide-range-materials-components ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:substrand-make ;
+  skos:narrower natcurric:subcontentdescriptor-select-wide-range-materials-components ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-05T14:20:00Z"^^xsd:dateTime .
 
-nat:contentdescriptor-evaluate-range-existing-products
-  a skos:Concept, natcurric:ContentDescriptor ;
+natcurric:contentdescriptor-evaluate-range-existing-products
+  a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel "Explore and evaluate a range of existing products."@en ;
-  skos:broader nat:substrand-evaluate ;
-  skos:narrower nat:subcontentdescriptor-evaluate-range-existing-products ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:substrand-evaluate ;
+  skos:narrower natcurric:subcontentdescriptor-evaluate-range-existing-products ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-05T14:20:00Z"^^xsd:dateTime .
 
-nat:contentdescriptor-evaluate-ideas-products-design-criteria
-  a skos:Concept, natcurric:ContentDescriptor ;
+natcurric:contentdescriptor-evaluate-ideas-products-design-criteria
+  a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel "Evaluate their ideas and products against design criteria."@en ;
-  skos:broader nat:substrand-evaluate ;
-  skos:narrower nat:subcontentdescriptor-evaluate-ideas-products-design-criteria ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:substrand-evaluate ;
+  skos:narrower natcurric:subcontentdescriptor-evaluate-ideas-products-design-criteria ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-05T14:20:00Z"^^xsd:dateTime .
 
-nat:contentdescriptor-build-structures-made-stronger-stiffer
-  a skos:Concept, natcurric:ContentDescriptor ;
+natcurric:contentdescriptor-build-structures-made-stronger-stiffer
+  a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel """Build structures, exploring how they can be made stronger, stiffer and more
   stable."""@en ;
-  skos:broader nat:substrand-technical-knowledge ;
-  skos:narrower nat:subcontentdescriptor-build-structures-made-stronger-stiffer ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:substrand-technical-knowledge ;
+  skos:narrower natcurric:subcontentdescriptor-build-structures-made-stronger-stiffer ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-05T14:20:00Z"^^xsd:dateTime .
 
-nat:contentdescriptor-mechanisms-example-levers-sliders-wheels
-  a skos:Concept, natcurric:ContentDescriptor ;
+natcurric:contentdescriptor-mechanisms-example-levers-sliders-wheels
+  a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel """Explore and use mechanisms [for example, levers, sliders, wheels and axles], in
   their products."""@en ;
-  skos:broader nat:substrand-technical-knowledge ;
-  skos:narrower nat:subcontentdescriptor-mechanisms-example-levers-sliders-wheels ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:substrand-technical-knowledge ;
+  skos:narrower natcurric:subcontentdescriptor-mechanisms-example-levers-sliders-wheels ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-05T14:20:00Z"^^xsd:dateTime .
 
-nat:contentdescriptor-basic-principles-healthy-varied-diet
-  a skos:Concept, natcurric:ContentDescriptor ;
+natcurric:contentdescriptor-basic-principles-healthy-varied-diet
+  a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel "Use the basic principles of a healthy and varied diet to prepare dishes."@en ;
-  skos:broader nat:substrand-food-and-nutrition ;
-  skos:narrower nat:subcontentdescriptor-basic-principles-healthy-varied-diet ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:substrand-food-and-nutrition ;
+  skos:narrower natcurric:subcontentdescriptor-basic-principles-healthy-varied-diet ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-05T14:20:00Z"^^xsd:dateTime .
 
-nat:contentdescriptor-understand-where-food-comes-from
-  a skos:Concept, natcurric:ContentDescriptor ;
+natcurric:contentdescriptor-understand-where-food-comes-from
+  a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel "Understand where food comes from."@en ;
-  skos:broader nat:substrand-food-and-nutrition ;
-  skos:narrower nat:subcontentdescriptor-understand-where-food-comes-from ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:substrand-food-and-nutrition ;
+  skos:narrower natcurric:subcontentdescriptor-understand-where-food-comes-from ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-05T14:20:00Z"^^xsd:dateTime .
 
-nat:contentdescriptor-research-design-criteria-inform-design
-  a skos:Concept, natcurric:ContentDescriptor ;
+natcurric:contentdescriptor-research-design-criteria-inform-design
+  a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel """Use research and develop design criteria to inform the design of innovative,
   functional, appealing products that are fit for purpose, aimed at particular individuals
   or groups."""@en ;
-  skos:broader nat:substrand-design ;
-  skos:narrower nat:subcontentdescriptor-research-design-criteria-inform-design ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:substrand-design ;
+  skos:narrower natcurric:subcontentdescriptor-research-design-criteria-inform-design ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-05T14:20:00Z"^^xsd:dateTime .
 
-nat:contentdescriptor-generate-model-communicate-ideas-discussion
-  a skos:Concept, natcurric:ContentDescriptor ;
+natcurric:contentdescriptor-generate-model-communicate-ideas-discussion
+  a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel """Generate, develop, model and communicate their ideas through discussion,
   annotated sketches, cross-sectional and exploded diagrams, prototypes, pattern pieces and
   computer-aided design."""@en ;
-  skos:broader nat:substrand-design ;
-  skos:narrower nat:subcontentdescriptor-generate-model-communicate-ideas-discussion ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:substrand-design ;
+  skos:narrower natcurric:subcontentdescriptor-generate-model-communicate-ideas-discussion ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-05T14:20:00Z"^^xsd:dateTime .
 
-nat:contentdescriptor-select-wider-range-tools-equipment
-  a skos:Concept, natcurric:ContentDescriptor ;
+natcurric:contentdescriptor-select-wider-range-tools-equipment
+  a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel """Select from and use a wider range of tools and equipment to perform practical
   tasks [for example, cutting, shaping, joining and finishing], accurately."""@en ;
-  skos:broader nat:substrand-make ;
-  skos:narrower nat:subcontentdescriptor-select-wider-range-tools-equipment ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:substrand-make ;
+  skos:narrower natcurric:subcontentdescriptor-select-wider-range-tools-equipment ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-05T14:20:00Z"^^xsd:dateTime .
 
-nat:contentdescriptor-select-wider-range-materials-components
-  a skos:Concept, natcurric:ContentDescriptor ;
+natcurric:contentdescriptor-select-wider-range-materials-components
+  a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel """Select from and use a wider range of materials and components, including
   construction materials, textiles and ingredients, according to their functional properties
   and aesthetic qualities."""@en ;
-  skos:broader nat:substrand-make ;
-  skos:narrower nat:subcontentdescriptor-select-wider-range-materials-components ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:substrand-make ;
+  skos:narrower natcurric:subcontentdescriptor-select-wider-range-materials-components ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-05T14:20:00Z"^^xsd:dateTime .
 
-nat:contentdescriptor-investigate-analyse-range-existing-products
-  a skos:Concept, natcurric:ContentDescriptor ;
+natcurric:contentdescriptor-investigate-analyse-range-existing-products
+  a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel "Investigate and analyse a range of existing products."@en ;
-  skos:broader nat:substrand-evaluate ;
-  skos:narrower nat:subcontentdescriptor-investigate-analyse-range-existing-products ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:substrand-evaluate ;
+  skos:narrower natcurric:subcontentdescriptor-investigate-analyse-range-existing-products ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-05T14:20:00Z"^^xsd:dateTime .
 
-nat:contentdescriptor-evaluate-ideas-products-own-design
-  a skos:Concept, natcurric:ContentDescriptor ;
+natcurric:contentdescriptor-evaluate-ideas-products-own-design
+  a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel """Evaluate their ideas and products against their own design criteria and 
   consider the views of others to improve their work."""@en ;
-  skos:broader nat:substrand-evaluate ;
-  skos:narrower nat:subcontentdescriptor-evaluate-ideas-products-own-design ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:substrand-evaluate ;
+  skos:narrower natcurric:subcontentdescriptor-evaluate-ideas-products-own-design ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-05T14:20:00Z"^^xsd:dateTime .
 
-nat:contentdescriptor-key-events-individuals-design-technology
-  a skos:Concept, natcurric:ContentDescriptor ;
+natcurric:contentdescriptor-key-events-individuals-design-technology
+  a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel """Understand how key events and individuals in design and technology have helped
   shape the world."""@en ;
-  skos:broader nat:substrand-evaluate ;
-  skos:narrower nat:subcontentdescriptor-key-events-individuals-design-technology ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:substrand-evaluate ;
+  skos:narrower natcurric:subcontentdescriptor-key-events-individuals-design-technology ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-05T14:20:00Z"^^xsd:dateTime .
 
-nat:contentdescriptor-apply-strengthen-stiffen-reinforce-complex
-  a skos:Concept, natcurric:ContentDescriptor ;
+natcurric:contentdescriptor-apply-strengthen-stiffen-reinforce-complex
+  a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel """Apply their understanding of how to strengthen, stiffen and reinforce more
   complex structures."""@en ;
-  skos:broader nat:substrand-technical-knowledge ;
-  skos:narrower nat:subcontentdescriptor-apply-strengthen-stiffen-reinforce-complex ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:substrand-technical-knowledge ;
+  skos:narrower natcurric:subcontentdescriptor-apply-strengthen-stiffen-reinforce-complex ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-05T14:20:00Z"^^xsd:dateTime .
 
-nat:contentdescriptor-mechanical-systems-products-example-gears
-  a skos:Concept, natcurric:ContentDescriptor ;
+natcurric:contentdescriptor-mechanical-systems-products-example-gears
+  a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel """Understand and use mechanical systems in their products [for example, gears,
   pulleys, cams, levers and linkages]."""@en ;
-  skos:broader nat:substrand-technical-knowledge ;
-  skos:narrower nat:subcontentdescriptor-mechanical-systems-products-example-gears ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:substrand-technical-knowledge ;
+  skos:narrower natcurric:subcontentdescriptor-mechanical-systems-products-example-gears ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-05T14:20:00Z"^^xsd:dateTime .
 
-nat:contentdescriptor-electrical-systems-products-example-series
-  a skos:Concept, natcurric:ContentDescriptor ;
+natcurric:contentdescriptor-electrical-systems-products-example-series
+  a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel """Understand and use electrical systems in their products [for example, series
   circuits incorporating switches, bulbs, buzzers and motors]."""@en ;
-  skos:broader nat:substrand-technical-knowledge ;
-  skos:narrower nat:subcontentdescriptor-electrical-systems-products-example-series ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:substrand-technical-knowledge ;
+  skos:narrower natcurric:subcontentdescriptor-electrical-systems-products-example-series ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-05T14:20:00Z"^^xsd:dateTime .
 
-nat:contentdescriptor-apply-computing-program-monitor-control
-  a skos:Concept, natcurric:ContentDescriptor ;
+natcurric:contentdescriptor-apply-computing-program-monitor-control
+  a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel """Apply their understanding of computing to program, monitor and control their
   products."""@en ;
-  skos:broader nat:substrand-technical-knowledge ;
-  skos:narrower nat:subcontentdescriptor-apply-computing-program-monitor-control ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:substrand-technical-knowledge ;
+  skos:narrower natcurric:subcontentdescriptor-apply-computing-program-monitor-control ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-05T14:20:00Z"^^xsd:dateTime .
 
-nat:contentdescriptor-apply-principles-healthy-varied-diet
-  a skos:Concept, natcurric:ContentDescriptor ;
+natcurric:contentdescriptor-apply-principles-healthy-varied-diet
+  a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel "Understand and apply the principles of a healthy and varied diet."@en ;
-  skos:broader nat:substrand-food-and-nutrition ;
-  skos:narrower nat:subcontentdescriptor-apply-principles-healthy-varied-diet ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:substrand-food-and-nutrition ;
+  skos:narrower natcurric:subcontentdescriptor-apply-principles-healthy-varied-diet ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-05T14:20:00Z"^^xsd:dateTime .
 
-nat:contentdescriptor-prepare-cook-variety-savoury-dishes
-  a skos:Concept, natcurric:ContentDescriptor ;
+natcurric:contentdescriptor-prepare-cook-variety-savoury-dishes
+  a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel """Prepare and cook a variety of predominantly savoury dishes using a range of
   cooking techniques."""@en ;
-  skos:broader nat:substrand-food-and-nutrition ;
-  skos:narrower nat:subcontentdescriptor-prepare-cook-variety-savoury-dishes ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:substrand-food-and-nutrition ;
+  skos:narrower natcurric:subcontentdescriptor-prepare-cook-variety-savoury-dishes ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-05T14:20:00Z"^^xsd:dateTime .
 
-nat:contentdescriptor-seasonality-variety-ingredients-grown-reared
-  a skos:Concept, natcurric:ContentDescriptor ;
+natcurric:contentdescriptor-seasonality-variety-ingredients-grown-reared
+  a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel """Understand seasonality, and know where and how a variety of ingredients are
   grown, reared, caught and processed."""@en ;
-  skos:broader nat:substrand-food-and-nutrition ;
-  skos:narrower nat:subcontentdescriptor-seasonality-variety-ingredients-grown-reared ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:substrand-food-and-nutrition ;
+  skos:narrower natcurric:subcontentdescriptor-seasonality-variety-ingredients-grown-reared ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-05T14:20:00Z"^^xsd:dateTime .
 
-nat:contentdescriptor-research-exploration-such-study-different
-  a skos:Concept, natcurric:ContentDescriptor ;
+natcurric:contentdescriptor-research-exploration-such-study-different
+  a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel """Use research and exploration, such as the study of different cultures, to
   identify and understand user needs."""@en ;
-  skos:broader nat:substrand-design ;
-  skos:narrower nat:subcontentdescriptor-research-exploration-such-study-different ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:substrand-design ;
+  skos:narrower natcurric:subcontentdescriptor-research-exploration-such-study-different ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-05T14:20:00Z"^^xsd:dateTime .
 
-nat:contentdescriptor-identify-solve-own-design-problems
-  a skos:Concept, natcurric:ContentDescriptor ;
+natcurric:contentdescriptor-identify-solve-own-design-problems
+  a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel """Identify and solve their own design problems and understand how to reformulate
   problems given to them."""@en ;
-  skos:broader nat:substrand-design ;
-  skos:narrower nat:subcontentdescriptor-identify-solve-own-design-problems ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:substrand-design ;
+  skos:narrower natcurric:subcontentdescriptor-identify-solve-own-design-problems ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-05T14:20:00Z"^^xsd:dateTime .
 
-nat:contentdescriptor-specifications-inform-design-innovative-functional
-  a skos:Concept, natcurric:ContentDescriptor ;
+natcurric:contentdescriptor-specifications-inform-design-innovative-functional
+  a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel """Develop specifications to inform the design of innovative, functional, 
   appealing products that respond to needs in a variety of situations."""@en ;
-  skos:broader nat:substrand-design ;
-  skos:narrower nat:subcontentdescriptor-specifications-inform-design-innovative-functional ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:substrand-design ;
+  skos:narrower natcurric:subcontentdescriptor-specifications-inform-design-innovative-functional ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-05T14:20:00Z"^^xsd:dateTime .
 
-nat:contentdescriptor-variety-approaches-example-biomimicry-user
-  a skos:Concept, natcurric:ContentDescriptor ;
+natcurric:contentdescriptor-variety-approaches-example-biomimicry-user
+  a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel """Use a variety of approaches [for example, biomimicry and user-centred design],
   to generate creative ideas and avoid stereotypical responses."""@en ;
-  skos:broader nat:substrand-design ;
-  skos:narrower nat:subcontentdescriptor-variety-approaches-example-biomimicry-user ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:substrand-design ;
+  skos:narrower natcurric:subcontentdescriptor-variety-approaches-example-biomimicry-user ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-05T14:20:00Z"^^xsd:dateTime .
 
-nat:contentdescriptor-communicate-design-ideas-annotated-sketches
-  a skos:Concept, natcurric:ContentDescriptor ;
+natcurric:contentdescriptor-communicate-design-ideas-annotated-sketches
+  a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel """Develop and communicate design ideas using annotated sketches, detailed plans,
   3-D and mathematical modelling, oral and digital presentations and computer-based tools."""@en ;
-  skos:broader nat:substrand-design ;
-  skos:narrower nat:subcontentdescriptor-communicate-design-ideas-annotated-sketches ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:substrand-design ;
+  skos:narrower natcurric:subcontentdescriptor-communicate-design-ideas-annotated-sketches ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-05T14:20:00Z"^^xsd:dateTime .
 
-nat:contentdescriptor-select-specialist-tools-techniques-processes
-  a skos:Concept, natcurric:ContentDescriptor ;
+natcurric:contentdescriptor-select-specialist-tools-techniques-processes
+  a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel """Select from and use specialist tools, techniques, processes, equipment and
   machinery precisely, including computer-aided manufacture."""@en ;
-  skos:broader nat:substrand-make ;
-  skos:narrower nat:subcontentdescriptor-select-specialist-tools-techniques-processes ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:substrand-make ;
+  skos:narrower natcurric:subcontentdescriptor-select-specialist-tools-techniques-processes ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-05T14:20:00Z"^^xsd:dateTime .
 
-nat:contentdescriptor-select-wider-complex-range-materials
-  a skos:Concept, natcurric:ContentDescriptor ;
+natcurric:contentdescriptor-select-wider-complex-range-materials
+  a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel """Select from and use a wider, more complex range of materials, components and
   ingredients, taking into account their properties."""@en ;
-  skos:broader nat:substrand-make ;
-  skos:narrower nat:subcontentdescriptor-select-wider-complex-range-materials ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:substrand-make ;
+  skos:narrower natcurric:subcontentdescriptor-select-wider-complex-range-materials ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-05T14:20:00Z"^^xsd:dateTime .
 
-nat:contentdescriptor-analyse-past-present-professionals-others
-  a skos:Concept, natcurric:ContentDescriptor ;
+natcurric:contentdescriptor-analyse-past-present-professionals-others
+  a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel """Analyse the work of past and present professionals and others to develop and
   broaden their understanding."""@en ;
-  skos:broader nat:substrand-evaluate ;
-  skos:narrower nat:subcontentdescriptor-analyse-past-present-professionals-others ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:substrand-evaluate ;
+  skos:narrower natcurric:subcontentdescriptor-analyse-past-present-professionals-others ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-05T14:20:00Z"^^xsd:dateTime .
 
-nat:contentdescriptor-investigate-new-and-emerging-technologies
-  a skos:Concept, natcurric:ContentDescriptor ;
+natcurric:contentdescriptor-investigate-new-and-emerging-technologies
+  a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel "Investigate new and emerging technologies."@en ;
-  skos:broader nat:substrand-evaluate ;
-  skos:narrower nat:subcontentdescriptor-investigate-new-and-emerging-technologies ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:substrand-evaluate ;
+  skos:narrower natcurric:subcontentdescriptor-investigate-new-and-emerging-technologies ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-05T14:20:00Z"^^xsd:dateTime .
 
-nat:contentdescriptor-test-evaluate-refine-ideas-products
-  a skos:Concept, natcurric:ContentDescriptor ;
+natcurric:contentdescriptor-test-evaluate-refine-ideas-products
+  a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel """Test, evaluate and refine their ideas and products against a specification,
   taking into account the views of intended users and other interested groups."""@en ;
-  skos:broader nat:substrand-evaluate ;
-  skos:narrower nat:subcontentdescriptor-test-evaluate-refine-ideas-products ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:substrand-evaluate ;
+  skos:narrower natcurric:subcontentdescriptor-test-evaluate-refine-ideas-products ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-05T14:20:00Z"^^xsd:dateTime .
 
-nat:contentdescriptor-developments-design-technology-impact-individuals
-  a skos:Concept, natcurric:ContentDescriptor ;
+natcurric:contentdescriptor-developments-design-technology-impact-individuals
+  a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel """Understand developments in design and technology, its impact on individuals,
   society and the environment, and the responsibilities of designers, engineers and
   technologists."""@en ;
-  skos:broader nat:substrand-evaluate ;
-  skos:narrower nat:subcontentdescriptor-developments-design-technology-impact-individuals ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:substrand-evaluate ;
+  skos:narrower natcurric:subcontentdescriptor-developments-design-technology-impact-individuals ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-05T14:20:00Z"^^xsd:dateTime .
 
-nat:contentdescriptor-properties-materials-performance-structural-elements
-  a skos:Concept, natcurric:ContentDescriptor ;
+natcurric:contentdescriptor-properties-materials-performance-structural-elements
+  a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel """Understand and use the properties of materials and the performance of 
   structural elements to achieve functioning solutions."""@en ;
-  skos:broader nat:substrand-technical-knowledge ;
-  skos:narrower nat:subcontentdescriptor-properties-materials-performance-structural-elements ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:substrand-technical-knowledge ;
+  skos:narrower natcurric:subcontentdescriptor-properties-materials-performance-structural-elements ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-05T14:20:00Z"^^xsd:dateTime .
 
-nat:contentdescriptor-advanced-mechanical-systems-used-products
-  a skos:Concept, natcurric:ContentDescriptor ;
+natcurric:contentdescriptor-advanced-mechanical-systems-used-products
+  a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel """Understand how more advanced mechanical systems used in their products enable
   changes in movement and force."""@en ;
-  skos:broader nat:substrand-technical-knowledge ;
-  skos:narrower nat:subcontentdescriptor-advanced-mechanical-systems-used-products ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:substrand-technical-knowledge ;
+  skos:narrower natcurric:subcontentdescriptor-advanced-mechanical-systems-used-products ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-05T14:20:00Z"^^xsd:dateTime .
 
-nat:contentdescriptor-advanced-electrical-electronic-systems-powered
-  a skos:Concept, natcurric:ContentDescriptor ;
+natcurric:contentdescriptor-advanced-electrical-electronic-systems-powered
+  a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel """Understand how more advanced electrical and electronic systems can be powered
   and used in their products [for example, circuits with heat, light, sound and movement as
   inputs and outputs]."""@en ;
-  skos:broader nat:substrand-technical-knowledge ;
-  skos:narrower nat:subcontentdescriptor-advanced-electrical-electronic-systems-powered ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:substrand-technical-knowledge ;
+  skos:narrower natcurric:subcontentdescriptor-advanced-electrical-electronic-systems-powered ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-05T14:20:00Z"^^xsd:dateTime .
 
-nat:contentdescriptor-apply-computing-electronics-embed-intelligence
-  a skos:Concept, natcurric:ContentDescriptor ;
+natcurric:contentdescriptor-apply-computing-electronics-embed-intelligence
+  a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel """Apply computing and use electronics to embed intelligence in products that
   respond to inputs [for example, sensors], and control outputs [for example, actuators],
   using programmable components [for example, microcontrollers]."""@en ;
-  skos:broader nat:substrand-technical-knowledge ;
-  skos:narrower nat:subcontentdescriptor-apply-computing-electronics-embed-intelligence ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:substrand-technical-knowledge ;
+  skos:narrower natcurric:subcontentdescriptor-apply-computing-electronics-embed-intelligence ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-05T14:20:00Z"^^xsd:dateTime .
 
-nat:contentdescriptor-apply-principles-nutrition-health
-  a skos:Concept, natcurric:ContentDescriptor ;
+natcurric:contentdescriptor-apply-principles-nutrition-health
+  a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel "Understand and apply the principles of nutrition and health."@en ;
-  skos:broader nat:substrand-food-and-nutrition ;
-  skos:narrower nat:subcontentdescriptor-apply-principles-nutrition-health ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:substrand-food-and-nutrition ;
+  skos:narrower natcurric:subcontentdescriptor-apply-principles-nutrition-health ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-05T14:20:00Z"^^xsd:dateTime .
 
-nat:contentdescriptor-cook-repertoire-savoury-dishes-able
-  a skos:Concept, natcurric:ContentDescriptor ;
+natcurric:contentdescriptor-cook-repertoire-savoury-dishes-able
+  a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel """Cook a repertoire of predominantly savoury dishes so that they are able to feed
   themselves and others a healthy and varied diet."""@en ;
-  skos:broader nat:substrand-food-and-nutrition ;
-  skos:narrower nat:subcontentdescriptor-cook-repertoire-savoury-dishes-able ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:substrand-food-and-nutrition ;
+  skos:narrower natcurric:subcontentdescriptor-cook-repertoire-savoury-dishes-able ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-05T14:20:00Z"^^xsd:dateTime .
 
-nat:contentdescriptor-become-competent-range-cooking-techniques
-  a skos:Concept, natcurric:ContentDescriptor ;
+natcurric:contentdescriptor-become-competent-range-cooking-techniques
+  a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel """Become competent in a range of cooking techniques [for example, selecting and
   preparing ingredients; using utensils and electrical equipment; applying heat in different
   ways; using awareness of taste, texture and smell to decide how to season dishes and
   combine ingredients; adapting and using their own recipes]."""@en ;
-  skos:broader nat:substrand-food-and-nutrition ;
-  skos:narrower nat:subcontentdescriptor-become-competent-range-cooking-techniques ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:substrand-food-and-nutrition ;
+  skos:narrower natcurric:subcontentdescriptor-become-competent-range-cooking-techniques ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-05T14:20:00Z"^^xsd:dateTime .
 
-nat:contentdescriptor-source-seasonality-characteristics-broad-range
-  a skos:Concept, natcurric:ContentDescriptor ;
+natcurric:contentdescriptor-source-seasonality-characteristics-broad-range
+  a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel """Understand the source, seasonality and characteristics of a broad range of
   ingredients."""@en ;
-  skos:broader nat:substrand-food-and-nutrition ;
-  skos:narrower nat:subcontentdescriptor-source-seasonality-characteristics-broad-range ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:substrand-food-and-nutrition ;
+  skos:narrower natcurric:subcontentdescriptor-source-seasonality-characteristics-broad-range ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-05T14:20:00Z"^^xsd:dateTime .
 
 # ----------------------------------------------------------------------
 # Sub-Content Descriptors
 # ----------------------------------------------------------------------
 
-nat:subcontentdescriptor-design-purposeful-functional-appealing-products
-  a skos:Concept, natcurric:SubContentDescriptor ;
+natcurric:subcontentdescriptor-design-purposeful-functional-appealing-products
+  a skos:Concept, curric:SubContentDescriptor ;
   skos:prefLabel """Design purposeful, functional, appealing products for themselves and other 
   users based on design criteria."""@en ;
-  skos:broader nat:contentdescriptor-design-purposeful-functional-appealing-products ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:contentdescriptor-design-purposeful-functional-appealing-products ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-05T14:20:00Z"^^xsd:dateTime .
 
-nat:subcontentdescriptor-generate-model-communicate-ideas-talking
-  a skos:Concept, natcurric:SubContentDescriptor ;
+natcurric:subcontentdescriptor-generate-model-communicate-ideas-talking
+  a skos:Concept, curric:SubContentDescriptor ;
   skos:prefLabel """Generate, develop, model and communicate their ideas through talking, drawing,
   templates, mock-ups and, where appropriate, information and communication technology."""@en ;
-  skos:broader nat:contentdescriptor-generate-model-communicate-ideas-talking ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:contentdescriptor-generate-model-communicate-ideas-talking ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-05T14:20:00Z"^^xsd:dateTime .
 
-nat:subcontentdescriptor-select-range-tools-equipment-perform
-  a skos:Concept, natcurric:SubContentDescriptor ;
+natcurric:subcontentdescriptor-select-range-tools-equipment-perform
+  a skos:Concept, curric:SubContentDescriptor ;
   skos:prefLabel """Select from and use a range of tools and equipment to perform practical tasks
   [for example, cutting, shaping, joining and finishing]."""@en ;
-  skos:broader nat:contentdescriptor-select-range-tools-equipment-perform ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:contentdescriptor-select-range-tools-equipment-perform ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-05T14:20:00Z"^^xsd:dateTime .
 
-nat:subcontentdescriptor-select-wide-range-materials-components
-  a skos:Concept, natcurric:SubContentDescriptor ;
+natcurric:subcontentdescriptor-select-wide-range-materials-components
+  a skos:Concept, curric:SubContentDescriptor ;
   skos:prefLabel """Select from and use a wide range of materials and components, including
   construction materials, textiles and ingredients, according to their characteristics."""@en ;
-  skos:broader nat:contentdescriptor-select-wide-range-materials-components ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:contentdescriptor-select-wide-range-materials-components ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-05T14:20:00Z"^^xsd:dateTime .
 
-nat:subcontentdescriptor-evaluate-range-existing-products
-  a skos:Concept, natcurric:SubContentDescriptor ;
+natcurric:subcontentdescriptor-evaluate-range-existing-products
+  a skos:Concept, curric:SubContentDescriptor ;
   skos:prefLabel "Explore and evaluate a range of existing products."@en ;
-  skos:broader nat:contentdescriptor-evaluate-range-existing-products ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:contentdescriptor-evaluate-range-existing-products ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-05T14:20:00Z"^^xsd:dateTime .
 
-nat:subcontentdescriptor-evaluate-ideas-products-design-criteria
-  a skos:Concept, natcurric:SubContentDescriptor ;
+natcurric:subcontentdescriptor-evaluate-ideas-products-design-criteria
+  a skos:Concept, curric:SubContentDescriptor ;
   skos:prefLabel "Evaluate their ideas and products against design criteria."@en ;
-  skos:broader nat:contentdescriptor-evaluate-ideas-products-design-criteria ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:contentdescriptor-evaluate-ideas-products-design-criteria ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-05T14:20:00Z"^^xsd:dateTime .
 
-nat:subcontentdescriptor-build-structures-made-stronger-stiffer
-  a skos:Concept, natcurric:SubContentDescriptor ;
+natcurric:subcontentdescriptor-build-structures-made-stronger-stiffer
+  a skos:Concept, curric:SubContentDescriptor ;
   skos:prefLabel """Build structures, exploring how they can be made stronger, stiffer and more
   stable."""@en ;
-  skos:broader nat:contentdescriptor-build-structures-made-stronger-stiffer ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:contentdescriptor-build-structures-made-stronger-stiffer ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-05T14:20:00Z"^^xsd:dateTime .
 
-nat:subcontentdescriptor-mechanisms-example-levers-sliders-wheels
-  a skos:Concept, natcurric:SubContentDescriptor ;
+natcurric:subcontentdescriptor-mechanisms-example-levers-sliders-wheels
+  a skos:Concept, curric:SubContentDescriptor ;
   skos:prefLabel """Explore and use mechanisms [for example, levers, sliders, wheels and axles], in
   their products."""@en ;
-  skos:broader nat:contentdescriptor-mechanisms-example-levers-sliders-wheels ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:contentdescriptor-mechanisms-example-levers-sliders-wheels ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-05T14:20:00Z"^^xsd:dateTime .
 
-nat:subcontentdescriptor-basic-principles-healthy-varied-diet
-  a skos:Concept, natcurric:SubContentDescriptor ;
+natcurric:subcontentdescriptor-basic-principles-healthy-varied-diet
+  a skos:Concept, curric:SubContentDescriptor ;
   skos:prefLabel "Use the basic principles of a healthy and varied diet to prepare dishes."@en ;
-  skos:broader nat:contentdescriptor-basic-principles-healthy-varied-diet ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:contentdescriptor-basic-principles-healthy-varied-diet ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-05T14:20:00Z"^^xsd:dateTime .
 
-nat:subcontentdescriptor-understand-where-food-comes-from
-  a skos:Concept, natcurric:SubContentDescriptor ;
+natcurric:subcontentdescriptor-understand-where-food-comes-from
+  a skos:Concept, curric:SubContentDescriptor ;
   skos:prefLabel "Understand where food comes from."@en ;
-  skos:broader nat:contentdescriptor-understand-where-food-comes-from ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:contentdescriptor-understand-where-food-comes-from ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-05T14:20:00Z"^^xsd:dateTime .
 
-nat:subcontentdescriptor-research-design-criteria-inform-design
-  a skos:Concept, natcurric:SubContentDescriptor ;
+natcurric:subcontentdescriptor-research-design-criteria-inform-design
+  a skos:Concept, curric:SubContentDescriptor ;
   skos:prefLabel """Use research and develop design criteria to inform the design of innovative,
   functional, appealing products that are fit for purpose, aimed at particular individuals
   or groups."""@en ;
-  skos:broader nat:contentdescriptor-research-design-criteria-inform-design ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:contentdescriptor-research-design-criteria-inform-design ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-05T14:20:00Z"^^xsd:dateTime .
 
-nat:subcontentdescriptor-generate-model-communicate-ideas-discussion
-  a skos:Concept, natcurric:SubContentDescriptor ;
+natcurric:subcontentdescriptor-generate-model-communicate-ideas-discussion
+  a skos:Concept, curric:SubContentDescriptor ;
   skos:prefLabel """Generate, develop, model and communicate their ideas through discussion,
   annotated sketches, cross-sectional and exploded diagrams, prototypes, pattern pieces and
   computer-aided design."""@en ;
-  skos:broader nat:contentdescriptor-generate-model-communicate-ideas-discussion ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:contentdescriptor-generate-model-communicate-ideas-discussion ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-05T14:20:00Z"^^xsd:dateTime .
 
-nat:subcontentdescriptor-select-wider-range-tools-equipment
-  a skos:Concept, natcurric:SubContentDescriptor ;
+natcurric:subcontentdescriptor-select-wider-range-tools-equipment
+  a skos:Concept, curric:SubContentDescriptor ;
   skos:prefLabel """Select from and use a wider range of tools and equipment to perform practical
   tasks [for example, cutting, shaping, joining and finishing], accurately."""@en ;
-  skos:broader nat:contentdescriptor-select-wider-range-tools-equipment ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:contentdescriptor-select-wider-range-tools-equipment ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-05T14:20:00Z"^^xsd:dateTime .
 
-nat:subcontentdescriptor-select-wider-range-materials-components
-  a skos:Concept, natcurric:SubContentDescriptor ;
+natcurric:subcontentdescriptor-select-wider-range-materials-components
+  a skos:Concept, curric:SubContentDescriptor ;
   skos:prefLabel """Select from and use a wider range of materials and components, including
   construction materials, textiles and ingredients, according to their functional properties
   and aesthetic qualities."""@en ;
-  skos:broader nat:contentdescriptor-select-wider-range-materials-components ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:contentdescriptor-select-wider-range-materials-components ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-05T14:20:00Z"^^xsd:dateTime .
 
-nat:subcontentdescriptor-investigate-analyse-range-existing-products
-  a skos:Concept, natcurric:SubContentDescriptor ;
+natcurric:subcontentdescriptor-investigate-analyse-range-existing-products
+  a skos:Concept, curric:SubContentDescriptor ;
   skos:prefLabel "Investigate and analyse a range of existing products."@en ;
-  skos:broader nat:contentdescriptor-investigate-analyse-range-existing-products ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:contentdescriptor-investigate-analyse-range-existing-products ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-05T14:20:00Z"^^xsd:dateTime .
 
-nat:subcontentdescriptor-evaluate-ideas-products-own-design
-  a skos:Concept, natcurric:SubContentDescriptor ;
+natcurric:subcontentdescriptor-evaluate-ideas-products-own-design
+  a skos:Concept, curric:SubContentDescriptor ;
   skos:prefLabel """Evaluate their ideas and products against their own design criteria and 
   consider the views of others to improve their work."""@en ;
-  skos:broader nat:contentdescriptor-evaluate-ideas-products-own-design ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:contentdescriptor-evaluate-ideas-products-own-design ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-05T14:20:00Z"^^xsd:dateTime .
 
-nat:subcontentdescriptor-key-events-individuals-design-technology
-  a skos:Concept, natcurric:SubContentDescriptor ;
+natcurric:subcontentdescriptor-key-events-individuals-design-technology
+  a skos:Concept, curric:SubContentDescriptor ;
   skos:prefLabel """Understand how key events and individuals in design and technology have helped
   shape the world."""@en ;
-  skos:broader nat:contentdescriptor-key-events-individuals-design-technology ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:contentdescriptor-key-events-individuals-design-technology ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-05T14:20:00Z"^^xsd:dateTime .
 
-nat:subcontentdescriptor-apply-strengthen-stiffen-reinforce-complex
-  a skos:Concept, natcurric:SubContentDescriptor ;
+natcurric:subcontentdescriptor-apply-strengthen-stiffen-reinforce-complex
+  a skos:Concept, curric:SubContentDescriptor ;
   skos:prefLabel """Apply their understanding of how to strengthen, stiffen and reinforce more
   complex structures."""@en ;
-  skos:broader nat:contentdescriptor-apply-strengthen-stiffen-reinforce-complex ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:contentdescriptor-apply-strengthen-stiffen-reinforce-complex ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-05T14:20:00Z"^^xsd:dateTime .
 
-nat:subcontentdescriptor-mechanical-systems-products-example-gears
-  a skos:Concept, natcurric:SubContentDescriptor ;
+natcurric:subcontentdescriptor-mechanical-systems-products-example-gears
+  a skos:Concept, curric:SubContentDescriptor ;
   skos:prefLabel """Understand and use mechanical systems in their products [for example, gears,
   pulleys, cams, levers and linkages]."""@en ;
-  skos:broader nat:contentdescriptor-mechanical-systems-products-example-gears ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:contentdescriptor-mechanical-systems-products-example-gears ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-05T14:20:00Z"^^xsd:dateTime .
 
-nat:subcontentdescriptor-electrical-systems-products-example-series
-  a skos:Concept, natcurric:SubContentDescriptor ;
+natcurric:subcontentdescriptor-electrical-systems-products-example-series
+  a skos:Concept, curric:SubContentDescriptor ;
   skos:prefLabel """Understand and use electrical systems in their products [for example, series
   circuits incorporating switches, bulbs, buzzers and motors]."""@en ;
-  skos:broader nat:contentdescriptor-electrical-systems-products-example-series ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:contentdescriptor-electrical-systems-products-example-series ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-05T14:20:00Z"^^xsd:dateTime .
 
-nat:subcontentdescriptor-apply-computing-program-monitor-control
-  a skos:Concept, natcurric:SubContentDescriptor ;
+natcurric:subcontentdescriptor-apply-computing-program-monitor-control
+  a skos:Concept, curric:SubContentDescriptor ;
   skos:prefLabel """Apply their understanding of computing to program, monitor and control their
   products."""@en ;
-  skos:broader nat:contentdescriptor-apply-computing-program-monitor-control ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:contentdescriptor-apply-computing-program-monitor-control ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-05T14:20:00Z"^^xsd:dateTime .
 
-nat:subcontentdescriptor-apply-principles-healthy-varied-diet
-  a skos:Concept, natcurric:SubContentDescriptor ;
+natcurric:subcontentdescriptor-apply-principles-healthy-varied-diet
+  a skos:Concept, curric:SubContentDescriptor ;
   skos:prefLabel "Understand and apply the principles of a healthy and varied diet."@en ;
-  skos:broader nat:contentdescriptor-apply-principles-healthy-varied-diet ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:contentdescriptor-apply-principles-healthy-varied-diet ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-05T14:20:00Z"^^xsd:dateTime .
 
-nat:subcontentdescriptor-prepare-cook-variety-savoury-dishes
-  a skos:Concept, natcurric:SubContentDescriptor ;
+natcurric:subcontentdescriptor-prepare-cook-variety-savoury-dishes
+  a skos:Concept, curric:SubContentDescriptor ;
   skos:prefLabel """Prepare and cook a variety of predominantly savoury dishes using a range of
   cooking techniques."""@en ;
-  skos:broader nat:contentdescriptor-prepare-cook-variety-savoury-dishes ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:contentdescriptor-prepare-cook-variety-savoury-dishes ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-05T14:20:00Z"^^xsd:dateTime .
 
-nat:subcontentdescriptor-seasonality-variety-ingredients-grown-reared
-  a skos:Concept, natcurric:SubContentDescriptor ;
+natcurric:subcontentdescriptor-seasonality-variety-ingredients-grown-reared
+  a skos:Concept, curric:SubContentDescriptor ;
   skos:prefLabel """Understand seasonality, and know where and how a variety of ingredients are
   grown, reared, caught and processed."""@en ;
-  skos:broader nat:contentdescriptor-seasonality-variety-ingredients-grown-reared ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:contentdescriptor-seasonality-variety-ingredients-grown-reared ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-05T14:20:00Z"^^xsd:dateTime .
 
-nat:subcontentdescriptor-research-exploration-such-study-different
-  a skos:Concept, natcurric:SubContentDescriptor ;
+natcurric:subcontentdescriptor-research-exploration-such-study-different
+  a skos:Concept, curric:SubContentDescriptor ;
   skos:prefLabel """Use research and exploration, such as the study of different cultures, to
   identify and understand user needs."""@en ;
-  skos:broader nat:contentdescriptor-research-exploration-such-study-different ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:contentdescriptor-research-exploration-such-study-different ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-05T14:20:00Z"^^xsd:dateTime .
 
-nat:subcontentdescriptor-identify-solve-own-design-problems
-  a skos:Concept, natcurric:SubContentDescriptor ;
+natcurric:subcontentdescriptor-identify-solve-own-design-problems
+  a skos:Concept, curric:SubContentDescriptor ;
   skos:prefLabel """Identify and solve their own design problems and understand how to reformulate
   problems given to them."""@en ;
-  skos:broader nat:contentdescriptor-identify-solve-own-design-problems ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:contentdescriptor-identify-solve-own-design-problems ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-05T14:20:00Z"^^xsd:dateTime .
 
-nat:subcontentdescriptor-specifications-inform-design-innovative-functional
-  a skos:Concept, natcurric:SubContentDescriptor ;
+natcurric:subcontentdescriptor-specifications-inform-design-innovative-functional
+  a skos:Concept, curric:SubContentDescriptor ;
   skos:prefLabel """Develop specifications to inform the design of innovative, functional, 
   appealing products that respond to needs in a variety of situations."""@en ;
-  skos:broader nat:contentdescriptor-specifications-inform-design-innovative-functional ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:contentdescriptor-specifications-inform-design-innovative-functional ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-05T14:20:00Z"^^xsd:dateTime .
 
-nat:subcontentdescriptor-variety-approaches-example-biomimicry-user
-  a skos:Concept, natcurric:SubContentDescriptor ;
+natcurric:subcontentdescriptor-variety-approaches-example-biomimicry-user
+  a skos:Concept, curric:SubContentDescriptor ;
   skos:prefLabel """Use a variety of approaches [for example, biomimicry and user-centred design],
   to generate creative ideas and avoid stereotypical responses."""@en ;
-  skos:broader nat:contentdescriptor-variety-approaches-example-biomimicry-user ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:contentdescriptor-variety-approaches-example-biomimicry-user ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-05T14:20:00Z"^^xsd:dateTime .
 
-nat:subcontentdescriptor-communicate-design-ideas-annotated-sketches
-  a skos:Concept, natcurric:SubContentDescriptor ;
+natcurric:subcontentdescriptor-communicate-design-ideas-annotated-sketches
+  a skos:Concept, curric:SubContentDescriptor ;
   skos:prefLabel """Develop and communicate design ideas using annotated sketches, detailed plans,
   3-D and mathematical modelling, oral and digital presentations and computer-based tools."""@en ;
-  skos:broader nat:contentdescriptor-communicate-design-ideas-annotated-sketches ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:contentdescriptor-communicate-design-ideas-annotated-sketches ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-05T14:20:00Z"^^xsd:dateTime .
 
-nat:subcontentdescriptor-select-specialist-tools-techniques-processes
-  a skos:Concept, natcurric:SubContentDescriptor ;
+natcurric:subcontentdescriptor-select-specialist-tools-techniques-processes
+  a skos:Concept, curric:SubContentDescriptor ;
   skos:prefLabel """Select from and use specialist tools, techniques, processes, equipment and
   machinery precisely, including computer-aided manufacture."""@en ;
-  skos:broader nat:contentdescriptor-select-specialist-tools-techniques-processes ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:contentdescriptor-select-specialist-tools-techniques-processes ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-05T14:20:00Z"^^xsd:dateTime .
 
-nat:subcontentdescriptor-select-wider-complex-range-materials
-  a skos:Concept, natcurric:SubContentDescriptor ;
+natcurric:subcontentdescriptor-select-wider-complex-range-materials
+  a skos:Concept, curric:SubContentDescriptor ;
   skos:prefLabel """Select from and use a wider, more complex range of materials, components and
   ingredients, taking into account their properties."""@en ;
-  skos:broader nat:contentdescriptor-select-wider-complex-range-materials ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:contentdescriptor-select-wider-complex-range-materials ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-05T14:20:00Z"^^xsd:dateTime .
 
-nat:subcontentdescriptor-analyse-past-present-professionals-others
-  a skos:Concept, natcurric:SubContentDescriptor ;
+natcurric:subcontentdescriptor-analyse-past-present-professionals-others
+  a skos:Concept, curric:SubContentDescriptor ;
   skos:prefLabel """Analyse the work of past and present professionals and others to develop and
   broaden their understanding."""@en ;
-  skos:broader nat:contentdescriptor-analyse-past-present-professionals-others ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:contentdescriptor-analyse-past-present-professionals-others ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-05T14:20:00Z"^^xsd:dateTime .
 
-nat:subcontentdescriptor-investigate-new-and-emerging-technologies
-  a skos:Concept, natcurric:SubContentDescriptor ;
+natcurric:subcontentdescriptor-investigate-new-and-emerging-technologies
+  a skos:Concept, curric:SubContentDescriptor ;
   skos:prefLabel "Investigate new and emerging technologies."@en ;
-  skos:broader nat:contentdescriptor-investigate-new-and-emerging-technologies ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:contentdescriptor-investigate-new-and-emerging-technologies ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-05T14:20:00Z"^^xsd:dateTime .
 
-nat:subcontentdescriptor-test-evaluate-refine-ideas-products
-  a skos:Concept, natcurric:SubContentDescriptor ;
+natcurric:subcontentdescriptor-test-evaluate-refine-ideas-products
+  a skos:Concept, curric:SubContentDescriptor ;
   skos:prefLabel """Test, evaluate and refine their ideas and products against a specification,
   taking into account the views of intended users and other interested groups."""@en ;
-  skos:broader nat:contentdescriptor-test-evaluate-refine-ideas-products ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:contentdescriptor-test-evaluate-refine-ideas-products ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-05T14:20:00Z"^^xsd:dateTime .
 
-nat:subcontentdescriptor-developments-design-technology-impact-individuals
-  a skos:Concept, natcurric:SubContentDescriptor ;
+natcurric:subcontentdescriptor-developments-design-technology-impact-individuals
+  a skos:Concept, curric:SubContentDescriptor ;
   skos:prefLabel """Understand developments in design and technology, its impact on individuals,
   society and the environment, and the responsibilities of designers, engineers and
   technologists."""@en ;
-  skos:broader nat:contentdescriptor-developments-design-technology-impact-individuals ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:contentdescriptor-developments-design-technology-impact-individuals ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-05T14:20:00Z"^^xsd:dateTime .
 
-nat:subcontentdescriptor-properties-materials-performance-structural-elements
-  a skos:Concept, natcurric:SubContentDescriptor ;
+natcurric:subcontentdescriptor-properties-materials-performance-structural-elements
+  a skos:Concept, curric:SubContentDescriptor ;
   skos:prefLabel """Understand and use the properties of materials and the performance of 
   structural elements to achieve functioning solutions."""@en ;
-  skos:broader nat:contentdescriptor-properties-materials-performance-structural-elements ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:contentdescriptor-properties-materials-performance-structural-elements ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-05T14:20:00Z"^^xsd:dateTime .
 
-nat:subcontentdescriptor-advanced-mechanical-systems-used-products
-  a skos:Concept, natcurric:SubContentDescriptor ;
+natcurric:subcontentdescriptor-advanced-mechanical-systems-used-products
+  a skos:Concept, curric:SubContentDescriptor ;
   skos:prefLabel """Understand how more advanced mechanical systems used in their products enable
   changes in movement and force."""@en ;
-  skos:broader nat:contentdescriptor-advanced-mechanical-systems-used-products ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:contentdescriptor-advanced-mechanical-systems-used-products ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-05T14:20:00Z"^^xsd:dateTime .
 
-nat:subcontentdescriptor-advanced-electrical-electronic-systems-powered
-  a skos:Concept, natcurric:SubContentDescriptor ;
+natcurric:subcontentdescriptor-advanced-electrical-electronic-systems-powered
+  a skos:Concept, curric:SubContentDescriptor ;
   skos:prefLabel """Understand how more advanced electrical and electronic systems can be powered
   and used in their products [for example, circuits with heat, light, sound and movement as
   inputs and outputs]."""@en ;
-  skos:broader nat:contentdescriptor-advanced-electrical-electronic-systems-powered ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:contentdescriptor-advanced-electrical-electronic-systems-powered ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-05T14:20:00Z"^^xsd:dateTime .
 
-nat:subcontentdescriptor-apply-computing-electronics-embed-intelligence
-  a skos:Concept, natcurric:SubContentDescriptor ;
+natcurric:subcontentdescriptor-apply-computing-electronics-embed-intelligence
+  a skos:Concept, curric:SubContentDescriptor ;
   skos:prefLabel """Apply computing and use electronics to embed intelligence in products that
   respond to inputs [for example, sensors], and control outputs [for example, actuators],
   using programmable components [for example, microcontrollers]."""@en ;
-  skos:broader nat:contentdescriptor-apply-computing-electronics-embed-intelligence ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:contentdescriptor-apply-computing-electronics-embed-intelligence ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-05T14:20:00Z"^^xsd:dateTime .
 
-nat:subcontentdescriptor-apply-principles-nutrition-health
-  a skos:Concept, natcurric:SubContentDescriptor ;
+natcurric:subcontentdescriptor-apply-principles-nutrition-health
+  a skos:Concept, curric:SubContentDescriptor ;
   skos:prefLabel "Understand and apply the principles of nutrition and health."@en ;
-  skos:broader nat:contentdescriptor-apply-principles-nutrition-health ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:contentdescriptor-apply-principles-nutrition-health ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-05T14:20:00Z"^^xsd:dateTime .
 
-nat:subcontentdescriptor-cook-repertoire-savoury-dishes-able
-  a skos:Concept, natcurric:SubContentDescriptor ;
+natcurric:subcontentdescriptor-cook-repertoire-savoury-dishes-able
+  a skos:Concept, curric:SubContentDescriptor ;
   skos:prefLabel """Cook a repertoire of predominantly savoury dishes so that they are able to feed
   themselves and others a healthy and varied diet."""@en ;
-  skos:broader nat:contentdescriptor-cook-repertoire-savoury-dishes-able ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:contentdescriptor-cook-repertoire-savoury-dishes-able ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-05T14:20:00Z"^^xsd:dateTime .
 
-nat:subcontentdescriptor-become-competent-range-cooking-techniques
-  a skos:Concept, natcurric:SubContentDescriptor ;
+natcurric:subcontentdescriptor-become-competent-range-cooking-techniques
+  a skos:Concept, curric:SubContentDescriptor ;
   skos:prefLabel """Become competent in a range of cooking techniques [for example, selecting and
   preparing ingredients; using utensils and electrical equipment; applying heat in different
   ways; using awareness of taste, texture and smell to decide how to season dishes and
   combine ingredients; adapting and using their own recipes]."""@en ;
-  skos:broader nat:contentdescriptor-become-competent-range-cooking-techniques ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:contentdescriptor-become-competent-range-cooking-techniques ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-05T14:20:00Z"^^xsd:dateTime .
 
-nat:subcontentdescriptor-source-seasonality-characteristics-broad-range
-  a skos:Concept, natcurric:SubContentDescriptor ;
+natcurric:subcontentdescriptor-source-seasonality-characteristics-broad-range
+  a skos:Concept, curric:SubContentDescriptor ;
   skos:prefLabel """Understand the source, seasonality and characteristics of a broad range of
   ingredients."""@en ;
-  skos:broader nat:contentdescriptor-source-seasonality-characteristics-broad-range ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:contentdescriptor-source-seasonality-characteristics-broad-range ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-05T14:20:00Z"^^xsd:dateTime .

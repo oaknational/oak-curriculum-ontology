@@ -1,5 +1,5 @@
-@prefix natcurric: <https://w3id.org/uk/curriculum/nat-ontology/> .
-@prefix nat: <https://w3id.org/uk/curriculum/nat-data-2014/> .
+@prefix curric: <https://w3id.org/uk/oak/curriculum/ontology/> .
+@prefix natcurric: <https://w3id.org/uk/oak/curriculum/nationalcurriculum/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
@@ -17,7 +17,7 @@
 # Ontology Declaration
 # ----------------------------------------------------------------------
 
-<https://w3id.org/uk/curriculum/nat-data-2014/history-knowledge-taxonomy>
+<https://w3id.org/uk/oak/curriculum/nationalcurriculum/history-knowledge-taxonomy>
   rdf:type owl:Ontology ;
 
   rdfs:label "National Curriculum for England - History Knowledge Taxonomy"@en ;
@@ -26,7 +26,7 @@
   strands through to sub-content descriptors."""@en ;
 
   owl:versionInfo "0.1.0" ;
-  owl:versionIRI <https://w3id.org/uk/curriculum/nat-data-2014/history-knowledge-taxonomy/0.1.0> ;
+  owl:versionIRI <https://w3id.org/uk/oak/curriculum/nationalcurriculum/history-knowledge-taxonomy/0.1.0> ;
 
   dcterms:description """This file defines the History knowledge taxonomy for the National
   Curriculum in England, organising content through strands, sub-strands, content
@@ -40,405 +40,405 @@
   dcterms:license <http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/> ;
   dcterms:rights "Crown Copyright"@en ;
 
-  rdfs:seeAlso <https://w3id.org/uk/curriculum/nat-ontology> ;
+  rdfs:seeAlso <https://w3id.org/uk/oak/curriculum/ontology> ;
 
-  vann:preferredNamespacePrefix "nat" ;
-  vann:preferredNamespaceUri "https://w3id.org/uk/curriculum/nat-data-2014/" ;
+  vann:preferredNamespacePrefix "natcurric" ;
+  vann:preferredNamespaceUri "https://w3id.org/uk/oak/curriculum/nationalcurriculum/" ;
 
-  owl:imports <https://w3id.org/uk/curriculum/nat-ontology> ;
-  owl:imports <https://w3id.org/uk/curriculum/nat-data-2014/history-programme-structure> .
+  owl:imports <https://w3id.org/uk/oak/curriculum/ontology> ;
+  owl:imports <https://w3id.org/uk/oak/curriculum/nationalcurriculum/history-programme-structure> .
 
 # ----------------------------------------------------------------------
 # Knowledge Taxonomy
 # ----------------------------------------------------------------------
 
-nat:knowledge-taxonomy
+natcurric:knowledge-taxonomy
   a skos:ConceptScheme ;
   skos:prefLabel "National Curriculum for England Knowledge Taxonomy"@en ;
-  skos:hasTopConcept nat:discipline-history ;
+  skos:hasTopConcept natcurric:discipline-history ;
   dcterms:modified "2026-05-05T17:04:19Z"^^xsd:dateTime .
 
 # ----------------------------------------------------------------------
 # Disciplines
 # ----------------------------------------------------------------------
 
-nat:discipline-history
-  a skos:Concept, natcurric:Discipline ;
+natcurric:discipline-history
+  a skos:Concept, curric:Discipline ;
   skos:prefLabel "History"@en ;
-  skos:topConceptOf nat:knowledge-taxonomy ;
-  skos:narrower nat:strand-history ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:topConceptOf natcurric:knowledge-taxonomy ;
+  skos:narrower natcurric:strand-history ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-05T17:04:19Z"^^xsd:dateTime .
 
 # ----------------------------------------------------------------------
 # Strands
 # ----------------------------------------------------------------------
 
-nat:strand-history
-  a skos:Concept, natcurric:Strand ;
+natcurric:strand-history
+  a skos:Concept, curric:Strand ;
   skos:prefLabel "History"@en ;
   skos:definition "Description of strand..."@en ;
-  skos:broader nat:discipline-history ;
-  skos:narrower nat:substrand-history ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:discipline-history ;
+  skos:narrower natcurric:substrand-history ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-05T17:04:19Z"^^xsd:dateTime .
 
 # ----------------------------------------------------------------------
 # Sub-Strands
 # ----------------------------------------------------------------------
 
-nat:substrand-history
-  a skos:Concept, natcurric:SubStrand ;
+natcurric:substrand-history
+  a skos:Concept, curric:SubStrand ;
   skos:prefLabel "History"@en ;
-  skos:broader nat:strand-history ;
+  skos:broader natcurric:strand-history ;
   skos:narrower
-    nat:contentdescriptor-changes-living-memory-appropriate-used ,
-    nat:contentdescriptor-events-living-memory-significant-example ,
-    nat:contentdescriptor-lives-significant-individuals-past-contributed ,
-    nat:contentdescriptor-significant-historical-events-people-places ,
-    nat:contentdescriptor-changes-britain-stone-age-iron ,
-    nat:contentdescriptor-roman-empire-impact-britain ,
-    nat:contentdescriptor-britain-settlement-anglo-saxons-scots ,
-    nat:contentdescriptor-viking-anglo-saxon-struggle-kingdom ,
-    nat:contentdescriptor-a-local-history-study ,
-    nat:contentdescriptor-aspect-theme-british-beyond-1066 , 
-    nat:contentdescriptor-achievements-earliest-civilizations-overview-first ,
-    nat:contentdescriptor-ancient-greece-study-greek-life ,
-    nat:contentdescriptor-non-european-society-provides-contrasts ,
-    nat:contentdescriptor-development-church-state-society-medieval ,
-    nat:contentdescriptor-development-church-state-society-britain ,
-    nat:contentdescriptor-ideas-political-power-industry-empire ,
-    nat:contentdescriptor-challenges-britain-europe-wider-world ,
-    nat:contentdescriptor-aspect-theme-british-before-1066 ,
-    nat:contentdescriptor-one-study-significant-society-issue ;
-  skos:inScheme nat:knowledge-taxonomy ;
+    natcurric:contentdescriptor-changes-living-memory-appropriate-used ,
+    natcurric:contentdescriptor-events-living-memory-significant-example ,
+    natcurric:contentdescriptor-lives-significant-individuals-past-contributed ,
+    natcurric:contentdescriptor-significant-historical-events-people-places ,
+    natcurric:contentdescriptor-changes-britain-stone-age-iron ,
+    natcurric:contentdescriptor-roman-empire-impact-britain ,
+    natcurric:contentdescriptor-britain-settlement-anglo-saxons-scots ,
+    natcurric:contentdescriptor-viking-anglo-saxon-struggle-kingdom ,
+    natcurric:contentdescriptor-a-local-history-study ,
+    natcurric:contentdescriptor-aspect-theme-british-beyond-1066 , 
+    natcurric:contentdescriptor-achievements-earliest-civilizations-overview-first ,
+    natcurric:contentdescriptor-ancient-greece-study-greek-life ,
+    natcurric:contentdescriptor-non-european-society-provides-contrasts ,
+    natcurric:contentdescriptor-development-church-state-society-medieval ,
+    natcurric:contentdescriptor-development-church-state-society-britain ,
+    natcurric:contentdescriptor-ideas-political-power-industry-empire ,
+    natcurric:contentdescriptor-challenges-britain-europe-wider-world ,
+    natcurric:contentdescriptor-aspect-theme-british-before-1066 ,
+    natcurric:contentdescriptor-one-study-significant-society-issue ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-05T17:04:19Z"^^xsd:dateTime .
 
 # ----------------------------------------------------------------------
 # Content Descriptors
 # ----------------------------------------------------------------------
 
-nat:contentdescriptor-changes-living-memory-appropriate-used
-  a skos:Concept, natcurric:ContentDescriptor ;
+natcurric:contentdescriptor-changes-living-memory-appropriate-used
+  a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel """Changes within living memory. Where appropriate, these should be used to reveal
   aspects of change in national life."""@en ;
-  skos:broader nat:substrand-history ;
-  skos:narrower nat:subcontentdescriptor-changes-living-memory-appropriate-used ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:substrand-history ;
+  skos:narrower natcurric:subcontentdescriptor-changes-living-memory-appropriate-used ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-05T17:04:19Z"^^xsd:dateTime .
 
-nat:contentdescriptor-events-living-memory-significant-example
-  a skos:Concept, natcurric:ContentDescriptor ;
+natcurric:contentdescriptor-events-living-memory-significant-example
+  a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel """Events beyond living memory that are significant nationally or globally [for
   example, the Great Fire of London, the first aeroplane flight or events commemorated
   through festivals or anniversaries]."""@en ;
-  skos:broader nat:substrand-history ;
-  skos:narrower nat:subcontentdescriptor-events-living-memory-significant-example ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:substrand-history ;
+  skos:narrower natcurric:subcontentdescriptor-events-living-memory-significant-example ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-05T17:04:19Z"^^xsd:dateTime .
 
-nat:contentdescriptor-lives-significant-individuals-past-contributed
-  a skos:Concept, natcurric:ContentDescriptor ;
+natcurric:contentdescriptor-lives-significant-individuals-past-contributed
+  a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel """The lives of significant individuals in the past who have contributed to
   national and international achievements. Some should be used to compare aspects of life in
   different periods [for example, Elizabeth I and Queen Victoria, Christopher Columbus and
   Neil Armstrong, William Caxton and Tim Berners-Lee, Pieter Bruegel the Elder and LS Lowry,
   Rosa Parks and Emily Davison, Mary Seacole and/or Florence Nightingale and Edith Cavell]."""@en ;
-  skos:broader nat:substrand-history ;
-  skos:narrower nat:subcontentdescriptor-lives-significant-individuals-past-contributed ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:substrand-history ;
+  skos:narrower natcurric:subcontentdescriptor-lives-significant-individuals-past-contributed ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-05T17:04:19Z"^^xsd:dateTime .
 
-nat:contentdescriptor-significant-historical-events-people-places
-  a skos:Concept, natcurric:ContentDescriptor ;
+natcurric:contentdescriptor-significant-historical-events-people-places
+  a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel "Significant historical events, people and places in their own locality."@en ;
-  skos:broader nat:substrand-history ;
-  skos:narrower nat:subcontentdescriptor-significant-historical-events-people-places ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:substrand-history ;
+  skos:narrower natcurric:subcontentdescriptor-significant-historical-events-people-places ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-05T17:04:19Z"^^xsd:dateTime .
 
-nat:contentdescriptor-changes-britain-stone-age-iron
-  a skos:Concept, natcurric:ContentDescriptor ;
+natcurric:contentdescriptor-changes-britain-stone-age-iron
+  a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel "Changes in Britain from the Stone Age to the Iron Age."@en ;
-  skos:broader nat:substrand-history ;
-  skos:narrower nat:subcontentdescriptor-changes-britain-stone-age-iron ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:substrand-history ;
+  skos:narrower natcurric:subcontentdescriptor-changes-britain-stone-age-iron ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-05T17:04:19Z"^^xsd:dateTime .
 
-nat:contentdescriptor-roman-empire-impact-britain
-  a skos:Concept, natcurric:ContentDescriptor ;
+natcurric:contentdescriptor-roman-empire-impact-britain
+  a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel "The Roman Empire and its impact on Britain."@en ;
-  skos:broader nat:substrand-history ;
-  skos:narrower nat:subcontentdescriptor-roman-empire-impact-britain ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:substrand-history ;
+  skos:narrower natcurric:subcontentdescriptor-roman-empire-impact-britain ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-05T17:04:19Z"^^xsd:dateTime .
 
-nat:contentdescriptor-britain-settlement-anglo-saxons-scots
-  a skos:Concept, natcurric:ContentDescriptor ;
+natcurric:contentdescriptor-britain-settlement-anglo-saxons-scots
+  a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel "Britain’s settlement by Anglo-Saxons and Scots."@en ;
-  skos:broader nat:substrand-history ;
-  skos:narrower nat:subcontentdescriptor-britain-settlement-anglo-saxons-scots ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:substrand-history ;
+  skos:narrower natcurric:subcontentdescriptor-britain-settlement-anglo-saxons-scots ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-05T17:04:19Z"^^xsd:dateTime .
 
-nat:contentdescriptor-viking-anglo-saxon-struggle-kingdom
-  a skos:Concept, natcurric:ContentDescriptor ;
+natcurric:contentdescriptor-viking-anglo-saxon-struggle-kingdom
+  a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel """The Viking and Anglo-Saxon struggle for the Kingdom of England to the time of
   Edward the Confessor."""@en ;
-  skos:broader nat:substrand-history ;
-  skos:narrower nat:subcontentdescriptor-viking-anglo-saxon-struggle-kingdom ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:substrand-history ;
+  skos:narrower natcurric:subcontentdescriptor-viking-anglo-saxon-struggle-kingdom ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-05T17:04:19Z"^^xsd:dateTime .
 
-nat:contentdescriptor-development-church-state-society-medieval
-  a skos:Concept, natcurric:ContentDescriptor ;
+natcurric:contentdescriptor-development-church-state-society-medieval
+  a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel "The development of Church, state and society in Medieval Britain 1066-1509."@en ;
-  skos:broader nat:substrand-history ;
-  skos:narrower nat:subcontentdescriptor-development-church-state-society-medieval ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:substrand-history ;
+  skos:narrower natcurric:subcontentdescriptor-development-church-state-society-medieval ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-05T17:04:19Z"^^xsd:dateTime .
 
-nat:contentdescriptor-development-church-state-society-britain
-  a skos:Concept, natcurric:ContentDescriptor ;
+natcurric:contentdescriptor-development-church-state-society-britain
+  a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel "The development of Church, state and society in Britain 1509-1745."@en ;
-  skos:broader nat:substrand-history ;
-  skos:narrower nat:subcontentdescriptor-development-church-state-society-britain ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:substrand-history ;
+  skos:narrower natcurric:subcontentdescriptor-development-church-state-society-britain ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-05T17:04:19Z"^^xsd:dateTime .
 
-nat:contentdescriptor-ideas-political-power-industry-empire
-  a skos:Concept, natcurric:ContentDescriptor ;
+natcurric:contentdescriptor-ideas-political-power-industry-empire
+  a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel "Ideas, political power, industry and empire: Britain, 1745-1901."@en ;
-  skos:broader nat:substrand-history ;
-  skos:narrower nat:subcontentdescriptor-ideas-political-power-industry-empire ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:substrand-history ;
+  skos:narrower natcurric:subcontentdescriptor-ideas-political-power-industry-empire ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-05T17:04:19Z"^^xsd:dateTime .
 
-nat:contentdescriptor-challenges-britain-europe-wider-world
-  a skos:Concept, natcurric:ContentDescriptor ;
+natcurric:contentdescriptor-challenges-britain-europe-wider-world
+  a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel "Challenges for Britain, Europe and the wider world 1901 to the present day."@en ;
-  skos:broader nat:substrand-history ;
-  skos:narrower nat:subcontentdescriptor-challenges-britain-europe-wider-world ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:substrand-history ;
+  skos:narrower natcurric:subcontentdescriptor-challenges-britain-europe-wider-world ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-05T17:04:19Z"^^xsd:dateTime .
 
-nat:contentdescriptor-a-local-history-study
-  a skos:Concept, natcurric:ContentDescriptor ;
+natcurric:contentdescriptor-a-local-history-study
+  a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel "A local history study."@en ;
-  skos:broader nat:substrand-history ;
-  skos:narrower nat:subcontentdescriptor-a-local-history-study ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:substrand-history ;
+  skos:narrower natcurric:subcontentdescriptor-a-local-history-study ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-05T17:04:19Z"^^xsd:dateTime .
 
-nat:contentdescriptor-aspect-theme-british-beyond-1066
-  a skos:Concept, natcurric:ContentDescriptor ;
+natcurric:contentdescriptor-aspect-theme-british-beyond-1066
+  a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel """A study of an aspect or theme in British history that extends pupils’
   chronological knowledge beyond 1066."""@en ;
-  skos:broader nat:substrand-history ;
-  skos:narrower nat:subcontentdescriptor-aspect-theme-british-beyond-1066 ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:substrand-history ;
+  skos:narrower natcurric:subcontentdescriptor-aspect-theme-british-beyond-1066 ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-05T17:04:19Z"^^xsd:dateTime .
 
-nat:contentdescriptor-achievements-earliest-civilizations-overview-first
-  a skos:Concept, natcurric:ContentDescriptor ;
+natcurric:contentdescriptor-achievements-earliest-civilizations-overview-first
+  a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel """The achievements of the earliest civilizations – an overview of where and when
   the first civilizations appeared and a depth study of one of the following: Ancient Sumer;
   The Indus Valley; Ancient Egypt; The Shang Dynasty of Ancient China."""@en ;
-  skos:broader nat:substrand-history ;
-  skos:narrower nat:subcontentdescriptor-achievements-earliest-civilizations-overview-first ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:substrand-history ;
+  skos:narrower natcurric:subcontentdescriptor-achievements-earliest-civilizations-overview-first ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-05T17:04:19Z"^^xsd:dateTime .
 
-nat:contentdescriptor-ancient-greece-study-greek-life
-  a skos:Concept, natcurric:ContentDescriptor ;
+natcurric:contentdescriptor-ancient-greece-study-greek-life
+  a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel """Ancient Greece – a study of Greek life and achievements and their influence on
   the western world."""@en ;
-  skos:broader nat:substrand-history ;
-  skos:narrower nat:subcontentdescriptor-ancient-greece-study-greek-life ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:substrand-history ;
+  skos:narrower natcurric:subcontentdescriptor-ancient-greece-study-greek-life ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-05T17:04:19Z"^^xsd:dateTime .
 
-nat:contentdescriptor-non-european-society-provides-contrasts
-  a skos:Concept, natcurric:ContentDescriptor ;
+natcurric:contentdescriptor-non-european-society-provides-contrasts
+  a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel """A non-European society that provides contrasts with British history – one study
   chosen from: early Islamic civilization, including a study of Baghdad c. AD 900; Mayan
   civilization c. AD 900; Benin (West Africa) c. AD 900-1300."""@en ;
-  skos:broader nat:substrand-history ;
-  skos:narrower nat:subcontentdescriptor-non-european-society-provides-contrasts ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:substrand-history ;
+  skos:narrower natcurric:subcontentdescriptor-non-european-society-provides-contrasts ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-05T17:04:19Z"^^xsd:dateTime .
 
-nat:contentdescriptor-aspect-theme-british-before-1066
-  a skos:Concept, natcurric:ContentDescriptor ;
+natcurric:contentdescriptor-aspect-theme-british-before-1066
+  a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel """The study of an aspect or theme in British history that consolidates and extends
   pupils’ chronological knowledge from before 1066."""@en ;
-  skos:broader nat:substrand-history ;
-  skos:narrower nat:subcontentdescriptor-aspect-theme-british-before-1066 ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:substrand-history ;
+  skos:narrower natcurric:subcontentdescriptor-aspect-theme-british-before-1066 ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-05T17:04:19Z"^^xsd:dateTime .
 
-nat:contentdescriptor-one-study-significant-society-issue
-  a skos:Concept, natcurric:ContentDescriptor ;
+natcurric:contentdescriptor-one-study-significant-society-issue
+  a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel """At least one study of a significant society or issue in world history and its
   interconnections with other world developments [for example, Mughal India 1526-1857;
   China’s Qing dynasty 1644-1911; Changing Russian empires c.1800-1989; USA in the 20th
   Century]."""@en ;
-  skos:broader nat:substrand-history ;
-  skos:narrower nat:subcontentdescriptor-one-study-significant-society-issue ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:substrand-history ;
+  skos:narrower natcurric:subcontentdescriptor-one-study-significant-society-issue ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-05T17:04:19Z"^^xsd:dateTime .
 
 # ----------------------------------------------------------------------
 # Sub-Content Descriptors
 # ----------------------------------------------------------------------
 
-nat:subcontentdescriptor-changes-living-memory-appropriate-used
-  a skos:Concept, natcurric:SubContentDescriptor ;
+natcurric:subcontentdescriptor-changes-living-memory-appropriate-used
+  a skos:Concept, curric:SubContentDescriptor ;
   skos:prefLabel """Changes within living memory. Where appropriate, these should be used to reveal
   aspects of change in national life."""@en ;
-  skos:broader nat:contentdescriptor-changes-living-memory-appropriate-used ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:contentdescriptor-changes-living-memory-appropriate-used ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-05T17:04:19Z"^^xsd:dateTime .
 
-nat:subcontentdescriptor-events-living-memory-significant-example
-  a skos:Concept, natcurric:SubContentDescriptor ;
+natcurric:subcontentdescriptor-events-living-memory-significant-example
+  a skos:Concept, curric:SubContentDescriptor ;
   skos:prefLabel """Events beyond living memory that are significant nationally or globally [for
   example, the Great Fire of London, the first aeroplane flight or events commemorated
   through festivals or anniversaries]."""@en ;
-  skos:broader nat:contentdescriptor-events-living-memory-significant-example ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:contentdescriptor-events-living-memory-significant-example ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-05T17:04:19Z"^^xsd:dateTime .
 
-nat:subcontentdescriptor-lives-significant-individuals-past-contributed
-  a skos:Concept, natcurric:SubContentDescriptor ;
+natcurric:subcontentdescriptor-lives-significant-individuals-past-contributed
+  a skos:Concept, curric:SubContentDescriptor ;
   skos:prefLabel """The lives of significant individuals in the past who have contributed to
   national and international achievements. Some should be used to compare aspects of life in
   different periods [for example, Elizabeth I and Queen Victoria, Christopher Columbus and
   Neil Armstrong, William Caxton and Tim Berners-Lee, Pieter Bruegel the Elder and LS Lowry,
   Rosa Parks and Emily Davison, Mary Seacole and/or Florence Nightingale and Edith Cavell]."""@en ;
-  skos:broader nat:contentdescriptor-lives-significant-individuals-past-contributed ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:contentdescriptor-lives-significant-individuals-past-contributed ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-05T17:04:19Z"^^xsd:dateTime .
 
-nat:subcontentdescriptor-significant-historical-events-people-places
-  a skos:Concept, natcurric:SubContentDescriptor ;
+natcurric:subcontentdescriptor-significant-historical-events-people-places
+  a skos:Concept, curric:SubContentDescriptor ;
   skos:prefLabel "Significant historical events, people and places in their own locality."@en ;
-  skos:broader nat:contentdescriptor-significant-historical-events-people-places ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:contentdescriptor-significant-historical-events-people-places ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-05T17:04:19Z"^^xsd:dateTime .
 
-nat:subcontentdescriptor-changes-britain-stone-age-iron
-  a skos:Concept, natcurric:SubContentDescriptor ;
+natcurric:subcontentdescriptor-changes-britain-stone-age-iron
+  a skos:Concept, curric:SubContentDescriptor ;
   skos:prefLabel "Changes in Britain from the Stone Age to the Iron Age."@en ;
-  skos:broader nat:contentdescriptor-changes-britain-stone-age-iron ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:contentdescriptor-changes-britain-stone-age-iron ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-05T17:04:19Z"^^xsd:dateTime .
 
-nat:subcontentdescriptor-roman-empire-impact-britain
-  a skos:Concept, natcurric:SubContentDescriptor ;
+natcurric:subcontentdescriptor-roman-empire-impact-britain
+  a skos:Concept, curric:SubContentDescriptor ;
   skos:prefLabel "The Roman Empire and its impact on Britain."@en ;
-  skos:broader nat:contentdescriptor-roman-empire-impact-britain ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:contentdescriptor-roman-empire-impact-britain ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-05T17:04:19Z"^^xsd:dateTime .
 
-nat:subcontentdescriptor-britain-settlement-anglo-saxons-scots
-  a skos:Concept, natcurric:SubContentDescriptor ;
+natcurric:subcontentdescriptor-britain-settlement-anglo-saxons-scots
+  a skos:Concept, curric:SubContentDescriptor ;
   skos:prefLabel "Britain’s settlement by Anglo-Saxons and Scots."@en ;
-  skos:broader nat:contentdescriptor-britain-settlement-anglo-saxons-scots ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:contentdescriptor-britain-settlement-anglo-saxons-scots ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-05T17:04:19Z"^^xsd:dateTime .
 
-nat:subcontentdescriptor-viking-anglo-saxon-struggle-kingdom
-  a skos:Concept, natcurric:SubContentDescriptor ;
+natcurric:subcontentdescriptor-viking-anglo-saxon-struggle-kingdom
+  a skos:Concept, curric:SubContentDescriptor ;
   skos:prefLabel """The Viking and Anglo-Saxon struggle for the Kingdom of England to the time of
   Edward the Confessor."""@en ;
-  skos:broader nat:contentdescriptor-viking-anglo-saxon-struggle-kingdom ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:contentdescriptor-viking-anglo-saxon-struggle-kingdom ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-05T17:04:19Z"^^xsd:dateTime .
 
-nat:subcontentdescriptor-a-local-history-study
-  a skos:Concept, natcurric:SubContentDescriptor ;
+natcurric:subcontentdescriptor-a-local-history-study
+  a skos:Concept, curric:SubContentDescriptor ;
   skos:prefLabel "A local history study."@en ;
-  skos:broader nat:contentdescriptor-a-local-history-study ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:contentdescriptor-a-local-history-study ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-05T17:04:19Z"^^xsd:dateTime .
 
-nat:subcontentdescriptor-aspect-theme-british-beyond-1066
-  a skos:Concept, natcurric:SubContentDescriptor ;
+natcurric:subcontentdescriptor-aspect-theme-british-beyond-1066
+  a skos:Concept, curric:SubContentDescriptor ;
   skos:prefLabel """A study of an aspect or theme in British history that extends pupils’
   chronological knowledge beyond 1066."""@en ;
-  skos:broader nat:contentdescriptor-aspect-theme-british-beyond-1066 ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:contentdescriptor-aspect-theme-british-beyond-1066 ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-05T17:04:19Z"^^xsd:dateTime .
 
-nat:subcontentdescriptor-achievements-earliest-civilizations-overview-first
-  a skos:Concept, natcurric:SubContentDescriptor ;
+natcurric:subcontentdescriptor-achievements-earliest-civilizations-overview-first
+  a skos:Concept, curric:SubContentDescriptor ;
   skos:prefLabel """The achievements of the earliest civilizations – an overview of where and when
   the first civilizations appeared and a depth study of one of the following: Ancient Sumer;
   The Indus Valley; Ancient Egypt; The Shang Dynasty of Ancient China."""@en ;
-  skos:broader nat:contentdescriptor-achievements-earliest-civilizations-overview-first ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:contentdescriptor-achievements-earliest-civilizations-overview-first ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-05T17:04:19Z"^^xsd:dateTime .
 
-nat:subcontentdescriptor-ancient-greece-study-greek-life
-  a skos:Concept, natcurric:SubContentDescriptor ;
+natcurric:subcontentdescriptor-ancient-greece-study-greek-life
+  a skos:Concept, curric:SubContentDescriptor ;
   skos:prefLabel """Ancient Greece – a study of Greek life and achievements and their influence on
   the western world."""@en ;
-  skos:broader nat:contentdescriptor-ancient-greece-study-greek-life ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:contentdescriptor-ancient-greece-study-greek-life ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-05T17:04:19Z"^^xsd:dateTime .
 
-nat:subcontentdescriptor-non-european-society-provides-contrasts
-  a skos:Concept, natcurric:SubContentDescriptor ;
+natcurric:subcontentdescriptor-non-european-society-provides-contrasts
+  a skos:Concept, curric:SubContentDescriptor ;
   skos:prefLabel """A non-European society that provides contrasts with British history – one study
   chosen from: early Islamic civilization, including a study of Baghdad c. AD 900; Mayan
   civilization c. AD 900; Benin (West Africa) c. AD 900-1300."""@en ;
-  skos:broader nat:contentdescriptor-non-european-society-provides-contrasts ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:contentdescriptor-non-european-society-provides-contrasts ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-05T17:04:19Z"^^xsd:dateTime .
 
-nat:subcontentdescriptor-development-church-state-society-medieval
-  a skos:Concept, natcurric:SubContentDescriptor ;
+natcurric:subcontentdescriptor-development-church-state-society-medieval
+  a skos:Concept, curric:SubContentDescriptor ;
   skos:prefLabel "The development of Church, state and society in Medieval Britain 1066-1509."@en ;
-  skos:broader nat:contentdescriptor-development-church-state-society-medieval ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:contentdescriptor-development-church-state-society-medieval ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-05T17:04:19Z"^^xsd:dateTime .
 
-nat:subcontentdescriptor-development-church-state-society-britain
-  a skos:Concept, natcurric:SubContentDescriptor ;
+natcurric:subcontentdescriptor-development-church-state-society-britain
+  a skos:Concept, curric:SubContentDescriptor ;
   skos:prefLabel "The development of Church, state and society in Britain 1509-1745."@en ;
-  skos:broader nat:contentdescriptor-development-church-state-society-britain ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:contentdescriptor-development-church-state-society-britain ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-05T17:04:19Z"^^xsd:dateTime .
 
-nat:subcontentdescriptor-ideas-political-power-industry-empire
-  a skos:Concept, natcurric:SubContentDescriptor ;
+natcurric:subcontentdescriptor-ideas-political-power-industry-empire
+  a skos:Concept, curric:SubContentDescriptor ;
   skos:prefLabel "Ideas, political power, industry and empire: Britain, 1745-1901."@en ;
-  skos:broader nat:contentdescriptor-ideas-political-power-industry-empire ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:contentdescriptor-ideas-political-power-industry-empire ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-05T17:04:19Z"^^xsd:dateTime .
 
-nat:subcontentdescriptor-challenges-britain-europe-wider-world
-  a skos:Concept, natcurric:SubContentDescriptor ;
+natcurric:subcontentdescriptor-challenges-britain-europe-wider-world
+  a skos:Concept, curric:SubContentDescriptor ;
   skos:prefLabel "Challenges for Britain, Europe and the wider world 1901 to the present day."@en ;
-  skos:broader nat:contentdescriptor-challenges-britain-europe-wider-world ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:contentdescriptor-challenges-britain-europe-wider-world ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-05T17:04:19Z"^^xsd:dateTime .
 
-nat:subcontentdescriptor-aspect-theme-british-before-1066
-  a skos:Concept, natcurric:SubContentDescriptor ;
+natcurric:subcontentdescriptor-aspect-theme-british-before-1066
+  a skos:Concept, curric:SubContentDescriptor ;
   skos:prefLabel """The study of an aspect or theme in British history that consolidates and extends
   pupils’ chronological knowledge from before 1066."""@en ;
-  skos:broader nat:contentdescriptor-aspect-theme-british-before-1066 ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:contentdescriptor-aspect-theme-british-before-1066 ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-05T17:04:19Z"^^xsd:dateTime .
 
-nat:subcontentdescriptor-one-study-significant-society-issue
-  a skos:Concept, natcurric:SubContentDescriptor ;
+natcurric:subcontentdescriptor-one-study-significant-society-issue
+  a skos:Concept, curric:SubContentDescriptor ;
   skos:prefLabel """At least one study of a significant society or issue in world history and its
   interconnections with other world developments [for example, Mughal India 1526-1857;
   China’s Qing dynasty 1644-1911; Changing Russian empires c.1800-1989; USA in the 20th
   Century]."""@en ;
-  skos:broader nat:contentdescriptor-one-study-significant-society-issue ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:contentdescriptor-one-study-significant-society-issue ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-05T17:04:19Z"^^xsd:dateTime .

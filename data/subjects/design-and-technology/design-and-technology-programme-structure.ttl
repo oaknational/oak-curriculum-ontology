@@ -1,5 +1,5 @@
-@prefix natcurric: <https://w3id.org/uk/curriculum/nat-ontology/> .
-@prefix nat: <https://w3id.org/uk/curriculum/nat-data-2014/> .
+@prefix curric: <https://w3id.org/uk/oak/curriculum/ontology/> .
+@prefix natcurric: <https://w3id.org/uk/oak/curriculum/nationalcurriculum/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
@@ -17,7 +17,7 @@
 # Ontology Declaration
 # ----------------------------------------------------------------------
 
-<https://w3id.org/uk/curriculum/nat-data-2014/design-and-technology-programme-structure>
+<https://w3id.org/uk/oak/curriculum/nationalcurriculum/design-and-technology-programme-structure>
   rdf:type owl:Ontology ;
 
   rdfs:label "National Curriculum for England - Design and technology Programme Structure"@en ;
@@ -27,7 +27,7 @@
   taxonomy."""@en ;
 
   owl:versionInfo "0.1.0" ;
-  owl:versionIRI <https://w3id.org/uk/curriculum/nat-data-2014/design-and-technology-programme-structure/0.1.0> ;
+  owl:versionIRI <https://w3id.org/uk/oak/curriculum/nationalcurriculum/design-and-technology-programme-structure/0.1.0> ;
 
   dcterms:description """Design and technology programme structure that specifies schemes and
   progressions, and a mapping to strands, sub-strands and content descriptors within the
@@ -41,33 +41,33 @@
   dcterms:license <http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/> ;
   dcterms:rights "Crown Copyright"@en ;
 
-  rdfs:seeAlso <https://w3id.org/uk/curriculum/nat-ontology> ;
+  rdfs:seeAlso <https://w3id.org/uk/oak/curriculum/ontology> ;
 
-  vann:preferredNamespacePrefix "nat" ;
-  vann:preferredNamespaceUri "https://w3id.org/uk/curriculum/nat-data-2014/" ;
+  vann:preferredNamespacePrefix "natcurric" ;
+  vann:preferredNamespaceUri "https://w3id.org/uk/oak/curriculum/nationalcurriculum/" ;
 
-  owl:imports <https://w3id.org/uk/curriculum/nat-ontology> ;
-  owl:imports <https://w3id.org/uk/curriculum/nat-data-2014/temporal-structure> ;
-  owl:imports <https://w3id.org/uk/curriculum/nat-data-2014/design-and-technology-knowledge-taxonomy> .
+  owl:imports <https://w3id.org/uk/oak/curriculum/ontology> ;
+  owl:imports <https://w3id.org/uk/oak/curriculum/nationalcurriculum/temporal-structure> ;
+  owl:imports <https://w3id.org/uk/oak/curriculum/nationalcurriculum/design-and-technology-knowledge-taxonomy> .
 
 # ----------------------------------------------------------------------
 # Subject Group
 # ----------------------------------------------------------------------
 
-nat:subjectgroup-design-and-technology
-  a natcurric:SubjectGroup ;
+natcurric:subjectgroup-design-and-technology
+  a curric:SubjectGroup ;
   rdfs:label "Design and technology"@en ;
   dcterms:modified "2026-05-04T16:46:48Z"^^xsd:dateTime ;
-  natcurric:coversDiscipline nat:discipline-design-and-technology .
+  curric:coversDiscipline natcurric:discipline-design-and-technology .
 
 # ----------------------------------------------------------------------
 # Subjects
 # ----------------------------------------------------------------------
 
-nat:subject-design-and-technology
-  a natcurric:Subject ;
+natcurric:subject-design-and-technology
+  a curric:Subject ;
   rdfs:label "Design and technology"@en ;
-  natcurric:rationale """Design and technology is an inspiring, rigorous and practical subject. 
+  curric:rationale """Design and technology is an inspiring, rigorous and practical subject. 
   Using creativity and imagination, pupils design and make products that solve real and relevant 
   problems within a variety of contexts, considering their own and others’ needs, wants and values. 
   They acquire a broad range of subject knowledge and draw on disciplines such as mathematics, 
@@ -76,51 +76,51 @@ nat:subject-design-and-technology
   and technology, they develop a critical understanding of its impact on daily life and the wider 
   world. High-quality design and technology education makes an essential contribution to the 
   creativity, culture, wealth and well-being of the nation."""@en ;
-  natcurric:hasAim
-    nat:aim-design-and-technology-creative-technical-practical-expertise ,
-    nat:aim-design-and-technology-design-make-prototypes-and-products ,
-    nat:aim-design-and-technology-critique-evaluate-test-ideas-products ;
+  curric:hasAim
+    natcurric:aim-design-and-technology-creative-technical-practical-expertise ,
+    natcurric:aim-design-and-technology-design-make-prototypes-and-products ,
+    natcurric:aim-design-and-technology-critique-evaluate-test-ideas-products ;
   dcterms:modified "2026-05-04T16:46:48Z"^^xsd:dateTime ;
-  natcurric:isSubjectOf nat:subjectgroup-design-and-technology ;
-  natcurric:coversStrand
-    nat:strand-design ,
-    nat:strand-make ,
-    nat:strand-evaluate ,
-    nat:strand-technical-knowledge .
+  curric:isSubjectOf natcurric:subjectgroup-design-and-technology ;
+  curric:coversStrand
+    natcurric:strand-design ,
+    natcurric:strand-make ,
+    natcurric:strand-evaluate ,
+    natcurric:strand-technical-knowledge .
 
-nat:subject-food-and-nutrition
-  a natcurric:Subject ;
+natcurric:subject-food-and-nutrition
+  a curric:Subject ;
   rdfs:label "Food and nutrition"@en ;
-  natcurric:rationale "No subject rationale."@en ;
-  natcurric:hasAim
-    nat:aim-food-and-nutrition-principles-nutrition-how-to-cook ;
+  curric:rationale "No subject rationale."@en ;
+  curric:hasAim
+    natcurric:aim-food-and-nutrition-principles-nutrition-how-to-cook ;
   dcterms:modified "2026-05-04T16:46:48Z"^^xsd:dateTime ;
-  natcurric:isSubjectOf nat:subjectgroup-design-and-technology ;
-  natcurric:coversStrand nat:strand-food-and-nutrition .
+  curric:isSubjectOf natcurric:subjectgroup-design-and-technology ;
+  curric:coversStrand natcurric:strand-food-and-nutrition .
 
 # ----------------------------------------------------------------------
 # Aims
 # ----------------------------------------------------------------------
 
-nat:aim-design-and-technology-creative-technical-practical-expertise
-  a natcurric:Aim ;
+natcurric:aim-design-and-technology-creative-technical-practical-expertise
+  a curric:Aim ;
   rdfs:label """Develop the creative, technical and practical expertise needed to perform everyday 
   tasks confidently and to participate successfully in an increasingly technological world."""@en ;
   dcterms:modified "2026-05-04T16:46:48Z"^^xsd:dateTime .
 
-nat:aim-design-and-technology-design-make-prototypes-and-products
-  a natcurric:Aim ;
+natcurric:aim-design-and-technology-design-make-prototypes-and-products
+  a curric:Aim ;
   rdfs:label """Build and apply a repertoire of knowledge, understanding and skills in order to 
   design and make high-quality prototypes and products for a wide range of users."""@en ;
   dcterms:modified "2026-05-04T16:46:48Z"^^xsd:dateTime .
 
-nat:aim-design-and-technology-critique-evaluate-test-ideas-products
-  a natcurric:Aim ;
+natcurric:aim-design-and-technology-critique-evaluate-test-ideas-products
+  a curric:Aim ;
   rdfs:label "Critique, evaluate and test their ideas and products and the work of others."@en ;
   dcterms:modified "2026-05-04T16:46:48Z"^^xsd:dateTime .
 
-nat:aim-food-and-nutrition-principles-nutrition-how-to-cook
-  a natcurric:Aim ;
+natcurric:aim-food-and-nutrition-principles-nutrition-how-to-cook
+  a curric:Aim ;
   rdfs:label "Understand and apply the principles of nutrition and learn how to cook."@en ;
   dcterms:modified "2026-05-04T16:46:48Z"^^xsd:dateTime .
 
@@ -128,30 +128,30 @@ nat:aim-food-and-nutrition-principles-nutrition-how-to-cook
 # Schemes
 # ----------------------------------------------------------------------
 
-nat:scheme-design-and-technology-key-stage-1
-  a natcurric:Scheme ;
+natcurric:scheme-design-and-technology-key-stage-1
+  a curric:Scheme ;
   rdfs:label "Design and technology Key Stage 1"@en ;
   dcterms:description """Through a variety of creative and practical activities, pupils should be 
   taught the knowledge, understanding and skills needed to engage in an iterative process of 
   designing and making. They should work in a range of relevant contexts [for example, the home and 
   school, gardens and playgrounds, the local community, industry and the wider environment]."""@en ;
   dcterms:modified "2026-05-04T16:46:48Z"^^xsd:dateTime ;
-  natcurric:isSchemeOf nat:subject-design-and-technology ;
-  natcurric:coversKeyStage nat:key-stage-1 .
+  curric:isSchemeOf natcurric:subject-design-and-technology ;
+  curric:coversKeyStage natcurric:key-stage-1 .
 
-nat:scheme-design-and-technology-key-stage-2
-  a natcurric:Scheme ;
+natcurric:scheme-design-and-technology-key-stage-2
+  a curric:Scheme ;
   rdfs:label "Design and technology Key Stage 2"@en ;
   dcterms:description """Through a variety of creative and practical activities, pupils should be 
   taught the knowledge, understanding and skills needed to engage in an iterative process of 
   designing and making. They should work in a range of relevant contexts [for example, the home, 
   school, leisure, culture, enterprise, industry and the wider environment]."""@en ;
   dcterms:modified "2026-05-04T16:46:48Z"^^xsd:dateTime ;
-  natcurric:isSchemeOf nat:subject-design-and-technology ;
-  natcurric:coversKeyStage nat:key-stage-2 .
+  curric:isSchemeOf natcurric:subject-design-and-technology ;
+  curric:coversKeyStage natcurric:key-stage-2 .
 
-nat:scheme-design-and-technology-key-stage-3
-  a natcurric:Scheme ;
+natcurric:scheme-design-and-technology-key-stage-3
+  a curric:Scheme ;
   rdfs:label "Design and technology Key Stage 3"@en ;
   dcterms:description """Through a variety of creative and practical activities, pupils should be 
   taught the knowledge, understanding and skills needed to engage in an iterative process of 
@@ -160,11 +160,11 @@ nat:scheme-design-and-technology-key-stage-3
   manufacturing, construction, food, energy, agriculture (including horticulture) and 
   fashion]."""@en ;
   dcterms:modified "2026-05-04T16:46:48Z"^^xsd:dateTime ;
-  natcurric:isSchemeOf nat:subject-design-and-technology ;
-  natcurric:coversKeyStage nat:key-stage-3 .
+  curric:isSchemeOf natcurric:subject-design-and-technology ;
+  curric:coversKeyStage natcurric:key-stage-3 .
 
-nat:scheme-food-and-nutrition-key-stage-1
-  a natcurric:Scheme ;
+natcurric:scheme-food-and-nutrition-key-stage-1
+  a curric:Scheme ;
   rdfs:label "Food and nutrition Key Stage 1"@en ;
   dcterms:description """As part of their work with food, pupils should be taught how to cook and 
   apply the principles of nutrition and healthy eating. Instilling a love of cooking in pupils will 
@@ -172,11 +172,11 @@ nat:scheme-food-and-nutrition-key-stage-1
   crucial life skill that enables pupils to feed themselves and others affordably and well, now and 
   in later life."""@en ;
   dcterms:modified "2026-05-04T16:46:48Z"^^xsd:dateTime ;
-  natcurric:isSchemeOf nat:subject-food-and-nutrition ;
-  natcurric:coversKeyStage nat:key-stage-1 .
+  curric:isSchemeOf natcurric:subject-food-and-nutrition ;
+  curric:coversKeyStage natcurric:key-stage-1 .
 
-nat:scheme-food-and-nutrition-key-stage-2
-  a natcurric:Scheme ;
+natcurric:scheme-food-and-nutrition-key-stage-2
+  a curric:Scheme ;
   rdfs:label "Food and nutrition Key Stage 2"@en ;
   dcterms:description """As part of their work with food, pupils should be taught how to cook and 
   apply the principles of nutrition and healthy eating. Instilling a love of cooking in pupils will 
@@ -184,11 +184,11 @@ nat:scheme-food-and-nutrition-key-stage-2
   crucial life skill that enables pupils to feed themselves and others affordably and well, now and 
   in later life."""@en ;
   dcterms:modified "2026-05-04T16:46:48Z"^^xsd:dateTime ;
-  natcurric:isSchemeOf nat:subject-food-and-nutrition ;
-  natcurric:coversKeyStage nat:key-stage-2 .
+  curric:isSchemeOf natcurric:subject-food-and-nutrition ;
+  curric:coversKeyStage natcurric:key-stage-2 .
 
-nat:scheme-food-and-nutrition-key-stage-3
-  a natcurric:Scheme ;
+natcurric:scheme-food-and-nutrition-key-stage-3
+  a curric:Scheme ;
   rdfs:label "Food and nutrition Key Stage 3"@en ;
   dcterms:description """As part of their work with food, pupils should be taught how to cook and
   apply the principles of nutrition and healthy eating. Instilling a love of cooking in pupils will
@@ -196,172 +196,172 @@ nat:scheme-food-and-nutrition-key-stage-3
   crucial life skill that enables pupils to feed themselves and others affordably and well, now and
   in later life."""@en ;
   dcterms:modified "2026-05-04T16:46:48Z"^^xsd:dateTime ;
-  natcurric:isSchemeOf nat:subject-food-and-nutrition ;
-  natcurric:coversKeyStage nat:key-stage-3 .
+  curric:isSchemeOf natcurric:subject-food-and-nutrition ;
+  curric:coversKeyStage natcurric:key-stage-3 .
 
 # ----------------------------------------------------------------------
 # Progressions
 # ----------------------------------------------------------------------
 
-nat:progression-design-and-technology-key-stage-1-design
-  a natcurric:Progression ;
+natcurric:progression-design-and-technology-key-stage-1-design
+  a curric:Progression ;
   rdfs:label "Design and technology Key Stage 1 Design"@en ;
   dcterms:modified "2026-05-04T16:46:48Z"^^xsd:dateTime ;
-  natcurric:isProgressionOf nat:scheme-design-and-technology-key-stage-1 ;
-  natcurric:coversSubStrand nat:substrand-design ;
-  natcurric:includesContentDescriptor
-    nat:contentdescriptor-design-purposeful-functional-appealing-products ,
-    nat:contentdescriptor-generate-model-communicate-ideas-talking .
+  curric:isProgressionOf natcurric:scheme-design-and-technology-key-stage-1 ;
+  curric:coversSubStrand natcurric:substrand-design ;
+  curric:includesContentDescriptor
+    natcurric:contentdescriptor-design-purposeful-functional-appealing-products ,
+    natcurric:contentdescriptor-generate-model-communicate-ideas-talking .
 
-nat:progression-design-and-technology-key-stage-1-make
-  a natcurric:Progression ;
+natcurric:progression-design-and-technology-key-stage-1-make
+  a curric:Progression ;
   rdfs:label "Design and technology Key Stage 1 Make"@en ;
   dcterms:modified "2026-05-04T16:46:48Z"^^xsd:dateTime ;
-  natcurric:isProgressionOf nat:scheme-design-and-technology-key-stage-1 ;
-  natcurric:coversSubStrand nat:substrand-make ;
-  natcurric:includesContentDescriptor
-    nat:contentdescriptor-select-range-tools-equipment-perform ,
-    nat:contentdescriptor-select-wide-range-materials-components .
+  curric:isProgressionOf natcurric:scheme-design-and-technology-key-stage-1 ;
+  curric:coversSubStrand natcurric:substrand-make ;
+  curric:includesContentDescriptor
+    natcurric:contentdescriptor-select-range-tools-equipment-perform ,
+    natcurric:contentdescriptor-select-wide-range-materials-components .
 
-nat:progression-design-and-technology-key-stage-1-evaluate
-  a natcurric:Progression ;
+natcurric:progression-design-and-technology-key-stage-1-evaluate
+  a curric:Progression ;
   rdfs:label "Design and technology Key Stage 1 Evaluate"@en ;
   dcterms:modified "2026-05-04T16:46:48Z"^^xsd:dateTime ;
-  natcurric:isProgressionOf nat:scheme-design-and-technology-key-stage-1 ;
-  natcurric:coversSubStrand nat:substrand-evaluate ;
-  natcurric:includesContentDescriptor
-    nat:contentdescriptor-evaluate-range-existing-products ,
-    nat:contentdescriptor-evaluate-ideas-products-design-criteria .
+  curric:isProgressionOf natcurric:scheme-design-and-technology-key-stage-1 ;
+  curric:coversSubStrand natcurric:substrand-evaluate ;
+  curric:includesContentDescriptor
+    natcurric:contentdescriptor-evaluate-range-existing-products ,
+    natcurric:contentdescriptor-evaluate-ideas-products-design-criteria .
 
-nat:progression-design-and-technology-key-stage-1-technical-knowledge
-  a natcurric:Progression ;
+natcurric:progression-design-and-technology-key-stage-1-technical-knowledge
+  a curric:Progression ;
   rdfs:label "Design and technology Key Stage 1 Technical knowledge"@en ;
   dcterms:modified "2026-05-04T16:46:48Z"^^xsd:dateTime ;
-  natcurric:isProgressionOf nat:scheme-design-and-technology-key-stage-1 ;
-  natcurric:coversSubStrand nat:substrand-technical-knowledge ;
-  natcurric:includesContentDescriptor
-    nat:contentdescriptor-build-structures-made-stronger-stiffer ,
-    nat:contentdescriptor-mechanisms-example-levers-sliders-wheels .
+  curric:isProgressionOf natcurric:scheme-design-and-technology-key-stage-1 ;
+  curric:coversSubStrand natcurric:substrand-technical-knowledge ;
+  curric:includesContentDescriptor
+    natcurric:contentdescriptor-build-structures-made-stronger-stiffer ,
+    natcurric:contentdescriptor-mechanisms-example-levers-sliders-wheels .
 
-nat:progression-food-and-nutrition-key-stage-1-food-and-nutrition
-  a natcurric:Progression ;
+natcurric:progression-food-and-nutrition-key-stage-1-food-and-nutrition
+  a curric:Progression ;
   rdfs:label "Food and nutrition Key Stage 1 Food and nutrition"@en ;
   dcterms:modified "2026-05-04T16:46:48Z"^^xsd:dateTime ;
-  natcurric:isProgressionOf nat:scheme-food-and-nutrition-key-stage-1 ;
-  natcurric:coversSubStrand nat:substrand-food-and-nutrition ;
-  natcurric:includesContentDescriptor
-    nat:contentdescriptor-basic-principles-healthy-varied-diet ,
-    nat:contentdescriptor-understand-where-food-comes-from .
+  curric:isProgressionOf natcurric:scheme-food-and-nutrition-key-stage-1 ;
+  curric:coversSubStrand natcurric:substrand-food-and-nutrition ;
+  curric:includesContentDescriptor
+    natcurric:contentdescriptor-basic-principles-healthy-varied-diet ,
+    natcurric:contentdescriptor-understand-where-food-comes-from .
 
-nat:progression-design-and-technology-key-stage-2-design
-  a natcurric:Progression ;
+natcurric:progression-design-and-technology-key-stage-2-design
+  a curric:Progression ;
   rdfs:label "Design and technology Key Stage 2 Design"@en ;
   dcterms:modified "2026-05-04T16:46:48Z"^^xsd:dateTime ;
-  natcurric:isProgressionOf nat:scheme-design-and-technology-key-stage-2 ;
-  natcurric:coversSubStrand nat:substrand-design ;
-  natcurric:includesContentDescriptor
-    nat:contentdescriptor-research-design-criteria-inform-design ,
-    nat:contentdescriptor-generate-model-communicate-ideas-discussion .
+  curric:isProgressionOf natcurric:scheme-design-and-technology-key-stage-2 ;
+  curric:coversSubStrand natcurric:substrand-design ;
+  curric:includesContentDescriptor
+    natcurric:contentdescriptor-research-design-criteria-inform-design ,
+    natcurric:contentdescriptor-generate-model-communicate-ideas-discussion .
 
-nat:progression-design-and-technology-key-stage-2-make
-  a natcurric:Progression ;
+natcurric:progression-design-and-technology-key-stage-2-make
+  a curric:Progression ;
   rdfs:label "Design and technology Key Stage 2 Make"@en ;
   dcterms:modified "2026-05-04T16:46:48Z"^^xsd:dateTime ;
-  natcurric:isProgressionOf nat:scheme-design-and-technology-key-stage-2 ;
-  natcurric:coversSubStrand nat:substrand-make ;
-  natcurric:includesContentDescriptor
-    nat:contentdescriptor-select-wider-range-tools-equipment ,
-    nat:contentdescriptor-select-wider-range-materials-components .
+  curric:isProgressionOf natcurric:scheme-design-and-technology-key-stage-2 ;
+  curric:coversSubStrand natcurric:substrand-make ;
+  curric:includesContentDescriptor
+    natcurric:contentdescriptor-select-wider-range-tools-equipment ,
+    natcurric:contentdescriptor-select-wider-range-materials-components .
 
-nat:progression-design-and-technology-key-stage-2-evaluate
-  a natcurric:Progression ;
+natcurric:progression-design-and-technology-key-stage-2-evaluate
+  a curric:Progression ;
   rdfs:label "Design and technology Key Stage 2 Evaluate"@en ;
   dcterms:modified "2026-05-04T16:46:48Z"^^xsd:dateTime ;
-  natcurric:isProgressionOf nat:scheme-design-and-technology-key-stage-2 ;
-  natcurric:coversSubStrand nat:substrand-evaluate ;
-  natcurric:includesContentDescriptor
-    nat:contentdescriptor-investigate-analyse-range-existing-products ,
-    nat:contentdescriptor-evaluate-ideas-products-own-design ,
-    nat:contentdescriptor-key-events-individuals-design-technology .
+  curric:isProgressionOf natcurric:scheme-design-and-technology-key-stage-2 ;
+  curric:coversSubStrand natcurric:substrand-evaluate ;
+  curric:includesContentDescriptor
+    natcurric:contentdescriptor-investigate-analyse-range-existing-products ,
+    natcurric:contentdescriptor-evaluate-ideas-products-own-design ,
+    natcurric:contentdescriptor-key-events-individuals-design-technology .
 
-nat:progression-design-and-technology-key-stage-2-technical-knowledge
-  a natcurric:Progression ;
+natcurric:progression-design-and-technology-key-stage-2-technical-knowledge
+  a curric:Progression ;
   rdfs:label "Design and technology Key Stage 2 Technical knowledge"@en ;
   dcterms:modified "2026-05-04T16:46:48Z"^^xsd:dateTime ;
-  natcurric:isProgressionOf nat:scheme-design-and-technology-key-stage-2 ;
-  natcurric:coversSubStrand nat:substrand-technical-knowledge ;
-  natcurric:includesContentDescriptor
-    nat:contentdescriptor-apply-strengthen-stiffen-reinforce-complex ,
-    nat:contentdescriptor-mechanical-systems-products-example-gears ,
-    nat:contentdescriptor-electrical-systems-products-example-series ,
-    nat:contentdescriptor-apply-computing-program-monitor-control .
+  curric:isProgressionOf natcurric:scheme-design-and-technology-key-stage-2 ;
+  curric:coversSubStrand natcurric:substrand-technical-knowledge ;
+  curric:includesContentDescriptor
+    natcurric:contentdescriptor-apply-strengthen-stiffen-reinforce-complex ,
+    natcurric:contentdescriptor-mechanical-systems-products-example-gears ,
+    natcurric:contentdescriptor-electrical-systems-products-example-series ,
+    natcurric:contentdescriptor-apply-computing-program-monitor-control .
 
-nat:progression-food-and-nutrition-key-stage-2-food-and-nutrition
-  a natcurric:Progression ;
+natcurric:progression-food-and-nutrition-key-stage-2-food-and-nutrition
+  a curric:Progression ;
   rdfs:label "Food and nutrition Key Stage 2 Food and nutrition"@en ;
   dcterms:modified "2026-05-04T16:46:48Z"^^xsd:dateTime ;
-  natcurric:isProgressionOf nat:scheme-food-and-nutrition-key-stage-2 ;
-  natcurric:coversSubStrand nat:substrand-food-and-nutrition ;
-  natcurric:includesContentDescriptor
-    nat:contentdescriptor-apply-principles-healthy-varied-diet ,
-    nat:contentdescriptor-prepare-cook-variety-savoury-dishes ,
-    nat:contentdescriptor-seasonality-variety-ingredients-grown-reared .
+  curric:isProgressionOf natcurric:scheme-food-and-nutrition-key-stage-2 ;
+  curric:coversSubStrand natcurric:substrand-food-and-nutrition ;
+  curric:includesContentDescriptor
+    natcurric:contentdescriptor-apply-principles-healthy-varied-diet ,
+    natcurric:contentdescriptor-prepare-cook-variety-savoury-dishes ,
+    natcurric:contentdescriptor-seasonality-variety-ingredients-grown-reared .
 
-nat:progression-design-and-technology-key-stage-3-design
-  a natcurric:Progression ;
+natcurric:progression-design-and-technology-key-stage-3-design
+  a curric:Progression ;
   rdfs:label "Design and technology Key Stage 3 Design"@en ;
   dcterms:modified "2026-05-04T16:46:48Z"^^xsd:dateTime ;
-  natcurric:isProgressionOf nat:scheme-design-and-technology-key-stage-3 ;
-  natcurric:coversSubStrand nat:substrand-design ;
-  natcurric:includesContentDescriptor
-    nat:contentdescriptor-research-exploration-such-study-different ,
-    nat:contentdescriptor-identify-solve-own-design-problems ,
-    nat:contentdescriptor-specifications-inform-design-innovative-functional ,
-    nat:contentdescriptor-variety-approaches-example-biomimicry-user ,
-    nat:contentdescriptor-communicate-design-ideas-annotated-sketches .
+  curric:isProgressionOf natcurric:scheme-design-and-technology-key-stage-3 ;
+  curric:coversSubStrand natcurric:substrand-design ;
+  curric:includesContentDescriptor
+    natcurric:contentdescriptor-research-exploration-such-study-different ,
+    natcurric:contentdescriptor-identify-solve-own-design-problems ,
+    natcurric:contentdescriptor-specifications-inform-design-innovative-functional ,
+    natcurric:contentdescriptor-variety-approaches-example-biomimicry-user ,
+    natcurric:contentdescriptor-communicate-design-ideas-annotated-sketches .
 
-nat:progression-design-and-technology-key-stage-3-make
-  a natcurric:Progression ;
+natcurric:progression-design-and-technology-key-stage-3-make
+  a curric:Progression ;
   rdfs:label "Design and technology Key Stage 3 Make"@en ;
   dcterms:modified "2026-05-04T16:46:48Z"^^xsd:dateTime ;
-  natcurric:isProgressionOf nat:scheme-design-and-technology-key-stage-3 ;
-  natcurric:coversSubStrand nat:substrand-make ;
-  natcurric:includesContentDescriptor
-    nat:contentdescriptor-select-specialist-tools-techniques-processes ,
-    nat:contentdescriptor-select-wider-complex-range-materials .
+  curric:isProgressionOf natcurric:scheme-design-and-technology-key-stage-3 ;
+  curric:coversSubStrand natcurric:substrand-make ;
+  curric:includesContentDescriptor
+    natcurric:contentdescriptor-select-specialist-tools-techniques-processes ,
+    natcurric:contentdescriptor-select-wider-complex-range-materials .
 
-nat:progression-design-and-technology-key-stage-3-evaluate
-  a natcurric:Progression ;
+natcurric:progression-design-and-technology-key-stage-3-evaluate
+  a curric:Progression ;
   rdfs:label "Design and technology Key Stage 3 Evaluate"@en ;
   dcterms:modified "2026-05-04T16:46:48Z"^^xsd:dateTime ;
-  natcurric:isProgressionOf nat:scheme-design-and-technology-key-stage-3 ;
-  natcurric:coversSubStrand nat:substrand-evaluate ;
-  natcurric:includesContentDescriptor
-    nat:contentdescriptor-analyse-past-present-professionals-others ,
-    nat:contentdescriptor-investigate-new-and-emerging-technologies ,
-    nat:contentdescriptor-test-evaluate-refine-ideas-products ,
-    nat:contentdescriptor-developments-design-technology-impact-individuals .
+  curric:isProgressionOf natcurric:scheme-design-and-technology-key-stage-3 ;
+  curric:coversSubStrand natcurric:substrand-evaluate ;
+  curric:includesContentDescriptor
+    natcurric:contentdescriptor-analyse-past-present-professionals-others ,
+    natcurric:contentdescriptor-investigate-new-and-emerging-technologies ,
+    natcurric:contentdescriptor-test-evaluate-refine-ideas-products ,
+    natcurric:contentdescriptor-developments-design-technology-impact-individuals .
 
-nat:progression-design-and-technology-key-stage-3-technical-knowledge
-  a natcurric:Progression ;
+natcurric:progression-design-and-technology-key-stage-3-technical-knowledge
+  a curric:Progression ;
   rdfs:label "Design and technology Key Stage 3 Technical knowledge"@en ;
   dcterms:modified "2026-05-04T16:46:48Z"^^xsd:dateTime ;
-  natcurric:isProgressionOf nat:scheme-design-and-technology-key-stage-3 ;
-  natcurric:coversSubStrand nat:substrand-technical-knowledge ;
-  natcurric:includesContentDescriptor
-    nat:contentdescriptor-properties-materials-performance-structural-elements ,
-    nat:contentdescriptor-advanced-mechanical-systems-used-products ,
-    nat:contentdescriptor-advanced-electrical-electronic-systems-powered ,
-    nat:contentdescriptor-apply-computing-electronics-embed-intelligence .
+  curric:isProgressionOf natcurric:scheme-design-and-technology-key-stage-3 ;
+  curric:coversSubStrand natcurric:substrand-technical-knowledge ;
+  curric:includesContentDescriptor
+    natcurric:contentdescriptor-properties-materials-performance-structural-elements ,
+    natcurric:contentdescriptor-advanced-mechanical-systems-used-products ,
+    natcurric:contentdescriptor-advanced-electrical-electronic-systems-powered ,
+    natcurric:contentdescriptor-apply-computing-electronics-embed-intelligence .
 
-nat:progression-food-and-nutrition-key-stage-3-food-and-nutrition
-  a natcurric:Progression ;
+natcurric:progression-food-and-nutrition-key-stage-3-food-and-nutrition
+  a curric:Progression ;
   rdfs:label "Food and nutrition Key Stage 3 Food and nutrition"@en ;
   dcterms:modified "2026-05-04T16:46:48Z"^^xsd:dateTime ;
-  natcurric:isProgressionOf nat:scheme-food-and-nutrition-key-stage-3 ;
-  natcurric:coversSubStrand nat:substrand-food-and-nutrition ;
-  natcurric:includesContentDescriptor
-    nat:contentdescriptor-apply-principles-nutrition-health ,
-    nat:contentdescriptor-cook-repertoire-savoury-dishes-able ,
-    nat:contentdescriptor-become-competent-range-cooking-techniques ,
-    nat:contentdescriptor-source-seasonality-characteristics-broad-range .
+  curric:isProgressionOf natcurric:scheme-food-and-nutrition-key-stage-3 ;
+  curric:coversSubStrand natcurric:substrand-food-and-nutrition ;
+  curric:includesContentDescriptor
+    natcurric:contentdescriptor-apply-principles-nutrition-health ,
+    natcurric:contentdescriptor-cook-repertoire-savoury-dishes-able ,
+    natcurric:contentdescriptor-become-competent-range-cooking-techniques ,
+    natcurric:contentdescriptor-source-seasonality-characteristics-broad-range .

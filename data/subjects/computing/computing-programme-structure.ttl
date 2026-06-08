@@ -1,5 +1,5 @@
-@prefix natcurric: <https://w3id.org/uk/curriculum/nat-ontology/> .
-@prefix nat: <https://w3id.org/uk/curriculum/nat-data-2014/> .
+@prefix curric: <https://w3id.org/uk/oak/curriculum/ontology/> .
+@prefix natcurric: <https://w3id.org/uk/oak/curriculum/nationalcurriculum/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
@@ -17,7 +17,7 @@
 # Ontology Declaration
 # ----------------------------------------------------------------------
 
-<https://w3id.org/uk/curriculum/nat-data-2014/computing-programme-structure>
+<https://w3id.org/uk/oak/curriculum/nationalcurriculum/computing-programme-structure>
   rdf:type owl:Ontology ;
 
   rdfs:label "National Curriculum for England - Computing Programme Structure"@en ;
@@ -26,7 +26,7 @@
   mapping to strands, sub-strands and content descriptors within the knowledge taxonomy."""@en ;
 
   owl:versionInfo "0.1.0" ;
-  owl:versionIRI <https://w3id.org/uk/curriculum/nat-data-2014/computing-programme-structure/0.1.0> ;
+  owl:versionIRI <https://w3id.org/uk/oak/curriculum/nationalcurriculum/computing-programme-structure/0.1.0> ;
 
   dcterms:description """Computing programme structure that specifies schemes and progressions, and
   a mapping to strands, sub-strands and content descriptors within the knowledge taxonomy."""@en ;
@@ -39,33 +39,33 @@
   dcterms:license <http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/> ;
   dcterms:rights "Crown Copyright"@en ;
 
-  rdfs:seeAlso <https://w3id.org/uk/curriculum/nat-ontology> ;
+  rdfs:seeAlso <https://w3id.org/uk/oak/curriculum/ontology> ;
 
-  vann:preferredNamespacePrefix "nat" ;
-  vann:preferredNamespaceUri "https://w3id.org/uk/curriculum/nat-data-2014/" ;
+  vann:preferredNamespacePrefix "natcurric" ;
+  vann:preferredNamespaceUri "https://w3id.org/uk/oak/curriculum/nationalcurriculum/" ;
 
-  owl:imports <https://w3id.org/uk/curriculum/nat-ontology> ;
-  owl:imports <https://w3id.org/uk/curriculum/nat-data-2014/temporal-structure> ;
-  owl:imports <https://w3id.org/uk/curriculum/nat-data-2014/computing-knowledge-taxonomy> .
+  owl:imports <https://w3id.org/uk/oak/curriculum/ontology> ;
+  owl:imports <https://w3id.org/uk/oak/curriculum/nationalcurriculum/temporal-structure> ;
+  owl:imports <https://w3id.org/uk/oak/curriculum/nationalcurriculum/computing-knowledge-taxonomy> .
 
 # ----------------------------------------------------------------------
 # Subject Group
 # ----------------------------------------------------------------------
 
-nat:subjectgroup-computing
-  a natcurric:SubjectGroup ;
+natcurric:subjectgroup-computing
+  a curric:SubjectGroup ;
   rdfs:label "Computing"@en ;
   dcterms:modified "2026-05-04T14:53:53Z"^^xsd:dateTime ;
-  natcurric:coversDiscipline nat:discipline-computing .
+  curric:coversDiscipline natcurric:discipline-computing .
 
 # ----------------------------------------------------------------------
 # Subjects
 # ----------------------------------------------------------------------
 
-nat:subject-computing
-  a natcurric:Subject ;
+natcurric:subject-computing
+  a curric:Subject ;
   rdfs:label "Computing"@en ;
-  natcurric:rationale """A high-quality computing education equips pupils to use computational 
+  curric:rationale """A high-quality computing education equips pupils to use computational 
   thinking and creativity to understand and change the world. Computing has deep links with 
   mathematics, science, and design and technology, and provides insights into both natural and 
   artificial systems. The core of computing is computer science, in which pupils are taught the 
@@ -75,39 +75,39 @@ nat:subject-computing
   Computing also ensures that pupils become digitally literate – able to use, and express 
   themselves and develop their ideas through, information and communication technology – at a level 
   suitable for the future workplace and as active participants in a digital world."""@en ;
-  natcurric:hasAim
-    nat:aim-computing-fundamental-principles-concepts-computer-science ,
-    nat:aim-computing-analyse-problems-writing-computer-programs ,
-    nat:aim-computing-evaluate-apply-information-technology-analytically ,
-    nat:aim-computing-responsible-competent-users-information-technology ; 
+  curric:hasAim
+    natcurric:aim-computing-fundamental-principles-concepts-computer-science ,
+    natcurric:aim-computing-analyse-problems-writing-computer-programs ,
+    natcurric:aim-computing-evaluate-apply-information-technology-analytically ,
+    natcurric:aim-computing-responsible-competent-users-information-technology ; 
   dcterms:modified "2026-05-04T14:53:53Z"^^xsd:dateTime ;
-  natcurric:isSubjectOf nat:subjectgroup-computing ;
-  natcurric:coversStrand nat:strand-computing .
+  curric:isSubjectOf natcurric:subjectgroup-computing ;
+  curric:coversStrand natcurric:strand-computing .
 
 # ----------------------------------------------------------------------
 # Aims
 # ----------------------------------------------------------------------
 
-nat:aim-computing-fundamental-principles-concepts-computer-science
-  a natcurric:Aim ;
+natcurric:aim-computing-fundamental-principles-concepts-computer-science
+  a curric:Aim ;
   rdfs:label """Can understand and apply the fundamental principles and concepts of computer 
   science, including abstraction, logic, algorithms and data representation."""@en ;
   dcterms:modified "2026-05-04T14:53:53Z"^^xsd:dateTime .
 
-nat:aim-computing-analyse-problems-writing-computer-programs
-  a natcurric:Aim ;
+natcurric:aim-computing-analyse-problems-writing-computer-programs
+  a curric:Aim ;
   rdfs:label """Can analyse problems in computational terms, and have repeated practical experience 
   of writing computer programs in order to solve such problems."""@en ;
   dcterms:modified "2026-05-04T14:53:53Z"^^xsd:dateTime .
 
-nat:aim-computing-evaluate-apply-information-technology-analytically
-  a natcurric:Aim ;
+natcurric:aim-computing-evaluate-apply-information-technology-analytically
+  a curric:Aim ;
   rdfs:label """Can evaluate and apply information technology, including new or unfamiliar 
   technologies, analytically to solve problems."""@en ;
   dcterms:modified "2026-05-04T14:53:53Z"^^xsd:dateTime .
 
-nat:aim-computing-responsible-competent-users-information-technology
-  a natcurric:Aim ;
+natcurric:aim-computing-responsible-competent-users-information-technology
+  a curric:Aim ;
   rdfs:label """Are responsible, competent, confident and creative users of information and 
   communication technology."""@en ;
   dcterms:modified "2026-05-04T14:53:53Z"^^xsd:dateTime .
@@ -116,97 +116,97 @@ nat:aim-computing-responsible-competent-users-information-technology
 # Schemes
 # ----------------------------------------------------------------------
 
-nat:scheme-computing-key-stage-1
-  a natcurric:Scheme ;
+natcurric:scheme-computing-key-stage-1
+  a curric:Scheme ;
   rdfs:label "Computing Key Stage 1"@en ;
   dcterms:description "No key stage description."@en ;
   dcterms:modified "2026-05-04T14:53:53Z"^^xsd:dateTime ;
-  natcurric:isSchemeOf nat:subject-computing ;
-  natcurric:coversKeyStage nat:key-stage-1 .
+  curric:isSchemeOf natcurric:subject-computing ;
+  curric:coversKeyStage natcurric:key-stage-1 .
 
-nat:scheme-computing-key-stage-2
-  a natcurric:Scheme ;
+natcurric:scheme-computing-key-stage-2
+  a curric:Scheme ;
   rdfs:label "Computing Key Stage 2"@en ;
   dcterms:description "No key stage description."@en ;
   dcterms:modified "2026-05-04T14:53:53Z"^^xsd:dateTime ;
-  natcurric:isSchemeOf nat:subject-computing ;
-  natcurric:coversKeyStage nat:key-stage-2 .
+  curric:isSchemeOf natcurric:subject-computing ;
+  curric:coversKeyStage natcurric:key-stage-2 .
 
-nat:scheme-computing-key-stage-3
-  a natcurric:Scheme ;
+natcurric:scheme-computing-key-stage-3
+  a curric:Scheme ;
   rdfs:label "Computing Key Stage 3"@en ;
   dcterms:description "No key stage description."@en ;
   dcterms:modified "2026-05-04T14:53:53Z"^^xsd:dateTime ;
-  natcurric:isSchemeOf nat:subject-computing ;
-  natcurric:coversKeyStage nat:key-stage-3 .
+  curric:isSchemeOf natcurric:subject-computing ;
+  curric:coversKeyStage natcurric:key-stage-3 .
 
-nat:scheme-computing-key-stage-4
-  a natcurric:Scheme ;
+natcurric:scheme-computing-key-stage-4
+  a curric:Scheme ;
   rdfs:label "Computing Key Stage 4"@en ;
   dcterms:description """All pupils must have the opportunity to study aspects of information
   technology and computer science at sufficient depth to allow them to progress to higher levels of
   study or to a professional career."""@en ;
   dcterms:modified "2026-05-04T14:53:53Z"^^xsd:dateTime ;
-  natcurric:isSchemeOf nat:subject-computing ;
-  natcurric:coversKeyStage nat:key-stage-4 .
+  curric:isSchemeOf natcurric:subject-computing ;
+  curric:coversKeyStage natcurric:key-stage-4 .
 
 # ----------------------------------------------------------------------
 # Progressions
 # ----------------------------------------------------------------------
 
-nat:progression-computing-key-stage-1-computing
-  a natcurric:Progression ;
+natcurric:progression-computing-key-stage-1-computing
+  a curric:Progression ;
   rdfs:label "Computing Key Stage 1 Computing"@en ;
   dcterms:modified "2026-05-04T14:53:53Z"^^xsd:dateTime ;
-  natcurric:isProgressionOf nat:scheme-computing-key-stage-1 ;
-  natcurric:coversSubStrand nat:substrand-computing ;
-  natcurric:includesContentDescriptor
-    nat:contentdescriptor-algorithms-implemented-programs-digital-devices ,
-    nat:contentdescriptor-create-and-debug-simple-programs ,
-    nat:contentdescriptor-logical-reasoning-predict-behaviour-simple ,
-    nat:contentdescriptor-technology-create-organise-store-manipulate ,
-    nat:contentdescriptor-common-information-technology-school ,
-    nat:contentdescriptor-technology-keeping-personal-information-private .
+  curric:isProgressionOf natcurric:scheme-computing-key-stage-1 ;
+  curric:coversSubStrand natcurric:substrand-computing ;
+  curric:includesContentDescriptor
+    natcurric:contentdescriptor-algorithms-implemented-programs-digital-devices ,
+    natcurric:contentdescriptor-create-and-debug-simple-programs ,
+    natcurric:contentdescriptor-logical-reasoning-predict-behaviour-simple ,
+    natcurric:contentdescriptor-technology-create-organise-store-manipulate ,
+    natcurric:contentdescriptor-common-information-technology-school ,
+    natcurric:contentdescriptor-technology-keeping-personal-information-private .
 
-nat:progression-computing-key-stage-2-computing
-  a natcurric:Progression ;
+natcurric:progression-computing-key-stage-2-computing
+  a curric:Progression ;
   rdfs:label "Computing Key Stage 2 Computing"@en ;
   dcterms:modified "2026-05-04T14:53:53Z"^^xsd:dateTime ;
-  natcurric:isProgressionOf nat:scheme-computing-key-stage-2 ;
-  natcurric:coversSubStrand nat:substrand-computing ;
-  natcurric:includesContentDescriptor
-    nat:contentdescriptor-design-write-debug-programs-accomplish ,
-    nat:contentdescriptor-sequence-selection-repetition-programs-variables ,
-    nat:contentdescriptor-logical-reasoning-explain-simple-algorithms ,
-    nat:contentdescriptor-computer-networks-internet-provide-multiple ,
-    nat:contentdescriptor-search-technologies-appreciate-results-selected ,
-    nat:contentdescriptor-select-combine-variety-software-internet ,
-    nat:contentdescriptor-technology-acceptable-unacceptable-behaviour-identify .
+  curric:isProgressionOf natcurric:scheme-computing-key-stage-2 ;
+  curric:coversSubStrand natcurric:substrand-computing ;
+  curric:includesContentDescriptor
+    natcurric:contentdescriptor-design-write-debug-programs-accomplish ,
+    natcurric:contentdescriptor-sequence-selection-repetition-programs-variables ,
+    natcurric:contentdescriptor-logical-reasoning-explain-simple-algorithms ,
+    natcurric:contentdescriptor-computer-networks-internet-provide-multiple ,
+    natcurric:contentdescriptor-search-technologies-appreciate-results-selected ,
+    natcurric:contentdescriptor-select-combine-variety-software-internet ,
+    natcurric:contentdescriptor-technology-acceptable-unacceptable-behaviour-identify .
 
-nat:progression-computing-key-stage-3-computing
-  a natcurric:Progression ;
+natcurric:progression-computing-key-stage-3-computing
+  a curric:Progression ;
   rdfs:label "Computing Key Stage 3 Computing"@en ;
   dcterms:modified "2026-05-04T14:53:53Z"^^xsd:dateTime ;
-  natcurric:isProgressionOf nat:scheme-computing-key-stage-3 ;
-  natcurric:coversSubStrand nat:substrand-computing ;
-  natcurric:includesContentDescriptor
-    nat:contentdescriptor-design-evaluate-computational-abstractions-model ,
-    nat:contentdescriptor-several-key-algorithms-reflect-computational ,
-    nat:contentdescriptor-two-more-programming-languages-least ,
-    nat:contentdescriptor-simple-boolean-logic-example-circuits ,
-    nat:contentdescriptor-hardware-software-components-computer-systems ,
-    nat:contentdescriptor-instructions-stored-executed-computer-system ,
-    nat:contentdescriptor-undertake-creative-projects-involve-selecting ,
-    nat:contentdescriptor-create-re-revise-re-purpose ,
-    nat:contentdescriptor-range-ways-technology-protecting-online .
+  curric:isProgressionOf natcurric:scheme-computing-key-stage-3 ;
+  curric:coversSubStrand natcurric:substrand-computing ;
+  curric:includesContentDescriptor
+    natcurric:contentdescriptor-design-evaluate-computational-abstractions-model ,
+    natcurric:contentdescriptor-several-key-algorithms-reflect-computational ,
+    natcurric:contentdescriptor-two-more-programming-languages-least ,
+    natcurric:contentdescriptor-simple-boolean-logic-example-circuits ,
+    natcurric:contentdescriptor-hardware-software-components-computer-systems ,
+    natcurric:contentdescriptor-instructions-stored-executed-computer-system ,
+    natcurric:contentdescriptor-undertake-creative-projects-involve-selecting ,
+    natcurric:contentdescriptor-create-re-revise-re-purpose ,
+    natcurric:contentdescriptor-range-ways-technology-protecting-online .
 
-nat:progression-computing-key-stage-4-computing
-  a natcurric:Progression ;
+natcurric:progression-computing-key-stage-4-computing
+  a curric:Progression ;
   rdfs:label "Computing Key Stage 4 Computing"@en ;
   dcterms:modified "2026-05-04T14:53:53Z"^^xsd:dateTime ;
-  natcurric:isProgressionOf nat:scheme-computing-key-stage-4 ;
-  natcurric:coversSubStrand nat:substrand-computing ;
-  natcurric:includesContentDescriptor
-    nat:contentdescriptor-capability-creativity-computer-science-digital ,
-    nat:contentdescriptor-apply-analytic-problem-solving-design ,
-    nat:contentdescriptor-changes-technology-affect-safety-new .
+  curric:isProgressionOf natcurric:scheme-computing-key-stage-4 ;
+  curric:coversSubStrand natcurric:substrand-computing ;
+  curric:includesContentDescriptor
+    natcurric:contentdescriptor-capability-creativity-computer-science-digital ,
+    natcurric:contentdescriptor-apply-analytic-problem-solving-design ,
+    natcurric:contentdescriptor-changes-technology-affect-safety-new .

@@ -1,5 +1,5 @@
-@prefix natcurric: <https://w3id.org/uk/curriculum/nat-ontology/> .
-@prefix nat: <https://w3id.org/uk/curriculum/nat-data-2014/> .
+@prefix curric: <https://w3id.org/uk/oak/curriculum/ontology/> .
+@prefix natcurric: <https://w3id.org/uk/oak/curriculum/nationalcurriculum/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
@@ -17,7 +17,7 @@
 # Ontology Declaration
 # ----------------------------------------------------------------------
 
-<https://w3id.org/uk/curriculum/nat-data-2014/history-programme-structure>
+<https://w3id.org/uk/oak/curriculum/nationalcurriculum/history-programme-structure>
   rdf:type owl:Ontology ;
 
   rdfs:label "National Curriculum for England - History Programme Structure"@en ;
@@ -26,7 +26,7 @@
   to strands, sub-strands and content descriptors within the knowledge taxonomy."""@en ;
 
   owl:versionInfo "0.1.0" ;
-  owl:versionIRI <https://w3id.org/uk/curriculum/nat-data-2014/history-programme-structure/0.1.0> ;
+  owl:versionIRI <https://w3id.org/uk/oak/curriculum/nationalcurriculum/history-programme-structure/0.1.0> ;
 
   dcterms:description """History programme structure that specifies schemes and progressions, and a
   mapping to strands, sub-strands and content descriptors within the knowledge taxonomy."""@en ;
@@ -39,91 +39,91 @@
   dcterms:license <http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/> ;
   dcterms:rights "Crown Copyright"@en ;
 
-  rdfs:seeAlso <https://w3id.org/uk/curriculum/nat-ontology> ;
+  rdfs:seeAlso <https://w3id.org/uk/oak/curriculum/ontology> ;
 
-  vann:preferredNamespacePrefix "nat" ;
-  vann:preferredNamespaceUri "https://w3id.org/uk/curriculum/nat-data-2014/" ;
+  vann:preferredNamespacePrefix "natcurric" ;
+  vann:preferredNamespaceUri "https://w3id.org/uk/oak/curriculum/nationalcurriculum/" ;
 
-  owl:imports <https://w3id.org/uk/curriculum/nat-ontology> ;
-  owl:imports <https://w3id.org/uk/curriculum/nat-data-2014/temporal-structure> ;
-  owl:imports <https://w3id.org/uk/curriculum/nat-data-2014/history-knowledge-taxonomy> .
+  owl:imports <https://w3id.org/uk/oak/curriculum/ontology> ;
+  owl:imports <https://w3id.org/uk/oak/curriculum/nationalcurriculum/temporal-structure> ;
+  owl:imports <https://w3id.org/uk/oak/curriculum/nationalcurriculum/history-knowledge-taxonomy> .
 
 # ----------------------------------------------------------------------
 # Subject Group
 # ----------------------------------------------------------------------
 
-nat:subjectgroup-history
-  a natcurric:SubjectGroup ;
+natcurric:subjectgroup-history
+  a curric:SubjectGroup ;
   rdfs:label "History"@en ;
   dcterms:modified "2026-05-05T17:04:19Z"^^xsd:dateTime ;
-  natcurric:coversDiscipline nat:discipline-history .
+  curric:coversDiscipline natcurric:discipline-history .
 
 # ----------------------------------------------------------------------
 # Subjects
 # ----------------------------------------------------------------------
 
-nat:subject-history
-  a natcurric:Subject ;
+natcurric:subject-history
+  a curric:Subject ;
   rdfs:label "History"@en ;
-  natcurric:rationale """A high-quality history education will help pupils gain a coherent 
+  curric:rationale """A high-quality history education will help pupils gain a coherent 
   knowledge and understanding of Britain’s past and that of the wider world. It should inspire 
   pupils’ curiosity to know more about the past. Teaching should equip pupils to ask perceptive 
   questions, think critically, weigh evidence, sift arguments, and develop perspective and 
   judgement. History helps pupils to understand the complexity of people’s lives, the process of 
   change, the diversity of societies and relationships between different groups, as well as their 
   own identity and the challenges of their time."""@en ;
-  natcurric:hasAim
-    nat:aim-history-know-understand-history-of-britain ,
-    nat:aim-history-know-understand-history-wider-world ,
-    nat:aim-history-empire-civilisation-parliament-peasantry ,
-    nat:aim-history-understand-historical-concepts-make-connections ,
-    nat:aim-history-understand-methods-of-historical-enquiry ,
-    nat:aim-history-gain-historical-perspective-different-contexts ;
+  curric:hasAim
+    natcurric:aim-history-know-understand-history-of-britain ,
+    natcurric:aim-history-know-understand-history-wider-world ,
+    natcurric:aim-history-empire-civilisation-parliament-peasantry ,
+    natcurric:aim-history-understand-historical-concepts-make-connections ,
+    natcurric:aim-history-understand-methods-of-historical-enquiry ,
+    natcurric:aim-history-gain-historical-perspective-different-contexts ;
   dcterms:modified "2026-05-05T17:04:19Z"^^xsd:dateTime ;
-  natcurric:isSubjectOf nat:subjectgroup-history ;
-  natcurric:coversStrand nat:strand-history .
+  curric:isSubjectOf natcurric:subjectgroup-history ;
+  curric:coversStrand natcurric:strand-history .
 
 # ----------------------------------------------------------------------
 # Aims
 # ----------------------------------------------------------------------
 
-nat:aim-history-know-understand-history-of-britain
-  a natcurric:Aim ;
+natcurric:aim-history-know-understand-history-of-britain
+  a curric:Aim ;
   rdfs:label """Know and understand the history of these islands as a coherent, chronological 
   narrative, from the earliest times to the present day: how people’s lives have shaped this nation 
   and how Britain has influenced and been influenced by the wider world."""@en ;
   dcterms:modified "2026-05-05T17:04:19Z"^^xsd:dateTime .
 
-nat:aim-history-know-understand-history-wider-world
-  a natcurric:Aim ;
+natcurric:aim-history-know-understand-history-wider-world
+  a curric:Aim ;
   rdfs:label """Know and understand significant aspects of the history of the wider world: the nature 
   of ancient civilisations; the expansion and dissolution of empires; characteristic features of 
   past non-European societies; achievements and follies of mankind."""@en ;
   dcterms:modified "2026-05-05T17:04:19Z"^^xsd:dateTime .
 
-nat:aim-history-empire-civilisation-parliament-peasantry
-  a natcurric:Aim ;
+natcurric:aim-history-empire-civilisation-parliament-peasantry
+  a curric:Aim ;
   rdfs:label """Gain and deploy a historically grounded understanding of abstract terms such as 
   ‘empire’, ‘civilisation’, ‘parliament’ and ‘peasantry’."""@en ;
   dcterms:modified "2026-05-05T17:04:19Z"^^xsd:dateTime .
 
-nat:aim-history-understand-historical-concepts-make-connections
-  a natcurric:Aim ;
+natcurric:aim-history-understand-historical-concepts-make-connections
+  a curric:Aim ;
   rdfs:label """Understand historical concepts such as continuity and change, cause and 
   consequence, similarity, difference and significance, and use them to make connections, draw 
   contrasts, analyse trends, frame historically-valid questions and create their own structured 
   accounts, including written narratives and analyses."""@en ;
   dcterms:modified "2026-05-05T17:04:19Z"^^xsd:dateTime .
 
-nat:aim-history-understand-methods-of-historical-enquiry
-  a natcurric:Aim ;
+natcurric:aim-history-understand-methods-of-historical-enquiry
+  a curric:Aim ;
   rdfs:label """Understand the methods of historical enquiry, including how evidence is used 
   rigorously to make historical claims, and discern how and why contrasting arguments and 
   interpretations of the past have been constructed."""@en ;
   dcterms:modified "2026-05-05T17:04:19Z"^^xsd:dateTime .
 
-nat:aim-history-gain-historical-perspective-different-contexts
-  a natcurric:Aim ;
+natcurric:aim-history-gain-historical-perspective-different-contexts
+  a curric:Aim ;
   rdfs:label """Gain historical perspective by placing their growing knowledge into different 
   contexts, understanding the connections between local, regional, national and international 
   history; between cultural, economic, military, political, religious and social history; and 
@@ -134,8 +134,8 @@ nat:aim-history-gain-historical-perspective-different-contexts
 # Schemes
 # ----------------------------------------------------------------------
 
-nat:scheme-history-key-stage-1
-  a natcurric:Scheme ;
+natcurric:scheme-history-key-stage-1
+  a curric:Scheme ;
   rdfs:label "History Key Stage 1"@en ;
   dcterms:description """Pupils should develop an awareness of the past, using common words and 
   phrases relating to the passing of time. They should know where the people and events they study 
@@ -149,11 +149,11 @@ nat:scheme-history-key-stage-1
   and changes outlined below, teachers are often introducing pupils to historical periods that they 
   will study more fully at key stages 2 and 3."""@en ;
   dcterms:modified "2026-05-05T17:04:19Z"^^xsd:dateTime ;
-  natcurric:isSchemeOf nat:subject-history ;
-  natcurric:coversKeyStage nat:key-stage-1 .
+  curric:isSchemeOf natcurric:subject-history ;
+  curric:coversKeyStage natcurric:key-stage-1 .
 
-nat:scheme-history-key-stage-2
-  a natcurric:Scheme ;
+natcurric:scheme-history-key-stage-2
+  a curric:Scheme ;
   rdfs:label "History Key Stage 2"@en ;
   dcterms:description """Pupils should continue to develop a chronologically secure knowledge and 
   understanding of British, local and world history, establishing clear narratives within and 
@@ -169,11 +169,11 @@ nat:scheme-history-key-stage-2
   understand both the long arc of development and the complexity of specific aspects of the 
   content."""@en ;
   dcterms:modified "2026-05-05T17:04:19Z"^^xsd:dateTime ;
-  natcurric:isSchemeOf nat:subject-history ;
-  natcurric:coversKeyStage nat:key-stage-2 .
+  curric:isSchemeOf natcurric:subject-history ;
+  curric:coversKeyStage natcurric:key-stage-2 .
 
-nat:scheme-history-key-stage-3
-  a natcurric:Scheme ;
+natcurric:scheme-history-key-stage-3
+  a curric:Scheme ;
   rdfs:label "History Key Stage 3"@en ;
   dcterms:description """Pupils should extend and deepen their chronologically secure knowledge and 
   understanding of British, local and world history, so that it provides a well-informed context 
@@ -190,53 +190,53 @@ nat:scheme-history-key-stage-3
   understand both the long arc of development and the complexity of specific aspects of the 
   content."""@en ;
   dcterms:modified "2026-05-05T17:04:19Z"^^xsd:dateTime ;
-  natcurric:isSchemeOf nat:subject-history ;
-  natcurric:coversKeyStage nat:key-stage-3 .
+  curric:isSchemeOf natcurric:subject-history ;
+  curric:coversKeyStage natcurric:key-stage-3 .
 
 # ----------------------------------------------------------------------
 # Progressions
 # ----------------------------------------------------------------------
 
-nat:progression-history-key-stage-1-history
-  a natcurric:Progression ;
+natcurric:progression-history-key-stage-1-history
+  a curric:Progression ;
   rdfs:label "History Key Stage 1 History"@en ;
   dcterms:modified "2026-05-05T17:04:19Z"^^xsd:dateTime ;
-  natcurric:isProgressionOf nat:scheme-history-key-stage-1 ;
-  natcurric:coversSubStrand nat:substrand-history ;
-  natcurric:includesContentDescriptor
-    nat:contentdescriptor-changes-living-memory-appropriate-used ,
-    nat:contentdescriptor-events-living-memory-significant-example ,
-    nat:contentdescriptor-lives-significant-individuals-past-contributed ,
-    nat:contentdescriptor-significant-historical-events-people-places .
+  curric:isProgressionOf natcurric:scheme-history-key-stage-1 ;
+  curric:coversSubStrand natcurric:substrand-history ;
+  curric:includesContentDescriptor
+    natcurric:contentdescriptor-changes-living-memory-appropriate-used ,
+    natcurric:contentdescriptor-events-living-memory-significant-example ,
+    natcurric:contentdescriptor-lives-significant-individuals-past-contributed ,
+    natcurric:contentdescriptor-significant-historical-events-people-places .
 
-nat:progression-history-key-stage-2-history
-  a natcurric:Progression ;
+natcurric:progression-history-key-stage-2-history
+  a curric:Progression ;
   rdfs:label "History Key Stage 2 History"@en ;
   dcterms:modified "2026-05-05T17:04:19Z"^^xsd:dateTime ;
-  natcurric:isProgressionOf nat:scheme-history-key-stage-2 ;
-  natcurric:coversSubStrand nat:substrand-history ;
-  natcurric:includesContentDescriptor
-    nat:contentdescriptor-changes-britain-stone-age-iron ,
-    nat:contentdescriptor-roman-empire-impact-britain ,
-    nat:contentdescriptor-britain-settlement-anglo-saxons-scots ,
-    nat:contentdescriptor-viking-anglo-saxon-struggle-kingdom ,
-    nat:contentdescriptor-a-local-history-study ,
-    nat:contentdescriptor-aspect-theme-british-beyond-1066 ,
-    nat:contentdescriptor-achievements-earliest-civilizations-overview-first ,
-    nat:contentdescriptor-ancient-greece-study-greek-life ,
-    nat:contentdescriptor-non-european-society-provides-contrasts .
+  curric:isProgressionOf natcurric:scheme-history-key-stage-2 ;
+  curric:coversSubStrand natcurric:substrand-history ;
+  curric:includesContentDescriptor
+    natcurric:contentdescriptor-changes-britain-stone-age-iron ,
+    natcurric:contentdescriptor-roman-empire-impact-britain ,
+    natcurric:contentdescriptor-britain-settlement-anglo-saxons-scots ,
+    natcurric:contentdescriptor-viking-anglo-saxon-struggle-kingdom ,
+    natcurric:contentdescriptor-a-local-history-study ,
+    natcurric:contentdescriptor-aspect-theme-british-beyond-1066 ,
+    natcurric:contentdescriptor-achievements-earliest-civilizations-overview-first ,
+    natcurric:contentdescriptor-ancient-greece-study-greek-life ,
+    natcurric:contentdescriptor-non-european-society-provides-contrasts .
 
-nat:progression-history-key-stage-3-history
-  a natcurric:Progression ;
+natcurric:progression-history-key-stage-3-history
+  a curric:Progression ;
   rdfs:label "History Key Stage 3 History"@en ;
   dcterms:modified "2026-05-05T17:04:19Z"^^xsd:dateTime ;
-  natcurric:isProgressionOf nat:scheme-history-key-stage-3 ;
-  natcurric:coversSubStrand nat:substrand-history ;
-  natcurric:includesContentDescriptor
-    nat:contentdescriptor-development-church-state-society-medieval ,
-    nat:contentdescriptor-development-church-state-society-britain ,
-    nat:contentdescriptor-ideas-political-power-industry-empire ,
-    nat:contentdescriptor-challenges-britain-europe-wider-world ,
-    nat:contentdescriptor-a-local-history-study ,
-    nat:contentdescriptor-aspect-theme-british-before-1066 ,
-    nat:contentdescriptor-one-study-significant-society-issue .
+  curric:isProgressionOf natcurric:scheme-history-key-stage-3 ;
+  curric:coversSubStrand natcurric:substrand-history ;
+  curric:includesContentDescriptor
+    natcurric:contentdescriptor-development-church-state-society-medieval ,
+    natcurric:contentdescriptor-development-church-state-society-britain ,
+    natcurric:contentdescriptor-ideas-political-power-industry-empire ,
+    natcurric:contentdescriptor-challenges-britain-europe-wider-world ,
+    natcurric:contentdescriptor-a-local-history-study ,
+    natcurric:contentdescriptor-aspect-theme-british-before-1066 ,
+    natcurric:contentdescriptor-one-study-significant-society-issue .

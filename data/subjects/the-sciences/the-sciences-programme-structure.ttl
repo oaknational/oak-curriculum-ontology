@@ -1,0 +1,1838 @@
+@prefix curric: <https://w3id.org/uk/oak/curriculum/ontology/> .
+@prefix natcurric: <https://w3id.org/uk/oak/curriculum/nationalcurriculum/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ======================================================================
+# National Curriculum for England - The Sciences Programme Structure
+# ======================================================================
+
+# ----------------------------------------------------------------------
+# Ontology Declaration
+# ----------------------------------------------------------------------
+
+<https://w3id.org/uk/oak/curriculum/nationalcurriculum/the-sciences-programme-structure>
+  rdf:type owl:Ontology ;
+
+  rdfs:label "National Curriculum for England - The Sciences Programme Structure"@en ;
+  dc:title "National Curriculum for England - The Sciences Programme Structure"@en ;
+  rdfs:comment """The Sciences programme structure that specifies schemes and progressions, and a
+  mapping to strands, sub-strands and content descriptors within the knowledge taxonomy."""@en ;
+
+  owl:versionInfo "0.1.0" ;
+  owl:versionIRI <https://w3id.org/uk/oak/curriculum/nationalcurriculum/the-sciences-programme-structure/0.1.0> ;
+
+  dcterms:description """The Sciences programme structure that specifies schemes and progressions,
+  and a mapping to strands, sub-strands and content descriptors within the knowledge
+  taxonomy."""@en ;
+  dc:creator "Department for Education" ;
+  dcterms:created "2026-05-13T23:49:26Z"^^xsd:dateTime ;
+  dcterms:modified "2026-05-13T23:49:26Z"^^xsd:dateTime ;
+  dcterms:issued "2026-05-13T23:49:26Z"^^xsd:dateTime ;
+
+  # OGL 3.0 License
+  dcterms:license <http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/> ;
+  dcterms:rights "Crown Copyright"@en ;
+
+  rdfs:seeAlso <https://w3id.org/uk/oak/curriculum/ontology> ;
+
+  vann:preferredNamespacePrefix "natcurric" ;
+  vann:preferredNamespaceUri "https://w3id.org/uk/oak/curriculum/nationalcurriculum/" ;
+
+  owl:imports <https://w3id.org/uk/oak/curriculum/ontology> ;
+  owl:imports <https://w3id.org/uk/oak/curriculum/nationalcurriculum/temporal-structure> ;
+  owl:imports <https://w3id.org/uk/oak/curriculum/nationalcurriculum/the-sciences-knowledge-taxonomy> .
+
+# ----------------------------------------------------------------------
+# Subject Group 
+# ----------------------------------------------------------------------
+
+natcurric:subjectgroup-the-sciences
+  a curric:SubjectGroup ;
+  rdfs:label "The Sciences"@en ;
+  dcterms:modified "2026-05-13T23:49:26Z"^^xsd:dateTime ;
+  curric:coversDiscipline natcurric:discipline-the-sciences .
+
+# ----------------------------------------------------------------------
+# Subjects
+# ----------------------------------------------------------------------
+
+natcurric:subject-the-sciences
+  a curric:Subject ;
+  rdfs:label "The Sciences"@en ;
+  curric:rationale """A high-quality science education provides the foundations for understanding 
+  the world through the specific disciplines of biology, chemistry and physics. Science has changed 
+  our lives and is vital to the world’s future prosperity, and all pupils should be taught 
+  essential aspects of the knowledge, methods, processes and uses of science. Through building up a 
+  body of key foundational knowledge and concepts, pupils should be encouraged to recognise the 
+  power of rational explanation and develop a sense of excitement and curiosity about natural 
+  phenomena. They should be encouraged to understand how science can be used to explain what is 
+  occurring, predict how things will behave, and analyse causes.
+
+  The programmes of study describe a sequence of knowledge and concepts. While it is important that 
+  pupils make progress, it is also vitally important that they develop secure understanding of each 
+  key block of knowledge and concepts in order to progress to the next stage. Insecure, superficial 
+  understanding will not allow genuine progression: pupils may struggle at key points of transition 
+  (such as between primary and secondary school), build up serious misconceptions, and/or have 
+  significant difficulties in understanding higher-order content.
+  
+  Pupils should be able to describe associated processes and key characteristics in common 
+  language, but they should also be familiar with, and use, technical terminology accurately and 
+  precisely. They should build up an extended specialist vocabulary. They should also apply their 
+  mathematical knowledge to their understanding of science, including collecting, presenting and 
+  analysing data. The social and economic implications of science are important but, generally, 
+  they are taught most appropriately within the wider school curriculum: teachers will wish to use 
+  different contexts to maximise their pupils’ engagement with and motivation to study science.
+
+  ‘Working scientifically’ specifies the understanding of the nature, processes and methods of 
+  science for each year group. It should not be taught as a separate strand. The notes and guidance 
+  give examples of how ‘working scientifically’ might be embedded within the content of biology, 
+  chemistry and physics, focusing on the key features of scientific enquiry, so that pupils learn 
+  to use a variety of approaches to answer relevant scientific questions. These types of scientific 
+  enquiry should include: observing over time; pattern seeking; identifying, classifying and 
+  grouping; comparative and fair testing (controlled investigations); and researching using 
+  secondary sources. Pupils should seek answers to questions through collecting, analysing and 
+  presenting data. ‘Working scientifically’ will be developed further at key stages 3 and 4, once 
+  pupils have built up sufficient understanding of science to engage meaningfully in more 
+  sophisticated discussion of experimental design and control."""@en ;
+  curric:schoolCurriculum """The programmes of study for science are set out year-by-year for key 
+  stages 1 and 2. Schools are, however, only required to teach the relevant programme of study by 
+  the end of the key stage. Within each key stage, schools therefore have the flexibility to 
+  introduce content earlier or later than set out in the programme of study. In addition, schools 
+  can introduce key stage content during an earlier key stage if appropriate. All schools are also 
+  required to set out their school curriculum for science on a year-by-year basis and make this 
+  information available online."""@en ;
+  curric:hasAim
+    natcurric:aim-the-sciences-develop-scientific-knowledge-conceptual-understanding ,
+    natcurric:aim-the-sciences-understanding-nature-processes-methods-science ,
+    natcurric:aim-the-sciences-uses-implications-science-today-future ;
+  dcterms:modified "2026-05-13T23:49:26Z"^^xsd:dateTime ;
+  curric:isSubjectOf natcurric:subjectgroup-the-sciences ;
+  curric:coversStrand natcurric:strand-working-scientifically .
+
+natcurric:subject-biology
+  a curric:Subject ;
+  rdfs:label "Biology"@en ;
+  dcterms:modified "2026-05-13T23:49:26Z"^^xsd:dateTime ;
+  curric:isSubjectOf natcurric:subjectgroup-the-sciences ;
+  curric:coversStrand natcurric:strand-biology .
+
+natcurric:subject-chemistry
+  a curric:Subject ;
+  rdfs:label "Chemistry"@en ;
+  dcterms:modified "2026-05-13T23:49:26Z"^^xsd:dateTime ;
+  curric:isSubjectOf natcurric:subjectgroup-the-sciences ;
+  curric:coversStrand natcurric:strand-chemistry .
+
+natcurric:subject-physics
+  a curric:Subject ;
+  rdfs:label "Physics"@en ;
+  dcterms:modified "2026-05-13T23:49:26Z"^^xsd:dateTime ;
+  curric:isSubjectOf natcurric:subjectgroup-the-sciences ;
+  curric:coversStrand natcurric:strand-physics .
+
+# ----------------------------------------------------------------------
+# Aims
+# ----------------------------------------------------------------------
+
+natcurric:aim-the-sciences-develop-scientific-knowledge-conceptual-understanding
+  a curric:Aim ;
+  rdfs:label """Develop scientific knowledge and conceptual understanding through the specific 
+  disciplines of biology, chemistry and physics."""@en ;
+  dcterms:modified "2026-05-13T23:49:26Z"^^xsd:dateTime .
+
+natcurric:aim-the-sciences-understanding-nature-processes-methods-science
+  a curric:Aim ;
+  rdfs:label """Develop understanding of the nature, processes and methods of science through 
+  different types of science enquiries that help them to answer scientific questions about the 
+  world around them."""@en ;
+  dcterms:modified "2026-05-13T23:49:26Z"^^xsd:dateTime .
+
+natcurric:aim-the-sciences-uses-implications-science-today-future
+  a curric:Aim ;
+  rdfs:label """Are equipped with the scientific knowledge required to understand the uses and 
+  implications of science, today and for the future."""@en ;
+  dcterms:modified "2026-05-13T23:49:26Z"^^xsd:dateTime .
+
+# ----------------------------------------------------------------------
+# Schemes
+# ----------------------------------------------------------------------
+
+natcurric:scheme-the-sciences-key-stage-1
+  a curric:Scheme ;
+  rdfs:label "The Sciences Key Stage 1"@en ;
+  dcterms:description """The principal focus of science teaching in key stage 1 is to enable pupils 
+  to experience and observe phenomena, looking more closely at the natural and humanly constructed 
+  world around them. They should be encouraged to be curious and ask questions about what they 
+  notice. They should be helped to develop their understanding of scientific ideas by using 
+  different types of scientific enquiry to answer their own questions, including observing changes 
+  over a period of time, noticing patterns, grouping and classifying things, carrying out simple 
+  comparative tests, and finding things out using secondary sources of information. They should 
+  begin to use simple scientific language to talk about what they have found out and communicate 
+  their ideas to a range of audiences in a variety of ways. Most of the learning about science 
+  should be done through the use of first-hand practical experiences, but there should also be some 
+  use of appropriate secondary sources, such as books, photographs and videos.
+  
+  ‘Working scientifically’ is described separately in the programme of study, but must always be 
+  taught through and clearly related to the teaching of substantive science content in the 
+  programme of study. Throughout the notes and guidance, examples show how scientific methods and 
+  skills might be linked to specific elements of the content.
+  
+  Pupils should read and spell scientific vocabulary at a level consistent with their increasing 
+  word-reading and spelling knowledge at key stage 1."""@en ;
+  dcterms:modified "2026-05-13T23:49:26Z"^^xsd:dateTime ;
+  curric:isSchemeOf natcurric:subject-the-sciences ;
+  curric:coversKeyStage natcurric:key-stage-1 .
+
+natcurric:scheme-the-sciences-key-stage-2
+  a curric:Scheme ;
+  rdfs:label "The Sciences Key Stage 2"@en ;
+  dcterms:description """The principal focus of science teaching in lower key stage 2 is to enable 
+  pupils to broaden their scientific view of the world around them. They should do this through 
+  exploring, talking about, testing and developing ideas about everyday phenomena and the 
+  relationships between living things and familiar environments, and by beginning to develop their 
+  ideas about functions, relationships and interactions. They should ask their own questions about 
+  what they observe and make some decisions about which types of scientific enquiry are likely to 
+  be the best ways of answering them, including observing changes over time, noticing patterns, 
+  grouping and classifying things, carrying out simple comparative and fair tests and finding 
+  things out using secondary sources of information. They should draw simple conclusions and use 
+  some scientific language, first, to talk about and, later, to write about what they have found 
+  out.
+
+  The principal focus of science teaching in upper key stage 2 is to enable 
+  pupils to develop a deeper understanding of a wide range of scientific ideas. They should do this 
+  through exploring and talking about their ideas; asking their own questions about scientific 
+  phenomena; and analysing functions, relationships and interactions more systematically. At upper 
+  key stage 2, they should encounter more abstract ideas and begin to recognise how these ideas 
+  help them to understand and predict how the world operates. They should also begin to recognise 
+  that scientific ideas change and develop over time. They should select the most appropriate ways 
+  to answer science questions using different types of scientific enquiry, including observing 
+  changes over different periods of time, noticing patterns, grouping and classifying things, 
+  carrying out comparative and fair tests and finding things out using a wide range of secondary 
+  sources of information. Pupils should draw conclusions based on their data and observations, use 
+  evidence to justify their ideas, and use their scientific knowledge and understanding to explain 
+  their findings.
+  
+  ‘Working scientifically’ is described separately at the beginning of the programme of study, but 
+  must always be taught through and clearly related to substantive science content in the programme 
+  of study. Throughout the notes and guidance, examples show how scientific methods and skills 
+  might be linked to specific elements of the content.
+  
+  Pupils should read and spell scientific vocabulary correctly and with confidence, using their 
+  growing word-reading and spelling knowledge."""@en ;
+  dcterms:modified "2026-05-13T23:49:26Z"^^xsd:dateTime ;
+  curric:isSchemeOf natcurric:subject-the-sciences ;
+  curric:coversKeyStage natcurric:key-stage-2 .
+
+natcurric:scheme-the-sciences-key-stage-3
+  a curric:Scheme ;
+  rdfs:label "The Sciences Key Stage 3"@en ;
+  dcterms:description """The principal focus of science teaching in key stage 3 is to develop a 
+  deeper understanding of a range of scientific ideas in the subject disciplines of biology, 
+  chemistry and physics. Pupils should begin to see the connections between these subject areas and 
+  become aware of some of the big ideas underpinning scientific knowledge and understanding. 
+  Examples of these big ideas are the links between structure and function in living organisms, the 
+  particulate model as the key to understanding the properties and interactions of matter in all 
+  its forms, and the resources and means of transfer of energy as key determinants of all of these 
+  interactions. They should be encouraged to relate scientific explanations to phenomena in the 
+  world around them and start to use modelling and abstract ideas to develop and evaluate 
+  explanations.
+  
+  Pupils should understand that science is about working objectively, modifying explanations to 
+  take account of new evidence and ideas and subjecting results to peer review. Pupils should 
+  decide on the appropriate type of scientific enquiry to undertake to answer their own questions 
+  and develop a deeper understanding of factors to be taken into account when collecting, recording 
+  and processing data. They should evaluate their results and identify further questions arising 
+  from them.
+  
+  ‘Working scientifically’ is described separately at the beginning of the programme of study, but 
+  must always be taught through and clearly related to substantive science content in the programme 
+  of study. Teachers should feel free to choose examples that serve a variety of purposes, from 
+  showing how scientific ideas have developed historically to reflecting modern developments in 
+  science.
+  
+  Pupils should develop their use of scientific vocabulary, including the use of scientific 
+  nomenclature and units and mathematical representations."""@en ;
+  dcterms:modified "2026-05-13T23:49:26Z"^^xsd:dateTime ;
+  curric:isSchemeOf natcurric:subject-the-sciences ;
+  curric:coversKeyStage natcurric:key-stage-3 .
+
+natcurric:scheme-the-sciences-key-stage-4
+  a curric:Scheme ;
+  rdfs:label "The Sciences Key Stage 4"@en ;
+  dcterms:modified "2026-05-13T23:49:26Z"^^xsd:dateTime ;
+  curric:isSchemeOf natcurric:subject-the-sciences ;
+  curric:coversKeyStage natcurric:key-stage-4 .
+
+natcurric:scheme-biology-key-stage-1
+  a curric:Scheme ;
+  rdfs:label "Biology Key Stage 1"@en ;
+  dcterms:description """The principal focus of science teaching in key stage 1 is to enable pupils 
+  to experience and observe phenomena, looking more closely at the natural and humanly constructed 
+  world around them. They should be encouraged to be curious and ask questions about what they 
+  notice. They should be helped to develop their understanding of scientific ideas by using 
+  different types of scientific enquiry to answer their own questions, including observing changes 
+  over a period of time, noticing patterns, grouping and classifying things, carrying out simple 
+  comparative tests, and finding things out using secondary sources of information. They should 
+  begin to use simple scientific language to talk about what they have found out and communicate 
+  their ideas to a range of audiences in a variety of ways. Most of the learning about science 
+  should be done through the use of first-hand practical experiences, but there should also be some 
+  use of appropriate secondary sources, such as books, photographs and videos.
+  
+  ‘Working scientifically’ is described separately in the programme of study, but must always be 
+  taught through and clearly related to the teaching of substantive science content in the 
+  programme of study. Throughout the notes and guidance, examples show how scientific methods and 
+  skills might be linked to specific elements of the content.
+  
+  Pupils should read and spell scientific vocabulary at a level consistent with their increasing 
+  word-reading and spelling knowledge at key stage 1."""@en ;
+  dcterms:modified "2026-05-13T23:49:26Z"^^xsd:dateTime ;
+  curric:isSchemeOf natcurric:subject-biology ;
+  curric:coversKeyStage natcurric:key-stage-1 .
+
+natcurric:scheme-biology-key-stage-2
+  a curric:Scheme ;
+  rdfs:label "Biology Key Stage 2"@en ;
+  dcterms:description """The principal focus of science teaching in lower key stage 2 is to enable 
+  pupils to broaden their scientific view of the world around them. They should do this through 
+  exploring, talking about, testing and developing ideas about everyday phenomena and the 
+  relationships between living things and familiar environments, and by beginning to develop their 
+  ideas about functions, relationships and interactions. They should ask their own questions about 
+  what they observe and make some decisions about which types of scientific enquiry are likely to 
+  be the best ways of answering them, including observing changes over time, noticing patterns, 
+  grouping and classifying things, carrying out simple comparative and fair tests and finding 
+  things out using secondary sources of information. They should draw simple conclusions and use 
+  some scientific language, first, to talk about and, later, to write about what they have found 
+  out.
+
+  The principal focus of science teaching in upper key stage 2 is to enable 
+  pupils to develop a deeper understanding of a wide range of scientific ideas. They should do this 
+  through exploring and talking about their ideas; asking their own questions about scientific 
+  phenomena; and analysing functions, relationships and interactions more systematically. At upper 
+  key stage 2, they should encounter more abstract ideas and begin to recognise how these ideas 
+  help them to understand and predict how the world operates. They should also begin to recognise 
+  that scientific ideas change and develop over time. They should select the most appropriate ways 
+  to answer science questions using different types of scientific enquiry, including observing 
+  changes over different periods of time, noticing patterns, grouping and classifying things, 
+  carrying out comparative and fair tests and finding things out using a wide range of secondary 
+  sources of information. Pupils should draw conclusions based on their data and observations, use 
+  evidence to justify their ideas, and use their scientific knowledge and understanding to explain 
+  their findings.
+  
+  ‘Working scientifically’ is described separately at the beginning of the programme of study, but 
+  must always be taught through and clearly related to substantive science content in the programme 
+  of study. Throughout the notes and guidance, examples show how scientific methods and skills 
+  might be linked to specific elements of the content.
+  
+  Pupils should read and spell scientific vocabulary correctly and with confidence, using their 
+  growing word-reading and spelling knowledge."""@en ;
+  dcterms:modified "2026-05-13T23:49:26Z"^^xsd:dateTime ;
+  curric:isSchemeOf natcurric:subject-biology ;
+  curric:coversKeyStage natcurric:key-stage-2 .
+
+natcurric:scheme-biology-key-stage-3
+  a curric:Scheme ;
+  rdfs:label "Biology Key Stage 3"@en ;
+  dcterms:description """The principal focus of science teaching in key stage 3 is to develop a 
+  deeper understanding of a range of scientific ideas in the subject disciplines of biology, 
+  chemistry and physics. Pupils should begin to see the connections between these subject areas and 
+  become aware of some of the big ideas underpinning scientific knowledge and understanding. 
+  Examples of these big ideas are the links between structure and function in living organisms, the 
+  particulate model as the key to understanding the properties and interactions of matter in all 
+  its forms, and the resources and means of transfer of energy as key determinants of all of these 
+  interactions. They should be encouraged to relate scientific explanations to phenomena in the 
+  world around them and start to use modelling and abstract ideas to develop and evaluate 
+  explanations.
+  
+  Pupils should understand that science is about working objectively, modifying explanations to 
+  take account of new evidence and ideas and subjecting results to peer review. Pupils should 
+  decide on the appropriate type of scientific enquiry to undertake to answer their own questions 
+  and develop a deeper understanding of factors to be taken into account when collecting, recording 
+  and processing data. They should evaluate their results and identify further questions arising 
+  from them.
+  
+  ‘Working scientifically’ is described separately at the beginning of the programme of study, but 
+  must always be taught through and clearly related to substantive science content in the programme 
+  of study. Teachers should feel free to choose examples that serve a variety of purposes, from 
+  showing how scientific ideas have developed historically to reflecting modern developments in 
+  science.
+  
+  Pupils should develop their use of scientific vocabulary, including the use of scientific 
+  nomenclature and units and mathematical representations."""@en ;
+  dcterms:modified "2026-05-13T23:49:26Z"^^xsd:dateTime ;
+  curric:isSchemeOf natcurric:subject-biology ;
+  curric:coversKeyStage natcurric:key-stage-3 .
+
+natcurric:scheme-biology-key-stage-4
+  a curric:Scheme ;
+  rdfs:label "Biology Key Stage 4"@en ;
+  dcterms:modified "2026-05-13T23:49:26Z"^^xsd:dateTime ;
+  curric:isSchemeOf natcurric:subject-biology ;
+  curric:coversKeyStage natcurric:key-stage-4 .
+
+natcurric:scheme-chemistry-key-stage-1
+  a curric:Scheme ;
+  rdfs:label "Chemistry Key Stage 1"@en ;
+  dcterms:description """The principal focus of science teaching in key stage 1 is to enable pupils 
+  to experience and observe phenomena, looking more closely at the natural and humanly constructed 
+  world around them. They should be encouraged to be curious and ask questions about what they 
+  notice. They should be helped to develop their understanding of scientific ideas by using 
+  different types of scientific enquiry to answer their own questions, including observing changes 
+  over a period of time, noticing patterns, grouping and classifying things, carrying out simple 
+  comparative tests, and finding things out using secondary sources of information. They should 
+  begin to use simple scientific language to talk about what they have found out and communicate 
+  their ideas to a range of audiences in a variety of ways. Most of the learning about science 
+  should be done through the use of first-hand practical experiences, but there should also be some 
+  use of appropriate secondary sources, such as books, photographs and videos.
+  
+  ‘Working scientifically’ is described separately in the programme of study, but must always be 
+  taught through and clearly related to the teaching of substantive science content in the 
+  programme of study. Throughout the notes and guidance, examples show how scientific methods and 
+  skills might be linked to specific elements of the content.
+  
+  Pupils should read and spell scientific vocabulary at a level consistent with their increasing 
+  word-reading and spelling knowledge at key stage 1."""@en ;
+  dcterms:modified "2026-05-13T23:49:26Z"^^xsd:dateTime ;
+  curric:isSchemeOf natcurric:subject-chemistry ;
+  curric:coversKeyStage natcurric:key-stage-1 .
+
+natcurric:scheme-chemistry-key-stage-2
+  a curric:Scheme ;
+  rdfs:label "Chemistry Key Stage 2"@en ;
+  dcterms:description """The principal focus of science teaching in lower key stage 2 is to enable 
+  pupils to broaden their scientific view of the world around them. They should do this through 
+  exploring, talking about, testing and developing ideas about everyday phenomena and the 
+  relationships between living things and familiar environments, and by beginning to develop their 
+  ideas about functions, relationships and interactions. They should ask their own questions about 
+  what they observe and make some decisions about which types of scientific enquiry are likely to 
+  be the best ways of answering them, including observing changes over time, noticing patterns, 
+  grouping and classifying things, carrying out simple comparative and fair tests and finding 
+  things out using secondary sources of information. They should draw simple conclusions and use 
+  some scientific language, first, to talk about and, later, to write about what they have found 
+  out.
+
+  The principal focus of science teaching in upper key stage 2 is to enable 
+  pupils to develop a deeper understanding of a wide range of scientific ideas. They should do this 
+  through exploring and talking about their ideas; asking their own questions about scientific 
+  phenomena; and analysing functions, relationships and interactions more systematically. At upper 
+  key stage 2, they should encounter more abstract ideas and begin to recognise how these ideas 
+  help them to understand and predict how the world operates. They should also begin to recognise 
+  that scientific ideas change and develop over time. They should select the most appropriate ways 
+  to answer science questions using different types of scientific enquiry, including observing 
+  changes over different periods of time, noticing patterns, grouping and classifying things, 
+  carrying out comparative and fair tests and finding things out using a wide range of secondary 
+  sources of information. Pupils should draw conclusions based on their data and observations, use 
+  evidence to justify their ideas, and use their scientific knowledge and understanding to explain 
+  their findings.
+  
+  ‘Working scientifically’ is described separately at the beginning of the programme of study, but 
+  must always be taught through and clearly related to substantive science content in the programme 
+  of study. Throughout the notes and guidance, examples show how scientific methods and skills 
+  might be linked to specific elements of the content.
+  
+  Pupils should read and spell scientific vocabulary correctly and with confidence, using their 
+  growing word-reading and spelling knowledge."""@en ;
+  dcterms:modified "2026-05-13T23:49:26Z"^^xsd:dateTime ;
+  curric:isSchemeOf natcurric:subject-chemistry ;
+  curric:coversKeyStage natcurric:key-stage-2 .
+
+natcurric:scheme-chemistry-key-stage-3
+  a curric:Scheme ;
+  rdfs:label "Chemistry Key Stage 3"@en ;
+  dcterms:description """The principal focus of science teaching in key stage 3 is to develop a 
+  deeper understanding of a range of scientific ideas in the subject disciplines of biology, 
+  chemistry and physics. Pupils should begin to see the connections between these subject areas and 
+  become aware of some of the big ideas underpinning scientific knowledge and understanding. 
+  Examples of these big ideas are the links between structure and function in living organisms, the 
+  particulate model as the key to understanding the properties and interactions of matter in all 
+  its forms, and the resources and means of transfer of energy as key determinants of all of these 
+  interactions. They should be encouraged to relate scientific explanations to phenomena in the 
+  world around them and start to use modelling and abstract ideas to develop and evaluate 
+  explanations.
+  
+  Pupils should understand that science is about working objectively, modifying explanations to 
+  take account of new evidence and ideas and subjecting results to peer review. Pupils should 
+  decide on the appropriate type of scientific enquiry to undertake to answer their own questions 
+  and develop a deeper understanding of factors to be taken into account when collecting, recording 
+  and processing data. They should evaluate their results and identify further questions arising 
+  from them.
+  
+  ‘Working scientifically’ is described separately at the beginning of the programme of study, but 
+  must always be taught through and clearly related to substantive science content in the programme 
+  of study. Teachers should feel free to choose examples that serve a variety of purposes, from 
+  showing how scientific ideas have developed historically to reflecting modern developments in 
+  science.
+  
+  Pupils should develop their use of scientific vocabulary, including the use of scientific 
+  nomenclature and units and mathematical representations."""@en ;
+  dcterms:modified "2026-05-13T23:49:26Z"^^xsd:dateTime ;
+  curric:isSchemeOf natcurric:subject-chemistry ;
+  curric:coversKeyStage natcurric:key-stage-3 .
+
+natcurric:scheme-chemistry-key-stage-4
+  a curric:Scheme ;
+  rdfs:label "Chemistry Key Stage 4"@en ;
+  dcterms:modified "2026-05-13T23:49:26Z"^^xsd:dateTime ;
+  curric:isSchemeOf natcurric:subject-chemistry ;
+  curric:coversKeyStage natcurric:key-stage-4 .
+
+natcurric:scheme-physics-key-stage-1
+  a curric:Scheme ;
+  rdfs:label "Physics Key Stage 1"@en ;
+  dcterms:description """The principal focus of science teaching in key stage 1 is to enable pupils 
+  to experience and observe phenomena, looking more closely at the natural and humanly constructed 
+  world around them. They should be encouraged to be curious and ask questions about what they 
+  notice. They should be helped to develop their understanding of scientific ideas by using 
+  different types of scientific enquiry to answer their own questions, including observing changes 
+  over a period of time, noticing patterns, grouping and classifying things, carrying out simple 
+  comparative tests, and finding things out using secondary sources of information. They should 
+  begin to use simple scientific language to talk about what they have found out and communicate 
+  their ideas to a range of audiences in a variety of ways. Most of the learning about science 
+  should be done through the use of first-hand practical experiences, but there should also be some 
+  use of appropriate secondary sources, such as books, photographs and videos.
+  
+  ‘Working scientifically’ is described separately in the programme of study, but must always be 
+  taught through and clearly related to the teaching of substantive science content in the 
+  programme of study. Throughout the notes and guidance, examples show how scientific methods and 
+  skills might be linked to specific elements of the content.
+  
+  Pupils should read and spell scientific vocabulary at a level consistent with their increasing 
+  word-reading and spelling knowledge at key stage 1."""@en ;
+  dcterms:modified "2026-05-13T23:49:26Z"^^xsd:dateTime ;
+  curric:isSchemeOf natcurric:subject-physics ;
+  curric:coversKeyStage natcurric:key-stage-1 .
+
+natcurric:scheme-physics-key-stage-2
+  a curric:Scheme ;
+  rdfs:label "Physics Key Stage 2"@en ;
+  dcterms:description """The principal focus of science teaching in lower key stage 2 is to enable 
+  pupils to broaden their scientific view of the world around them. They should do this through 
+  exploring, talking about, testing and developing ideas about everyday phenomena and the 
+  relationships between living things and familiar environments, and by beginning to develop their 
+  ideas about functions, relationships and interactions. They should ask their own questions about 
+  what they observe and make some decisions about which types of scientific enquiry are likely to 
+  be the best ways of answering them, including observing changes over time, noticing patterns, 
+  grouping and classifying things, carrying out simple comparative and fair tests and finding 
+  things out using secondary sources of information. They should draw simple conclusions and use 
+  some scientific language, first, to talk about and, later, to write about what they have found 
+  out.
+
+  The principal focus of science teaching in upper key stage 2 is to enable 
+  pupils to develop a deeper understanding of a wide range of scientific ideas. They should do this 
+  through exploring and talking about their ideas; asking their own questions about scientific 
+  phenomena; and analysing functions, relationships and interactions more systematically. At upper 
+  key stage 2, they should encounter more abstract ideas and begin to recognise how these ideas 
+  help them to understand and predict how the world operates. They should also begin to recognise 
+  that scientific ideas change and develop over time. They should select the most appropriate ways 
+  to answer science questions using different types of scientific enquiry, including observing 
+  changes over different periods of time, noticing patterns, grouping and classifying things, 
+  carrying out comparative and fair tests and finding things out using a wide range of secondary 
+  sources of information. Pupils should draw conclusions based on their data and observations, use 
+  evidence to justify their ideas, and use their scientific knowledge and understanding to explain 
+  their findings.
+  
+  ‘Working scientifically’ is described separately at the beginning of the programme of study, but 
+  must always be taught through and clearly related to substantive science content in the programme 
+  of study. Throughout the notes and guidance, examples show how scientific methods and skills 
+  might be linked to specific elements of the content.
+  
+  Pupils should read and spell scientific vocabulary correctly and with confidence, using their 
+  growing word-reading and spelling knowledge."""@en ;
+  dcterms:modified "2026-05-13T23:49:26Z"^^xsd:dateTime ;
+  curric:isSchemeOf natcurric:subject-physics ;
+  curric:coversKeyStage natcurric:key-stage-2 .
+
+natcurric:scheme-physics-key-stage-3
+  a curric:Scheme ;
+  rdfs:label "Physics Key Stage 3"@en ;
+  dcterms:description """The principal focus of science teaching in key stage 3 is to develop a 
+  deeper understanding of a range of scientific ideas in the subject disciplines of biology, 
+  chemistry and physics. Pupils should begin to see the connections between these subject areas and 
+  become aware of some of the big ideas underpinning scientific knowledge and understanding. 
+  Examples of these big ideas are the links between structure and function in living organisms, the 
+  particulate model as the key to understanding the properties and interactions of matter in all 
+  its forms, and the resources and means of transfer of energy as key determinants of all of these 
+  interactions. They should be encouraged to relate scientific explanations to phenomena in the 
+  world around them and start to use modelling and abstract ideas to develop and evaluate 
+  explanations.
+  
+  Pupils should understand that science is about working objectively, modifying explanations to 
+  take account of new evidence and ideas and subjecting results to peer review. Pupils should 
+  decide on the appropriate type of scientific enquiry to undertake to answer their own questions 
+  and develop a deeper understanding of factors to be taken into account when collecting, recording 
+  and processing data. They should evaluate their results and identify further questions arising 
+  from them.
+  
+  ‘Working scientifically’ is described separately at the beginning of the programme of study, but 
+  must always be taught through and clearly related to substantive science content in the programme 
+  of study. Teachers should feel free to choose examples that serve a variety of purposes, from 
+  showing how scientific ideas have developed historically to reflecting modern developments in 
+  science.
+  
+  Pupils should develop their use of scientific vocabulary, including the use of scientific 
+  nomenclature and units and mathematical representations."""@en ;
+  dcterms:modified "2026-05-13T23:49:26Z"^^xsd:dateTime ;
+  curric:isSchemeOf natcurric:subject-physics ;
+  curric:coversKeyStage natcurric:key-stage-3 .
+
+natcurric:scheme-physics-key-stage-4
+  a curric:Scheme ;
+  rdfs:label "Physics Key Stage 4"@en ;
+  dcterms:modified "2026-05-13T23:49:26Z"^^xsd:dateTime ;
+  curric:isSchemeOf natcurric:subject-physics ;
+  curric:coversKeyStage natcurric:key-stage-4 .
+
+# ----------------------------------------------------------------------
+# Progressions
+# ----------------------------------------------------------------------
+
+natcurric:progression-the-sciences-key-stage-4-the-development-of-scientific-thinking
+  a curric:Progression ;
+  rdfs:label "The Sciences Key Stage 4 The development of scientific thinking"@en ;
+  dcterms:modified "2026-05-13T23:49:26Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-the-sciences-key-stage-4 ;
+  curric:coversSubStrand natcurric:substrand-the-development-of-scientific-thinking ;
+  curric:includesContentDescriptor
+    natcurric:contentdescriptor-ways-scientific-methods-theories-time ,
+    natcurric:contentdescriptor-variety-concepts-models-scientific-explanations ,
+    natcurric:contentdescriptor-appreciating-power-limitations-science-ethical ,
+    natcurric:contentdescriptor-explaining-everyday-technological-applications-science ,
+    natcurric:contentdescriptor-evaluating-risks-practical-science-wider ,
+    natcurric:contentdescriptor-importance-peer-review-results-communication .
+
+natcurric:progression-the-sciences-key-stage-4-experimental-skills-and-strategies
+  a curric:Progression ;
+  rdfs:label "The Sciences Key Stage 4 Experimental skills and strategies"@en ;
+  dcterms:modified "2026-05-13T23:49:26Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-the-sciences-key-stage-4 ;
+  curric:coversSubStrand natcurric:substrand-experimental-skills-and-strategies ;
+  curric:includesContentDescriptor
+    natcurric:contentdescriptor-scientific-theories-explanations-hypotheses ,
+    natcurric:contentdescriptor-planning-experiments-observations-test-hypotheses ,
+    natcurric:contentdescriptor-applying-range-techniques-apparatus-materials ,
+    natcurric:contentdescriptor-carrying-experiments-having-due-regard ,
+    natcurric:contentdescriptor-apply-sampling-techniques-ensure-samples ,
+    natcurric:contentdescriptor-recording-observations-measurements-range-apparatus ,
+    natcurric:contentdescriptor-evaluating-methods-suggesting-possible-improvements .
+
+natcurric:progression-the-sciences-key-stage-4-analysis-and-evaluation
+  a curric:Progression ;
+  rdfs:label "The Sciences Key Stage 4 Analysis and evaluation"@en ;
+  dcterms:modified "2026-05-13T23:49:26Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-the-sciences-key-stage-4 ;
+  curric:coversSubStrand natcurric:substrand-analysis-and-evaluation ;
+  curric:includesContentDescriptor
+    natcurric:contentdescriptor-presenting-observations-using-appropriate-methods ,
+    natcurric:contentdescriptor-collecting-presenting-analysing-translating-data ,
+    natcurric:contentdescriptor-collecting-representing-mathematical-statistical-analysis ,
+    natcurric:contentdescriptor-distributions-results-estimations-of-uncertainty ,
+    natcurric:contentdescriptor-patterns-trends-inferences-drawing-conclusions ,
+    natcurric:contentdescriptor-reasoned-explanations-relating-data-hypotheses ,
+    natcurric:contentdescriptor-evaluating-data-accuracy-precision-repeatability ,
+    natcurric:contentdescriptor-scientific-rationale-methods-findings-conclusions .
+
+natcurric:progression-the-sciences-key-stage-4-vocabulary-units-symbols-and-nomenclature
+  a curric:Progression ;
+  rdfs:label "The Sciences Key Stage 4 Vocabulary, units, symbols and nomenclature"@en ;
+  dcterms:modified "2026-05-13T23:49:26Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-the-sciences-key-stage-4 ;
+  curric:coversSubStrand natcurric:substrand-vocabulary-units-symbols-and-nomenclature ;
+  curric:includesContentDescriptor
+    natcurric:contentdescriptor-scientific-vocabulary-nomenclature ,
+    natcurric:contentdescriptor-importance-scientific-quantities-determined ,
+    natcurric:contentdescriptor-si-units-iupac-chemical-nomenclature ,
+    natcurric:contentdescriptor-prefixes-powers-ten-orders-magnitude ,
+    natcurric:contentdescriptor-interconverting-units ,
+    natcurric:contentdescriptor-appropriate-number-significant-figures-calculations .
+
+natcurric:progression-biology-key-stage-4-cell-biology
+  a curric:Progression ;
+  rdfs:label "Biology Key Stage 4 Cell biology"@en ;
+  dcterms:modified "2026-05-13T23:49:26Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-biology-key-stage-4 ;
+  curric:coversSubStrand natcurric:substrand-cell-biology ;
+  curric:includesContentDescriptor
+    natcurric:contentdescriptor-cells-basic-structural-unit-organisms ,
+    natcurric:contentdescriptor-stem-cells-animals-meristems-plants ,
+    natcurric:contentdescriptor-enzymes ,
+    natcurric:contentdescriptor-factors-affecting-rate-enzymatic-reactions ,
+    natcurric:contentdescriptor-importance-cellular-respiration-processes-aerobic ,
+    natcurric:contentdescriptor-carbohydrates-proteins-nucleic-acids-lipids .
+
+natcurric:progression-biology-key-stage-4-transport-systems
+  a curric:Progression ;
+  rdfs:label "Biology Key Stage 4 Transport systems"@en ;
+  dcterms:modified "2026-05-13T23:49:26Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-biology-key-stage-4 ;
+  curric:coversSubStrand natcurric:substrand-transport-systems ;
+  curric:includesContentDescriptor
+    natcurric:contentdescriptor-need-transport-systems-multicellular-organisms ,
+    natcurric:contentdescriptor-relationship-structure-functions-human-circulatory .
+
+natcurric:progression-biology-key-stage-4-health-disease-development-medicines
+  a curric:Progression ;
+  rdfs:label "Biology Key Stage 4 Health, disease and the development of medicines"@en ;
+  dcterms:modified "2026-05-13T23:49:26Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-biology-key-stage-4 ;
+  curric:coversSubStrand natcurric:substrand-health-disease-development-medicines ;
+  curric:includesContentDescriptor
+    natcurric:contentdescriptor-relationship-health-disease ,
+    natcurric:contentdescriptor-communicable-diseases-transmitted-infections-humans ,
+    natcurric:contentdescriptor-non-communicable-diseases ,
+    natcurric:contentdescriptor-bacteria-viruses-fungi-pathogens-animals ,
+    natcurric:contentdescriptor-body-defences-pathogens-role-immune ,
+    natcurric:contentdescriptor-reducing-preventing-spread-infectious-diseases ,
+    natcurric:contentdescriptor-process-discovery-development-new-medicines ,
+    natcurric:contentdescriptor-impact-lifestyle-factors-incidence-non .
+
+natcurric:progression-biology-key-stage-4-coordination-and-control
+  a curric:Progression ;
+  rdfs:label "Biology Key Stage 4 Coordination and control"@en ;
+  dcterms:modified "2026-05-13T23:49:26Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-biology-key-stage-4 ;
+  curric:coversSubStrand natcurric:substrand-coordination-and-control ;
+  curric:includesContentDescriptor
+    natcurric:contentdescriptor-principles-nervous-coordination-control-humans ,
+    natcurric:contentdescriptor-relationship-structure-function-human-nervous ,
+    natcurric:contentdescriptor-relationship-structure-function-reflex-arc ,
+    natcurric:contentdescriptor-principles-hormonal-coordination-control-humans ,
+    natcurric:contentdescriptor-hormones-human-reproduction-hormonal-non ,
+    natcurric:contentdescriptor-homeostasis .
+
+natcurric:progression-biology-key-stage-4-photosynthesis
+  a curric:Progression ;
+  rdfs:label "Biology Key Stage 4 Photosynthesis"@en ;
+  dcterms:modified "2026-05-13T23:49:26Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-biology-key-stage-4 ;
+  curric:coversSubStrand natcurric:substrand-photosynthesis ;
+  curric:includesContentDescriptor
+    natcurric:contentdescriptor-photosynthesis-key-process-food-production ,
+    natcurric:contentdescriptor-the-process-of-photosynthesis ,
+    natcurric:contentdescriptor-factors-affecting-rate-photosynthesis .
+
+natcurric:progression-biology-key-stage-4-ecosystems
+  a curric:Progression ;
+  rdfs:label "Biology Key Stage 4 Ecosystems"@en ;
+  dcterms:modified "2026-05-13T23:49:26Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-biology-key-stage-4 ;
+  curric:coversSubStrand natcurric:substrand-ecosystems ;
+  curric:includesContentDescriptor
+    natcurric:contentdescriptor-levels-organisation-ecosystem ,
+    natcurric:contentdescriptor-abiotic-biotic-factors-affect-communities ,
+    natcurric:contentdescriptor-materials-cycle-abiotic-biotic-components ,
+    natcurric:contentdescriptor-role-microorganisms-decomposers-cycling-materials ,
+    natcurric:contentdescriptor-organisms-interdependent-adapted-environment ,
+    natcurric:contentdescriptor-the-importance-of-biodiversity ,
+    natcurric:contentdescriptor-methods-identifying-species-measuring-distribution ,
+    natcurric:contentdescriptor-positive-negative-human-interactions-ecosystems .
+
+natcurric:progression-biology-key-stage-4-evolution-inheritance-and-variation
+  a curric:Progression ;
+  rdfs:label "Biology Key Stage 4 Evolution, inheritance and variation"@en ;
+  dcterms:modified "2026-05-13T23:49:26Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-biology-key-stage-4 ;
+  curric:coversSubStrand natcurric:substrand-evolution-inheritance-and-variation ;
+  curric:includesContentDescriptor
+    natcurric:contentdescriptor-genome-entire-genetic-material-organism ,
+    natcurric:contentdescriptor-genome-interaction-environment-influence-development ,
+    natcurric:contentdescriptor-potential-impact-genomics-medicine ,
+    natcurric:contentdescriptor-most-phenotypic-features-result-multiple ,
+    natcurric:contentdescriptor-single-gene-inheritance-single-gene ,
+    natcurric:contentdescriptor-sex-determination-in-humans ,
+    natcurric:contentdescriptor-genetic-variation-populations-species ,
+    natcurric:contentdescriptor-process-natural-selection-leading-evolution ,
+    natcurric:contentdescriptor-the-evidence-for-evolution ,
+    natcurric:contentdescriptor-developments-in-biology-affecting-classification ,
+    natcurric:contentdescriptor-importance-selective-breeding-plants-animals ,
+    natcurric:contentdescriptor-modern-biotechnology-gene-technology-practical .
+
+natcurric:progression-chemistry-key-stage-4-atomic-structure-periodic-table
+  a curric:Progression ;
+  rdfs:label "Chemistry Key Stage 4 Atomic structure and the Periodic Table"@en ;
+  dcterms:modified "2026-05-13T23:49:26Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-chemistry-key-stage-4 ;
+  curric:coversSubStrand natcurric:substrand-atomic-structure-periodic-table ;
+  curric:includesContentDescriptor
+    natcurric:contentdescriptor-simple-model-atom-consisting-nucleus ,
+    natcurric:contentdescriptor-number-particles-given-mass-substance ,
+    natcurric:contentdescriptor-modern-periodic-table-elements-arranged ,
+    natcurric:contentdescriptor-position-elements-periodic-table-relation ,
+    natcurric:contentdescriptor-properties-trends-properties-elements-same ,
+    natcurric:contentdescriptor-characteristic-properties-metals-non-metals ,
+    natcurric:contentdescriptor-chemical-reactivity-elements-relation-position .
+
+natcurric:progression-chemistry-key-stage-4-structure-bonding-properties-matter
+  a curric:Progression ;
+  rdfs:label "Chemistry Key Stage 4 Structure, bonding and the properties of matter"@en ;
+  dcterms:modified "2026-05-13T23:49:26Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-chemistry-key-stage-4 ;
+  curric:coversSubStrand natcurric:substrand-structure-bonding-properties-matter ;
+  curric:includesContentDescriptor
+    natcurric:contentdescriptor-changes-state-matter-terms-particle ,
+    natcurric:contentdescriptor-types-chemical-bonding-ionic-covalent ,
+    natcurric:contentdescriptor-bulk-properties-materials-related-bonding ,
+    natcurric:contentdescriptor-bonding-carbon-leading-vast-array ,
+    natcurric:contentdescriptor-structures-bonding-properties-diamond-graphite .
+
+natcurric:progression-chemistry-key-stage-4-chemical-changes
+  a curric:Progression ;
+  rdfs:label "Chemistry Key Stage 4 Chemical changes"@en ;
+  dcterms:modified "2026-05-13T23:49:26Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-chemistry-key-stage-4 ;
+  curric:coversSubStrand natcurric:substrand-chemical-changes ;
+  curric:includesContentDescriptor
+    natcurric:contentdescriptor-determination-empirical-formulae-ratio-atoms ,
+    natcurric:contentdescriptor-balanced-chemical-equations-ionic-equations ,
+    natcurric:contentdescriptor-identification-of-common-gases ,
+    natcurric:contentdescriptor-chemistry-acids-reactions-metals-carbonates ,
+    natcurric:contentdescriptor-ph-measure-hydrogen-ion-concentration ,
+    natcurric:contentdescriptor-electrolysis-molten-ionic-liquids-aqueous ,
+    natcurric:contentdescriptor-reduction-oxidation-terms-loss-gain .
+
+natcurric:progression-chemistry-key-stage-4-energy-changes-in-chemistry
+  a curric:Progression ;
+  rdfs:label "Chemistry Key Stage 4 Energy changes in chemistry"@en ;
+  dcterms:modified "2026-05-13T23:49:26Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-chemistry-key-stage-4 ;
+  curric:coversSubStrand natcurric:substrand-energy-changes-in-chemistry ;
+  curric:includesContentDescriptor
+    natcurric:contentdescriptor-measurement-energy-changes-chemical-reactions ,
+    natcurric:contentdescriptor-bond-breaking-bond-activation-energy .
+
+natcurric:progression-chemistry-key-stage-4-rate-extent-chemical-change
+  a curric:Progression ;
+  rdfs:label "Chemistry Key Stage 4 Rate and extent of chemical change"@en ;
+  dcterms:modified "2026-05-13T23:49:26Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-chemistry-key-stage-4 ;
+  curric:coversSubStrand natcurric:substrand-rate-extent-chemical-change ;
+  curric:includesContentDescriptor
+    natcurric:contentdescriptor-factors-influence-rate-reaction-varying ,
+    natcurric:contentdescriptor-factors-affecting-reversible-reactions .
+
+natcurric:progression-chemistry-key-stage-4-chemical-analysis
+  a curric:Progression ;
+  rdfs:label "Chemistry Key Stage 4 Chemical analysis"@en ;
+  dcterms:modified "2026-05-13T23:49:26Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-chemistry-key-stage-4 ;
+  curric:coversSubStrand natcurric:substrand-chemical-analysis ;
+  curric:includesContentDescriptor
+    natcurric:contentdescriptor-distinguishing-pure-impure-substances ,
+    natcurric:contentdescriptor-separation-techniques-mixtures-substances-filtration ,
+    natcurric:contentdescriptor-quantitative-interpretation-of-balanced-equations ,
+    natcurric:contentdescriptor-concentrations-solutions-relation-mass-solute .
+
+natcurric:progression-chemistry-key-stage-4-chemical-and-allied-industries
+  a curric:Progression ;
+  rdfs:label "Chemistry Key Stage 4 Chemical and allied industries"@en ;
+  dcterms:modified "2026-05-13T23:49:26Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-chemistry-key-stage-4 ;
+  curric:coversSubStrand natcurric:substrand-chemical-and-allied-industries ;
+  curric:includesContentDescriptor
+    natcurric:contentdescriptor-life-cycle-assessment-recycling-assess ,
+    natcurric:contentdescriptor-viability-recycling-certain-materials ,
+    natcurric:contentdescriptor-carbon-compounds-fuels-feedstock-competing ,
+    natcurric:contentdescriptor-fractional-distillation-crude-oil-cracking ,
+    natcurric:contentdescriptor-extraction-purification-metals-related-position .
+
+natcurric:progression-chemistry-key-stage-4-earth-and-atmospheric-science
+  a curric:Progression ;
+  rdfs:label "Chemistry Key Stage 4 Earth and atmospheric science"@en ;
+  dcterms:modified "2026-05-13T23:49:26Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-chemistry-key-stage-4 ;
+  curric:coversSubStrand natcurric:substrand-earth-and-atmospheric-science ;
+  curric:includesContentDescriptor
+    natcurric:contentdescriptor-evidence-composition-evolution-earth-atmosphere ,
+    natcurric:contentdescriptor-evidence-uncertainties-evidence-additional-anthropogenic ,
+    natcurric:contentdescriptor-potential-effects-mitigation-increased-levels ,
+    natcurric:contentdescriptor-common-atmospheric-pollutants-sulphur-dioxide ,
+    natcurric:contentdescriptor-earth-water-resources-obtaining-potable .
+
+natcurric:progression-physics-key-stage-4-energy
+  a curric:Progression ;
+  rdfs:label "Physics Key Stage 4 Energy"@en ;
+  dcterms:modified "2026-05-13T23:49:26Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-physics-key-stage-4 ;
+  curric:coversSubStrand natcurric:substrand-energy ;
+  curric:includesContentDescriptor
+    natcurric:contentdescriptor-energy-changes-system-involving-heating ,
+    natcurric:contentdescriptor-power-rate-transfer-energy ,
+    natcurric:contentdescriptor-conservation-energy-closed-system-dissipation ,
+    natcurric:contentdescriptor-calculating-energy-efficiency-energy-transfers ,
+    natcurric:contentdescriptor-renewable-non-renewable-energy-sources .
+
+natcurric:progression-physics-key-stage-4-forces
+  a curric:Progression ;
+  rdfs:label "Physics Key Stage 4 Forces"@en ;
+  dcterms:modified "2026-05-13T23:49:26Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-physics-key-stage-4 ;
+  curric:coversSubStrand natcurric:substrand-forces ;
+  curric:includesContentDescriptor
+    natcurric:contentdescriptor-forces-fields-electrostatic-magnetic-gravity ,
+    natcurric:contentdescriptor-forces-as-vectors ,
+    natcurric:contentdescriptor-calculating-done-force-distance-elastic ,
+    natcurric:contentdescriptor-pressure-fluids-acts-directions-variation .
+
+natcurric:progression-physics-key-stage-4-forces-and-motion
+  a curric:Progression ;
+  rdfs:label "Physics Key Stage 4 Forces and motion"@en ;
+  dcterms:modified "2026-05-13T23:49:26Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-physics-key-stage-4 ;
+  curric:coversSubStrand natcurric:substrand-forces-and-motion ;
+  curric:includesContentDescriptor
+    natcurric:contentdescriptor-speed-sound-estimating-speeds-accelerations ,
+    natcurric:contentdescriptor-interpreting-graphs-distance-time-speed ,
+    natcurric:contentdescriptor-acceleration-caused-forces-newton-first ,
+    natcurric:contentdescriptor-weight-and-gravitational-field-strength ,
+    natcurric:contentdescriptor-decelerations-braking-distances-involved-roads .
+
+natcurric:progression-physics-key-stage-4-wave-motion
+  a curric:Progression ;
+  rdfs:label "Physics Key Stage 4 Wave motion"@en ;
+  dcterms:modified "2026-05-13T23:49:26Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-physics-key-stage-4 ;
+  curric:coversSubStrand natcurric:substrand-wave-motion ;
+  curric:includesContentDescriptor
+    natcurric:contentdescriptor-amplitude-wavelength-frequency-relating-velocity ,
+    natcurric:contentdescriptor-transverse-and-longitudinal-waves ,
+    natcurric:contentdescriptor-electromagnetic-waves-velocity-vacuum-waves ,
+    natcurric:contentdescriptor-velocities-differing-media-absorption-reflection ,
+    natcurric:contentdescriptor-production-detection-electrical-circuits-changes ,
+    natcurric:contentdescriptor-radio-microwave-infra-red-visible .
+
+natcurric:progression-physics-key-stage-4-electricity
+  a curric:Progression ;
+  rdfs:label "Physics Key Stage 4 Electricity"@en ;
+  dcterms:modified "2026-05-13T23:49:26Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-physics-key-stage-4 ;
+  curric:coversSubStrand natcurric:substrand-electricity ;
+  curric:includesContentDescriptor
+    natcurric:contentdescriptor-measuring-resistance-pd-current-measurements ,
+    natcurric:contentdescriptor-current-resistance-voltage-relationships-different ,
+    natcurric:contentdescriptor-quantity-charge-flowing-product-current ,
+    natcurric:contentdescriptor-drawing-circuit-diagrams-equivalent-resistance ,
+    natcurric:contentdescriptor-domestic-ac-supply-live-neutral ,
+    natcurric:contentdescriptor-power-transfer-related-pd-current .
+
+natcurric:progression-physics-key-stage-4-magnetism-and-electromagnetism
+  a curric:Progression ;
+  rdfs:label "Physics Key Stage 4 Magnetism and electromagnetism"@en ;
+  dcterms:modified "2026-05-13T23:49:26Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-physics-key-stage-4 ;
+  curric:coversSubStrand natcurric:substrand-magnetism-and-electromagnetism ;
+  curric:includesContentDescriptor
+    natcurric:contentdescriptor-magnetic-fields-permanent-induced-magnets ,
+    natcurric:contentdescriptor-magnetic-effects-currents-solenoids-enhance ,
+    natcurric:contentdescriptor-transformers-used-national-grid-reasons .
+
+natcurric:progression-physics-key-stage-4-the-structure-of-matter
+  a curric:Progression ;
+  rdfs:label "Physics Key Stage 4 The structure of matter"@en ;
+  dcterms:modified "2026-05-13T23:49:26Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-physics-key-stage-4 ;
+  curric:coversSubStrand natcurric:substrand-the-structure-of-matter ;
+  curric:includesContentDescriptor
+    natcurric:contentdescriptor-relating-models-arrangements-motions-molecules ,
+    natcurric:contentdescriptor-melting-evaporation-sublimation-reversible-changes ,
+    natcurric:contentdescriptor-calculating-energy-changes-involved-heating ,
+    natcurric:contentdescriptor-links-pressure-temperature-gas-constant .
+
+natcurric:progression-physics-key-stage-4-atomic-structure
+  a curric:Progression ;
+  rdfs:label "Physics Key Stage 4 Atomic structure"@en ;
+  dcterms:modified "2026-05-13T23:49:26Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-physics-key-stage-4 ;
+  curric:coversSubStrand natcurric:substrand-atomic-structure ;
+  curric:includesContentDescriptor
+    natcurric:contentdescriptor-nuclear-model-development-light-changing ,
+    natcurric:contentdescriptor-masses-sizes-nuclei-atoms-small ,
+    natcurric:contentdescriptor-differences-numbers-protons-neutrons-related ,
+    natcurric:contentdescriptor-ionisation-absorption-emission-radiation-related ,
+    natcurric:contentdescriptor-radioactive-nuclei-emission-alpha-beta ,
+    natcurric:contentdescriptor-radioactive-materials-half-life-irradiation ,
+    natcurric:contentdescriptor-nuclear-fission-nuclear-fusion-sun .
+
+natcurric:progression-physics-key-stage-4-space-physics
+  a curric:Progression ;
+  rdfs:label "Physics Key Stage 4 Space physics"@en ;
+  dcterms:modified "2026-05-13T23:49:26Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-physics-key-stage-4 ;
+  curric:coversSubStrand natcurric:substrand-space-physics ;
+  curric:includesContentDescriptor natcurric:contentdescriptor-main-features-solar-system .
+
+natcurric:progression-the-sciences-key-stage-1-practical-scientific-methods-processes-skills
+  a curric:Progression ;
+  rdfs:label "The Sciences Key Stage 1 Practical scientific methods, processes and skills"@en ;
+  dcterms:modified "2026-05-13T23:49:26Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-the-sciences-key-stage-1 ;
+  curric:coversSubStrand natcurric:substrand-practical-scientific-methods-processes-skills ;
+  curric:includesContentDescriptor
+    natcurric:contentdescriptor-asking-simple-questions-answered-different ,
+    natcurric:contentdescriptor-observing-closely-using-simple-equipment ,
+    natcurric:contentdescriptor-performing-simple-tests ,
+    natcurric:contentdescriptor-identifying-and-classifying ,
+    natcurric:contentdescriptor-observations-ideas-suggest-answers-questions ,
+    natcurric:contentdescriptor-gathering-recording-data-help-answering .
+
+natcurric:progression-biology-year-group-1-plants
+  a curric:Progression ;
+  rdfs:label "Biology Year Group 1 Plants"@en ;
+  dcterms:modified "2026-05-13T23:49:26Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-biology-key-stage-1 ;
+  curric:coversYearGroup natcurric:year-group-1 ;
+  curric:coversSubStrand natcurric:substrand-plants ;
+  curric:includesContentDescriptor
+    natcurric:contentdescriptor-identify-name-variety-common-wild ,
+    natcurric:contentdescriptor-identify-describe-basic-structure-variety .
+
+natcurric:progression-biology-year-group-1-animals-including-humans
+  a curric:Progression ;
+  rdfs:label "Biology Year Group 1 Animals including humans"@en ;
+  dcterms:modified "2026-05-13T23:49:26Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-biology-key-stage-1 ;
+  curric:coversYearGroup natcurric:year-group-1 ;
+  curric:coversSubStrand natcurric:substrand-animals-including-humans ;
+  curric:includesContentDescriptor
+    natcurric:contentdescriptor-identify-fish-amphibians-reptiles-birds ,
+    natcurric:contentdescriptor-identify-animals-carnivores-herbivores-omnivores ,
+    natcurric:contentdescriptor-describe-compare-structure-variety-common ,
+    natcurric:contentdescriptor-identify-name-draw-label-basic .
+
+natcurric:progression-chemistry-year-group-1-everyday-materials
+  a curric:Progression ;
+  rdfs:label "Chemistry Year Group 1 Everyday Materials"@en ;
+  dcterms:modified "2026-05-13T23:49:26Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-chemistry-key-stage-1 ;
+  curric:coversYearGroup natcurric:year-group-1 ;
+  curric:coversSubStrand natcurric:substrand-everyday-materials ;
+  curric:includesContentDescriptor
+    natcurric:contentdescriptor-distinguish-object-material-made ,
+    natcurric:contentdescriptor-identify-name-variety-everyday-materials ,
+    natcurric:contentdescriptor-describe-simple-physical-properties-variety ,
+    natcurric:contentdescriptor-everyday-materials-compare-group-variety-everyday-materials .
+
+natcurric:progression-physics-year-group-1-seasonal-changes
+  a curric:Progression ;
+  rdfs:label "Physics Year Group 1 Seasonal changes"@en ;
+  dcterms:modified "2026-05-13T23:49:26Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-physics-key-stage-1 ;
+  curric:coversYearGroup natcurric:year-group-1 ;
+  curric:coversSubStrand natcurric:substrand-seasonal-changes ;
+  curric:includesContentDescriptor
+    natcurric:contentdescriptor-observe-changes-4-seasons ,
+    natcurric:contentdescriptor-observe-describe-weather-associated-seasons .
+
+natcurric:progression-biology-year-group-2-living-things-and-their-habitats
+  a curric:Progression ;
+  rdfs:label "Biology Year Group 2 Living things and their habitats"@en ;
+  dcterms:modified "2026-05-13T23:49:26Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-biology-key-stage-1 ;
+  curric:coversYearGroup natcurric:year-group-2 ;
+  curric:coversSubStrand natcurric:substrand-living-things-and-their-habitats ;
+  curric:includesContentDescriptor
+    natcurric:contentdescriptor-compare-differences-things-living-dead ,
+    natcurric:contentdescriptor-identify-most-living-things-live ,
+    natcurric:contentdescriptor-identify-name-variety-plants-animals ,
+    natcurric:contentdescriptor-describe-animals-obtain-food-plants .
+
+natcurric:progression-biology-year-group-2-plants
+  a curric:Progression ;
+  rdfs:label "Biology Year Group 2 Plants"@en ;
+  dcterms:modified "2026-05-13T23:49:26Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-biology-key-stage-1 ;
+  curric:coversYearGroup natcurric:year-group-2 ;
+  curric:coversSubStrand natcurric:substrand-plants ;
+  curric:includesContentDescriptor
+    natcurric:contentdescriptor-observe-describe-seeds-bulbs-grow ,
+    natcurric:contentdescriptor-find-describe-plants-need-water .
+
+natcurric:progression-biology-year-group-2-animals-including-humans
+  a curric:Progression ;
+  rdfs:label "Biology Year Group 2 Animals including humans"@en ;
+  dcterms:modified "2026-05-13T23:49:26Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-biology-key-stage-1 ;
+  curric:coversYearGroup natcurric:year-group-2 ;
+  curric:coversSubStrand natcurric:substrand-animals-including-humans ;
+  curric:includesContentDescriptor
+    natcurric:contentdescriptor-notice-animals-humans-have-offspring ,
+    natcurric:contentdescriptor-find-describe-basic-needs-animals ,
+    natcurric:contentdescriptor-describe-importance-humans-exercise-eating .
+
+natcurric:progression-chemistry-year-group-2-everyday-materials
+  a curric:Progression ;
+  rdfs:label "Chemistry Year Group 2 Everyday Materials"@en ;
+  dcterms:modified "2026-05-13T23:49:26Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-chemistry-key-stage-1 ;
+  curric:coversYearGroup natcurric:year-group-2 ;
+  curric:coversSubStrand natcurric:substrand-everyday-materials ;
+  curric:includesContentDescriptor
+    natcurric:contentdescriptor-identify-compare-suitability-variety-everyday ,
+    natcurric:contentdescriptor-find-shapes-solid-objects-made .
+
+natcurric:progression-the-sciences-year-group-3-4-practical-scientific-methods-processes-skills
+  a curric:Progression ;
+  rdfs:label "The Sciences Year Group 3 & 4 Practical scientific methods, processes and skills"@en ;
+  dcterms:modified "2026-05-13T23:49:26Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-the-sciences-key-stage-2 ;
+  curric:coversYearGroup natcurric:year-group-3-4 ;
+  curric:coversSubStrand natcurric:substrand-practical-scientific-methods-processes-skills ;
+  curric:includesContentDescriptor
+    natcurric:contentdescriptor-asking-relevant-questions-different-types ,
+    natcurric:contentdescriptor-setting-simple-practical-enquiries-comparative ,
+    natcurric:contentdescriptor-systematic-careful-observations-appropriate-taking ,
+    natcurric:contentdescriptor-gathering-recording-classifying-presenting-data ,
+    natcurric:contentdescriptor-recording-findings-simple-scientific-language ,
+    natcurric:contentdescriptor-reporting-findings-enquiries-oral-written ,
+    natcurric:contentdescriptor-results-draw-simple-conclusions-predictions ,
+    natcurric:contentdescriptor-identifying-differences-similarities-changes-related ,
+    natcurric:contentdescriptor-straightforward-scientific-evidence-answer-questions .
+
+natcurric:progression-biology-year-group-3-plants
+  a curric:Progression ;
+  rdfs:label "Biology Year Group 3 Plants"@en ;
+  dcterms:modified "2026-05-13T23:49:26Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-biology-key-stage-2 ;
+  curric:coversYearGroup natcurric:year-group-3 ;
+  curric:coversSubStrand natcurric:substrand-plants ;
+  curric:includesContentDescriptor
+    natcurric:contentdescriptor-identify-describe-functions-different-parts ,
+    natcurric:contentdescriptor-requirements-plants-life-growth-air ,
+    natcurric:contentdescriptor-investigate-way-water-transported-plants ,
+    natcurric:contentdescriptor-part-flowers-play-life-cycle .
+
+natcurric:progression-biology-year-group-3-animals-including-humans
+  a curric:Progression ;
+  rdfs:label "Biology Year Group 3 Animals including humans"@en ;
+  dcterms:modified "2026-05-13T23:49:26Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-biology-key-stage-2 ;
+  curric:coversYearGroup natcurric:year-group-3 ;
+  curric:coversSubStrand natcurric:substrand-animals-including-humans ;
+  curric:includesContentDescriptor
+    natcurric:contentdescriptor-identify-animals-humans-need-right ,
+    natcurric:contentdescriptor-identify-humans-other-animals-have .
+
+natcurric:progression-biology-year-group-4-animals-including-humans
+  a curric:Progression ;
+  rdfs:label "Biology Year Group 4 Animals including humans"@en ;
+  dcterms:modified "2026-05-13T23:49:26Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-biology-key-stage-2 ;
+  curric:coversYearGroup natcurric:year-group-4 ;
+  curric:coversSubStrand natcurric:substrand-animals-including-humans ;
+  curric:includesContentDescriptor
+    natcurric:contentdescriptor-describe-simple-functions-basic-parts ,
+    natcurric:contentdescriptor-identify-different-types-teeth-humans ,
+    natcurric:contentdescriptor-construct-interpret-variety-food-chains .
+
+natcurric:progression-chemistry-year-group-3-rocks
+  a curric:Progression ;
+  rdfs:label "Chemistry Year Group 3 Rocks"@en ;
+  dcterms:modified "2026-05-13T23:49:26Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-chemistry-key-stage-2 ;
+  curric:coversYearGroup natcurric:year-group-3 ;
+  curric:coversSubStrand natcurric:substrand-rocks ;
+  curric:includesContentDescriptor
+    natcurric:contentdescriptor-compare-group-different-kinds-rocks ,
+    natcurric:contentdescriptor-describe-simple-terms-fossils-formed ,
+    natcurric:contentdescriptor-soils-made-rocks-organic-matter .
+
+natcurric:progression-physics-year-group-3-light
+  a curric:Progression ;
+  rdfs:label "Physics Year Group 3 Light"@en ;
+  dcterms:modified "2026-05-13T23:49:26Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-physics-key-stage-2 ;
+  curric:coversYearGroup natcurric:year-group-3 ;
+  curric:coversSubStrand natcurric:substrand-light ;
+  curric:includesContentDescriptor
+    natcurric:contentdescriptor-need-light-order-see-things ,
+    natcurric:contentdescriptor-notice-light-reflected-surfaces ,
+    natcurric:contentdescriptor-light-sun-dangerous-are-ways ,
+    natcurric:contentdescriptor-shadows-formed-light-light-source ,
+    natcurric:contentdescriptor-find-patterns-way-size-shadows .
+
+natcurric:progression-physics-year-group-3-forces-and-magnets
+  a curric:Progression ;
+  rdfs:label "Physics Year Group 3 Forces and Magnets"@en ;
+  dcterms:modified "2026-05-13T23:49:26Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-physics-key-stage-2 ;
+  curric:coversYearGroup natcurric:year-group-3 ;
+  curric:coversSubStrand natcurric:substrand-forces-and-magnets ;
+  curric:includesContentDescriptor
+    natcurric:contentdescriptor-compare-things-move-different-surfaces ,
+    natcurric:contentdescriptor-notice-forces-need-contact ,
+    natcurric:contentdescriptor-observe-magnets-attract-repel-other ,
+    natcurric:contentdescriptor-forces-and-magnets-compare-group-variety-everyday-materials ,
+    natcurric:contentdescriptor-describe-magnets-having-2-poles ,
+    natcurric:contentdescriptor-predict-2-magnets-attract-repel .
+
+natcurric:progression-biology-year-group-4-living-things-and-their-habitats
+  a curric:Progression ;
+  rdfs:label "Biology Year Group 4 Living things and their habitats"@en ;
+  dcterms:modified "2026-05-13T23:49:26Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-biology-key-stage-2 ;
+  curric:coversYearGroup natcurric:year-group-4 ;
+  curric:coversSubStrand natcurric:substrand-living-things-and-their-habitats ;
+  curric:includesContentDescriptor
+    natcurric:contentdescriptor-living-things-grouped-variety-ways ,
+    natcurric:contentdescriptor-classification-keys-help-group-identify ,
+    natcurric:contentdescriptor-environments-change-pose-dangers-living .
+
+natcurric:progression-chemistry-year-group-4-states-of-matter
+  a curric:Progression ;
+  rdfs:label "Chemistry Year Group 4 States of Matter"@en ;
+  dcterms:modified "2026-05-13T23:49:26Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-chemistry-key-stage-2 ;
+  curric:coversYearGroup natcurric:year-group-4 ;
+  curric:coversSubStrand natcurric:substrand-states-of-matter ;
+  curric:includesContentDescriptor
+    natcurric:contentdescriptor-compare-group-materials-according-solids ,
+    natcurric:contentdescriptor-observe-materials-change-state-heated ,
+    natcurric:contentdescriptor-identify-part-played-evaporation-condensation .
+
+natcurric:progression-physics-year-group-4-sound
+  a curric:Progression ;
+  rdfs:label "Physics Year Group 4 Sound"@en ;
+  dcterms:modified "2026-05-13T23:49:26Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-physics-key-stage-2 ;
+  curric:coversYearGroup natcurric:year-group-4 ;
+  curric:coversSubStrand natcurric:substrand-sound ;
+  curric:includesContentDescriptor
+    natcurric:contentdescriptor-identify-sounds-made-associating-vibrating ,
+    natcurric:contentdescriptor-vibrations-sounds-travel-medium-ear ,
+    natcurric:contentdescriptor-find-patterns-pitch-sound-features ,
+    natcurric:contentdescriptor-find-patterns-volume-sound-strength ,
+    natcurric:contentdescriptor-sounds-get-fainter-distance-sound .
+
+natcurric:progression-physics-year-group-4-electricity
+  a curric:Progression ;
+  rdfs:label "Physics Year Group 4 Electricity"@en ;
+  dcterms:modified "2026-05-13T23:49:26Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-physics-key-stage-2 ;
+  curric:coversYearGroup natcurric:year-group-4 ;
+  curric:coversSubStrand natcurric:substrand-electricity ;
+  curric:includesContentDescriptor
+    natcurric:contentdescriptor-identify-common-appliances-run-electricity ,
+    natcurric:contentdescriptor-construct-simple-series-electrical-circuit ,
+    natcurric:contentdescriptor-identify-lamp-light-simple-series ,
+    natcurric:contentdescriptor-switch-opens-closes-circuit-associate ,
+    natcurric:contentdescriptor-common-conductors-insulators-associate-metals .
+
+natcurric:progression-the-sciences-year-group-5-6-practical-scientific-methods-processes-skills
+  a curric:Progression ;
+  rdfs:label "The Sciences Year Group 5 & 6 Practical scientific methods, processes and skills"@en ;
+  dcterms:modified "2026-05-13T23:49:26Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-the-sciences-key-stage-2 ;
+  curric:coversYearGroup natcurric:year-group-5-6 ;
+  curric:coversSubStrand natcurric:substrand-practical-scientific-methods-processes-skills ;
+  curric:includesContentDescriptor
+    natcurric:contentdescriptor-planning-different-types-scientific-enquiries ,
+    natcurric:contentdescriptor-taking-measurements-range-scientific-equipment ,
+    natcurric:contentdescriptor-recording-data-results-increasing-complexity ,
+    natcurric:contentdescriptor-test-results-predictions-set-comparative ,
+    natcurric:contentdescriptor-reporting-presenting-findings-enquiries-conclusions ,
+    natcurric:contentdescriptor-identifying-scientific-evidence-used-support .
+
+natcurric:progression-biology-year-group-5-living-things-and-their-habitats
+  a curric:Progression ;
+  rdfs:label "Biology Year Group 5 Living things and their habitats"@en ;
+  dcterms:modified "2026-05-13T23:49:26Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-biology-key-stage-2 ;
+  curric:coversYearGroup natcurric:year-group-5 ;
+  curric:coversSubStrand natcurric:substrand-living-things-and-their-habitats ;
+  curric:includesContentDescriptor
+    natcurric:contentdescriptor-describe-differences-life-cycles-mammal ,
+    natcurric:contentdescriptor-describe-life-process-reproduction-plants .
+
+natcurric:progression-biology-year-group-6-living-things-and-their-habitats
+  a curric:Progression ;
+  rdfs:label "Biology Year Group 6 Living things and their habitats"@en ;
+  dcterms:modified "2026-05-13T23:49:26Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-biology-key-stage-2 ;
+  curric:coversYearGroup natcurric:year-group-6 ;
+  curric:coversSubStrand natcurric:substrand-living-things-and-their-habitats ;
+  curric:includesContentDescriptor
+    natcurric:contentdescriptor-describe-living-things-classified-broad ,
+    natcurric:contentdescriptor-give-reasons-classifying-plants-animals .
+
+natcurric:progression-biology-year-group-5-animals-including-humans
+  a curric:Progression ;
+  rdfs:label "Biology Year Group 5 Animals including humans"@en ;
+  dcterms:modified "2026-05-13T23:49:26Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-biology-key-stage-2 ;
+  curric:coversYearGroup natcurric:year-group-5 ;
+  curric:coversSubStrand natcurric:substrand-animals-including-humans ;
+  curric:includesContentDescriptor
+    natcurric:contentdescriptor-describe-changes-humans-old-age .
+
+natcurric:progression-biology-year-group-6-animals-including-humans
+  a curric:Progression ;
+  rdfs:label "Biology Year Group 6 Animals including humans"@en ;
+  dcterms:modified "2026-05-13T23:49:26Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-biology-key-stage-2 ;
+  curric:coversYearGroup natcurric:year-group-6 ;
+  curric:coversSubStrand natcurric:substrand-animals-including-humans ;
+  curric:includesContentDescriptor
+    natcurric:contentdescriptor-identify-name-main-parts-human ,
+    natcurric:contentdescriptor-impact-diet-exercise-drugs-lifestyle ,
+    natcurric:contentdescriptor-describe-ways-nutrients-water-transported .
+
+natcurric:progression-chemistry-year-group-5-properties-and-changes-of-materials
+  a curric:Progression ;
+  rdfs:label "Chemistry Year Group 5 Properties and Changes of Materials"@en ;
+  dcterms:modified "2026-05-13T23:49:26Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-chemistry-key-stage-2 ;
+  curric:coversYearGroup natcurric:year-group-5 ;
+  curric:coversSubStrand natcurric:substrand-properties-and-changes-of-materials ;
+  curric:includesContentDescriptor
+    natcurric:contentdescriptor-compare-group-everyday-materials-basis ,
+    natcurric:contentdescriptor-materials-dissolve-liquid-form-solution ,
+    natcurric:contentdescriptor-solids-liquids-gases-decide-mixtures ,
+    natcurric:contentdescriptor-give-reasons-based-evidence-comparative ,
+    natcurric:contentdescriptor-dissolving-mixing-changes-state-reversible ,
+    natcurric:contentdescriptor-explain-changes-result-formation-new .
+
+natcurric:progression-physics-year-group-5-earth-and-space
+  a curric:Progression ;
+  rdfs:label "Physics Year Group 5 Earth and Space"@en ;
+  dcterms:modified "2026-05-13T23:49:26Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-physics-key-stage-2 ;
+  curric:coversYearGroup natcurric:year-group-5 ;
+  curric:coversSubStrand natcurric:substrand-earth-and-space ;
+  curric:includesContentDescriptor
+    natcurric:contentdescriptor-describe-movement-earth-other-planets ,
+    natcurric:contentdescriptor-describe-movement-moon-relative-earth ,
+    natcurric:contentdescriptor-describe-sun-earth-moon-spherical ,
+    natcurric:contentdescriptor-idea-earth-rotation-explain-day .
+
+natcurric:progression-physics-year-group-5-forces
+  a curric:Progression ;
+  rdfs:label "Physics Year Group 5 Forces"@en ;
+  dcterms:modified "2026-05-13T23:49:26Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-physics-key-stage-2 ;
+  curric:coversYearGroup natcurric:year-group-5 ;
+  curric:coversSubStrand natcurric:substrand-forces ;
+  curric:includesContentDescriptor
+    natcurric:contentdescriptor-explain-unsupported-objects-fall-earth ,
+    natcurric:contentdescriptor-identify-effects-air-resistance-water ,
+    natcurric:contentdescriptor-mechanisms-levers-pulleys-gears-allow .
+
+natcurric:progression-biology-year-group-6-evolution-and-inheritance
+  a curric:Progression ;
+  rdfs:label "Biology Year Group 6 Evolution and inheritance"@en ;
+  dcterms:modified "2026-05-13T23:49:26Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-biology-key-stage-2 ;
+  curric:coversYearGroup natcurric:year-group-6 ;
+  curric:coversSubStrand natcurric:substrand-evolution-and-inheritance ;
+  curric:includesContentDescriptor
+    natcurric:contentdescriptor-living-things-changed-time-fossils ,
+    natcurric:contentdescriptor-living-things-produce-offspring-same ,
+    natcurric:contentdescriptor-identify-animals-plants-adapted-suit .
+
+natcurric:progression-physics-year-group-6-light
+  a curric:Progression ;
+  rdfs:label "Physics Year Group 6 Light"@en ;
+  dcterms:modified "2026-05-13T23:49:26Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-physics-key-stage-2 ;
+  curric:coversYearGroup natcurric:year-group-6 ;
+  curric:coversSubStrand natcurric:substrand-light ;
+  curric:includesContentDescriptor
+    natcurric:contentdescriptor-light-appears-travel-straight-lines ,
+    natcurric:contentdescriptor-light-travels-straight-lines-reflect ,
+    natcurric:contentdescriptor-explain-see-things-light-travels ,
+    natcurric:contentdescriptor-light-travels-straight-lines-shadows .
+
+natcurric:progression-physics-year-group-6-electricity
+  a curric:Progression ;
+  rdfs:label "Physics Year Group 6 Electricity"@en ;
+  dcterms:modified "2026-05-13T23:49:26Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-physics-key-stage-2 ;
+  curric:coversYearGroup natcurric:year-group-6 ;
+  curric:coversSubStrand natcurric:substrand-electricity ;
+  curric:includesContentDescriptor
+    natcurric:contentdescriptor-associate-brightness-lamp-volume-buzzer ,
+    natcurric:contentdescriptor-compare-give-reasons-variations-components ,
+    natcurric:contentdescriptor-recognised-symbols-representing-simple-circuit .
+
+natcurric:progression-the-sciences-key-stage-3-scientific-attitudes
+  a curric:Progression ;
+  rdfs:label "The Sciences Key Stage 3 Scientific attitudes"@en ;
+  dcterms:modified "2026-05-13T23:49:26Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-the-sciences-key-stage-3 ;
+  curric:coversSubStrand natcurric:substrand-scientific-attitudes ;
+  curric:includesContentDescriptor
+    natcurric:contentdescriptor-paying-attention-objectivity-concern-accuracy ,
+    natcurric:contentdescriptor-scientific-methods-theories-earlier-explanations ,
+    natcurric:contentdescriptor-evaluating-risks .
+
+natcurric:progression-the-sciences-key-stage-3-experimental-skills-and-investigations
+  a curric:Progression ;
+  rdfs:label "The Sciences Key Stage 3 Experimental skills and investigations"@en ;
+  dcterms:modified "2026-05-13T23:49:26Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-the-sciences-key-stage-3 ;
+  curric:coversSubStrand natcurric:substrand-experimental-skills-and-investigations ;
+  curric:includesContentDescriptor
+    natcurric:contentdescriptor-asking-questions-line-enquiry-based ,
+    natcurric:contentdescriptor-predictions-scientific ,
+    natcurric:contentdescriptor-selecting-planning-carrying-appropriate-types ,
+    natcurric:contentdescriptor-appropriate-techniques-apparatus-materials-fieldwork ,
+    natcurric:contentdescriptor-recording-observations-measurements-range-methods ,
+    natcurric:contentdescriptor-applying-sampling-techniques .
+
+natcurric:progression-the-sciences-key-stage-3-analysis-and-evaluation
+  a curric:Progression ;
+  rdfs:label "The Sciences Key Stage 3 Analysis and evaluation"@en ;
+  dcterms:modified "2026-05-13T23:49:26Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-the-sciences-key-stage-3 ;
+  curric:coversSubStrand natcurric:substrand-analysis-and-evaluation ;
+  curric:includesContentDescriptor
+    natcurric:contentdescriptor-applying-mathematical-concepts-calculate-results ,
+    natcurric:contentdescriptor-presenting-observations-data-appropriate-methods ,
+    natcurric:contentdescriptor-interpreting-observations-data-identifying-patterns ,
+    natcurric:contentdescriptor-presenting-reasoned-explanations-explaining-data ,
+    natcurric:contentdescriptor-evaluating-data-awareness-potential-sources ,
+    natcurric:contentdescriptor-identifying-further-questions-arising-results .
+
+natcurric:progression-the-sciences-key-stage-3-measurement
+  a curric:Progression ;
+  rdfs:label "The Sciences Key Stage 3 Measurement"@en ;
+  dcterms:modified "2026-05-13T23:49:26Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-the-sciences-key-stage-3 ;
+  curric:coversSubStrand natcurric:substrand-science-measurement ;
+  curric:includesContentDescriptor
+    natcurric:contentdescriptor-si-units-iupac-international-union ,
+    natcurric:contentdescriptor-deriving-simple-equations-carry-appropriate ,
+    natcurric:contentdescriptor-undertaking-basic-data-analysis-simple .
+
+natcurric:progression-biology-key-stage-3-cells-and-organisation
+  a curric:Progression ;
+  rdfs:label "Biology Key Stage 3 Cells and Organisation"@en ;
+  dcterms:modified "2026-05-13T23:49:26Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-biology-key-stage-3 ;
+  curric:coversSubStrand natcurric:substrand-cells-and-organisation ;
+  curric:includesContentDescriptor
+    natcurric:contentdescriptor-cells-fundamental-unit-living-organisms ,
+    natcurric:contentdescriptor-functions-cell-wall-cell-membrane ,
+    natcurric:contentdescriptor-similarities-differences-plant-animal-cells ,
+    natcurric:contentdescriptor-role-diffusion-movement-materials-cells ,
+    natcurric:contentdescriptor-structural-adaptations-unicellular-organisms ,
+    natcurric:contentdescriptor-hierarchical-organisation-multicellular-organisms-cells .
+
+natcurric:progression-biology-key-stage-3-the-skeletal-and-muscular-systems
+  a curric:Progression ;
+  rdfs:label "Biology Key Stage 3 The Skeletal and Muscular Systems"@en ;
+  dcterms:modified "2026-05-13T23:49:26Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-biology-key-stage-3 ;
+  curric:coversSubStrand natcurric:substrand-the-skeletal-and-muscular-systems ;
+  curric:includesContentDescriptor
+    natcurric:contentdescriptor-structure-functions-human-skeleton-support ,
+    natcurric:contentdescriptor-biomechanics-interaction-skeleton-muscles-measurement ,
+    natcurric:contentdescriptor-function-muscles-examples-antagonistic-muscles .
+
+natcurric:progression-biology-key-stage-3-nutrition-and-digestion
+  a curric:Progression ;
+  rdfs:label "Biology Key Stage 3 Nutrition and Digestion"@en ;
+  dcterms:modified "2026-05-13T23:49:26Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-biology-key-stage-3 ;
+  curric:coversSubStrand natcurric:substrand-nutrition-and-digestion ;
+  curric:includesContentDescriptor
+    natcurric:contentdescriptor-content-healthy-human-diet-carbohydrates ,
+    natcurric:contentdescriptor-calculations-energy-requirements-healthy-daily ,
+    natcurric:contentdescriptor-consequences-imbalances-diet-obesity-starvation ,
+    natcurric:contentdescriptor-tissues-organs-human-digestive-system ,
+    natcurric:contentdescriptor-importance-bacteria-human-digestive-system ,
+    natcurric:contentdescriptor-plants-carbohydrates-leaves-photosynthesis-gaining .
+
+natcurric:progression-biology-key-stage-3-gas-exchange-systems
+  a curric:Progression ;
+  rdfs:label "Biology Key Stage 3 Gas Exchange Systems"@en ;
+  dcterms:modified "2026-05-13T23:49:26Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-biology-key-stage-3 ;
+  curric:coversSubStrand natcurric:substrand-gas-exchange-systems ;
+  curric:includesContentDescriptor
+    natcurric:contentdescriptor-structure-functions-gas-exchange-system ,
+    natcurric:contentdescriptor-mechanism-breathing-move-air-lungs ,
+    natcurric:contentdescriptor-impact-exercise-asthma-smoking-human ,
+    natcurric:contentdescriptor-role-leaf-stomata-gas-exchange .
+
+natcurric:progression-biology-key-stage-3-reproduction
+  a curric:Progression ;
+  rdfs:label "Biology Key Stage 3 Reproduction"@en ;
+  dcterms:modified "2026-05-13T23:49:26Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-biology-key-stage-3 ;
+  curric:coversSubStrand natcurric:substrand-reproduction ;
+  curric:includesContentDescriptor
+    natcurric:contentdescriptor-reproduction-humans-example-mammal-structure ,
+    natcurric:contentdescriptor-reproduction-plants-flower-structure-wind .
+
+natcurric:progression-biology-key-stage-3-health
+  a curric:Progression ;
+  rdfs:label "Biology Key Stage 3 Health"@en ;
+  dcterms:modified "2026-05-13T23:49:26Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-biology-key-stage-3 ;
+  curric:coversSubStrand natcurric:substrand-health ;
+  curric:includesContentDescriptor natcurric:contentdescriptor-effects-recreational-drugs-substance-misuse .
+
+natcurric:progression-biology-key-stage-3-photosynthesis
+  a curric:Progression ;
+  rdfs:label "Biology Key Stage 3 Photosynthesis"@en ;
+  dcterms:modified "2026-05-13T23:49:26Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-biology-key-stage-3 ;
+  curric:coversSubStrand natcurric:substrand-photosynthesis ;
+  curric:includesContentDescriptor
+    natcurric:contentdescriptor-reactants-products-photosynthesis-word-summary ,
+    natcurric:contentdescriptor-dependence-life-earth-ability-photosynthetic ,
+    natcurric:contentdescriptor-adaptations-leaves-photosynthesis .
+
+natcurric:progression-biology-key-stage-3-cellular-respiration
+  a curric:Progression ;
+  rdfs:label "Biology Key Stage 3 Cellular Respiration"@en ;
+  dcterms:modified "2026-05-13T23:49:26Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-biology-key-stage-3 ;
+  curric:coversSubStrand natcurric:substrand-cellular-respiration ;
+  curric:includesContentDescriptor
+    natcurric:contentdescriptor-aerobic-anaerobic-respiration-living-organisms ,
+    natcurric:contentdescriptor-word-summary-aerobic-respiration ,
+    natcurric:contentdescriptor-process-anaerobic-respiration-humans-micro ,
+    natcurric:contentdescriptor-differences-aerobic-anaerobic-respiration-terms .
+
+natcurric:progression-biology-key-stage-3-relationships-in-an-ecosystem
+  a curric:Progression ;
+  rdfs:label "Biology Key Stage 3 Relationships in an Ecosystem"@en ;
+  dcterms:modified "2026-05-13T23:49:26Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-biology-key-stage-3 ;
+  curric:coversSubStrand natcurric:substrand-relationships-in-an-ecosystem ;
+  curric:includesContentDescriptor
+    natcurric:contentdescriptor-interdependence-organisms-ecosystem-food-webs ,
+    natcurric:contentdescriptor-importance-plant-reproduction-insect-pollination ,
+    natcurric:contentdescriptor-organisms-affect-affected-environment-accumulation .
+
+natcurric:progression-biology-key-stage-3-inheritance-chromosomes-dna-and-genes
+  a curric:Progression ;
+  rdfs:label "Biology Key Stage 3 Inheritance, Chromosomes, DNA and Genes"@en ;
+  dcterms:modified "2026-05-13T23:49:26Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-biology-key-stage-3 ;
+  curric:coversSubStrand natcurric:substrand-inheritance-chromosomes-dna-and-genes ;
+  curric:includesContentDescriptor
+    natcurric:contentdescriptor-heredity-process-genetic-information-transmitted ,
+    natcurric:contentdescriptor-simple-model-chromosomes-genes-dna ,
+    natcurric:contentdescriptor-differences-between-species ,
+    natcurric:contentdescriptor-variation-individuals-species-continuous-discontinuous ,
+    natcurric:contentdescriptor-variation-species-individuals-same-species ,
+    natcurric:contentdescriptor-changes-environment-leave-individuals-species ,
+    natcurric:contentdescriptor-importance-maintaining-biodiversity-gene-banks .
+
+natcurric:progression-chemistry-key-stage-3-the-particulate-nature-of-matter
+  a curric:Progression ;
+  rdfs:label "Chemistry Key Stage 3 The particulate nature of matter"@en ;
+  dcterms:modified "2026-05-13T23:49:26Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-chemistry-key-stage-3 ;
+  curric:coversSubStrand natcurric:substrand-the-particulate-nature-of-matter ;
+  curric:includesContentDescriptor
+    natcurric:contentdescriptor-properties-different-states-matter-solid ,
+    natcurric:contentdescriptor-changes-state-terms-particle-model .
+
+natcurric:progression-chemistry-key-stage-3-atoms-elements-and-compounds
+  a curric:Progression ;
+  rdfs:label "Chemistry Key Stage 3 Atoms, Elements and Compounds"@en ;
+  dcterms:modified "2026-05-13T23:49:26Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-chemistry-key-stage-3 ;
+  curric:coversSubStrand natcurric:substrand-atoms-elements-and-compounds ;
+  curric:includesContentDescriptor
+    natcurric:contentdescriptor-a-simple-dalton-atomic-model ,
+    natcurric:contentdescriptor-differences-atoms-elements-compounds ,
+    natcurric:contentdescriptor-chemical-symbols-formulae-elements-compounds ,
+    natcurric:contentdescriptor-conservation-mass-changes-state-chemical .
+
+natcurric:progression-chemistry-key-stage-3-pure-and-impure-substances
+  a curric:Progression ;
+  rdfs:label "Chemistry Key Stage 3 Pure and Impure Substances"@en ;
+  dcterms:modified "2026-05-13T23:49:26Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-chemistry-key-stage-3 ;
+  curric:coversSubStrand natcurric:substrand-pure-and-impure-substances ;
+  curric:includesContentDescriptor
+    natcurric:contentdescriptor-concept-pure-substance ,
+    natcurric:contentdescriptor-mixtures-including-dissolving ,
+    natcurric:contentdescriptor-diffusion-terms-particle-model ,
+    natcurric:contentdescriptor-simple-techniques-separating-mixtures-filtration ,
+    natcurric:contentdescriptor-the-identification-of-pure-substances .
+
+natcurric:progression-chemistry-key-stage-3-chemical-reactions
+  a curric:Progression ;
+  rdfs:label "Chemistry Key Stage 3 Chemical Reactions"@en ;
+  dcterms:modified "2026-05-13T23:49:26Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-chemistry-key-stage-3 ;
+  curric:coversSubStrand natcurric:substrand-chemical-reactions ;
+  curric:includesContentDescriptor
+    natcurric:contentdescriptor-chemical-reactions-rearrangement-atoms ,
+    natcurric:contentdescriptor-representing-chemical-reactions-formulae-equations ,
+    natcurric:contentdescriptor-combustion-thermal-decomposition-oxidation-displacement ,
+    natcurric:contentdescriptor-defining-acids-alkalis-terms-neutralisation ,
+    natcurric:contentdescriptor-ph-scale-measuring-acidity-alkalinity ,
+    natcurric:contentdescriptor-reactions-acids-metals-produce-salt ,
+    natcurric:contentdescriptor-reactions-acids-alkalis-produce-salt ,
+    natcurric:contentdescriptor-what-catalysts-do .
+
+natcurric:progression-chemistry-key-stage-3-energetics
+  a curric:Progression ;
+  rdfs:label "Chemistry Key Stage 3 Energetics"@en ;
+  dcterms:modified "2026-05-13T23:49:26Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-chemistry-key-stage-3 ;
+  curric:coversSubStrand natcurric:substrand-energetics ;
+  curric:includesContentDescriptor
+    natcurric:contentdescriptor-energy-changes-changes-state-qualitative ,
+    natcurric:contentdescriptor-exothermic-endothermic-chemical-reactions-qualitative .
+
+natcurric:progression-chemistry-key-stage-3-the-periodic-table
+  a curric:Progression ;
+  rdfs:label "Chemistry Key Stage 3 The Periodic Table"@en ;
+  dcterms:modified "2026-05-13T23:49:26Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-chemistry-key-stage-3 ;
+  curric:coversSubStrand natcurric:substrand-the-periodic-table ;
+  curric:includesContentDescriptor
+    natcurric:contentdescriptor-varying-physical-chemical-properties-different ,
+    natcurric:contentdescriptor-principles-underpinning-mendeleev-periodic-table ,
+    natcurric:contentdescriptor-periodic-table-periods-groups-metals ,
+    natcurric:contentdescriptor-patterns-reactions-predicted-reference-periodic ,
+    natcurric:contentdescriptor-properties-metals-non-metals ,
+    natcurric:contentdescriptor-chemical-properties-metal-non-metal .
+
+natcurric:progression-chemistry-key-stage-3-materials
+  a curric:Progression ;
+  rdfs:label "Chemistry Key Stage 3 Materials"@en ;
+  dcterms:modified "2026-05-13T23:49:26Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-chemistry-key-stage-3 ;
+  curric:coversSubStrand natcurric:substrand-materials ;
+  curric:includesContentDescriptor
+    natcurric:contentdescriptor-order-metals-carbon-reactivity-series ,
+    natcurric:contentdescriptor-carbon-obtaining-metals-metal-oxides ,
+    natcurric:contentdescriptor-properties-ceramics-polymers-composites-qualitative .
+
+natcurric:progression-chemistry-key-stage-3-earth-and-atmosphere
+  a curric:Progression ;
+  rdfs:label "Chemistry Key Stage 3 Earth and Atmosphere"@en ;
+  dcterms:modified "2026-05-13T23:49:26Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-chemistry-key-stage-3 ;
+  curric:coversSubStrand natcurric:substrand-earth-and-atmosphere ;
+  curric:includesContentDescriptor
+    natcurric:contentdescriptor-the-composition-of-the-earth ,
+    natcurric:contentdescriptor-the-structure-of-the-earth ,
+    natcurric:contentdescriptor-rock-cycle-formation-igneous-sedimentary ,
+    natcurric:contentdescriptor-earth-source-limited-resources-efficacy ,
+    natcurric:contentdescriptor-the-carbon-cycle ,
+    natcurric:contentdescriptor-the-composition-of-the-atmosphere ,
+    natcurric:contentdescriptor-production-carbon-dioxide-human-activity .
+
+natcurric:progression-physics-key-stage-3-fuel-uses-costs-domestic-context
+  a curric:Progression ;
+  rdfs:label "Physics Key Stage 3 Fuel Uses Costs Domestic Context"@en ;
+  dcterms:modified "2026-05-13T23:49:26Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-physics-key-stage-3 ;
+  curric:coversSubStrand natcurric:substrand-fuel-uses-costs-domestic-context ;
+  curric:includesContentDescriptor
+    natcurric:contentdescriptor-comparing-energy-values-different-foods ,
+    natcurric:contentdescriptor-comparing-power-ratings-appliances-watts ,
+    natcurric:contentdescriptor-comparing-amounts-energy-transferred ,
+    natcurric:contentdescriptor-domestic-fuel-bills-fuel-costs ,
+    natcurric:contentdescriptor-fuels-and-energy-resources .
+
+natcurric:progression-physics-key-stage-3-energy-changes-and-transfers
+  a curric:Progression ;
+  rdfs:label "Physics Key Stage 3 Energy Changes and Transfers"@en ;
+  dcterms:modified "2026-05-13T23:49:26Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-physics-key-stage-3 ;
+  curric:coversSubStrand natcurric:substrand-energy-changes-and-transfers ;
+  curric:includesContentDescriptor
+    natcurric:contentdescriptor-simple-machines-give-bigger-force ,
+    natcurric:contentdescriptor-heating-thermal-equilibrium-temperature-difference ,
+    natcurric:contentdescriptor-other-processes-involve-energy-transfer .
+
+natcurric:progression-physics-key-stage-3-changes-in-systems
+  a curric:Progression ;
+  rdfs:label "Physics Key Stage 3 Changes in Systems"@en ;
+  dcterms:modified "2026-05-13T23:49:26Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-physics-key-stage-3 ;
+  curric:coversSubStrand natcurric:substrand-changes-in-systems ;
+  curric:includesContentDescriptor
+    natcurric:contentdescriptor-energy-quantity-quantified-calculated-total ,
+    natcurric:contentdescriptor-comparing-starting-final-conditions-system ,
+    natcurric:contentdescriptor-physical-processes-mechanisms-energy-explain .
+
+natcurric:progression-physics-key-stage-3-describing-motion
+  a curric:Progression ;
+  rdfs:label "Physics Key Stage 3 Describing Motion"@en ;
+  dcterms:modified "2026-05-13T23:49:26Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-physics-key-stage-3 ;
+  curric:coversSubStrand natcurric:substrand-describing-motion ;
+  curric:includesContentDescriptor
+    natcurric:contentdescriptor-speed-quantitative-relationship-average-speed ,
+    natcurric:contentdescriptor-representation-journey-distance-time-graph ,
+    natcurric:contentdescriptor-relative-motion-trains-cars-passing .
+
+natcurric:progression-physics-key-stage-3-forces
+  a curric:Progression ;
+  rdfs:label "Physics Key Stage 3 Forces"@en ;
+  dcterms:modified "2026-05-13T23:49:26Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-physics-key-stage-3 ;
+  curric:coversSubStrand natcurric:substrand-forces ;
+  curric:includesContentDescriptor
+    natcurric:contentdescriptor-forces-pushes-pulls-arising-interaction ,
+    natcurric:contentdescriptor-force-arrows-diagrams-adding-forces ,
+    natcurric:contentdescriptor-moment-turning-effect-force ,
+    natcurric:contentdescriptor-forces-associated-deforming-objects-stretching ,
+    natcurric:contentdescriptor-forces-measured-newtons-measurements-stretch ,
+    natcurric:contentdescriptor-force-extension-linear-relation-hooke ,
+    natcurric:contentdescriptor-done-energy-changes-deformation ,
+    natcurric:contentdescriptor-non-contact-forces-gravity-forces .
+
+natcurric:progression-physics-key-stage-3-pressure-in-fluids
+  a curric:Progression ;
+  rdfs:label "Physics Key Stage 3 Pressure in Fluids"@en ;
+  dcterms:modified "2026-05-13T23:49:26Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-physics-key-stage-3 ;
+  curric:coversSubStrand natcurric:substrand-pressure-in-fluids ;
+  curric:includesContentDescriptor
+    natcurric:contentdescriptor-atmospheric-pressure-decreases-increase-height ,
+    natcurric:contentdescriptor-pressure-liquids-increasing-depth-upthrust ,
+    natcurric:contentdescriptor-pressure-measured-ratio-force-area .
+
+natcurric:progression-physics-key-stage-3-balanced-forces
+  a curric:Progression ;
+  rdfs:label "Physics Key Stage 3 Balanced Forces"@en ;
+  dcterms:modified "2026-05-13T23:49:26Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-physics-key-stage-3 ;
+  curric:coversSubStrand natcurric:substrand-balanced-forces ;
+  curric:includesContentDescriptor natcurric:contentdescriptor-opposing-forces-equilibrium-weight-held .
+
+natcurric:progression-physics-key-stage-3-forces-and-motion
+  a curric:Progression ;
+  rdfs:label "Physics Key Stage 3 Forces and motion"@en ;
+  dcterms:modified "2026-05-13T23:49:26Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-physics-key-stage-3 ;
+  curric:coversSubStrand natcurric:substrand-forces-and-motion ;
+  curric:includesContentDescriptor
+    natcurric:contentdescriptor-forces-needed-cause-objects-stop ,
+    natcurric:contentdescriptor-change-depending-direction-force-size .
+
+natcurric:progression-physics-key-stage-3-observed-waves
+  a curric:Progression ;
+  rdfs:label "Physics Key Stage 3 Observed Waves"@en ;
+  dcterms:modified "2026-05-13T23:49:26Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-physics-key-stage-3 ;
+  curric:coversSubStrand natcurric:substrand-observed-waves ;
+  curric:includesContentDescriptor natcurric:contentdescriptor-waves-water-undulations-travel-water .
+
+natcurric:progression-physics-key-stage-3-sound-waves
+  a curric:Progression ;
+  rdfs:label "Physics Key Stage 3 Sound Waves"@en ;
+  dcterms:modified "2026-05-13T23:49:26Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-physics-key-stage-3 ;
+  curric:coversSubStrand natcurric:substrand-sound-waves ;
+  curric:includesContentDescriptor
+    natcurric:contentdescriptor-frequencies-sound-waves-measured-hertz ,
+    natcurric:contentdescriptor-sound-needs-medium-travel-speed ,
+    natcurric:contentdescriptor-sound-produced-vibrations-objects-loudspeakers ,
+    natcurric:contentdescriptor-auditory-range-humans-animals .
+
+natcurric:progression-physics-key-stage-3-energy-and-waves
+  a curric:Progression ;
+  rdfs:label "Physics Key Stage 3 Energy and Waves"@en ;
+  dcterms:modified "2026-05-13T23:49:26Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-physics-key-stage-3 ;
+  curric:coversSubStrand natcurric:substrand-energy-and-waves ;
+  curric:includesContentDescriptor natcurric:contentdescriptor-pressure-waves-transferring-energy-cleaning .
+
+natcurric:progression-physics-key-stage-3-light-waves
+  a curric:Progression ;
+  rdfs:label "Physics Key Stage 3 Light Waves"@en ;
+  dcterms:modified "2026-05-13T23:49:26Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-physics-key-stage-3 ;
+  curric:coversSubStrand natcurric:substrand-light-waves ;
+  curric:includesContentDescriptor
+    natcurric:contentdescriptor-similarities-differences-light-waves-waves ,
+    natcurric:contentdescriptor-light-waves-travelling-vacuum-speed ,
+    natcurric:contentdescriptor-transmission-light-materials-absorption-diffuse ,
+    natcurric:contentdescriptor-ray-model-explain-imaging-mirrors ,
+    natcurric:contentdescriptor-light-transferring-energy-source-absorber ,
+    natcurric:contentdescriptor-colours-different-frequencies-light-white .
+
+natcurric:progression-physics-key-stage-3-current-electricity
+  a curric:Progression ;
+  rdfs:label "Physics Key Stage 3 Current Electricity"@en ;
+  dcterms:modified "2026-05-13T23:49:26Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-physics-key-stage-3 ;
+  curric:coversSubStrand natcurric:substrand-current-electricity ;
+  curric:includesContentDescriptor
+    natcurric:contentdescriptor-electric-current-measured-amperes-circuits ,
+    natcurric:contentdescriptor-potential-difference-measured-volts-battery ,
+    natcurric:contentdescriptor-differences-resistance-conducting-insulating-components .
+
+natcurric:progression-physics-key-stage-3-static-electricity
+  a curric:Progression ;
+  rdfs:label "Physics Key Stage 3 Static Electricity"@en ;
+  dcterms:modified "2026-05-13T23:49:26Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-physics-key-stage-3 ;
+  curric:coversSubStrand natcurric:substrand-static-electricity ;
+  curric:includesContentDescriptor
+    natcurric:contentdescriptor-separation-positive-negative-charges-objects ,
+    natcurric:contentdescriptor-idea-electric-field-forces-acting .
+
+natcurric:progression-physics-key-stage-3-magnetism
+  a curric:Progression ;
+  rdfs:label "Physics Key Stage 3 Magnetism"@en ;
+  dcterms:modified "2026-05-13T23:49:26Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-physics-key-stage-3 ;
+  curric:coversSubStrand natcurric:substrand-magnetism ;
+  curric:includesContentDescriptor
+    natcurric:contentdescriptor-magnetic-poles-attraction-and-repulsion ,
+    natcurric:contentdescriptor-magnetic-fields-plotting-compass-representation ,
+    natcurric:contentdescriptor-earths-magnetism-compass-and-navigation ,
+    natcurric:contentdescriptor-magnetic-effect-current-electromagnets-dc .
+
+natcurric:progression-physics-key-stage-3-physical-changes
+  a curric:Progression ;
+  rdfs:label "Physics Key Stage 3 Physical Changes"@en ;
+  dcterms:modified "2026-05-13T23:49:26Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-physics-key-stage-3 ;
+  curric:coversSubStrand natcurric:substrand-physical-changes ;
+  curric:includesContentDescriptor
+    natcurric:contentdescriptor-conservation-material-mass-reversibility-melting ,
+    natcurric:contentdescriptor-similarities-differences-density-differences-solids ,
+    natcurric:contentdescriptor-brownian-motion-in-gases ,
+    natcurric:contentdescriptor-diffusion-liquids-gases-driven-differences ,
+    natcurric:contentdescriptor-difference-chemical-physical-changes .
+
+natcurric:progression-physics-key-stage-3-particle-model
+  a curric:Progression ;
+  rdfs:label "Physics Key Stage 3 Particle Model"@en ;
+  dcterms:modified "2026-05-13T23:49:26Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-physics-key-stage-3 ;
+  curric:coversSubStrand natcurric:substrand-particle-model ;
+  curric:includesContentDescriptor
+    natcurric:contentdescriptor-differences-arrangements-motion-closeness-particles ,
+    natcurric:contentdescriptor-atoms-and-molecules-as-particles .
+
+natcurric:progression-physics-key-stage-3-energy-in-matter
+  a curric:Progression ;
+  rdfs:label "Physics Key Stage 3 Energy in Matter"@en ;
+  dcterms:modified "2026-05-13T23:49:26Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-physics-key-stage-3 ;
+  curric:coversSubStrand natcurric:substrand-energy-in-matter ;
+  curric:includesContentDescriptor
+    natcurric:contentdescriptor-changes-temperature-motion-spacing-particles ,
+    natcurric:contentdescriptor-internal-energy-stored-in-materials .
+
+natcurric:progression-physics-key-stage-3-space-physics
+  a curric:Progression ;
+  rdfs:label "Physics Key Stage 3 Space physics"@en ;
+  dcterms:modified "2026-05-13T23:49:26Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-physics-key-stage-3 ;
+  curric:coversSubStrand natcurric:substrand-space-physics ;
+  curric:includesContentDescriptor
+    natcurric:contentdescriptor-gravity-force-weight-mass-gravitational ,
+    natcurric:contentdescriptor-sun-star-other-stars-galaxy ,
+    natcurric:contentdescriptor-seasons-earth-tilt-day-length ,
+    natcurric:contentdescriptor-light-year-unit-astronomical-distance .

@@ -1,5 +1,5 @@
-@prefix natcurric: <https://w3id.org/uk/curriculum/nat-ontology/> .
-@prefix nat: <https://w3id.org/uk/curriculum/nat-data-2014/> .
+@prefix curric: <https://w3id.org/uk/oak/curriculum/ontology/> .
+@prefix natcurric: <https://w3id.org/uk/oak/curriculum/nationalcurriculum/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
@@ -17,7 +17,7 @@
 # Ontology Declaration
 # ----------------------------------------------------------------------
 
-<https://w3id.org/uk/curriculum/nat-data-2014/citizenship-programme-structure>
+<https://w3id.org/uk/oak/curriculum/nationalcurriculum/citizenship-programme-structure>
   rdf:type owl:Ontology ;
 
   rdfs:label "National Curriculum for England - Citizenship Programme Structure"@en ;
@@ -26,7 +26,7 @@
   mapping to strands, sub-strands and content descriptors within the knowledge taxonomy."""@en ;
 
   owl:versionInfo "0.1.0" ;
-  owl:versionIRI <https://w3id.org/uk/curriculum/nat-data-2014/citizenship-programme-structure/0.1.0> ;
+  owl:versionIRI <https://w3id.org/uk/oak/curriculum/nationalcurriculum/citizenship-programme-structure/0.1.0> ;
 
   dcterms:description """Citizenship programme structure that specifies schemes and progressions,
   and a mapping to strands, sub-strands and content descriptors within the knowledge
@@ -40,73 +40,73 @@
   dcterms:license <http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/> ;
   dcterms:rights "Crown Copyright"@en ;
 
-  rdfs:seeAlso <https://w3id.org/uk/curriculum/nat-ontology> ;
+  rdfs:seeAlso <https://w3id.org/uk/oak/curriculum/ontology> ;
 
-  vann:preferredNamespacePrefix "nat" ;
-  vann:preferredNamespaceUri "https://w3id.org/uk/curriculum/nat-data-2014/" ;
+  vann:preferredNamespacePrefix "natcurric" ;
+  vann:preferredNamespaceUri "https://w3id.org/uk/oak/curriculum/nationalcurriculum/" ;
 
-  owl:imports <https://w3id.org/uk/curriculum/nat-ontology> ;
-  owl:imports <https://w3id.org/uk/curriculum/nat-data-2014/temporal-structure> ;
-  owl:imports <https://w3id.org/uk/curriculum/nat-data-2014/citizenship-knowledge-taxonomy> .
+  owl:imports <https://w3id.org/uk/oak/curriculum/ontology> ;
+  owl:imports <https://w3id.org/uk/oak/curriculum/nationalcurriculum/temporal-structure> ;
+  owl:imports <https://w3id.org/uk/oak/curriculum/nationalcurriculum/citizenship-knowledge-taxonomy> .
 
 # ----------------------------------------------------------------------
 # Subject Group
 # ----------------------------------------------------------------------
 
-nat:subjectgroup-citizenship
-  a natcurric:SubjectGroup ;
+natcurric:subjectgroup-citizenship
+  a curric:SubjectGroup ;
   rdfs:label "Citizenship"@en ;
   dcterms:modified "2026-05-04T19:24:29Z"^^xsd:dateTime ;
-  natcurric:coversDiscipline nat:discipline-citizenship .
+  curric:coversDiscipline natcurric:discipline-citizenship .
 
 # ----------------------------------------------------------------------
 # Subjects
 # ----------------------------------------------------------------------
 
-nat:subject-citizenship
-  a natcurric:Subject ;
+natcurric:subject-citizenship
+  a curric:Subject ;
   rdfs:label "Citizenship"@en ;
-  natcurric:rationale """A high-quality citizenship education helps to provide pupils with 
+  curric:rationale """A high-quality citizenship education helps to provide pupils with 
   knowledge, skills and understanding to prepare them to play a full and active part in society. In 
   particular, citizenship education should foster pupils’ keen awareness and understanding of 
   democracy, government and how laws are made and upheld. Teaching should equip pupils with the 
   skills and knowledge to explore political and social issues critically, to weigh evidence, debate 
   and make reasoned arguments. It should also prepare pupils to take their place in society as 
   responsible citizens, manage their money well and make sound financial decisions."""@en ;
-  natcurric:hasAim
-    nat:aim-citizenship-uk-governed-political-democratic-systems ,
-    nat:aim-citizenship-law-and-justice-system ,
-    nat:aim-citizenship-participation-volunteering-responsible-activity ,
-    nat:aim-citizenship-political-questions-money-financial-needs ; 
+  curric:hasAim
+    natcurric:aim-citizenship-uk-governed-political-democratic-systems ,
+    natcurric:aim-citizenship-law-and-justice-system ,
+    natcurric:aim-citizenship-participation-volunteering-responsible-activity ,
+    natcurric:aim-citizenship-political-questions-money-financial-needs ; 
   dcterms:modified "2026-05-04T19:24:29Z"^^xsd:dateTime ;
-  natcurric:isSubjectOf nat:subjectgroup-citizenship ;
-  natcurric:coversStrand nat:strand-citizenship .
+  curric:isSubjectOf natcurric:subjectgroup-citizenship ;
+  curric:coversStrand natcurric:strand-citizenship .
 
 # ----------------------------------------------------------------------
 # Aims
 # ----------------------------------------------------------------------
 
-nat:aim-citizenship-uk-governed-political-democratic-systems
-  a natcurric:Aim ;
+natcurric:aim-citizenship-uk-governed-political-democratic-systems
+  a curric:Aim ;
   rdfs:label """Acquire a sound knowledge and understanding of how the United Kingdom is governed, 
   its political system and how citizens participate actively in its democratic systems of 
   government."""@en ;
   dcterms:modified "2026-05-04T19:24:29Z"^^xsd:dateTime .
 
-nat:aim-citizenship-law-and-justice-system
-  a natcurric:Aim ;
+natcurric:aim-citizenship-law-and-justice-system
+  a curric:Aim ;
   rdfs:label """Develop a sound knowledge and understanding of the role of law and the justice 
   system in our society and how laws are shaped and enforced."""@en ;
   dcterms:modified "2026-05-04T19:24:29Z"^^xsd:dateTime .
 
-nat:aim-citizenship-participation-volunteering-responsible-activity
-  a natcurric:Aim ;
+natcurric:aim-citizenship-participation-volunteering-responsible-activity
+  a curric:Aim ;
   rdfs:label """Develop an interest in, and commitment to, participation in volunteering as well as 
   other forms of responsible activity, that they will take with them into adulthood."""@en ;
   dcterms:modified "2026-05-04T19:24:29Z"^^xsd:dateTime .
 
-nat:aim-citizenship-political-questions-money-financial-needs
-  a natcurric:Aim ;
+natcurric:aim-citizenship-political-questions-money-financial-needs
+  a curric:Aim ;
   rdfs:label """Are equipped with the skills to think critically and debate political questions, to 
   enable them to manage their money on a day-to-day basis, and plan for future financial 
   needs."""@en ;
@@ -116,19 +116,19 @@ nat:aim-citizenship-political-questions-money-financial-needs
 # Schemes
 # ----------------------------------------------------------------------
 
-nat:scheme-citizenship-key-stage-3
-  a natcurric:Scheme ;
+natcurric:scheme-citizenship-key-stage-3
+  a curric:Scheme ;
   rdfs:label "Citizenship Key Stage 3"@en ;
   dcterms:description """Teaching should develop pupils’ understanding of democracy, government and 
   the rights and responsibilities of citizens. Pupils should use and apply their knowledge and 
   understanding whilst developing skills to research and interrogate evidence, debate and evaluate 
   viewpoints, present reasoned arguments and take informed action."""@en ;
   dcterms:modified "2026-05-04T19:24:29Z"^^xsd:dateTime ;
-  natcurric:isSchemeOf nat:subject-citizenship ;
-  natcurric:coversKeyStage nat:key-stage-3 .
+  curric:isSchemeOf natcurric:subject-citizenship ;
+  curric:coversKeyStage natcurric:key-stage-3 .
 
-nat:scheme-citizenship-key-stage-4
-  a natcurric:Scheme ;
+natcurric:scheme-citizenship-key-stage-4
+  a curric:Scheme ;
   rdfs:label "Citizenship Key Stage 4"@en ;
   dcterms:description """Teaching should build on the key stage 3 programme of study to deepen 
   pupils’ understanding of democracy, government and the rights and responsibilities of citizens. 
@@ -137,40 +137,40 @@ nat:scheme-citizenship-key-stage-4
   and evaluate different ways that citizens can act together to solve problems and contribute to 
   society."""@en ;
   dcterms:modified "2026-05-04T19:24:29Z"^^xsd:dateTime ;
-  natcurric:isSchemeOf nat:subject-citizenship ;
-  natcurric:coversKeyStage nat:key-stage-4 .
+  curric:isSchemeOf natcurric:subject-citizenship ;
+  curric:coversKeyStage natcurric:key-stage-4 .
 
 # ----------------------------------------------------------------------
 # Progressions
 # ----------------------------------------------------------------------
 
-nat:progression-citizenship-key-stage-3-citizenship
-  a natcurric:Progression ;
+natcurric:progression-citizenship-key-stage-3-citizenship
+  a curric:Progression ;
   rdfs:label "Citizenship Key Stage 3 Citizenship"@en ;
   dcterms:modified "2026-05-04T19:24:29Z"^^xsd:dateTime ;
-  natcurric:isProgressionOf nat:scheme-citizenship-key-stage-3 ;
-  natcurric:coversSubStrand nat:substrand-citizenship ;
-  natcurric:includesContentDescriptor
-    nat:contentdescriptor-development-political-system-democratic-government ,
-    nat:contentdescriptor-operation-parliament-voting-elections-role ,
-    nat:contentdescriptor-precious-liberties-enjoyed-citizens-united ,
-    nat:contentdescriptor-nature-rules-laws-justice-system ,
-    nat:contentdescriptor-roles-played-public-institutions-voluntary ,
-    nat:contentdescriptor-functions-money-importance-practice-budgeting .
+  curric:isProgressionOf natcurric:scheme-citizenship-key-stage-3 ;
+  curric:coversSubStrand natcurric:substrand-citizenship ;
+  curric:includesContentDescriptor
+    natcurric:contentdescriptor-development-political-system-democratic-government ,
+    natcurric:contentdescriptor-operation-parliament-voting-elections-role ,
+    natcurric:contentdescriptor-precious-liberties-enjoyed-citizens-united ,
+    natcurric:contentdescriptor-nature-rules-laws-justice-system ,
+    natcurric:contentdescriptor-roles-played-public-institutions-voluntary ,
+    natcurric:contentdescriptor-functions-money-importance-practice-budgeting .
 
-nat:progression-citizenship-key-stage-4-citizenship
-  a natcurric:Progression ;
+natcurric:progression-citizenship-key-stage-4-citizenship
+  a curric:Progression ;
   rdfs:label "Citizenship Key Stage 4 Citizenship"@en ;
   dcterms:modified "2026-05-04T19:24:29Z"^^xsd:dateTime ;
-  natcurric:isProgressionOf nat:scheme-citizenship-key-stage-4 ;
-  natcurric:coversSubStrand nat:substrand-citizenship ;
-  natcurric:includesContentDescriptor
-    nat:contentdescriptor-parliamentary-democracy-key-elements-constitution ,
-    nat:contentdescriptor-different-electoral-systems-used-united ,
-    nat:contentdescriptor-other-systems-forms-government-democratic ,
-    nat:contentdescriptor-local-regional-international-governance-united ,
-    nat:contentdescriptor-human-rights-and-international-law ,
-    nat:contentdescriptor-legal-system-uk-different-sources ,
-    nat:contentdescriptor-diverse-national-regional-religious-ethnic ,
-    nat:contentdescriptor-different-ways-citizen-contribute-improvement ,
-    nat:contentdescriptor-income-expenditure-credit-debt-insurance .
+  curric:isProgressionOf natcurric:scheme-citizenship-key-stage-4 ;
+  curric:coversSubStrand natcurric:substrand-citizenship ;
+  curric:includesContentDescriptor
+    natcurric:contentdescriptor-parliamentary-democracy-key-elements-constitution ,
+    natcurric:contentdescriptor-different-electoral-systems-used-united ,
+    natcurric:contentdescriptor-other-systems-forms-government-democratic ,
+    natcurric:contentdescriptor-local-regional-international-governance-united ,
+    natcurric:contentdescriptor-human-rights-and-international-law ,
+    natcurric:contentdescriptor-legal-system-uk-different-sources ,
+    natcurric:contentdescriptor-diverse-national-regional-religious-ethnic ,
+    natcurric:contentdescriptor-different-ways-citizen-contribute-improvement ,
+    natcurric:contentdescriptor-income-expenditure-credit-debt-insurance .

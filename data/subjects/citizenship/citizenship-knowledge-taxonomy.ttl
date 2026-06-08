@@ -1,5 +1,5 @@
-@prefix natcurric: <https://w3id.org/uk/curriculum/nat-ontology/> .
-@prefix nat: <https://w3id.org/uk/curriculum/nat-data-2014/> .
+@prefix curric: <https://w3id.org/uk/oak/curriculum/ontology/> .
+@prefix natcurric: <https://w3id.org/uk/oak/curriculum/nationalcurriculum/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
@@ -17,7 +17,7 @@
 # Ontology Declaration
 # ----------------------------------------------------------------------
 
-<https://w3id.org/uk/curriculum/nat-data-2014/citizenship-knowledge-taxonomy>
+<https://w3id.org/uk/oak/curriculum/nationalcurriculum/citizenship-knowledge-taxonomy>
   rdf:type owl:Ontology ;
 
   rdfs:label "National Curriculum for England - Citizenship Knowledge Taxonomy"@en ;
@@ -26,7 +26,7 @@
   from strands through to sub-content descriptors."""@en ;
 
   owl:versionInfo "0.1.0" ;
-  owl:versionIRI <https://w3id.org/uk/curriculum/nat-data-2014/citizenship-knowledge-taxonomy/0.1.0> ;
+  owl:versionIRI <https://w3id.org/uk/oak/curriculum/nationalcurriculum/citizenship-knowledge-taxonomy/0.1.0> ;
 
   dcterms:description """This file defines the Citizenship knowledge taxonomy for the National
   Curriculum in England, organising content through strands, sub-strands, content
@@ -40,341 +40,341 @@
   dcterms:license <http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/> ;
   dcterms:rights "Crown Copyright"@en ;
 
-  rdfs:seeAlso <https://w3id.org/uk/curriculum/nat-ontology> ;
+  rdfs:seeAlso <https://w3id.org/uk/oak/curriculum/ontology> ;
 
-  vann:preferredNamespacePrefix "nat" ;
-  vann:preferredNamespaceUri "https://w3id.org/uk/curriculum/nat-data-2014/" ;
+  vann:preferredNamespacePrefix "natcurric" ;
+  vann:preferredNamespaceUri "https://w3id.org/uk/oak/curriculum/nationalcurriculum/" ;
 
-  owl:imports <https://w3id.org/uk/curriculum/nat-ontology> ;
-  owl:imports <https://w3id.org/uk/curriculum/nat-data-2014/citizenship-programme-structure> .
+  owl:imports <https://w3id.org/uk/oak/curriculum/ontology> ;
+  owl:imports <https://w3id.org/uk/oak/curriculum/nationalcurriculum/citizenship-programme-structure> .
 
 # ----------------------------------------------------------------------
 # Knowledge Taxonomy
 # ----------------------------------------------------------------------
 
-nat:knowledge-taxonomy
+natcurric:knowledge-taxonomy
   a skos:ConceptScheme ;
   skos:prefLabel "National Curriculum for England Knowledge Taxonomy"@en ;
-  skos:hasTopConcept nat:discipline-citizenship ;
+  skos:hasTopConcept natcurric:discipline-citizenship ;
   dcterms:modified "2026-05-04T19:24:29Z"^^xsd:dateTime .
 
 # ----------------------------------------------------------------------
 # Disciplines
 # ----------------------------------------------------------------------
 
-nat:discipline-citizenship
-  a skos:Concept, natcurric:Discipline ;
+natcurric:discipline-citizenship
+  a skos:Concept, curric:Discipline ;
   skos:prefLabel "Citizenship"@en ;
-  skos:topConceptOf nat:knowledge-taxonomy ;
-  skos:narrower nat:strand-citizenship ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:topConceptOf natcurric:knowledge-taxonomy ;
+  skos:narrower natcurric:strand-citizenship ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-04T19:24:29Z"^^xsd:dateTime .
 
 # ----------------------------------------------------------------------
 # Strands
 # ----------------------------------------------------------------------
 
-nat:strand-citizenship
-  a skos:Concept, natcurric:Strand ;
+natcurric:strand-citizenship
+  a skos:Concept, curric:Strand ;
   skos:prefLabel "Citizenship"@en ;
   skos:definition "Description of strand..."@en ;
-  skos:broader nat:discipline-citizenship ;
-  skos:narrower nat:substrand-citizenship ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:discipline-citizenship ;
+  skos:narrower natcurric:substrand-citizenship ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-04T19:24:29Z"^^xsd:dateTime .
 
 # ----------------------------------------------------------------------
 # Sub-Strands
 # ----------------------------------------------------------------------
 
-nat:substrand-citizenship
-  a skos:Concept, natcurric:SubStrand ;
+natcurric:substrand-citizenship
+  a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Citizenship"@en ;
-  skos:broader nat:strand-citizenship ;
+  skos:broader natcurric:strand-citizenship ;
   skos:narrower
-    nat:contentdescriptor-development-political-system-democratic-government ,
-    nat:contentdescriptor-operation-parliament-voting-elections-role ,
-    nat:contentdescriptor-precious-liberties-enjoyed-citizens-united ,
-    nat:contentdescriptor-nature-rules-laws-justice-system ,
-    nat:contentdescriptor-roles-played-public-institutions-voluntary ,
-    nat:contentdescriptor-functions-money-importance-practice-budgeting ,
-    nat:contentdescriptor-parliamentary-democracy-key-elements-constitution ,
-    nat:contentdescriptor-different-electoral-systems-used-united ,
-    nat:contentdescriptor-other-systems-forms-government-democratic ,
-    nat:contentdescriptor-local-regional-international-governance-united ,
-    nat:contentdescriptor-human-rights-and-international-law ,
-    nat:contentdescriptor-legal-system-uk-different-sources ,
-    nat:contentdescriptor-diverse-national-regional-religious-ethnic ,
-    nat:contentdescriptor-different-ways-citizen-contribute-improvement ,
-    nat:contentdescriptor-income-expenditure-credit-debt-insurance ;
-  skos:inScheme nat:knowledge-taxonomy ;
+    natcurric:contentdescriptor-development-political-system-democratic-government ,
+    natcurric:contentdescriptor-operation-parliament-voting-elections-role ,
+    natcurric:contentdescriptor-precious-liberties-enjoyed-citizens-united ,
+    natcurric:contentdescriptor-nature-rules-laws-justice-system ,
+    natcurric:contentdescriptor-roles-played-public-institutions-voluntary ,
+    natcurric:contentdescriptor-functions-money-importance-practice-budgeting ,
+    natcurric:contentdescriptor-parliamentary-democracy-key-elements-constitution ,
+    natcurric:contentdescriptor-different-electoral-systems-used-united ,
+    natcurric:contentdescriptor-other-systems-forms-government-democratic ,
+    natcurric:contentdescriptor-local-regional-international-governance-united ,
+    natcurric:contentdescriptor-human-rights-and-international-law ,
+    natcurric:contentdescriptor-legal-system-uk-different-sources ,
+    natcurric:contentdescriptor-diverse-national-regional-religious-ethnic ,
+    natcurric:contentdescriptor-different-ways-citizen-contribute-improvement ,
+    natcurric:contentdescriptor-income-expenditure-credit-debt-insurance ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-04T19:24:29Z"^^xsd:dateTime .
 
 # ----------------------------------------------------------------------
 # Content Descriptors
 # ----------------------------------------------------------------------
 
-nat:contentdescriptor-development-political-system-democratic-government
-  a skos:Concept, natcurric:ContentDescriptor ;
+natcurric:contentdescriptor-development-political-system-democratic-government
+  a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel """The development of the political system of democratic government in the United
   Kingdom, including the roles of citizens, Parliament and the monarch."""@en ;
-  skos:broader nat:substrand-citizenship ;
-  skos:narrower nat:subcontentdescriptor-development-political-system-democratic-government ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:substrand-citizenship ;
+  skos:narrower natcurric:subcontentdescriptor-development-political-system-democratic-government ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-04T19:24:29Z"^^xsd:dateTime .
 
-nat:contentdescriptor-operation-parliament-voting-elections-role
-  a skos:Concept, natcurric:ContentDescriptor ;
+natcurric:contentdescriptor-operation-parliament-voting-elections-role
+  a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel """The operation of Parliament, including voting and elections, and the role of
   political parties."""@en ;
-  skos:broader nat:substrand-citizenship ;
-  skos:narrower nat:subcontentdescriptor-operation-parliament-voting-elections-role ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:substrand-citizenship ;
+  skos:narrower natcurric:subcontentdescriptor-operation-parliament-voting-elections-role ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-04T19:24:29Z"^^xsd:dateTime .
 
-nat:contentdescriptor-precious-liberties-enjoyed-citizens-united
-  a skos:Concept, natcurric:ContentDescriptor ;
+natcurric:contentdescriptor-precious-liberties-enjoyed-citizens-united
+  a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel "The precious liberties enjoyed by the citizens of the United Kingdom."@en ;
-  skos:broader nat:substrand-citizenship ;
-  skos:narrower nat:subcontentdescriptor-precious-liberties-enjoyed-citizens-united ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:substrand-citizenship ;
+  skos:narrower natcurric:subcontentdescriptor-precious-liberties-enjoyed-citizens-united ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-04T19:24:29Z"^^xsd:dateTime .
 
-nat:contentdescriptor-nature-rules-laws-justice-system
-  a skos:Concept, natcurric:ContentDescriptor ;
+natcurric:contentdescriptor-nature-rules-laws-justice-system
+  a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel """The nature of rules and laws and the justice system, including the role of the
   police and the operation of courts and tribunals."""@en ;
-  skos:broader nat:substrand-citizenship ;
-  skos:narrower nat:subcontentdescriptor-nature-rules-laws-justice-system ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:substrand-citizenship ;
+  skos:narrower natcurric:subcontentdescriptor-nature-rules-laws-justice-system ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-04T19:24:29Z"^^xsd:dateTime .
 
-nat:contentdescriptor-roles-played-public-institutions-voluntary
-  a skos:Concept, natcurric:ContentDescriptor ;
+natcurric:contentdescriptor-roles-played-public-institutions-voluntary
+  a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel """The roles played by public institutions and voluntary groups in society, and 
   the ways in which citizens work together to improve their communities, including opportunities
   to participate in school-based activities."""@en ;
-  skos:broader nat:substrand-citizenship ;
-  skos:narrower nat:subcontentdescriptor-roles-played-public-institutions-voluntary ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:substrand-citizenship ;
+  skos:narrower natcurric:subcontentdescriptor-roles-played-public-institutions-voluntary ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-04T19:24:29Z"^^xsd:dateTime .
 
-nat:contentdescriptor-functions-money-importance-practice-budgeting
-  a skos:Concept, natcurric:ContentDescriptor ;
+natcurric:contentdescriptor-functions-money-importance-practice-budgeting
+  a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel """The functions and uses of money, the importance and practice of budgeting, and
   managing risk."""@en ;
-  skos:broader nat:substrand-citizenship ;
-  skos:narrower nat:subcontentdescriptor-functions-money-importance-practice-budgeting ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:substrand-citizenship ;
+  skos:narrower natcurric:subcontentdescriptor-functions-money-importance-practice-budgeting ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-04T19:24:29Z"^^xsd:dateTime .
 
-nat:contentdescriptor-parliamentary-democracy-key-elements-constitution
-  a skos:Concept, natcurric:ContentDescriptor ;
+natcurric:contentdescriptor-parliamentary-democracy-key-elements-constitution
+  a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel """Parliamentary democracy and the key elements of the constitution of the United
   Kingdom, including the power of government, the role of citizens and Parliament in holding
   those in power to account, and the different roles of the executive, legislature and
   judiciary and a free press."""@en ;
-  skos:broader nat:substrand-citizenship ;
-  skos:narrower nat:subcontentdescriptor-parliamentary-democracy-key-elements-constitution ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:substrand-citizenship ;
+  skos:narrower natcurric:subcontentdescriptor-parliamentary-democracy-key-elements-constitution ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-04T19:24:29Z"^^xsd:dateTime .
 
-nat:contentdescriptor-different-electoral-systems-used-united
-  a skos:Concept, natcurric:ContentDescriptor ;
+natcurric:contentdescriptor-different-electoral-systems-used-united
+  a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel """The different electoral systems used in and beyond the United Kingdom and
   actions citizens can take in democratic and electoral processes to influence decisions
   locally, nationally and beyond."""@en ;
-  skos:broader nat:substrand-citizenship ;
-  skos:narrower nat:subcontentdescriptor-different-electoral-systems-used-united ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:substrand-citizenship ;
+  skos:narrower natcurric:subcontentdescriptor-different-electoral-systems-used-united ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-04T19:24:29Z"^^xsd:dateTime .
 
-nat:contentdescriptor-other-systems-forms-government-democratic
-  a skos:Concept, natcurric:ContentDescriptor ;
+natcurric:contentdescriptor-other-systems-forms-government-democratic
+  a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel """Other systems and forms of government, both democratic and non-democratic,
   beyond the United Kingdom."""@en ;
-  skos:broader nat:substrand-citizenship ;
-  skos:narrower nat:subcontentdescriptor-other-systems-forms-government-democratic ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:substrand-citizenship ;
+  skos:narrower natcurric:subcontentdescriptor-other-systems-forms-government-democratic ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-04T19:24:29Z"^^xsd:dateTime .
 
-nat:contentdescriptor-local-regional-international-governance-united
-  a skos:Concept, natcurric:ContentDescriptor ;
+natcurric:contentdescriptor-local-regional-international-governance-united
+  a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel """Local, regional and international governance and the United Kingdom’s relations
   with the rest of Europe, the Commonwealth, the United Nations and the wider world."""@en ;
-  skos:broader nat:substrand-citizenship ;
-  skos:narrower nat:subcontentdescriptor-local-regional-international-governance-united ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:substrand-citizenship ;
+  skos:narrower natcurric:subcontentdescriptor-local-regional-international-governance-united ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-04T19:24:29Z"^^xsd:dateTime .
 
-nat:contentdescriptor-human-rights-and-international-law
-  a skos:Concept, natcurric:ContentDescriptor ;
+natcurric:contentdescriptor-human-rights-and-international-law
+  a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel "Human rights and international law."@en ;
-  skos:broader nat:substrand-citizenship ;
-  skos:narrower nat:subcontentdescriptor-human-rights-and-international-law ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:substrand-citizenship ;
+  skos:narrower natcurric:subcontentdescriptor-human-rights-and-international-law ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-04T19:24:29Z"^^xsd:dateTime .
 
-nat:contentdescriptor-legal-system-uk-different-sources
-  a skos:Concept, natcurric:ContentDescriptor ;
+natcurric:contentdescriptor-legal-system-uk-different-sources
+  a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel """The legal system in the UK, different sources of law and how the law helps
   society deal with complex problems."""@en ;
-  skos:broader nat:substrand-citizenship ;
-  skos:narrower nat:subcontentdescriptor-legal-system-uk-different-sources ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:substrand-citizenship ;
+  skos:narrower natcurric:subcontentdescriptor-legal-system-uk-different-sources ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-04T19:24:29Z"^^xsd:dateTime .
 
-nat:contentdescriptor-diverse-national-regional-religious-ethnic
-  a skos:Concept, natcurric:ContentDescriptor ;
+natcurric:contentdescriptor-diverse-national-regional-religious-ethnic
+  a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel """Diverse national, regional, religious and ethnic identities in the United
   Kingdom and the need for mutual respect and understanding."""@en ;
-  skos:broader nat:substrand-citizenship ;
-  skos:narrower nat:subcontentdescriptor-diverse-national-regional-religious-ethnic ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:substrand-citizenship ;
+  skos:narrower natcurric:subcontentdescriptor-diverse-national-regional-religious-ethnic ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-04T19:24:29Z"^^xsd:dateTime .
 
-nat:contentdescriptor-different-ways-citizen-contribute-improvement
-  a skos:Concept, natcurric:ContentDescriptor ;
+natcurric:contentdescriptor-different-ways-citizen-contribute-improvement
+  a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel """The different ways in which a citizen can contribute to the improvement of his
   or her community, to include the opportunity to participate actively in community
   volunteering, as well as other forms of responsible activity."""@en ;
-  skos:broader nat:substrand-citizenship ;
-  skos:narrower nat:subcontentdescriptor-different-ways-citizen-contribute-improvement ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:substrand-citizenship ;
+  skos:narrower natcurric:subcontentdescriptor-different-ways-citizen-contribute-improvement ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-04T19:24:29Z"^^xsd:dateTime .
 
-nat:contentdescriptor-income-expenditure-credit-debt-insurance
-  a skos:Concept, natcurric:ContentDescriptor ;
+natcurric:contentdescriptor-income-expenditure-credit-debt-insurance
+  a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel """Income and expenditure, credit and debt, insurance, savings and pensions,
   financial products and services, and how public money is raised and spent."""@en ;
-  skos:broader nat:substrand-citizenship ;
-  skos:narrower nat:subcontentdescriptor-income-expenditure-credit-debt-insurance ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:substrand-citizenship ;
+  skos:narrower natcurric:subcontentdescriptor-income-expenditure-credit-debt-insurance ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-04T19:24:29Z"^^xsd:dateTime .
 
 # ----------------------------------------------------------------------
 # Sub-Content Descriptors
 # ----------------------------------------------------------------------
 
-nat:subcontentdescriptor-development-political-system-democratic-government
-  a skos:Concept, natcurric:SubContentDescriptor ;
+natcurric:subcontentdescriptor-development-political-system-democratic-government
+  a skos:Concept, curric:SubContentDescriptor ;
   skos:prefLabel """The development of the political system of democratic government in the United
   Kingdom, including the roles of citizens, Parliament and the monarch."""@en ;
-  skos:broader nat:contentdescriptor-development-political-system-democratic-government ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:contentdescriptor-development-political-system-democratic-government ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-04T19:24:29Z"^^xsd:dateTime .
 
-nat:subcontentdescriptor-operation-parliament-voting-elections-role
-  a skos:Concept, natcurric:SubContentDescriptor ;
+natcurric:subcontentdescriptor-operation-parliament-voting-elections-role
+  a skos:Concept, curric:SubContentDescriptor ;
   skos:prefLabel """The operation of Parliament, including voting and elections, and the role of
   political parties."""@en ;
-  skos:broader nat:contentdescriptor-operation-parliament-voting-elections-role ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:contentdescriptor-operation-parliament-voting-elections-role ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-04T19:24:29Z"^^xsd:dateTime .
 
-nat:subcontentdescriptor-precious-liberties-enjoyed-citizens-united
-  a skos:Concept, natcurric:SubContentDescriptor ;
+natcurric:subcontentdescriptor-precious-liberties-enjoyed-citizens-united
+  a skos:Concept, curric:SubContentDescriptor ;
   skos:prefLabel "The precious liberties enjoyed by the citizens of the United Kingdom."@en ;
-  skos:broader nat:contentdescriptor-precious-liberties-enjoyed-citizens-united ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:contentdescriptor-precious-liberties-enjoyed-citizens-united ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-04T19:24:29Z"^^xsd:dateTime .
 
-nat:subcontentdescriptor-nature-rules-laws-justice-system
-  a skos:Concept, natcurric:SubContentDescriptor ;
+natcurric:subcontentdescriptor-nature-rules-laws-justice-system
+  a skos:Concept, curric:SubContentDescriptor ;
   skos:prefLabel """The nature of rules and laws and the justice system, including the role of the
   police and the operation of courts and tribunals."""@en ;
-  skos:broader nat:contentdescriptor-nature-rules-laws-justice-system ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:contentdescriptor-nature-rules-laws-justice-system ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-04T19:24:29Z"^^xsd:dateTime .
 
-nat:subcontentdescriptor-roles-played-public-institutions-voluntary
-  a skos:Concept, natcurric:SubContentDescriptor ;
+natcurric:subcontentdescriptor-roles-played-public-institutions-voluntary
+  a skos:Concept, curric:SubContentDescriptor ;
   skos:prefLabel """The roles played by public institutions and voluntary groups in society, and 
   the ways in which citizens work together to improve their communities, including opportunities
   to participate in school-based activities."""@en ;
-  skos:broader nat:contentdescriptor-roles-played-public-institutions-voluntary ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:contentdescriptor-roles-played-public-institutions-voluntary ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-04T19:24:29Z"^^xsd:dateTime .
 
-nat:subcontentdescriptor-functions-money-importance-practice-budgeting
-  a skos:Concept, natcurric:SubContentDescriptor ;
+natcurric:subcontentdescriptor-functions-money-importance-practice-budgeting
+  a skos:Concept, curric:SubContentDescriptor ;
   skos:prefLabel """The functions and uses of money, the importance and practice of budgeting, and
   managing risk."""@en ;
-  skos:broader nat:contentdescriptor-functions-money-importance-practice-budgeting ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:contentdescriptor-functions-money-importance-practice-budgeting ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-04T19:24:29Z"^^xsd:dateTime .
 
-nat:subcontentdescriptor-parliamentary-democracy-key-elements-constitution
-  a skos:Concept, natcurric:SubContentDescriptor ;
+natcurric:subcontentdescriptor-parliamentary-democracy-key-elements-constitution
+  a skos:Concept, curric:SubContentDescriptor ;
   skos:prefLabel """Parliamentary democracy and the key elements of the constitution of the United
   Kingdom, including the power of government, the role of citizens and Parliament in holding
   those in power to account, and the different roles of the executive, legislature and
   judiciary and a free press."""@en ;
-  skos:broader nat:contentdescriptor-parliamentary-democracy-key-elements-constitution ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:contentdescriptor-parliamentary-democracy-key-elements-constitution ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-04T19:24:29Z"^^xsd:dateTime .
 
-nat:subcontentdescriptor-different-electoral-systems-used-united
-  a skos:Concept, natcurric:SubContentDescriptor ;
+natcurric:subcontentdescriptor-different-electoral-systems-used-united
+  a skos:Concept, curric:SubContentDescriptor ;
   skos:prefLabel """The different electoral systems used in and beyond the United Kingdom and
   actions citizens can take in democratic and electoral processes to influence decisions
   locally, nationally and beyond."""@en ;
-  skos:broader nat:contentdescriptor-different-electoral-systems-used-united ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:contentdescriptor-different-electoral-systems-used-united ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-04T19:24:29Z"^^xsd:dateTime .
 
-nat:subcontentdescriptor-other-systems-forms-government-democratic
-  a skos:Concept, natcurric:SubContentDescriptor ;
+natcurric:subcontentdescriptor-other-systems-forms-government-democratic
+  a skos:Concept, curric:SubContentDescriptor ;
   skos:prefLabel """Other systems and forms of government, both democratic and non-democratic,
   beyond the United Kingdom."""@en ;
-  skos:broader nat:contentdescriptor-other-systems-forms-government-democratic ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:contentdescriptor-other-systems-forms-government-democratic ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-04T19:24:29Z"^^xsd:dateTime .
 
-nat:subcontentdescriptor-local-regional-international-governance-united
-  a skos:Concept, natcurric:SubContentDescriptor ;
+natcurric:subcontentdescriptor-local-regional-international-governance-united
+  a skos:Concept, curric:SubContentDescriptor ;
   skos:prefLabel """Local, regional and international governance and the United Kingdom’s relations
   with the rest of Europe, the Commonwealth, the United Nations and the wider world."""@en ;
-  skos:broader nat:contentdescriptor-local-regional-international-governance-united ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:contentdescriptor-local-regional-international-governance-united ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-04T19:24:29Z"^^xsd:dateTime .
 
-nat:subcontentdescriptor-human-rights-and-international-law
-  a skos:Concept, natcurric:SubContentDescriptor ;
+natcurric:subcontentdescriptor-human-rights-and-international-law
+  a skos:Concept, curric:SubContentDescriptor ;
   skos:prefLabel "Human rights and international law."@en ;
-  skos:broader nat:contentdescriptor-human-rights-and-international-law ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:contentdescriptor-human-rights-and-international-law ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-04T19:24:29Z"^^xsd:dateTime .
 
-nat:subcontentdescriptor-legal-system-uk-different-sources
-  a skos:Concept, natcurric:SubContentDescriptor ;
+natcurric:subcontentdescriptor-legal-system-uk-different-sources
+  a skos:Concept, curric:SubContentDescriptor ;
   skos:prefLabel """The legal system in the UK, different sources of law and how the law helps
   society deal with complex problems."""@en ;
-  skos:broader nat:contentdescriptor-legal-system-uk-different-sources ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:contentdescriptor-legal-system-uk-different-sources ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-04T19:24:29Z"^^xsd:dateTime .
 
-nat:subcontentdescriptor-diverse-national-regional-religious-ethnic
-  a skos:Concept, natcurric:SubContentDescriptor ;
+natcurric:subcontentdescriptor-diverse-national-regional-religious-ethnic
+  a skos:Concept, curric:SubContentDescriptor ;
   skos:prefLabel """Diverse national, regional, religious and ethnic identities in the United
   Kingdom and the need for mutual respect and understanding."""@en ;
-  skos:broader nat:contentdescriptor-diverse-national-regional-religious-ethnic ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:contentdescriptor-diverse-national-regional-religious-ethnic ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-04T19:24:29Z"^^xsd:dateTime .
 
-nat:subcontentdescriptor-different-ways-citizen-contribute-improvement
-  a skos:Concept, natcurric:SubContentDescriptor ;
+natcurric:subcontentdescriptor-different-ways-citizen-contribute-improvement
+  a skos:Concept, curric:SubContentDescriptor ;
   skos:prefLabel """The different ways in which a citizen can contribute to the improvement of his
   or her community, to include the opportunity to participate actively in community
   volunteering, as well as other forms of responsible activity."""@en ;
-  skos:broader nat:contentdescriptor-different-ways-citizen-contribute-improvement ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:contentdescriptor-different-ways-citizen-contribute-improvement ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-04T19:24:29Z"^^xsd:dateTime .
 
-nat:subcontentdescriptor-income-expenditure-credit-debt-insurance
-  a skos:Concept, natcurric:SubContentDescriptor ;
+natcurric:subcontentdescriptor-income-expenditure-credit-debt-insurance
+  a skos:Concept, curric:SubContentDescriptor ;
   skos:prefLabel """Income and expenditure, credit and debt, insurance, savings and pensions,
   financial products and services, and how public money is raised and spent."""@en ;
-  skos:broader nat:contentdescriptor-income-expenditure-credit-debt-insurance ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:contentdescriptor-income-expenditure-credit-debt-insurance ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-04T19:24:29Z"^^xsd:dateTime .

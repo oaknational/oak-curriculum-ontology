@@ -1,5 +1,5 @@
-@prefix natcurric: <https://w3id.org/uk/curriculum/nat-ontology/> .
-@prefix nat: <https://w3id.org/uk/curriculum/nat-data-2014/> .
+@prefix curric: <https://w3id.org/uk/oak/curriculum/ontology/> .
+@prefix natcurric: <https://w3id.org/uk/oak/curriculum/nationalcurriculum/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
@@ -17,7 +17,7 @@
 # Ontology Declaration
 # ----------------------------------------------------------------------
 
-<https://w3id.org/uk/curriculum/nat-data-2014/music-programme-structure>
+<https://w3id.org/uk/oak/curriculum/nationalcurriculum/music-programme-structure>
   rdf:type owl:Ontology ;
 
   rdfs:label "National Curriculum for England - Music Programme Structure"@en ;
@@ -26,7 +26,7 @@
   to strands, sub-strands and content descriptors within the knowledge taxonomy."""@en ;
 
   owl:versionInfo "0.1.0" ;
-  owl:versionIRI <https://w3id.org/uk/curriculum/nat-data-2014/music-programme-structure/0.1.0> ;
+  owl:versionIRI <https://w3id.org/uk/oak/curriculum/nationalcurriculum/music-programme-structure/0.1.0> ;
 
   dcterms:description """Music programme structure that specifies schemes and progressions, and a
   mapping to strands, sub-strands and content descriptors within the knowledge taxonomy."""@en ;
@@ -39,65 +39,65 @@
   dcterms:license <http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/> ;
   dcterms:rights "Crown Copyright"@en ;
 
-  rdfs:seeAlso <https://w3id.org/uk/curriculum/nat-ontology> ;
+  rdfs:seeAlso <https://w3id.org/uk/oak/curriculum/ontology> ;
 
-  vann:preferredNamespacePrefix "nat" ;
-  vann:preferredNamespaceUri "https://w3id.org/uk/curriculum/nat-data-2014/" ;
+  vann:preferredNamespacePrefix "natcurric" ;
+  vann:preferredNamespaceUri "https://w3id.org/uk/oak/curriculum/nationalcurriculum/" ;
 
-  owl:imports <https://w3id.org/uk/curriculum/nat-ontology> ;
-  owl:imports <https://w3id.org/uk/curriculum/nat-data-2014/temporal-structure> ;
-  owl:imports <https://w3id.org/uk/curriculum/nat-data-2014/music-knowledge-taxonomy> .
+  owl:imports <https://w3id.org/uk/oak/curriculum/ontology> ;
+  owl:imports <https://w3id.org/uk/oak/curriculum/nationalcurriculum/temporal-structure> ;
+  owl:imports <https://w3id.org/uk/oak/curriculum/nationalcurriculum/music-knowledge-taxonomy> .
 
 # ----------------------------------------------------------------------
 # Subject Group
 # ----------------------------------------------------------------------
 
-nat:subjectgroup-music
-  a natcurric:SubjectGroup ;
+natcurric:subjectgroup-music
+  a curric:SubjectGroup ;
   rdfs:label "Music"@en ;
   dcterms:modified "2026-05-05T15:05:11Z"^^xsd:dateTime ;
-  natcurric:coversDiscipline nat:discipline-music .
+  curric:coversDiscipline natcurric:discipline-music .
 
 # ----------------------------------------------------------------------
 # Subjects
 # ----------------------------------------------------------------------
 
-nat:subject-music
-  a natcurric:Subject ;
+natcurric:subject-music
+  a curric:Subject ;
   rdfs:label "Music"@en ;
-  natcurric:rationale """Music is a universal language that embodies one of the highest forms of 
+  curric:rationale """Music is a universal language that embodies one of the highest forms of 
   creativity. A high quality music education should engage and inspire pupils to develop a love of 
   music and their talent as musicians, and so increase their self-confidence, creativity and sense 
   of achievement. As pupils progress, they should develop a critical engagement with music, 
   allowing them to compose, and to listen with discrimination to the best in the musical 
   canon."""@en ;
-  natcurric:hasAim
-    nat:aim-music-perform-listen-evaluate-music ,
-    nat:aim-music-sing-compose-musical-instrument-technology ,
-    nat:aim-music-how-music-created-produced-communicated ; 
+  curric:hasAim
+    natcurric:aim-music-perform-listen-evaluate-music ,
+    natcurric:aim-music-sing-compose-musical-instrument-technology ,
+    natcurric:aim-music-how-music-created-produced-communicated ; 
   dcterms:modified "2026-05-05T15:05:11Z"^^xsd:dateTime ;
-  natcurric:isSubjectOf nat:subjectgroup-music ;
-  natcurric:coversStrand nat:strand-music .
+  curric:isSubjectOf natcurric:subjectgroup-music ;
+  curric:coversStrand natcurric:strand-music .
 
 # ----------------------------------------------------------------------
 # Aims
 # ----------------------------------------------------------------------
 
-nat:aim-music-perform-listen-evaluate-music
-  a natcurric:Aim ;
+natcurric:aim-music-perform-listen-evaluate-music
+  a curric:Aim ;
   rdfs:label """Perform, listen to, review and evaluate music across a range of historical periods, 
   genres, styles and traditions, including the works of the great composers and musicians."""@en ;
   dcterms:modified "2026-05-04T15:18:34Z"^^xsd:dateTime .
 
-nat:aim-music-sing-compose-musical-instrument-technology
-  a natcurric:Aim ;
+natcurric:aim-music-sing-compose-musical-instrument-technology
+  a curric:Aim ;
   rdfs:label """Learn to sing and to use their voices, to create and compose music on their own and 
   with others, have the opportunity to learn a musical instrument, use technology appropriately and 
   have the opportunity to progress to the next level of musical excellence."""@en ;
   dcterms:modified "2026-05-04T15:18:34Z"^^xsd:dateTime .
 
-nat:aim-music-how-music-created-produced-communicated
-  a natcurric:Aim ;
+natcurric:aim-music-how-music-created-produced-communicated
+  a curric:Aim ;
   rdfs:label """Understand and explore how music is created, produced and communicated, including 
   through the inter-related dimensions: pitch, duration, dynamics, tempo, timbre, texture, 
   structure and appropriate musical notations."""@en ;
@@ -107,26 +107,26 @@ nat:aim-music-how-music-created-produced-communicated
 # Schemes
 # ----------------------------------------------------------------------
 
-nat:scheme-music-key-stage-1
-  a natcurric:Scheme ;
+natcurric:scheme-music-key-stage-1
+  a curric:Scheme ;
   rdfs:label "Music Key Stage 1"@en ;
   dcterms:description "No key stage description."@en ;
   dcterms:modified "2026-05-05T15:05:11Z"^^xsd:dateTime ;
-  natcurric:isSchemeOf nat:subject-music ;
-  natcurric:coversKeyStage nat:key-stage-1 .
+  curric:isSchemeOf natcurric:subject-music ;
+  curric:coversKeyStage natcurric:key-stage-1 .
 
-nat:scheme-music-key-stage-2
-  a natcurric:Scheme ;
+natcurric:scheme-music-key-stage-2
+  a curric:Scheme ;
   rdfs:label "Music Key Stage 2"@en ;
   dcterms:description """Pupils should be taught to sing and play musically with increasing 
   confidence and control. They should develop an understanding of musical composition, organising 
   and manipulating ideas within musical structures and reproducing sounds from aural memory."""@en ;
   dcterms:modified "2026-05-05T15:05:11Z"^^xsd:dateTime ;
-  natcurric:isSchemeOf nat:subject-music ;
-  natcurric:coversKeyStage nat:key-stage-2 .
+  curric:isSchemeOf natcurric:subject-music ;
+  curric:coversKeyStage natcurric:key-stage-2 .
 
-nat:scheme-music-key-stage-3
-  a natcurric:Scheme ;
+natcurric:scheme-music-key-stage-3
+  a curric:Scheme ;
   rdfs:label "Music Key Stage 3"@en ;
   dcterms:description """Pupils should build on their previous knowledge and skills through 
   performing, composing and listening. They should develop their vocal and/or instrumental fluency, 
@@ -135,49 +135,49 @@ nat:scheme-music-key-stage-3
   discrimination and awareness to inform their practice as musicians. They should use technologies 
   appropriately and appreciate and understand a wide range of musical contexts and styles."""@en ;
   dcterms:modified "2026-05-05T15:05:11Z"^^xsd:dateTime ;
-  natcurric:isSchemeOf nat:subject-music ;
-  natcurric:coversKeyStage nat:key-stage-3 .
+  curric:isSchemeOf natcurric:subject-music ;
+  curric:coversKeyStage natcurric:key-stage-3 .
 
 # ----------------------------------------------------------------------
 # Progressions
 # ----------------------------------------------------------------------
 
-nat:progression-music-key-stage-1-music
-  a natcurric:Progression ;
+natcurric:progression-music-key-stage-1-music
+  a curric:Progression ;
   rdfs:label "Music Key Stage 1 Music"@en ;
   dcterms:modified "2026-05-05T15:05:11Z"^^xsd:dateTime ;
-  natcurric:isProgressionOf nat:scheme-music-key-stage-1 ;
-  natcurric:coversSubStrand nat:substrand-music ;
-  natcurric:includesContentDescriptor
-    nat:contentdescriptor-voices-singing-songs-speaking-chants ,
-    nat:contentdescriptor-play-tuned-untuned-instruments ,
-    nat:contentdescriptor-listen-concentration-range-high-quality ,
-    nat:contentdescriptor-experiment-create-select-combine-sounds .
+  curric:isProgressionOf natcurric:scheme-music-key-stage-1 ;
+  curric:coversSubStrand natcurric:substrand-music ;
+  curric:includesContentDescriptor
+    natcurric:contentdescriptor-voices-singing-songs-speaking-chants ,
+    natcurric:contentdescriptor-play-tuned-untuned-instruments ,
+    natcurric:contentdescriptor-listen-concentration-range-high-quality ,
+    natcurric:contentdescriptor-experiment-create-select-combine-sounds .
 
-nat:progression-music-key-stage-2-music
-  a natcurric:Progression ;
+natcurric:progression-music-key-stage-2-music
+  a curric:Progression ;
   rdfs:label "Music Key Stage 2 Music"@en ;
   dcterms:modified "2026-05-05T15:05:11Z"^^xsd:dateTime ;
-  natcurric:isProgressionOf nat:scheme-music-key-stage-2 ;
-  natcurric:coversSubStrand nat:substrand-music ;
-  natcurric:includesContentDescriptor
-    nat:contentdescriptor-play-perform-solo-ensemble-contexts ,
-    nat:contentdescriptor-improvise-compose-music-range-purposes ,
-    nat:contentdescriptor-listen-attention-detail-recall-sounds ,
-    nat:contentdescriptor-staff-other-musical-notations ,
-    nat:contentdescriptor-appreciate-wide-range-high-quality ,
-    nat:contentdescriptor-history-music .
+  curric:isProgressionOf natcurric:scheme-music-key-stage-2 ;
+  curric:coversSubStrand natcurric:substrand-music ;
+  curric:includesContentDescriptor
+    natcurric:contentdescriptor-play-perform-solo-ensemble-contexts ,
+    natcurric:contentdescriptor-improvise-compose-music-range-purposes ,
+    natcurric:contentdescriptor-listen-attention-detail-recall-sounds ,
+    natcurric:contentdescriptor-staff-other-musical-notations ,
+    natcurric:contentdescriptor-appreciate-wide-range-high-quality ,
+    natcurric:contentdescriptor-history-music .
 
-nat:progression-music-key-stage-3-music
-  a natcurric:Progression ;
+natcurric:progression-music-key-stage-3-music
+  a curric:Progression ;
   rdfs:label "Music Key Stage 3 Music"@en ;
   dcterms:modified "2026-05-05T15:05:11Z"^^xsd:dateTime ;
-  natcurric:isProgressionOf nat:scheme-music-key-stage-3 ;
-  natcurric:coversSubStrand nat:substrand-music ;
-  natcurric:includesContentDescriptor
-    nat:contentdescriptor-play-perform-range-solo-ensemble ,
-    nat:contentdescriptor-improvise-compose-extend-musical-ideas ,
-    nat:contentdescriptor-staff-other-relevant-notations-range ,
-    nat:contentdescriptor-identify-inter-related-dimensions-music ,
-    nat:contentdescriptor-listen-increasing-discrimination-wide-range ,
-    nat:contentdescriptor-deepening-music-perform-listen-history .
+  curric:isProgressionOf natcurric:scheme-music-key-stage-3 ;
+  curric:coversSubStrand natcurric:substrand-music ;
+  curric:includesContentDescriptor
+    natcurric:contentdescriptor-play-perform-range-solo-ensemble ,
+    natcurric:contentdescriptor-improvise-compose-extend-musical-ideas ,
+    natcurric:contentdescriptor-staff-other-relevant-notations-range ,
+    natcurric:contentdescriptor-identify-inter-related-dimensions-music ,
+    natcurric:contentdescriptor-listen-increasing-discrimination-wide-range ,
+    natcurric:contentdescriptor-deepening-music-perform-listen-history .

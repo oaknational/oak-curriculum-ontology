@@ -1,5 +1,5 @@
-@prefix natcurric: <https://w3id.org/uk/curriculum/nat-ontology/> .
-@prefix nat: <https://w3id.org/uk/curriculum/nat-data-2014/> .
+@prefix curric: <https://w3id.org/uk/oak/curriculum/ontology/> .
+@prefix natcurric: <https://w3id.org/uk/oak/curriculum/nationalcurriculum/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
@@ -17,7 +17,7 @@
 # Ontology Declaration
 # ----------------------------------------------------------------------
 
-<https://w3id.org/uk/curriculum/nat-data-2014/physical-education-knowledge-taxonomy>
+<https://w3id.org/uk/oak/curriculum/nationalcurriculum/physical-education-knowledge-taxonomy>
   rdf:type owl:Ontology ;
 
   rdfs:label "National Curriculum for England - Physical education Knowledge Taxonomy"@en ;
@@ -26,7 +26,7 @@
   content from strands through to sub-content descriptors."""@en ;
 
   owl:versionInfo "0.1.0" ;
-  owl:versionIRI <https://w3id.org/uk/curriculum/nat-data-2014/physical-education-knowledge-taxonomy/0.1.0> ;
+  owl:versionIRI <https://w3id.org/uk/oak/curriculum/nationalcurriculum/physical-education-knowledge-taxonomy/0.1.0> ;
 
   dcterms:description """This file defines the Physical education knowledge taxonomy for the
   National Curriculum in England, organising content through strands, sub-strands, content
@@ -40,506 +40,506 @@
   dcterms:license <http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/> ;
   dcterms:rights "Crown Copyright"@en ;
 
-  rdfs:seeAlso <https://w3id.org/uk/curriculum/nat-ontology> ;
+  rdfs:seeAlso <https://w3id.org/uk/oak/curriculum/ontology> ;
 
-  vann:preferredNamespacePrefix "nat" ;
-  vann:preferredNamespaceUri "https://w3id.org/uk/curriculum/nat-data-2014/" ;
+  vann:preferredNamespacePrefix "natcurric" ;
+  vann:preferredNamespaceUri "https://w3id.org/uk/oak/curriculum/nationalcurriculum/" ;
 
-  owl:imports <https://w3id.org/uk/curriculum/nat-ontology> ;
-  owl:imports <https://w3id.org/uk/curriculum/nat-data-2014/physical-education-programme-structure> .
+  owl:imports <https://w3id.org/uk/oak/curriculum/ontology> ;
+  owl:imports <https://w3id.org/uk/oak/curriculum/nationalcurriculum/physical-education-programme-structure> .
 
 # ----------------------------------------------------------------------
 # Knowledge Taxonomy
 # ----------------------------------------------------------------------
 
-nat:knowledge-taxonomy
+natcurric:knowledge-taxonomy
   a skos:ConceptScheme ;
   skos:prefLabel "National Curriculum for England Knowledge Taxonomy"@en ;
-  skos:hasTopConcept nat:discipline-physical-education ;
+  skos:hasTopConcept natcurric:discipline-physical-education ;
   dcterms:modified "2026-05-04T18:01:20Z"^^xsd:dateTime .
 
 # ----------------------------------------------------------------------
 # Disciplines
 # ----------------------------------------------------------------------
 
-nat:discipline-physical-education
-  a skos:Concept, natcurric:Discipline ;
+natcurric:discipline-physical-education
+  a skos:Concept, curric:Discipline ;
   skos:prefLabel "Physical education"@en ;
-  skos:topConceptOf nat:knowledge-taxonomy ;
+  skos:topConceptOf natcurric:knowledge-taxonomy ;
   skos:narrower
-    nat:strand-physical-education ,
-    nat:strand-swimming-and-water-safety ;
-  skos:inScheme nat:knowledge-taxonomy ;
+    natcurric:strand-physical-education ,
+    natcurric:strand-swimming-and-water-safety ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-04T18:01:20Z"^^xsd:dateTime .
 
 # ----------------------------------------------------------------------
 # Strands
 # ----------------------------------------------------------------------
 
-nat:strand-physical-education
-  a skos:Concept, natcurric:Strand ;
+natcurric:strand-physical-education
+  a skos:Concept, curric:Strand ;
   skos:prefLabel "Physical education"@en ;
   skos:definition "Description of strand..."@en ;
-  skos:broader nat:discipline-physical-education ;
-  skos:narrower nat:substrand-physical-education ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:discipline-physical-education ;
+  skos:narrower natcurric:substrand-physical-education ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-04T18:01:20Z"^^xsd:dateTime .
 
-nat:strand-swimming-and-water-safety
-  a skos:Concept, natcurric:Strand ;
+natcurric:strand-swimming-and-water-safety
+  a skos:Concept, curric:Strand ;
   skos:prefLabel "Swimming and water safety"@en ;
   skos:definition "Description of strand..."@en ;
-  skos:broader nat:discipline-physical-education ;
-  skos:narrower nat:substrand-swimming-and-water-safety ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:discipline-physical-education ;
+  skos:narrower natcurric:substrand-swimming-and-water-safety ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-04T18:01:20Z"^^xsd:dateTime .
 
 # ----------------------------------------------------------------------
 # Sub-Strands
 # ----------------------------------------------------------------------
 
-nat:substrand-physical-education
-  a skos:Concept, natcurric:SubStrand ;
+natcurric:substrand-physical-education
+  a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Physical education"@en ;
-  skos:broader nat:strand-physical-education ;
+  skos:broader natcurric:strand-physical-education ;
   skos:narrower
-    nat:contentdescriptor-master-basic-movements-running-jumping ,
-    nat:contentdescriptor-participate-team-games-simple-tactics ,
-    nat:contentdescriptor-perform-dances-simple-movement-patterns ,
-    nat:contentdescriptor-running-jumping-throwing-catching-isolation ,
-    nat:contentdescriptor-play-competitive-games-modified-appropriate ,
-    nat:contentdescriptor-flexibility-strength-technique-control-balance ,
-    nat:contentdescriptor-perform-dances-range-movement-patterns ,
-    nat:contentdescriptor-take-part-outdoor-adventurous-activity ,
-    nat:contentdescriptor-compare-performances-previous-ones-improvement ,
-    nat:contentdescriptor-range-tactics-strategies-overcome-opponents ,
-    nat:contentdescriptor-develop-technique-in-competitive-sports ,
-    nat:contentdescriptor-perform-dances-advanced-dance-techniques ,
-    nat:contentdescriptor-take-part-outdoor-adventurous-activities ,
-    nat:contentdescriptor-analyse-performances-compared-previous-ones ,
-    nat:contentdescriptor-take-part-competitive-sports-activities ,
-    nat:contentdescriptor-variety-tactics-strategies-overcome-opponents ,
-    nat:contentdescriptor-improve-performance-in-competitive-sports ,
-    nat:contentdescriptor-take-part-further-outdoor-adventurous ,
-    nat:contentdescriptor-evaluate-performances-compared-previous-ones ,
-    nat:contentdescriptor-continue-take-part-competitive-sports ;
-  skos:inScheme nat:knowledge-taxonomy ;
+    natcurric:contentdescriptor-master-basic-movements-running-jumping ,
+    natcurric:contentdescriptor-participate-team-games-simple-tactics ,
+    natcurric:contentdescriptor-perform-dances-simple-movement-patterns ,
+    natcurric:contentdescriptor-running-jumping-throwing-catching-isolation ,
+    natcurric:contentdescriptor-play-competitive-games-modified-appropriate ,
+    natcurric:contentdescriptor-flexibility-strength-technique-control-balance ,
+    natcurric:contentdescriptor-perform-dances-range-movement-patterns ,
+    natcurric:contentdescriptor-take-part-outdoor-adventurous-activity ,
+    natcurric:contentdescriptor-compare-performances-previous-ones-improvement ,
+    natcurric:contentdescriptor-range-tactics-strategies-overcome-opponents ,
+    natcurric:contentdescriptor-develop-technique-in-competitive-sports ,
+    natcurric:contentdescriptor-perform-dances-advanced-dance-techniques ,
+    natcurric:contentdescriptor-take-part-outdoor-adventurous-activities ,
+    natcurric:contentdescriptor-analyse-performances-compared-previous-ones ,
+    natcurric:contentdescriptor-take-part-competitive-sports-activities ,
+    natcurric:contentdescriptor-variety-tactics-strategies-overcome-opponents ,
+    natcurric:contentdescriptor-improve-performance-in-competitive-sports ,
+    natcurric:contentdescriptor-take-part-further-outdoor-adventurous ,
+    natcurric:contentdescriptor-evaluate-performances-compared-previous-ones ,
+    natcurric:contentdescriptor-continue-take-part-competitive-sports ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-04T18:01:20Z"^^xsd:dateTime .
 
-nat:substrand-swimming-and-water-safety
-  a skos:Concept, natcurric:SubStrand ;
+natcurric:substrand-swimming-and-water-safety
+  a skos:Concept, curric:SubStrand ;
   skos:prefLabel "Swimming and water safety"@en ;
-  skos:broader nat:strand-swimming-and-water-safety ;
+  skos:broader natcurric:strand-swimming-and-water-safety ;
   skos:narrower
-    nat:contentdescriptor-swim-distance-25-metres ,
-    nat:contentdescriptor-range-strokes-example-front-crawl ,
-    nat:contentdescriptor-perform-safe-self-rescue-different ;
-  skos:inScheme nat:knowledge-taxonomy ;
+    natcurric:contentdescriptor-swim-distance-25-metres ,
+    natcurric:contentdescriptor-range-strokes-example-front-crawl ,
+    natcurric:contentdescriptor-perform-safe-self-rescue-different ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-04T18:01:20Z"^^xsd:dateTime .
 
 # ----------------------------------------------------------------------
 # Content Descriptors
 # ----------------------------------------------------------------------
 
-nat:contentdescriptor-master-basic-movements-running-jumping
-  a skos:Concept, natcurric:ContentDescriptor ;
+natcurric:contentdescriptor-master-basic-movements-running-jumping
+  a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel """Master basic movements including running, jumping, throwing and catching, as
   well as developing balance, agility and co-ordination, and begin to apply these in a range of 
   activities."""@en ;
-  skos:broader nat:substrand-physical-education ;
-  skos:narrower nat:subcontentdescriptor-master-basic-movements-running-jumping ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:substrand-physical-education ;
+  skos:narrower natcurric:subcontentdescriptor-master-basic-movements-running-jumping ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-04T18:01:20Z"^^xsd:dateTime .
 
-nat:contentdescriptor-participate-team-games-simple-tactics
-  a skos:Concept, natcurric:ContentDescriptor ;
+natcurric:contentdescriptor-participate-team-games-simple-tactics
+  a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel """Participate in team games, developing simple tactics for attacking and
   defending."""@en ;
-  skos:broader nat:substrand-physical-education ;
-  skos:narrower nat:subcontentdescriptor-participate-team-games-simple-tactics ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:substrand-physical-education ;
+  skos:narrower natcurric:subcontentdescriptor-participate-team-games-simple-tactics ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-04T18:01:20Z"^^xsd:dateTime .
 
-nat:contentdescriptor-perform-dances-simple-movement-patterns
-  a skos:Concept, natcurric:ContentDescriptor ;
+natcurric:contentdescriptor-perform-dances-simple-movement-patterns
+  a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel "Perform dances using simple movement patterns."@en ;
-  skos:broader nat:substrand-physical-education ;
-  skos:narrower nat:subcontentdescriptor-perform-dances-simple-movement-patterns ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:substrand-physical-education ;
+  skos:narrower natcurric:subcontentdescriptor-perform-dances-simple-movement-patterns ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-04T18:01:20Z"^^xsd:dateTime .
 
-nat:contentdescriptor-running-jumping-throwing-catching-isolation
-  a skos:Concept, natcurric:ContentDescriptor ;
+natcurric:contentdescriptor-running-jumping-throwing-catching-isolation
+  a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel "Use running, jumping, throwing and catching in isolation and in combination."@en ;
-  skos:broader nat:substrand-physical-education ;
-  skos:narrower nat:subcontentdescriptor-running-jumping-throwing-catching-isolation ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:substrand-physical-education ;
+  skos:narrower natcurric:subcontentdescriptor-running-jumping-throwing-catching-isolation ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-04T18:01:20Z"^^xsd:dateTime .
 
-nat:contentdescriptor-play-competitive-games-modified-appropriate
-  a skos:Concept, natcurric:ContentDescriptor ;
+natcurric:contentdescriptor-play-competitive-games-modified-appropriate
+  a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel """Play competitive games, modified where appropriate [for example, badminton,
   basketball, cricket, football, hockey, netball, rounders and tennis], and apply basic principles 
   suitable for attacking and defending."""@en ;
-  skos:broader nat:substrand-physical-education ;
-  skos:narrower nat:subcontentdescriptor-play-competitive-games-modified-appropriate ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:substrand-physical-education ;
+  skos:narrower natcurric:subcontentdescriptor-play-competitive-games-modified-appropriate ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-04T18:01:20Z"^^xsd:dateTime .
 
-nat:contentdescriptor-flexibility-strength-technique-control-balance
-  a skos:Concept, natcurric:ContentDescriptor ;
+natcurric:contentdescriptor-flexibility-strength-technique-control-balance
+  a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel """Develop flexibility, strength, technique, control and balance [for example,
   through athletics and gymnastics]."""@en ;
-  skos:broader nat:substrand-physical-education ;
-  skos:narrower nat:subcontentdescriptor-flexibility-strength-technique-control-balance ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:substrand-physical-education ;
+  skos:narrower natcurric:subcontentdescriptor-flexibility-strength-technique-control-balance ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-04T18:01:20Z"^^xsd:dateTime .
 
-nat:contentdescriptor-perform-dances-range-movement-patterns
-  a skos:Concept, natcurric:ContentDescriptor ;
+natcurric:contentdescriptor-perform-dances-range-movement-patterns
+  a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel "Perform dances using a range of movement patterns."@en ;
-  skos:broader nat:substrand-physical-education ;
-  skos:narrower nat:subcontentdescriptor-perform-dances-range-movement-patterns ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:substrand-physical-education ;
+  skos:narrower natcurric:subcontentdescriptor-perform-dances-range-movement-patterns ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-04T18:01:20Z"^^xsd:dateTime .
 
-nat:contentdescriptor-take-part-outdoor-adventurous-activity
-  a skos:Concept, natcurric:ContentDescriptor ;
+natcurric:contentdescriptor-take-part-outdoor-adventurous-activity
+  a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel """Take part in outdoor and adventurous activity challenges both individually and
   within a team."""@en ;
-  skos:broader nat:substrand-physical-education ;
-  skos:narrower nat:subcontentdescriptor-take-part-outdoor-adventurous-activity ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:substrand-physical-education ;
+  skos:narrower natcurric:subcontentdescriptor-take-part-outdoor-adventurous-activity ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-04T18:01:20Z"^^xsd:dateTime .
 
-nat:contentdescriptor-compare-performances-previous-ones-improvement
-  a skos:Concept, natcurric:ContentDescriptor ;
+natcurric:contentdescriptor-compare-performances-previous-ones-improvement
+  a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel """Compare their performances with previous ones and demonstrate improvement to
   achieve their personal best."""@en ;
-  skos:broader nat:substrand-physical-education ;
-  skos:narrower nat:subcontentdescriptor-compare-performances-previous-ones-improvement ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:substrand-physical-education ;
+  skos:narrower natcurric:subcontentdescriptor-compare-performances-previous-ones-improvement ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-04T18:01:20Z"^^xsd:dateTime .
 
-nat:contentdescriptor-swim-distance-25-metres
-  a skos:Concept, natcurric:ContentDescriptor ;
+natcurric:contentdescriptor-swim-distance-25-metres
+  a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel """Swim competently, confidently and proficiently over a distance of at least 25
   metres."""@en ;
-  skos:broader nat:substrand-swimming-and-water-safety ;
-  skos:narrower nat:subcontentdescriptor-swim-distance-25-metres ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:substrand-swimming-and-water-safety ;
+  skos:narrower natcurric:subcontentdescriptor-swim-distance-25-metres ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-04T18:01:20Z"^^xsd:dateTime .
 
-nat:contentdescriptor-range-strokes-example-front-crawl
-  a skos:Concept, natcurric:ContentDescriptor ;
+natcurric:contentdescriptor-range-strokes-example-front-crawl
+  a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel """Use a range of strokes effectively [for example, front crawl, backstroke and
   breaststroke]."""@en ;
-  skos:broader nat:substrand-swimming-and-water-safety ;
-  skos:narrower nat:subcontentdescriptor-range-strokes-example-front-crawl ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:substrand-swimming-and-water-safety ;
+  skos:narrower natcurric:subcontentdescriptor-range-strokes-example-front-crawl ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-04T18:01:20Z"^^xsd:dateTime .
 
-nat:contentdescriptor-perform-safe-self-rescue-different
-  a skos:Concept, natcurric:ContentDescriptor ;
+natcurric:contentdescriptor-perform-safe-self-rescue-different
+  a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel "Perform safe self-rescue in different water-based situations."@en ;
-  skos:broader nat:substrand-swimming-and-water-safety ;
-  skos:narrower nat:subcontentdescriptor-perform-safe-self-rescue-different ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:substrand-swimming-and-water-safety ;
+  skos:narrower natcurric:subcontentdescriptor-perform-safe-self-rescue-different ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-04T18:01:20Z"^^xsd:dateTime .
 
-nat:contentdescriptor-range-tactics-strategies-overcome-opponents
-  a skos:Concept, natcurric:ContentDescriptor ;
+natcurric:contentdescriptor-range-tactics-strategies-overcome-opponents
+  a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel """Use a range of tactics and strategies to overcome opponents in direct
   competition through team and individual games [for example, badminton, basketball, cricket, 
   football, hockey, netball, rounders, rugby and tennis]."""@en ;
-  skos:broader nat:substrand-physical-education ;
-  skos:narrower nat:subcontentdescriptor-range-tactics-strategies-overcome-opponents ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:substrand-physical-education ;
+  skos:narrower natcurric:subcontentdescriptor-range-tactics-strategies-overcome-opponents ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-04T18:01:20Z"^^xsd:dateTime .
 
-nat:contentdescriptor-develop-technique-in-competitive-sports
-  a skos:Concept, natcurric:ContentDescriptor ;
+natcurric:contentdescriptor-develop-technique-in-competitive-sports
+  a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel """Develop their technique and improve their performance in other competitive
   sports [for example, athletics and gymnastics]."""@en ;
-  skos:broader nat:substrand-physical-education ;
-  skos:narrower nat:subcontentdescriptor-develop-technique-in-competitive-sports ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:substrand-physical-education ;
+  skos:narrower natcurric:subcontentdescriptor-develop-technique-in-competitive-sports ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-04T18:01:20Z"^^xsd:dateTime .
 
-nat:contentdescriptor-perform-dances-advanced-dance-techniques
-  a skos:Concept, natcurric:ContentDescriptor ;
+natcurric:contentdescriptor-perform-dances-advanced-dance-techniques
+  a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel """Perform dances using advanced dance techniques within a range of dance styles
   and forms."""@en ;
-  skos:broader nat:substrand-physical-education ;
-  skos:narrower nat:subcontentdescriptor-perform-dances-advanced-dance-techniques ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:substrand-physical-education ;
+  skos:narrower natcurric:subcontentdescriptor-perform-dances-advanced-dance-techniques ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-04T18:01:20Z"^^xsd:dateTime .
 
-nat:contentdescriptor-take-part-outdoor-adventurous-activities
-  a skos:Concept, natcurric:ContentDescriptor ;
+natcurric:contentdescriptor-take-part-outdoor-adventurous-activities
+  a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel """Take part in outdoor and adventurous activities which present intellectual and
   physical challenges and be encouraged to work in a team, building on trust and developing skills 
   to solve problems, either individually or as a group."""@en ;
-  skos:broader nat:substrand-physical-education ;
-  skos:narrower nat:subcontentdescriptor-take-part-outdoor-adventurous-activities ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:substrand-physical-education ;
+  skos:narrower natcurric:subcontentdescriptor-take-part-outdoor-adventurous-activities ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-04T18:01:20Z"^^xsd:dateTime .
 
-nat:contentdescriptor-analyse-performances-compared-previous-ones
-  a skos:Concept, natcurric:ContentDescriptor ;
+natcurric:contentdescriptor-analyse-performances-compared-previous-ones
+  a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel """Analyse their performances compared to previous ones and demonstrate 
   improvement to achieve their personal best."""@en ;
-  skos:broader nat:substrand-physical-education ;
-  skos:narrower nat:subcontentdescriptor-analyse-performances-compared-previous-ones ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:substrand-physical-education ;
+  skos:narrower natcurric:subcontentdescriptor-analyse-performances-compared-previous-ones ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-04T18:01:20Z"^^xsd:dateTime .
 
-nat:contentdescriptor-take-part-competitive-sports-activities
-  a skos:Concept, natcurric:ContentDescriptor ;
+natcurric:contentdescriptor-take-part-competitive-sports-activities
+  a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel """Take part in competitive sports and activities outside school through community
   links or sports clubs."""@en ;
-  skos:broader nat:substrand-physical-education ;
-  skos:narrower nat:subcontentdescriptor-take-part-competitive-sports-activities ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:substrand-physical-education ;
+  skos:narrower natcurric:subcontentdescriptor-take-part-competitive-sports-activities ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-04T18:01:20Z"^^xsd:dateTime .
 
-nat:contentdescriptor-variety-tactics-strategies-overcome-opponents
-  a skos:Concept, natcurric:ContentDescriptor ;
+natcurric:contentdescriptor-variety-tactics-strategies-overcome-opponents
+  a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel """Use and develop a variety of tactics and strategies to overcome opponents in
   team and individual games [for example, badminton, basketball, cricket, football, hockey, 
   netball, rounders, rugby and tennis]."""@en ;
-  skos:broader nat:substrand-physical-education ;
-  skos:narrower nat:subcontentdescriptor-variety-tactics-strategies-overcome-opponents ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:substrand-physical-education ;
+  skos:narrower natcurric:subcontentdescriptor-variety-tactics-strategies-overcome-opponents ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-04T18:01:20Z"^^xsd:dateTime .
 
-nat:contentdescriptor-improve-performance-in-competitive-sports
-  a skos:Concept, natcurric:ContentDescriptor ;
+natcurric:contentdescriptor-improve-performance-in-competitive-sports
+  a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel """Develop their technique and improve their performance in other competitive
   sports,[for example, athletics and gymnastics], or other physical activities [for example,
   dance]."""@en ;
-  skos:broader nat:substrand-physical-education ;
-  skos:narrower nat:subcontentdescriptor-improve-performance-in-competitive-sports ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:substrand-physical-education ;
+  skos:narrower natcurric:subcontentdescriptor-improve-performance-in-competitive-sports ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-04T18:01:20Z"^^xsd:dateTime .
 
-nat:contentdescriptor-take-part-further-outdoor-adventurous
-  a skos:Concept, natcurric:ContentDescriptor ;
+natcurric:contentdescriptor-take-part-further-outdoor-adventurous
+  a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel """Take part in further outdoor and adventurous activities in a range of
   environments which present intellectual and physical challenges and which encourage pupils to 
   work in a team, building on trust and developing skills to solve problems, either individually or 
   as a group."""@en ;
-  skos:broader nat:substrand-physical-education ;
-  skos:narrower nat:subcontentdescriptor-take-part-further-outdoor-adventurous ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:substrand-physical-education ;
+  skos:narrower natcurric:subcontentdescriptor-take-part-further-outdoor-adventurous ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-04T18:01:20Z"^^xsd:dateTime .
 
-nat:contentdescriptor-evaluate-performances-compared-previous-ones
-  a skos:Concept, natcurric:ContentDescriptor ;
+natcurric:contentdescriptor-evaluate-performances-compared-previous-ones
+  a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel """Evaluate their performances compared to previous ones and demonstrate
   improvement across a range of physical activities to achieve their personal best."""@en ;
-  skos:broader nat:substrand-physical-education ;
-  skos:narrower nat:subcontentdescriptor-evaluate-performances-compared-previous-ones ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:substrand-physical-education ;
+  skos:narrower natcurric:subcontentdescriptor-evaluate-performances-compared-previous-ones ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-04T18:01:20Z"^^xsd:dateTime .
 
-nat:contentdescriptor-continue-take-part-competitive-sports
-  a skos:Concept, natcurric:ContentDescriptor ;
+natcurric:contentdescriptor-continue-take-part-competitive-sports
+  a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel """Continue to take part regularly in competitive sports and activities outside
   school through community links or sports clubs."""@en ;
-  skos:broader nat:substrand-physical-education ;
-  skos:narrower nat:subcontentdescriptor-continue-take-part-competitive-sports ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:substrand-physical-education ;
+  skos:narrower natcurric:subcontentdescriptor-continue-take-part-competitive-sports ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-04T18:01:20Z"^^xsd:dateTime .
 
 # ----------------------------------------------------------------------
 # Sub-Content Descriptors
 # ----------------------------------------------------------------------
 
-nat:subcontentdescriptor-master-basic-movements-running-jumping
-  a skos:Concept, natcurric:SubContentDescriptor ;
+natcurric:subcontentdescriptor-master-basic-movements-running-jumping
+  a skos:Concept, curric:SubContentDescriptor ;
   skos:prefLabel """Master basic movements including running, jumping, throwing and catching, as
   well as developing balance, agility and co-ordination, and begin to apply these in a range of 
   activities."""@en ;
-  skos:broader nat:contentdescriptor-master-basic-movements-running-jumping ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:contentdescriptor-master-basic-movements-running-jumping ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-04T18:01:20Z"^^xsd:dateTime .
 
-nat:subcontentdescriptor-participate-team-games-simple-tactics
-  a skos:Concept, natcurric:SubContentDescriptor ;
+natcurric:subcontentdescriptor-participate-team-games-simple-tactics
+  a skos:Concept, curric:SubContentDescriptor ;
   skos:prefLabel """Participate in team games, developing simple tactics for attacking and
   defending."""@en ;
-  skos:broader nat:contentdescriptor-participate-team-games-simple-tactics ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:contentdescriptor-participate-team-games-simple-tactics ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-04T18:01:20Z"^^xsd:dateTime .
 
-nat:subcontentdescriptor-perform-dances-simple-movement-patterns
-  a skos:Concept, natcurric:SubContentDescriptor ;
+natcurric:subcontentdescriptor-perform-dances-simple-movement-patterns
+  a skos:Concept, curric:SubContentDescriptor ;
   skos:prefLabel "Perform dances using simple movement patterns."@en ;
-  skos:broader nat:contentdescriptor-perform-dances-simple-movement-patterns ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:contentdescriptor-perform-dances-simple-movement-patterns ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-04T18:01:20Z"^^xsd:dateTime .
 
-nat:subcontentdescriptor-running-jumping-throwing-catching-isolation
-  a skos:Concept, natcurric:SubContentDescriptor ;
+natcurric:subcontentdescriptor-running-jumping-throwing-catching-isolation
+  a skos:Concept, curric:SubContentDescriptor ;
   skos:prefLabel "Use running, jumping, throwing and catching in isolation and in combination."@en ;
-  skos:broader nat:contentdescriptor-running-jumping-throwing-catching-isolation ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:contentdescriptor-running-jumping-throwing-catching-isolation ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-04T18:01:20Z"^^xsd:dateTime .
 
-nat:subcontentdescriptor-play-competitive-games-modified-appropriate
-  a skos:Concept, natcurric:SubContentDescriptor ;
+natcurric:subcontentdescriptor-play-competitive-games-modified-appropriate
+  a skos:Concept, curric:SubContentDescriptor ;
   skos:prefLabel """Play competitive games, modified where appropriate [for example, badminton,
   basketball, cricket, football, hockey, netball, rounders and tennis], and apply basic principles 
   suitable for attacking and defending."""@en ;
-  skos:broader nat:contentdescriptor-play-competitive-games-modified-appropriate ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:contentdescriptor-play-competitive-games-modified-appropriate ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-04T18:01:20Z"^^xsd:dateTime .
 
-nat:subcontentdescriptor-flexibility-strength-technique-control-balance
-  a skos:Concept, natcurric:SubContentDescriptor ;
+natcurric:subcontentdescriptor-flexibility-strength-technique-control-balance
+  a skos:Concept, curric:SubContentDescriptor ;
   skos:prefLabel """Develop flexibility, strength, technique, control and balance [for example,
   through athletics and gymnastics]."""@en ;
-  skos:broader nat:contentdescriptor-flexibility-strength-technique-control-balance ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:contentdescriptor-flexibility-strength-technique-control-balance ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-04T18:01:20Z"^^xsd:dateTime .
 
-nat:subcontentdescriptor-perform-dances-range-movement-patterns
-  a skos:Concept, natcurric:SubContentDescriptor ;
+natcurric:subcontentdescriptor-perform-dances-range-movement-patterns
+  a skos:Concept, curric:SubContentDescriptor ;
   skos:prefLabel "Perform dances using a range of movement patterns."@en ;
-  skos:broader nat:contentdescriptor-perform-dances-range-movement-patterns ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:contentdescriptor-perform-dances-range-movement-patterns ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-04T18:01:20Z"^^xsd:dateTime .
 
-nat:subcontentdescriptor-take-part-outdoor-adventurous-activity
-  a skos:Concept, natcurric:SubContentDescriptor ;
+natcurric:subcontentdescriptor-take-part-outdoor-adventurous-activity
+  a skos:Concept, curric:SubContentDescriptor ;
   skos:prefLabel """Take part in outdoor and adventurous activity challenges both individually and
   within a team."""@en ;
-  skos:broader nat:contentdescriptor-take-part-outdoor-adventurous-activity ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:contentdescriptor-take-part-outdoor-adventurous-activity ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-04T18:01:20Z"^^xsd:dateTime .
 
-nat:subcontentdescriptor-compare-performances-previous-ones-improvement
-  a skos:Concept, natcurric:SubContentDescriptor ;
+natcurric:subcontentdescriptor-compare-performances-previous-ones-improvement
+  a skos:Concept, curric:SubContentDescriptor ;
   skos:prefLabel """Compare their performances with previous ones and demonstrate improvement to
   achieve their personal best."""@en ;
-  skos:broader nat:contentdescriptor-compare-performances-previous-ones-improvement ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:contentdescriptor-compare-performances-previous-ones-improvement ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-04T18:01:20Z"^^xsd:dateTime .
 
-nat:subcontentdescriptor-swim-distance-25-metres
-  a skos:Concept, natcurric:SubContentDescriptor ;
+natcurric:subcontentdescriptor-swim-distance-25-metres
+  a skos:Concept, curric:SubContentDescriptor ;
   skos:prefLabel """Swim competently, confidently and proficiently over a distance of at least 25
   metres."""@en ;
-  skos:broader nat:contentdescriptor-swim-distance-25-metres ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:contentdescriptor-swim-distance-25-metres ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-04T18:01:20Z"^^xsd:dateTime .
 
-nat:subcontentdescriptor-range-strokes-example-front-crawl
-  a skos:Concept, natcurric:SubContentDescriptor ;
+natcurric:subcontentdescriptor-range-strokes-example-front-crawl
+  a skos:Concept, curric:SubContentDescriptor ;
   skos:prefLabel """Use a range of strokes effectively [for example, front crawl, backstroke and
   breaststroke]."""@en ;
-  skos:broader nat:contentdescriptor-range-strokes-example-front-crawl ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:contentdescriptor-range-strokes-example-front-crawl ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-04T18:01:20Z"^^xsd:dateTime .
 
-nat:subcontentdescriptor-perform-safe-self-rescue-different
-  a skos:Concept, natcurric:SubContentDescriptor ;
+natcurric:subcontentdescriptor-perform-safe-self-rescue-different
+  a skos:Concept, curric:SubContentDescriptor ;
   skos:prefLabel "Perform safe self-rescue in different water-based situations."@en ;
-  skos:broader nat:contentdescriptor-perform-safe-self-rescue-different ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:contentdescriptor-perform-safe-self-rescue-different ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-04T18:01:20Z"^^xsd:dateTime .
 
-nat:subcontentdescriptor-range-tactics-strategies-overcome-opponents
-  a skos:Concept, natcurric:SubContentDescriptor ;
+natcurric:subcontentdescriptor-range-tactics-strategies-overcome-opponents
+  a skos:Concept, curric:SubContentDescriptor ;
   skos:prefLabel """Use a range of tactics and strategies to overcome opponents in direct
   competition through team and individual games [for example, badminton, basketball, cricket, 
   football, hockey, netball, rounders, rugby and tennis]."""@en ;
-  skos:broader nat:contentdescriptor-range-tactics-strategies-overcome-opponents ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:contentdescriptor-range-tactics-strategies-overcome-opponents ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-04T18:01:20Z"^^xsd:dateTime .
 
-nat:subcontentdescriptor-develop-technique-in-competitive-sports
-  a skos:Concept, natcurric:SubContentDescriptor ;
+natcurric:subcontentdescriptor-develop-technique-in-competitive-sports
+  a skos:Concept, curric:SubContentDescriptor ;
   skos:prefLabel """Develop their technique and improve their performance in other competitive
   sports [for example, athletics and gymnastics]."""@en ;
-  skos:broader nat:contentdescriptor-develop-technique-in-competitive-sports ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:contentdescriptor-develop-technique-in-competitive-sports ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-04T18:01:20Z"^^xsd:dateTime .
 
-nat:subcontentdescriptor-perform-dances-advanced-dance-techniques
-  a skos:Concept, natcurric:SubContentDescriptor ;
+natcurric:subcontentdescriptor-perform-dances-advanced-dance-techniques
+  a skos:Concept, curric:SubContentDescriptor ;
   skos:prefLabel """Perform dances using advanced dance techniques within a range of dance styles
   and forms."""@en ;
-  skos:broader nat:contentdescriptor-perform-dances-advanced-dance-techniques ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:contentdescriptor-perform-dances-advanced-dance-techniques ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-04T18:01:20Z"^^xsd:dateTime .
 
-nat:subcontentdescriptor-take-part-outdoor-adventurous-activities
-  a skos:Concept, natcurric:SubContentDescriptor ;
+natcurric:subcontentdescriptor-take-part-outdoor-adventurous-activities
+  a skos:Concept, curric:SubContentDescriptor ;
   skos:prefLabel """Take part in outdoor and adventurous activities which present intellectual and
   physical challenges and be encouraged to work in a team, building on trust and developing skills 
   to solve problems, either individually or as a group."""@en ;
-  skos:broader nat:contentdescriptor-take-part-outdoor-adventurous-activities ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:contentdescriptor-take-part-outdoor-adventurous-activities ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-04T18:01:20Z"^^xsd:dateTime .
 
-nat:subcontentdescriptor-analyse-performances-compared-previous-ones
-  a skos:Concept, natcurric:SubContentDescriptor ;
+natcurric:subcontentdescriptor-analyse-performances-compared-previous-ones
+  a skos:Concept, curric:SubContentDescriptor ;
   skos:prefLabel """Analyse their performances compared to previous ones and demonstrate 
   improvement to achieve their personal best."""@en ;
-  skos:broader nat:contentdescriptor-analyse-performances-compared-previous-ones ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:contentdescriptor-analyse-performances-compared-previous-ones ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-04T18:01:20Z"^^xsd:dateTime .
 
-nat:subcontentdescriptor-take-part-competitive-sports-activities
-  a skos:Concept, natcurric:SubContentDescriptor ;
+natcurric:subcontentdescriptor-take-part-competitive-sports-activities
+  a skos:Concept, curric:SubContentDescriptor ;
   skos:prefLabel """Take part in competitive sports and activities outside school through community
   links or sports clubs."""@en ;
-  skos:broader nat:contentdescriptor-take-part-competitive-sports-activities ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:contentdescriptor-take-part-competitive-sports-activities ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-04T18:01:20Z"^^xsd:dateTime .
 
-nat:subcontentdescriptor-variety-tactics-strategies-overcome-opponents
-  a skos:Concept, natcurric:SubContentDescriptor ;
+natcurric:subcontentdescriptor-variety-tactics-strategies-overcome-opponents
+  a skos:Concept, curric:SubContentDescriptor ;
   skos:prefLabel """Use and develop a variety of tactics and strategies to overcome opponents in
   team and individual games [for example, badminton, basketball, cricket, football, hockey, 
   netball, rounders, rugby and tennis]."""@en ;
-  skos:broader nat:contentdescriptor-variety-tactics-strategies-overcome-opponents ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:contentdescriptor-variety-tactics-strategies-overcome-opponents ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-04T18:01:20Z"^^xsd:dateTime .
 
-nat:subcontentdescriptor-improve-performance-in-competitive-sports
-  a skos:Concept, natcurric:SubContentDescriptor ;
+natcurric:subcontentdescriptor-improve-performance-in-competitive-sports
+  a skos:Concept, curric:SubContentDescriptor ;
   skos:prefLabel """Develop their technique and improve their performance in other competitive
   sports,[for example, athletics and gymnastics], or other physical activities [for example,
   dance]."""@en ;
-  skos:broader nat:contentdescriptor-improve-performance-in-competitive-sports ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:contentdescriptor-improve-performance-in-competitive-sports ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-04T18:01:20Z"^^xsd:dateTime .
 
-nat:subcontentdescriptor-take-part-further-outdoor-adventurous
-  a skos:Concept, natcurric:SubContentDescriptor ;
+natcurric:subcontentdescriptor-take-part-further-outdoor-adventurous
+  a skos:Concept, curric:SubContentDescriptor ;
   skos:prefLabel """Take part in further outdoor and adventurous activities in a range of
   environments which present intellectual and physical challenges and which encourage pupils to 
   work in a team, building on trust and developing skills to solve problems, either individually or 
   as a group."""@en ;
-  skos:broader nat:contentdescriptor-take-part-further-outdoor-adventurous ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:contentdescriptor-take-part-further-outdoor-adventurous ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-04T18:01:20Z"^^xsd:dateTime .
 
-nat:subcontentdescriptor-evaluate-performances-compared-previous-ones
-  a skos:Concept, natcurric:SubContentDescriptor ;
+natcurric:subcontentdescriptor-evaluate-performances-compared-previous-ones
+  a skos:Concept, curric:SubContentDescriptor ;
   skos:prefLabel """Evaluate their performances compared to previous ones and demonstrate
   improvement across a range of physical activities to achieve their personal best."""@en ;
-  skos:broader nat:contentdescriptor-evaluate-performances-compared-previous-ones ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:contentdescriptor-evaluate-performances-compared-previous-ones ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-04T18:01:20Z"^^xsd:dateTime .
 
-nat:subcontentdescriptor-continue-take-part-competitive-sports
-  a skos:Concept, natcurric:SubContentDescriptor ;
+natcurric:subcontentdescriptor-continue-take-part-competitive-sports
+  a skos:Concept, curric:SubContentDescriptor ;
   skos:prefLabel """Continue to take part regularly in competitive sports and activities outside
   school through community links or sports clubs."""@en ;
-  skos:broader nat:contentdescriptor-continue-take-part-competitive-sports ;
-  skos:inScheme nat:knowledge-taxonomy ;
+  skos:broader natcurric:contentdescriptor-continue-take-part-competitive-sports ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
   dcterms:modified "2026-05-04T18:01:20Z"^^xsd:dateTime .
