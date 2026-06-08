@@ -287,19 +287,19 @@ curric:UnitVariantChoice
   rdfs:label "Unit Variant Choice"@en ;
   rdfs:comment """A choice between multiple unit variants at a given sequence position. One unit 
   variant should be selected from the available options."""@en ;
-  rdfs:isDefinedBy <https://w3id.org/uk/oak/curriculum/ontology> .
+  rdfs:isDefinedBy <https://w3id.org/uk/oak/curriculum/ontology> . 
 
 # ----------------------------------------------------------------------
 # Object Properties
 # (hasKeyStage, isKeyStageOf, hasYearGroup, isYearGroupOf,
 # coversKeyStage, isCoveredByScheme, coversYearGroup,
-# isYearGroupCoveredByProgression, coversSubStrand,
+# isYearGroupCoveredByElement, coversSubStrand,
 # isSubStrandCoveredByProgression, coversDiscipline,
 # isCoveredBySubjectGroup, coversStrand, isCoveredBySubject, 
 # includesContentDescriptor, isIncludedByProgression, hasSubject, 
 # isSubjectOf, hasScheme, isSchemeOf, hasProgression, isProgressionOf, 
 # hasAim, isAimOf, hasProgramme, isProgrammeOf, hasUnit, isUnitOf, 
-# coversYearGroup, isCoveredByProgramme, hasExamBoard, isExamBoardOf, 
+# hasExamBoard, isExamBoardOf, 
 # hasTier, isTierOf, hasUnitVariant, isUnitVariantOf, includesThread, 
 # isThreadOf, includesContent, isContentOf, hasKeyword, isKeywordOf, 
 # hasMisconception, isMisconceptionOf, hasKeyLearningPoint, 
@@ -364,18 +364,16 @@ curric:isCoveredByScheme
 curric:coversYearGroup
   rdf:type owl:ObjectProperty ;
   rdfs:label "covers year group"@en ;
-  rdfs:comment "Indicates that a progression covers a specific year group."@en ;
-  rdfs:domain curric:Progression ;
+  rdfs:comment "Indicates that a progression or a programme covers a specific year group."@en ;
   rdfs:range curric:YearGroup ;
-  owl:inverseOf curric:isYearGroupCoveredByProgression ;
+  owl:inverseOf curric:isYearGroupCoveredByElement ;
   rdfs:isDefinedBy <https://w3id.org/uk/oak/curriculum/ontology> .
 
-curric:isYearGroupCoveredByProgression
+curric:isYearGroupCoveredByElement
   rdf:type owl:ObjectProperty ;
-  rdfs:label "is year group covered by progression"@en ;
-  rdfs:comment "Indicates that a year group is covered by a specific progression."@en ;
+  rdfs:label "is year group covered by element"@en ;
+  rdfs:comment "Indicates that a year group is covered by a specific progression or programme."@en ;
   rdfs:domain curric:YearGroup ;
-  rdfs:range curric:Progression ;
   owl:inverseOf curric:coversYearGroup ;
   rdfs:isDefinedBy <https://w3id.org/uk/oak/curriculum/ontology> .
 
@@ -557,24 +555,6 @@ curric:isUnitOf
   rdfs:domain curric:Unit ;
   rdfs:range curric:Scheme ;
   owl:inverseOf curric:hasUnit ;
-  rdfs:isDefinedBy <https://w3id.org/uk/oak/curriculum/ontology> .
-
-curric:coversYearGroup
-  rdf:type owl:ObjectProperty ;
-  rdfs:label "covers year group"@en ;
-  rdfs:comment "Indicates that a programme covers a specific year group."@en ;
-  rdfs:domain curric:Programme ;
-  rdfs:range curric:YearGroup ;
-  owl:inverseOf curric:isCoveredByProgramme ;
-  rdfs:isDefinedBy <https://w3id.org/uk/oak/curriculum/ontology> .
-
-curric:isCoveredByProgramme
-  rdf:type owl:ObjectProperty ;
-  rdfs:label "is covered by programme"@en ;
-  rdfs:comment "Indicates that a year group is covered by a specific programme."@en ;
-  rdfs:domain curric:YearGroup ;
-  rdfs:range curric:Programme ;
-  owl:inverseOf curric:coversYearGroup ;
   rdfs:isDefinedBy <https://w3id.org/uk/oak/curriculum/ontology> .
 
 curric:hasExamBoard
