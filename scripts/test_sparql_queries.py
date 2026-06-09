@@ -104,7 +104,7 @@ QUERIES = {
         PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 
         SELECT DISTINCT ?content ?label WHERE {
-          natcurric:discipline-science skos:narrower+ ?content .
+          natcurric:discipline-the-sciences skos:narrower+ ?content .
           ?content skos:prefLabel ?label .
         }
         ORDER BY ?label
