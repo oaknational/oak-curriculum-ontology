@@ -63,7 +63,7 @@ class LabelMappingConfig(BaseModel):
 
 class FileDiscoveryConfig(BaseModel):
     """Configuration for discovering TTL files to import."""
-    base_dir: str = "data/oak-curriculum"
+    base_dir: str = "data"
     include_files: list[str] = []
     include_patterns: list[str] = []
     exclude_patterns: list[str] = ["**/versions/**"]
@@ -107,21 +107,31 @@ class InclusionFlatteningConfig(BaseModel):
     copy_target_properties: dict[str, str] = {}
 
 
+class PrefixedSlugMappingConfig(BaseModel):
+    """Configuration for deriving a slug property from an RDF property with a prefix."""
+    source_property: str
+    target_property: str
+    prefix: str
+
+
 class Neo4jExportConfig(BaseModel):
     """Complete configuration for Neo4j export."""
     model_config = {"extra": "allow"}  # Allow extra fields like _notes
 
     rdf_source: RDFSourceConfig
     neo4j_connection: Neo4jConnectionConfig = Neo4jConnectionConfig()
+    dataset_label: Optional[str] = None  # Optional label to add to all nodes (e.g., "NatCurric2014")
     label_mapping: Union[LabelMappingConfig, list[LabelMappingConfig]] = Field(validation_alias="label_mappings")
     remove_labels: list[str] = []  # Labels to remove from main_label nodes
     uri_slug_extraction: dict[str, str] = {}
+    prefixed_slug_mappings: dict[str, PrefixedSlugMappingConfig] = {}
     property_mappings: dict[str, dict[str, str]] = {}
     multi_valued_properties: dict[str, list[str]] = {}  # Node type -> list of array properties
     extract_object_uris_as_properties: dict[str, dict[str, str]] = {}  # Node type -> {predicate: property_name}
     relationship_type_mappings: dict[str, Union[str, list[ConditionalRelationshipMapping]]] = {}
     reverse_relationships: dict[str, str] = {}
     inclusion_flattening: list[InclusionFlatteningConfig] = []
+    external_namespaces: list[str] = []  # External namespace URIs for cross-dataset relationships
 
 
 # ============================================================================
@@ -822,11 +832,12 @@ class RDFLoader:
         external_rels = []
         triples_to_remove = []
 
-        # Define external namespaces (not Oak-owned data)
-        external_namespaces = [
-            'https://w3id.org/uk/curriculum/england/',  # eng: namespace
-            'https://w3id.org/uk/curriculum/core/',     # curric: namespace
-        ]
+        # Get external namespaces from config
+        external_namespaces = self.export_config.external_namespaces if self.export_config else []
+
+        if not external_namespaces:
+            logger.info("No external_namespaces configured - skipping external relationship extraction")
+            return external_rels
 
         # Iterate through ALL triples and find those pointing to external resources
         for s, p, o in graph:
@@ -1023,6 +1034,37 @@ class LabelMappingTransformation(Transformation):
         return total_count
 
 
+class DatasetLabelTransformation(Transformation):
+    """Add a dataset-specific label to all main nodes (e.g., NatCurric2014, NatCurric2028)."""
+
+    def name(self) -> str:
+        return "Dataset Label"
+
+    def should_run(self, config: Neo4jExportConfig) -> bool:
+        return config.dataset_label is not None
+
+    def execute(self, session: Session, config: Neo4jExportConfig, main_labels: list[str], data: TransformationData) -> int:
+        dataset_label = config.dataset_label
+
+        total_count = 0
+        for main_label in main_labels:
+            # Only add dataset label to nodes that don't already have one
+            # This prevents old dataset nodes from getting new dataset labels when importing a different dataset
+            count = self._execute_count_query(
+                session,
+                f"""
+                    MATCH (n:{main_label})
+                    WHERE NOT any(label IN labels(n) WHERE label STARTS WITH 'NatCurric')
+                    SET n:{dataset_label}
+                    RETURN count(n) as count
+                """,
+                operation_desc=f"Added '{dataset_label}' label to {main_label} nodes (skipping nodes with existing dataset labels)"
+            )
+            total_count += count
+
+        return total_count
+
+
 class RemoveLabelsTransformation(Transformation):
     """Remove unwanted labels from main label nodes."""
 
@@ -1104,6 +1146,46 @@ class SlugExtractionTransformation(Transformation):
             logger.info(f"✓ Applied slugs: {', '.join(node_types_processed)}")
 
         return total_slugs
+
+
+class PrefixedSlugMappingTransformation(Transformation):
+    """Derive a slug property from an RDF property value with a configured prefix.
+
+    For each configured node type, reads the source property (e.g. 'slug'), prepends
+    the prefix (e.g. 'unit-'), writes the result to the target property (e.g. 'unitSlug'),
+    and removes the source property.
+    """
+
+    def name(self) -> str:
+        return "Prefixed Slug Mapping"
+
+    def should_run(self, config: Neo4jExportConfig) -> bool:
+        return bool(config.prefixed_slug_mappings)
+
+    def execute(self, session: Session, config: Neo4jExportConfig, main_labels: list[str], data: TransformationData) -> int:
+        total = 0
+
+        for main_label in main_labels:
+            for node_label, mapping in config.prefixed_slug_mappings.items():
+                count = self._execute_count_query(
+                    session,
+                    f"""
+                        MATCH (n:{node_label}:{main_label})
+                        WHERE n.{mapping.source_property} IS NOT NULL
+                        SET n.{mapping.target_property} = $prefix + n.{mapping.source_property}
+                        REMOVE n.{mapping.source_property}
+                        RETURN count(n) as count
+                    """,
+                    params={"prefix": mapping.prefix}
+                )
+                if count > 0:
+                    logger.info(
+                        f"✓ {node_label}:{main_label}: '{mapping.source_property}' → "
+                        f"'{mapping.target_property}' (prefix '{mapping.prefix}', {count} nodes)"
+                    )
+                    total += count
+
+        return total
 
 
 class ObjectUriPropertyTransformation(Transformation):
@@ -1621,7 +1703,7 @@ class ExternalRelationshipsTransformation(Transformation):
                 UNWIND $batch AS rel
                 MATCH (source {{uri: rel.subject}})
                 MATCH (target {{uri: rel.object}})
-                CREATE {direction_clause.format(rel_type=rel_type)}
+                MERGE {direction_clause.format(rel_type=rel_type)}
                 RETURN count(*) as count
             """
 
@@ -1774,29 +1856,46 @@ class TransformationPipeline:
 # UTILITY FUNCTIONS
 # ============================================================================
 
-def _delete_label_in_batches(session: Session, label: str, batch_size: int) -> int:
+def _delete_label_in_batches(session: Session, label: str, batch_size: int, dataset_label: Optional[str] = None) -> int:
     """
     Delete all nodes with a given label in batches.
+
+    If dataset_label is provided, only deletes nodes that have BOTH the main label
+    and the dataset label (e.g., nodes that are both :DfE and :NatCurric2014).
+
+    Args:
+        session: Neo4j session
+        label: Main label to match (e.g., "DfE")
+        batch_size: Number of nodes to delete per batch
+        dataset_label: Optional dataset label to filter by (e.g., "NatCurric2014")
 
     Returns:
         Number of nodes deleted.
     """
+    # Build label pattern for matching
+    if dataset_label:
+        label_pattern = f"{label}:{dataset_label}"
+        desc = f"{label}:{dataset_label}"
+    else:
+        label_pattern = label
+        desc = label
+
     # Count nodes before deletion
-    count_result = session.run(f"MATCH (n:{label}) RETURN count(n) as count")
+    count_result = session.run(f"MATCH (n:{label_pattern}) RETURN count(n) as count")
     count_record = count_result.single()
     node_count = count_record["count"] if count_record else 0
 
     if node_count == 0:
-        logger.info(f"No {label} nodes found")
+        logger.info(f"No {desc} nodes found")
         return 0
 
-    logger.info(f"Found {node_count:,} {label} nodes to delete")
+    logger.info(f"Found {node_count:,} {desc} nodes to delete")
     logger.info("Deleting in batches to prevent connection timeout...")
 
     deleted_count = 0
     while True:
         result = session.run(f"""
-            MATCH (n:{label})
+            MATCH (n:{label_pattern})
             WITH n LIMIT {batch_size}
             DETACH DELETE n
             RETURN count(n) as deleted
@@ -1808,29 +1907,43 @@ def _delete_label_in_batches(session: Session, label: str, batch_size: int) -> i
             break
 
         deleted_count += batch_deleted
-        logger.info(f"  Deleted {deleted_count:,} / {node_count:,} {label} nodes...")
+        logger.info(f"  Deleted {deleted_count:,} / {node_count:,} {desc} nodes...")
 
-    logger.info(f"✓ Deleted {deleted_count:,} {label} nodes and their relationships")
+    logger.info(f"✓ Deleted {deleted_count:,} {desc} nodes and their relationships")
     return deleted_count
 
 
-def clear_neo4j_data(auth_data: dict[str, str], labels: Union[str, list[str]]) -> None:
+def clear_neo4j_data(auth_data: dict[str, str], labels: Union[str, list[str]], dataset_label: Optional[str] = None) -> None:
     """
     Clear all nodes with the specified label(s) from Neo4j.
     Uses batched deletion to prevent connection timeouts on large datasets.
 
+    If dataset_label is provided, only deletes nodes that have BOTH the main label
+    and the dataset label. This allows multiple datasets to coexist in the same
+    Neo4j database (e.g., NatCurric2014 and NatCurric2028).
+
     Args:
         auth_data: Dictionary with Neo4j connection credentials
                   (uri, database, user, pwd)
-        labels: The node label(s) to clear (e.g., 'NatCurric', 'OakCurric')
+        labels: The node label(s) to clear (e.g., 'DfE')
+        dataset_label: Optional dataset label to filter by (e.g., 'NatCurric2014').
+                      If provided, only nodes with BOTH labels are deleted.
     """
     label_list = labels if isinstance(labels, list) else [labels]
-    label_str = ", ".join(label_list)
 
-    logger.info("\n" + "=" * 60)
-    logger.info(f"Clearing existing {label_str} data from Neo4j...")
-    logger.info("IMPORTANT: Clearing ALL labels before building new data")
-    logger.info("=" * 60)
+    if dataset_label:
+        label_str = f"{', '.join(label_list)} (filtered by :{dataset_label})"
+        logger.info("\n" + "=" * 60)
+        logger.info(f"Clearing {label_str} data from Neo4j...")
+        logger.info(f"DATASET-AWARE: Only deleting nodes with :{dataset_label} label")
+        logger.info(f"Other dataset versions will remain in the database")
+        logger.info("=" * 60)
+    else:
+        label_str = ", ".join(label_list)
+        logger.info("\n" + "=" * 60)
+        logger.info(f"Clearing existing {label_str} data from Neo4j...")
+        logger.info("IMPORTANT: Clearing ALL labels before building new data")
+        logger.info("=" * 60)
 
     driver = GraphDatabase.driver(
         auth_data['uri'],
@@ -1840,12 +1953,15 @@ def clear_neo4j_data(auth_data: dict[str, str], labels: Union[str, list[str]]) -
     try:
         with driver.session(database=auth_data['database']) as session:
             total_deleted = sum(
-                _delete_label_in_batches(session, label, DELETE_BATCH_SIZE)
+                _delete_label_in_batches(session, label, DELETE_BATCH_SIZE, dataset_label)
                 for label in label_list
             )
 
             if total_deleted == 0:
-                logger.info("Database is already clear")
+                if dataset_label:
+                    logger.info(f"No nodes found with dataset label :{dataset_label}")
+                else:
+                    logger.info("Database is already clear")
             else:
                 logger.info(f"\n✓ Total deleted: {total_deleted:,} nodes across all labels")
                 logger.info("✓ Database cleared - ready for fresh import")
@@ -1893,7 +2009,7 @@ Examples:
                         help='List TTL files that would be processed and exit')
     parser.add_argument('--verbose', '-v', action='store_true',
                         help='Enable verbose debug logging')
-    parser.add_argument('--version', action='version', version='oak-curriculum-ontology 0.1.0',
+    parser.add_argument('--version', action='version', version='export-to-neo4j 0.1.0',
                         help='Show version and exit')
     return parser.parse_args()
 
@@ -1932,6 +2048,9 @@ def clear_database_if_requested(export_config: ExportConfig, should_clear: bool)
     """
     Clear Neo4j database if --clear flag was provided.
 
+    If a dataset_label is configured, only clears nodes with that specific dataset label,
+    allowing multiple dataset versions to coexist in the same database.
+
     Args:
         export_config: Export configuration
         should_clear: Whether to clear the database
@@ -1945,7 +2064,10 @@ def clear_database_if_requested(export_config: ExportConfig, should_clear: bool)
     else:
         labels_to_clear = [export_config.config.label_mapping.target_label]
 
-    clear_neo4j_data(export_config.get_auth_data(), labels_to_clear)
+    # Get dataset label from config (if present)
+    dataset_label = export_config.config.dataset_label
+
+    clear_neo4j_data(export_config.get_auth_data(), labels_to_clear, dataset_label)
 
 
 def discover_ttl_files(export_config: ExportConfig, project_root: Path) -> list[Path]:
@@ -2127,9 +2249,11 @@ def apply_transformations(export_config: ExportConfig, transformation_data: Tran
             database=export_config.neo4j_database,
             transformations=[
                 LabelMappingTransformation(),
+                DatasetLabelTransformation(),
                 AddExternalTypeLabelsTransformation(),
                 RemoveLabelsTransformation(),
                 SlugExtractionTransformation(),
+                PrefixedSlugMappingTransformation(),
                 ObjectUriPropertyTransformation(),
                 MultiValuedPropertiesTransformation(),
                 PropertyMappingTransformation(),
