@@ -109,9 +109,9 @@ natcurric:subject-biology
   required to set out their school curriculum for science on a year-by-year basis and make this 
   information available online."""@en ;
   curric:hasAim
-    natcurric:aim-the-sciences-develop-scientific-knowledge-conceptual-understanding ,
-    natcurric:aim-the-sciences-understanding-nature-processes-methods-science ,
-    natcurric:aim-the-sciences-uses-implications-science-today-future ;
+    natcurric:aim-biology-develop-scientific-knowledge-conceptual-understanding ,
+    natcurric:aim-biology-understanding-nature-processes-methods-science ,
+    natcurric:aim-biology-uses-implications-science-today-future ;
   dcterms:modified "2026-05-13T23:49:26Z"^^xsd:dateTime ;
   curric:isSubjectOf natcurric:subjectgroup-the-sciences ;
   curric:coversStrand  
@@ -164,9 +164,9 @@ natcurric:subject-chemistry
   required to set out their school curriculum for science on a year-by-year basis and make this 
   information available online."""@en ;
   curric:hasAim
-    natcurric:aim-the-sciences-develop-scientific-knowledge-conceptual-understanding ,
-    natcurric:aim-the-sciences-understanding-nature-processes-methods-science ,
-    natcurric:aim-the-sciences-uses-implications-science-today-future ;
+    natcurric:aim-chemistry-develop-scientific-knowledge-conceptual-understanding ,
+    natcurric:aim-chemistry-understanding-nature-processes-methods-science ,
+    natcurric:aim-chemistry-uses-implications-science-today-future ;
   dcterms:modified "2026-05-13T23:49:26Z"^^xsd:dateTime ;
   curric:isSubjectOf natcurric:subjectgroup-the-sciences ;
   curric:coversStrand 
@@ -219,9 +219,9 @@ natcurric:subject-physics
   required to set out their school curriculum for science on a year-by-year basis and make this 
   information available online."""@en ;
   curric:hasAim
-    natcurric:aim-the-sciences-develop-scientific-knowledge-conceptual-understanding ,
-    natcurric:aim-the-sciences-understanding-nature-processes-methods-science ,
-    natcurric:aim-the-sciences-uses-implications-science-today-future ;
+    natcurric:aim-physics-develop-scientific-knowledge-conceptual-understanding ,
+    natcurric:aim-physics-understanding-nature-processes-methods-science ,
+    natcurric:aim-physics-uses-implications-science-today-future ;
   dcterms:modified "2026-05-13T23:49:26Z"^^xsd:dateTime ;
   curric:isSubjectOf natcurric:subjectgroup-the-sciences ;
   curric:coversStrand 
@@ -232,20 +232,58 @@ natcurric:subject-physics
 # Aims
 # ----------------------------------------------------------------------
 
-natcurric:aim-the-sciences-develop-scientific-knowledge-conceptual-understanding
+natcurric:aim-biology-develop-scientific-knowledge-conceptual-understanding
   a curric:Aim ;
   rdfs:label """Develop scientific knowledge and conceptual understanding through the specific 
   disciplines of biology, chemistry and physics."""@en ;
   dcterms:modified "2026-05-13T23:49:26Z"^^xsd:dateTime .
 
-natcurric:aim-the-sciences-understanding-nature-processes-methods-science
+natcurric:aim-biology-understanding-nature-processes-methods-science
   a curric:Aim ;
   rdfs:label """Develop understanding of the nature, processes and methods of science through 
   different types of science enquiries that help them to answer scientific questions about the 
   world around them."""@en ;
   dcterms:modified "2026-05-13T23:49:26Z"^^xsd:dateTime .
 
-natcurric:aim-the-sciences-uses-implications-science-today-future
+natcurric:aim-biology-uses-implications-science-today-future
+  a curric:Aim ;
+  rdfs:label """Are equipped with the scientific knowledge required to understand the uses and 
+  implications of science, today and for the future."""@en ;
+  dcterms:modified "2026-05-13T23:49:26Z"^^xsd:dateTime .
+
+natcurric:aim-chemistry-develop-scientific-knowledge-conceptual-understanding
+  a curric:Aim ;
+  rdfs:label """Develop scientific knowledge and conceptual understanding through the specific 
+  disciplines of biology, chemistry and physics."""@en ;
+  dcterms:modified "2026-05-13T23:49:26Z"^^xsd:dateTime .
+
+natcurric:aim-chemistry-understanding-nature-processes-methods-science
+  a curric:Aim ;
+  rdfs:label """Develop understanding of the nature, processes and methods of science through 
+  different types of science enquiries that help them to answer scientific questions about the 
+  world around them."""@en ;
+  dcterms:modified "2026-05-13T23:49:26Z"^^xsd:dateTime .
+
+natcurric:aim-chemistry-uses-implications-science-today-future
+  a curric:Aim ;
+  rdfs:label """Are equipped with the scientific knowledge required to understand the uses and 
+  implications of science, today and for the future."""@en ;
+  dcterms:modified "2026-05-13T23:49:26Z"^^xsd:dateTime .
+
+natcurric:aim-physics-develop-scientific-knowledge-conceptual-understanding
+  a curric:Aim ;
+  rdfs:label """Develop scientific knowledge and conceptual understanding through the specific 
+  disciplines of biology, chemistry and physics."""@en ;
+  dcterms:modified "2026-05-13T23:49:26Z"^^xsd:dateTime .
+
+natcurric:aim-physics-understanding-nature-processes-methods-science
+  a curric:Aim ;
+  rdfs:label """Develop understanding of the nature, processes and methods of science through 
+  different types of science enquiries that help them to answer scientific questions about the 
+  world around them."""@en ;
+  dcterms:modified "2026-05-13T23:49:26Z"^^xsd:dateTime .
+
+natcurric:aim-physics-uses-implications-science-today-future
   a curric:Aim ;
   rdfs:label """Are equipped with the scientific knowledge required to understand the uses and 
   implications of science, today and for the future."""@en ;
