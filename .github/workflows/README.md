@@ -278,7 +278,7 @@ concurrency:
   cancel-in-progress: true
 
 env:
-  JENA_VERSION: "6.0.0"
+  JENA_VERSION: "6.1.0"
 ```
 
 ---

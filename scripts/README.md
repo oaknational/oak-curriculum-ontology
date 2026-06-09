@@ -44,19 +44,19 @@ Utility scripts for working with the Oak Curriculum Ontology.
 **Usage:**
 ```bash
 # Basic export
-python scripts/export_to_neo4j.py --config scripts/export_to_neo4j_config.json
+uv run python scripts/export_to_neo4j.py --config scripts/export_to_neo4j_config.json
 
 # Clear database first
-python scripts/export_to_neo4j.py --config scripts/export_to_neo4j_config.json --clear
+uv run python scripts/export_to_neo4j.py --config scripts/export_to_neo4j_config.json --clear
 
 # Dry run (validate without executing)
-python scripts/export_to_neo4j.py --config scripts/export_to_neo4j_config.json --dry-run
+uv run python scripts/export_to_neo4j.py --config scripts/export_to_neo4j_config.json --dry-run
 
 # List files that would be processed
-python scripts/export_to_neo4j.py --config scripts/export_to_neo4j_config.json --list-files
+uv run python scripts/export_to_neo4j.py --config scripts/export_to_neo4j_config.json --list-files
 
 # Verbose logging
-python scripts/export_to_neo4j.py --config scripts/export_to_neo4j_config.json --verbose
+uv run python scripts/export_to_neo4j.py --config scripts/export_to_neo4j_config.json --verbose
 ```
 
 **What it does:**
