@@ -66,20 +66,23 @@ SKOS_BROADER_MAP: dict[str, str] = {
     "strand": "discipline",
     "sub_strand": "strand",
     "content_descriptor": "sub_strand",
+    "sub_content_descriptor": "content_descriptor",
 }
 
 # "has" properties where FK belongs on the child (range) table (domain is parent)
 INVERSE_FK_PROPS: set[str] = {
-    "hasUnitVariantInclusion",   # Programme -> UnitVariantInclusion
-    "hasLessonInclusion",        # UnitVariant -> LessonInclusion
-    "hasKeyLearningPoint",       # Lesson -> KeyLearningPoint
-    "hasPupilLessonOutcome",     # Lesson -> PupilLessonOutcome
+    "hasUnitVariantInclusion",       # Programme -> UnitVariantInclusion
+    "hasLessonInclusion",            # UnitVariant -> LessonInclusion
+    "hasKeyLearningPoint",           # Lesson -> KeyLearningPoint
+    "hasPupilLessonOutcome",         # Lesson -> PupilLessonOutcome
+    "hasAim",                        # Subject -> Aim
+    "hasPriorKnowledgeRequirement",  # Unit -> PriorKnowledgeRequirement
 }
 
 # Many-to-many properties: junction tables
 M2M_PROPS: set[str] = {
     "coversStrand",           # Subject -> Strand
-    "coversContent",          # Progression -> ContentDescriptor
+    "includesContentDescriptor",  # Progression -> ContentDescriptor
     "includesThread",         # Unit -> Thread
     "includesContent",        # Unit -> ContentDescriptor
     "hasUnitVariantOption",   # UnitVariantChoice -> UnitVariant
@@ -128,10 +131,8 @@ NULLABLE_FK_COLS: set[tuple[str, str]] = {
 
 # Data properties that are required (NOT NULL) per SHACL sh:minCount 1
 NOT_NULL_DATA_PROPS: set[str] = {
-    "display_order",
     "sequence_position",
     "why_this_why_now",
-    "unit_prior_knowledge_requirements",
     "statement",
     "correction",
     "is_national_curriculum",
@@ -152,7 +153,6 @@ NOT_NULL_SPECIFIC_COLS: set[tuple[str, str]] = {
 # Domain override: props where OWL rdfs:domain auto-detection fails.
 # Maps prop local-name -> list of tables that should receive the column.
 DOMAIN_OVERRIDE: dict[str, list[str]] = {
-    "displayOrder": ["strand", "sub_strand", "content_descriptor"],
     "id": ["unit", "unit_variant", "lesson"],
     "sequencePosition": ["unit_variant_inclusion", "lesson_inclusion"],
 }
@@ -203,7 +203,9 @@ SKIP_PROPS: set[str] = {
     "isMisconceptionOf",
     "isKeyLearningPointOf",
     "isPupilLessonOutcomeOf",
-    "aims",  # rdf:List -> subject_aim table (handled separately)
+    "isAimOf",                        # inverse of hasAim (FK on aim table)
+    "isPriorKnowledgeRequirementOf",  # inverse of hasPriorKnowledgeRequirement
+    "coversContent",                  # stale inverse; replaced by includesContentDescriptor
 }
 
 
@@ -534,17 +536,6 @@ def _render_ddl(
             f"  PRIMARY KEY ({jt.col_a}, {jt.col_b})\n"
             f");\n"
         )
-
-    # subject_aim: rdf:List in OWL -> normalised table
-    lines.append(
-        f"CREATE TABLE subject_aim (\n"
-        f"  id {pk},\n"
-        f"  subject_id INTEGER NOT NULL REFERENCES subject(id) ON DELETE RESTRICT,\n"
-        f"  ordinal INTEGER NOT NULL,\n"
-        f"  aim_text TEXT NOT NULL,\n"
-        f"  UNIQUE (subject_id, ordinal)\n"
-        f");\n"
-    )
 
     return "\n".join(lines)
 
