@@ -95,7 +95,7 @@ set -e
 
 # Only fail if there are actual violations; warnings alone are not failures
 VIOLATIONS=$(grep -c "Constraint Violation" "$SHACL_OUTPUT" || true)
-if [ "${VIOLATIONS}" -gt 0 ]; then
+if [[ "${VIOLATIONS}" -gt 0 ]]; then
     echo ""
     echo "❌ Found ${VIOLATIONS} constraint violation(s)"
     exit 1

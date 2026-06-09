@@ -210,11 +210,11 @@ def retry_on_transient_error(func: Callable[..., T], *args: Any, max_retries: in
                 raise
         except AuthError as e:
             # Don't retry auth errors
-            logger.error(f"Authentication failed: {e}")
+            logger.exception("Authentication failed")
             raise RuntimeError("Neo4j authentication failed. Check NEO4J_PASSWORD in .env") from e
         except CypherSyntaxError as e:
             # Don't retry syntax errors
-            logger.error(f"Cypher syntax error: {e}")
+            logger.exception("Cypher syntax error")
             raise RuntimeError("Invalid Cypher query - this is a bug in the script") from e
 
     # Should not reach here but satisfy type checker
@@ -1715,7 +1715,7 @@ class ExternalRelationshipsTransformation(Transformation):
                 direction = "reversed" if should_reverse else "forward"
                 logger.info(f"  ✓ Created {count} {rel_type} relationships ({direction})")
             except Exception as e:
-                logger.error(f"  ✗ Failed to create {rel_type} relationships: {e}")
+                logger.exception(f"  ✗ Failed to create {rel_type} relationships")
 
         return created_count
 
@@ -1936,7 +1936,7 @@ def clear_neo4j_data(auth_data: dict[str, str], labels: Union[str, list[str]], d
         logger.info("\n" + "=" * 60)
         logger.info(f"Clearing {label_str} data from Neo4j...")
         logger.info(f"DATASET-AWARE: Only deleting nodes with :{dataset_label} label")
-        logger.info(f"Other dataset versions will remain in the database")
+        logger.info("Other dataset versions will remain in the database")
         logger.info("=" * 60)
     else:
         label_str = ", ".join(label_list)
@@ -2198,7 +2198,7 @@ def load_and_aggregate_ttl_files(
             logger.info(f"  ✓ Committed in {(file_triple_count // batch_size) + 1} batches. Running total: {total_triples} triples")
 
         except Exception as e:
-            logger.error(f"✗ Failed to export {ttl_file.name}: {e}")
+            logger.exception(f"✗ Failed to export {ttl_file.name}")
             continue
 
     # Final summary
@@ -2396,7 +2396,7 @@ def main() -> None:
         logger.info("3. Explore your Oak Curriculum data!")
 
     except Exception as e:
-        logger.error(f"Export failed: {e}", exc_info=True)
+        logger.exception("Export failed")
         sys.exit(1)
 
 

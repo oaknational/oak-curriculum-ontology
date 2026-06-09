@@ -485,6 +485,49 @@ def _handle_direct_fk(
                 ))
 
 
+def _handle_domain_override_direct_fk(
+    tables: list[str],
+    rng: list,
+    table_columns: dict[str, list[Column]],
+) -> None:
+    """Add FK columns for direct FK properties whose domain is manually overridden."""
+    for table in tables:
+        if table not in table_columns:
+            continue
+        for rng_cls in rng:
+            ref_table = camel_to_snake(local_name(rng_cls.iri))
+            fk_col = f"{ref_table}_id"
+            if fk_col not in {c.name for c in table_columns[table]}:
+                nullable = (table, fk_col) in NULLABLE_FK_COLS
+                not_null = "" if nullable else "NOT NULL "
+                table_columns[table].append(Column(
+                    fk_col,
+                    f"INTEGER {not_null}REFERENCES {ref_table}(id) ON DELETE RESTRICT",
+                ))
+
+
+def _dispatch_object_prop(
+    prop_name: str,
+    dom: list,
+    rng: list,
+    table_columns: dict[str, list[Column]],
+    junction_tables: list[JunctionTable],
+) -> None:
+    """Route a single object property to the appropriate FK/junction handler."""
+    if not dom:
+        if prop_name in OBJECT_PROP_DOMAIN_OVERRIDE and prop_name in DIRECT_FK_PROPS:
+            _handle_domain_override_direct_fk(
+                OBJECT_PROP_DOMAIN_OVERRIDE[prop_name], rng, table_columns
+            )
+        return
+    if prop_name in INVERSE_FK_PROPS:
+        _handle_inverse_fk(dom, rng, table_columns)
+    elif prop_name in M2M_PROPS:
+        _handle_m2m(dom, rng, junction_tables)
+    elif prop_name in DIRECT_FK_PROPS:
+        _handle_direct_fk(dom, rng, table_columns)
+
+
 def _add_object_property_relations(
     onto,
     table_columns: dict[str, list[Column]],
@@ -498,37 +541,11 @@ def _add_object_property_relations(
         prop_name = local_name(prop.iri)
         if prop_name in SKIP_PROPS:
             continue
-
         dom = domain_classes(prop)
         rng = range_classes(prop)
         if not rng:
             continue
-
-        if not dom and prop_name in OBJECT_PROP_DOMAIN_OVERRIDE and prop_name in DIRECT_FK_PROPS:
-            for table in OBJECT_PROP_DOMAIN_OVERRIDE[prop_name]:
-                if table not in table_columns:
-                    continue
-                for rng_cls in rng:
-                    ref_table = camel_to_snake(local_name(rng_cls.iri))
-                    fk_col = f"{ref_table}_id"
-                    if fk_col not in {c.name for c in table_columns[table]}:
-                        nullable = (table, fk_col) in NULLABLE_FK_COLS
-                        not_null = "" if nullable else "NOT NULL "
-                        table_columns[table].append(Column(
-                            fk_col,
-                            f"INTEGER {not_null}REFERENCES {ref_table}(id) ON DELETE RESTRICT",
-                        ))
-            continue
-
-        if not dom:
-            continue
-
-        if prop_name in INVERSE_FK_PROPS:
-            _handle_inverse_fk(dom, rng, table_columns)
-        elif prop_name in M2M_PROPS:
-            _handle_m2m(dom, rng, junction_tables)
-        elif prop_name in DIRECT_FK_PROPS:
-            _handle_direct_fk(dom, rng, table_columns)
+        _dispatch_object_prop(prop_name, dom, rng, table_columns, junction_tables)
 
     return junction_tables
 
@@ -550,7 +567,6 @@ def _add_skos_fk_columns(table_columns: dict[str, list[Column]]) -> None:
 def _render_ddl(
     table_columns: dict[str, list[Column]],
     junction_tables: list[JunctionTable],
-    pk: str,
     dialect: str,
 ) -> str:
     """Render the full DDL string from collected tables and junction tables."""
@@ -602,7 +618,7 @@ def generate_ddl(ontology_path: str | Path, dialect: str = "postgres") -> str:
                 if col.name not in existing:
                     table_columns[table].append(col)
 
-    return _render_ddl(table_columns, junction_tables, pk, dialect)
+    return _render_ddl(table_columns, junction_tables, dialect)
 
 
 # ---------------------------------------------------------------------------
