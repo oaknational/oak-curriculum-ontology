@@ -78,16 +78,22 @@ jobs:
             echo "violations=0" >> $GITHUB_OUTPUT
             cat /tmp/shacl-output.txt
           else
-            echo "❌ Validation failed"
-            echo "conforms=false" >> $GITHUB_OUTPUT
-
-            # Count violations
-            VIOLATIONS=$(grep -c "Constraint Violation" /tmp/shacl-output.txt || echo "0")
-            echo "violations=$VIOLATIONS" >> $GITHUB_OUTPUT
-            echo "Found $VIOLATIONS constraint violations"
+            # Count violations (grep -c always outputs the count; || true suppresses non-zero exit when count is 0)
+            VIOLATIONS=$(grep -c "Constraint Violation" /tmp/shacl-output.txt || true)
+            echo "violations=${VIOLATIONS}" >> $GITHUB_OUTPUT
+            echo "Found ${VIOLATIONS} constraint violations"
 
             cat /tmp/shacl-output.txt
-            exit 1
+
+            # Only fail if there are actual violations; warnings alone are not failures
+            if [ "${VIOLATIONS}" -gt 0 ]; then
+              echo "conforms=false" >> $GITHUB_OUTPUT
+              echo "❌ Validation failed"
+              exit 1
+            else
+              echo "conforms=true" >> $GITHUB_OUTPUT
+              echo "⚠️  Validation passed with warnings"
+            fi
           fi
 
       - name: Upload validation report

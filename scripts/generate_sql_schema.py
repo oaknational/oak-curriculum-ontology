@@ -66,20 +66,23 @@ SKOS_BROADER_MAP: dict[str, str] = {
     "strand": "discipline",
     "sub_strand": "strand",
     "content_descriptor": "sub_strand",
+    "sub_content_descriptor": "content_descriptor",
 }
 
 # "has" properties where FK belongs on the child (range) table (domain is parent)
 INVERSE_FK_PROPS: set[str] = {
-    "hasUnitVariantInclusion",   # Programme -> UnitVariantInclusion
-    "hasLessonInclusion",        # UnitVariant -> LessonInclusion
-    "hasKeyLearningPoint",       # Lesson -> KeyLearningPoint
-    "hasPupilLessonOutcome",     # Lesson -> PupilLessonOutcome
+    "hasUnitVariantInclusion",       # Programme -> UnitVariantInclusion
+    "hasLessonInclusion",            # UnitVariant -> LessonInclusion
+    "hasKeyLearningPoint",           # Lesson -> KeyLearningPoint
+    "hasPupilLessonOutcome",         # Lesson -> PupilLessonOutcome
+    "hasAim",                        # Subject -> Aim
+    "hasPriorKnowledgeRequirement",  # Unit -> PriorKnowledgeRequirement
 }
 
 # Many-to-many properties: junction tables
 M2M_PROPS: set[str] = {
     "coversStrand",           # Subject -> Strand
-    "coversContent",          # Progression -> ContentDescriptor
+    "includesContentDescriptor",  # Progression -> ContentDescriptor
     "includesThread",         # Unit -> Thread
     "includesContent",        # Unit -> ContentDescriptor
     "hasUnitVariantOption",   # UnitVariantChoice -> UnitVariant
@@ -124,14 +127,21 @@ NULLABLE_FK_COLS: set[tuple[str, str]] = {
     ("programme", "tier_id"),
     ("unit_variant_inclusion", "unit_variant_id"),
     ("unit_variant_inclusion", "unit_variant_choice_id"),
+    ("progression", "year_group_id"),  # coversYearGroup is optional on Progression
+}
+
+# Object property domain override: for properties where OWL rdfs:domain has been
+# removed or broadened to multiple classes. Maps prop local-name to the list of
+# domain tables that should receive the FK column.
+# Only DIRECT_FK_PROPS entries are supported here.
+OBJECT_PROP_DOMAIN_OVERRIDE: dict[str, list[str]] = {
+    "coversYearGroup": ["programme", "progression"],
 }
 
 # Data properties that are required (NOT NULL) per SHACL sh:minCount 1
 NOT_NULL_DATA_PROPS: set[str] = {
-    "display_order",
     "sequence_position",
     "why_this_why_now",
-    "unit_prior_knowledge_requirements",
     "statement",
     "correction",
     "is_national_curriculum",
@@ -152,7 +162,6 @@ NOT_NULL_SPECIFIC_COLS: set[tuple[str, str]] = {
 # Domain override: props where OWL rdfs:domain auto-detection fails.
 # Maps prop local-name -> list of tables that should receive the column.
 DOMAIN_OVERRIDE: dict[str, list[str]] = {
-    "displayOrder": ["strand", "sub_strand", "content_descriptor"],
     "id": ["unit", "unit_variant", "lesson"],
     "sequencePosition": ["unit_variant_inclusion", "lesson_inclusion"],
 }
@@ -203,7 +212,9 @@ SKIP_PROPS: set[str] = {
     "isMisconceptionOf",
     "isKeyLearningPointOf",
     "isPupilLessonOutcomeOf",
-    "aims",  # rdf:List -> subject_aim table (handled separately)
+    "isAimOf",                        # inverse of hasAim (FK on aim table)
+    "isPriorKnowledgeRequirementOf",  # inverse of hasPriorKnowledgeRequirement
+    "coversContent",                  # stale inverse; replaced by includesContentDescriptor
 }
 
 
@@ -245,6 +256,14 @@ NO_STANDARD_NAME_TABLES: dict[str, list[Column]] = {
     ],
     "unit_variant_inclusion": [],  # no name column; only data/FK columns
     "lesson_inclusion": [],        # no name column; only data/FK columns
+}
+
+# Annotation property columns: OWLready2 only iterates owl:DatatypeProperty, so
+# owl:AnnotationProperty columns must be declared explicitly here.
+# Maps table name -> list of Column definitions to append if not already present.
+ANNOTATION_PROP_COLUMNS: dict[str, list[Column]] = {
+    "unit":   [Column("slug", "TEXT")],
+    "lesson": [Column("slug", "TEXT")],
 }
 
 
@@ -466,6 +485,49 @@ def _handle_direct_fk(
                 ))
 
 
+def _handle_domain_override_direct_fk(
+    tables: list[str],
+    rng: list,
+    table_columns: dict[str, list[Column]],
+) -> None:
+    """Add FK columns for direct FK properties whose domain is manually overridden."""
+    for table in tables:
+        if table not in table_columns:
+            continue
+        for rng_cls in rng:
+            ref_table = camel_to_snake(local_name(rng_cls.iri))
+            fk_col = f"{ref_table}_id"
+            if fk_col not in {c.name for c in table_columns[table]}:
+                nullable = (table, fk_col) in NULLABLE_FK_COLS
+                not_null = "" if nullable else "NOT NULL "
+                table_columns[table].append(Column(
+                    fk_col,
+                    f"INTEGER {not_null}REFERENCES {ref_table}(id) ON DELETE RESTRICT",
+                ))
+
+
+def _dispatch_object_prop(
+    prop_name: str,
+    dom: list,
+    rng: list,
+    table_columns: dict[str, list[Column]],
+    junction_tables: list[JunctionTable],
+) -> None:
+    """Route a single object property to the appropriate FK/junction handler."""
+    if not dom:
+        if prop_name in OBJECT_PROP_DOMAIN_OVERRIDE and prop_name in DIRECT_FK_PROPS:
+            _handle_domain_override_direct_fk(
+                OBJECT_PROP_DOMAIN_OVERRIDE[prop_name], rng, table_columns
+            )
+        return
+    if prop_name in INVERSE_FK_PROPS:
+        _handle_inverse_fk(dom, rng, table_columns)
+    elif prop_name in M2M_PROPS:
+        _handle_m2m(dom, rng, junction_tables)
+    elif prop_name in DIRECT_FK_PROPS:
+        _handle_direct_fk(dom, rng, table_columns)
+
+
 def _add_object_property_relations(
     onto,
     table_columns: dict[str, list[Column]],
@@ -479,18 +541,11 @@ def _add_object_property_relations(
         prop_name = local_name(prop.iri)
         if prop_name in SKIP_PROPS:
             continue
-
         dom = domain_classes(prop)
         rng = range_classes(prop)
-        if not dom or not rng:
+        if not rng:
             continue
-
-        if prop_name in INVERSE_FK_PROPS:
-            _handle_inverse_fk(dom, rng, table_columns)
-        elif prop_name in M2M_PROPS:
-            _handle_m2m(dom, rng, junction_tables)
-        elif prop_name in DIRECT_FK_PROPS:
-            _handle_direct_fk(dom, rng, table_columns)
+        _dispatch_object_prop(prop_name, dom, rng, table_columns, junction_tables)
 
     return junction_tables
 
@@ -512,7 +567,6 @@ def _add_skos_fk_columns(table_columns: dict[str, list[Column]]) -> None:
 def _render_ddl(
     table_columns: dict[str, list[Column]],
     junction_tables: list[JunctionTable],
-    pk: str,
     dialect: str,
 ) -> str:
     """Render the full DDL string from collected tables and junction tables."""
@@ -534,17 +588,6 @@ def _render_ddl(
             f"  PRIMARY KEY ({jt.col_a}, {jt.col_b})\n"
             f");\n"
         )
-
-    # subject_aim: rdf:List in OWL -> normalised table
-    lines.append(
-        f"CREATE TABLE subject_aim (\n"
-        f"  id {pk},\n"
-        f"  subject_id INTEGER NOT NULL REFERENCES subject(id) ON DELETE RESTRICT,\n"
-        f"  ordinal INTEGER NOT NULL,\n"
-        f"  aim_text TEXT NOT NULL,\n"
-        f"  UNIQUE (subject_id, ordinal)\n"
-        f");\n"
-    )
 
     return "\n".join(lines)
 
@@ -568,8 +611,14 @@ def generate_ddl(ontology_path: str | Path, dialect: str = "postgres") -> str:
     _add_data_property_columns(onto, table_columns, xsd_map)
     junction_tables = _add_object_property_relations(onto, table_columns)
     _add_skos_fk_columns(table_columns)
+    for table, cols in ANNOTATION_PROP_COLUMNS.items():
+        if table in table_columns:
+            existing = {c.name for c in table_columns[table]}
+            for col in cols:
+                if col.name not in existing:
+                    table_columns[table].append(col)
 
-    return _render_ddl(table_columns, junction_tables, pk, dialect)
+    return _render_ddl(table_columns, junction_tables, dialect)
 
 
 # ---------------------------------------------------------------------------

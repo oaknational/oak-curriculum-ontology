@@ -10,7 +10,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 # ======================================================================
-# National Curriculum for England - Geography Knowledge Taxonomy 
+# National Curriculum for England - Geography Knowledge Taxonomy
 # ======================================================================
 
 # ----------------------------------------------------------------------
@@ -22,28 +22,30 @@
 
   rdfs:label "National Curriculum for England - Geography Knowledge Taxonomy"@en ;
   dc:title "National Curriculum for England - Geography Knowledge Taxonomy"@en ;
-  rdfs:comment """Geography knowledge taxonomy defining the hierarchical organization of geographical
-  content from strands through to sub-content descriptors."""@en ;
+  rdfs:comment """Geography knowledge taxonomy defining the hierarchical organisation of content
+  from strands through to sub-content descriptors."""@en ;
 
-  owl:versionInfo "0.1.0" ;
-  owl:versionIRI <https://w3id.org/uk/oak/curriculum/nationalcurriculum/geography-knowledge-taxonomy/0.1.0> ;
-  
-  dcterms:description """This file defines the Geography knowledge taxonomy for the National 
-  Curriculum in England, organizing content through strands, sub-strands, content descriptors, 
-  and sub-content descriptors."""@en ;
-  dcterms:created "2025-11-24T12:33:32Z"^^xsd:dateTime ;
-  dcterms:modified "2025-12-03T12:33:32Z"^^xsd:dateTime ;
-  dcterms:issued "2025-12-03T12:33:32Z"^^xsd:dateTime ;
-  
+  owl:versionInfo "0.1.1" ;
+  owl:versionIRI <https://w3id.org/uk/oak/curriculum/nationalcurriculum/geography-knowledge-taxonomy/0.1.1> ;
+
+  dcterms:description """This file defines the Geography knowledge taxonomy for the National
+  Curriculum in England, organising content through strands, sub-strands, content
+  descriptors, and sub-content descriptors."""@en ;
+  dc:creator "Department for Education" ;
+  dcterms:created "2026-05-05T15:38:32Z"^^xsd:dateTime ;
+  dcterms:modified "2026-05-05T15:38:32Z"^^xsd:dateTime ;
+  dcterms:issued "2026-05-05T15:38:32Z"^^xsd:dateTime ;
+
   # OGL 3.0 License
   dcterms:license <http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/> ;
   dcterms:rights "Crown Copyright"@en ;
+
+  rdfs:seeAlso <https://w3id.org/uk/oak/curriculum/ontology> ;
 
   vann:preferredNamespacePrefix "natcurric" ;
   vann:preferredNamespaceUri "https://w3id.org/uk/oak/curriculum/nationalcurriculum/" ;
 
   owl:imports <https://w3id.org/uk/oak/curriculum/ontology> ;
-  owl:imports <https://w3id.org/uk/oak/curriculum/core/> ;
   owl:imports <https://w3id.org/uk/oak/curriculum/nationalcurriculum/geography-programme-structure> .
 
 # ----------------------------------------------------------------------
@@ -54,8 +56,8 @@ natcurric:knowledge-taxonomy
   a skos:ConceptScheme ;
   skos:prefLabel "National Curriculum for England Knowledge Taxonomy"@en ;
   skos:hasTopConcept natcurric:discipline-geography ;
-  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
-  
+  dcterms:modified "2026-05-05T15:38:32Z"^^xsd:dateTime .
+
 # ----------------------------------------------------------------------
 # Disciplines
 # ----------------------------------------------------------------------
@@ -63,43 +65,27 @@ natcurric:knowledge-taxonomy
 natcurric:discipline-geography
   a skos:Concept, curric:Discipline ;
   skos:prefLabel "Geography"@en ;
-  skos:definition "Description of discipline..."@en ;
   skos:topConceptOf natcurric:knowledge-taxonomy ;
-  skos:narrower
-    natcurric:strand-geography-substantive-knowledge ,
-    natcurric:strand-geography-disciplinary-knowledge ;
+  skos:narrower natcurric:strand-geography ;
   skos:inScheme natcurric:knowledge-taxonomy ;
-  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+  dcterms:modified "2026-05-05T15:38:32Z"^^xsd:dateTime .
 
 # ----------------------------------------------------------------------
 # Strands
 # ----------------------------------------------------------------------
 
-natcurric:strand-geography-substantive-knowledge
+natcurric:strand-geography
   a skos:Concept, curric:Strand ;
-  skos:prefLabel "Substantive Knowledge"@en ;
+  skos:prefLabel "Geography"@en ;
   skos:definition "Description of strand..."@en ;
-  curric:displayOrder "1"^^xsd:positiveInteger ;
   skos:broader natcurric:discipline-geography ;
   skos:narrower
-    natcurric:substrand-human-and-physical-geography ,
     natcurric:substrand-locational-knowledge ,
-    natcurric:substrand-place-knowledge ;
+    natcurric:substrand-place-knowledge ,
+    natcurric:substrand-human-and-physical-geography ,
+    natcurric:substrand-geographical-skills-and-fieldwork ;
   skos:inScheme natcurric:knowledge-taxonomy ;
-  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
-
-natcurric:strand-geography-disciplinary-knowledge
-  a skos:Concept, curric:Strand ;
-  skos:prefLabel "Disciplinary Knowledge"@en ;
-  skos:definition "Description of strand..."@en ;
-  curric:displayOrder "2"^^xsd:positiveInteger ;
-  skos:broader natcurric:discipline-geography ;
-  skos:narrower
-    natcurric:substrand-concepts ,
-    natcurric:substrand-geographical-skills ,
-    natcurric:substrand-fieldwork ;
-  skos:inScheme natcurric:knowledge-taxonomy ;
-  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+  dcterms:modified "2026-05-05T15:38:32Z"^^xsd:dateTime .
 
 # ----------------------------------------------------------------------
 # Sub-Strands
@@ -107,399 +93,590 @@ natcurric:strand-geography-disciplinary-knowledge
 
 natcurric:substrand-locational-knowledge
   a skos:Concept, curric:SubStrand ;
-  skos:prefLabel "Locational Knowledge"@en ;
-  skos:definition "Description of sub-strand..."@en ;
-  curric:displayOrder "1"^^xsd:positiveInteger ;
-  skos:broader natcurric:strand-geography-substantive-knowledge ;
-  skos:narrower 
-    natcurric:contentdescriptor-locate-continents-oceans ,
-    natcurric:contentdescriptor-countries-capitals-united-kingdom ,
-    natcurric:contentdescriptor-locate-worlds-countries ,
-    natcurric:contentdescriptor-locate-counties-cities-of-uk ,
-    natcurric:contentdescriptor-latitude-longitude-time-zones ,
-    natcurric:contentdescriptor-deepen-spatial-awareness-worlds-countries ;
+  skos:prefLabel "Locational knowledge"@en ;
+  skos:broader natcurric:strand-geography ;
+  skos:narrower
+    natcurric:contentdescriptor-name-locate-world-seven-continents ,
+    natcurric:contentdescriptor-name-locate-identify-characteristics-four ,
+    natcurric:contentdescriptor-locate-world-countries-maps-focus ,
+    natcurric:contentdescriptor-name-locate-counties-cities-united ,
+    natcurric:contentdescriptor-identify-position-significance-latitude-longitude ,
+    natcurric:contentdescriptor-extend-locational-deepen-spatial-awareness ;
   skos:inScheme natcurric:knowledge-taxonomy ;
-  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+  dcterms:modified "2026-05-05T15:38:32Z"^^xsd:dateTime .
 
 natcurric:substrand-place-knowledge
   a skos:Concept, curric:SubStrand ;
-  skos:prefLabel "Place Knowledge"@en ;
-  skos:definition "Description of sub-strand..."@en ;
-  curric:displayOrder "2"^^xsd:positiveInteger ;
-  skos:broader natcurric:strand-geography-substantive-knowledge ;
-  skos:narrower 
-    natcurric:contentdescriptor-uk-and-contrasting-non-european-areas ,
-    natcurric:contentdescriptor-uk-european-america-regions ,
-    natcurric:contentdescriptor-africa-asia-regions ;
+  skos:prefLabel "Place knowledge"@en ;
+  skos:broader natcurric:strand-geography ;
+  skos:narrower
+    natcurric:contentdescriptor-geographical-similarities-differences-studying-human ,
+    natcurric:contentdescriptor-geographical-similarities-differences-study-human ,
+    natcurric:contentdescriptor-geographical-similarities-differences-links-places ;
   skos:inScheme natcurric:knowledge-taxonomy ;
-  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+  dcterms:modified "2026-05-05T15:38:32Z"^^xsd:dateTime .
 
 natcurric:substrand-human-and-physical-geography
   a skos:Concept, curric:SubStrand ;
-  skos:prefLabel "Human and Physical Geography"@en ;
-  skos:definition "Description of sub-strand..."@en ;
-  curric:displayOrder "3"^^xsd:positiveInteger ;
-  skos:broader natcurric:strand-geography-substantive-knowledge ;
-  skos:narrower 
-    natcurric:contentdescriptor-weather-patterns-hot-cold-areas ,
-    natcurric:contentdescriptor-key-features-physical-geography ,
-    natcurric:contentdescriptor-key-features-human-geography ,
-    natcurric:contentdescriptor-key-aspects-physical-geography ,
-    natcurric:contentdescriptor-key-aspects-human-geography ,
-    natcurric:contentdescriptor-key-processes-physical-geography ,
-    natcurric:contentdescriptor-key-processes-human-geography ;
-  skos:inScheme natcurric:knowledge-taxonomy ;
-  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
-
-natcurric:substrand-concepts
-  a skos:Concept, curric:SubStrand ;
-  skos:prefLabel "Geographical Skills and Fieldwork"@en ;
-  skos:definition "Description of sub-strand..."@en ;
-  curric:displayOrder "4"^^xsd:positiveInteger ;
-  skos:broader natcurric:strand-geography-disciplinary-knowledge ;
+  skos:prefLabel "Human and physical geography"@en ;
+  skos:broader natcurric:strand-geography ;
   skos:narrower
-    natcurric:contentdescriptor-landscapes-environment-climate ;
+    natcurric:contentdescriptor-identify-seasonal-daily-weather-patterns ,
+    natcurric:contentdescriptor-basic-geographical-vocabulary-physical-features ,
+    natcurric:contentdescriptor-basic-geographical-vocabulary-human-features ,
+    natcurric:contentdescriptor-describe-key-aspects-physical-geography ,
+    natcurric:contentdescriptor-describe-key-aspects-human-geography ,
+    natcurric:contentdescriptor-key-processes-in-physical-geography ,
+    natcurric:contentdescriptor-key-processes-in-human-geography ,
+    natcurric:contentdescriptor-human-physical-processes-interact-influence ;
   skos:inScheme natcurric:knowledge-taxonomy ;
-  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+  dcterms:modified "2026-05-05T15:38:32Z"^^xsd:dateTime .
 
-  natcurric:substrand-geographical-skills
+natcurric:substrand-geographical-skills-and-fieldwork
   a skos:Concept, curric:SubStrand ;
-  skos:prefLabel "Geographical Skills"@en ;
-  skos:definition "Description of sub-strand..."@en ;
-  curric:displayOrder "5"^^xsd:positiveInteger ;
-  skos:broader natcurric:strand-geography-disciplinary-knowledge ;
+  skos:prefLabel "Geographical skills and fieldwork"@en ;
+  skos:broader natcurric:strand-geography ;
   skos:narrower
-    natcurric:contentdescriptor-world-maps-atlases-globes ,
-    natcurric:contentdescriptor-simple-compass-directions ,
-    natcurric:contentdescriptor-aerial-photographs-and-plan-perspectives ,
-    natcurric:contentdescriptor-maps-digital-computer-mapping ,
-    natcurric:contentdescriptor-compass-grid-references-symbols-key ,
-    natcurric:contentdescriptor-develop-knowledge-maps-atlases-globes ,
-    natcurric:contentdescriptor-interpret-ordnance-survey-maps ,
-    natcurric:contentdescriptor-geographical-information-systems ;
+    natcurric:contentdescriptor-world-maps-atlases-globes-identify ,
+    natcurric:contentdescriptor-simple-compass-directions-north-south ,
+    natcurric:contentdescriptor-aerial-photographs-plan-perspectives-landmarks ,
+    natcurric:contentdescriptor-simple-fieldwork-observational-skills-study ,
+    natcurric:contentdescriptor-maps-atlases-globes-digital-computer ,
+    natcurric:contentdescriptor-eight-points-compass-four-six ,
+    natcurric:contentdescriptor-fieldwork-observe-measure-record-present ,
+    natcurric:contentdescriptor-build-globes-maps-atlases-apply ,
+    natcurric:contentdescriptor-interpret-ordnance-survey-maps-classroom ,
+    natcurric:contentdescriptor-geographical-information-systems-gis-view ,
+    natcurric:contentdescriptor-fieldwork-contrasting-locations-collect-analyse ;
   skos:inScheme natcurric:knowledge-taxonomy ;
-  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
-
-  natcurric:substrand-fieldwork
-  a skos:Concept, curric:SubStrand ;
-  skos:prefLabel "Fieldwork"@en ;
-  skos:definition "Description of sub-strand..."@en ;
-  curric:displayOrder "6"^^xsd:positiveInteger ;
-  skos:broader natcurric:strand-geography-disciplinary-knowledge ;
-  skos:narrower
-    natcurric:contentdescriptor-simple-fieldwork-and-observational-skills ,
-    natcurric:contentdescriptor-measure-record-human-physical-features ,
-    natcurric:contentdescriptor-analyse-geographical-data ;
-  skos:inScheme natcurric:knowledge-taxonomy ;
-  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+  dcterms:modified "2026-05-05T15:38:32Z"^^xsd:dateTime .
 
 # ----------------------------------------------------------------------
 # Content Descriptors
 # ----------------------------------------------------------------------
 
-natcurric:contentdescriptor-locate-continents-oceans
+natcurric:contentdescriptor-name-locate-world-seven-continents
   a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel "Name and locate the world’s 7 continents and 5 oceans."@en ;
-  curric:supportingGuidance "Supporting guidance text..."@en ;
-  curric:displayOrder "1"^^xsd:positiveInteger ;
+  skos:prefLabel "Name and locate the world’s seven continents and five oceans."@en ;
   skos:broader natcurric:substrand-locational-knowledge ;
+  skos:narrower natcurric:subcontentdescriptor-name-locate-world-seven-continents ;
   skos:inScheme natcurric:knowledge-taxonomy ;
-  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+  dcterms:modified "2026-05-05T15:38:32Z"^^xsd:dateTime .
 
-natcurric:contentdescriptor-countries-capitals-united-kingdom
+natcurric:contentdescriptor-name-locate-identify-characteristics-four
   a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel """Name, locate and identify characteristics of the 4 countries and capital cities 
-  of the United Kingdom and its surrounding seas."""@en ;
-  curric:supportingGuidance "Supporting guidance text..."@en ;
-  curric:displayOrder "2"^^xsd:positiveInteger ;
+  skos:prefLabel """Name, locate and identify characteristics of the four countries and capital
+  cities of the United Kingdom and its surrounding seas."""@en ;
   skos:broader natcurric:substrand-locational-knowledge ;
+  skos:narrower natcurric:subcontentdescriptor-name-locate-identify-characteristics-four ;
   skos:inScheme natcurric:knowledge-taxonomy ;
-  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+  dcterms:modified "2026-05-05T15:38:32Z"^^xsd:dateTime .
 
-natcurric:contentdescriptor-locate-worlds-countries
+natcurric:contentdescriptor-geographical-similarities-differences-studying-human
   a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel """Locate the world’s countries, using maps to focus on Europe (including the 
-  location of Russia) and North and South America, concentrating on their environmental regions, 
-  key physical and human characteristics, countries, and major cities."""@en ;
-  curric:supportingGuidance "Supporting guidance text..."@en ;
-  curric:displayOrder "3"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-locational-knowledge ;
+  skos:prefLabel """Understand geographical similarities and differences through studying the human
+  and physical geography of a small area of the United Kingdom, and of a small area in a
+  contrasting non-European country."""@en ;
+  skos:broader natcurric:substrand-place-knowledge ;
+  skos:narrower natcurric:subcontentdescriptor-geographical-similarities-differences-studying-human ;
   skos:inScheme natcurric:knowledge-taxonomy ;
-  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+  dcterms:modified "2026-05-05T15:38:32Z"^^xsd:dateTime .
 
-natcurric:contentdescriptor-locate-counties-cities-of-uk
+natcurric:contentdescriptor-identify-seasonal-daily-weather-patterns
   a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel """Name and locate counties and cities of the United Kingdom, geographical regions 
-  and their identifying human and physical characteristics, key topographical features (including 
-  hills, mountains, coasts and rivers), and land-use patterns; and understand how some of these 
-  aspects have changed over time."""@en ;
-  curric:supportingGuidance "Supporting guidance text..."@en ;
-  curric:displayOrder "4"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-locational-knowledge ;
+  skos:prefLabel """Identify seasonal and daily weather patterns in the United Kingdom and the
+  location of hot and cold areas of the world in relation to the Equator and the North and
+  South Poles."""@en ;
+  skos:broader natcurric:substrand-human-and-physical-geography ;
+  skos:narrower natcurric:subcontentdescriptor-identify-seasonal-daily-weather-patterns ;
   skos:inScheme natcurric:knowledge-taxonomy ;
-  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+  dcterms:modified "2026-05-05T15:38:32Z"^^xsd:dateTime .
 
-natcurric:contentdescriptor-latitude-longitude-time-zones
+natcurric:contentdescriptor-basic-geographical-vocabulary-physical-features
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Use basic geographical vocabulary to refer to key physical features, including:
+  beach, cliff, coast, forest, hill, mountain, sea, ocean, river, soil, valley, vegetation,
+  season and weather."""@en ;
+  skos:broader natcurric:substrand-human-and-physical-geography ;
+  skos:narrower natcurric:subcontentdescriptor-basic-geographical-vocabulary-physical-features ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-05T15:38:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-basic-geographical-vocabulary-human-features
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Use basic geographical vocabulary to refer to key human features, including:
+  city, town, village, factory, farm, house, office, port, harbour and shop."""@en ;
+  skos:broader natcurric:substrand-human-and-physical-geography ;
+  skos:narrower natcurric:subcontentdescriptor-basic-geographical-vocabulary-human-features ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-05T15:38:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-world-maps-atlases-globes-identify
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Use world maps, atlases and globes to identify the United Kingdom and its
+  countries, as well as the countries, continents and oceans studied at this key stage."""@en ;
+  skos:broader natcurric:substrand-geographical-skills-and-fieldwork ;
+  skos:narrower natcurric:subcontentdescriptor-world-maps-atlases-globes-identify ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-05T15:38:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-simple-compass-directions-north-south
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Use simple compass directions (North, South, East and West) and locational and
+  directional language [for example, near and far; left and right], to describe the location
+  of features and routes on a map."""@en ;
+  skos:broader natcurric:substrand-geographical-skills-and-fieldwork ;
+  skos:narrower natcurric:subcontentdescriptor-simple-compass-directions-north-south ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-05T15:38:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-aerial-photographs-plan-perspectives-landmarks
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Use aerial photographs and plan perspectives to recognise landmarks and basic
+  human and physical features; devise a simple map; and use and construct basic symbols in a
+  key."""@en ;
+  skos:broader natcurric:substrand-geographical-skills-and-fieldwork ;
+  skos:narrower natcurric:subcontentdescriptor-aerial-photographs-plan-perspectives-landmarks ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-05T15:38:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-simple-fieldwork-observational-skills-study
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Use simple fieldwork and observational skills to study the geography of their
+  school and its grounds and the key human and physical features of its surrounding
+  environment."""@en ;
+  skos:broader natcurric:substrand-geographical-skills-and-fieldwork ;
+  skos:narrower natcurric:subcontentdescriptor-simple-fieldwork-observational-skills-study ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-05T15:38:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-locate-world-countries-maps-focus
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Locate the world’s countries, using maps to focus on Europe (including the
+  location of Russia) and North and South America, concentrating on their environmental
+  regions, key physical and human characteristics, countries, and major cities."""@en ;
+  skos:broader natcurric:substrand-locational-knowledge ;
+  skos:narrower natcurric:subcontentdescriptor-locate-world-countries-maps-focus ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-05T15:38:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-name-locate-counties-cities-united
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Name and locate counties and cities of the United Kingdom, geographical regions
+  and their identifying human and physical characteristics, key topographical features
+  (including hills, mountains, coasts and rivers), and land-use patterns; and understand how
+  some of these aspects have changed over time."""@en ;
+  skos:broader natcurric:substrand-locational-knowledge ;
+  skos:narrower natcurric:subcontentdescriptor-name-locate-counties-cities-united ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-05T15:38:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-identify-position-significance-latitude-longitude
   a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel """Identify the position and significance of latitude, longitude, Equator, 
   Northern Hemisphere, Southern Hemisphere, the Tropics of Cancer and Capricorn, Arctic and 
   Antarctic Circle, the Prime/Greenwich Meridian and time zones (including day and night)."""@en ;
-  curric:supportingGuidance "Supporting guidance text..."@en ;
-  curric:displayOrder "5"^^xsd:positiveInteger ;
   skos:broader natcurric:substrand-locational-knowledge ;
+  skos:narrower natcurric:subcontentdescriptor-identify-position-significance-latitude-longitude ;
   skos:inScheme natcurric:knowledge-taxonomy ;
-  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+  dcterms:modified "2026-05-05T15:38:32Z"^^xsd:dateTime .
 
-natcurric:contentdescriptor-deepen-spatial-awareness-worlds-countries
+natcurric:contentdescriptor-geographical-similarities-differences-study-human
   a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel """Extend their locational knowledge and deepen their spatial awareness of the 
-  world’s countries, using maps of the world to focus on Africa, Russia, Asia (including China and 
-  India), and the Middle East, focusing on their environmental regions, including polar and hot 
-  deserts, key physical and human characteristics, countries and major cities."""@en ;
-  curric:supportingGuidance "Supporting guidance text..."@en ;
-  curric:displayOrder "6"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-locational-knowledge ;
-  skos:inScheme natcurric:knowledge-taxonomy ;
-  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
-
-natcurric:contentdescriptor-uk-and-contrasting-non-european-areas
-  a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel """Understand geographical similarities and differences through studying the human 
-  and physical geography of a small area of the United Kingdom, and of a small area in a 
-  contrasting non-European country."""@en ;
-  curric:supportingGuidance "Supporting guidance text..."@en ;
-  curric:displayOrder "1"^^xsd:positiveInteger ;
+  skos:prefLabel """Understand geographical similarities and differences through the study of human
+  and physical geography of a region of the United Kingdom, a region in a European country,
+  and a region within North or South America."""@en ;
   skos:broader natcurric:substrand-place-knowledge ;
+  skos:narrower natcurric:subcontentdescriptor-geographical-similarities-differences-study-human ;
   skos:inScheme natcurric:knowledge-taxonomy ;
-  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+  dcterms:modified "2026-05-05T15:38:32Z"^^xsd:dateTime .
 
-natcurric:contentdescriptor-uk-european-america-regions
+natcurric:contentdescriptor-describe-key-aspects-physical-geography
   a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel """Understand geographical similarities and differences through the study of human 
-  and physical geography of a region of the United Kingdom, a region in a European country, and a 
-  region in North or South America."""@en ;
-  curric:supportingGuidance "Supporting guidance text..."@en ;
-  curric:displayOrder "2"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-place-knowledge ;
-  skos:inScheme natcurric:knowledge-taxonomy ;
-  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
-
-natcurric:contentdescriptor-africa-asia-regions
-  a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel """Understand geographical similarities, differences and links between places 
-  through the study of the human and physical geography of a region in Africa and a region in 
-  Asia."""@en ;
-  curric:supportingGuidance "Supporting guidance text..."@en ;
-  curric:displayOrder "3"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-place-knowledge ;
-  skos:inScheme natcurric:knowledge-taxonomy ;
-  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
-
-natcurric:contentdescriptor-weather-patterns-hot-cold-areas
-  a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel """Identify seasonal and daily weather patterns in the United Kingdom and the 
-  location of hot and cold areas of the world in relation to the Equator and the North and South 
-  Poles."""@en ;
-  curric:supportingGuidance "Supporting guidance text..."@en ;
-  curric:displayOrder "1"^^xsd:positiveInteger ;
+  skos:prefLabel """Describe and understand key aspects of physical geography, including: climate
+  zones, biomes and vegetation belts, rivers, mountains, volcanoes and earthquakes, and the
+  water cycle."""@en ;
   skos:broader natcurric:substrand-human-and-physical-geography ;
+  skos:narrower natcurric:subcontentdescriptor-describe-key-aspects-physical-geography ;
   skos:inScheme natcurric:knowledge-taxonomy ;
-  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+  dcterms:modified "2026-05-05T15:38:32Z"^^xsd:dateTime .
 
-natcurric:contentdescriptor-key-features-physical-geography
+natcurric:contentdescriptor-describe-key-aspects-human-geography
   a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel """Use basic geographical vocabulary to refer to key physical features, including: 
-  beach, cliff, coast, forest, hill, mountain, sea, ocean, river, soil, valley, vegetation, season 
-  and weather."""@en ;
-  curric:supportingGuidance "Supporting guidance text..."@en ;
-  curric:displayOrder "2"^^xsd:positiveInteger ;
+  skos:prefLabel """Describe and understand key aspects of human geography, including: types of
+  settlement and land use, economic activity including trade links, and the distribution of
+  natural resources including energy, food, minerals and water."""@en ;
   skos:broader natcurric:substrand-human-and-physical-geography ;
+  skos:narrower natcurric:subcontentdescriptor-describe-key-aspects-human-geography ;
   skos:inScheme natcurric:knowledge-taxonomy ;
-  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+  dcterms:modified "2026-05-05T15:38:32Z"^^xsd:dateTime .
 
-natcurric:contentdescriptor-key-features-human-geography
+natcurric:contentdescriptor-maps-atlases-globes-digital-computer
   a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel """Use basic geographical vocabulary to refer to key human features, including: 
-  city, town, village, factory, farm, house, office, port, harbour and shop."""@en ;
-  curric:supportingGuidance "Supporting guidance text..."@en ;
-  curric:displayOrder "3"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-human-and-physical-geography ;
-  skos:inScheme natcurric:knowledge-taxonomy ;
-  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
-
-natcurric:contentdescriptor-key-aspects-physical-geography
-  a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel """Describe and understand key aspects of physical geography, including: climate 
-  zones, biomes and vegetation belts, rivers, mountains, volcanoes and earthquakes, and the water 
-  cycle."""@en ;
-  curric:supportingGuidance "Supporting guidance text..."@en ;
-  curric:displayOrder "4"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-human-and-physical-geography ;
-  skos:inScheme natcurric:knowledge-taxonomy ;
-  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
-
-natcurric:contentdescriptor-key-aspects-human-geography
-  a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel """Describe and understand key aspects of human geography, including: types of 
-  settlement and land use, economic activity including trade links, and the distribution of natural 
-  resources including energy, food, minerals and water."""@en ;
-  curric:supportingGuidance "Supporting guidance text..."@en ;
-  curric:displayOrder "5"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-human-and-physical-geography ;
-  skos:inScheme natcurric:knowledge-taxonomy ;
-  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
-
-natcurric:contentdescriptor-key-processes-physical-geography
-  a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel """Understand, through the use of detailed place-based exemplars at a variety of 
-  scales, the key processes in physical geography relating to: geological timescales and plate 
-  tectonics; rocks, weathering and soils; weather and climate, including the change in climate from 
-  the Ice Age to the present; and glaciation, hydrology and coasts."""@en ;
-  curric:supportingGuidance "Supporting guidance text..."@en ;
-  curric:displayOrder "6"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-human-and-physical-geography ;
-  skos:inScheme natcurric:knowledge-taxonomy ;
-  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
-
-natcurric:contentdescriptor-key-processes-human-geography
-  a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel """Understand, through the use of detailed place-based exemplars at a variety of 
-  scales, the key processes in human geography relating to: population and urbanisation; 
-  international development; economic activity in the primary, secondary, tertiary and quaternary 
-  sectors; and the use of natural resources."""@en ;
-  curric:supportingGuidance "Supporting guidance text..."@en ;
-  curric:displayOrder "7"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-human-and-physical-geography ;
-  skos:inScheme natcurric:knowledge-taxonomy ;
-  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
-
-natcurric:contentdescriptor-landscapes-environment-climate
-  a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel """Understand how human and physical processes interact to influence and change 
-  landscapes, environments and the climate; and how human activity relies on the effective 
-  functioning of natural systems."""@en ;
-  curric:supportingGuidance "Supporting guidance text..."@en ;
-  curric:displayOrder "1"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-concepts ;
-  skos:inScheme natcurric:knowledge-taxonomy ;
-  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
-
-natcurric:contentdescriptor-world-maps-atlases-globes
-  a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel """Use world maps, atlases and globes to identify the United Kingdom and its 
-  countries, as well as the countries, continents and oceans studied at this key stage."""@en ;
-  curric:supportingGuidance "Supporting guidance text..."@en ;
-  curric:displayOrder "1"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-geographical-skills ;
-  skos:inScheme natcurric:knowledge-taxonomy ;
-  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
-
-natcurric:contentdescriptor-simple-compass-directions
-  a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel """Use simple compass directions (north, south, east and west) and locational and 
-  directional language [for example, near and far, left and right], to describe the location of 
-  features and routes on a map."""@en ;
-  curric:supportingGuidance "Supporting guidance text..."@en ;
-  curric:displayOrder "2"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-geographical-skills ;
-  skos:inScheme natcurric:knowledge-taxonomy ;
-  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
-
-natcurric:contentdescriptor-aerial-photographs-and-plan-perspectives
-  a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel """Use aerial photographs and plan perspectives to recognise landmarks and basic 
-  human and physical features; devise a simple map; and use and construct basic symbols in a 
-  key."""@en ;
-  curric:supportingGuidance "Supporting guidance text..."@en ;
-  curric:displayOrder "3"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-geographical-skills ;
-  skos:inScheme natcurric:knowledge-taxonomy ;
-  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
-
-natcurric:contentdescriptor-maps-digital-computer-mapping
-  a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel """Use maps, atlases, globes and digital/computer mapping to locate countries and 
+  skos:prefLabel """Use maps, atlases, globes and digital/computer mapping to locate countries and
   describe features studied."""@en ;
-  curric:supportingGuidance "Supporting guidance text..."@en ;
-  curric:displayOrder "4"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-geographical-skills ;
+  skos:broader natcurric:substrand-geographical-skills-and-fieldwork ;
+  skos:narrower natcurric:subcontentdescriptor-maps-atlases-globes-digital-computer ;
   skos:inScheme natcurric:knowledge-taxonomy ;
-  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+  dcterms:modified "2026-05-05T15:38:32Z"^^xsd:dateTime .
 
-natcurric:contentdescriptor-compass-grid-references-symbols-key
+natcurric:contentdescriptor-eight-points-compass-four-six
   a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel """Use the 8 points of a compass, 4- and 6-figure grid references, symbols and key 
-  (including the use of Ordnance Survey maps) to build their knowledge of the United Kingdom and 
-  the wider world."""@en ;
-  curric:supportingGuidance "Supporting guidance text..."@en ;
-  curric:displayOrder "5"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-geographical-skills ;
+  skos:prefLabel """Use the eight points of a compass, four and six-figure grid references, symbols
+  and key (including the use of Ordnance Survey maps) to build their knowledge of the United
+  Kingdom and the wider world."""@en ;
+  skos:broader natcurric:substrand-geographical-skills-and-fieldwork ;
+  skos:narrower natcurric:subcontentdescriptor-eight-points-compass-four-six ;
   skos:inScheme natcurric:knowledge-taxonomy ;
-  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+  dcterms:modified "2026-05-05T15:38:32Z"^^xsd:dateTime .
 
-natcurric:contentdescriptor-develop-knowledge-maps-atlases-globes
+natcurric:contentdescriptor-fieldwork-observe-measure-record-present
   a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel """Build on their knowledge of globes, maps and atlases, and apply and develop 
-  this knowledge routinely in the classroom and in the field."""@en ;
-  curric:supportingGuidance "Supporting guidance text..."@en ;
-  curric:displayOrder "6"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-geographical-skills ;
+  skos:prefLabel """Use fieldwork to observe, measure, record and present the human and physical
+  features in the local area using a range of methods, including sketch maps, plans and
+  graphs, and digital technologies."""@en ;
+  skos:broader natcurric:substrand-geographical-skills-and-fieldwork ;
+  skos:narrower natcurric:subcontentdescriptor-fieldwork-observe-measure-record-present ;
   skos:inScheme natcurric:knowledge-taxonomy ;
-  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+  dcterms:modified "2026-05-05T15:38:32Z"^^xsd:dateTime .
 
-natcurric:contentdescriptor-interpret-ordnance-survey-maps
+natcurric:contentdescriptor-extend-locational-deepen-spatial-awareness
   a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel """Interpret Ordnance Survey maps in the classroom and the field, including using 
-  grid references and scale, topographical and other thematic mapping, and aerial and satellite 
-  photographs."""@en ;
-  curric:supportingGuidance "Supporting guidance text..."@en ;
-  curric:displayOrder "7"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-geographical-skills ;
+  skos:prefLabel """Extend their locational knowledge and deepen their spatial awareness of the
+  world’s countries using maps of the world to focus on Africa, Russia, Asia (including
+  China and India), and the Middle East, focusing on their environmental regions, including
+  polar and hot deserts, key physical and human characteristics, countries and major cities."""@en ;
+  skos:broader natcurric:substrand-locational-knowledge ;
+  skos:narrower natcurric:subcontentdescriptor-extend-locational-deepen-spatial-awareness ;
   skos:inScheme natcurric:knowledge-taxonomy ;
-  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+  dcterms:modified "2026-05-05T15:38:32Z"^^xsd:dateTime .
 
-natcurric:contentdescriptor-geographical-information-systems
+natcurric:contentdescriptor-geographical-similarities-differences-links-places
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Understand geographical similarities, differences and links between places
+  through the study of human and physical geography of a region within Africa, and of a
+  region within Asia."""@en ;
+  skos:broader natcurric:substrand-place-knowledge ;
+  skos:narrower natcurric:subcontentdescriptor-geographical-similarities-differences-links-places ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-05T15:38:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-key-processes-in-physical-geography
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Understand, through the use of detailed place-based exemplars at a variety of
+  scales, the key processes in physical geography relating to: geological timescales and
+  plate tectonics; rocks, weathering and soils; weather and climate, including the change in
+  climate from the Ice Age to the present; and glaciation, hydrology and coasts."""@en ;
+  skos:broader natcurric:substrand-human-and-physical-geography ;
+  skos:narrower natcurric:subcontentdescriptor-key-processes-in-physical-geography ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-05T15:38:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-key-processes-in-human-geography
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Understand, through the use of detailed place-based exemplars at a variety of
+  scales, the key processes in human geography relating to: population and urbanisation;
+  international development; economic activity in the primary, secondary, tertiary and
+  quaternary sectors; and the use of natural resources."""@en ;
+  skos:broader natcurric:substrand-human-and-physical-geography ;
+  skos:narrower natcurric:subcontentdescriptor-key-processes-in-human-geography ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-05T15:38:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-human-physical-processes-interact-influence
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Understand how human and physical processes interact to influence, and change
+  landscapes, environments and the climate; and how human activity relies on effective
+  functioning of natural systems."""@en ;
+  skos:broader natcurric:substrand-human-and-physical-geography ;
+  skos:narrower natcurric:subcontentdescriptor-human-physical-processes-interact-influence ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-05T15:38:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-build-globes-maps-atlases-apply
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Build on their knowledge of globes, maps and atlases and apply and develop this
+  knowledge routinely in the classroom and in the field."""@en ;
+  skos:broader natcurric:substrand-geographical-skills-and-fieldwork ;
+  skos:narrower natcurric:subcontentdescriptor-build-globes-maps-atlases-apply ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-05T15:38:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-interpret-ordnance-survey-maps-classroom
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Interpret Ordnance Survey maps in the classroom and the field, including using
+  grid references and scale, topographical and other thematic mapping, and aerial and
+  satellite photographs."""@en ;
+  skos:broader natcurric:substrand-geographical-skills-and-fieldwork ;
+  skos:narrower natcurric:subcontentdescriptor-interpret-ordnance-survey-maps-classroom ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-05T15:38:32Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-geographical-information-systems-gis-view
   a skos:Concept, curric:ContentDescriptor ;
   skos:prefLabel """Use Geographical Information Systems (GIS) to view, analyse and interpret 
   places and data."""@en ;
-  curric:supportingGuidance "Supporting guidance text..."@en ;
-  curric:displayOrder "8"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-geographical-skills ;
+  skos:broader natcurric:substrand-geographical-skills-and-fieldwork ;
+  skos:narrower natcurric:subcontentdescriptor-geographical-information-systems-gis-view ;
   skos:inScheme natcurric:knowledge-taxonomy ;
-  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+  dcterms:modified "2026-05-05T15:38:32Z"^^xsd:dateTime .
 
-natcurric:contentdescriptor-simple-fieldwork-and-observational-skills
+natcurric:contentdescriptor-fieldwork-contrasting-locations-collect-analyse
   a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel """Use simple fieldwork and observational skills to study the geography of their 
-  school and its grounds and the key human and physical features of its surrounding 
-  environment."""@en ;
-  curric:supportingGuidance "Supporting guidance text..."@en ;
-  curric:displayOrder "1"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-fieldwork ;
-  skos:inScheme natcurric:knowledge-taxonomy ;
-  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
-
-natcurric:contentdescriptor-measure-record-human-physical-features
-  a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel """Use fieldwork to observe, measure record and present the human and physical 
-  features in the local area using a range of methods, including sketch maps, plans and graphs, and 
-  digital technologies."""@en ;
-  curric:supportingGuidance "Supporting guidance text..."@en ;
-  curric:displayOrder "2"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-fieldwork ;
-  skos:inScheme natcurric:knowledge-taxonomy ;
-  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
-
-natcurric:contentdescriptor-analyse-geographical-data
-  a skos:Concept, curric:ContentDescriptor ;
-  skos:prefLabel """Use fieldwork in contrasting locations to collect, analyse and draw conclusions 
+  skos:prefLabel """Use fieldwork in contrasting locations to collect, analyse and draw conclusions
   from geographical data, using multiple sources of increasingly complex information."""@en ;
-  curric:supportingGuidance "Supporting guidance text..."@en ;
-  curric:displayOrder "3"^^xsd:positiveInteger ;
-  skos:broader natcurric:substrand-fieldwork ;
+  skos:broader natcurric:substrand-geographical-skills-and-fieldwork ;
+  skos:narrower natcurric:subcontentdescriptor-fieldwork-contrasting-locations-collect-analyse ;
   skos:inScheme natcurric:knowledge-taxonomy ;
-  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+  dcterms:modified "2026-05-05T15:38:32Z"^^xsd:dateTime .
 
 # ----------------------------------------------------------------------
 # Sub-Content Descriptors
 # ----------------------------------------------------------------------
+
+natcurric:subcontentdescriptor-name-locate-world-seven-continents
+  a skos:Concept, curric:SubContentDescriptor ;
+  skos:prefLabel "Name and locate the world’s seven continents and five oceans."@en ;
+  skos:broader natcurric:contentdescriptor-name-locate-world-seven-continents ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-05T15:38:32Z"^^xsd:dateTime .
+
+natcurric:subcontentdescriptor-name-locate-identify-characteristics-four
+  a skos:Concept, curric:SubContentDescriptor ;
+  skos:prefLabel """Name, locate and identify characteristics of the four countries and capital
+  cities of the United Kingdom and its surrounding seas."""@en ;
+  skos:broader natcurric:contentdescriptor-name-locate-identify-characteristics-four ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-05T15:38:32Z"^^xsd:dateTime .
+
+natcurric:subcontentdescriptor-geographical-similarities-differences-studying-human
+  a skos:Concept, curric:SubContentDescriptor ;
+  skos:prefLabel """Understand geographical similarities and differences through studying the human
+  and physical geography of a small area of the United Kingdom, and of a small area in a
+  contrasting non-European country."""@en ;
+  skos:broader natcurric:contentdescriptor-geographical-similarities-differences-studying-human ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-05T15:38:32Z"^^xsd:dateTime .
+
+natcurric:subcontentdescriptor-identify-seasonal-daily-weather-patterns
+  a skos:Concept, curric:SubContentDescriptor ;
+  skos:prefLabel """Identify seasonal and daily weather patterns in the United Kingdom and the
+  location of hot and cold areas of the world in relation to the Equator and the North and
+  South Poles."""@en ;
+  skos:broader natcurric:contentdescriptor-identify-seasonal-daily-weather-patterns ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-05T15:38:32Z"^^xsd:dateTime .
+
+natcurric:subcontentdescriptor-basic-geographical-vocabulary-physical-features
+  a skos:Concept, curric:SubContentDescriptor ;
+  skos:prefLabel """Use basic geographical vocabulary to refer to key physical features, including:
+  beach, cliff, coast, forest, hill, mountain, sea, ocean, river, soil, valley, vegetation,
+  season and weather."""@en ;
+  skos:broader natcurric:contentdescriptor-basic-geographical-vocabulary-physical-features ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-05T15:38:32Z"^^xsd:dateTime .
+
+natcurric:subcontentdescriptor-basic-geographical-vocabulary-human-features
+  a skos:Concept, curric:SubContentDescriptor ;
+  skos:prefLabel """Use basic geographical vocabulary to refer to key human features, including:
+  city, town, village, factory, farm, house, office, port, harbour and shop."""@en ;
+  skos:broader natcurric:contentdescriptor-basic-geographical-vocabulary-human-features ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-05T15:38:32Z"^^xsd:dateTime .
+
+natcurric:subcontentdescriptor-world-maps-atlases-globes-identify
+  a skos:Concept, curric:SubContentDescriptor ;
+  skos:prefLabel """Use world maps, atlases and globes to identify the United Kingdom and its
+  countries, as well as the countries, continents and oceans studied at this key stage."""@en ;
+  skos:broader natcurric:contentdescriptor-world-maps-atlases-globes-identify ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-05T15:38:32Z"^^xsd:dateTime .
+
+natcurric:subcontentdescriptor-simple-compass-directions-north-south
+  a skos:Concept, curric:SubContentDescriptor ;
+  skos:prefLabel """Use simple compass directions (North, South, East and West) and locational and
+  directional language [for example, near and far; left and right], to describe the location
+  of features and routes on a map."""@en ;
+  skos:broader natcurric:contentdescriptor-simple-compass-directions-north-south ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-05T15:38:32Z"^^xsd:dateTime .
+
+natcurric:subcontentdescriptor-aerial-photographs-plan-perspectives-landmarks
+  a skos:Concept, curric:SubContentDescriptor ;
+  skos:prefLabel """Use aerial photographs and plan perspectives to recognise landmarks and basic
+  human and physical features; devise a simple map; and use and construct basic symbols in a
+  key."""@en ;
+  skos:broader natcurric:contentdescriptor-aerial-photographs-plan-perspectives-landmarks ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-05T15:38:32Z"^^xsd:dateTime .
+
+natcurric:subcontentdescriptor-simple-fieldwork-observational-skills-study
+  a skos:Concept, curric:SubContentDescriptor ;
+  skos:prefLabel """Use simple fieldwork and observational skills to study the geography of their
+  school and its grounds and the key human and physical features of its surrounding
+  environment."""@en ;
+  skos:broader natcurric:contentdescriptor-simple-fieldwork-observational-skills-study ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-05T15:38:32Z"^^xsd:dateTime .
+
+natcurric:subcontentdescriptor-locate-world-countries-maps-focus
+  a skos:Concept, curric:SubContentDescriptor ;
+  skos:prefLabel """Locate the world’s countries, using maps to focus on Europe (including the
+  location of Russia) and North and South America, concentrating on their environmental
+  regions, key physical and human characteristics, countries, and major cities."""@en ;
+  skos:broader natcurric:contentdescriptor-locate-world-countries-maps-focus ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-05T15:38:32Z"^^xsd:dateTime .
+
+natcurric:subcontentdescriptor-name-locate-counties-cities-united
+  a skos:Concept, curric:SubContentDescriptor ;
+  skos:prefLabel """Name and locate counties and cities of the United Kingdom, geographical regions
+  and their identifying human and physical characteristics, key topographical features
+  (including hills, mountains, coasts and rivers), and land-use patterns; and understand how
+  some of these aspects have changed over time."""@en ;
+  skos:broader natcurric:contentdescriptor-name-locate-counties-cities-united ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-05T15:38:32Z"^^xsd:dateTime .
+
+natcurric:subcontentdescriptor-identify-position-significance-latitude-longitude
+  a skos:Concept, curric:SubContentDescriptor ;
+  skos:prefLabel """Identify the position and significance of latitude, longitude, Equator, 
+  Northern Hemisphere, Southern Hemisphere, the Tropics of Cancer and Capricorn, Arctic and 
+  Antarctic Circle, the Prime/Greenwich Meridian and time zones (including day and night)."""@en ;
+  skos:broader natcurric:contentdescriptor-identify-position-significance-latitude-longitude ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-05T15:38:32Z"^^xsd:dateTime .
+
+natcurric:subcontentdescriptor-geographical-similarities-differences-study-human
+  a skos:Concept, curric:SubContentDescriptor ;
+  skos:prefLabel """Understand geographical similarities and differences through the study of human
+  and physical geography of a region of the United Kingdom, a region in a European country,
+  and a region within North or South America."""@en ;
+  skos:broader natcurric:contentdescriptor-geographical-similarities-differences-study-human ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-05T15:38:32Z"^^xsd:dateTime .
+
+natcurric:subcontentdescriptor-describe-key-aspects-physical-geography
+  a skos:Concept, curric:SubContentDescriptor ;
+  skos:prefLabel """Describe and understand key aspects of physical geography, including: climate
+  zones, biomes and vegetation belts, rivers, mountains, volcanoes and earthquakes, and the
+  water cycle."""@en ;
+  skos:broader natcurric:contentdescriptor-describe-key-aspects-physical-geography ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-05T15:38:32Z"^^xsd:dateTime .
+
+natcurric:subcontentdescriptor-describe-key-aspects-human-geography
+  a skos:Concept, curric:SubContentDescriptor ;
+  skos:prefLabel """Describe and understand key aspects of human geography, including: types of
+  settlement and land use, economic activity including trade links, and the distribution of
+  natural resources including energy, food, minerals and water."""@en ;
+  skos:broader natcurric:contentdescriptor-describe-key-aspects-human-geography ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-05T15:38:32Z"^^xsd:dateTime .
+
+natcurric:subcontentdescriptor-maps-atlases-globes-digital-computer
+  a skos:Concept, curric:SubContentDescriptor ;
+  skos:prefLabel """Use maps, atlases, globes and digital/computer mapping to locate countries and
+  describe features studied."""@en ;
+  skos:broader natcurric:contentdescriptor-maps-atlases-globes-digital-computer ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-05T15:38:32Z"^^xsd:dateTime .
+
+natcurric:subcontentdescriptor-eight-points-compass-four-six
+  a skos:Concept, curric:SubContentDescriptor ;
+  skos:prefLabel """Use the eight points of a compass, four and six-figure grid references, symbols
+  and key (including the use of Ordnance Survey maps) to build their knowledge of the United
+  Kingdom and the wider world."""@en ;
+  skos:broader natcurric:contentdescriptor-eight-points-compass-four-six ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-05T15:38:32Z"^^xsd:dateTime .
+
+natcurric:subcontentdescriptor-fieldwork-observe-measure-record-present
+  a skos:Concept, curric:SubContentDescriptor ;
+  skos:prefLabel """Use fieldwork to observe, measure, record and present the human and physical
+  features in the local area using a range of methods, including sketch maps, plans and
+  graphs, and digital technologies."""@en ;
+  skos:broader natcurric:contentdescriptor-fieldwork-observe-measure-record-present ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-05T15:38:32Z"^^xsd:dateTime .
+
+natcurric:subcontentdescriptor-extend-locational-deepen-spatial-awareness
+  a skos:Concept, curric:SubContentDescriptor ;
+  skos:prefLabel """Extend their locational knowledge and deepen their spatial awareness of the
+  world’s countries using maps of the world to focus on Africa, Russia, Asia (including
+  China and India), and the Middle East, focusing on their environmental regions, including
+  polar and hot deserts, key physical and human characteristics, countries and major cities."""@en ;
+  skos:broader natcurric:contentdescriptor-extend-locational-deepen-spatial-awareness ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-05T15:38:32Z"^^xsd:dateTime .
+
+natcurric:subcontentdescriptor-geographical-similarities-differences-links-places
+  a skos:Concept, curric:SubContentDescriptor ;
+  skos:prefLabel """Understand geographical similarities, differences and links between places
+  through the study of human and physical geography of a region within Africa, and of a
+  region within Asia."""@en ;
+  skos:broader natcurric:contentdescriptor-geographical-similarities-differences-links-places ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-05T15:38:32Z"^^xsd:dateTime .
+
+natcurric:subcontentdescriptor-key-processes-in-physical-geography
+  a skos:Concept, curric:SubContentDescriptor ;
+  skos:prefLabel """Understand, through the use of detailed place-based exemplars at a variety of
+  scales, the key processes in physical geography relating to: geological timescales and
+  plate tectonics; rocks, weathering and soils; weather and climate, including the change in
+  climate from the Ice Age to the present; and glaciation, hydrology and coasts."""@en ;
+  skos:broader natcurric:contentdescriptor-key-processes-in-physical-geography ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-05T15:38:32Z"^^xsd:dateTime .
+
+natcurric:subcontentdescriptor-key-processes-in-human-geography
+  a skos:Concept, curric:SubContentDescriptor ;
+  skos:prefLabel """Understand, through the use of detailed place-based exemplars at a variety of
+  scales, the key processes in human geography relating to: population and urbanisation;
+  international development; economic activity in the primary, secondary, tertiary and
+  quaternary sectors; and the use of natural resources."""@en ;
+  skos:broader natcurric:contentdescriptor-key-processes-in-human-geography ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-05T15:38:32Z"^^xsd:dateTime .
+
+natcurric:subcontentdescriptor-human-physical-processes-interact-influence
+  a skos:Concept, curric:SubContentDescriptor ;
+  skos:prefLabel """Understand how human and physical processes interact to influence, and change
+  landscapes, environments and the climate; and how human activity relies on effective
+  functioning of natural systems."""@en ;
+  skos:broader natcurric:contentdescriptor-human-physical-processes-interact-influence ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-05T15:38:32Z"^^xsd:dateTime .
+
+natcurric:subcontentdescriptor-build-globes-maps-atlases-apply
+  a skos:Concept, curric:SubContentDescriptor ;
+  skos:prefLabel """Build on their knowledge of globes, maps and atlases and apply and develop this
+  knowledge routinely in the classroom and in the field."""@en ;
+  skos:broader natcurric:contentdescriptor-build-globes-maps-atlases-apply ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-05T15:38:32Z"^^xsd:dateTime .
+
+natcurric:subcontentdescriptor-interpret-ordnance-survey-maps-classroom
+  a skos:Concept, curric:SubContentDescriptor ;
+  skos:prefLabel """Interpret Ordnance Survey maps in the classroom and the field, including using
+  grid references and scale, topographical and other thematic mapping, and aerial and
+  satellite photographs."""@en ;
+  skos:broader natcurric:contentdescriptor-interpret-ordnance-survey-maps-classroom ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-05T15:38:32Z"^^xsd:dateTime .
+
+natcurric:subcontentdescriptor-geographical-information-systems-gis-view
+  a skos:Concept, curric:SubContentDescriptor ;
+  skos:prefLabel """Use Geographical Information Systems (GIS) to view, analyse and interpret 
+  places and data."""@en ;
+  skos:broader natcurric:contentdescriptor-geographical-information-systems-gis-view ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-05T15:38:32Z"^^xsd:dateTime .
+
+natcurric:subcontentdescriptor-fieldwork-contrasting-locations-collect-analyse
+  a skos:Concept, curric:SubContentDescriptor ;
+  skos:prefLabel """Use fieldwork in contrasting locations to collect, analyse and draw conclusions
+  from geographical data, using multiple sources of increasingly complex information."""@en ;
+  skos:broader natcurric:contentdescriptor-fieldwork-contrasting-locations-collect-analyse ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-05T15:38:32Z"^^xsd:dateTime .

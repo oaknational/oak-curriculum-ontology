@@ -1,0 +1,578 @@
+@prefix curric: <https://w3id.org/uk/oak/curriculum/ontology/> .
+@prefix natcurric: <https://w3id.org/uk/oak/curriculum/nationalcurriculum/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ======================================================================
+# National Curriculum for England - Computing Knowledge Taxonomy
+# ======================================================================
+
+# ----------------------------------------------------------------------
+# Ontology Declaration
+# ----------------------------------------------------------------------
+
+<https://w3id.org/uk/oak/curriculum/nationalcurriculum/computing-knowledge-taxonomy>
+  rdf:type owl:Ontology ;
+
+  rdfs:label "National Curriculum for England - Computing Knowledge Taxonomy"@en ;
+  dc:title "National Curriculum for England - Computing Knowledge Taxonomy"@en ;
+  rdfs:comment """Computing knowledge taxonomy defining the hierarchical organisation of content
+  from strands through to sub-content descriptors."""@en ;
+
+  owl:versionInfo "0.1.1" ;
+  owl:versionIRI <https://w3id.org/uk/oak/curriculum/nationalcurriculum/computing-knowledge-taxonomy/0.1.1> ;
+
+  dcterms:description """This file defines the Computing knowledge taxonomy for the National
+  Curriculum in England, organising content through strands, sub-strands, content
+  descriptors, and sub-content descriptors."""@en ;
+  dc:creator "Department for Education" ;
+  dcterms:created "2026-05-04T14:53:53Z"^^xsd:dateTime ;
+  dcterms:modified "2026-05-04T14:53:53Z"^^xsd:dateTime ;
+  dcterms:issued "2026-05-04T14:53:53Z"^^xsd:dateTime ;
+
+  # OGL 3.0 License
+  dcterms:license <http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/> ;
+  dcterms:rights "Crown Copyright"@en ;
+
+  rdfs:seeAlso <https://w3id.org/uk/oak/curriculum/ontology> ;
+
+  vann:preferredNamespacePrefix "natcurric" ;
+  vann:preferredNamespaceUri "https://w3id.org/uk/oak/curriculum/nationalcurriculum/" ;
+
+  owl:imports <https://w3id.org/uk/oak/curriculum/ontology> ;
+  owl:imports <https://w3id.org/uk/oak/curriculum/nationalcurriculum/computing-programme-structure> .
+
+# ----------------------------------------------------------------------
+# Knowledge Taxonomy
+# ----------------------------------------------------------------------
+
+natcurric:knowledge-taxonomy
+  a skos:ConceptScheme ;
+  skos:prefLabel "National Curriculum for England Knowledge Taxonomy"@en ;
+  skos:hasTopConcept natcurric:discipline-computing ;
+  dcterms:modified "2026-05-04T14:53:53Z"^^xsd:dateTime .
+
+# ----------------------------------------------------------------------
+# Disciplines
+# ----------------------------------------------------------------------
+
+natcurric:discipline-computing
+  a skos:Concept, curric:Discipline ;
+  skos:prefLabel "Computing"@en ;
+  skos:topConceptOf natcurric:knowledge-taxonomy ;
+  skos:narrower natcurric:strand-computing ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-04T14:53:53Z"^^xsd:dateTime .
+
+# ----------------------------------------------------------------------
+# Strands
+# ----------------------------------------------------------------------
+
+natcurric:strand-computing
+  a skos:Concept, curric:Strand ;
+  skos:prefLabel "Computing"@en ;
+  skos:definition "Description of strand..."@en ;
+  skos:broader natcurric:discipline-computing ;
+  skos:narrower natcurric:substrand-computing ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-04T14:53:53Z"^^xsd:dateTime .
+
+# ----------------------------------------------------------------------
+# Sub-Strands
+# ----------------------------------------------------------------------
+
+natcurric:substrand-computing
+  a skos:Concept, curric:SubStrand ;
+  skos:prefLabel "Computing"@en ;
+  skos:broader natcurric:strand-computing ;
+  skos:narrower
+    natcurric:contentdescriptor-algorithms-implemented-programs-digital-devices ,
+    natcurric:contentdescriptor-create-and-debug-simple-programs ,
+    natcurric:contentdescriptor-logical-reasoning-predict-behaviour-simple ,
+    natcurric:contentdescriptor-technology-create-organise-store-manipulate ,
+    natcurric:contentdescriptor-common-information-technology-school ,
+    natcurric:contentdescriptor-technology-keeping-personal-information-private ,
+    natcurric:contentdescriptor-design-write-debug-programs-accomplish ,
+    natcurric:contentdescriptor-sequence-selection-repetition-programs-variables ,
+    natcurric:contentdescriptor-logical-reasoning-explain-simple-algorithms ,
+    natcurric:contentdescriptor-computer-networks-internet-provide-multiple ,
+    natcurric:contentdescriptor-search-technologies-appreciate-results-selected ,
+    natcurric:contentdescriptor-select-combine-variety-software-internet ,
+    natcurric:contentdescriptor-technology-acceptable-unacceptable-behaviour-identify ,
+    natcurric:contentdescriptor-design-evaluate-computational-abstractions-model ,
+    natcurric:contentdescriptor-several-key-algorithms-reflect-computational ,
+    natcurric:contentdescriptor-two-more-programming-languages-least ,
+    natcurric:contentdescriptor-simple-boolean-logic-example-circuits ,
+    natcurric:contentdescriptor-hardware-software-components-computer-systems ,
+    natcurric:contentdescriptor-instructions-stored-executed-computer-system ,
+    natcurric:contentdescriptor-undertake-creative-projects-involve-selecting ,
+    natcurric:contentdescriptor-create-re-revise-re-purpose ,
+    natcurric:contentdescriptor-range-ways-technology-protecting-online ,
+    natcurric:contentdescriptor-capability-creativity-computer-science-digital ,
+    natcurric:contentdescriptor-apply-analytic-problem-solving-design ,
+    natcurric:contentdescriptor-changes-technology-affect-safety-new ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-04T14:53:53Z"^^xsd:dateTime .
+
+# ----------------------------------------------------------------------
+# Content Descriptors
+# ----------------------------------------------------------------------
+
+natcurric:contentdescriptor-algorithms-implemented-programs-digital-devices
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Understand what algorithms are; how they are implemented as programs on digital
+  devices; and that programs execute by following precise and unambiguous instructions."""@en ;
+  skos:broader natcurric:substrand-computing ;
+  skos:narrower natcurric:subcontentdescriptor-algorithms-implemented-programs-digital-devices ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-04T14:53:53Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-create-and-debug-simple-programs
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Create and debug simple programs."@en ;
+  skos:broader natcurric:substrand-computing ;
+  skos:narrower natcurric:subcontentdescriptor-create-and-debug-simple-programs ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-04T14:53:53Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-logical-reasoning-predict-behaviour-simple
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Use logical reasoning to predict the behaviour of simple programs."@en ;
+  skos:broader natcurric:substrand-computing ;
+  skos:narrower natcurric:subcontentdescriptor-logical-reasoning-predict-behaviour-simple ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-04T14:53:53Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-technology-create-organise-store-manipulate
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Use technology purposefully to create, organise, store, manipulate and retrieve
+  digital content."""@en ;
+  skos:broader natcurric:substrand-computing ;
+  skos:narrower natcurric:subcontentdescriptor-technology-create-organise-store-manipulate ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-04T14:53:53Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-common-information-technology-school
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Recognise common uses of information technology beyond school."@en ;
+  skos:broader natcurric:substrand-computing ;
+  skos:narrower natcurric:subcontentdescriptor-common-information-technology-school ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-04T14:53:53Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-technology-keeping-personal-information-private
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Use technology safely and respectfully, keeping personal information private;
+  identify where to go for help and support when they have concerns about content or contact
+  on the internet or other online technologies."""@en ;
+  skos:broader natcurric:substrand-computing ;
+  skos:narrower natcurric:subcontentdescriptor-technology-keeping-personal-information-private ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-04T14:53:53Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-design-write-debug-programs-accomplish
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Design, write and debug programs that accomplish specific goals, including
+  controlling or simulating physical systems; solve problems by decomposing them into
+  smaller parts."""@en ;
+  skos:broader natcurric:substrand-computing ;
+  skos:narrower natcurric:subcontentdescriptor-design-write-debug-programs-accomplish ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-04T14:53:53Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-sequence-selection-repetition-programs-variables
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Use sequence, selection, and repetition in programs; work with variables and
+  various forms of input and output."""@en ;
+  skos:broader natcurric:substrand-computing ;
+  skos:narrower natcurric:subcontentdescriptor-sequence-selection-repetition-programs-variables ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-04T14:53:53Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-logical-reasoning-explain-simple-algorithms
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Use logical reasoning to explain how some simple algorithms work and to detect
+  and correct errors in algorithms and programs."""@en ;
+  skos:broader natcurric:substrand-computing ;
+  skos:narrower natcurric:subcontentdescriptor-logical-reasoning-explain-simple-algorithms ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-04T14:53:53Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-computer-networks-internet-provide-multiple
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Understand computer networks including the internet; how they can provide
+  multiple services, such as the world wide web; and the opportunities they offer for
+  communication and collaboration."""@en ;
+  skos:broader natcurric:substrand-computing ;
+  skos:narrower natcurric:subcontentdescriptor-computer-networks-internet-provide-multiple ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-04T14:53:53Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-search-technologies-appreciate-results-selected
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Use search technologies effectively, appreciate how results are selected and
+  ranked, and be discerning in evaluating digital content."""@en ;
+  skos:broader natcurric:substrand-computing ;
+  skos:narrower natcurric:subcontentdescriptor-search-technologies-appreciate-results-selected ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-04T14:53:53Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-select-combine-variety-software-internet
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Select, use and combine a variety of software (including internet services) on 
+  a range of digital devices to design and create a range of programs, systems and content
+  that accomplish given goals, including collecting, analysing, evaluating and presenting
+  data and information."""@en ;
+  skos:broader natcurric:substrand-computing ;
+  skos:narrower natcurric:subcontentdescriptor-select-combine-variety-software-internet ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-04T14:53:53Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-technology-acceptable-unacceptable-behaviour-identify
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Use technology safely, respectfully and responsibly; recognise
+  acceptable/unacceptable behaviour; identify a range of ways to report concerns about
+  content and contact."""@en ;
+  skos:broader natcurric:substrand-computing ;
+  skos:narrower natcurric:subcontentdescriptor-technology-acceptable-unacceptable-behaviour-identify ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-04T14:53:53Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-design-evaluate-computational-abstractions-model
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Design, use and evaluate computational abstractions that model the state and
+  behaviour of real-world problems and physical systems."""@en ;
+  skos:broader natcurric:substrand-computing ;
+  skos:narrower natcurric:subcontentdescriptor-design-evaluate-computational-abstractions-model ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-04T14:53:53Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-several-key-algorithms-reflect-computational
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Understand several key algorithms that reflect computational thinking [for
+  example, ones for sorting and searching]; use logical reasoning to compare the utility of
+  alternative algorithms for the same problem."""@en ;
+  skos:broader natcurric:substrand-computing ;
+  skos:narrower natcurric:subcontentdescriptor-several-key-algorithms-reflect-computational ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-04T14:53:53Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-two-more-programming-languages-least
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Use two or more programming languages, at least one of which is textual, to
+  solve a variety of computational problems; make appropriate use of data structures [for
+  example, lists, tables or arrays]; design and develop modular programs that use procedures
+  or functions."""@en ;
+  skos:broader natcurric:substrand-computing ;
+  skos:narrower natcurric:subcontentdescriptor-two-more-programming-languages-least ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-04T14:53:53Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-simple-boolean-logic-example-circuits
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Understand simple Boolean logic [for example, AND, OR and NOT] and some of its
+  uses in circuits and programming; understand how numbers can be represented in binary, and
+  be able to carry out simple operations on binary numbers [for example, binary addition,
+  and conversion between binary and decimal]."""@en ;
+  skos:broader natcurric:substrand-computing ;
+  skos:narrower natcurric:subcontentdescriptor-simple-boolean-logic-example-circuits ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-04T14:53:53Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-hardware-software-components-computer-systems
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Understand the hardware and software components that make up computer systems,
+  and how they communicate with one another and with other systems."""@en ;
+  skos:broader natcurric:substrand-computing ;
+  skos:narrower natcurric:subcontentdescriptor-hardware-software-components-computer-systems ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-04T14:53:53Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-instructions-stored-executed-computer-system
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Understand how instructions are stored and executed within a computer system;
+  understand how data of various types (including text, sounds and pictures) can be
+  represented and manipulated digitally, in the form of binary digits."""@en ;
+  skos:broader natcurric:substrand-computing ;
+  skos:narrower natcurric:subcontentdescriptor-instructions-stored-executed-computer-system ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-04T14:53:53Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-undertake-creative-projects-involve-selecting
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Undertake creative projects that involve selecting, using, and combining
+  multiple applications, preferably across a range of devices, to achieve challenging goals,
+  including collecting and analysing data and meeting the needs of known users."""@en ;
+  skos:broader natcurric:substrand-computing ;
+  skos:narrower natcurric:subcontentdescriptor-undertake-creative-projects-involve-selecting ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-04T14:53:53Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-create-re-revise-re-purpose
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Create, re-use, revise and re-purpose digital artefacts for a given audience,
+  with attention to trustworthiness, design and usability."""@en ;
+  skos:broader natcurric:substrand-computing ;
+  skos:narrower natcurric:subcontentdescriptor-create-re-revise-re-purpose ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-04T14:53:53Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-range-ways-technology-protecting-online
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Understand a range of ways to use technology safely, respectfully, responsibly
+  and securely, including protecting their online identity and privacy; recognise
+  inappropriate content, contact and conduct and know how to report concerns."""@en ;
+  skos:broader natcurric:substrand-computing ;
+  skos:narrower natcurric:subcontentdescriptor-range-ways-technology-protecting-online ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-04T14:53:53Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-capability-creativity-computer-science-digital
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Develop their capability, creativity and knowledge in computer science, digital
+  media and information technology."""@en ;
+  skos:broader natcurric:substrand-computing ;
+  skos:narrower natcurric:subcontentdescriptor-capability-creativity-computer-science-digital ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-04T14:53:53Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-apply-analytic-problem-solving-design
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Develop and apply their analytic, problem-solving, design, and computational
+  thinking skills."""@en ;
+  skos:broader natcurric:substrand-computing ;
+  skos:narrower natcurric:subcontentdescriptor-apply-analytic-problem-solving-design ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-04T14:53:53Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-changes-technology-affect-safety-new
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Understand how changes in technology affect safety, including new ways to
+  protect their online privacy and identity, and how to identify and report a range of
+  concerns."""@en ;
+  skos:broader natcurric:substrand-computing ;
+  skos:narrower natcurric:subcontentdescriptor-changes-technology-affect-safety-new ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-04T14:53:53Z"^^xsd:dateTime .
+
+# ----------------------------------------------------------------------
+# Sub-Content Descriptors
+# ----------------------------------------------------------------------
+
+natcurric:subcontentdescriptor-algorithms-implemented-programs-digital-devices
+  a skos:Concept, curric:SubContentDescriptor ;
+  skos:prefLabel """Understand what algorithms are; how they are implemented as programs on digital
+  devices; and that programs execute by following precise and unambiguous instructions."""@en ;
+  skos:broader natcurric:contentdescriptor-algorithms-implemented-programs-digital-devices ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-04T14:53:53Z"^^xsd:dateTime .
+
+natcurric:subcontentdescriptor-create-and-debug-simple-programs
+  a skos:Concept, curric:SubContentDescriptor ;
+  skos:prefLabel "Create and debug simple programs."@en ;
+  skos:broader natcurric:contentdescriptor-create-and-debug-simple-programs ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-04T14:53:53Z"^^xsd:dateTime .
+
+natcurric:subcontentdescriptor-logical-reasoning-predict-behaviour-simple
+  a skos:Concept, curric:SubContentDescriptor ;
+  skos:prefLabel "Use logical reasoning to predict the behaviour of simple programs."@en ;
+  skos:broader natcurric:contentdescriptor-logical-reasoning-predict-behaviour-simple ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-04T14:53:53Z"^^xsd:dateTime .
+
+natcurric:subcontentdescriptor-technology-create-organise-store-manipulate
+  a skos:Concept, curric:SubContentDescriptor ;
+  skos:prefLabel """Use technology purposefully to create, organise, store, manipulate and retrieve
+  digital content."""@en ;
+  skos:broader natcurric:contentdescriptor-technology-create-organise-store-manipulate ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-04T14:53:53Z"^^xsd:dateTime .
+
+natcurric:subcontentdescriptor-common-information-technology-school
+  a skos:Concept, curric:SubContentDescriptor ;
+  skos:prefLabel "Recognise common uses of information technology beyond school."@en ;
+  skos:broader natcurric:contentdescriptor-common-information-technology-school ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-04T14:53:53Z"^^xsd:dateTime .
+
+natcurric:subcontentdescriptor-technology-keeping-personal-information-private
+  a skos:Concept, curric:SubContentDescriptor ;
+  skos:prefLabel """Use technology safely and respectfully, keeping personal information private;
+  identify where to go for help and support when they have concerns about content or contact
+  on the internet or other online technologies."""@en ;
+  skos:broader natcurric:contentdescriptor-technology-keeping-personal-information-private ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-04T14:53:53Z"^^xsd:dateTime .
+
+natcurric:subcontentdescriptor-design-write-debug-programs-accomplish
+  a skos:Concept, curric:SubContentDescriptor ;
+  skos:prefLabel """Design, write and debug programs that accomplish specific goals, including
+  controlling or simulating physical systems; solve problems by decomposing them into
+  smaller parts."""@en ;
+  skos:broader natcurric:contentdescriptor-design-write-debug-programs-accomplish ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-04T14:53:53Z"^^xsd:dateTime .
+
+natcurric:subcontentdescriptor-sequence-selection-repetition-programs-variables
+  a skos:Concept, curric:SubContentDescriptor ;
+  skos:prefLabel """Use sequence, selection, and repetition in programs; work with variables and
+  various forms of input and output."""@en ;
+  skos:broader natcurric:contentdescriptor-sequence-selection-repetition-programs-variables ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-04T14:53:53Z"^^xsd:dateTime .
+
+natcurric:subcontentdescriptor-logical-reasoning-explain-simple-algorithms
+  a skos:Concept, curric:SubContentDescriptor ;
+  skos:prefLabel """Use logical reasoning to explain how some simple algorithms work and to detect
+  and correct errors in algorithms and programs."""@en ;
+  skos:broader natcurric:contentdescriptor-logical-reasoning-explain-simple-algorithms ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-04T14:53:53Z"^^xsd:dateTime .
+
+natcurric:subcontentdescriptor-computer-networks-internet-provide-multiple
+  a skos:Concept, curric:SubContentDescriptor ;
+  skos:prefLabel """Understand computer networks including the internet; how they can provide
+  multiple services, such as the world wide web; and the opportunities they offer for
+  communication and collaboration."""@en ;
+  skos:broader natcurric:contentdescriptor-computer-networks-internet-provide-multiple ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-04T14:53:53Z"^^xsd:dateTime .
+
+natcurric:subcontentdescriptor-search-technologies-appreciate-results-selected
+  a skos:Concept, curric:SubContentDescriptor ;
+  skos:prefLabel """Use search technologies effectively, appreciate how results are selected and
+  ranked, and be discerning in evaluating digital content."""@en ;
+  skos:broader natcurric:contentdescriptor-search-technologies-appreciate-results-selected ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-04T14:53:53Z"^^xsd:dateTime .
+
+natcurric:subcontentdescriptor-select-combine-variety-software-internet
+  a skos:Concept, curric:SubContentDescriptor ;
+  skos:prefLabel """Select, use and combine a variety of software (including internet services) on 
+  a range of digital devices to design and create a range of programs, systems and content
+  that accomplish given goals, including collecting, analysing, evaluating and presenting
+  data and information."""@en ;
+  skos:broader natcurric:contentdescriptor-select-combine-variety-software-internet ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-04T14:53:53Z"^^xsd:dateTime .
+
+natcurric:subcontentdescriptor-technology-acceptable-unacceptable-behaviour-identify
+  a skos:Concept, curric:SubContentDescriptor ;
+  skos:prefLabel """Use technology safely, respectfully and responsibly; recognise
+  acceptable/unacceptable behaviour; identify a range of ways to report concerns about
+  content and contact."""@en ;
+  skos:broader natcurric:contentdescriptor-technology-acceptable-unacceptable-behaviour-identify ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-04T14:53:53Z"^^xsd:dateTime .
+
+natcurric:subcontentdescriptor-design-evaluate-computational-abstractions-model
+  a skos:Concept, curric:SubContentDescriptor ;
+  skos:prefLabel """Design, use and evaluate computational abstractions that model the state and
+  behaviour of real-world problems and physical systems."""@en ;
+  skos:broader natcurric:contentdescriptor-design-evaluate-computational-abstractions-model ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-04T14:53:53Z"^^xsd:dateTime .
+
+natcurric:subcontentdescriptor-several-key-algorithms-reflect-computational
+  a skos:Concept, curric:SubContentDescriptor ;
+  skos:prefLabel """Understand several key algorithms that reflect computational thinking [for
+  example, ones for sorting and searching]; use logical reasoning to compare the utility of
+  alternative algorithms for the same problem."""@en ;
+  skos:broader natcurric:contentdescriptor-several-key-algorithms-reflect-computational ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-04T14:53:53Z"^^xsd:dateTime .
+
+natcurric:subcontentdescriptor-two-more-programming-languages-least
+  a skos:Concept, curric:SubContentDescriptor ;
+  skos:prefLabel """Use two or more programming languages, at least one of which is textual, to
+  solve a variety of computational problems; make appropriate use of data structures [for
+  example, lists, tables or arrays]; design and develop modular programs that use procedures
+  or functions."""@en ;
+  skos:broader natcurric:contentdescriptor-two-more-programming-languages-least ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-04T14:53:53Z"^^xsd:dateTime .
+
+natcurric:subcontentdescriptor-simple-boolean-logic-example-circuits
+  a skos:Concept, curric:SubContentDescriptor ;
+  skos:prefLabel """Understand simple Boolean logic [for example, AND, OR and NOT] and some of its
+  uses in circuits and programming; understand how numbers can be represented in binary, and
+  be able to carry out simple operations on binary numbers [for example, binary addition,
+  and conversion between binary and decimal]."""@en ;
+  skos:broader natcurric:contentdescriptor-simple-boolean-logic-example-circuits ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-04T14:53:53Z"^^xsd:dateTime .
+
+natcurric:subcontentdescriptor-hardware-software-components-computer-systems
+  a skos:Concept, curric:SubContentDescriptor ;
+  skos:prefLabel """Understand the hardware and software components that make up computer systems,
+  and how they communicate with one another and with other systems."""@en ;
+  skos:broader natcurric:contentdescriptor-hardware-software-components-computer-systems ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-04T14:53:53Z"^^xsd:dateTime .
+
+natcurric:subcontentdescriptor-instructions-stored-executed-computer-system
+  a skos:Concept, curric:SubContentDescriptor ;
+  skos:prefLabel """Understand how instructions are stored and executed within a computer system;
+  understand how data of various types (including text, sounds and pictures) can be
+  represented and manipulated digitally, in the form of binary digits."""@en ;
+  skos:broader natcurric:contentdescriptor-instructions-stored-executed-computer-system ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-04T14:53:53Z"^^xsd:dateTime .
+
+natcurric:subcontentdescriptor-undertake-creative-projects-involve-selecting
+  a skos:Concept, curric:SubContentDescriptor ;
+  skos:prefLabel """Undertake creative projects that involve selecting, using, and combining
+  multiple applications, preferably across a range of devices, to achieve challenging goals,
+  including collecting and analysing data and meeting the needs of known users."""@en ;
+  skos:broader natcurric:contentdescriptor-undertake-creative-projects-involve-selecting ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-04T14:53:53Z"^^xsd:dateTime .
+
+natcurric:subcontentdescriptor-create-re-revise-re-purpose
+  a skos:Concept, curric:SubContentDescriptor ;
+  skos:prefLabel """Create, re-use, revise and re-purpose digital artefacts for a given audience,
+  with attention to trustworthiness, design and usability."""@en ;
+  skos:broader natcurric:contentdescriptor-create-re-revise-re-purpose ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-04T14:53:53Z"^^xsd:dateTime .
+
+natcurric:subcontentdescriptor-range-ways-technology-protecting-online
+  a skos:Concept, curric:SubContentDescriptor ;
+  skos:prefLabel """Understand a range of ways to use technology safely, respectfully, responsibly
+  and securely, including protecting their online identity and privacy; recognise
+  inappropriate content, contact and conduct and know how to report concerns."""@en ;
+  skos:broader natcurric:contentdescriptor-range-ways-technology-protecting-online ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-04T14:53:53Z"^^xsd:dateTime .
+
+natcurric:subcontentdescriptor-capability-creativity-computer-science-digital
+  a skos:Concept, curric:SubContentDescriptor ;
+  skos:prefLabel """Develop their capability, creativity and knowledge in computer science, digital
+  media and information technology."""@en ;
+  skos:broader natcurric:contentdescriptor-capability-creativity-computer-science-digital ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-04T14:53:53Z"^^xsd:dateTime .
+
+natcurric:subcontentdescriptor-apply-analytic-problem-solving-design
+  a skos:Concept, curric:SubContentDescriptor ;
+  skos:prefLabel """Develop and apply their analytic, problem-solving, design, and computational
+  thinking skills."""@en ;
+  skos:broader natcurric:contentdescriptor-apply-analytic-problem-solving-design ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-04T14:53:53Z"^^xsd:dateTime .
+
+natcurric:subcontentdescriptor-changes-technology-affect-safety-new
+  a skos:Concept, curric:SubContentDescriptor ;
+  skos:prefLabel """Understand how changes in technology affect safety, including new ways to
+  protect their online privacy and identity, and how to identify and report a range of
+  concerns."""@en ;
+  skos:broader natcurric:contentdescriptor-changes-technology-affect-safety-new ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-04T14:53:53Z"^^xsd:dateTime .

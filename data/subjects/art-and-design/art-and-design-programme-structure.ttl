@@ -1,0 +1,181 @@
+@prefix curric: <https://w3id.org/uk/oak/curriculum/ontology/> .
+@prefix natcurric: <https://w3id.org/uk/oak/curriculum/nationalcurriculum/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ======================================================================
+# National Curriculum for England - Art and design Programme Structure
+# ======================================================================
+
+# ----------------------------------------------------------------------
+# Ontology Declaration
+# ----------------------------------------------------------------------
+
+<https://w3id.org/uk/oak/curriculum/nationalcurriculum/art-and-design-programme-structure>
+  rdf:type owl:Ontology ;
+
+  rdfs:label "National Curriculum for England - Art and design Programme Structure"@en ;
+  dc:title "National Curriculum for England - Art and design Programme Structure"@en ;
+  rdfs:comment """Art and design programme structure that specifies schemes and progressions, and a
+  mapping to strands, sub-strands and content descriptors within the knowledge taxonomy."""@en ;
+
+  owl:versionInfo "0.1.1" ;
+  owl:versionIRI <https://w3id.org/uk/oak/curriculum/nationalcurriculum/art-and-design-programme-structure/0.1.1> ;
+
+  dcterms:description """Art and design programme structure that specifies schemes and progressions,
+  and a mapping to strands, sub-strands and content descriptors within the knowledge
+  taxonomy."""@en ;
+  dc:creator "Department for Education" ;
+  dcterms:created "2026-05-04T13:57:52Z"^^xsd:dateTime ;
+  dcterms:modified "2026-05-04T13:57:52Z"^^xsd:dateTime ;
+  dcterms:issued "2026-05-04T13:57:52Z"^^xsd:dateTime ;
+
+  # OGL 3.0 License
+  dcterms:license <http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/> ;
+  dcterms:rights "Crown Copyright"@en ;
+
+  rdfs:seeAlso <https://w3id.org/uk/oak/curriculum/ontology> ;
+
+  vann:preferredNamespacePrefix "natcurric" ;
+  vann:preferredNamespaceUri "https://w3id.org/uk/oak/curriculum/nationalcurriculum/" ;
+
+  owl:imports <https://w3id.org/uk/oak/curriculum/ontology> ;
+  owl:imports <https://w3id.org/uk/oak/curriculum/nationalcurriculum/temporal-structure> ;
+  owl:imports <https://w3id.org/uk/oak/curriculum/nationalcurriculum/art-and-design-knowledge-taxonomy> .
+
+# ----------------------------------------------------------------------
+# Subject Group
+# ----------------------------------------------------------------------
+
+natcurric:subjectgroup-art-and-design
+  a curric:SubjectGroup ;
+  rdfs:label "Art and design"@en ;
+  dcterms:modified "2026-05-04T13:57:52Z"^^xsd:dateTime ;
+  curric:coversDiscipline natcurric:discipline-art-and-design .
+
+# ----------------------------------------------------------------------
+# Subjects 
+# ----------------------------------------------------------------------
+
+natcurric:subject-art-and-design
+  a curric:Subject ;
+  rdfs:label "Art and design"@en ;
+  curric:rationale """Art, craft and design embody some of the highest forms of human 
+  creativity. A high-quality art and design education should engage, inspire and challenge pupils, 
+  equipping them with the knowledge and skills to experiment, invent and create their own works of 
+  art, craft and design. As pupils progress, they should be able to think critically and develop a 
+  more rigorous understanding of art and design. They should also know how art and design both 
+  reflect and shape our history, and contribute to the culture, creativity and wealth of our 
+  nation."""@en ;
+  curric:hasAim
+    natcurric:aim-art-and-design-produce-creative-work-exploring-ideas ,
+    natcurric:aim-art-and-design-proficient-art-craft-design-techniques ,
+    natcurric:aim-art-and-design-evaluate-and-analyse-creative-works ,
+    natcurric:aim-art-and-design-great-artists-craft-makers-designers ; 
+  dcterms:modified "2026-05-04T13:57:52Z"^^xsd:dateTime ;
+  curric:isSubjectOf natcurric:subjectgroup-art-and-design ;
+  curric:coversStrand natcurric:strand-art-and-design .
+
+# ----------------------------------------------------------------------
+# Aims
+# ----------------------------------------------------------------------
+
+natcurric:aim-art-and-design-produce-creative-work-exploring-ideas
+  a curric:Aim ;
+  rdfs:label "Produce creative work, exploring their ideas and recording their experiences."@en ;
+  dcterms:modified "2026-05-04T13:57:52Z"^^xsd:dateTime .
+
+natcurric:aim-art-and-design-proficient-art-craft-design-techniques
+  a curric:Aim ;
+  rdfs:label """Become proficient in drawing, painting, sculpture and other art, craft and design 
+  techniques."""@en ;
+  dcterms:modified "2026-05-04T13:57:52Z"^^xsd:dateTime .
+
+natcurric:aim-art-and-design-evaluate-and-analyse-creative-works
+  a curric:Aim ;
+  rdfs:label "Evaluate and analyse creative works using the language of art, craft and design."@en ;
+  dcterms:modified "2026-05-04T13:57:52Z"^^xsd:dateTime .
+
+natcurric:aim-art-and-design-great-artists-craft-makers-designers
+  a curric:Aim ;
+  rdfs:label """Know about great artists, craft makers and designers, and understand the historical 
+  and cultural development of their art forms."""@en ;
+  dcterms:modified "2026-05-04T13:57:52Z"^^xsd:dateTime .
+
+# ----------------------------------------------------------------------
+# Schemes
+# ----------------------------------------------------------------------
+
+natcurric:scheme-art-and-design-key-stage-1
+  a curric:Scheme ;
+  rdfs:label "Art and design Key Stage 1"@en ;
+  dcterms:description "No key stage description."@en ;
+  dcterms:modified "2026-05-04T13:57:52Z"^^xsd:dateTime ;
+  curric:isSchemeOf natcurric:subject-art-and-design ;
+  curric:coversKeyStage natcurric:key-stage-1 .
+
+natcurric:scheme-art-and-design-key-stage-2
+  a curric:Scheme ;
+  rdfs:label "Art and design Key Stage 2"@en ;
+  dcterms:description """Pupils should be taught to develop their techniques, including their 
+  control and their use of materials, with creativity, experimentation and an increasing awareness 
+  of different kinds of art, craft and design."""@en ;
+  dcterms:modified "2026-05-04T13:57:52Z"^^xsd:dateTime ;
+  curric:isSchemeOf natcurric:subject-art-and-design ;
+  curric:coversKeyStage natcurric:key-stage-2 .
+
+natcurric:scheme-art-and-design-key-stage-3
+  a curric:Scheme ;
+  rdfs:label "Art and design Key Stage 3"@en ;
+  dcterms:description """Pupils should be taught to develop their creativity and ideas, and 
+  increase proficiency in their execution. They should develop a critical understanding of artists, 
+  architects and designers, expressing reasoned judgements that can inform their own work."""@en ;
+  dcterms:modified "2026-05-04T13:57:52Z"^^xsd:dateTime ;
+  curric:isSchemeOf natcurric:subject-art-and-design ;
+  curric:coversKeyStage natcurric:key-stage-3 .
+
+# ----------------------------------------------------------------------
+# Progressions
+# ----------------------------------------------------------------------
+
+natcurric:progression-art-and-design-key-stage-1-art-and-design
+  a curric:Progression ;
+  rdfs:label "Art and design Key Stage 1 Art and design"@en ;
+  dcterms:modified "2026-05-04T13:57:52Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-art-and-design-key-stage-1 ;
+  curric:coversSubStrand natcurric:substrand-art-and-design ;
+  curric:includesContentDescriptor
+    natcurric:contentdescriptor-range-materials-design-products ,
+    natcurric:contentdescriptor-drawing-painting-sculpture-share-ideas ,
+    natcurric:contentdescriptor-wide-range-art-design-techniques ,
+    natcurric:contentdescriptor-range-artists-craft-makers-designers .
+
+natcurric:progression-art-and-design-key-stage-2-art-and-design
+  a curric:Progression ;
+  rdfs:label "Art and design Key Stage 2 Art and design"@en ;
+  dcterms:modified "2026-05-04T13:57:52Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-art-and-design-key-stage-2 ;
+  curric:coversSubStrand natcurric:substrand-art-and-design ;
+  curric:includesContentDescriptor
+    natcurric:contentdescriptor-create-sketch-books-record-observations ,
+    natcurric:contentdescriptor-improve-mastery-art-design-techniques ,
+    natcurric:contentdescriptor-great-artists-architects-designers-history .
+
+natcurric:progression-art-and-design-key-stage-3-art-and-design
+  a curric:Progression ;
+  rdfs:label "Art and design Key Stage 3 Art and design"@en ;
+  dcterms:modified "2026-05-04T13:57:52Z"^^xsd:dateTime ;
+  curric:isProgressionOf natcurric:scheme-art-and-design-key-stage-3 ;
+  curric:coversSubStrand natcurric:substrand-art-and-design ;
+  curric:includesContentDescriptor
+    natcurric:contentdescriptor-range-techniques-record-observations-sketchbooks ,
+    natcurric:contentdescriptor-range-techniques-media-painting ,
+    natcurric:contentdescriptor-increase-proficiency-handling-different-materials ,
+    natcurric:contentdescriptor-analyse-evaluate-own-others-order ,
+    natcurric:contentdescriptor-major-movements-ancient-times-present .

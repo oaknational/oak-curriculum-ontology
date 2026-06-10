@@ -1,0 +1,2779 @@
+@prefix curric: <https://w3id.org/uk/oak/curriculum/ontology/> .
+@prefix oakcurric: <https://w3id.org/uk/oak/curriculum/oakcurriculum/> .
+@prefix natcurric: <https://w3id.org/uk/oak/curriculum/nationalcurriculum/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix schema: <http://schema.org/> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ======================================================================
+# Oak Curriculum Data - Computing Key Stage 1 Instance Data
+# ======================================================================
+
+# ----------------------------------------------------------------------
+# Ontology Declaration
+# ----------------------------------------------------------------------
+
+<https://w3id.org/uk/oak/curriculum/oakcurriculum/computing-key-stage-1>
+  rdf:type owl:Ontology ;
+
+  rdfs:label "Oak Curriculum Data - Computing Key Stage 1 Instance Data"@en ;
+  dc:title "Oak Curriculum Data - Computing Key Stage 1 Instance Data"@en ;
+  rdfs:comment """Instance data defining the Oak National Academy Curriculum
+  programmes for Computing Key Stage 1."""@en ;
+
+  owl:versionInfo "0.1.1" ;
+  owl:versionIRI <https://w3id.org/uk/oak/curriculum/oakcurriculum/computing-key-stage-1/0.1.1> ;
+
+  dcterms:description """This file contains Programme, Unit, Unit Variant, and Lesson instances for
+  Computing Key Stage 1, including exam board-specific unit variants and lesson sequences."""@en ;
+  dc:creator "Oak National Academy" ;
+  dcterms:created "2026-05-25T00:00:00Z"^^xsd:dateTime ;
+  dcterms:modified "2026-06-07T15:30:47.022197Z"^^xsd:dateTime ;
+  dcterms:issued "2026-05-25T00:00:00Z"^^xsd:dateTime ;
+
+  # OGL 3.0 License
+  dcterms:license <http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/> ;
+  dcterms:rights "Copyright © 2026 Oak National Academy."@en ;
+
+  rdfs:seeAlso <https://thenational.academy> ;
+  vann:preferredNamespacePrefix "oakcurric" ;
+  vann:preferredNamespaceUri "https://w3id.org/uk/oak/curriculum/oakcurriculum/" ;
+
+  owl:imports <https://w3id.org/uk/oak/curriculum/ontology> ,
+            <https://w3id.org/uk/oak/curriculum/oakcurriculum/programme-structure> ,
+            <https://w3id.org/uk/oak/curriculum/oakcurriculum/threads> ,
+            <https://w3id.org/uk/oak/curriculum/nationalcurriculum/computing-programme-structure> .
+
+
+# ----------------------------------------------------------------------
+# Programmes
+# ----------------------------------------------------------------------
+
+oakcurric:programme-computing-year-group-1
+  a curric:Programme ;
+  rdfs:label "Computing Year Group 1"@en ;
+  curric:isNationalCurriculum true ;
+  curric:isRequired true ;
+  curric:isExamined false ;
+  dcterms:modified "2026-06-07T15:29:23.029162Z"^^xsd:dateTime ;
+  curric:isProgrammeOf
+    natcurric:scheme-computing-key-stage-1 ;
+  curric:coversYearGroup
+    natcurric:year-group-1 ;
+  curric:hasUnitVariantInclusion
+    oakcurric:inclusion-programme-computing-year-group-1-pos-1 ,
+    oakcurric:inclusion-programme-computing-year-group-1-pos-2 ,
+    oakcurric:inclusion-programme-computing-year-group-1-pos-3 .
+
+oakcurric:programme-computing-year-group-2
+  a curric:Programme ;
+  rdfs:label "Computing Year Group 2"@en ;
+  curric:isNationalCurriculum true ;
+  curric:isRequired true ;
+  curric:isExamined false ;
+  dcterms:modified "2026-06-07T15:29:23.033724Z"^^xsd:dateTime ;
+  curric:isProgrammeOf
+    natcurric:scheme-computing-key-stage-1 ;
+  curric:coversYearGroup
+    natcurric:year-group-2 ;
+  curric:hasUnitVariantInclusion
+    oakcurric:inclusion-programme-computing-year-group-2-pos-1 ,
+    oakcurric:inclusion-programme-computing-year-group-2-pos-2 ,
+    oakcurric:inclusion-programme-computing-year-group-2-pos-3 .
+
+# ----------------------------------------------------------------------
+# Units
+# ----------------------------------------------------------------------
+
+oakcurric:unit-3309
+  a curric:Unit ;
+  rdfs:label "Digital writing"@en ;
+  curric:slug "digital-writing" ;
+  rdfs:comment """This unit covers various aspects of using a computer to create and manipulate
+  text. Pupils will become familiar with using a keyboard and mouse to enter and remove
+  text. They will consider how to change the look of their text, and will be able to justify
+  their reasoning for making these changes."""@en ;
+  curric:whyThisWhyNow """This unit develops pupils’ skills in creating and editing digital content
+  with a word processor. They will improve typing accuracy, learn to navigate keys efficiently
+  and refine design choices for clarity and impact. Alongside the previous unit, this builds
+  essential computer skills that help pupils access, record, and present their learning
+  effectively by using technology as a tool to support what they do.""" ;
+  curric:hasPriorKnowledgeRequirement
+    oakcurric:priorknowledge-3309-1 ,
+    oakcurric:priorknowledge-3309-2 ,
+    oakcurric:priorknowledge-3309-3 ;
+  curric:id "3309"^^xsd:positiveInteger;
+  dcterms:modified "2026-06-07T15:29:25.061226Z"^^xsd:dateTime ;
+  curric:isUnitOf
+    natcurric:scheme-computing-key-stage-1 ;
+  curric:includesThread
+    oakcurric:thread-creating-media ,
+    oakcurric:thread-effective-use-of-tools .
+
+oakcurric:unit-3310
+  a curric:Unit ;
+  rdfs:label "Creating animations in programs"@en ;
+  curric:slug "creating-animations-in-programs" ;
+  rdfs:comment """In this unit pupils are introduced to on-screen programming through ScratchJr.
+  Pupils will explore the way a project looks onscreen by investigating sprites and
+  backgrounds. They will use programming blocks to use, modify, and create programs that
+  move objects."""@en ;
+  curric:whyThisWhyNow """This unit introduces pupils to how computer programs are built and carry
+  out actions. Using block-based programming they explore controlling sprites, selecting
+  backgrounds and creating or adapting projects, alongside designing simple algorithms. This is
+  the first step in developing computational thinking, giving pupils the foundations in logic,
+  sequencing, and problem solving that will be revisited and expanded upon.""" ;
+  curric:hasPriorKnowledgeRequirement
+    oakcurric:priorknowledge-3310-1 ,
+    oakcurric:priorknowledge-3310-2 ;
+  curric:id "3310"^^xsd:positiveInteger;
+  dcterms:modified "2026-06-07T15:29:25.228768Z"^^xsd:dateTime ;
+  curric:isUnitOf
+    natcurric:scheme-computing-key-stage-1 ;
+  curric:includesThread
+    oakcurric:thread-programming ,
+    oakcurric:thread-design-and-development .
+
+oakcurric:unit-3313
+  a curric:Unit ;
+  rdfs:label "Building sequences in programs"@en ;
+  curric:slug "building-sequences-in-programs" ;
+  rdfs:comment """In this unit, pupils will begin to understand that sequences of commands have an
+  outcome and will start to make predictions about what these outcomes may be. Pupils will
+  use and modify designs to create their own quiz questions using sequences of code blocks."""@en ;
+  curric:whyThisWhyNow """This unit builds on pupils’ previous experiences with block-based
+  programming to deepen their understanding of how sequences of commands produce outcomes. They
+  learn to predict and explain code behaviour, recognising how small changes affect results. By
+  designing and modifying quiz questions, pupils take an early step in structured
+  problem-solving, laying the groundwork for more complex programming concepts and applications
+  in later years.""" ;
+  curric:hasPriorKnowledgeRequirement
+    oakcurric:priorknowledge-3313-1 ,
+    oakcurric:priorknowledge-3313-2 ,
+    oakcurric:priorknowledge-3313-3 ,
+    oakcurric:priorknowledge-3313-4 ,
+    oakcurric:priorknowledge-3313-5 ;
+  curric:id "3313"^^xsd:positiveInteger;
+  dcterms:modified "2026-06-07T15:29:25.230679Z"^^xsd:dateTime ;
+  curric:isUnitOf
+    natcurric:scheme-computing-key-stage-1 ;
+  curric:includesThread
+    oakcurric:thread-programming ,
+    oakcurric:thread-design-and-development .
+
+oakcurric:unit-3308
+  a curric:Unit ;
+  rdfs:label "Digital painting"@en ;
+  curric:slug "digital-painting" ;
+  rdfs:comment """In this unit, pupils develop their understanding of how to manipulate digital
+  devices by using painting tools. They practise by creating digital paintings, gaining
+  inspiration from the work of artists whilst reflecting on their preferences when painting
+  with and without the use of digital devices."""@en ;
+  curric:whyThisWhyNow """This unit introduces pupils to using digital tools for the first time. It
+  builds their confidence and foundational skills in operating digital devices. Before
+  starting, pupils should already know how to turn on and log in to their device. Throughout
+  the unit, they will develop key digital skills they’ll use across the curriculum. In later
+  units these same skills will support pupils as they explore different ways to create and edit
+  digital images and apply these same skills across a range of applications.""" ;
+  curric:hasPriorKnowledgeRequirement
+    oakcurric:priorknowledge-3308-1 ,
+    oakcurric:priorknowledge-3308-2 ;
+  curric:id "3308"^^xsd:positiveInteger;
+  dcterms:modified "2026-06-07T15:29:25.426161Z"^^xsd:dateTime ;
+  curric:isUnitOf
+    natcurric:scheme-computing-key-stage-1 ;
+  curric:includesThread
+    oakcurric:thread-creating-media ,
+    oakcurric:thread-effective-use-of-tools .
+
+oakcurric:unit-3312
+  a curric:Unit ;
+  rdfs:label "Using IT to organise and present data"@en ;
+  curric:slug "using-it-to-organise-and-present-data" ;
+  rdfs:comment """In this unit pupils will explore what the term data means and how data can be
+  collected. They will explore how attributes can be used to organise data and how data can
+  be presented in the form of pictograms and block diagrams. Pupils will use the data
+  presented to answer questions."""@en ;
+  curric:whyThisWhyNow """Having previously explored how to collect, summarise and present data,
+  pupils now develop their skills in organising and classifying information. They refine their
+  ability to identify attributes, ask precise yes/no questions and sort objects, strengthening
+  logical thinking and decision-making. This progression builds the foundation for analysing,
+  comparing and structuring data preparing pupils for more complex tasks involving patterns,
+  problem-solving, and drawing conclusions.""" ;
+  curric:hasPriorKnowledgeRequirement
+    oakcurric:priorknowledge-3312-1 ,
+    oakcurric:priorknowledge-3312-2 ,
+    oakcurric:priorknowledge-3312-3 ,
+    oakcurric:priorknowledge-3312-4 ;
+  curric:id "3312"^^xsd:positiveInteger;
+  dcterms:modified "2026-06-07T15:29:25.575299Z"^^xsd:dateTime ;
+  curric:isUnitOf
+    natcurric:scheme-computing-key-stage-1 ;
+  curric:includesThread
+    oakcurric:thread-data-and-information ,
+    oakcurric:thread-effective-use-of-tools .
+
+oakcurric:unit-3311
+  a curric:Unit ;
+  rdfs:label "Information technology in the world beyond school"@en ;
+  curric:slug "information-technology-in-the-world-beyond-school" ;
+  rdfs:comment """In this unit pupils develop their understanding of what information technology is
+  and will begin to identify examples. Pupils will discuss where they have seen IT in school
+  and beyond. They will investigate how IT improves our world whilst also recognising the
+  importance of using IT responsibly."""@en ;
+  curric:whyThisWhyNow """This unit progresses pupils' knowledge and understanding of technology and
+  how they interact with it both in school and the wider world. They will build their knowledge
+  of what Information Technology is and how it is used day-to-day. They will also consider the
+  appropriate use of IT, setting the expectation that it should be used carefully and
+  responsibly throughout their lives.""" ;
+  curric:hasPriorKnowledgeRequirement
+    oakcurric:priorknowledge-3311-1 ,
+    oakcurric:priorknowledge-3311-2 ,
+    oakcurric:priorknowledge-3311-3 ;
+  curric:id "3311"^^xsd:positiveInteger;
+  dcterms:modified "2026-06-07T15:29:26.781368Z"^^xsd:dateTime ;
+  curric:isUnitOf
+    natcurric:scheme-computing-key-stage-1 ;
+  curric:includesThread
+    oakcurric:thread-networks ,
+    oakcurric:thread-computing-systems ,
+    oakcurric:thread-safety-and-security .
+
+# ----------------------------------------------------------------------
+# Unit Variant Inclusion
+# ----------------------------------------------------------------------
+
+oakcurric:inclusion-programme-computing-year-group-1-pos-1
+  a curric:UnitVariantInclusion ;
+  curric:includesUnitVariant oakcurric:unitvariant-4013 ;
+  curric:sequencePosition "1"^^xsd:positiveInteger .
+
+oakcurric:inclusion-programme-computing-year-group-1-pos-2
+  a curric:UnitVariantInclusion ;
+  curric:includesUnitVariant oakcurric:unitvariant-4014 ;
+  curric:sequencePosition "2"^^xsd:positiveInteger .
+
+oakcurric:inclusion-programme-computing-year-group-1-pos-3
+  a curric:UnitVariantInclusion ;
+  curric:includesUnitVariant oakcurric:unitvariant-4015 ;
+  curric:sequencePosition "3"^^xsd:positiveInteger .
+
+oakcurric:inclusion-programme-computing-year-group-2-pos-1
+  a curric:UnitVariantInclusion ;
+  curric:includesUnitVariant oakcurric:unitvariant-4016 ;
+  curric:sequencePosition "1"^^xsd:positiveInteger .
+
+oakcurric:inclusion-programme-computing-year-group-2-pos-2
+  a curric:UnitVariantInclusion ;
+  curric:includesUnitVariant oakcurric:unitvariant-4017 ;
+  curric:sequencePosition "2"^^xsd:positiveInteger .
+
+oakcurric:inclusion-programme-computing-year-group-2-pos-3
+  a curric:UnitVariantInclusion ;
+  curric:includesUnitVariant oakcurric:unitvariant-4018 ;
+  curric:sequencePosition "3"^^xsd:positiveInteger .
+
+# ----------------------------------------------------------------------
+# Unit Variant Choices
+# ----------------------------------------------------------------------
+
+# No Unit Variant Choices
+
+# ----------------------------------------------------------------------
+# Prior Knowledge Requirements
+# ----------------------------------------------------------------------
+
+oakcurric:priorknowledge-3309-1
+  a curric:PriorKnowledgeRequirement ;
+  rdfs:label "Pupils should be able to access a digital device and log on where necessary"@en ;
+  dcterms:modified "2026-06-07T15:29:25.061177Z"^^xsd:dateTime .
+
+oakcurric:priorknowledge-3309-2
+  a curric:PriorKnowledgeRequirement ;
+  rdfs:label "Pupils should be able to open an application as directed"@en ;
+  dcterms:modified "2026-06-07T15:29:25.061190Z"^^xsd:dateTime .
+
+oakcurric:priorknowledge-3309-3
+  a curric:PriorKnowledgeRequirement ;
+  rdfs:label """Pupils should be able to operate a pointing device (or equivalent) to control
+  features of software"""@en ;
+  dcterms:modified "2026-06-07T15:29:25.061196Z"^^xsd:dateTime .
+
+oakcurric:priorknowledge-3310-1
+  a curric:PriorKnowledgeRequirement ;
+  rdfs:label "Pupils will know how to turn on and log in to a digital device."@en ;
+  dcterms:modified "2026-06-07T15:29:25.228732Z"^^xsd:dateTime .
+
+oakcurric:priorknowledge-3310-2
+  a curric:PriorKnowledgeRequirement ;
+  rdfs:label """Pupils will know how to perform basic actions to control a digital device, (point,
+  click, move, type)."""@en ;
+  dcterms:modified "2026-06-07T15:29:25.228743Z"^^xsd:dateTime .
+
+oakcurric:priorknowledge-3313-1
+  a curric:PriorKnowledgeRequirement ;
+  rdfs:label "Pupils can create sequences in a block-based programming environment."@en ;
+  dcterms:modified "2026-06-07T15:29:25.230627Z"^^xsd:dateTime .
+
+oakcurric:priorknowledge-3313-2
+  a curric:PriorKnowledgeRequirement ;
+  rdfs:label "Pupils can debug simple programs that don't work."@en ;
+  dcterms:modified "2026-06-07T15:29:25.230638Z"^^xsd:dateTime .
+
+oakcurric:priorknowledge-3313-3
+  a curric:PriorKnowledgeRequirement ;
+  rdfs:label "Pupils recognise elements of graphical computer programs."@en ;
+  dcterms:modified "2026-06-07T15:29:25.230644Z"^^xsd:dateTime .
+
+oakcurric:priorknowledge-3313-4
+  a curric:PriorKnowledgeRequirement ;
+  rdfs:label "Pupils can follow straight-forward algorithms."@en ;
+  dcterms:modified "2026-06-07T15:29:25.230648Z"^^xsd:dateTime .
+
+oakcurric:priorknowledge-3313-5
+  a curric:PriorKnowledgeRequirement ;
+  rdfs:label """Pupils can operate a digital device and use it to enter and edit textual
+  information."""@en ;
+  dcterms:modified "2026-06-07T15:29:25.230654Z"^^xsd:dateTime .
+
+oakcurric:priorknowledge-3308-1
+  a curric:PriorKnowledgeRequirement ;
+  rdfs:label "Pupils should be familiar with how to switch their device on"@en ;
+  dcterms:modified "2026-06-07T15:29:25.426120Z"^^xsd:dateTime .
+
+oakcurric:priorknowledge-3308-2
+  a curric:PriorKnowledgeRequirement ;
+  rdfs:label "Pupils should be familiar with how to log in to their device"@en ;
+  dcterms:modified "2026-06-07T15:29:25.426132Z"^^xsd:dateTime .
+
+oakcurric:priorknowledge-3312-1
+  a curric:PriorKnowledgeRequirement ;
+  rdfs:label "Pupils know how to access websites on digital device as directed."@en ;
+  dcterms:modified "2026-06-07T15:29:25.575255Z"^^xsd:dateTime .
+
+oakcurric:priorknowledge-3312-2
+  a curric:PriorKnowledgeRequirement ;
+  rdfs:label "Pupils understand how to count object and group them."@en ;
+  dcterms:modified "2026-06-07T15:29:25.575265Z"^^xsd:dateTime .
+
+oakcurric:priorknowledge-3312-3
+  a curric:PriorKnowledgeRequirement ;
+  rdfs:label "Pupils understand how charts can help to visualise numerical data."@en ;
+  dcterms:modified "2026-06-07T15:29:25.575271Z"^^xsd:dateTime .
+
+oakcurric:priorknowledge-3312-4
+  a curric:PriorKnowledgeRequirement ;
+  rdfs:label """Pupils will be able to operate a digital device and use it to enter and edit textual
+  information."""@en ;
+  dcterms:modified "2026-06-07T15:29:25.575275Z"^^xsd:dateTime .
+
+oakcurric:priorknowledge-3311-1
+  a curric:PriorKnowledgeRequirement ;
+  rdfs:label "Pupils will know how to turn on and log in to a digital device."@en ;
+  dcterms:modified "2026-06-07T15:29:26.781327Z"^^xsd:dateTime .
+
+oakcurric:priorknowledge-3311-2
+  a curric:PriorKnowledgeRequirement ;
+  rdfs:label """Pupils will be able to operate a digital device and use it to enter and edit textual
+  information."""@en ;
+  dcterms:modified "2026-06-07T15:29:26.781338Z"^^xsd:dateTime .
+
+oakcurric:priorknowledge-3311-3
+  a curric:PriorKnowledgeRequirement ;
+  rdfs:label """Pupils will have talked with teachers and responsible adults about the appropriate
+  use of IT."""@en ;
+  dcterms:modified "2026-06-07T15:29:26.781343Z"^^xsd:dateTime .
+
+# ----------------------------------------------------------------------
+# Unit Variants
+# ----------------------------------------------------------------------
+
+oakcurric:unitvariant-4014
+  a curric:UnitVariant ;
+  rdfs:label "Digital writing"@en ;
+  curric:id "4014"^^xsd:positiveInteger;
+  dcterms:modified "2026-06-07T15:29:29.101205Z"^^xsd:dateTime ;
+  curric:isUnitVariantOf oakcurric:unit-3309 ;
+  curric:hasLessonInclusion
+    oakcurric:inclusion-unitvariant-4014-lesson-24791 ,
+    oakcurric:inclusion-unitvariant-4014-lesson-24793 ,
+    oakcurric:inclusion-unitvariant-4014-lesson-24794 ,
+    oakcurric:inclusion-unitvariant-4014-lesson-24795 ,
+    oakcurric:inclusion-unitvariant-4014-lesson-24797 ,
+    oakcurric:inclusion-unitvariant-4014-lesson-24798 .
+
+oakcurric:unitvariant-4015
+  a curric:UnitVariant ;
+  rdfs:label "Creating animations in programs"@en ;
+  curric:id "4015"^^xsd:positiveInteger;
+  dcterms:modified "2026-06-07T15:29:29.380495Z"^^xsd:dateTime ;
+  curric:isUnitVariantOf oakcurric:unit-3310 ;
+  curric:hasLessonInclusion
+    oakcurric:inclusion-unitvariant-4015-lesson-24622 ,
+    oakcurric:inclusion-unitvariant-4015-lesson-24623 ,
+    oakcurric:inclusion-unitvariant-4015-lesson-24624 ,
+    oakcurric:inclusion-unitvariant-4015-lesson-24625 ,
+    oakcurric:inclusion-unitvariant-4015-lesson-24626 ,
+    oakcurric:inclusion-unitvariant-4015-lesson-24627 .
+
+oakcurric:unitvariant-4018
+  a curric:UnitVariant ;
+  rdfs:label "Building sequences in programs"@en ;
+  curric:id "4018"^^xsd:positiveInteger;
+  dcterms:modified "2026-06-07T15:29:29.382894Z"^^xsd:dateTime ;
+  curric:isUnitVariantOf oakcurric:unit-3313 ;
+  curric:hasLessonInclusion
+    oakcurric:inclusion-unitvariant-4018-lesson-24640 ,
+    oakcurric:inclusion-unitvariant-4018-lesson-24641 ,
+    oakcurric:inclusion-unitvariant-4018-lesson-24642 ,
+    oakcurric:inclusion-unitvariant-4018-lesson-24643 ,
+    oakcurric:inclusion-unitvariant-4018-lesson-24644 ,
+    oakcurric:inclusion-unitvariant-4018-lesson-24645 .
+
+oakcurric:unitvariant-4013
+  a curric:UnitVariant ;
+  rdfs:label "Digital painting"@en ;
+  curric:id "4013"^^xsd:positiveInteger;
+  dcterms:modified "2026-06-07T15:29:29.927538Z"^^xsd:dateTime ;
+  curric:isUnitVariantOf oakcurric:unit-3308 ;
+  curric:hasLessonInclusion
+    oakcurric:inclusion-unitvariant-4013-lesson-24616 ,
+    oakcurric:inclusion-unitvariant-4013-lesson-24617 ,
+    oakcurric:inclusion-unitvariant-4013-lesson-24618 ,
+    oakcurric:inclusion-unitvariant-4013-lesson-24619 ,
+    oakcurric:inclusion-unitvariant-4013-lesson-24620 ,
+    oakcurric:inclusion-unitvariant-4013-lesson-24621 .
+
+oakcurric:unitvariant-4017
+  a curric:UnitVariant ;
+  rdfs:label "Using IT to organise and present data"@en ;
+  curric:id "4017"^^xsd:positiveInteger;
+  dcterms:modified "2026-06-07T15:29:30.209404Z"^^xsd:dateTime ;
+  curric:isUnitVariantOf oakcurric:unit-3312 ;
+  curric:hasLessonInclusion
+    oakcurric:inclusion-unitvariant-4017-lesson-24634 ,
+    oakcurric:inclusion-unitvariant-4017-lesson-24635 ,
+    oakcurric:inclusion-unitvariant-4017-lesson-24636 ,
+    oakcurric:inclusion-unitvariant-4017-lesson-24637 ,
+    oakcurric:inclusion-unitvariant-4017-lesson-24638 ,
+    oakcurric:inclusion-unitvariant-4017-lesson-24639 .
+
+oakcurric:unitvariant-4016
+  a curric:UnitVariant ;
+  rdfs:label "Information technology in the world beyond school"@en ;
+  curric:id "4016"^^xsd:positiveInteger;
+  dcterms:modified "2026-06-07T15:29:32.568160Z"^^xsd:dateTime ;
+  curric:isUnitVariantOf oakcurric:unit-3311 ;
+  curric:hasLessonInclusion
+    oakcurric:inclusion-unitvariant-4016-lesson-24628 ,
+    oakcurric:inclusion-unitvariant-4016-lesson-24629 ,
+    oakcurric:inclusion-unitvariant-4016-lesson-24630 ,
+    oakcurric:inclusion-unitvariant-4016-lesson-24631 ,
+    oakcurric:inclusion-unitvariant-4016-lesson-24632 ,
+    oakcurric:inclusion-unitvariant-4016-lesson-24633 .
+
+# ----------------------------------------------------------------------
+# Lesson Inclusions
+# ----------------------------------------------------------------------
+
+oakcurric:inclusion-unitvariant-4014-lesson-24791
+  a curric:LessonInclusion ;
+  curric:includesLesson oakcurric:lesson-24791 ;
+  curric:sequencePosition "1"^^xsd:positiveInteger .
+
+oakcurric:inclusion-unitvariant-4014-lesson-24795
+  a curric:LessonInclusion ;
+  curric:includesLesson oakcurric:lesson-24795 ;
+  curric:sequencePosition "4"^^xsd:positiveInteger .
+
+oakcurric:inclusion-unitvariant-4014-lesson-24794
+  a curric:LessonInclusion ;
+  curric:includesLesson oakcurric:lesson-24794 ;
+  curric:sequencePosition "3"^^xsd:positiveInteger .
+
+oakcurric:inclusion-unitvariant-4014-lesson-24793
+  a curric:LessonInclusion ;
+  curric:includesLesson oakcurric:lesson-24793 ;
+  curric:sequencePosition "2"^^xsd:positiveInteger .
+
+oakcurric:inclusion-unitvariant-4014-lesson-24797
+  a curric:LessonInclusion ;
+  curric:includesLesson oakcurric:lesson-24797 ;
+  curric:sequencePosition "5"^^xsd:positiveInteger .
+
+oakcurric:inclusion-unitvariant-4014-lesson-24798
+  a curric:LessonInclusion ;
+  curric:includesLesson oakcurric:lesson-24798 ;
+  curric:sequencePosition "6"^^xsd:positiveInteger .
+
+oakcurric:inclusion-unitvariant-4015-lesson-24625
+  a curric:LessonInclusion ;
+  curric:includesLesson oakcurric:lesson-24625 ;
+  curric:sequencePosition "4"^^xsd:positiveInteger .
+
+oakcurric:inclusion-unitvariant-4015-lesson-24624
+  a curric:LessonInclusion ;
+  curric:includesLesson oakcurric:lesson-24624 ;
+  curric:sequencePosition "3"^^xsd:positiveInteger .
+
+oakcurric:inclusion-unitvariant-4015-lesson-24627
+  a curric:LessonInclusion ;
+  curric:includesLesson oakcurric:lesson-24627 ;
+  curric:sequencePosition "6"^^xsd:positiveInteger .
+
+oakcurric:inclusion-unitvariant-4015-lesson-24622
+  a curric:LessonInclusion ;
+  curric:includesLesson oakcurric:lesson-24622 ;
+  curric:sequencePosition "1"^^xsd:positiveInteger .
+
+oakcurric:inclusion-unitvariant-4015-lesson-24623
+  a curric:LessonInclusion ;
+  curric:includesLesson oakcurric:lesson-24623 ;
+  curric:sequencePosition "2"^^xsd:positiveInteger .
+
+oakcurric:inclusion-unitvariant-4015-lesson-24626
+  a curric:LessonInclusion ;
+  curric:includesLesson oakcurric:lesson-24626 ;
+  curric:sequencePosition "5"^^xsd:positiveInteger .
+
+oakcurric:inclusion-unitvariant-4018-lesson-24642
+  a curric:LessonInclusion ;
+  curric:includesLesson oakcurric:lesson-24642 ;
+  curric:sequencePosition "3"^^xsd:positiveInteger .
+
+oakcurric:inclusion-unitvariant-4018-lesson-24641
+  a curric:LessonInclusion ;
+  curric:includesLesson oakcurric:lesson-24641 ;
+  curric:sequencePosition "2"^^xsd:positiveInteger .
+
+oakcurric:inclusion-unitvariant-4018-lesson-24643
+  a curric:LessonInclusion ;
+  curric:includesLesson oakcurric:lesson-24643 ;
+  curric:sequencePosition "4"^^xsd:positiveInteger .
+
+oakcurric:inclusion-unitvariant-4018-lesson-24645
+  a curric:LessonInclusion ;
+  curric:includesLesson oakcurric:lesson-24645 ;
+  curric:sequencePosition "6"^^xsd:positiveInteger .
+
+oakcurric:inclusion-unitvariant-4018-lesson-24640
+  a curric:LessonInclusion ;
+  curric:includesLesson oakcurric:lesson-24640 ;
+  curric:sequencePosition "1"^^xsd:positiveInteger .
+
+oakcurric:inclusion-unitvariant-4018-lesson-24644
+  a curric:LessonInclusion ;
+  curric:includesLesson oakcurric:lesson-24644 ;
+  curric:sequencePosition "5"^^xsd:positiveInteger .
+
+oakcurric:inclusion-unitvariant-4013-lesson-24619
+  a curric:LessonInclusion ;
+  curric:includesLesson oakcurric:lesson-24619 ;
+  curric:sequencePosition "4"^^xsd:positiveInteger .
+
+oakcurric:inclusion-unitvariant-4013-lesson-24616
+  a curric:LessonInclusion ;
+  curric:includesLesson oakcurric:lesson-24616 ;
+  curric:sequencePosition "1"^^xsd:positiveInteger .
+
+oakcurric:inclusion-unitvariant-4013-lesson-24621
+  a curric:LessonInclusion ;
+  curric:includesLesson oakcurric:lesson-24621 ;
+  curric:sequencePosition "6"^^xsd:positiveInteger .
+
+oakcurric:inclusion-unitvariant-4013-lesson-24620
+  a curric:LessonInclusion ;
+  curric:includesLesson oakcurric:lesson-24620 ;
+  curric:sequencePosition "5"^^xsd:positiveInteger .
+
+oakcurric:inclusion-unitvariant-4013-lesson-24617
+  a curric:LessonInclusion ;
+  curric:includesLesson oakcurric:lesson-24617 ;
+  curric:sequencePosition "2"^^xsd:positiveInteger .
+
+oakcurric:inclusion-unitvariant-4013-lesson-24618
+  a curric:LessonInclusion ;
+  curric:includesLesson oakcurric:lesson-24618 ;
+  curric:sequencePosition "3"^^xsd:positiveInteger .
+
+oakcurric:inclusion-unitvariant-4017-lesson-24635
+  a curric:LessonInclusion ;
+  curric:includesLesson oakcurric:lesson-24635 ;
+  curric:sequencePosition "2"^^xsd:positiveInteger .
+
+oakcurric:inclusion-unitvariant-4017-lesson-24636
+  a curric:LessonInclusion ;
+  curric:includesLesson oakcurric:lesson-24636 ;
+  curric:sequencePosition "3"^^xsd:positiveInteger .
+
+oakcurric:inclusion-unitvariant-4017-lesson-24639
+  a curric:LessonInclusion ;
+  curric:includesLesson oakcurric:lesson-24639 ;
+  curric:sequencePosition "6"^^xsd:positiveInteger .
+
+oakcurric:inclusion-unitvariant-4017-lesson-24634
+  a curric:LessonInclusion ;
+  curric:includesLesson oakcurric:lesson-24634 ;
+  curric:sequencePosition "1"^^xsd:positiveInteger .
+
+oakcurric:inclusion-unitvariant-4017-lesson-24637
+  a curric:LessonInclusion ;
+  curric:includesLesson oakcurric:lesson-24637 ;
+  curric:sequencePosition "4"^^xsd:positiveInteger .
+
+oakcurric:inclusion-unitvariant-4017-lesson-24638
+  a curric:LessonInclusion ;
+  curric:includesLesson oakcurric:lesson-24638 ;
+  curric:sequencePosition "5"^^xsd:positiveInteger .
+
+oakcurric:inclusion-unitvariant-4016-lesson-24633
+  a curric:LessonInclusion ;
+  curric:includesLesson oakcurric:lesson-24633 ;
+  curric:sequencePosition "6"^^xsd:positiveInteger .
+
+oakcurric:inclusion-unitvariant-4016-lesson-24629
+  a curric:LessonInclusion ;
+  curric:includesLesson oakcurric:lesson-24629 ;
+  curric:sequencePosition "2"^^xsd:positiveInteger .
+
+oakcurric:inclusion-unitvariant-4016-lesson-24630
+  a curric:LessonInclusion ;
+  curric:includesLesson oakcurric:lesson-24630 ;
+  curric:sequencePosition "3"^^xsd:positiveInteger .
+
+oakcurric:inclusion-unitvariant-4016-lesson-24628
+  a curric:LessonInclusion ;
+  curric:includesLesson oakcurric:lesson-24628 ;
+  curric:sequencePosition "1"^^xsd:positiveInteger .
+
+oakcurric:inclusion-unitvariant-4016-lesson-24632
+  a curric:LessonInclusion ;
+  curric:includesLesson oakcurric:lesson-24632 ;
+  curric:sequencePosition "5"^^xsd:positiveInteger .
+
+oakcurric:inclusion-unitvariant-4016-lesson-24631
+  a curric:LessonInclusion ;
+  curric:includesLesson oakcurric:lesson-24631 ;
+  curric:sequencePosition "4"^^xsd:positiveInteger .
+
+# ----------------------------------------------------------------------
+# Lessons
+# ----------------------------------------------------------------------
+
+oakcurric:lesson-24791
+  a curric:Lesson ;
+  rdfs:label "Exploring the keyboard"@en ;
+  curric:slug "exploring-the-keyboard" ;
+  curric:id "24791"^^xsd:positiveInteger ;
+  curric:hasKeyLearningPoint
+    oakcurric:keylearningpoint-lesson-24791-1 ,
+    oakcurric:keylearningpoint-lesson-24791-2 ,
+    oakcurric:keylearningpoint-lesson-24791-3 ;
+  curric:hasKeyword
+    oakcurric:keyword-keyboard ,
+    oakcurric:keyword-typing ,
+    oakcurric:keyword-word-processor ,
+    oakcurric:keyword-text ;
+  curric:hasPupilLessonOutcome oakcurric:pupillessonoutcome-lesson-24791 ;
+  curric:hasMisconception
+    oakcurric:misconception-computer-keyboard-letters ;
+  dcterms:modified "2026-06-07T15:29:35.177178Z"^^xsd:dateTime .
+
+oakcurric:lesson-24625
+  a curric:Lesson ;
+  rdfs:label "Controlling sprites"@en ;
+  curric:slug "controlling-sprites" ;
+  curric:id "24625"^^xsd:positiveInteger ;
+  curric:hasKeyLearningPoint
+    oakcurric:keylearningpoint-lesson-24625-1 ,
+    oakcurric:keylearningpoint-lesson-24625-2 ,
+    oakcurric:keylearningpoint-lesson-24625-3 ,
+    oakcurric:keylearningpoint-lesson-24625-4 ;
+  curric:hasKeyword
+    oakcurric:keyword-sprite ,
+    oakcurric:keyword-grow-shrink ,
+    oakcurric:keyword-algorithm ;
+  curric:hasPupilLessonOutcome oakcurric:pupillessonoutcome-lesson-24625 ;
+  curric:hasMisconception
+    oakcurric:misconception-sprites-share-same-program-commands ;
+  dcterms:modified "2026-06-07T15:29:35.419022Z"^^xsd:dateTime .
+
+oakcurric:lesson-24642
+  a curric:Lesson ;
+  rdfs:label "Building blocks to create a sequence"@en ;
+  curric:slug "building-blocks-to-create-a-sequence" ;
+  curric:id "24642"^^xsd:positiveInteger ;
+  curric:hasKeyLearningPoint
+    oakcurric:keylearningpoint-lesson-24642-1 ,
+    oakcurric:keylearningpoint-lesson-24642-2 ,
+    oakcurric:keylearningpoint-lesson-24642-3 ,
+    oakcurric:keylearningpoint-lesson-24642-4 ;
+  curric:hasKeyword
+    oakcurric:keyword-event ,
+    oakcurric:keyword-sprite ,
+    oakcurric:keyword-algorithm ;
+  curric:hasPupilLessonOutcome oakcurric:pupillessonoutcome-lesson-24642 ;
+  curric:hasMisconception
+    oakcurric:misconception-background-changes-sprite-automatically-know ;
+  dcterms:modified "2026-06-07T15:29:35.421448Z"^^xsd:dateTime .
+
+oakcurric:lesson-24624
+  a curric:Lesson ;
+  rdfs:label "Changing values in a program"@en ;
+  curric:slug "changing-values-in-a-program" ;
+  curric:id "24624"^^xsd:positiveInteger ;
+  curric:hasKeyLearningPoint
+    oakcurric:keylearningpoint-lesson-24624-1 ,
+    oakcurric:keylearningpoint-lesson-24624-2 ,
+    oakcurric:keylearningpoint-lesson-24624-3 ;
+  curric:hasKeyword
+    oakcurric:keyword-delete ,
+    oakcurric:keyword-value ,
+    oakcurric:keyword-effect ;
+  curric:hasPupilLessonOutcome oakcurric:pupillessonoutcome-lesson-24624 ;
+  curric:hasMisconception
+    oakcurric:misconception-value-many-times-command-run ;
+  dcterms:modified "2026-06-07T15:29:35.486103Z"^^xsd:dateTime .
+
+oakcurric:lesson-24619
+  a curric:Lesson ;
+  rdfs:label "Choosing the right digital painting tool"@en ;
+  curric:slug "choosing-the-right-digital-painting-tool" ;
+  curric:id "24619"^^xsd:positiveInteger ;
+  curric:hasKeyLearningPoint
+    oakcurric:keylearningpoint-lesson-24619-1 ,
+    oakcurric:keylearningpoint-lesson-24619-2 ,
+    oakcurric:keylearningpoint-lesson-24619-3 ;
+  curric:hasKeyword
+    oakcurric:keyword-digital ,
+    oakcurric:keyword-select ;
+  curric:hasPupilLessonOutcome oakcurric:pupillessonoutcome-lesson-24619 ;
+  curric:hasMisconception
+    oakcurric:misconception-erase-tool-correct-tool-fix ;
+  dcterms:modified "2026-06-07T15:29:35.841457Z"^^xsd:dateTime .
+
+oakcurric:lesson-24627
+  a curric:Lesson ;
+  rdfs:label "Testing a program"@en ;
+  curric:slug "testing-a-program" ;
+  curric:id "24627"^^xsd:positiveInteger ;
+  curric:hasKeyLearningPoint
+    oakcurric:keylearningpoint-lesson-24627-1 ,
+    oakcurric:keylearningpoint-lesson-24627-2 ,
+    oakcurric:keylearningpoint-lesson-24627-3 ;
+  curric:hasKeyword
+    oakcurric:keyword-test ,
+    oakcurric:keyword-error ,
+    oakcurric:keyword-visible ;
+  curric:hasPupilLessonOutcome oakcurric:pupillessonoutcome-lesson-24627 ;
+  curric:hasMisconception
+    oakcurric:misconception-programs-tested-finished ;
+  dcterms:modified "2026-06-07T15:29:35.842616Z"^^xsd:dateTime .
+
+oakcurric:lesson-24641
+  a curric:Lesson ;
+  rdfs:label "Outcomes of sequences"@en ;
+  curric:slug "outcomes-of-sequences" ;
+  curric:id "24641"^^xsd:positiveInteger ;
+  curric:hasKeyLearningPoint
+    oakcurric:keylearningpoint-lesson-24641-1 ,
+    oakcurric:keylearningpoint-lesson-24641-2 ,
+    oakcurric:keylearningpoint-lesson-24641-3 ;
+  curric:hasKeyword
+    oakcurric:keyword-prediction ,
+    oakcurric:keyword-outcome ;
+  curric:hasPupilLessonOutcome oakcurric:pupillessonoutcome-lesson-24641 ;
+  curric:hasMisconception
+    oakcurric:misconception-programs-outcome-achieved-one-way ;
+  dcterms:modified "2026-06-07T15:29:35.977293Z"^^xsd:dateTime .
+
+oakcurric:lesson-24622
+  a curric:Lesson ;
+  rdfs:label "Programming using command blocks"@en ;
+  curric:slug "programming-using-command-blocks" ;
+  curric:id "24622"^^xsd:positiveInteger ;
+  curric:hasKeyLearningPoint
+    oakcurric:keylearningpoint-lesson-24622-1 ,
+    oakcurric:keylearningpoint-lesson-24622-2 ,
+    oakcurric:keylearningpoint-lesson-24622-3 ;
+  curric:hasKeyword
+    oakcurric:keyword-animation ,
+    oakcurric:keyword-command ,
+    oakcurric:keyword-sprite ;
+  curric:hasPupilLessonOutcome oakcurric:pupillessonoutcome-lesson-24622 ;
+  curric:hasMisconception
+    oakcurric:misconception-commands-used-wherever-found-program ;
+  dcterms:modified "2026-06-07T15:29:35.978799Z"^^xsd:dateTime .
+
+oakcurric:lesson-24795
+  a curric:Lesson ;
+  rdfs:label "Exploring the toolbar"@en ;
+  curric:slug "exploring-the-toolbar" ;
+  curric:id "24795"^^xsd:positiveInteger ;
+  curric:hasKeyLearningPoint
+    oakcurric:keylearningpoint-lesson-24795-1 ,
+    oakcurric:keylearningpoint-lesson-24795-2 ;
+  curric:hasKeyword
+    oakcurric:keyword-toolbar ,
+    oakcurric:keyword-formatting ,
+    oakcurric:keyword-select ,
+    oakcurric:keyword-font ;
+  curric:hasPupilLessonOutcome oakcurric:pupillessonoutcome-lesson-24795 ;
+  curric:hasMisconception
+    oakcurric:misconception-use-toolbar-change-text-your ;
+  dcterms:modified "2026-06-07T15:29:36.138592Z"^^xsd:dateTime .
+
+oakcurric:lesson-24635
+  a curric:Lesson ;
+  rdfs:label "Entering data"@en ;
+  curric:slug "entering-data" ;
+  curric:id "24635"^^xsd:positiveInteger ;
+  curric:hasKeyLearningPoint
+    oakcurric:keylearningpoint-lesson-24635-1 ,
+    oakcurric:keylearningpoint-lesson-24635-2 ,
+    oakcurric:keylearningpoint-lesson-24635-3 ;
+  curric:hasKeyword
+    oakcurric:keyword-data ,
+    oakcurric:keyword-pictogram ;
+  curric:hasPupilLessonOutcome oakcurric:pupillessonoutcome-lesson-24635 ;
+  curric:hasMisconception
+    oakcurric:misconception-pictures-line-need-counted-looking ;
+  dcterms:modified "2026-06-07T15:29:36.264418Z"^^xsd:dateTime .
+
+oakcurric:lesson-24616
+  a curric:Lesson ;
+  rdfs:label "Painting using computers"@en ;
+  curric:slug "painting-using-computers" ;
+  curric:id "24616"^^xsd:positiveInteger ;
+  curric:hasKeyLearningPoint
+    oakcurric:keylearningpoint-lesson-24616-1 ,
+    oakcurric:keylearningpoint-lesson-24616-2 ,
+    oakcurric:keylearningpoint-lesson-24616-3 ;
+  curric:hasKeyword
+    oakcurric:keyword-painting-program ,
+    oakcurric:keyword-tool ,
+    oakcurric:keyword-erase ,
+    oakcurric:keyword-fill ;
+  curric:hasPupilLessonOutcome oakcurric:pupillessonoutcome-lesson-24616 ;
+  curric:hasMisconception
+    oakcurric:misconception-screen-like-piece-paper-able ;
+  dcterms:modified "2026-06-07T15:29:36.326433Z"^^xsd:dateTime .
+
+oakcurric:lesson-24623
+  a curric:Lesson ;
+  rdfs:label "Joining command blocks"@en ;
+  curric:slug "joining-command-blocks" ;
+  curric:id "24623"^^xsd:positiveInteger ;
+  curric:hasKeyLearningPoint
+    oakcurric:keylearningpoint-lesson-24623-1 ,
+    oakcurric:keylearningpoint-lesson-24623-2 ,
+    oakcurric:keylearningpoint-lesson-24623-3 ;
+  curric:hasKeyword
+    oakcurric:keyword-background ,
+    oakcurric:keyword-program ,
+    oakcurric:keyword-algorithm ;
+  curric:hasPupilLessonOutcome oakcurric:pupillessonoutcome-lesson-24623 ;
+  curric:hasMisconception
+    oakcurric:misconception-items-background-move ;
+  dcterms:modified "2026-06-07T15:29:36.416359Z"^^xsd:dateTime .
+
+oakcurric:lesson-24636
+  a curric:Lesson ;
+  rdfs:label "Creating pictograms"@en ;
+  curric:slug "creating-pictograms" ;
+  curric:id "24636"^^xsd:positiveInteger ;
+  curric:hasKeyLearningPoint
+    oakcurric:keylearningpoint-lesson-24636-1 ,
+    oakcurric:keylearningpoint-lesson-24636-2 ,
+    oakcurric:keylearningpoint-lesson-24636-3 ;
+  curric:hasKeyword
+    oakcurric:keyword-information ,
+    oakcurric:keyword-pictogram ;
+  curric:hasPupilLessonOutcome oakcurric:pupillessonoutcome-lesson-24636 ;
+  curric:hasMisconception
+    oakcurric:misconception-quicker-create-pictogram-hand-trying ;
+  dcterms:modified "2026-06-07T15:29:38.571191Z"^^xsd:dateTime .
+
+oakcurric:lesson-24794
+  a curric:Lesson ;
+  rdfs:label "Make changes to text"@en ;
+  curric:slug "make-changes-to-text" ;
+  curric:id "24794"^^xsd:positiveInteger ;
+  curric:hasKeyLearningPoint
+    oakcurric:keylearningpoint-lesson-24794-1 ,
+    oakcurric:keylearningpoint-lesson-24794-2 ,
+    oakcurric:keylearningpoint-lesson-24794-3 ;
+  curric:hasKeyword
+    oakcurric:keyword-caps-lock ,
+    oakcurric:keyword-shift ,
+    oakcurric:keyword-select ,
+    oakcurric:keyword-double-clicktap ;
+  curric:hasPupilLessonOutcome oakcurric:pupillessonoutcome-lesson-24794 ;
+  curric:hasMisconception
+    oakcurric:misconception-computer-types-capital-letters ;
+  dcterms:modified "2026-06-07T15:29:38.654551Z"^^xsd:dateTime .
+
+oakcurric:lesson-24626
+  a curric:Lesson ;
+  rdfs:label "Designing an animated program"@en ;
+  curric:slug "designing-an-animated-program" ;
+  curric:id "24626"^^xsd:positiveInteger ;
+  curric:hasKeyLearningPoint
+    oakcurric:keylearningpoint-lesson-24626-1 ,
+    oakcurric:keylearningpoint-lesson-24626-2 ,
+    oakcurric:keylearningpoint-lesson-24626-3 ,
+    oakcurric:keylearningpoint-lesson-24626-4 ;
+  curric:hasKeyword
+    oakcurric:keyword-design ,
+    oakcurric:keyword-appropriate ,
+    oakcurric:keyword-algorithm ,
+    oakcurric:keyword-speed ;
+  curric:hasPupilLessonOutcome oakcurric:pupillessonoutcome-lesson-24626 ;
+  curric:hasMisconception
+    oakcurric:misconception-planning-paper-waste-time-slow ;
+  dcterms:modified "2026-06-07T15:29:38.763154Z"^^xsd:dateTime .
+
+oakcurric:lesson-24643
+  a curric:Lesson ;
+  rdfs:label "Programming multiple sprites and backgrounds"@en ;
+  curric:slug "programming-multiple-sprites-and-backgrounds" ;
+  curric:id "24643"^^xsd:positiveInteger ;
+  curric:hasKeyLearningPoint
+    oakcurric:keylearningpoint-lesson-24643-1 ,
+    oakcurric:keylearningpoint-lesson-24643-2 ,
+    oakcurric:keylearningpoint-lesson-24643-3 ;
+  curric:hasKeyword
+    oakcurric:keyword-quiz ,
+    oakcurric:keyword-background ,
+    oakcurric:keyword-say-block ;
+  curric:hasPupilLessonOutcome oakcurric:pupillessonoutcome-lesson-24643 ;
+  curric:hasMisconception
+    oakcurric:misconception-selecting-sprite-automatically-assigns-background ;
+  dcterms:modified "2026-06-07T15:29:39.123576Z"^^xsd:dateTime .
+
+oakcurric:lesson-24621
+  a curric:Lesson ;
+  rdfs:label "Comparing computer art and painting"@en ;
+  curric:slug "comparing-computer-art-and-painting" ;
+  curric:id "24621"^^xsd:positiveInteger ;
+  curric:hasKeyLearningPoint
+    oakcurric:keylearningpoint-lesson-24621-1 ,
+    oakcurric:keylearningpoint-lesson-24621-2 ,
+    oakcurric:keylearningpoint-lesson-24621-3 ;
+  curric:hasKeyword
+    oakcurric:keyword-computer ,
+    oakcurric:keyword-commands ;
+  curric:hasPupilLessonOutcome oakcurric:pupillessonoutcome-lesson-24621 ;
+  curric:hasMisconception
+    oakcurric:misconception-giving-commands-make-them-long ;
+  dcterms:modified "2026-06-07T15:29:39.244251Z"^^xsd:dateTime .
+
+oakcurric:lesson-24639
+  a curric:Lesson ;
+  rdfs:label "Presenting information clearly"@en ;
+  curric:slug "presenting-information-clearly" ;
+  curric:id "24639"^^xsd:positiveInteger ;
+  curric:hasKeyLearningPoint
+    oakcurric:keylearningpoint-lesson-24639-1 ,
+    oakcurric:keylearningpoint-lesson-24639-2 ,
+    oakcurric:keylearningpoint-lesson-24639-3 ;
+  curric:hasKeyword
+    oakcurric:keyword-present ,
+    oakcurric:keyword-information ,
+    oakcurric:keyword-anonymous ;
+  curric:hasPupilLessonOutcome oakcurric:pupillessonoutcome-lesson-24639 ;
+  curric:hasMisconception
+    oakcurric:misconception-someone-asks-your-personal-information ;
+  dcterms:modified "2026-06-07T15:29:39.246680Z"^^xsd:dateTime .
+
+oakcurric:lesson-24620
+  a curric:Lesson ;
+  rdfs:label "Using the paintbrush tool to create digital pictures"@en ;
+  curric:slug "using-the-paintbrush-tool-to-create-digital-pictures" ;
+  curric:id "24620"^^xsd:positiveInteger ;
+  curric:hasKeyLearningPoint
+    oakcurric:keylearningpoint-lesson-24620-1 ,
+    oakcurric:keylearningpoint-lesson-24620-2 ,
+    oakcurric:keylearningpoint-lesson-24620-3 ;
+  curric:hasKeyword
+    oakcurric:keyword-paintbrush-size ,
+    oakcurric:keyword-clicktap ,
+    oakcurric:keyword-drag ;
+  curric:hasPupilLessonOutcome oakcurric:pupillessonoutcome-lesson-24620 ;
+  curric:hasMisconception
+    oakcurric:misconception-dots-colour-appear-click-drag ;
+  dcterms:modified "2026-06-07T15:29:40.159007Z"^^xsd:dateTime .
+
+oakcurric:lesson-24645
+  a curric:Lesson ;
+  rdfs:label "Evaluating and improving a program"@en ;
+  curric:slug "evaluating-and-improving-a-program" ;
+  curric:id "24645"^^xsd:positiveInteger ;
+  curric:hasKeyLearningPoint
+    oakcurric:keylearningpoint-lesson-24645-1 ,
+    oakcurric:keylearningpoint-lesson-24645-2 ,
+    oakcurric:keylearningpoint-lesson-24645-3 ;
+  curric:hasKeyword
+    oakcurric:keyword-template ,
+    oakcurric:keyword-evaluate ,
+    oakcurric:keyword-debug ;
+  curric:hasPupilLessonOutcome oakcurric:pupillessonoutcome-lesson-24645 ;
+  curric:hasMisconception
+    oakcurric:misconception-program-works-doesnt-need-evaluating ;
+  dcterms:modified "2026-06-07T15:29:40.160190Z"^^xsd:dateTime .
+
+oakcurric:lesson-24793
+  a curric:Lesson ;
+  rdfs:label "Adding and removing text"@en ;
+  curric:slug "adding-and-removing-text" ;
+  curric:id "24793"^^xsd:positiveInteger ;
+  curric:hasKeyLearningPoint
+    oakcurric:keylearningpoint-lesson-24793-1 ,
+    oakcurric:keylearningpoint-lesson-24793-2 ,
+    oakcurric:keylearningpoint-lesson-24793-3 ;
+  curric:hasKeyword
+    oakcurric:keyword-cursor ,
+    oakcurric:keyword-spacebar ,
+    oakcurric:keyword-enter ,
+    oakcurric:keyword-backspace ;
+  curric:hasPupilLessonOutcome oakcurric:pupillessonoutcome-lesson-24793 ;
+  curric:hasMisconception
+    oakcurric:misconception-backspace-removes-whole-sentence ;
+  dcterms:modified "2026-06-07T15:29:40.701278Z"^^xsd:dateTime .
+
+oakcurric:lesson-24640
+  a curric:Lesson ;
+  rdfs:label "Programming sequences"@en ;
+  curric:slug "programming-sequences" ;
+  curric:id "24640"^^xsd:positiveInteger ;
+  curric:hasKeyLearningPoint
+    oakcurric:keylearningpoint-lesson-24640-1 ,
+    oakcurric:keylearningpoint-lesson-24640-2 ,
+    oakcurric:keylearningpoint-lesson-24640-3 ,
+    oakcurric:keylearningpoint-lesson-24640-4 ;
+  curric:hasKeyword
+    oakcurric:keyword-sequence ,
+    oakcurric:keyword-command ,
+    oakcurric:keyword-program ;
+  curric:hasPupilLessonOutcome oakcurric:pupillessonoutcome-lesson-24640 ;
+  curric:hasMisconception
+    oakcurric:misconception-program-run-automatically-whenever-require ;
+  dcterms:modified "2026-06-07T15:29:40.898208Z"^^xsd:dateTime .
+
+oakcurric:lesson-24797
+  a curric:Lesson ;
+  rdfs:label "Choosing formatting tools"@en ;
+  curric:slug "choosing-formatting-tools" ;
+  curric:id "24797"^^xsd:positiveInteger ;
+  curric:hasKeyLearningPoint
+    oakcurric:keylearningpoint-lesson-24797-1 ,
+    oakcurric:keylearningpoint-lesson-24797-2 ;
+  curric:hasKeyword
+    oakcurric:keyword-appropriate ,
+    oakcurric:keyword-undo ,
+    oakcurric:keyword-redo ;
+  curric:hasPupilLessonOutcome oakcurric:pupillessonoutcome-lesson-24797 ;
+  curric:hasMisconception
+    oakcurric:misconception-undo-restart-your-document-beginning ;
+  dcterms:modified "2026-06-07T15:29:40.980283Z"^^xsd:dateTime .
+
+oakcurric:lesson-24617
+  a curric:Lesson ;
+  rdfs:label "Using lines and shapes to create digital pictures"@en ;
+  curric:slug "using-lines-and-shapes-to-create-digital-pictures" ;
+  curric:id "24617"^^xsd:positiveInteger ;
+  curric:hasKeyLearningPoint
+    oakcurric:keylearningpoint-lesson-24617-1 ,
+    oakcurric:keylearningpoint-lesson-24617-2 ,
+    oakcurric:keylearningpoint-lesson-24617-3 ;
+  curric:hasKeyword
+    oakcurric:keyword-undo ,
+    oakcurric:keyword-line-tool ,
+    oakcurric:keyword-shape-tool ;
+  curric:hasPupilLessonOutcome oakcurric:pupillessonoutcome-lesson-24617 ;
+  curric:hasMisconception
+    oakcurric:misconception-use-line-shape-tools-make ;
+  dcterms:modified "2026-06-07T15:29:41.504164Z"^^xsd:dateTime .
+
+oakcurric:lesson-24644
+  a curric:Lesson ;
+  rdfs:label "Designing and creating a quiz program"@en ;
+  curric:slug "designing-and-creating-a-quiz-program" ;
+  curric:id "24644"^^xsd:positiveInteger ;
+  curric:hasKeyLearningPoint
+    oakcurric:keylearningpoint-lesson-24644-1 ,
+    oakcurric:keylearningpoint-lesson-24644-2 ,
+    oakcurric:keylearningpoint-lesson-24644-3 ;
+  curric:hasKeyword
+    oakcurric:keyword-design ,
+    oakcurric:keyword-algorithm ;
+  curric:hasPupilLessonOutcome oakcurric:pupillessonoutcome-lesson-24644 ;
+  curric:hasMisconception
+    oakcurric:misconception-design-process-important-start-coding ;
+  dcterms:modified "2026-06-07T15:29:42.001203Z"^^xsd:dateTime .
+
+oakcurric:lesson-24618
+  a curric:Lesson ;
+  rdfs:label "Creating digital pictures in the style of an artist"@en ;
+  curric:slug "creating-digital-pictures-in-the-style-of-an-artist" ;
+  curric:id "24618"^^xsd:positiveInteger ;
+  curric:hasKeyLearningPoint
+    oakcurric:keylearningpoint-lesson-24618-1 ,
+    oakcurric:keylearningpoint-lesson-24618-2 ,
+    oakcurric:keylearningpoint-lesson-24618-3 ;
+  curric:hasKeyword
+    oakcurric:keyword-paintbrush-tool ,
+    oakcurric:keyword-palette ,
+    oakcurric:keyword-freehand ;
+  curric:hasPupilLessonOutcome oakcurric:pupillessonoutcome-lesson-24618 ;
+  curric:hasMisconception
+    oakcurric:misconception-use-certain-colours-other-artists ;
+  dcterms:modified "2026-06-07T15:29:42.544545Z"^^xsd:dateTime .
+
+oakcurric:lesson-24798
+  a curric:Lesson ;
+  rdfs:label "Comparing digital writing to using a pencil"@en ;
+  curric:slug "comparing-digital-writing-to-using-a-pencil" ;
+  curric:id "24798"^^xsd:positiveInteger ;
+  curric:hasKeyLearningPoint
+    oakcurric:keylearningpoint-lesson-24798-1 ,
+    oakcurric:keylearningpoint-lesson-24798-2 ,
+    oakcurric:keylearningpoint-lesson-24798-3 ;
+  curric:hasKeyword
+    oakcurric:keyword-edit ,
+    oakcurric:keyword-improve ,
+    oakcurric:keyword-compare ,
+    oakcurric:keyword-computer ;
+  curric:hasPupilLessonOutcome oakcurric:pupillessonoutcome-lesson-24798 ;
+  curric:hasMisconception
+    oakcurric:misconception-computers-better-paper ;
+  dcterms:modified "2026-06-07T15:29:43.520655Z"^^xsd:dateTime .
+
+oakcurric:lesson-24633
+  a curric:Lesson ;
+  rdfs:label "Making choices when using information technology"@en ;
+  curric:slug "making-choices-when-using-information-technology" ;
+  curric:id "24633"^^xsd:positiveInteger ;
+  curric:hasKeyLearningPoint
+    oakcurric:keylearningpoint-lesson-24633-1 ,
+    oakcurric:keylearningpoint-lesson-24633-2 ;
+  curric:hasKeyword
+    oakcurric:keyword-variety ,
+    oakcurric:keyword-choices ,
+    oakcurric:keyword-responsible ;
+  curric:hasPupilLessonOutcome oakcurric:pupillessonoutcome-lesson-24633 ;
+  curric:hasMisconception
+    oakcurric:misconception-balanced-digital-life-means-using ;
+  dcterms:modified "2026-06-07T15:29:45.812939Z"^^xsd:dateTime .
+
+oakcurric:lesson-24629
+  a curric:Lesson ;
+  rdfs:label "Information technology in school"@en ;
+  curric:slug "information-technology-in-school" ;
+  curric:id "24629"^^xsd:positiveInteger ;
+  curric:hasKeyLearningPoint
+    oakcurric:keylearningpoint-lesson-24629-1 ,
+    oakcurric:keylearningpoint-lesson-24629-2 ;
+  curric:hasKeyword
+    oakcurric:keyword-computer ,
+    oakcurric:keyword-interactive ,
+    oakcurric:keyword-purpose ;
+  curric:hasPupilLessonOutcome oakcurric:pupillessonoutcome-lesson-24629 ;
+  curric:hasMisconception
+    oakcurric:misconception-used-teachers-schools ;
+  dcterms:modified "2026-06-07T15:29:47.785655Z"^^xsd:dateTime .
+
+oakcurric:lesson-24634
+  a curric:Lesson ;
+  rdfs:label "Counting and comparing data"@en ;
+  curric:slug "counting-and-comparing-data" ;
+  curric:id "24634"^^xsd:positiveInteger ;
+  curric:hasKeyLearningPoint
+    oakcurric:keylearningpoint-lesson-24634-1 ,
+    oakcurric:keylearningpoint-lesson-24634-2 ,
+    oakcurric:keylearningpoint-lesson-24634-3 ;
+  curric:hasKeyword
+    oakcurric:keyword-tally ,
+    oakcurric:keyword-data ;
+  curric:hasPupilLessonOutcome oakcurric:pupillessonoutcome-lesson-24634 ;
+  curric:hasMisconception
+    oakcurric:misconception-tally-marks-look-same-straight ;
+  dcterms:modified "2026-06-07T15:29:47.921410Z"^^xsd:dateTime .
+
+oakcurric:lesson-24630
+  a curric:Lesson ;
+  rdfs:label "Information technology in the world"@en ;
+  curric:slug "information-technology-in-the-world" ;
+  curric:id "24630"^^xsd:positiveInteger ;
+  curric:hasKeyLearningPoint
+    oakcurric:keylearningpoint-lesson-24630-1 ,
+    oakcurric:keylearningpoint-lesson-24630-2 ;
+  curric:hasKeyword
+    oakcurric:keyword-device ,
+    oakcurric:keyword-computer ;
+  curric:hasPupilLessonOutcome oakcurric:pupillessonoutcome-lesson-24630 ;
+  curric:hasMisconception
+    oakcurric:misconception-found-indoors ;
+  dcterms:modified "2026-06-07T15:29:48.076692Z"^^xsd:dateTime .
+
+oakcurric:lesson-24628
+  a curric:Lesson ;
+  rdfs:label "Introduction to information technology"@en ;
+  curric:slug "introduction-to-information-technology" ;
+  curric:id "24628"^^xsd:positiveInteger ;
+  curric:hasKeyLearningPoint
+    oakcurric:keylearningpoint-lesson-24628-1 ,
+    oakcurric:keylearningpoint-lesson-24628-2 ;
+  curric:hasKeyword
+    oakcurric:keyword-computer ,
+    oakcurric:keyword-information-technology ;
+  curric:hasPupilLessonOutcome oakcurric:pupillessonoutcome-lesson-24628 ;
+  curric:hasMisconception
+    oakcurric:misconception-computers-considered ;
+  dcterms:modified "2026-06-07T15:29:48.091375Z"^^xsd:dateTime .
+
+oakcurric:lesson-24632
+  a curric:Lesson ;
+  rdfs:label "Using information technology safely"@en ;
+  curric:slug "using-information-technology-safely" ;
+  curric:id "24632"^^xsd:positiveInteger ;
+  curric:hasKeyLearningPoint
+    oakcurric:keylearningpoint-lesson-24632-1 ,
+    oakcurric:keylearningpoint-lesson-24632-2 ;
+  curric:hasKeyword
+    oakcurric:keyword-rules ,
+    oakcurric:keyword-private ;
+  curric:hasPupilLessonOutcome oakcurric:pupillessonoutcome-lesson-24632 ;
+  curric:hasMisconception
+    oakcurric:misconception-its-safe-share-passwords-friends ;
+  dcterms:modified "2026-06-07T15:29:48.092390Z"^^xsd:dateTime .
+
+oakcurric:lesson-24637
+  a curric:Lesson ;
+  rdfs:label "Attributes in data"@en ;
+  curric:slug "attributes-in-data" ;
+  curric:id "24637"^^xsd:positiveInteger ;
+  curric:hasKeyLearningPoint
+    oakcurric:keylearningpoint-lesson-24637-1 ,
+    oakcurric:keylearningpoint-lesson-24637-2 ,
+    oakcurric:keylearningpoint-lesson-24637-3 ;
+  curric:hasKeyword
+    oakcurric:keyword-attribute ,
+    oakcurric:keyword-compare ;
+  curric:hasPupilLessonOutcome oakcurric:pupillessonoutcome-lesson-24637 ;
+  curric:hasMisconception
+    oakcurric:misconception-pictogram-used-collect-different-attributes ;
+  dcterms:modified "2026-06-07T15:29:48.476429Z"^^xsd:dateTime .
+
+oakcurric:lesson-24631
+  a curric:Lesson ;
+  rdfs:label "Benefits of information technology"@en ;
+  curric:slug "benefits-of-information-technology" ;
+  curric:id "24631"^^xsd:positiveInteger ;
+  curric:hasKeyLearningPoint
+    oakcurric:keylearningpoint-lesson-24631-1 ,
+    oakcurric:keylearningpoint-lesson-24631-2 ;
+  curric:hasKeyword
+    oakcurric:keyword-barcode ,
+    oakcurric:keyword-qr-code ;
+  curric:hasPupilLessonOutcome oakcurric:pupillessonoutcome-lesson-24631 ;
+  curric:hasMisconception
+    oakcurric:misconception-benefit-allows-us-complete-need ;
+  dcterms:modified "2026-06-07T15:29:48.645537Z"^^xsd:dateTime .
+
+oakcurric:lesson-24638
+  a curric:Lesson ;
+  rdfs:label "Comparing data"@en ;
+  curric:slug "comparing-data" ;
+  curric:id "24638"^^xsd:positiveInteger ;
+  curric:hasKeyLearningPoint
+    oakcurric:keylearningpoint-lesson-24638-1 ,
+    oakcurric:keylearningpoint-lesson-24638-2 ,
+    oakcurric:keylearningpoint-lesson-24638-3 ;
+  curric:hasKeyword
+    oakcurric:keyword-compare ,
+    oakcurric:keyword-attribute ;
+  curric:hasPupilLessonOutcome oakcurric:pupillessonoutcome-lesson-24638 ;
+  curric:hasMisconception
+    oakcurric:misconception-attributes-relate-physical-objects ;
+  dcterms:modified "2026-06-07T15:29:48.729704Z"^^xsd:dateTime .
+
+# ----------------------------------------------------------------------
+# Key Learning Points
+# ----------------------------------------------------------------------
+
+oakcurric:keylearningpoint-lesson-24791-1
+  a curric:KeyLearningPoint ;
+  rdfs:label "A keyboard is a common way to enter text on a computer."@en ;
+  dcterms:modified "2026-06-07T15:30:29.276576Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-24791-2
+  a curric:KeyLearningPoint ;
+  rdfs:label "Keys on a keyboard have a special order."@en ;
+  dcterms:modified "2026-06-07T15:30:29.276580Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-24791-3
+  a curric:KeyLearningPoint ;
+  rdfs:label "A word processor is an application designed for writing."@en ;
+  dcterms:modified "2026-06-07T15:30:29.276584Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-24625-1
+  a curric:KeyLearningPoint ;
+  rdfs:label "Each sprite has its own programming area."@en ;
+  dcterms:modified "2026-06-07T15:30:29.280750Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-24625-2
+  a curric:KeyLearningPoint ;
+  rdfs:label "Projects can have multiple sprites."@en ;
+  dcterms:modified "2026-06-07T15:30:29.280754Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-24625-3
+  a curric:KeyLearningPoint ;
+  rdfs:label "Sprites can be added and deleted."@en ;
+  dcterms:modified "2026-06-07T15:30:29.280757Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-24625-4
+  a curric:KeyLearningPoint ;
+  rdfs:label "An algorithm is a set of instructions, which can be turned into a program."@en ;
+  dcterms:modified "2026-06-07T15:30:29.280761Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-24642-1
+  a curric:KeyLearningPoint ;
+  rdfs:label "An algorithm is a set of instructions that can be turned into a program."@en ;
+  dcterms:modified "2026-06-07T15:30:29.280783Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-24642-2
+  a curric:KeyLearningPoint ;
+  rdfs:label "Programs can start with the 'start on tap' event."@en ;
+  dcterms:modified "2026-06-07T15:30:29.280787Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-24642-3
+  a curric:KeyLearningPoint ;
+  rdfs:label "Sequences of blocks must follow an algorithm to create a working program."@en ;
+  dcterms:modified "2026-06-07T15:30:29.280791Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-24642-4
+  a curric:KeyLearningPoint ;
+  rdfs:label "The say block makes a sprite display text."@en ;
+  dcterms:modified "2026-06-07T15:30:29.280794Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-24624-1
+  a curric:KeyLearningPoint ;
+  rdfs:label "Some command blocks can have number values on them."@en ;
+  dcterms:modified "2026-06-07T15:30:29.281954Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-24624-2
+  a curric:KeyLearningPoint ;
+  rdfs:label "Values can be changed, causing different effects."@en ;
+  dcterms:modified "2026-06-07T15:30:29.281958Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-24624-3
+  a curric:KeyLearningPoint ;
+  rdfs:label "Programs can be made shorter by deleting blocks and changing values."@en ;
+  dcterms:modified "2026-06-07T15:30:29.281962Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-24619-1
+  a curric:KeyLearningPoint ;
+  rdfs:label "Different digital tools can create similar effects."@en ;
+  dcterms:modified "2026-06-07T15:30:29.287375Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-24619-2
+  a curric:KeyLearningPoint ;
+  rdfs:label "Different digital tools are used for different tasks."@en ;
+  dcterms:modified "2026-06-07T15:30:29.287379Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-24619-3
+  a curric:KeyLearningPoint ;
+  rdfs:label "Art in the style of Kandinsky can be created using a painting program."@en ;
+  dcterms:modified "2026-06-07T15:30:29.287383Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-24627-1
+  a curric:KeyLearningPoint ;
+  rdfs:label "An error is a mistake in a program."@en ;
+  dcterms:modified "2026-06-07T15:30:29.287387Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-24627-2
+  a curric:KeyLearningPoint ;
+  rdfs:label """Programs should be regularly tested to check for errors so that they can be
+  corrected."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.287392Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-24627-3
+  a curric:KeyLearningPoint ;
+  rdfs:label "Show and hide blocks control if a sprite is visible."@en ;
+  dcterms:modified "2026-06-07T15:30:29.287397Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-24641-1
+  a curric:KeyLearningPoint ;
+  rdfs:label "A sequence of commands has an outcome."@en ;
+  dcterms:modified "2026-06-07T15:30:29.289018Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-24641-2
+  a curric:KeyLearningPoint ;
+  rdfs:label "Programs can use different commands and have the same outcome."@en ;
+  dcterms:modified "2026-06-07T15:30:29.289024Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-24641-3
+  a curric:KeyLearningPoint ;
+  rdfs:label "The outcome of a program can be changed."@en ;
+  dcterms:modified "2026-06-07T15:30:29.289028Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-24622-1
+  a curric:KeyLearningPoint ;
+  rdfs:label "A command is an instruction that you use to control something."@en ;
+  dcterms:modified "2026-06-07T15:30:29.289032Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-24622-2
+  a curric:KeyLearningPoint ;
+  rdfs:label """Commands must be dragged into the programming area so that they can be
+  carried out."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.289036Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-24622-3
+  a curric:KeyLearningPoint ;
+  rdfs:label "Some commands can be used to move a sprite."@en ;
+  dcterms:modified "2026-06-07T15:30:29.289040Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-24795-1
+  a curric:KeyLearningPoint ;
+  rdfs:label "Individual words or sections of text can be selected for editing."@en ;
+  dcterms:modified "2026-06-07T15:30:29.291740Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-24795-2
+  a curric:KeyLearningPoint ;
+  rdfs:label "Different fonts can change the look of text."@en ;
+  dcterms:modified "2026-06-07T15:30:29.291744Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-24635-1
+  a curric:KeyLearningPoint ;
+  rdfs:label "Data can be entered on a computer."@en ;
+  dcterms:modified "2026-06-07T15:30:29.293497Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-24635-2
+  a curric:KeyLearningPoint ;
+  rdfs:label "Computers can be used to present data in different ways."@en ;
+  dcterms:modified "2026-06-07T15:30:29.293501Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-24635-3
+  a curric:KeyLearningPoint ;
+  rdfs:label "Pictograms can help you answer questions about objects."@en ;
+  dcterms:modified "2026-06-07T15:30:29.293505Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-24616-1
+  a curric:KeyLearningPoint ;
+  rdfs:label "Digital devices are controlled in different ways."@en ;
+  dcterms:modified "2026-06-07T15:30:29.294459Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-24616-2
+  a curric:KeyLearningPoint ;
+  rdfs:label "The paintbrush tool makes marks and the erase tool removes marks."@en ;
+  dcterms:modified "2026-06-07T15:30:29.294463Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-24616-3
+  a curric:KeyLearningPoint ;
+  rdfs:label "The fill tool adds colour to a closed shape."@en ;
+  dcterms:modified "2026-06-07T15:30:29.294466Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-24623-1
+  a curric:KeyLearningPoint ;
+  rdfs:label "Backgrounds are still images and do not move."@en ;
+  dcterms:modified "2026-06-07T15:30:29.295844Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-24623-2
+  a curric:KeyLearningPoint ;
+  rdfs:label "In ScratchJr, programs must start with a start block and end with an end block."@en ;
+  dcterms:modified "2026-06-07T15:30:29.295848Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-24623-3
+  a curric:KeyLearningPoint ;
+  rdfs:label "Algorithms are used to plan what you want the program to do."@en ;
+  dcterms:modified "2026-06-07T15:30:29.295853Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-24636-1
+  a curric:KeyLearningPoint ;
+  rdfs:label "Tally charts are designed to organise data."@en ;
+  dcterms:modified "2026-06-07T15:30:29.328389Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-24636-2
+  a curric:KeyLearningPoint ;
+  rdfs:label "Pictograms can be created from tally charts."@en ;
+  dcterms:modified "2026-06-07T15:30:29.328393Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-24636-3
+  a curric:KeyLearningPoint ;
+  rdfs:label "Pictograms show us information."@en ;
+  dcterms:modified "2026-06-07T15:30:29.328397Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-24794-1
+  a curric:KeyLearningPoint ;
+  rdfs:label "A keyboard can type upper and lowercase letters."@en ;
+  dcterms:modified "2026-06-07T15:30:29.330294Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-24794-2
+  a curric:KeyLearningPoint ;
+  rdfs:label "Caps lock or shift can be used to type capital letters."@en ;
+  dcterms:modified "2026-06-07T15:30:29.330298Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-24794-3
+  a curric:KeyLearningPoint ;
+  rdfs:label "Individual words or sections of text can be selected for editing."@en ;
+  dcterms:modified "2026-06-07T15:30:29.330302Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-24626-1
+  a curric:KeyLearningPoint ;
+  rdfs:label "Planning a programming project involves making a design to record ideas."@en ;
+  dcterms:modified "2026-06-07T15:30:29.332391Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-24626-2
+  a curric:KeyLearningPoint ;
+  rdfs:label """When creating a design for a program, algorithms are written to describe the steps
+  the program will need to carry out."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.332395Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-24626-3
+  a curric:KeyLearningPoint ;
+  rdfs:label "Programs that people use are created from the algorithms that are designed."@en ;
+  dcterms:modified "2026-06-07T15:30:29.332399Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-24626-4
+  a curric:KeyLearningPoint ;
+  rdfs:label "The speed of a sprite controls how quickly it moves across the screen."@en ;
+  dcterms:modified "2026-06-07T15:30:29.332403Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-24643-1
+  a curric:KeyLearningPoint ;
+  rdfs:label "Each sprite must be selected to add commands specific to that sprite."@en ;
+  dcterms:modified "2026-06-07T15:30:29.338452Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-24643-2
+  a curric:KeyLearningPoint ;
+  rdfs:label "The 'Start on tap' block triggers specific actions."@en ;
+  dcterms:modified "2026-06-07T15:30:29.338461Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-24643-3
+  a curric:KeyLearningPoint ;
+  rdfs:label "The sequence of blocks determines the behaviour of the program."@en ;
+  dcterms:modified "2026-06-07T15:30:29.338465Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-24621-1
+  a curric:KeyLearningPoint ;
+  rdfs:label "Images can be created either on paper or on a computer"@en ;
+  dcterms:modified "2026-06-07T15:30:29.340036Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-24621-2
+  a curric:KeyLearningPoint ;
+  rdfs:label "There are differences between creating a picture on a computer or on paper"@en ;
+  dcterms:modified "2026-06-07T15:30:29.340040Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-24621-3
+  a curric:KeyLearningPoint ;
+  rdfs:label "You can follow commands to create a piece of artwork"@en ;
+  dcterms:modified "2026-06-07T15:30:29.340044Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-24639-1
+  a curric:KeyLearningPoint ;
+  rdfs:label "Information can be presented using a computer."@en ;
+  dcterms:modified "2026-06-07T15:30:29.340063Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-24639-2
+  a curric:KeyLearningPoint ;
+  rdfs:label "Information can be presented in different ways."@en ;
+  dcterms:modified "2026-06-07T15:30:29.340067Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-24639-3
+  a curric:KeyLearningPoint ;
+  rdfs:label "Not all information should be shared."@en ;
+  dcterms:modified "2026-06-07T15:30:29.340071Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-24620-1
+  a curric:KeyLearningPoint ;
+  rdfs:label "The paintbrush tool can change size to alter the thickness of the stroke."@en ;
+  dcterms:modified "2026-06-07T15:30:29.354169Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-24620-2
+  a curric:KeyLearningPoint ;
+  rdfs:label "Tapping on a touch screen makes dots and holding your finger down makes lines."@en ;
+  dcterms:modified "2026-06-07T15:30:29.354173Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-24620-3
+  a curric:KeyLearningPoint ;
+  rdfs:label "Clicking the mouse makes dots and dragging the mouse makes lines."@en ;
+  dcterms:modified "2026-06-07T15:30:29.354177Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-24645-1
+  a curric:KeyLearningPoint ;
+  rdfs:label "Debugging is the process of finding and correcting errors in programs"@en ;
+  dcterms:modified "2026-06-07T15:30:29.354181Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-24645-2
+  a curric:KeyLearningPoint ;
+  rdfs:label "Sound blocks can record audio effects."@en ;
+  dcterms:modified "2026-06-07T15:30:29.354185Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-24645-3
+  a curric:KeyLearningPoint ;
+  rdfs:label "Projects can be improved by adding features."@en ;
+  dcterms:modified "2026-06-07T15:30:29.354191Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-24793-1
+  a curric:KeyLearningPoint ;
+  rdfs:label "A keyboard can type letters, numbers, spaces and new lines."@en ;
+  dcterms:modified "2026-06-07T15:30:29.363180Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-24793-2
+  a curric:KeyLearningPoint ;
+  rdfs:label "The cursor controls where the keyboard adds or removes text."@en ;
+  dcterms:modified "2026-06-07T15:30:29.363184Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-24793-3
+  a curric:KeyLearningPoint ;
+  rdfs:label "Text can be removed using the backspace key."@en ;
+  dcterms:modified "2026-06-07T15:30:29.363188Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-24640-1
+  a curric:KeyLearningPoint ;
+  rdfs:label "A sequence is a set of steps or actions which have a specific order."@en ;
+  dcterms:modified "2026-06-07T15:30:29.365438Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-24640-2
+  a curric:KeyLearningPoint ;
+  rdfs:label "A sequence has a start and an end."@en ;
+  dcterms:modified "2026-06-07T15:30:29.365441Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-24640-3
+  a curric:KeyLearningPoint ;
+  rdfs:label "Programs run in a sequence."@en ;
+  dcterms:modified "2026-06-07T15:30:29.365445Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-24640-4
+  a curric:KeyLearningPoint ;
+  rdfs:label "Programs start with an event."@en ;
+  dcterms:modified "2026-06-07T15:30:29.365449Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-24797-1
+  a curric:KeyLearningPoint ;
+  rdfs:label "Text styling tools make words stand out."@en ;
+  dcterms:modified "2026-06-07T15:30:29.366677Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-24797-2
+  a curric:KeyLearningPoint ;
+  rdfs:label "Changes can be undone and redone."@en ;
+  dcterms:modified "2026-06-07T15:30:29.366681Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-24617-1
+  a curric:KeyLearningPoint ;
+  rdfs:label "Marks can be made using the shape and line tools."@en ;
+  dcterms:modified "2026-06-07T15:30:29.374867Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-24617-2
+  a curric:KeyLearningPoint ;
+  rdfs:label "Shapes can be created by using line and fill tools."@en ;
+  dcterms:modified "2026-06-07T15:30:29.374871Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-24617-3
+  a curric:KeyLearningPoint ;
+  rdfs:label "The undo tool can be used to revert back to previous steps."@en ;
+  dcterms:modified "2026-06-07T15:30:29.374875Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-24644-1
+  a curric:KeyLearningPoint ;
+  rdfs:label "Designing a program involves deciding what objects and commands need to be used."@en ;
+  dcterms:modified "2026-06-07T15:30:29.381677Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-24644-2
+  a curric:KeyLearningPoint ;
+  rdfs:label "Commands can be combined in a sequence to create animations."@en ;
+  dcterms:modified "2026-06-07T15:30:29.381681Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-24644-3
+  a curric:KeyLearningPoint ;
+  rdfs:label "Algorithms can be followed to help create a program."@en ;
+  dcterms:modified "2026-06-07T15:30:29.381708Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-24618-1
+  a curric:KeyLearningPoint ;
+  rdfs:label "The paintbrush and fill tools can be used together to create solid shapes."@en ;
+  dcterms:modified "2026-06-07T15:30:29.388865Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-24618-2
+  a curric:KeyLearningPoint ;
+  rdfs:label "Different colours can be used in digital artwork."@en ;
+  dcterms:modified "2026-06-07T15:30:29.388869Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-24618-3
+  a curric:KeyLearningPoint ;
+  rdfs:label "Artists create works of art using different techniques."@en ;
+  dcterms:modified "2026-06-07T15:30:29.388873Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-24798-1
+  a curric:KeyLearningPoint ;
+  rdfs:label "Digital writing makes editing text easier than writing on paper."@en ;
+  dcterms:modified "2026-06-07T15:30:29.401942Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-24798-2
+  a curric:KeyLearningPoint ;
+  rdfs:label "Sometimes using digital tools to write is the best for a task."@en ;
+  dcterms:modified "2026-06-07T15:30:29.401948Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-24798-3
+  a curric:KeyLearningPoint ;
+  rdfs:label "Sometimes using paper to write is the best for a task."@en ;
+  dcterms:modified "2026-06-07T15:30:29.401952Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-24633-1
+  a curric:KeyLearningPoint ;
+  rdfs:label "IT can be used in multiple ways, depending on the task."@en ;
+  dcterms:modified "2026-06-07T15:30:29.585745Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-24633-2
+  a curric:KeyLearningPoint ;
+  rdfs:label "People make choices when using IT."@en ;
+  dcterms:modified "2026-06-07T15:30:29.585750Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-24629-1
+  a curric:KeyLearningPoint ;
+  rdfs:label "Tablets, computers and interactive whiteboards are all information technology."@en ;
+  dcterms:modified "2026-06-07T15:30:29.618475Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-24629-2
+  a curric:KeyLearningPoint ;
+  rdfs:label "IT can be used for different purposes."@en ;
+  dcterms:modified "2026-06-07T15:30:29.618480Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-24634-1
+  a curric:KeyLearningPoint ;
+  rdfs:label "Data can be recorded in a tally chart."@en ;
+  dcterms:modified "2026-06-07T15:30:29.620473Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-24634-2
+  a curric:KeyLearningPoint ;
+  rdfs:label "Tally charts can be used to count data."@en ;
+  dcterms:modified "2026-06-07T15:30:29.620477Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-24634-3
+  a curric:KeyLearningPoint ;
+  rdfs:label "Totals can be compared in a tally chart."@en ;
+  dcterms:modified "2026-06-07T15:30:29.620481Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-24630-1
+  a curric:KeyLearningPoint ;
+  rdfs:label "Information technology can be grouped based on where it is used."@en ;
+  dcterms:modified "2026-06-07T15:30:29.623171Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-24630-2
+  a curric:KeyLearningPoint ;
+  rdfs:label "Many jobs use information technology."@en ;
+  dcterms:modified "2026-06-07T15:30:29.623175Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-24628-1
+  a curric:KeyLearningPoint ;
+  rdfs:label "A computer is an important part of information technology."@en ;
+  dcterms:modified "2026-06-07T15:30:29.623396Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-24628-2
+  a curric:KeyLearningPoint ;
+  rdfs:label "Information technology can be used for all sorts of tasks."@en ;
+  dcterms:modified "2026-06-07T15:30:29.623400Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-24632-1
+  a curric:KeyLearningPoint ;
+  rdfs:label "When you use IT, there are certain rules."@en ;
+  dcterms:modified "2026-06-07T15:30:29.623404Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-24632-2
+  a curric:KeyLearningPoint ;
+  rdfs:label "IT rules help to keep people and devices safe."@en ;
+  dcterms:modified "2026-06-07T15:30:29.623408Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-24637-1
+  a curric:KeyLearningPoint ;
+  rdfs:label "Objects can be grouped by attribute."@en ;
+  dcterms:modified "2026-06-07T15:30:29.634728Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-24637-2
+  a curric:KeyLearningPoint ;
+  rdfs:label "Attributes can be recorded by tally marks."@en ;
+  dcterms:modified "2026-06-07T15:30:29.634732Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-24637-3
+  a curric:KeyLearningPoint ;
+  rdfs:label "Pictograms can help you answer questions about attributes."@en ;
+  dcterms:modified "2026-06-07T15:30:29.634736Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-24631-1
+  a curric:KeyLearningPoint ;
+  rdfs:label "IT devices can work together."@en ;
+  dcterms:modified "2026-06-07T15:30:29.637307Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-24631-2
+  a curric:KeyLearningPoint ;
+  rdfs:label "We use IT because it makes tasks safer, easier and more accurate."@en ;
+  dcterms:modified "2026-06-07T15:30:29.637314Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-24638-1
+  a curric:KeyLearningPoint ;
+  rdfs:label "Data about attributes can be collected."@en ;
+  dcterms:modified "2026-06-07T15:30:29.638581Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-24638-2
+  a curric:KeyLearningPoint ;
+  rdfs:label "Data can be collected and recorded in a tally chart."@en ;
+  dcterms:modified "2026-06-07T15:30:29.638586Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-24638-3
+  a curric:KeyLearningPoint ;
+  rdfs:label "Pictograms provide information that helps to draw conclusions."@en ;
+  dcterms:modified "2026-06-07T15:30:29.638590Z"^^xsd:dateTime .
+
+# ----------------------------------------------------------------------
+# Pupil Lesson Outcomes
+# ----------------------------------------------------------------------
+
+oakcurric:pupillessonoutcome-lesson-24791
+  a curric:PupilLessonOutcome ;
+  rdfs:label "I can use a computer to write."@en ;
+  dcterms:modified "2026-06-07T15:30:41.070153Z"^^xsd:dateTime .
+
+oakcurric:pupillessonoutcome-lesson-24625
+  a curric:PupilLessonOutcome ;
+  rdfs:label "I can explain that each sprite has its own instructions."@en ;
+  dcterms:modified "2026-06-07T15:30:41.071007Z"^^xsd:dateTime .
+
+oakcurric:pupillessonoutcome-lesson-24642
+  a curric:PupilLessonOutcome ;
+  rdfs:label "I can create a program that uses event blocks."@en ;
+  dcterms:modified "2026-06-07T15:30:41.071015Z"^^xsd:dateTime .
+
+oakcurric:pupillessonoutcome-lesson-24624
+  a curric:PupilLessonOutcome ;
+  rdfs:label "I can change the value in a command block and explain its effect."@en ;
+  dcterms:modified "2026-06-07T15:30:41.071301Z"^^xsd:dateTime .
+
+oakcurric:pupillessonoutcome-lesson-24619
+  a curric:PupilLessonOutcome ;
+  rdfs:label """I can choose suitable tools and colours to make an image in the style of
+  Kandinsky."""@en ;
+  dcterms:modified "2026-06-07T15:30:41.072435Z"^^xsd:dateTime .
+
+oakcurric:pupillessonoutcome-lesson-24627
+  a curric:PupilLessonOutcome ;
+  rdfs:label "I can check a program for errors to make sure it runs as I planned it."@en ;
+  dcterms:modified "2026-06-07T15:30:41.072439Z"^^xsd:dateTime .
+
+oakcurric:pupillessonoutcome-lesson-24641
+  a curric:PupilLessonOutcome ;
+  rdfs:label "I can predict the outcome of a sequence."@en ;
+  dcterms:modified "2026-06-07T15:30:41.072818Z"^^xsd:dateTime .
+
+oakcurric:pupillessonoutcome-lesson-24622
+  a curric:PupilLessonOutcome ;
+  rdfs:label "I can choose a command for a given purpose."@en ;
+  dcterms:modified "2026-06-07T15:30:41.072823Z"^^xsd:dateTime .
+
+oakcurric:pupillessonoutcome-lesson-24795
+  a curric:PupilLessonOutcome ;
+  rdfs:label "I can change the style of text in a word processor."@en ;
+  dcterms:modified "2026-06-07T15:30:41.073324Z"^^xsd:dateTime .
+
+oakcurric:pupillessonoutcome-lesson-24635
+  a curric:PupilLessonOutcome ;
+  rdfs:label "I can enter data onto a computer and answer questions using a pictogram."@en ;
+  dcterms:modified "2026-06-07T15:30:41.073718Z"^^xsd:dateTime .
+
+oakcurric:pupillessonoutcome-lesson-24616
+  a curric:PupilLessonOutcome ;
+  rdfs:label "I can use digital tools to draw a picture."@en ;
+  dcterms:modified "2026-06-07T15:30:41.073926Z"^^xsd:dateTime .
+
+oakcurric:pupillessonoutcome-lesson-24623
+  a curric:PupilLessonOutcome ;
+  rdfs:label "I can connect commands together to make a program."@en ;
+  dcterms:modified "2026-06-07T15:30:41.074285Z"^^xsd:dateTime .
+
+oakcurric:pupillessonoutcome-lesson-24636
+  a curric:PupilLessonOutcome ;
+  rdfs:label "I can use a computer to present data as a pictogram."@en ;
+  dcterms:modified "2026-06-07T15:30:41.082122Z"^^xsd:dateTime .
+
+oakcurric:pupillessonoutcome-lesson-24794
+  a curric:PupilLessonOutcome ;
+  rdfs:label "I can add capital letters and change my text."@en ;
+  dcterms:modified "2026-06-07T15:30:41.082432Z"^^xsd:dateTime .
+
+oakcurric:pupillessonoutcome-lesson-24626
+  a curric:PupilLessonOutcome ;
+  rdfs:label "I can design an algorithm and follow it to create a program."@en ;
+  dcterms:modified "2026-06-07T15:30:41.082899Z"^^xsd:dateTime .
+
+oakcurric:pupillessonoutcome-lesson-24643
+  a curric:PupilLessonOutcome ;
+  rdfs:label "I can modify a design to create my own quiz questions."@en ;
+  dcterms:modified "2026-06-07T15:30:41.084150Z"^^xsd:dateTime .
+
+oakcurric:pupillessonoutcome-lesson-24621
+  a curric:PupilLessonOutcome ;
+  rdfs:label """I can compare painting on a computer and painting on paper and explain which I
+  prefer to use."""@en ;
+  dcterms:modified "2026-06-07T15:30:41.084511Z"^^xsd:dateTime .
+
+oakcurric:pupillessonoutcome-lesson-24639
+  a curric:PupilLessonOutcome ;
+  rdfs:label "I can present information on a computer."@en ;
+  dcterms:modified "2026-06-07T15:30:41.084519Z"^^xsd:dateTime .
+
+oakcurric:pupillessonoutcome-lesson-24620
+  a curric:PupilLessonOutcome ;
+  rdfs:label """I can change the style of my digital tools to work in different ways in a painting
+  program."""@en ;
+  dcterms:modified "2026-06-07T15:30:41.087520Z"^^xsd:dateTime .
+
+oakcurric:pupillessonoutcome-lesson-24645
+  a curric:PupilLessonOutcome ;
+  rdfs:label "I can evaluate and improve a program."@en ;
+  dcterms:modified "2026-06-07T15:30:41.087524Z"^^xsd:dateTime .
+
+oakcurric:pupillessonoutcome-lesson-24793
+  a curric:PupilLessonOutcome ;
+  rdfs:label "I can add and remove text using a keyboard."@en ;
+  dcterms:modified "2026-06-07T15:30:41.089458Z"^^xsd:dateTime .
+
+oakcurric:pupillessonoutcome-lesson-24640
+  a curric:PupilLessonOutcome ;
+  rdfs:label "I can identify the start of a sequence."@en ;
+  dcterms:modified "2026-06-07T15:30:41.090008Z"^^xsd:dateTime .
+
+oakcurric:pupillessonoutcome-lesson-24797
+  a curric:PupilLessonOutcome ;
+  rdfs:label "I can make formatting changes and undo mistakes."@en ;
+  dcterms:modified "2026-06-07T15:30:41.090246Z"^^xsd:dateTime .
+
+oakcurric:pupillessonoutcome-lesson-24617
+  a curric:PupilLessonOutcome ;
+  rdfs:label "I can use the line tool and shape tool in my digital artwork."@en ;
+  dcterms:modified "2026-06-07T15:30:41.092764Z"^^xsd:dateTime .
+
+oakcurric:pupillessonoutcome-lesson-24644
+  a curric:PupilLessonOutcome ;
+  rdfs:label "I can create a quiz program using my own design."@en ;
+  dcterms:modified "2026-06-07T15:30:41.094422Z"^^xsd:dateTime .
+
+oakcurric:pupillessonoutcome-lesson-24618
+  a curric:PupilLessonOutcome ;
+  rdfs:label "I can create shapes and choose colours to make a digital painting."@en ;
+  dcterms:modified "2026-06-07T15:30:41.096110Z"^^xsd:dateTime .
+
+oakcurric:pupillessonoutcome-lesson-24798
+  a curric:PupilLessonOutcome ;
+  rdfs:label """I can compare writing on a computer and writing on paper and explain which I prefer
+  to use."""@en ;
+  dcterms:modified "2026-06-07T15:30:41.099489Z"^^xsd:dateTime .
+
+oakcurric:pupillessonoutcome-lesson-24633
+  a curric:PupilLessonOutcome ;
+  rdfs:label "I can recognise that choices are made when using information technology."@en ;
+  dcterms:modified "2026-06-07T15:30:41.108957Z"^^xsd:dateTime .
+
+oakcurric:pupillessonoutcome-lesson-24629
+  a curric:PupilLessonOutcome ;
+  rdfs:label "I can identify information technology in school."@en ;
+  dcterms:modified "2026-06-07T15:30:41.115802Z"^^xsd:dateTime .
+
+oakcurric:pupillessonoutcome-lesson-24634
+  a curric:PupilLessonOutcome ;
+  rdfs:label "I can compare data using tally charts."@en ;
+  dcterms:modified "2026-06-07T15:30:41.116266Z"^^xsd:dateTime .
+
+oakcurric:pupillessonoutcome-lesson-24630
+  a curric:PupilLessonOutcome ;
+  rdfs:label """I can find and describe examples of how information technology is used in the world
+  beyond school."""@en ;
+  dcterms:modified "2026-06-07T15:30:41.117610Z"^^xsd:dateTime .
+
+oakcurric:pupillessonoutcome-lesson-24628
+  a curric:PupilLessonOutcome ;
+  rdfs:label "I can recognise the uses and features of information technology."@en ;
+  dcterms:modified "2026-06-07T15:30:41.117675Z"^^xsd:dateTime .
+
+oakcurric:pupillessonoutcome-lesson-24632
+  a curric:PupilLessonOutcome ;
+  rdfs:label "I can explain how to use information technology safely."@en ;
+  dcterms:modified "2026-06-07T15:30:41.117680Z"^^xsd:dateTime .
+
+oakcurric:pupillessonoutcome-lesson-24637
+  a curric:PupilLessonOutcome ;
+  rdfs:label "I can use attributes to compare objects."@en ;
+  dcterms:modified "2026-06-07T15:30:41.119411Z"^^xsd:dateTime .
+
+oakcurric:pupillessonoutcome-lesson-24631
+  a curric:PupilLessonOutcome ;
+  rdfs:label "I can explain how information technology helps us."@en ;
+  dcterms:modified "2026-06-07T15:30:41.120118Z"^^xsd:dateTime .
+
+oakcurric:pupillessonoutcome-lesson-24638
+  a curric:PupilLessonOutcome ;
+  rdfs:label "I can compare data about attributes."@en ;
+  dcterms:modified "2026-06-07T15:30:41.120446Z"^^xsd:dateTime .
+
+# ----------------------------------------------------------------------
+# Keywords
+# ----------------------------------------------------------------------
+
+oakcurric:keyword-sequence
+  a curric:Keyword ;
+  schema:name "sequence"@en ;
+  schema:description "a short melodic idea that is repeated in steps either rising or falling"@en ;
+  dcterms:modified "2026-06-07T15:30:02.347512Z"^^xsd:dateTime .
+
+oakcurric:keyword-present
+  a curric:Keyword ;
+  schema:name "present"@en ;
+  schema:description "describes habitual events in the present, e.g. ‘I do’"@en ;
+  dcterms:modified "2026-06-07T15:30:02.347769Z"^^xsd:dateTime .
+
+oakcurric:keyword-evaluate
+  a curric:Keyword ;
+  schema:name "evaluate"@en ;
+  schema:description """to examine something closely and make a judgement about its
+  effectiveness"""@en ;
+  dcterms:modified "2026-06-07T15:30:02.347900Z"^^xsd:dateTime .
+
+oakcurric:keyword-purpose
+  a curric:Keyword ;
+  schema:name "purpose"@en ;
+  schema:description "the aim of the text"@en ;
+  dcterms:modified "2026-06-07T15:30:02.348243Z"^^xsd:dateTime .
+
+oakcurric:keyword-compare
+  a curric:Keyword ;
+  schema:name "compare"@en ;
+  schema:description "to identify how things are the same and different"@en ;
+  dcterms:modified "2026-06-07T15:30:02.348490Z"^^xsd:dateTime .
+
+oakcurric:keyword-command
+  a curric:Keyword ;
+  schema:name "command"@en ;
+  schema:description "a type of simple sentence that tells someone to do something"@en ;
+  dcterms:modified "2026-06-07T15:30:02.349348Z"^^xsd:dateTime .
+
+oakcurric:keyword-information
+  a curric:Keyword ;
+  schema:name "information"@en ;
+  schema:description "pieces of knowledge that help us understand something"@en ;
+  dcterms:modified "2026-06-07T15:30:02.351063Z"^^xsd:dateTime .
+
+oakcurric:keyword-error
+  a curric:Keyword ;
+  schema:name "error"@en ;
+  schema:description """An error leads to measurements being different to what they would otherwise
+  be (the true value)."""@en ;
+  dcterms:modified "2026-06-07T15:30:02.351605Z"^^xsd:dateTime .
+
+oakcurric:keyword-digital
+  a curric:Keyword ;
+  schema:name "digital"@en ;
+  schema:description "electronic technology"@en ;
+  dcterms:modified "2026-06-07T15:30:02.355104Z"^^xsd:dateTime .
+
+oakcurric:keyword-effect
+  a curric:Keyword ;
+  schema:name "Effect"@en ;
+  schema:description """A noun used to denote a consequence, an outcome, a result, or an
+  influence."""@en ;
+  dcterms:modified "2026-06-07T15:30:02.356586Z"^^xsd:dateTime .
+
+oakcurric:keyword-private
+  a curric:Keyword ;
+  schema:name "private"@en ;
+  schema:description "controlled or paid for by a person or company and not by the government"@en ;
+  dcterms:modified "2026-06-07T15:30:02.359042Z"^^xsd:dateTime .
+
+oakcurric:keyword-prediction
+  a curric:Keyword ;
+  schema:name "prediction"@en ;
+  schema:description """strategy that involves anticipating what the answers might be by listing
+  relevant French words or phrases"""@en ;
+  dcterms:modified "2026-06-07T15:30:02.359938Z"^^xsd:dateTime .
+
+oakcurric:keyword-background
+  a curric:Keyword ;
+  schema:name "background"@en ;
+  schema:description "the part of the scene that appears furthest away"@en ;
+  dcterms:modified "2026-06-07T15:30:02.360972Z"^^xsd:dateTime .
+
+oakcurric:keyword-data
+  a curric:Keyword ;
+  schema:name "data"@en ;
+  schema:description "facts and figures in their raw form"@en ;
+  dcterms:modified "2026-06-07T15:30:02.361985Z"^^xsd:dateTime .
+
+oakcurric:keyword-choices
+  a curric:Keyword ;
+  schema:name "choices"@en ;
+  schema:description "the deliberate decisions an artist makes"@en ;
+  dcterms:modified "2026-06-07T15:30:02.362201Z"^^xsd:dateTime .
+
+oakcurric:keyword-algorithm
+  a curric:Keyword ;
+  schema:name "algorithm"@en ;
+  schema:description "a set of step-by-step instructions to solve a problem"@en ;
+  dcterms:modified "2026-06-07T15:30:02.362294Z"^^xsd:dateTime .
+
+oakcurric:keyword-value
+  a curric:Keyword ;
+  schema:name "value"@en ;
+  schema:description """how important an area is either socially, economically or
+  environmentally"""@en ;
+  dcterms:modified "2026-06-07T15:30:02.363205Z"^^xsd:dateTime .
+
+oakcurric:keyword-appropriate
+  a curric:Keyword ;
+  schema:name "appropriate"@en ;
+  schema:description "suitable or fitting for a particular situation or purpose"@en ;
+  dcterms:modified "2026-06-07T15:30:02.364084Z"^^xsd:dateTime .
+
+oakcurric:keyword-design
+  a curric:Keyword ;
+  schema:name "design"@en ;
+  schema:description "A design is a drawing or plan of something before it is made or built."@en ;
+  dcterms:modified "2026-06-07T15:30:02.364149Z"^^xsd:dateTime .
+
+oakcurric:keyword-outcome
+  a curric:Keyword ;
+  schema:name "outcome"@en ;
+  schema:description "the finished artwork created by an artist after planning and development"@en ;
+  dcterms:modified "2026-06-07T15:30:02.364159Z"^^xsd:dateTime .
+
+oakcurric:keyword-animation
+  a curric:Keyword ;
+  schema:name "animation"@en ;
+  schema:description """the process of creating the illusion of movement by displaying a sequence of
+  images or frames"""@en ;
+  dcterms:modified "2026-06-07T15:30:02.364457Z"^^xsd:dateTime .
+
+oakcurric:keyword-attribute
+  a curric:Keyword ;
+  schema:name "attribute"@en ;
+  schema:description "properties or characteristics of an entity"@en ;
+  dcterms:modified "2026-06-07T15:30:02.366273Z"^^xsd:dateTime .
+
+oakcurric:keyword-event
+  a curric:Keyword ;
+  schema:name "event"@en ;
+  schema:description "an input which triggers a block of commands to be run"@en ;
+  dcterms:modified "2026-06-07T15:30:02.366321Z"^^xsd:dateTime .
+
+oakcurric:keyword-debug
+  a curric:Keyword ;
+  schema:name "debug"@en ;
+  schema:description "finding and fixing errors in a program"@en ;
+  dcterms:modified "2026-06-07T15:30:02.366349Z"^^xsd:dateTime .
+
+oakcurric:keyword-keyboard
+  a curric:Keyword ;
+  schema:name "keyboard"@en ;
+  schema:description "device used to send information into a computer"@en ;
+  dcterms:modified "2026-06-07T15:30:02.366363Z"^^xsd:dateTime .
+
+oakcurric:keyword-typing
+  a curric:Keyword ;
+  schema:name "typing"@en ;
+  schema:description "writing with a computer"@en ;
+  dcterms:modified "2026-06-07T15:30:02.366367Z"^^xsd:dateTime .
+
+oakcurric:keyword-word-processor
+  a curric:Keyword ;
+  schema:name "word processor"@en ;
+  schema:description "what we use to write documents and stories on a computer"@en ;
+  dcterms:modified "2026-06-07T15:30:02.366372Z"^^xsd:dateTime .
+
+oakcurric:keyword-text
+  a curric:Keyword ;
+  schema:name "text"@en ;
+  schema:description "words or numbers written or printed to share information or tell a story"@en ;
+  dcterms:modified "2026-06-07T15:30:02.366379Z"^^xsd:dateTime .
+
+oakcurric:keyword-drag
+  a curric:Keyword ;
+  schema:name "drag"@en ;
+  schema:description """is a force of a fluid on an object moving through it, in the opposite
+  direction to the object’s motion"""@en ;
+  dcterms:modified "2026-06-07T15:30:02.366398Z"^^xsd:dateTime .
+
+oakcurric:keyword-speed
+  a curric:Keyword ;
+  schema:name "speed"@en ;
+  schema:description "the rate or pace of an action"@en ;
+  dcterms:modified "2026-06-07T15:30:02.367751Z"^^xsd:dateTime .
+
+oakcurric:keyword-sprite
+  a curric:Keyword ;
+  schema:name "sprite"@en ;
+  schema:description "a graphic object that can be controlled by a program"@en ;
+  dcterms:modified "2026-06-07T15:30:02.368377Z"^^xsd:dateTime .
+
+oakcurric:keyword-grow-shrink
+  a curric:Keyword ;
+  schema:name "grow / shrink"@en ;
+  schema:description "command blocks that make a sprite bigger or smaller"@en ;
+  dcterms:modified "2026-06-07T15:30:02.368382Z"^^xsd:dateTime .
+
+oakcurric:keyword-delete
+  a curric:Keyword ;
+  schema:name "delete"@en ;
+  schema:description "to remove something on a screen"@en ;
+  dcterms:modified "2026-06-07T15:30:02.368824Z"^^xsd:dateTime .
+
+oakcurric:keyword-font
+  a curric:Keyword ;
+  schema:name "font"@en ;
+  schema:description "the style in which text is presented"@en ;
+  dcterms:modified "2026-06-07T15:30:02.368833Z"^^xsd:dateTime .
+
+oakcurric:keyword-test
+  a curric:Keyword ;
+  schema:name "test"@en ;
+  schema:description "to run a program to check it is working as planned"@en ;
+  dcterms:modified "2026-06-07T15:30:02.368838Z"^^xsd:dateTime .
+
+oakcurric:keyword-formatting
+  a curric:Keyword ;
+  schema:name "formatting"@en ;
+  schema:description "modifying the appearance of data in a spreadsheet"@en ;
+  dcterms:modified "2026-06-07T15:30:02.370056Z"^^xsd:dateTime .
+
+oakcurric:keyword-rules
+  a curric:Keyword ;
+  schema:name "rules"@en ;
+  schema:description "a guide that describes how to play a game"@en ;
+  dcterms:modified "2026-06-07T15:30:02.370581Z"^^xsd:dateTime .
+
+oakcurric:keyword-select
+  a curric:Keyword ;
+  schema:name "select"@en ;
+  schema:description "make a choice on a computer"@en ;
+  dcterms:modified "2026-06-07T15:30:02.371069Z"^^xsd:dateTime .
+
+oakcurric:keyword-visible
+  a curric:Keyword ;
+  schema:name "visible"@en ;
+  schema:description "when something can be seen"@en ;
+  dcterms:modified "2026-06-07T15:30:02.371076Z"^^xsd:dateTime .
+
+oakcurric:keyword-pictogram
+  a curric:Keyword ;
+  schema:name "pictogram"@en ;
+  schema:description """A pictogram (pictograph) is a graph consisting of pictures to visually
+  represent the frequency of objects or groups."""@en ;
+  dcterms:modified "2026-06-07T15:30:02.371167Z"^^xsd:dateTime .
+
+oakcurric:keyword-improve
+  a curric:Keyword ;
+  schema:name "improve"@en ;
+  schema:description "to make better or to increase quality"@en ;
+  dcterms:modified "2026-06-07T15:30:02.373097Z"^^xsd:dateTime .
+
+oakcurric:keyword-template
+  a curric:Keyword ;
+  schema:name "template"@en ;
+  schema:description "premade layout of a document"@en ;
+  dcterms:modified "2026-06-07T15:30:02.373369Z"^^xsd:dateTime .
+
+oakcurric:keyword-toolbar
+  a curric:Keyword ;
+  schema:name "toolbar"@en ;
+  schema:description "the menu you can make choices from"@en ;
+  dcterms:modified "2026-06-07T15:30:02.373418Z"^^xsd:dateTime .
+
+oakcurric:keyword-variety
+  a curric:Keyword ;
+  schema:name "variety"@en ;
+  schema:description "the diverse range of data types and formats"@en ;
+  dcterms:modified "2026-06-07T15:30:02.373620Z"^^xsd:dateTime .
+
+oakcurric:keyword-painting-program
+  a curric:Keyword ;
+  schema:name "painting program"@en ;
+  schema:description "what we use to make digital artwork"@en ;
+  dcterms:modified "2026-06-07T15:30:02.374561Z"^^xsd:dateTime .
+
+oakcurric:keyword-tool
+  a curric:Keyword ;
+  schema:name "tool"@en ;
+  schema:description "something you select in a program to help you do a task"@en ;
+  dcterms:modified "2026-06-07T15:30:02.374567Z"^^xsd:dateTime .
+
+oakcurric:keyword-erase
+  a curric:Keyword ;
+  schema:name "erase"@en ;
+  schema:description "a tool that removes marks"@en ;
+  dcterms:modified "2026-06-07T15:30:02.374572Z"^^xsd:dateTime .
+
+oakcurric:keyword-fill
+  a curric:Keyword ;
+  schema:name "fill"@en ;
+  schema:description "to fill up a closed shape with colour"@en ;
+  dcterms:modified "2026-06-07T15:30:02.374576Z"^^xsd:dateTime .
+
+oakcurric:keyword-program
+  a curric:Keyword ;
+  schema:name "program"@en ;
+  schema:description """a set of ordered commands that can be run by a computer to complete
+  a task"""@en ;
+  dcterms:modified "2026-06-07T15:30:02.375156Z"^^xsd:dateTime .
+
+oakcurric:keyword-enter
+  a curric:Keyword ;
+  schema:name "enter"@en ;
+  schema:description "To enter means to go inside."@en ;
+  dcterms:modified "2026-06-07T15:30:02.375888Z"^^xsd:dateTime .
+
+oakcurric:keyword-freehand
+  a curric:Keyword ;
+  schema:name "freehand"@en ;
+  schema:description "drawn freely without the use of any tools"@en ;
+  dcterms:modified "2026-06-07T15:30:02.382027Z"^^xsd:dateTime .
+
+oakcurric:keyword-edit
+  a curric:Keyword ;
+  schema:name "Edit"@en ;
+  schema:description "If you edit your work, you change parts of it."@en ;
+  dcterms:modified "2026-06-07T15:30:02.382412Z"^^xsd:dateTime .
+
+oakcurric:keyword-shift
+  a curric:Keyword ;
+  schema:name "shift"@en ;
+  schema:description """when applied to perspective, this refers to a change in the writer’s
+  perspective"""@en ;
+  dcterms:modified "2026-06-07T15:30:02.385215Z"^^xsd:dateTime .
+
+oakcurric:keyword-caps-lock
+  a curric:Keyword ;
+  schema:name "caps lock"@en ;
+  schema:description "the key that turns on typing in all capital letters"@en ;
+  dcterms:modified "2026-06-07T15:30:02.386193Z"^^xsd:dateTime .
+
+oakcurric:keyword-double-clicktap
+  a curric:Keyword ;
+  schema:name "double click/tap"@en ;
+  schema:description "clicking or tapping twice"@en ;
+  dcterms:modified "2026-06-07T15:30:02.386200Z"^^xsd:dateTime .
+
+oakcurric:keyword-quiz
+  a curric:Keyword ;
+  schema:name "quiz"@en ;
+  schema:description "a game where you answer questions to see if you are right"@en ;
+  dcterms:modified "2026-06-07T15:30:02.389365Z"^^xsd:dateTime .
+
+oakcurric:keyword-say-block
+  a curric:Keyword ;
+  schema:name "say block"@en ;
+  schema:description "a command block that makes a sprite show words in a speech bubble"@en ;
+  dcterms:modified "2026-06-07T15:30:02.389373Z"^^xsd:dateTime .
+
+oakcurric:keyword-computer
+  a curric:Keyword ;
+  schema:name "computer"@en ;
+  schema:description "a machine that can follow a program"@en ;
+  dcterms:modified "2026-06-07T15:30:02.389899Z"^^xsd:dateTime .
+
+oakcurric:keyword-commands
+  a curric:Keyword ;
+  schema:name "commands"@en ;
+  schema:description "an instruction used to control something"@en ;
+  dcterms:modified "2026-06-07T15:30:02.389906Z"^^xsd:dateTime .
+
+oakcurric:keyword-anonymous
+  a curric:Keyword ;
+  schema:name "anonymous"@en ;
+  schema:description """when something is done or shared without revealing who it is about or who
+  did it"""@en ;
+  dcterms:modified "2026-06-07T15:30:02.389911Z"^^xsd:dateTime .
+
+oakcurric:keyword-paintbrush-size
+  a curric:Keyword ;
+  schema:name "paintbrush size"@en ;
+  schema:description "how big the paintbrush is"@en ;
+  dcterms:modified "2026-06-07T15:30:02.393620Z"^^xsd:dateTime .
+
+oakcurric:keyword-clicktap
+  a curric:Keyword ;
+  schema:name "click/tap"@en ;
+  schema:description "a short press on a mouse button or on a touchscreen"@en ;
+  dcterms:modified "2026-06-07T15:30:02.393625Z"^^xsd:dateTime .
+
+oakcurric:keyword-cursor
+  a curric:Keyword ;
+  schema:name "cursor"@en ;
+  schema:description "in a word processor, the blinking line where text will appear"@en ;
+  dcterms:modified "2026-06-07T15:30:02.395598Z"^^xsd:dateTime .
+
+oakcurric:keyword-spacebar
+  a curric:Keyword ;
+  schema:name "spacebar"@en ;
+  schema:description "the key that makes a space in between words"@en ;
+  dcterms:modified "2026-06-07T15:30:02.395605Z"^^xsd:dateTime .
+
+oakcurric:keyword-backspace
+  a curric:Keyword ;
+  schema:name "backspace"@en ;
+  schema:description "the key that removes the last letter or space"@en ;
+  dcterms:modified "2026-06-07T15:30:02.395612Z"^^xsd:dateTime .
+
+oakcurric:keyword-undo
+  a curric:Keyword ;
+  schema:name "undo"@en ;
+  schema:description "to go back one step"@en ;
+  dcterms:modified "2026-06-07T15:30:02.396720Z"^^xsd:dateTime .
+
+oakcurric:keyword-redo
+  a curric:Keyword ;
+  schema:name "redo"@en ;
+  schema:description "goes forward again if you have used undo"@en ;
+  dcterms:modified "2026-06-07T15:30:02.396725Z"^^xsd:dateTime .
+
+oakcurric:keyword-line-tool
+  a curric:Keyword ;
+  schema:name "line tool"@en ;
+  schema:description "draws a straight line"@en ;
+  dcterms:modified "2026-06-07T15:30:02.399075Z"^^xsd:dateTime .
+
+oakcurric:keyword-shape-tool
+  a curric:Keyword ;
+  schema:name "shape tool"@en ;
+  schema:description "draws a shape"@en ;
+  dcterms:modified "2026-06-07T15:30:02.399081Z"^^xsd:dateTime .
+
+oakcurric:keyword-tally
+  a curric:Keyword ;
+  schema:name "Tally"@en ;
+  schema:description """A tally is a count of something. Tally marks are used to keep count and
+  these are grouped in groups of 5 using a specific pattern."""@en ;
+  dcterms:modified "2026-06-07T15:30:02.399376Z"^^xsd:dateTime .
+
+oakcurric:keyword-paintbrush-tool
+  a curric:Keyword ;
+  schema:name "paintbrush tool"@en ;
+  schema:description "lets you create colourful marks"@en ;
+  dcterms:modified "2026-06-07T15:30:02.402103Z"^^xsd:dateTime .
+
+oakcurric:keyword-palette
+  a curric:Keyword ;
+  schema:name "palette"@en ;
+  schema:description "the set of colours you can choose from"@en ;
+  dcterms:modified "2026-06-07T15:30:02.402110Z"^^xsd:dateTime .
+
+oakcurric:keyword-device
+  a curric:Keyword ;
+  schema:name "device"@en ;
+  schema:description """In a circuit, a device is a component that needs electricity for a
+  particular purpose."""@en ;
+  dcterms:modified "2026-06-07T15:30:02.405108Z"^^xsd:dateTime .
+
+oakcurric:keyword-responsible
+  a curric:Keyword ;
+  schema:name "responsible"@en ;
+  schema:description "making sensible, positive decisions"@en ;
+  dcterms:modified "2026-06-07T15:30:02.414445Z"^^xsd:dateTime .
+
+oakcurric:keyword-interactive
+  a curric:Keyword ;
+  schema:name "interactive"@en ;
+  schema:description "something that reacts when you use it"@en ;
+  dcterms:modified "2026-06-07T15:30:02.424165Z"^^xsd:dateTime .
+
+oakcurric:keyword-information-technology
+  a curric:Keyword ;
+  schema:name "information technology"@en ;
+  schema:description "a computer or things made to work with a computer"@en ;
+  dcterms:modified "2026-06-07T15:30:02.425127Z"^^xsd:dateTime .
+
+oakcurric:keyword-barcode
+  a curric:Keyword ;
+  schema:name "barcode"@en ;
+  schema:description "a line pattern that gives information to a computer"@en ;
+  dcterms:modified "2026-06-07T15:30:02.428169Z"^^xsd:dateTime .
+
+oakcurric:keyword-qr-code
+  a curric:Keyword ;
+  schema:name "QR code"@en ;
+  schema:description "a square pattern that gives information to a computer"@en ;
+  dcterms:modified "2026-06-07T15:30:02.428175Z"^^xsd:dateTime .
+
+# ----------------------------------------------------------------------
+# Misconceptions
+# ----------------------------------------------------------------------
+
+oakcurric:misconception-computer-keyboard-letters
+  a curric:Misconception ;
+  curric:statement "A computer keyboard only has letters."@en ;
+  curric:correction """Keyboards include keys for numbers, a space, and other special
+  characters."""@en ;
+  dcterms:modified "2026-06-07T15:30:15.094287Z"^^xsd:dateTime .
+
+oakcurric:misconception-sprites-share-same-program-commands
+  a curric:Misconception ;
+  curric:statement """All sprites share the same program so the commands should all be placed in the
+  same place in the programming area."""@en ;
+  curric:correction """Each sprite has its own programming area. Sprites have different programs and
+  the commands for each one are separated to allow them to be followed independently."""@en ;
+  dcterms:modified "2026-06-07T15:30:15.095584Z"^^xsd:dateTime .
+
+oakcurric:misconception-background-changes-sprite-automatically-know
+  a curric:Misconception ;
+  curric:statement """When the background changes, the sprite will automatically know what to do
+  next."""@en ;
+  curric:correction """All of the actions need to be sequenced and tested properly so that the
+  sprite's actions match the background changing."""@en ;
+  dcterms:modified "2026-06-07T15:30:15.095595Z"^^xsd:dateTime .
+
+oakcurric:misconception-value-many-times-command-run
+  a curric:Misconception ;
+  curric:statement "The value is always how many times the command should run."@en ;
+  curric:correction """Different values cause different effects depending on the underlying command.
+  These might not always be numerical values either."""@en ;
+  dcterms:modified "2026-06-07T15:30:15.095969Z"^^xsd:dateTime .
+
+oakcurric:misconception-erase-tool-correct-tool-fix
+  a curric:Misconception ;
+  curric:statement "The erase tool is always the correct tool to fix mistakes."@en ;
+  curric:correction """Both erase and undo tools will remove marks differently and can be used in
+  different ways. The undo tool will remove the whole of a mark made at once but pupils
+  might not need to do this."""@en ;
+  dcterms:modified "2026-06-07T15:30:15.097650Z"^^xsd:dateTime .
+
+oakcurric:misconception-programs-tested-finished
+  a curric:Misconception ;
+  curric:statement "Programs should only be tested when they are finished."@en ;
+  curric:correction """Programs should be tested often to check for mistakes. Fixing mistakes as the
+  program develops makes sure that these mistakes don't cause bigger issues later on and
+  affect other parts of the program."""@en ;
+  dcterms:modified "2026-06-07T15:30:15.097656Z"^^xsd:dateTime .
+
+oakcurric:misconception-programs-outcome-achieved-one-way
+  a curric:Misconception ;
+  curric:statement "A program’s outcome can only be achieved in one way."@en ;
+  curric:correction """Using different combinations or sequences of commands can achieve the same
+  outcome even though the finished solution might not have been the best way to produce the
+  outcome ."""@en ;
+  dcterms:modified "2026-06-07T15:30:15.098311Z"^^xsd:dateTime .
+
+oakcurric:misconception-commands-used-wherever-found-program
+  a curric:Misconception ;
+  curric:statement "Commands can be used wherever they are found in the program you are using."@en ;
+  curric:correction """Commands must be dragged into the programming area so that they can be
+  carried out otherwise the program will not know which object they need to be applied to."""@en ;
+  dcterms:modified "2026-06-07T15:30:15.098317Z"^^xsd:dateTime .
+
+oakcurric:misconception-use-toolbar-change-text-your
+  a curric:Misconception ;
+  curric:statement """You can use the toolbar to change the text on your screen no matter where you
+  are in a document you are working on."""@en ;
+  curric:correction """If you don't first select the text that you want to change, nothing will
+  happen when you use the toolbar as the software won't know what text to apply the changes
+  to."""@en ;
+  dcterms:modified "2026-06-07T15:30:15.099026Z"^^xsd:dateTime .
+
+oakcurric:misconception-pictures-line-need-counted-looking
+  a curric:Misconception ;
+  curric:statement "The pictures below the line need to be counted when looking at the totals."@en ;
+  curric:correction """We do not count the item below the line as this is a label to see what the
+  column is."""@en ;
+  dcterms:modified "2026-06-07T15:30:15.099619Z"^^xsd:dateTime .
+
+oakcurric:misconception-screen-like-piece-paper-able
+  a curric:Misconception ;
+  curric:statement """The screen is like a piece of paper, so you should be able to touch it to
+  draw."""@en ;
+  curric:correction """Digital devices work in different ways. Some devices use a finger but other
+  devices can be used with a mouse, a trackpad or in other ways."""@en ;
+  dcterms:modified "2026-06-07T15:30:15.101217Z"^^xsd:dateTime .
+
+oakcurric:misconception-items-background-move
+  a curric:Misconception ;
+  curric:statement "The items in the background can move."@en ;
+  curric:correction """The background is a static image and the parts it shows are part of the same
+  picture and therefore cannot move. Only sprites can move as they are separate objects."""@en ;
+  dcterms:modified "2026-06-07T15:30:15.101677Z"^^xsd:dateTime .
+
+oakcurric:misconception-quicker-create-pictogram-hand-trying
+  a curric:Misconception ;
+  curric:statement """It is quicker to create a pictogram by hand than trying to create one on a
+  computer."""@en ;
+  curric:correction """When creating a pictogram on a computer, it is much quicker and the pictures
+  will be uniform in appearance. Working on a computer also has the benefit of being able to
+  make changes quickly and easily without having to redo the entire pictogram."""@en ;
+  dcterms:modified "2026-06-07T15:30:15.112127Z"^^xsd:dateTime .
+
+oakcurric:misconception-computer-types-capital-letters
+  a curric:Misconception ;
+  curric:statement "A computer always types in capital letters."@en ;
+  curric:correction """The default for a keyboard is lower case letters. You need to use the caps
+  lock/shift to type in capital letters."""@en ;
+  dcterms:modified "2026-06-07T15:30:15.112980Z"^^xsd:dateTime .
+
+oakcurric:misconception-planning-paper-waste-time-slow
+  a curric:Misconception ;
+  curric:statement """Planning on paper is a waste of time and will slow a project down because
+  extra work needs to be completed."""@en ;
+  curric:correction """Planning on paper will make a project better because ideas can be made clear
+  and possible problems later can be avoided."""@en ;
+  dcterms:modified "2026-06-07T15:30:15.113721Z"^^xsd:dateTime .
+
+oakcurric:misconception-selecting-sprite-automatically-assigns-background
+  a curric:Misconception ;
+  curric:statement """Selecting a sprite automatically assigns it to the background that you want it
+  on."""@en ;
+  curric:correction """You need to manually place sprites and ensure their code corresponds to the
+  intended background."""@en ;
+  dcterms:modified "2026-06-07T15:30:15.115699Z"^^xsd:dateTime .
+
+oakcurric:misconception-giving-commands-make-them-long
+  a curric:Misconception ;
+  curric:statement """When giving commands, you should make them as long as possible so that it is
+  really clear what needs to be done."""@en ;
+  curric:correction """Commands are easier to understand when they are short. The more details you
+  add, the more chance there is for misunderstanding. Commands need to be clear and to the
+  point, leaving out any detail that would not be helpful in understanding them."""@en ;
+  dcterms:modified "2026-06-07T15:30:15.116257Z"^^xsd:dateTime .
+
+oakcurric:misconception-someone-asks-your-personal-information
+  a curric:Misconception ;
+  curric:statement "If someone asks you for your personal information, you should share it."@en ;
+  curric:correction """You should not share your personal information with other people. If you are
+  not sure, check with a trusted adult."""@en ;
+  dcterms:modified "2026-06-07T15:30:15.116271Z"^^xsd:dateTime .
+
+oakcurric:misconception-dots-colour-appear-click-drag
+  a curric:Misconception ;
+  curric:statement "Dots of colour only appear when you click and drag."@en ;
+  curric:correction "A single click with the paintbrush tool will make a dot of colour."@en ;
+  dcterms:modified "2026-06-07T15:30:15.120818Z"^^xsd:dateTime .
+
+oakcurric:misconception-program-works-doesnt-need-evaluating
+  a curric:Misconception ;
+  curric:statement "If a program works, it doesn’t need evaluating."@en ;
+  curric:correction """Even working programs might need improvement to make them better, like adding
+  new features, and making the program more efficient."""@en ;
+  dcterms:modified "2026-06-07T15:30:15.120824Z"^^xsd:dateTime .
+
+oakcurric:misconception-backspace-removes-whole-sentence
+  a curric:Misconception ;
+  curric:statement "Backspace removes a whole sentence."@en ;
+  curric:correction """Backspace removes one character at a time so that minormistakes can be
+  corrected quickly."""@en ;
+  dcterms:modified "2026-06-07T15:30:15.124649Z"^^xsd:dateTime .
+
+oakcurric:misconception-program-run-automatically-whenever-require
+  a curric:Misconception ;
+  curric:statement "A program will run automatically whenever we require it."@en ;
+  curric:correction """A program will not run automatically. It needs a specific command or action
+  to start (like clicking the green flag or double clicking on an icon)."""@en ;
+  dcterms:modified "2026-06-07T15:30:15.125372Z"^^xsd:dateTime .
+
+oakcurric:misconception-undo-restart-your-document-beginning
+  a curric:Misconception ;
+  curric:statement "Undo will restart your document from the very beginning."@en ;
+  curric:correction """Undo only removes the most recent change so you only need to go as far back
+  as to where you made the mistake you want to correct."""@en ;
+  dcterms:modified "2026-06-07T15:30:15.125798Z"^^xsd:dateTime .
+
+oakcurric:misconception-use-line-shape-tools-make
+  a curric:Misconception ;
+  curric:statement """I can only use the line and shape tools to make pictures. I can't combine them
+  with freehand drawing or other tools."""@en ;
+  curric:correction """You can use lots of different tools to make digital artwork. You can use
+  different digital tools to draw shapes, colour in and add details."""@en ;
+  dcterms:modified "2026-06-07T15:30:15.130130Z"^^xsd:dateTime .
+
+oakcurric:misconception-design-process-important-start-coding
+  a curric:Misconception ;
+  curric:statement "The design process is not important; you should start coding without one."@en ;
+  curric:correction """Without a clear design, the program might not match the intended purpose.
+  Whilst it might seem like time well spent at the start it will save time in the long run."""@en ;
+  dcterms:modified "2026-06-07T15:30:15.133091Z"^^xsd:dateTime .
+
+oakcurric:misconception-use-certain-colours-other-artists
+  a curric:Misconception ;
+  curric:statement """You should only use certain colours that other artists use when creating
+  artwork."""@en ;
+  curric:correction """Art should be created to reflect your own style. Use colours that you think
+  will make your artwork look the best."""@en ;
+  dcterms:modified "2026-06-07T15:30:15.135691Z"^^xsd:dateTime .
+
+oakcurric:misconception-computers-better-paper
+  a curric:Misconception ;
+  curric:statement "Computers are always better than paper."@en ;
+  curric:correction """Both digital and paper can be better for different tasks. You should choose
+  the one that better suits what you need to do."""@en ;
+  dcterms:modified "2026-06-07T15:30:15.140914Z"^^xsd:dateTime .
+
+oakcurric:misconception-balanced-digital-life-means-using
+  a curric:Misconception ;
+  curric:statement "A balanced digital life means using IT every day."@en ;
+  curric:correction """Balanced means making responsible choices in the way you use IT. It should
+  not be seen as something that must be used every day."""@en ;
+  dcterms:modified "2026-06-07T15:30:15.154937Z"^^xsd:dateTime .
+
+oakcurric:misconception-used-teachers-schools
+  a curric:Misconception ;
+  curric:statement "IT is only used by teachers in schools."@en ;
+  curric:correction """IT is used by everyone in schools, including students (e.g. on tablets or
+  computers) and other staff (e.g. librarians using scanners)."""@en ;
+  dcterms:modified "2026-06-07T15:30:15.164869Z"^^xsd:dateTime .
+
+oakcurric:misconception-tally-marks-look-same-straight
+  a curric:Misconception ;
+  curric:statement "All tally marks should look the same in a straight line."@en ;
+  curric:correction """Every fifth mark in a tally chart should be placed diagonally across a group
+  of four. We do this to make it easier to count the total."""@en ;
+  dcterms:modified "2026-06-07T15:30:15.165546Z"^^xsd:dateTime .
+
+oakcurric:misconception-found-indoors
+  a curric:Misconception ;
+  curric:statement "IT can only be found indoors."@en ;
+  curric:correction """IT is found in many outdoor settings too, like traffic lights and security
+  cameras. IT is used not just by humans sitting at desks."""@en ;
+  dcterms:modified "2026-06-07T15:30:15.166340Z"^^xsd:dateTime .
+
+oakcurric:misconception-computers-considered
+  a curric:Misconception ;
+  curric:statement "Only computers are considered IT."@en ;
+  curric:correction """IT includes items made to work with computers, such as printers and barcodes,
+  not just standalone computers like laptops or tablets."""@en ;
+  dcterms:modified "2026-06-07T15:30:15.166403Z"^^xsd:dateTime .
+
+oakcurric:misconception-its-safe-share-passwords-friends
+  a curric:Misconception ;
+  curric:statement "It’s safe to share passwords with friends because they won’t misuse them."@en ;
+  curric:correction """Passwords should always be kept private to protect personal information and
+  keep your device safe from others using it without permission."""@en ;
+  dcterms:modified "2026-06-07T15:30:15.166409Z"^^xsd:dateTime .
+
+oakcurric:misconception-pictogram-used-collect-different-attributes
+  a curric:Misconception ;
+  curric:statement """A pictogram could be used to collect different attributes of objects
+  at once."""@en ;
+  curric:correction """Each set of data is based on one type of attribute to allow direct comparison
+  e.g. colour, shape or size."""@en ;
+  dcterms:modified "2026-06-07T15:30:15.169928Z"^^xsd:dateTime .
+
+oakcurric:misconception-benefit-allows-us-complete-need
+  a curric:Misconception ;
+  curric:statement """The only benefit of IT is that it allows us to complete what we need to do in
+  less time."""@en ;
+  curric:correction """IT has many other benefits, including making tasks more accurate, safer and
+  easier to complete. Examples of this might be organising schedules or automating
+  repetitive work."""@en ;
+  dcterms:modified "2026-06-07T15:30:15.170861Z"^^xsd:dateTime .
+
+oakcurric:misconception-attributes-relate-physical-objects
+  a curric:Misconception ;
+  curric:statement "Attributes always relate to physical objects."@en ;
+  curric:correction """Attributes can also be hidden, such as peoples' jobs or preferences. They
+  exist but in order to determine what they are you have to ask people."""@en ;
+  dcterms:modified "2026-06-07T15:30:15.171264Z"^^xsd:dateTime .

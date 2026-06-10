@@ -18,8 +18,7 @@ from abc import ABC, abstractmethod
 from pathlib import Path
 from typing import Any
 
-from rdflib import BNode, Graph, Namespace, RDF, RDFS, Literal, URIRef
-from rdflib.collection import Collection
+from rdflib import Graph, Namespace, RDF, RDFS, Literal, URIRef
 from rdflib.namespace import SKOS
 
 log = logging.getLogger(__name__)
@@ -342,7 +341,6 @@ def _load_tier2_3(g: Graph, cur: Any, adapter: DbAdapter, lookup: dict[str, int]
             "uri": str(uri),
             "name": lit_str(g, uri, SKOS.prefLabel) or "",
             "description": lit_str(g, uri, SKOS.definition),
-            "display_order": lit_int(g, uri, CURRIC.displayOrder),
             "discipline_id": resolve_fk(fk_uri(g, uri, SKOS.broader), lookup),
         }
         for uri in _batch
@@ -380,7 +378,6 @@ def _load_tier2_3(g: Graph, cur: Any, adapter: DbAdapter, lookup: dict[str, int]
             "uri": str(uri),
             "name": lit_str(g, uri, SKOS.prefLabel) or "",
             "description": lit_str(g, uri, SKOS.definition),
-            "display_order": lit_int(g, uri, CURRIC.displayOrder),
             "strand_id": resolve_fk(fk_uri(g, uri, SKOS.broader), lookup),
         }
         for uri in _batch
@@ -409,8 +406,19 @@ def _load_tier4_5(g: Graph, cur: Any, adapter: DbAdapter, lookup: dict[str, int]
             "uri": str(uri),
             "name": lit_str(g, uri, SKOS.prefLabel) or "",
             "supporting_guidance": lit_str(g, uri, CURRIC.supportingGuidance),
-            "display_order": lit_int(g, uri, CURRIC.displayOrder),
             "sub_strand_id": resolve_fk(fk_uri(g, uri, SKOS.broader), lookup),
+        }
+        for uri in _batch
+    ]))
+
+    _batch = _instances(g, CURRIC.SubContentDescriptor)
+    log.info("  sub_content_descriptor: %d", len(_batch))
+    lookup.update(adapter.bulk_insert(cur, "sub_content_descriptor", [
+        {
+            "uri": str(uri),
+            "name": lit_str(g, uri, SKOS.prefLabel) or "",
+            "supporting_guidance": lit_str(g, uri, CURRIC.supportingGuidance),
+            "content_descriptor_id": resolve_fk(fk_uri(g, uri, SKOS.broader), lookup),
         }
         for uri in _batch
     ]))
@@ -435,6 +443,7 @@ def _load_tier4_5(g: Graph, cur: Any, adapter: DbAdapter, lookup: dict[str, int]
             "uri": str(uri),
             "name": lit_str(g, uri, RDFS.label) or "",
             "scheme_id": resolve_fk(fk_uri(g, uri, CURRIC.isProgressionOf), lookup),
+            "year_group_id": resolve_fk(fk_uri(g, uri, CURRIC.coversYearGroup), lookup),
         }
         for uri in _batch
     ]))
@@ -465,10 +474,8 @@ def _load_tier4_5(g: Graph, cur: Any, adapter: DbAdapter, lookup: dict[str, int]
             "oak_id": lit_int(g, uri, CURRIC.id),
             "name": lit_str(g, uri, RDFS.label) or "",
             "description": lit_str(g, uri, RDFS.comment),
+            "slug": lit_str(g, uri, CURRIC.slug),
             "why_this_why_now": lit_str(g, uri, CURRIC.whyThisWhyNow) or "",
-            "unit_prior_knowledge_requirements": lit_str(
-                g, uri, CURRIC.unitPriorKnowledgeRequirements
-            ) or "",
             "scheme_id": resolve_fk(fk_uri(g, uri, CURRIC.isUnitOf), lookup),
         }
         for uri in _batch
@@ -503,6 +510,7 @@ def _load_tier6(g: Graph, cur: Any, adapter: DbAdapter, lookup: dict[str, int]) 
             "uri": str(uri),
             "oak_id": lit_int(g, uri, CURRIC.id) or 0,
             "name": lit_str(g, uri, RDFS.label) or "",
+            "slug": lit_str(g, uri, CURRIC.slug),
         }
         for uri in _batch
     ]))
@@ -616,7 +624,7 @@ def _load_progression_content_descriptor(
         prog_id = lookup.get(str(prog_uri))
         if prog_id is None:
             continue
-        for cd_uri in g.objects(prog_uri, CURRIC.coversContent):
+        for cd_uri in g.objects(prog_uri, CURRIC.includesContentDescriptor):
             cd_id = lookup.get(str(cd_uri))
             if cd_id is not None:
                 _pairs.append((prog_id, cd_id))
@@ -701,25 +709,41 @@ def _load_lesson_junctions(
 def _load_subject_aims(
     g: Graph, cur: Any, adapter: DbAdapter, lookup: dict[str, int]
 ) -> None:
-    """Insert subject_aim rows (curric:aims -> rdf:List of literals)."""
-    log.info("Subject aims")
-    _aim_rows: list[tuple[int, int, str]] = []
+    """Insert aim rows (curric:hasAim -> curric:Aim instances, FK -> subject)."""
+    _rows: list[dict[str, Any]] = []
     for subj_uri in _instances(g, CURRIC.Subject):
         subj_id = lookup.get(str(subj_uri))
         if subj_id is None:
             continue
-        list_head = None
-        for obj in g.objects(subj_uri, CURRIC.aims):
-            if isinstance(obj, (URIRef, BNode)):
-                list_head = obj
-                break
-        if list_head is None:
+        for aim_uri in g.objects(subj_uri, CURRIC.hasAim):
+            if isinstance(aim_uri, URIRef):
+                _rows.append({
+                    "uri": str(aim_uri),
+                    "name": lit_str(g, aim_uri, RDFS.label) or "",
+                    "subject_id": subj_id,
+                })
+    log.info("  aim: %d", len(_rows))
+    lookup.update(adapter.bulk_insert(cur, "aim", _rows))
+
+
+def _load_prior_knowledge_requirements(
+    g: Graph, cur: Any, adapter: DbAdapter, lookup: dict[str, int]
+) -> None:
+    """Insert prior_knowledge_requirement rows (FK -> unit)."""
+    _rows: list[dict[str, Any]] = []
+    for unit_uri in _instances(g, CURRIC.Unit):
+        unit_id = lookup.get(str(unit_uri))
+        if unit_id is None:
             continue
-        for ordinal, aim_literal in enumerate(Collection(g, list_head), start=1):
-            _aim_rows.append((subj_id, ordinal, str(aim_literal)))
-    adapter.bulk_execute(
-        cur, "subject_aim", ["subject_id", "ordinal", "aim_text"], _aim_rows
-    )
+        for pkr_uri in g.objects(unit_uri, CURRIC.hasPriorKnowledgeRequirement):
+            if isinstance(pkr_uri, URIRef):
+                _rows.append({
+                    "uri": str(pkr_uri),
+                    "name": lit_str(g, pkr_uri, RDFS.label) or "",
+                    "unit_id": unit_id,
+                })
+    log.info("  prior_knowledge_requirement: %d", len(_rows))
+    lookup.update(adapter.bulk_insert(cur, "prior_knowledge_requirement", _rows))
 
 
 def load_data(g: Graph, cur: Any, adapter: DbAdapter) -> dict[str, int]:
@@ -738,6 +762,7 @@ def load_data(g: Graph, cur: Any, adapter: DbAdapter) -> dict[str, int]:
     _load_tier1(g, cur, adapter, lookup)
     _load_tier2_3(g, cur, adapter, lookup)
     _load_tier4_5(g, cur, adapter, lookup)
+    _load_prior_knowledge_requirements(g, cur, adapter, lookup)
     _load_tier6(g, cur, adapter, lookup)
     _load_unit_variant_inclusions(g, cur, adapter, lookup)
     _load_lesson_inclusions(g, cur, adapter, lookup)

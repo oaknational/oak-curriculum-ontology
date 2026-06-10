@@ -1,0 +1,3851 @@
+@prefix curric: <https://w3id.org/uk/oak/curriculum/ontology/> .
+@prefix oakcurric: <https://w3id.org/uk/oak/curriculum/oakcurriculum/> .
+@prefix natcurric: <https://w3id.org/uk/oak/curriculum/nationalcurriculum/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix schema: <http://schema.org/> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ======================================================================
+# Oak Curriculum Data - Design And Technology Key Stage 1 Instance Data
+# ======================================================================
+
+# ----------------------------------------------------------------------
+# Ontology Declaration
+# ----------------------------------------------------------------------
+
+<https://w3id.org/uk/oak/curriculum/oakcurriculum/design-and-technology-key-stage-1>
+  rdf:type owl:Ontology ;
+
+  rdfs:label "Oak Curriculum Data - Design And Technology Key Stage 1 Instance Data"@en ;
+  dc:title "Oak Curriculum Data - Design And Technology Key Stage 1 Instance Data"@en ;
+  rdfs:comment """Instance data defining the Oak National Academy Curriculum
+  programmes for Design And Technology Key Stage 1."""@en ;
+
+  owl:versionInfo "0.1.1" ;
+  owl:versionIRI <https://w3id.org/uk/oak/curriculum/oakcurriculum/design-and-technology-key-stage-1/0.1.1> ;
+
+  dcterms:description """This file contains Programme, Unit, Unit Variant, and Lesson instances for
+  Design And Technology Key Stage 1, including exam board-specific unit variants and lesson sequences."""@en ;
+  dc:creator "Oak National Academy" ;
+  dcterms:created "2026-05-26T00:00:00Z"^^xsd:dateTime ;
+  dcterms:modified "2026-06-07T15:30:47.458662Z"^^xsd:dateTime ;
+  dcterms:issued "2026-05-26T00:00:00Z"^^xsd:dateTime ;
+
+  # OGL 3.0 License
+  dcterms:license <http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/> ;
+  dcterms:rights "Copyright © 2026 Oak National Academy."@en ;
+
+  rdfs:seeAlso <https://thenational.academy> ;
+  vann:preferredNamespacePrefix "oakcurric" ;
+  vann:preferredNamespaceUri "https://w3id.org/uk/oak/curriculum/oakcurriculum/" ;
+
+  owl:imports <https://w3id.org/uk/oak/curriculum/ontology> ,
+            <https://w3id.org/uk/oak/curriculum/oakcurriculum/programme-structure> ,
+            <https://w3id.org/uk/oak/curriculum/oakcurriculum/threads> ,
+            <https://w3id.org/uk/oak/curriculum/nationalcurriculum/design-and-technology-programme-structure> .
+
+
+# ----------------------------------------------------------------------
+# Programmes
+# ----------------------------------------------------------------------
+
+oakcurric:programme-design-and-technology-year-group-1
+  a curric:Programme ;
+  rdfs:label "Design And Technology Year Group 1"@en ;
+  curric:isNationalCurriculum true ;
+  curric:isRequired true ;
+  curric:isExamined false ;
+  dcterms:modified "2026-06-07T15:29:23.046248Z"^^xsd:dateTime ;
+  curric:isProgrammeOf
+    natcurric:scheme-design-and-technology-key-stage-1 ;
+  curric:coversYearGroup
+    natcurric:year-group-1 ;
+  curric:hasUnitVariantInclusion
+    oakcurric:inclusion-programme-design-and-technology-year-group-1-pos-1 ,
+    oakcurric:inclusion-programme-design-and-technology-year-group-1-pos-2 ,
+    oakcurric:inclusion-programme-design-and-technology-year-group-1-pos-3 .
+
+oakcurric:programme-design-and-technology-year-group-2
+  a curric:Programme ;
+  rdfs:label "Design And Technology Year Group 2"@en ;
+  curric:isNationalCurriculum true ;
+  curric:isRequired true ;
+  curric:isExamined false ;
+  dcterms:modified "2026-06-07T15:29:23.046574Z"^^xsd:dateTime ;
+  curric:isProgrammeOf
+    natcurric:scheme-design-and-technology-key-stage-1 ;
+  curric:coversYearGroup
+    natcurric:year-group-2 ;
+  curric:hasUnitVariantInclusion
+    oakcurric:inclusion-programme-design-and-technology-year-group-2-pos-1 ,
+    oakcurric:inclusion-programme-design-and-technology-year-group-2-pos-2 ,
+    oakcurric:inclusion-programme-design-and-technology-year-group-2-pos-3 .
+
+# ----------------------------------------------------------------------
+# Units
+# ----------------------------------------------------------------------
+
+oakcurric:unit-3653
+  a curric:Unit ;
+  rdfs:label "Rotary mechanisms: windmills"@en ;
+  curric:slug "rotary-mechanisms-windmills" ;
+  rdfs:comment """This unit introduces knowledge of simple rotary mechanisms that create movement.
+  Pupils will investigate how windmills work, consider sail design, and produce a working
+  model that will be tested for stability and movement."""@en ;
+  curric:whyThisWhyNow """Understanding how mechanisms work starts with simple systems. This unit
+  builds upon knowledge of mechanisms creating movement explored through simple construction
+  kits during the Early Years Foundation Stage. Knowledge of axles and sails creating movement
+  is a precursor to knowledge developed within the 'Wheels and axles: vehicles' unit.""" ;
+  curric:hasPriorKnowledgeRequirement
+    oakcurric:priorknowledge-3653-1 ,
+    oakcurric:priorknowledge-3653-2 ,
+    oakcurric:priorknowledge-3653-3 ,
+    oakcurric:priorknowledge-3653-4 ;
+  curric:id "3653"^^xsd:positiveInteger;
+  dcterms:modified "2026-06-07T15:29:26.696960Z"^^xsd:dateTime ;
+  curric:isUnitOf
+    natcurric:scheme-design-and-technology-key-stage-1 ;
+  curric:includesThread
+    oakcurric:thread-make ,
+    oakcurric:thread-sustainability-and-climate-change ,
+    oakcurric:thread-systems .
+
+oakcurric:unit-3655
+  a curric:Unit ;
+  rdfs:label "Levers and sliders: moving cards"@en ;
+  curric:slug "levers-and-sliders-moving-cards" ;
+  rdfs:comment """This unit develops pupils' knowledge of simple mechanisms. By making levers and
+  sliders, pupils will apply their knowledge of the characteristics of paper and card to
+  make their own moving cards."""@en ;
+  curric:whyThisWhyNow """Developing knowledge of how to make things move using levers and sliders
+  is a foundation of Key Stage 1. Cutting and folding card effectively and safely when creating
+  simple mechanisms is also essential knowledge. This unit uses knowledge of folding and
+  joining techniques developed in the Year 1 'Frame structures: bridges' unit. This unit is a
+  precursor to the Year 4 'Levers and linkages: interactive books' unit.""" ;
+  curric:hasPriorKnowledgeRequirement
+    oakcurric:priorknowledge-3655-1 ,
+    oakcurric:priorknowledge-3655-2 ;
+  curric:id "3655"^^xsd:positiveInteger;
+  dcterms:modified "2026-06-07T15:29:26.698902Z"^^xsd:dateTime ;
+  curric:isUnitOf
+    natcurric:scheme-design-and-technology-key-stage-1 ;
+  curric:includesThread
+    oakcurric:thread-make ,
+    oakcurric:thread-systems ,
+    oakcurric:thread-materials ,
+    oakcurric:thread-design .
+
+oakcurric:unit-3652
+  a curric:Unit ;
+  rdfs:label "Frame structures: bridges"@en ;
+  curric:slug "frame-structures-bridges" ;
+  rdfs:comment """This unit introduces pupils to structures. It focuses on bridge building and
+  introduces cutting, folding, and joining techniques. Pupils make their own bridges,
+  applying their knowledge of structure design."""@en ;
+  curric:whyThisWhyNow """Foundation knowledge of structures and how to make them is fundamental to
+  Key Stage 1. This unit builds upon the knowledge of structures from the Early Years
+  Foundation Stage. By introducing cutting, folding, and joining techniques, pupils can access
+  the subsequent curriculum. This unit provides key knowledge for future structure units on
+  'Levers and sliders: moving cards' and 'Freestanding structures: playgrounds'.""" ;
+  curric:hasPriorKnowledgeRequirement
+    oakcurric:priorknowledge-3652-1 ,
+    oakcurric:priorknowledge-3652-2 ,
+    oakcurric:priorknowledge-3652-3 ;
+  curric:id "3652"^^xsd:positiveInteger;
+  dcterms:modified "2026-06-07T15:29:26.702896Z"^^xsd:dateTime ;
+  curric:isUnitOf
+    natcurric:scheme-design-and-technology-key-stage-1 ;
+  curric:includesThread
+    oakcurric:thread-make ,
+    oakcurric:thread-materials ,
+    oakcurric:thread-design .
+
+oakcurric:unit-3654
+  a curric:Unit ;
+  rdfs:label "Templates in textiles: hand puppets"@en ;
+  curric:slug "templates-in-textiles-puppets" ;
+  rdfs:comment """This unit develops pupils' knowledge of the characteristics of non-woven fabrics
+  and their joining techniques. Pupils analyse the techniques used to make fabric products
+  and then apply this knowledge by designing and making a fabric puppet."""@en ;
+  curric:whyThisWhyNow """Understanding how textile products are assembled builds the foundation for
+  future textile units. Pupils will have explored different fabrics during the Early Years
+  Foundation Stage and have knowledge of some of their properties. Knowledge and skills within
+  this unit focus on non-woven fabrics and simple joining techniques. It lays the foundations
+  for the future textiles unit in '2D shapes to 3D products: stationery storage'.""" ;
+  curric:hasPriorKnowledgeRequirement
+    oakcurric:priorknowledge-3654-1 ,
+    oakcurric:priorknowledge-3654-2 ,
+    oakcurric:priorknowledge-3654-3 ;
+  curric:id "3654"^^xsd:positiveInteger;
+  dcterms:modified "2026-06-07T15:29:26.706631Z"^^xsd:dateTime ;
+  curric:isUnitOf
+    natcurric:scheme-design-and-technology-key-stage-1 ;
+  curric:includesThread
+    oakcurric:thread-make ,
+    oakcurric:thread-user-centred-design ,
+    oakcurric:thread-materials ,
+    oakcurric:thread-critique-and-evaluate .
+
+oakcurric:unit-3656
+  a curric:Unit ;
+  rdfs:label "Wheels and axles: vehicles"@en ;
+  curric:slug "wheels-and-axles-vehicles" ;
+  rdfs:comment """This unit develops pupils' knowledge of wheels and axles. The characteristics of
+  woods will be introduced. Pupils will analyse different vehicles and their structure to
+  design and make their own vehicle."""@en ;
+  curric:whyThisWhyNow """Knowledge of how wheels and axles create movement is vital to
+  understanding how vehicles work. This unit builds upon the Year 1 'Rotary mechanisms:
+  windmills' unit where simple mechanisms were introduced through the use of an axle and sails.
+  Knowledge of frame structures is introduced and will be further developed within the Year 5
+  'Pulleys and gears: electric vehicles' unit when they add electrical circuits, reversible
+  switches and pulley systems.""" ;
+  curric:hasPriorKnowledgeRequirement
+    oakcurric:priorknowledge-3656-1 ,
+    oakcurric:priorknowledge-3656-2 ,
+    oakcurric:priorknowledge-3656-3 ;
+  curric:id "3656"^^xsd:positiveInteger;
+  dcterms:modified "2026-06-07T15:29:26.708576Z"^^xsd:dateTime ;
+  curric:isUnitOf
+    natcurric:scheme-design-and-technology-key-stage-1 ;
+  curric:includesThread
+    oakcurric:thread-make ,
+    oakcurric:thread-systems ,
+    oakcurric:thread-materials .
+
+oakcurric:unit-3657
+  a curric:Unit ;
+  rdfs:label "Freestanding structures: playgrounds"@en ;
+  curric:slug "freestanding-structures-playgrounds" ;
+  rdfs:comment """This unit develops pupils' knowledge of freestanding structures and how to make
+  them more stable. Pupils will analyse different structures, shapes and construction
+  techniques to make piece of play equipment."""@en ;
+  curric:whyThisWhyNow """Designers can identify solutions to design problems through inspiration of
+  structures in the environment that surrounds them. Pupils will be familiar with the context
+  of playgrounds in the community and potentially within the school setting and will have
+  developed knowledge of structures through the Year 1 'Structures: bridges' unit. This unit
+  will be the foundation for prototyping that is further explored in the Year 3 'Shell
+  structures: packaging' unit.""" ;
+  curric:hasPriorKnowledgeRequirement
+    oakcurric:priorknowledge-3657-1 ,
+    oakcurric:priorknowledge-3657-2 ,
+    oakcurric:priorknowledge-3657-3 ;
+  curric:id "3657"^^xsd:positiveInteger;
+  dcterms:modified "2026-06-07T15:29:26.714394Z"^^xsd:dateTime ;
+  curric:isUnitOf
+    natcurric:scheme-design-and-technology-key-stage-1 ;
+  curric:includesThread
+    oakcurric:thread-user-centred-design ,
+    oakcurric:thread-design ,
+    oakcurric:thread-critique-and-evaluate .
+
+# ----------------------------------------------------------------------
+# Unit Variant Inclusion
+# ----------------------------------------------------------------------
+
+oakcurric:inclusion-programme-design-and-technology-year-group-1-pos-1
+  a curric:UnitVariantInclusion ;
+  curric:includesUnitVariant oakcurric:unitvariant-4616 ;
+  curric:sequencePosition "1"^^xsd:positiveInteger .
+
+oakcurric:inclusion-programme-design-and-technology-year-group-1-pos-2
+  a curric:UnitVariantInclusion ;
+  curric:includesUnitVariant oakcurric:unitvariant-4617 ;
+  curric:sequencePosition "2"^^xsd:positiveInteger .
+
+oakcurric:inclusion-programme-design-and-technology-year-group-1-pos-3
+  a curric:UnitVariantInclusion ;
+  curric:includesUnitVariant oakcurric:unitvariant-4618 ;
+  curric:sequencePosition "3"^^xsd:positiveInteger .
+
+oakcurric:inclusion-programme-design-and-technology-year-group-2-pos-1
+  a curric:UnitVariantInclusion ;
+  curric:includesUnitVariant oakcurric:unitvariant-4619 ;
+  curric:sequencePosition "1"^^xsd:positiveInteger .
+
+oakcurric:inclusion-programme-design-and-technology-year-group-2-pos-2
+  a curric:UnitVariantInclusion ;
+  curric:includesUnitVariant oakcurric:unitvariant-4620 ;
+  curric:sequencePosition "2"^^xsd:positiveInteger .
+
+oakcurric:inclusion-programme-design-and-technology-year-group-2-pos-3
+  a curric:UnitVariantInclusion ;
+  curric:includesUnitVariant oakcurric:unitvariant-4621 ;
+  curric:sequencePosition "3"^^xsd:positiveInteger .
+
+# ----------------------------------------------------------------------
+# Unit Variant Choices
+# ----------------------------------------------------------------------
+
+# No Unit Variant Choices
+
+# ----------------------------------------------------------------------
+# Prior Knowledge Requirements
+# ----------------------------------------------------------------------
+
+oakcurric:priorknowledge-3653-1
+  a curric:PriorKnowledgeRequirement ;
+  rdfs:label "Pupils can join construction pieces together to build and balance."@en ;
+  dcterms:modified "2026-06-07T15:29:26.696916Z"^^xsd:dateTime .
+
+oakcurric:priorknowledge-3653-2
+  a curric:PriorKnowledgeRequirement ;
+  rdfs:label "Pupils can use a variety of construction materials."@en ;
+  dcterms:modified "2026-06-07T15:29:26.696926Z"^^xsd:dateTime .
+
+oakcurric:priorknowledge-3653-3
+  a curric:PriorKnowledgeRequirement ;
+  rdfs:label "Pupils can talk about their design ideas and what they are making."@en ;
+  dcterms:modified "2026-06-07T15:29:26.696932Z"^^xsd:dateTime .
+
+oakcurric:priorknowledge-3653-4
+  a curric:PriorKnowledgeRequirement ;
+  rdfs:label "Pupils can select from a range of tools and materials."@en ;
+  dcterms:modified "2026-06-07T15:29:26.696936Z"^^xsd:dateTime .
+
+oakcurric:priorknowledge-3655-1
+  a curric:PriorKnowledgeRequirement ;
+  rdfs:label """Pupils have experiences of working with paper and card to make simple flaps and
+  hinges."""@en ;
+  dcterms:modified "2026-06-07T15:29:26.698867Z"^^xsd:dateTime .
+
+oakcurric:priorknowledge-3655-2
+  a curric:PriorKnowledgeRequirement ;
+  rdfs:label """Pupils have experience of simple cutting, shaping and joining skills using scissors,
+  glue, paper fasteners and masking tape."""@en ;
+  dcterms:modified "2026-06-07T15:29:26.698878Z"^^xsd:dateTime .
+
+oakcurric:priorknowledge-3652-1
+  a curric:PriorKnowledgeRequirement ;
+  rdfs:label "Pupils can use simple tools, such as scissors, appropriately."@en ;
+  dcterms:modified "2026-06-07T15:29:26.702852Z"^^xsd:dateTime .
+
+oakcurric:priorknowledge-3652-2
+  a curric:PriorKnowledgeRequirement ;
+  rdfs:label "Pupils can use simple joining skills, such as glue sticks, appropriately."@en ;
+  dcterms:modified "2026-06-07T15:29:26.702864Z"^^xsd:dateTime .
+
+oakcurric:priorknowledge-3652-3
+  a curric:PriorKnowledgeRequirement ;
+  rdfs:label "Pupils can built structures from simple construction kits."@en ;
+  dcterms:modified "2026-06-07T15:29:26.702869Z"^^xsd:dateTime .
+
+oakcurric:priorknowledge-3654-1
+  a curric:PriorKnowledgeRequirement ;
+  rdfs:label "Pupils have explored and used different fabrics."@en ;
+  dcterms:modified "2026-06-07T15:29:26.706591Z"^^xsd:dateTime .
+
+oakcurric:priorknowledge-3654-2
+  a curric:PriorKnowledgeRequirement ;
+  rdfs:label "Pupils have cut and joined fabrics with simple techniques"@en ;
+  dcterms:modified "2026-06-07T15:29:26.706601Z"^^xsd:dateTime .
+
+oakcurric:priorknowledge-3654-3
+  a curric:PriorKnowledgeRequirement ;
+  rdfs:label "Pupils understand that products have a purpose and an end user."@en ;
+  dcterms:modified "2026-06-07T15:29:26.706607Z"^^xsd:dateTime .
+
+oakcurric:priorknowledge-3656-1
+  a curric:PriorKnowledgeRequirement ;
+  rdfs:label "Pupils have assembled vehicles with moving wheels using construction kits."@en ;
+  dcterms:modified "2026-06-07T15:29:26.708537Z"^^xsd:dateTime .
+
+oakcurric:priorknowledge-3656-2
+  a curric:PriorKnowledgeRequirement ;
+  rdfs:label "Pupils have explored moving vehicles through play."@en ;
+  dcterms:modified "2026-06-07T15:29:26.708547Z"^^xsd:dateTime .
+
+oakcurric:priorknowledge-3656-3
+  a curric:PriorKnowledgeRequirement ;
+  rdfs:label """Pupils have some experience of designing, making and evaluating products for a
+  specified user."""@en ;
+  dcterms:modified "2026-06-07T15:29:26.708553Z"^^xsd:dateTime .
+
+oakcurric:priorknowledge-3657-1
+  a curric:PriorKnowledgeRequirement ;
+  rdfs:label """Pupils have experience of using construction kits to build walls, towers and
+  frameworks."""@en ;
+  dcterms:modified "2026-06-07T15:29:26.714348Z"^^xsd:dateTime .
+
+oakcurric:priorknowledge-3657-2
+  a curric:PriorKnowledgeRequirement ;
+  rdfs:label """Pupils have experience of using of basic tools such as scissors or hole punches with
+  construction materials such as plastic, card."""@en ;
+  dcterms:modified "2026-06-07T15:29:26.714359Z"^^xsd:dateTime .
+
+oakcurric:priorknowledge-3657-3
+  a curric:PriorKnowledgeRequirement ;
+  rdfs:label """Experience of using of basic tools e.g. scissors or hole punches with construction
+  materials e.g. plastic, card"""@en ;
+  dcterms:modified "2026-06-07T15:29:26.714364Z"^^xsd:dateTime .
+
+# ----------------------------------------------------------------------
+# Unit Variants
+# ----------------------------------------------------------------------
+
+oakcurric:unitvariant-4617
+  a curric:UnitVariant ;
+  rdfs:label "Rotary mechanisms: windmills"@en ;
+  curric:id "4617"^^xsd:positiveInteger;
+  dcterms:modified "2026-06-07T15:29:32.396681Z"^^xsd:dateTime ;
+  curric:isUnitVariantOf oakcurric:unit-3653 ;
+  curric:hasLessonInclusion
+    oakcurric:inclusion-unitvariant-4617-lesson-27649 ,
+    oakcurric:inclusion-unitvariant-4617-lesson-27650 ,
+    oakcurric:inclusion-unitvariant-4617-lesson-27651 ,
+    oakcurric:inclusion-unitvariant-4617-lesson-27652 ,
+    oakcurric:inclusion-unitvariant-4617-lesson-27654 ,
+    oakcurric:inclusion-unitvariant-4617-lesson-27653 ,
+    oakcurric:inclusion-unitvariant-4617-lesson-27655 ,
+    oakcurric:inclusion-unitvariant-4617-lesson-27656 .
+
+oakcurric:unitvariant-4619
+  a curric:UnitVariant ;
+  rdfs:label "Levers and sliders: moving cards"@en ;
+  curric:id "4619"^^xsd:positiveInteger;
+  dcterms:modified "2026-06-07T15:29:32.399844Z"^^xsd:dateTime ;
+  curric:isUnitVariantOf oakcurric:unit-3655 ;
+  curric:hasLessonInclusion
+    oakcurric:inclusion-unitvariant-4619-lesson-27665 ,
+    oakcurric:inclusion-unitvariant-4619-lesson-27666 ,
+    oakcurric:inclusion-unitvariant-4619-lesson-27669 ,
+    oakcurric:inclusion-unitvariant-4619-lesson-27667 ,
+    oakcurric:inclusion-unitvariant-4619-lesson-27668 ,
+    oakcurric:inclusion-unitvariant-4619-lesson-27671 ,
+    oakcurric:inclusion-unitvariant-4619-lesson-27672 ,
+    oakcurric:inclusion-unitvariant-4619-lesson-27670 .
+
+oakcurric:unitvariant-4616
+  a curric:UnitVariant ;
+  rdfs:label "Frame structures: bridges"@en ;
+  curric:id "4616"^^xsd:positiveInteger;
+  dcterms:modified "2026-06-07T15:29:32.405148Z"^^xsd:dateTime ;
+  curric:isUnitVariantOf oakcurric:unit-3652 ;
+  curric:hasLessonInclusion
+    oakcurric:inclusion-unitvariant-4616-lesson-27641 ,
+    oakcurric:inclusion-unitvariant-4616-lesson-27643 ,
+    oakcurric:inclusion-unitvariant-4616-lesson-27642 ,
+    oakcurric:inclusion-unitvariant-4616-lesson-27644 ,
+    oakcurric:inclusion-unitvariant-4616-lesson-27645 ,
+    oakcurric:inclusion-unitvariant-4616-lesson-27646 ,
+    oakcurric:inclusion-unitvariant-4616-lesson-27647 ,
+    oakcurric:inclusion-unitvariant-4616-lesson-27648 .
+
+oakcurric:unitvariant-4618
+  a curric:UnitVariant ;
+  rdfs:label "Templates in textiles: hand puppets"@en ;
+  curric:id "4618"^^xsd:positiveInteger;
+  dcterms:modified "2026-06-07T15:29:32.412841Z"^^xsd:dateTime ;
+  curric:isUnitVariantOf oakcurric:unit-3654 ;
+  curric:hasLessonInclusion
+    oakcurric:inclusion-unitvariant-4618-lesson-27657 ,
+    oakcurric:inclusion-unitvariant-4618-lesson-27658 ,
+    oakcurric:inclusion-unitvariant-4618-lesson-27659 ,
+    oakcurric:inclusion-unitvariant-4618-lesson-27660 ,
+    oakcurric:inclusion-unitvariant-4618-lesson-27661 ,
+    oakcurric:inclusion-unitvariant-4618-lesson-27662 ,
+    oakcurric:inclusion-unitvariant-4618-lesson-27663 ,
+    oakcurric:inclusion-unitvariant-4618-lesson-27664 .
+
+oakcurric:unitvariant-4620
+  a curric:UnitVariant ;
+  rdfs:label "Wheels and axles: vehicles"@en ;
+  curric:id "4620"^^xsd:positiveInteger;
+  dcterms:modified "2026-06-07T15:29:32.416980Z"^^xsd:dateTime ;
+  curric:isUnitVariantOf oakcurric:unit-3656 ;
+  curric:hasLessonInclusion
+    oakcurric:inclusion-unitvariant-4620-lesson-27673 ,
+    oakcurric:inclusion-unitvariant-4620-lesson-27674 ,
+    oakcurric:inclusion-unitvariant-4620-lesson-27675 ,
+    oakcurric:inclusion-unitvariant-4620-lesson-27676 ,
+    oakcurric:inclusion-unitvariant-4620-lesson-27677 ,
+    oakcurric:inclusion-unitvariant-4620-lesson-27678 ,
+    oakcurric:inclusion-unitvariant-4620-lesson-27679 ,
+    oakcurric:inclusion-unitvariant-4620-lesson-27680 .
+
+oakcurric:unitvariant-4621
+  a curric:UnitVariant ;
+  rdfs:label "Freestanding structures: playgrounds"@en ;
+  curric:id "4621"^^xsd:positiveInteger;
+  dcterms:modified "2026-06-07T15:29:32.426192Z"^^xsd:dateTime ;
+  curric:isUnitVariantOf oakcurric:unit-3657 ;
+  curric:hasLessonInclusion
+    oakcurric:inclusion-unitvariant-4621-lesson-27681 ,
+    oakcurric:inclusion-unitvariant-4621-lesson-27682 ,
+    oakcurric:inclusion-unitvariant-4621-lesson-27684 ,
+    oakcurric:inclusion-unitvariant-4621-lesson-27683 ,
+    oakcurric:inclusion-unitvariant-4621-lesson-27685 ,
+    oakcurric:inclusion-unitvariant-4621-lesson-27686 ,
+    oakcurric:inclusion-unitvariant-4621-lesson-27687 ,
+    oakcurric:inclusion-unitvariant-4621-lesson-27688 .
+
+# ----------------------------------------------------------------------
+# Lesson Inclusions
+# ----------------------------------------------------------------------
+
+oakcurric:inclusion-unitvariant-4617-lesson-27650
+  a curric:LessonInclusion ;
+  curric:includesLesson oakcurric:lesson-27650 ;
+  curric:sequencePosition "2"^^xsd:positiveInteger .
+
+oakcurric:inclusion-unitvariant-4617-lesson-27655
+  a curric:LessonInclusion ;
+  curric:includesLesson oakcurric:lesson-27655 ;
+  curric:sequencePosition "7"^^xsd:positiveInteger .
+
+oakcurric:inclusion-unitvariant-4617-lesson-27653
+  a curric:LessonInclusion ;
+  curric:includesLesson oakcurric:lesson-27653 ;
+  curric:sequencePosition "6"^^xsd:positiveInteger .
+
+oakcurric:inclusion-unitvariant-4617-lesson-27651
+  a curric:LessonInclusion ;
+  curric:includesLesson oakcurric:lesson-27651 ;
+  curric:sequencePosition "3"^^xsd:positiveInteger .
+
+oakcurric:inclusion-unitvariant-4617-lesson-27656
+  a curric:LessonInclusion ;
+  curric:includesLesson oakcurric:lesson-27656 ;
+  curric:sequencePosition "8"^^xsd:positiveInteger .
+
+oakcurric:inclusion-unitvariant-4617-lesson-27649
+  a curric:LessonInclusion ;
+  curric:includesLesson oakcurric:lesson-27649 ;
+  curric:sequencePosition "1"^^xsd:positiveInteger .
+
+oakcurric:inclusion-unitvariant-4617-lesson-27654
+  a curric:LessonInclusion ;
+  curric:includesLesson oakcurric:lesson-27654 ;
+  curric:sequencePosition "5"^^xsd:positiveInteger .
+
+oakcurric:inclusion-unitvariant-4617-lesson-27652
+  a curric:LessonInclusion ;
+  curric:includesLesson oakcurric:lesson-27652 ;
+  curric:sequencePosition "4"^^xsd:positiveInteger .
+
+oakcurric:inclusion-unitvariant-4619-lesson-27672
+  a curric:LessonInclusion ;
+  curric:includesLesson oakcurric:lesson-27672 ;
+  curric:sequencePosition "7"^^xsd:positiveInteger .
+
+oakcurric:inclusion-unitvariant-4619-lesson-27667
+  a curric:LessonInclusion ;
+  curric:includesLesson oakcurric:lesson-27667 ;
+  curric:sequencePosition "4"^^xsd:positiveInteger .
+
+oakcurric:inclusion-unitvariant-4619-lesson-27668
+  a curric:LessonInclusion ;
+  curric:includesLesson oakcurric:lesson-27668 ;
+  curric:sequencePosition "5"^^xsd:positiveInteger .
+
+oakcurric:inclusion-unitvariant-4619-lesson-27671
+  a curric:LessonInclusion ;
+  curric:includesLesson oakcurric:lesson-27671 ;
+  curric:sequencePosition "6"^^xsd:positiveInteger .
+
+oakcurric:inclusion-unitvariant-4619-lesson-27665
+  a curric:LessonInclusion ;
+  curric:includesLesson oakcurric:lesson-27665 ;
+  curric:sequencePosition "1"^^xsd:positiveInteger .
+
+oakcurric:inclusion-unitvariant-4619-lesson-27669
+  a curric:LessonInclusion ;
+  curric:includesLesson oakcurric:lesson-27669 ;
+  curric:sequencePosition "3"^^xsd:positiveInteger .
+
+oakcurric:inclusion-unitvariant-4619-lesson-27670
+  a curric:LessonInclusion ;
+  curric:includesLesson oakcurric:lesson-27670 ;
+  curric:sequencePosition "8"^^xsd:positiveInteger .
+
+oakcurric:inclusion-unitvariant-4619-lesson-27666
+  a curric:LessonInclusion ;
+  curric:includesLesson oakcurric:lesson-27666 ;
+  curric:sequencePosition "2"^^xsd:positiveInteger .
+
+oakcurric:inclusion-unitvariant-4616-lesson-27646
+  a curric:LessonInclusion ;
+  curric:includesLesson oakcurric:lesson-27646 ;
+  curric:sequencePosition "6"^^xsd:positiveInteger .
+
+oakcurric:inclusion-unitvariant-4616-lesson-27645
+  a curric:LessonInclusion ;
+  curric:includesLesson oakcurric:lesson-27645 ;
+  curric:sequencePosition "5"^^xsd:positiveInteger .
+
+oakcurric:inclusion-unitvariant-4616-lesson-27648
+  a curric:LessonInclusion ;
+  curric:includesLesson oakcurric:lesson-27648 ;
+  curric:sequencePosition "8"^^xsd:positiveInteger .
+
+oakcurric:inclusion-unitvariant-4616-lesson-27647
+  a curric:LessonInclusion ;
+  curric:includesLesson oakcurric:lesson-27647 ;
+  curric:sequencePosition "7"^^xsd:positiveInteger .
+
+oakcurric:inclusion-unitvariant-4616-lesson-27641
+  a curric:LessonInclusion ;
+  curric:includesLesson oakcurric:lesson-27641 ;
+  curric:sequencePosition "1"^^xsd:positiveInteger .
+
+oakcurric:inclusion-unitvariant-4616-lesson-27642
+  a curric:LessonInclusion ;
+  curric:includesLesson oakcurric:lesson-27642 ;
+  curric:sequencePosition "3"^^xsd:positiveInteger .
+
+oakcurric:inclusion-unitvariant-4616-lesson-27643
+  a curric:LessonInclusion ;
+  curric:includesLesson oakcurric:lesson-27643 ;
+  curric:sequencePosition "2"^^xsd:positiveInteger .
+
+oakcurric:inclusion-unitvariant-4616-lesson-27644
+  a curric:LessonInclusion ;
+  curric:includesLesson oakcurric:lesson-27644 ;
+  curric:sequencePosition "4"^^xsd:positiveInteger .
+
+oakcurric:inclusion-unitvariant-4618-lesson-27661
+  a curric:LessonInclusion ;
+  curric:includesLesson oakcurric:lesson-27661 ;
+  curric:sequencePosition "5"^^xsd:positiveInteger .
+
+oakcurric:inclusion-unitvariant-4618-lesson-27660
+  a curric:LessonInclusion ;
+  curric:includesLesson oakcurric:lesson-27660 ;
+  curric:sequencePosition "4"^^xsd:positiveInteger .
+
+oakcurric:inclusion-unitvariant-4618-lesson-27658
+  a curric:LessonInclusion ;
+  curric:includesLesson oakcurric:lesson-27658 ;
+  curric:sequencePosition "2"^^xsd:positiveInteger .
+
+oakcurric:inclusion-unitvariant-4618-lesson-27659
+  a curric:LessonInclusion ;
+  curric:includesLesson oakcurric:lesson-27659 ;
+  curric:sequencePosition "3"^^xsd:positiveInteger .
+
+oakcurric:inclusion-unitvariant-4618-lesson-27664
+  a curric:LessonInclusion ;
+  curric:includesLesson oakcurric:lesson-27664 ;
+  curric:sequencePosition "8"^^xsd:positiveInteger .
+
+oakcurric:inclusion-unitvariant-4618-lesson-27662
+  a curric:LessonInclusion ;
+  curric:includesLesson oakcurric:lesson-27662 ;
+  curric:sequencePosition "6"^^xsd:positiveInteger .
+
+oakcurric:inclusion-unitvariant-4618-lesson-27657
+  a curric:LessonInclusion ;
+  curric:includesLesson oakcurric:lesson-27657 ;
+  curric:sequencePosition "1"^^xsd:positiveInteger .
+
+oakcurric:inclusion-unitvariant-4618-lesson-27663
+  a curric:LessonInclusion ;
+  curric:includesLesson oakcurric:lesson-27663 ;
+  curric:sequencePosition "7"^^xsd:positiveInteger .
+
+oakcurric:inclusion-unitvariant-4620-lesson-27679
+  a curric:LessonInclusion ;
+  curric:includesLesson oakcurric:lesson-27679 ;
+  curric:sequencePosition "7"^^xsd:positiveInteger .
+
+oakcurric:inclusion-unitvariant-4620-lesson-27676
+  a curric:LessonInclusion ;
+  curric:includesLesson oakcurric:lesson-27676 ;
+  curric:sequencePosition "4"^^xsd:positiveInteger .
+
+oakcurric:inclusion-unitvariant-4620-lesson-27673
+  a curric:LessonInclusion ;
+  curric:includesLesson oakcurric:lesson-27673 ;
+  curric:sequencePosition "1"^^xsd:positiveInteger .
+
+oakcurric:inclusion-unitvariant-4620-lesson-27675
+  a curric:LessonInclusion ;
+  curric:includesLesson oakcurric:lesson-27675 ;
+  curric:sequencePosition "3"^^xsd:positiveInteger .
+
+oakcurric:inclusion-unitvariant-4620-lesson-27678
+  a curric:LessonInclusion ;
+  curric:includesLesson oakcurric:lesson-27678 ;
+  curric:sequencePosition "6"^^xsd:positiveInteger .
+
+oakcurric:inclusion-unitvariant-4620-lesson-27680
+  a curric:LessonInclusion ;
+  curric:includesLesson oakcurric:lesson-27680 ;
+  curric:sequencePosition "8"^^xsd:positiveInteger .
+
+oakcurric:inclusion-unitvariant-4620-lesson-27677
+  a curric:LessonInclusion ;
+  curric:includesLesson oakcurric:lesson-27677 ;
+  curric:sequencePosition "5"^^xsd:positiveInteger .
+
+oakcurric:inclusion-unitvariant-4620-lesson-27674
+  a curric:LessonInclusion ;
+  curric:includesLesson oakcurric:lesson-27674 ;
+  curric:sequencePosition "2"^^xsd:positiveInteger .
+
+oakcurric:inclusion-unitvariant-4621-lesson-27687
+  a curric:LessonInclusion ;
+  curric:includesLesson oakcurric:lesson-27687 ;
+  curric:sequencePosition "7"^^xsd:positiveInteger .
+
+oakcurric:inclusion-unitvariant-4621-lesson-27681
+  a curric:LessonInclusion ;
+  curric:includesLesson oakcurric:lesson-27681 ;
+  curric:sequencePosition "1"^^xsd:positiveInteger .
+
+oakcurric:inclusion-unitvariant-4621-lesson-27683
+  a curric:LessonInclusion ;
+  curric:includesLesson oakcurric:lesson-27683 ;
+  curric:sequencePosition "4"^^xsd:positiveInteger .
+
+oakcurric:inclusion-unitvariant-4621-lesson-27688
+  a curric:LessonInclusion ;
+  curric:includesLesson oakcurric:lesson-27688 ;
+  curric:sequencePosition "8"^^xsd:positiveInteger .
+
+oakcurric:inclusion-unitvariant-4621-lesson-27684
+  a curric:LessonInclusion ;
+  curric:includesLesson oakcurric:lesson-27684 ;
+  curric:sequencePosition "3"^^xsd:positiveInteger .
+
+oakcurric:inclusion-unitvariant-4621-lesson-27685
+  a curric:LessonInclusion ;
+  curric:includesLesson oakcurric:lesson-27685 ;
+  curric:sequencePosition "5"^^xsd:positiveInteger .
+
+oakcurric:inclusion-unitvariant-4621-lesson-27682
+  a curric:LessonInclusion ;
+  curric:includesLesson oakcurric:lesson-27682 ;
+  curric:sequencePosition "2"^^xsd:positiveInteger .
+
+oakcurric:inclusion-unitvariant-4621-lesson-27686
+  a curric:LessonInclusion ;
+  curric:includesLesson oakcurric:lesson-27686 ;
+  curric:sequencePosition "6"^^xsd:positiveInteger .
+
+# ----------------------------------------------------------------------
+# Lessons
+# ----------------------------------------------------------------------
+
+oakcurric:lesson-27650
+  a curric:Lesson ;
+  rdfs:label "Using wind"@en ;
+  curric:slug "using-wind" ;
+  curric:id "27650"^^xsd:positiveInteger ;
+  curric:hasKeyLearningPoint
+    oakcurric:keylearningpoint-lesson-27650-1 ,
+    oakcurric:keylearningpoint-lesson-27650-2 ,
+    oakcurric:keylearningpoint-lesson-27650-3 ;
+  curric:hasKeyword
+    oakcurric:keyword-rotary-motion ,
+    oakcurric:keyword-sails ,
+    oakcurric:keyword-blades ,
+    oakcurric:keyword-millstone ;
+  curric:hasPupilLessonOutcome oakcurric:pupillessonoutcome-lesson-27650 ;
+  curric:hasMisconception
+    oakcurric:misconception-windmills-create-wind-rather-moved ;
+  dcterms:modified "2026-06-07T15:29:44.892924Z"^^xsd:dateTime .
+
+oakcurric:lesson-27672
+  a curric:Lesson ;
+  rdfs:label "Envelopes for moving cards"@en ;
+  curric:slug "envelopes-for-moving-cards" ;
+  curric:id "27672"^^xsd:positiveInteger ;
+  curric:hasKeyLearningPoint
+    oakcurric:keylearningpoint-lesson-27672-1 ,
+    oakcurric:keylearningpoint-lesson-27672-2 ,
+    oakcurric:keylearningpoint-lesson-27672-3 ,
+    oakcurric:keylearningpoint-lesson-27672-4 ;
+  curric:hasKeyword
+    oakcurric:keyword-disassemble ,
+    oakcurric:keyword-technique ,
+    oakcurric:keyword-construct ,
+    oakcurric:keyword-protect ;
+  curric:hasPupilLessonOutcome oakcurric:pupillessonoutcome-lesson-27672 ;
+  curric:hasMisconception
+    oakcurric:misconception-envelopes-exactly-same-size-card ;
+  dcterms:modified "2026-06-07T15:29:44.897092Z"^^xsd:dateTime .
+
+oakcurric:lesson-27646
+  a curric:Lesson ;
+  rdfs:label "Making a bridge structure"@en ;
+  curric:slug "making-a-bridge-structure" ;
+  curric:id "27646"^^xsd:positiveInteger ;
+  curric:hasKeyLearningPoint
+    oakcurric:keylearningpoint-lesson-27646-1 ,
+    oakcurric:keylearningpoint-lesson-27646-2 ,
+    oakcurric:keylearningpoint-lesson-27646-3 ,
+    oakcurric:keylearningpoint-lesson-27646-4 ,
+    oakcurric:keylearningpoint-lesson-27646-5 ;
+  curric:hasKeyword
+    oakcurric:keyword-joining-techniques ,
+    oakcurric:keyword-building ,
+    oakcurric:keyword-reinforce ,
+    oakcurric:keyword-testing ;
+  curric:hasPupilLessonOutcome oakcurric:pupillessonoutcome-lesson-27646 ;
+  curric:hasMisconception
+    oakcurric:misconception-testing-needs-completed-end-making ;
+  dcterms:modified "2026-06-07T15:29:44.901212Z"^^xsd:dateTime .
+
+oakcurric:lesson-27645
+  a curric:Lesson ;
+  rdfs:label "Generate ideas through talking and 2D drawing"@en ;
+  curric:slug "generate-ideas-through-talking-and-2d-drawing" ;
+  curric:id "27645"^^xsd:positiveInteger ;
+  curric:hasKeyLearningPoint
+    oakcurric:keylearningpoint-lesson-27645-1 ,
+    oakcurric:keylearningpoint-lesson-27645-2 ,
+    oakcurric:keylearningpoint-lesson-27645-3 ;
+  curric:hasKeyword
+    oakcurric:keyword-famous-landmarks ,
+    oakcurric:keyword-designing ,
+    oakcurric:keyword-sketching ,
+    oakcurric:keyword-unique ,
+    oakcurric:keyword-design-specification ;
+  curric:hasPupilLessonOutcome oakcurric:pupillessonoutcome-lesson-27645 ;
+  curric:hasMisconception
+    oakcurric:misconception-designs-need-decided-upon-followed ;
+  dcterms:modified "2026-06-07T15:29:44.905177Z"^^xsd:dateTime .
+
+oakcurric:lesson-27648
+  a curric:Lesson ;
+  rdfs:label "Testing bridge structures"@en ;
+  curric:slug "testing-bridge-structures" ;
+  curric:id "27648"^^xsd:positiveInteger ;
+  curric:hasKeyLearningPoint
+    oakcurric:keylearningpoint-lesson-27648-1 ,
+    oakcurric:keylearningpoint-lesson-27648-2 ,
+    oakcurric:keylearningpoint-lesson-27648-3 ,
+    oakcurric:keylearningpoint-lesson-27648-4 ;
+  curric:hasKeyword
+    oakcurric:keyword-feedback ,
+    oakcurric:keyword-testing ,
+    oakcurric:keyword-success-criteria ;
+  curric:hasPupilLessonOutcome oakcurric:pupillessonoutcome-lesson-27648 ;
+  curric:hasMisconception
+    oakcurric:misconception-testing-happens-end-making-process ;
+  dcterms:modified "2026-06-07T15:29:44.906164Z"^^xsd:dateTime .
+
+oakcurric:lesson-27661
+  a curric:Lesson ;
+  rdfs:label "Plan and make fabric templates"@en ;
+  curric:slug "plan-and-make-fabric-templates" ;
+  curric:id "27661"^^xsd:positiveInteger ;
+  curric:hasKeyLearningPoint
+    oakcurric:keylearningpoint-lesson-27661-1 ,
+    oakcurric:keylearningpoint-lesson-27661-2 ,
+    oakcurric:keylearningpoint-lesson-27661-3 ,
+    oakcurric:keylearningpoint-lesson-27661-4 ;
+  curric:hasKeyword
+    oakcurric:keyword-template ,
+    oakcurric:keyword-accurate ,
+    oakcurric:keyword-join ;
+  curric:hasPupilLessonOutcome oakcurric:pupillessonoutcome-lesson-27661 ;
+  curric:hasMisconception
+    oakcurric:misconception-detail-puppet-needs-added-template ;
+  dcterms:modified "2026-06-07T15:29:44.907149Z"^^xsd:dateTime .
+
+oakcurric:lesson-27679
+  a curric:Lesson ;
+  rdfs:label "Finishing a vehicle"@en ;
+  curric:slug "finishing-a-vehicle" ;
+  curric:id "27679"^^xsd:positiveInteger ;
+  curric:hasKeyLearningPoint
+    oakcurric:keylearningpoint-lesson-27679-1 ,
+    oakcurric:keylearningpoint-lesson-27679-2 ,
+    oakcurric:keylearningpoint-lesson-27679-3 ,
+    oakcurric:keylearningpoint-lesson-27679-4 ,
+    oakcurric:keylearningpoint-lesson-27679-5 ;
+  curric:hasKeyword
+    oakcurric:keyword-vehicle ,
+    oakcurric:keyword-joint ,
+    oakcurric:keyword-parallel ,
+    oakcurric:keyword-reinforce ,
+    oakcurric:keyword-body ;
+  curric:hasPupilLessonOutcome oakcurric:pupillessonoutcome-lesson-27679 ;
+  curric:hasMisconception
+    oakcurric:misconception-vehicle-chassis ;
+  dcterms:modified "2026-06-07T15:29:44.908136Z"^^xsd:dateTime .
+
+oakcurric:lesson-27676
+  a curric:Lesson ;
+  rdfs:label "Card construction techniques"@en ;
+  curric:slug "card-construction-techniques" ;
+  curric:id "27676"^^xsd:positiveInteger ;
+  curric:hasKeyLearningPoint
+    oakcurric:keylearningpoint-lesson-27676-1 ,
+    oakcurric:keylearningpoint-lesson-27676-2 ,
+    oakcurric:keylearningpoint-lesson-27676-3 ;
+  curric:hasKeyword
+    oakcurric:keyword-marking-out ,
+    oakcurric:keyword-joining-techniques ,
+    oakcurric:keyword-equipment ,
+    oakcurric:keyword-material ;
+  curric:hasPupilLessonOutcome oakcurric:pupillessonoutcome-lesson-27676 ;
+  curric:hasMisconception
+    oakcurric:misconception-glue-way-join-card-sections ;
+  dcterms:modified "2026-06-07T15:29:44.911097Z"^^xsd:dateTime .
+
+oakcurric:lesson-27673
+  a curric:Lesson ;
+  rdfs:label "Wheels and axles in vehicles"@en ;
+  curric:slug "wheels-and-axles-in-vehicles" ;
+  curric:id "27673"^^xsd:positiveInteger ;
+  curric:hasKeyLearningPoint
+    oakcurric:keylearningpoint-lesson-27673-1 ,
+    oakcurric:keylearningpoint-lesson-27673-2 ,
+    oakcurric:keylearningpoint-lesson-27673-3 ;
+  curric:hasKeyword
+    oakcurric:keyword-axle ,
+    oakcurric:keyword-wheel ,
+    oakcurric:keyword-vehicle ,
+    oakcurric:keyword-rotate ;
+  curric:hasPupilLessonOutcome oakcurric:pupillessonoutcome-lesson-27673 ;
+  curric:hasMisconception
+    oakcurric:misconception-cars-wheels-axles ;
+  dcterms:modified "2026-06-07T15:29:44.921859Z"^^xsd:dateTime .
+
+oakcurric:lesson-27660
+  a curric:Lesson ;
+  rdfs:label "Sketching ideas"@en ;
+  curric:slug "sketching-ideas" ;
+  curric:id "27660"^^xsd:positiveInteger ;
+  curric:hasKeyLearningPoint
+    oakcurric:keylearningpoint-lesson-27660-1 ,
+    oakcurric:keylearningpoint-lesson-27660-2 ,
+    oakcurric:keylearningpoint-lesson-27660-3 ,
+    oakcurric:keylearningpoint-lesson-27660-4 ;
+  curric:hasKeyword
+    oakcurric:keyword-design-specification ,
+    oakcurric:keyword-sketch ,
+    oakcurric:keyword-ideas ,
+    oakcurric:keyword-design ;
+  curric:hasPupilLessonOutcome oakcurric:pupillessonoutcome-lesson-27660 ;
+  curric:hasMisconception
+    oakcurric:misconception-design-ideas-cannot-changed ;
+  dcterms:modified "2026-06-07T15:29:44.924861Z"^^xsd:dateTime .
+
+oakcurric:lesson-27647
+  a curric:Lesson ;
+  rdfs:label "Develop and finish a bridge"@en ;
+  curric:slug "develop-and-finish-a-bridge" ;
+  curric:id "27647"^^xsd:positiveInteger ;
+  curric:hasKeyLearningPoint
+    oakcurric:keylearningpoint-lesson-27647-1 ,
+    oakcurric:keylearningpoint-lesson-27647-2 ,
+    oakcurric:keylearningpoint-lesson-27647-3 ;
+  curric:hasKeyword
+    oakcurric:keyword-texture ,
+    oakcurric:keyword-appearance ,
+    oakcurric:keyword-unique ,
+    oakcurric:keyword-joining-techniques ;
+  curric:hasPupilLessonOutcome oakcurric:pupillessonoutcome-lesson-27647 ;
+  curric:hasMisconception
+    oakcurric:misconception-bridges-look-same ;
+  dcterms:modified "2026-06-07T15:29:44.925839Z"^^xsd:dateTime .
+
+oakcurric:lesson-27687
+  a curric:Lesson ;
+  rdfs:label "Adding finishing touches to playground structures"@en ;
+  curric:slug "adding-finishing-touches-to-playground-structures" ;
+  curric:id "27687"^^xsd:positiveInteger ;
+  curric:hasKeyLearningPoint
+    oakcurric:keylearningpoint-lesson-27687-1 ,
+    oakcurric:keylearningpoint-lesson-27687-2 ,
+    oakcurric:keylearningpoint-lesson-27687-3 ,
+    oakcurric:keylearningpoint-lesson-27687-4 ,
+    oakcurric:keylearningpoint-lesson-27687-5 ;
+  curric:hasKeyword
+    oakcurric:keyword-features ,
+    oakcurric:keyword-effects ,
+    oakcurric:keyword-appearance ,
+    oakcurric:keyword-texture ;
+  curric:hasPupilLessonOutcome oakcurric:pupillessonoutcome-lesson-27687 ;
+  curric:hasMisconception
+    oakcurric:misconception-decorations-used-make-look-pretty ;
+  dcterms:modified "2026-06-07T15:29:44.926823Z"^^xsd:dateTime .
+
+oakcurric:lesson-27681
+  a curric:Lesson ;
+  rdfs:label "Shapes and materials used in playground structures"@en ;
+  curric:slug "shapes-and-materials-used-in-playground-structures" ;
+  curric:id "27681"^^xsd:positiveInteger ;
+  curric:hasKeyLearningPoint
+    oakcurric:keylearningpoint-lesson-27681-1 ,
+    oakcurric:keylearningpoint-lesson-27681-2 ,
+    oakcurric:keylearningpoint-lesson-27681-3 ;
+  curric:hasKeyword
+    oakcurric:keyword-materials ,
+    oakcurric:keyword-features ,
+    oakcurric:keyword-user ,
+    oakcurric:keyword-playground-equipment ;
+  curric:hasPupilLessonOutcome oakcurric:pupillessonoutcome-lesson-27681 ;
+  curric:hasMisconception
+    oakcurric:misconception-play-areas-follow-similar-design ;
+  dcterms:modified "2026-06-07T15:29:44.928781Z"^^xsd:dateTime .
+
+oakcurric:lesson-27675
+  a curric:Lesson ;
+  rdfs:label "Card properties and uses"@en ;
+  curric:slug "card-properties-and-uses" ;
+  curric:id "27675"^^xsd:positiveInteger ;
+  curric:hasKeyLearningPoint
+    oakcurric:keylearningpoint-lesson-27675-1 ,
+    oakcurric:keylearningpoint-lesson-27675-2 ,
+    oakcurric:keylearningpoint-lesson-27675-3 ;
+  curric:hasKeyword
+    oakcurric:keyword-material ,
+    oakcurric:keyword-properties ,
+    oakcurric:keyword-sustainable ,
+    oakcurric:keyword-corrugated ;
+  curric:hasPupilLessonOutcome oakcurric:pupillessonoutcome-lesson-27675 ;
+  curric:hasMisconception
+    oakcurric:misconception-card-paper-same ;
+  dcterms:modified "2026-06-07T15:29:44.934684Z"^^xsd:dateTime .
+
+oakcurric:lesson-27683
+  a curric:Lesson ;
+  rdfs:label "Preparing materials for playground structures"@en ;
+  curric:slug "preparing-materials-for-playground-structures" ;
+  curric:id "27683"^^xsd:positiveInteger ;
+  curric:hasKeyLearningPoint
+    oakcurric:keylearningpoint-lesson-27683-1 ,
+    oakcurric:keylearningpoint-lesson-27683-2 ,
+    oakcurric:keylearningpoint-lesson-27683-3 ,
+    oakcurric:keylearningpoint-lesson-27683-4 ;
+  curric:hasKeyword
+    oakcurric:keyword-measuring-with-a-ruler ,
+    oakcurric:keyword-marking-out ,
+    oakcurric:keyword-joining-techniques ;
+  curric:hasPupilLessonOutcome oakcurric:pupillessonoutcome-lesson-27683 ;
+  curric:hasMisconception
+    oakcurric:misconception-buttresses-bracing-anchors-wider-bases ;
+  dcterms:modified "2026-06-07T15:29:44.958617Z"^^xsd:dateTime .
+
+oakcurric:lesson-27658
+  a curric:Lesson ;
+  rdfs:label "Fabric properties"@en ;
+  curric:slug "fabric-properties" ;
+  curric:id "27658"^^xsd:positiveInteger ;
+  curric:hasKeyLearningPoint
+    oakcurric:keylearningpoint-lesson-27658-1 ,
+    oakcurric:keylearningpoint-lesson-27658-2 ,
+    oakcurric:keylearningpoint-lesson-27658-3 ,
+    oakcurric:keylearningpoint-lesson-27658-4 ;
+  curric:hasKeyword
+    oakcurric:keyword-properties ,
+    oakcurric:keyword-fabric ,
+    oakcurric:keyword-man-made ,
+    oakcurric:keyword-natural ;
+  curric:hasPupilLessonOutcome oakcurric:pupillessonoutcome-lesson-27658 ;
+  curric:hasMisconception
+    oakcurric:misconception-fabrics-same ;
+  dcterms:modified "2026-06-07T15:29:44.966581Z"^^xsd:dateTime .
+
+oakcurric:lesson-27659
+  a curric:Lesson ;
+  rdfs:label "Simple sewing techniques"@en ;
+  curric:slug "simple-sewing-techniques" ;
+  curric:id "27659"^^xsd:positiveInteger ;
+  curric:hasKeyLearningPoint
+    oakcurric:keylearningpoint-lesson-27659-1 ,
+    oakcurric:keylearningpoint-lesson-27659-2 ,
+    oakcurric:keylearningpoint-lesson-27659-3 ;
+  curric:hasKeyword
+    oakcurric:keyword-sewing ,
+    oakcurric:keyword-stitches ,
+    oakcurric:keyword-thread ,
+    oakcurric:keyword-joining ;
+  curric:hasPupilLessonOutcome oakcurric:pupillessonoutcome-lesson-27659 ;
+  curric:hasMisconception
+    oakcurric:misconception-children-use-cotton-sew ;
+  dcterms:modified "2026-06-07T15:29:44.977412Z"^^xsd:dateTime .
+
+oakcurric:lesson-27667
+  a curric:Lesson ;
+  rdfs:label "Properties of paper and card"@en ;
+  curric:slug "properties-of-paper-and-card" ;
+  curric:id "27667"^^xsd:positiveInteger ;
+  curric:hasKeyLearningPoint
+    oakcurric:keylearningpoint-lesson-27667-1 ,
+    oakcurric:keylearningpoint-lesson-27667-2 ,
+    oakcurric:keylearningpoint-lesson-27667-3 ;
+  curric:hasKeyword
+    oakcurric:keyword-properties ,
+    oakcurric:keyword-material ,
+    oakcurric:keyword-sturdy ,
+    oakcurric:keyword-user ;
+  curric:hasPupilLessonOutcome oakcurric:pupillessonoutcome-lesson-27667 ;
+  curric:hasMisconception
+    oakcurric:misconception-paper-card-comes-trees ;
+  dcterms:modified "2026-06-07T15:29:44.988717Z"^^xsd:dateTime .
+
+oakcurric:lesson-27668
+  a curric:Lesson ;
+  rdfs:label "Mechanisms in moving cards"@en ;
+  curric:slug "mechanisms-in-moving-cards" ;
+  curric:id "27668"^^xsd:positiveInteger ;
+  curric:hasKeyLearningPoint
+    oakcurric:keylearningpoint-lesson-27668-1 ,
+    oakcurric:keylearningpoint-lesson-27668-2 ,
+    oakcurric:keylearningpoint-lesson-27668-3 ,
+    oakcurric:keylearningpoint-lesson-27668-4 ;
+  curric:hasKeyword
+    oakcurric:keyword-landscape ,
+    oakcurric:keyword-portrait ,
+    oakcurric:keyword-produce ,
+    oakcurric:keyword-accurate ;
+  curric:hasPupilLessonOutcome oakcurric:pupillessonoutcome-lesson-27668 ;
+  curric:hasMisconception
+    oakcurric:misconception-help-split-pin-turn-create ;
+  dcterms:modified "2026-06-07T15:29:44.991689Z"^^xsd:dateTime .
+
+oakcurric:lesson-27678
+  a curric:Lesson ;
+  rdfs:label "Designing a vehicle"@en ;
+  curric:slug "designing-a-vehicle" ;
+  curric:id "27678"^^xsd:positiveInteger ;
+  curric:hasKeyLearningPoint
+    oakcurric:keylearningpoint-lesson-27678-1 ,
+    oakcurric:keylearningpoint-lesson-27678-2 ,
+    oakcurric:keylearningpoint-lesson-27678-3 ;
+  curric:hasKeyword
+    oakcurric:keyword-vehicle ,
+    oakcurric:keyword-design ,
+    oakcurric:keyword-joint ,
+    oakcurric:keyword-reinforce ,
+    oakcurric:keyword-body ;
+  curric:hasPupilLessonOutcome oakcurric:pupillessonoutcome-lesson-27678 ;
+  curric:hasMisconception
+    oakcurric:misconception-vehicles-made-same-materials ;
+  dcterms:modified "2026-06-07T15:29:45.000111Z"^^xsd:dateTime .
+
+oakcurric:lesson-27688
+  a curric:Lesson ;
+  rdfs:label "Test and talk about the final playground structure"@en ;
+  curric:slug "test-and-talk-about-the-final-playground-structure" ;
+  curric:id "27688"^^xsd:positiveInteger ;
+  curric:hasKeyLearningPoint
+    oakcurric:keylearningpoint-lesson-27688-1 ,
+    oakcurric:keylearningpoint-lesson-27688-2 ,
+    oakcurric:keylearningpoint-lesson-27688-3 ,
+    oakcurric:keylearningpoint-lesson-27688-4 ,
+    oakcurric:keylearningpoint-lesson-27688-5 ;
+  curric:hasKeyword
+    oakcurric:keyword-stable ,
+    oakcurric:keyword-testing ,
+    oakcurric:keyword-success-criteria ,
+    oakcurric:keyword-feedback ;
+  curric:hasPupilLessonOutcome oakcurric:pupillessonoutcome-lesson-27688 ;
+  curric:hasMisconception
+    oakcurric:misconception-feedback-testing-completed-once-object ;
+  dcterms:modified "2026-06-07T15:29:45.001164Z"^^xsd:dateTime .
+
+oakcurric:lesson-27655
+  a curric:Lesson ;
+  rdfs:label "Finishing and testing windmill mechanisms"@en ;
+  curric:slug "finishing-and-testing-windmill-mechanisms" ;
+  curric:id "27655"^^xsd:positiveInteger ;
+  curric:hasKeyLearningPoint
+    oakcurric:keylearningpoint-lesson-27655-1 ,
+    oakcurric:keylearningpoint-lesson-27655-2 ,
+    oakcurric:keylearningpoint-lesson-27655-3 ,
+    oakcurric:keylearningpoint-lesson-27655-4 ;
+  curric:hasKeyword
+    oakcurric:keyword-testing ,
+    oakcurric:keyword-feedback ,
+    oakcurric:keyword-axle ,
+    oakcurric:keyword-success-criteria ,
+    oakcurric:keyword-evaluate ;
+  curric:hasPupilLessonOutcome oakcurric:pupillessonoutcome-lesson-27655 ;
+  curric:hasMisconception
+    oakcurric:misconception-windmill-tested-inside ;
+  dcterms:modified "2026-06-07T15:29:45.025306Z"^^xsd:dateTime .
+
+oakcurric:lesson-27664
+  a curric:Lesson ;
+  rdfs:label "Giving and receiving feedback"@en ;
+  curric:slug "giving-and-receiving-feedback" ;
+  curric:id "27664"^^xsd:positiveInteger ;
+  curric:hasKeyLearningPoint
+    oakcurric:keylearningpoint-lesson-27664-1 ,
+    oakcurric:keylearningpoint-lesson-27664-2 ,
+    oakcurric:keylearningpoint-lesson-27664-3 ;
+  curric:hasKeyword
+    oakcurric:keyword-feedback ,
+    oakcurric:keyword-testing ,
+    oakcurric:keyword-performance ,
+    oakcurric:keyword-success-criteria ;
+  curric:hasPupilLessonOutcome oakcurric:pupillessonoutcome-lesson-27664 ;
+  curric:hasMisconception
+    oakcurric:misconception-feedback-got-positive ;
+  dcterms:modified "2026-06-07T15:29:45.026319Z"^^xsd:dateTime .
+
+oakcurric:lesson-27680
+  a curric:Lesson ;
+  rdfs:label "Test a vehicle"@en ;
+  curric:slug "test-a-vehicle" ;
+  curric:id "27680"^^xsd:positiveInteger ;
+  curric:hasKeyLearningPoint
+    oakcurric:keylearningpoint-lesson-27680-1 ,
+    oakcurric:keylearningpoint-lesson-27680-2 ,
+    oakcurric:keylearningpoint-lesson-27680-3 ,
+    oakcurric:keylearningpoint-lesson-27680-4 ;
+  curric:hasKeyword
+    oakcurric:keyword-vehicle ,
+    oakcurric:keyword-testing ,
+    oakcurric:keyword-success-criteria ,
+    oakcurric:keyword-evaluate ,
+    oakcurric:keyword-feedback ;
+  curric:hasPupilLessonOutcome oakcurric:pupillessonoutcome-lesson-27680 ;
+  curric:hasMisconception
+    oakcurric:misconception-completed-vehicles-finished-therefore-need ;
+  dcterms:modified "2026-06-07T15:29:45.178126Z"^^xsd:dateTime .
+
+oakcurric:lesson-27662
+  a curric:Lesson ;
+  rdfs:label "Joining fabric to make puppets"@en ;
+  curric:slug "joining-fabric-to-make-puppets" ;
+  curric:id "27662"^^xsd:positiveInteger ;
+  curric:hasKeyLearningPoint
+    oakcurric:keylearningpoint-lesson-27662-1 ,
+    oakcurric:keylearningpoint-lesson-27662-2 ,
+    oakcurric:keylearningpoint-lesson-27662-3 ,
+    oakcurric:keylearningpoint-lesson-27662-4 ;
+  curric:hasKeyword
+    oakcurric:keyword-fray ,
+    oakcurric:keyword-seam ,
+    oakcurric:keyword-template ,
+    oakcurric:keyword-mark-out ;
+  curric:hasPupilLessonOutcome oakcurric:pupillessonoutcome-lesson-27662 ;
+  curric:hasMisconception
+    oakcurric:misconception-whole-puppet-needs-stitched ;
+  dcterms:modified "2026-06-07T15:29:45.179151Z"^^xsd:dateTime .
+
+oakcurric:lesson-27684
+  a curric:Lesson ;
+  rdfs:label "Creating and reinforcing playground structures"@en ;
+  curric:slug "creating-and-reinforcing-playground-structures" ;
+  curric:id "27684"^^xsd:positiveInteger ;
+  curric:hasKeyLearningPoint
+    oakcurric:keylearningpoint-lesson-27684-1 ,
+    oakcurric:keylearningpoint-lesson-27684-2 ,
+    oakcurric:keylearningpoint-lesson-27684-3 ,
+    oakcurric:keylearningpoint-lesson-27684-4 ;
+  curric:hasKeyword
+    oakcurric:keyword-frame-structures ,
+    oakcurric:keyword-shell-structures ,
+    oakcurric:keyword-brick-bonding ,
+    oakcurric:keyword-bracing ,
+    oakcurric:keyword-reinforce ;
+  curric:hasPupilLessonOutcome oakcurric:pupillessonoutcome-lesson-27684 ;
+  curric:hasMisconception
+    oakcurric:misconception-structures-same ;
+  dcterms:modified "2026-06-07T15:29:45.201679Z"^^xsd:dateTime .
+
+oakcurric:lesson-27653
+  a curric:Lesson ;
+  rdfs:label "Make a windmill"@en ;
+  curric:slug "make-a-windmill" ;
+  curric:id "27653"^^xsd:positiveInteger ;
+  curric:hasKeyLearningPoint
+    oakcurric:keylearningpoint-lesson-27653-1 ,
+    oakcurric:keylearningpoint-lesson-27653-2 ,
+    oakcurric:keylearningpoint-lesson-27653-3 ,
+    oakcurric:keylearningpoint-lesson-27653-4 ;
+  curric:hasKeyword
+    oakcurric:keyword-ballast ,
+    oakcurric:keyword-structure ,
+    oakcurric:keyword-freestanding ,
+    oakcurric:keyword-stable ;
+  curric:hasPupilLessonOutcome oakcurric:pupillessonoutcome-lesson-27653 ;
+  curric:hasMisconception
+    oakcurric:misconception-windmills-need-wide-base-stand ;
+  dcterms:modified "2026-06-07T15:29:45.203788Z"^^xsd:dateTime .
+
+oakcurric:lesson-27657
+  a curric:Lesson ;
+  rdfs:label "Exploring puppets"@en ;
+  curric:slug "exploring-puppets" ;
+  curric:id "27657"^^xsd:positiveInteger ;
+  curric:hasKeyLearningPoint
+    oakcurric:keylearningpoint-lesson-27657-1 ,
+    oakcurric:keylearningpoint-lesson-27657-2 ;
+  curric:hasKeyword
+    oakcurric:keyword-puppet ,
+    oakcurric:keyword-material ,
+    oakcurric:keyword-disassembly ;
+  curric:hasPupilLessonOutcome oakcurric:pupillessonoutcome-lesson-27657 ;
+  curric:hasMisconception
+    oakcurric:misconception-puppets-made-same-way-using ;
+  dcterms:modified "2026-06-07T15:29:45.239143Z"^^xsd:dateTime .
+
+oakcurric:lesson-27651
+  a curric:Lesson ;
+  rdfs:label "Testing wind sails"@en ;
+  curric:slug "testing-wind-sails" ;
+  curric:id "27651"^^xsd:positiveInteger ;
+  curric:hasKeyLearningPoint
+    oakcurric:keylearningpoint-lesson-27651-1 ,
+    oakcurric:keylearningpoint-lesson-27651-2 ,
+    oakcurric:keylearningpoint-lesson-27651-3 ;
+  curric:hasKeyword
+    oakcurric:keyword-sail ,
+    oakcurric:keyword-model ,
+    oakcurric:keyword-test ,
+    oakcurric:keyword-rotary-motion ;
+  curric:hasPupilLessonOutcome oakcurric:pupillessonoutcome-lesson-27651 ;
+  curric:hasMisconception
+    oakcurric:misconception-models-need-work-first-time ;
+  dcterms:modified "2026-06-07T15:29:45.254071Z"^^xsd:dateTime .
+
+oakcurric:lesson-27685
+  a curric:Lesson ;
+  rdfs:label "Designing playground structures"@en ;
+  curric:slug "designing-playground-structures" ;
+  curric:id "27685"^^xsd:positiveInteger ;
+  curric:hasKeyLearningPoint
+    oakcurric:keylearningpoint-lesson-27685-1 ,
+    oakcurric:keylearningpoint-lesson-27685-2 ,
+    oakcurric:keylearningpoint-lesson-27685-3 ,
+    oakcurric:keylearningpoint-lesson-27685-4 ;
+  curric:hasKeyword
+    oakcurric:keyword-design-specification ,
+    oakcurric:keyword-sketch-model ,
+    oakcurric:keyword-unique ,
+    oakcurric:keyword-stable ;
+  curric:hasPupilLessonOutcome oakcurric:pupillessonoutcome-lesson-27685 ;
+  curric:hasMisconception
+    oakcurric:misconception-designers-plan-follow-their-planning ;
+  dcterms:modified "2026-06-07T15:29:45.270622Z"^^xsd:dateTime .
+
+oakcurric:lesson-27656
+  a curric:Lesson ;
+  rdfs:label "Presenting final designs"@en ;
+  curric:slug "presenting-final-designs" ;
+  curric:id "27656"^^xsd:positiveInteger ;
+  curric:hasKeyLearningPoint
+    oakcurric:keylearningpoint-lesson-27656-1 ,
+    oakcurric:keylearningpoint-lesson-27656-2 ,
+    oakcurric:keylearningpoint-lesson-27656-3 ;
+  curric:hasKeyword
+    oakcurric:keyword-ordering ,
+    oakcurric:keyword-sketch ,
+    oakcurric:keyword-explain ;
+  curric:hasPupilLessonOutcome oakcurric:pupillessonoutcome-lesson-27656 ;
+  curric:hasMisconception
+    oakcurric:misconception-one-strategy-making-moving-windmill ;
+  dcterms:modified "2026-06-07T15:29:45.271641Z"^^xsd:dateTime .
+
+oakcurric:lesson-27649
+  a curric:Lesson ;
+  rdfs:label "Rotary motion"@en ;
+  curric:slug "rotary-motion" ;
+  curric:id "27649"^^xsd:positiveInteger ;
+  curric:hasKeyLearningPoint
+    oakcurric:keylearningpoint-lesson-27649-1 ,
+    oakcurric:keylearningpoint-lesson-27649-2 ,
+    oakcurric:keylearningpoint-lesson-27649-3 ,
+    oakcurric:keylearningpoint-lesson-27649-4 ;
+  curric:hasKeyword
+    oakcurric:keyword-rotary-motion ,
+    oakcurric:keyword-water-wheel ,
+    oakcurric:keyword-water-well ;
+  curric:hasPupilLessonOutcome oakcurric:pupillessonoutcome-lesson-27649 ;
+  curric:hasMisconception
+    oakcurric:misconception-rotary-motion-produces-electricity ;
+  dcterms:modified "2026-06-07T15:29:45.272967Z"^^xsd:dateTime .
+
+oakcurric:lesson-27682
+  a curric:Lesson ;
+  rdfs:label "Simple playground structures"@en ;
+  curric:slug "simple-playground-structures" ;
+  curric:id "27682"^^xsd:positiveInteger ;
+  curric:hasKeyLearningPoint
+    oakcurric:keylearningpoint-lesson-27682-1 ,
+    oakcurric:keylearningpoint-lesson-27682-2 ;
+  curric:hasKeyword
+    oakcurric:keyword-freestanding ,
+    oakcurric:keyword-designer ,
+    oakcurric:keyword-structure ,
+    oakcurric:keyword-mock-up ,
+    oakcurric:keyword-building ;
+  curric:hasPupilLessonOutcome oakcurric:pupillessonoutcome-lesson-27682 ;
+  curric:hasMisconception
+    oakcurric:misconception-structures-anchored-freestanding ;
+  dcterms:modified "2026-06-07T15:29:45.288889Z"^^xsd:dateTime .
+
+oakcurric:lesson-27671
+  a curric:Lesson ;
+  rdfs:label "Joining materials in moving cards"@en ;
+  curric:slug "joining-materials-in-moving-cards" ;
+  curric:id "27671"^^xsd:positiveInteger ;
+  curric:hasKeyLearningPoint
+    oakcurric:keylearningpoint-lesson-27671-1 ,
+    oakcurric:keylearningpoint-lesson-27671-2 ,
+    oakcurric:keylearningpoint-lesson-27671-3 ;
+  curric:hasKeyword
+    oakcurric:keyword-technique ,
+    oakcurric:keyword-background ,
+    oakcurric:keyword-effects ,
+    oakcurric:keyword-foreground ,
+    oakcurric:keyword-font ;
+  curric:hasPupilLessonOutcome oakcurric:pupillessonoutcome-lesson-27671 ;
+  curric:hasMisconception
+    oakcurric:misconception-common-mistake-understanding-different-joining ;
+  dcterms:modified "2026-06-07T15:29:45.301222Z"^^xsd:dateTime .
+
+oakcurric:lesson-27665
+  a curric:Lesson ;
+  rdfs:label "Card lever mechanisms"@en ;
+  curric:slug "card-lever-mechanisms" ;
+  curric:id "27665"^^xsd:positiveInteger ;
+  curric:hasKeyLearningPoint
+    oakcurric:keylearningpoint-lesson-27665-1 ,
+    oakcurric:keylearningpoint-lesson-27665-2 ,
+    oakcurric:keylearningpoint-lesson-27665-3 ;
+  curric:hasKeyword
+    oakcurric:keyword-mechanism ,
+    oakcurric:keyword-lever ,
+    oakcurric:keyword-pivot ,
+    oakcurric:keyword-rigid ;
+  curric:hasPupilLessonOutcome oakcurric:pupillessonoutcome-lesson-27665 ;
+  curric:hasMisconception
+    oakcurric:misconception-lever-seesaw-mechanism-moves ;
+  dcterms:modified "2026-06-07T15:29:45.314127Z"^^xsd:dateTime .
+
+oakcurric:lesson-27669
+  a curric:Lesson ;
+  rdfs:label "Disassemble products to inspire ideas"@en ;
+  curric:slug "disassemble-products-to-inspire-ideas" ;
+  curric:id "27669"^^xsd:positiveInteger ;
+  curric:hasKeyLearningPoint
+    oakcurric:keylearningpoint-lesson-27669-1 ,
+    oakcurric:keylearningpoint-lesson-27669-2 ,
+    oakcurric:keylearningpoint-lesson-27669-3 ,
+    oakcurric:keylearningpoint-lesson-27669-4 ;
+  curric:hasKeyword
+    oakcurric:keyword-greetings-card ,
+    oakcurric:keyword-user ,
+    oakcurric:keyword-disassemble ,
+    oakcurric:keyword-design-specification ;
+  curric:hasPupilLessonOutcome oakcurric:pupillessonoutcome-lesson-27669 ;
+  curric:hasMisconception
+    oakcurric:misconception-disassembly-same-evaluation ;
+  dcterms:modified "2026-06-07T15:29:45.325048Z"^^xsd:dateTime .
+
+oakcurric:lesson-27670
+  a curric:Lesson ;
+  rdfs:label "Feedback and evaluation about materials and systems"@en ;
+  curric:slug "feedback-and-evaluation-about-materials-and-systems" ;
+  curric:id "27670"^^xsd:positiveInteger ;
+  curric:hasKeyLearningPoint
+    oakcurric:keylearningpoint-lesson-27670-1 ,
+    oakcurric:keylearningpoint-lesson-27670-2 ;
+  curric:hasKeyword
+    oakcurric:keyword-feedback ,
+    oakcurric:keyword-constructive ,
+    oakcurric:keyword-evaluation ;
+  curric:hasPupilLessonOutcome oakcurric:pupillessonoutcome-lesson-27670 ;
+  curric:hasMisconception
+    oakcurric:misconception-feedback-got-positive ;
+  dcterms:modified "2026-06-07T15:29:45.326103Z"^^xsd:dateTime .
+
+oakcurric:lesson-27641
+  a curric:Lesson ;
+  rdfs:label "Bridges"@en ;
+  curric:slug "bridges" ;
+  curric:id "27641"^^xsd:positiveInteger ;
+  curric:hasKeyLearningPoint
+    oakcurric:keylearningpoint-lesson-27641-1 ,
+    oakcurric:keylearningpoint-lesson-27641-2 ,
+    oakcurric:keylearningpoint-lesson-27641-3 ,
+    oakcurric:keylearningpoint-lesson-27641-4 ;
+  curric:hasKeyword
+    oakcurric:keyword-engineer ,
+    oakcurric:keyword-bridge ,
+    oakcurric:keyword-structure ,
+    oakcurric:keyword-stable ,
+    oakcurric:keyword-strong ;
+  curric:hasPupilLessonOutcome oakcurric:pupillessonoutcome-lesson-27641 ;
+  curric:hasMisconception
+    oakcurric:misconception-bridges-found-water ;
+  dcterms:modified "2026-06-07T15:29:45.340616Z"^^xsd:dateTime .
+
+oakcurric:lesson-27654
+  a curric:Lesson ;
+  rdfs:label "Selecting an axle for a windmill"@en ;
+  curric:slug "selecting-an-axle-for-a-windmill" ;
+  curric:id "27654"^^xsd:positiveInteger ;
+  curric:hasKeyLearningPoint
+    oakcurric:keylearningpoint-lesson-27654-1 ,
+    oakcurric:keylearningpoint-lesson-27654-2 ,
+    oakcurric:keylearningpoint-lesson-27654-3 ;
+  curric:hasKeyword
+    oakcurric:keyword-axle ,
+    oakcurric:keyword-model ,
+    oakcurric:keyword-test ,
+    oakcurric:keyword-rotary-motion ;
+  curric:hasPupilLessonOutcome oakcurric:pupillessonoutcome-lesson-27654 ;
+  curric:hasMisconception
+    oakcurric:misconception-axle-needs-fixed ;
+  dcterms:modified "2026-06-07T15:29:45.357042Z"^^xsd:dateTime .
+
+oakcurric:lesson-27677
+  a curric:Lesson ;
+  rdfs:label "Adding wheels to a vehicle"@en ;
+  curric:slug "adding-wheels-to-a-vehicle" ;
+  curric:id "27677"^^xsd:positiveInteger ;
+  curric:hasKeyLearningPoint
+    oakcurric:keylearningpoint-lesson-27677-1 ,
+    oakcurric:keylearningpoint-lesson-27677-2 ,
+    oakcurric:keylearningpoint-lesson-27677-3 ,
+    oakcurric:keylearningpoint-lesson-27677-4 ;
+  curric:hasKeyword
+    oakcurric:keyword-choose ,
+    oakcurric:keyword-axle ,
+    oakcurric:keyword-axle-holder ,
+    oakcurric:keyword-parallel ;
+  curric:hasPupilLessonOutcome oakcurric:pupillessonoutcome-lesson-27677 ;
+  curric:hasMisconception
+    oakcurric:misconception-axle-holders-placed-angle ;
+  dcterms:modified "2026-06-07T15:29:45.358083Z"^^xsd:dateTime .
+
+oakcurric:lesson-27686
+  a curric:Lesson ;
+  rdfs:label "Making playground structures"@en ;
+  curric:slug "making-playground-structures" ;
+  curric:id "27686"^^xsd:positiveInteger ;
+  curric:hasKeyLearningPoint
+    oakcurric:keylearningpoint-lesson-27686-1 ,
+    oakcurric:keylearningpoint-lesson-27686-2 ,
+    oakcurric:keylearningpoint-lesson-27686-3 ,
+    oakcurric:keylearningpoint-lesson-27686-4 ,
+    oakcurric:keylearningpoint-lesson-27686-5 ;
+  curric:hasKeyword
+    oakcurric:keyword-mock-up ,
+    oakcurric:keyword-reinforce ,
+    oakcurric:keyword-design-specification ;
+  curric:hasPupilLessonOutcome oakcurric:pupillessonoutcome-lesson-27686 ;
+  curric:hasMisconception
+    oakcurric:misconception-designs-need-decided-upon-followed ;
+  dcterms:modified "2026-06-07T15:29:45.433519Z"^^xsd:dateTime .
+
+oakcurric:lesson-27652
+  a curric:Lesson ;
+  rdfs:label "Select materials for wind sails"@en ;
+  curric:slug "select-materials-for-wind-sails" ;
+  curric:id "27652"^^xsd:positiveInteger ;
+  curric:hasKeyLearningPoint
+    oakcurric:keylearningpoint-lesson-27652-1 ,
+    oakcurric:keylearningpoint-lesson-27652-2 ,
+    oakcurric:keylearningpoint-lesson-27652-3 ;
+  curric:hasKeyword
+    oakcurric:keyword-materials ,
+    oakcurric:keyword-properties ,
+    oakcurric:keyword-thickness ,
+    oakcurric:keyword-testing ;
+  curric:hasPupilLessonOutcome oakcurric:pupillessonoutcome-lesson-27652 ;
+  curric:hasMisconception
+    oakcurric:misconception-wind-sails-made-wood ;
+  dcterms:modified "2026-06-07T15:29:45.437376Z"^^xsd:dateTime .
+
+oakcurric:lesson-27642
+  a curric:Lesson ;
+  rdfs:label "Exploring bridge structures"@en ;
+  curric:slug "exploring-bridge-structures" ;
+  curric:id "27642"^^xsd:positiveInteger ;
+  curric:hasKeyLearningPoint
+    oakcurric:keylearningpoint-lesson-27642-1 ,
+    oakcurric:keylearningpoint-lesson-27642-2 ,
+    oakcurric:keylearningpoint-lesson-27642-3 ,
+    oakcurric:keylearningpoint-lesson-27642-4 ,
+    oakcurric:keylearningpoint-lesson-27642-5 ;
+  curric:hasKeyword
+    oakcurric:keyword-mock-up ,
+    oakcurric:keyword-design-specification ,
+    oakcurric:keyword-shell-structure ,
+    oakcurric:keyword-freestanding ,
+    oakcurric:keyword-brick-bonding ;
+  curric:hasPupilLessonOutcome oakcurric:pupillessonoutcome-lesson-27642 ;
+  curric:hasMisconception
+    oakcurric:misconception-designers-make-plan-follow-plan ;
+  dcterms:modified "2026-06-07T15:29:45.491451Z"^^xsd:dateTime .
+
+oakcurric:lesson-27663
+  a curric:Lesson ;
+  rdfs:label "Finishing techniques for hand puppets"@en ;
+  curric:slug "finishing-techniques-for-hand-puppets" ;
+  curric:id "27663"^^xsd:positiveInteger ;
+  curric:hasKeyLearningPoint
+    oakcurric:keylearningpoint-lesson-27663-1 ,
+    oakcurric:keylearningpoint-lesson-27663-2 ,
+    oakcurric:keylearningpoint-lesson-27663-3 ,
+    oakcurric:keylearningpoint-lesson-27663-4 ;
+  curric:hasKeyword
+    oakcurric:keyword-material ,
+    oakcurric:keyword-appliqu ,
+    oakcurric:keyword-detail ,
+    oakcurric:keyword-joining-techniques ;
+  curric:hasPupilLessonOutcome oakcurric:pupillessonoutcome-lesson-27663 ;
+  curric:hasMisconception
+    oakcurric:misconception-pupils-need-follow-their-design ;
+  dcterms:modified "2026-06-07T15:29:45.496620Z"^^xsd:dateTime .
+
+oakcurric:lesson-27666
+  a curric:Lesson ;
+  rdfs:label "Card slider mechanisms"@en ;
+  curric:slug "card-slider-mechanisms" ;
+  curric:id "27666"^^xsd:positiveInteger ;
+  curric:hasKeyLearningPoint
+    oakcurric:keylearningpoint-lesson-27666-1 ,
+    oakcurric:keylearningpoint-lesson-27666-2 ,
+    oakcurric:keylearningpoint-lesson-27666-3 ,
+    oakcurric:keylearningpoint-lesson-27666-4 ;
+  curric:hasKeyword
+    oakcurric:keyword-slider ,
+    oakcurric:keyword-guide ,
+    oakcurric:keyword-slot ;
+  curric:hasPupilLessonOutcome oakcurric:pupillessonoutcome-lesson-27666 ;
+  curric:hasMisconception
+    oakcurric:misconception-slider-mechanisms-pivot-points ;
+  dcterms:modified "2026-06-07T15:29:45.501834Z"^^xsd:dateTime .
+
+oakcurric:lesson-27643
+  a curric:Lesson ;
+  rdfs:label "Creating bridge collages"@en ;
+  curric:slug "creating-bridge-collages" ;
+  curric:id "27643"^^xsd:positiveInteger ;
+  curric:hasKeyLearningPoint
+    oakcurric:keylearningpoint-lesson-27643-1 ,
+    oakcurric:keylearningpoint-lesson-27643-2 ,
+    oakcurric:keylearningpoint-lesson-27643-3 ,
+    oakcurric:keylearningpoint-lesson-27643-4 ,
+    oakcurric:keylearningpoint-lesson-27643-5 ;
+  curric:hasKeyword
+    oakcurric:keyword-material ,
+    oakcurric:keyword-structure ,
+    oakcurric:keyword-collage ,
+    oakcurric:keyword-bridge ;
+  curric:hasPupilLessonOutcome oakcurric:pupillessonoutcome-lesson-27643 ;
+  curric:hasMisconception
+    oakcurric:misconception-gluing-put-glue-object-glued ;
+  dcterms:modified "2026-06-07T15:29:45.529959Z"^^xsd:dateTime .
+
+oakcurric:lesson-27644
+  a curric:Lesson ;
+  rdfs:label "Reinforcing bridge structures"@en ;
+  curric:slug "reinforcing-bridge-structures" ;
+  curric:id "27644"^^xsd:positiveInteger ;
+  curric:hasKeyLearningPoint
+    oakcurric:keylearningpoint-lesson-27644-1 ,
+    oakcurric:keylearningpoint-lesson-27644-2 ,
+    oakcurric:keylearningpoint-lesson-27644-3 ;
+  curric:hasKeyword
+    oakcurric:keyword-reinforcing ,
+    oakcurric:keyword-shell-structure ,
+    oakcurric:keyword-joining-techniques ,
+    oakcurric:keyword-structure ;
+  curric:hasPupilLessonOutcome oakcurric:pupillessonoutcome-lesson-27644 ;
+  curric:hasMisconception
+    oakcurric:misconception-strongest-materials-make-best-bridges ;
+  dcterms:modified "2026-06-07T15:29:45.589755Z"^^xsd:dateTime .
+
+oakcurric:lesson-27674
+  a curric:Lesson ;
+  rdfs:label "Design specification for wheeled vehicles"@en ;
+  curric:slug "design-specification-for-wheeled-vehicles" ;
+  curric:id "27674"^^xsd:positiveInteger ;
+  curric:hasKeyLearningPoint
+    oakcurric:keylearningpoint-lesson-27674-1 ,
+    oakcurric:keylearningpoint-lesson-27674-2 ,
+    oakcurric:keylearningpoint-lesson-27674-3 ;
+  curric:hasKeyword
+    oakcurric:keyword-axle ,
+    oakcurric:keyword-chassis ,
+    oakcurric:keyword-engine ,
+    oakcurric:keyword-axel-holder ,
+    oakcurric:keyword-design-specification ;
+  curric:hasPupilLessonOutcome oakcurric:pupillessonoutcome-lesson-27674 ;
+  curric:hasMisconception
+    oakcurric:misconception-axle-hold-two-wheels ;
+  dcterms:modified "2026-06-07T15:29:47.437691Z"^^xsd:dateTime .
+
+# ----------------------------------------------------------------------
+# Key Learning Points
+# ----------------------------------------------------------------------
+
+oakcurric:keylearningpoint-lesson-27650-1
+  a curric:KeyLearningPoint ;
+  rdfs:label "Windmills have sails or blades which turn."@en ;
+  dcterms:modified "2026-06-07T15:30:29.424783Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27650-2
+  a curric:KeyLearningPoint ;
+  rdfs:label "Windmills use wind to produce electricity or pump water."@en ;
+  dcterms:modified "2026-06-07T15:30:29.424787Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27650-3
+  a curric:KeyLearningPoint ;
+  rdfs:label "Windmills use wind to grind wheat into flour."@en ;
+  dcterms:modified "2026-06-07T15:30:29.424793Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27672-1
+  a curric:KeyLearningPoint ;
+  rdfs:label "Disassembling an envelope helps us understand how it is constructed."@en ;
+  dcterms:modified "2026-06-07T15:30:29.424853Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27672-2
+  a curric:KeyLearningPoint ;
+  rdfs:label "Different paper folding techniques are used to construct envelopes."@en ;
+  dcterms:modified "2026-06-07T15:30:29.424857Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27672-3
+  a curric:KeyLearningPoint ;
+  rdfs:label "Envelopes need to be larger than the moving card that goes inside."@en ;
+  dcterms:modified "2026-06-07T15:30:29.424861Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27672-4
+  a curric:KeyLearningPoint ;
+  rdfs:label "Envelopes are joined together carefully so the moving card can be removed."@en ;
+  dcterms:modified "2026-06-07T15:30:29.424866Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27646-1
+  a curric:KeyLearningPoint ;
+  rdfs:label "Experimenting with mock-ups helps develop designs."@en ;
+  dcterms:modified "2026-06-07T15:30:29.424930Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27646-2
+  a curric:KeyLearningPoint ;
+  rdfs:label "It is important to use the correct glue and/or tape when making."@en ;
+  dcterms:modified "2026-06-07T15:30:29.424934Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27646-3
+  a curric:KeyLearningPoint ;
+  rdfs:label "Testing throughout the making process is very important"@en ;
+  dcterms:modified "2026-06-07T15:30:29.424938Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27646-4
+  a curric:KeyLearningPoint ;
+  rdfs:label "A minimal amount of glue is needed when joining materials together."@en ;
+  dcterms:modified "2026-06-07T15:30:29.424942Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27646-5
+  a curric:KeyLearningPoint ;
+  rdfs:label """Masking tape can be used to join most materials, can be painted over, but can also
+  rip easily."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.424946Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27645-1
+  a curric:KeyLearningPoint ;
+  rdfs:label "Ideas come from inspiration often by looking at the work of other designers."@en ;
+  dcterms:modified "2026-06-07T15:30:29.425004Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27645-2
+  a curric:KeyLearningPoint ;
+  rdfs:label "Ideas come from talking with others."@en ;
+  dcterms:modified "2026-06-07T15:30:29.425009Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27645-3
+  a curric:KeyLearningPoint ;
+  rdfs:label "Ideas come from drawing."@en ;
+  dcterms:modified "2026-06-07T15:30:29.425013Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27648-1
+  a curric:KeyLearningPoint ;
+  rdfs:label "Testing is an important way to check that the bridge works."@en ;
+  dcterms:modified "2026-06-07T15:30:29.425017Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27648-2
+  a curric:KeyLearningPoint ;
+  rdfs:label "Tests can include recording how well the design worked."@en ;
+  dcterms:modified "2026-06-07T15:30:29.425021Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27648-3
+  a curric:KeyLearningPoint ;
+  rdfs:label "Talking about the test results helps decide how well the design worked."@en ;
+  dcterms:modified "2026-06-07T15:30:29.425025Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27648-4
+  a curric:KeyLearningPoint ;
+  rdfs:label "Feedback helps to make improvements and changes to future ideas and designs."@en ;
+  dcterms:modified "2026-06-07T15:30:29.425029Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27661-1
+  a curric:KeyLearningPoint ;
+  rdfs:label "A fabric template is a shape drawn to help in cutting out."@en ;
+  dcterms:modified "2026-06-07T15:30:29.425033Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27661-2
+  a curric:KeyLearningPoint ;
+  rdfs:label "Fabric templates help cut fabric accurately."@en ;
+  dcterms:modified "2026-06-07T15:30:29.425037Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27661-3
+  a curric:KeyLearningPoint ;
+  rdfs:label "Templates are planned on paper."@en ;
+  dcterms:modified "2026-06-07T15:30:29.425041Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27661-4
+  a curric:KeyLearningPoint ;
+  rdfs:label "Templates are cut out carefully using scissors and then attached to the felt."@en ;
+  dcterms:modified "2026-06-07T15:30:29.425046Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27679-1
+  a curric:KeyLearningPoint ;
+  rdfs:label "The body of the vehicle needs to be attached to the chassis."@en ;
+  dcterms:modified "2026-06-07T15:30:29.425052Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27679-2
+  a curric:KeyLearningPoint ;
+  rdfs:label "Card and cardboard can be used to make a realistic vehicle body and reinforced."@en ;
+  dcterms:modified "2026-06-07T15:30:29.425056Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27679-3
+  a curric:KeyLearningPoint ;
+  rdfs:label "Wheels and axles are attached to a chassis to make a vehicle move."@en ;
+  dcterms:modified "2026-06-07T15:30:29.425060Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27679-4
+  a curric:KeyLearningPoint ;
+  rdfs:label "The body of a vehicle can be modelled in different shapes."@en ;
+  dcterms:modified "2026-06-07T15:30:29.425064Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27679-5
+  a curric:KeyLearningPoint ;
+  rdfs:label "A range of materials can be used to finish a vehicle."@en ;
+  dcterms:modified "2026-06-07T15:30:29.425068Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27676-1
+  a curric:KeyLearningPoint ;
+  rdfs:label "Marking out needs to be done with care."@en ;
+  dcterms:modified "2026-06-07T15:30:29.425110Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27676-2
+  a curric:KeyLearningPoint ;
+  rdfs:label "The correct equipment needs to be used to mark out card."@en ;
+  dcterms:modified "2026-06-07T15:30:29.425114Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27676-3
+  a curric:KeyLearningPoint ;
+  rdfs:label "Card can be joined using a range of different techniques."@en ;
+  dcterms:modified "2026-06-07T15:30:29.425118Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27673-1
+  a curric:KeyLearningPoint ;
+  rdfs:label "An axle is a rod on which wheels can rotate."@en ;
+  dcterms:modified "2026-06-07T15:30:29.425278Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27673-2
+  a curric:KeyLearningPoint ;
+  rdfs:label "Lots of vehicles use wheels and axles."@en ;
+  dcterms:modified "2026-06-07T15:30:29.425282Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27673-3
+  a curric:KeyLearningPoint ;
+  rdfs:label "Toy cars have some of the key parts of cars to make them move."@en ;
+  dcterms:modified "2026-06-07T15:30:29.425289Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27660-1
+  a curric:KeyLearningPoint ;
+  rdfs:label "The design brief requires us to make a puppet to use in a puppet show."@en ;
+  dcterms:modified "2026-06-07T15:30:29.425333Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27660-2
+  a curric:KeyLearningPoint ;
+  rdfs:label "A range of ideas can be drawn before deciding which one to choose to make."@en ;
+  dcterms:modified "2026-06-07T15:30:29.425337Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27660-3
+  a curric:KeyLearningPoint ;
+  rdfs:label "Sketching using pencils on paper is a way to presents our ideas."@en ;
+  dcterms:modified "2026-06-07T15:30:29.425343Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27660-4
+  a curric:KeyLearningPoint ;
+  rdfs:label "Talking about ideas helps designers choose the final design."@en ;
+  dcterms:modified "2026-06-07T15:30:29.425347Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27647-1
+  a curric:KeyLearningPoint ;
+  rdfs:label "Finishing products by decorating them makes them more attractive."@en ;
+  dcterms:modified "2026-06-07T15:30:29.425352Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27647-2
+  a curric:KeyLearningPoint ;
+  rdfs:label "Paint and other materials can be used to decorate bridges."@en ;
+  dcterms:modified "2026-06-07T15:30:29.425356Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27647-3
+  a curric:KeyLearningPoint ;
+  rdfs:label "Paint can be used on wood and cardboard but not on plastic."@en ;
+  dcterms:modified "2026-06-07T15:30:29.425360Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27687-1
+  a curric:KeyLearningPoint ;
+  rdfs:label "A mock-up is a model that is useful for trying out ideas."@en ;
+  dcterms:modified "2026-06-07T15:30:29.425366Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27687-2
+  a curric:KeyLearningPoint ;
+  rdfs:label "A mock-up shows key design features."@en ;
+  dcterms:modified "2026-06-07T15:30:29.425370Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27687-3
+  a curric:KeyLearningPoint ;
+  rdfs:label "A mock-up uses card techniques, which create different effects and appearances."@en ;
+  dcterms:modified "2026-06-07T15:30:29.425374Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27687-4
+  a curric:KeyLearningPoint ;
+  rdfs:label """Different materials, with different textures and appearances, can be used for
+  different effects."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.425378Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27687-5
+  a curric:KeyLearningPoint ;
+  rdfs:label """Finishing touches help the user to use the play equipment, but also help the user to
+  find the play equipment appealing."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.425382Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27681-1
+  a curric:KeyLearningPoint ;
+  rdfs:label "Shapes in playground designs are chosen purposefully."@en ;
+  dcterms:modified "2026-06-07T15:30:29.425400Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27681-2
+  a curric:KeyLearningPoint ;
+  rdfs:label "Materials used in playground designs are chosen purposefully."@en ;
+  dcterms:modified "2026-06-07T15:30:29.425405Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27681-3
+  a curric:KeyLearningPoint ;
+  rdfs:label "Sketching helps us to spot details and features."@en ;
+  dcterms:modified "2026-06-07T15:30:29.425409Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27675-1
+  a curric:KeyLearningPoint ;
+  rdfs:label "Card comes from trees and can be sustainable if carefully sourced."@en ;
+  dcterms:modified "2026-06-07T15:30:29.425502Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27675-2
+  a curric:KeyLearningPoint ;
+  rdfs:label "Card can be used for many products because of its characteristics."@en ;
+  dcterms:modified "2026-06-07T15:30:29.425506Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27675-3
+  a curric:KeyLearningPoint ;
+  rdfs:label "Different types of cardboard are used for different reasons."@en ;
+  dcterms:modified "2026-06-07T15:30:29.425510Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27683-1
+  a curric:KeyLearningPoint ;
+  rdfs:label "Shapes, such as springs, can be created by folding card."@en ;
+  dcterms:modified "2026-06-07T15:30:29.425883Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27683-2
+  a curric:KeyLearningPoint ;
+  rdfs:label """Different joining techniques can be used to join paper and card in different ways to
+  create different effects."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.425887Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27683-3
+  a curric:KeyLearningPoint ;
+  rdfs:label """Measuring and marking out shapes, helps to create mock-up models and different
+  effects."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.425891Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27683-4
+  a curric:KeyLearningPoint ;
+  rdfs:label "Different shapes and structures can be made using pipe cleaners."@en ;
+  dcterms:modified "2026-06-07T15:30:29.425895Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27658-1
+  a curric:KeyLearningPoint ;
+  rdfs:label "There are many different types of fabric, including felt."@en ;
+  dcterms:modified "2026-06-07T15:30:29.426010Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27658-2
+  a curric:KeyLearningPoint ;
+  rdfs:label """Felt is a fabric usually made of wool and other fibres formed by heat, moisture,
+  chemicals, and/or pressure."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.426014Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27658-3
+  a curric:KeyLearningPoint ;
+  rdfs:label "Felt is strong and easily shaped."@en ;
+  dcterms:modified "2026-06-07T15:30:29.426018Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27658-4
+  a curric:KeyLearningPoint ;
+  rdfs:label "Felt can be joined using glue, staples or stitching."@en ;
+  dcterms:modified "2026-06-07T15:30:29.426022Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27659-1
+  a curric:KeyLearningPoint ;
+  rdfs:label "A running stitch is a good way to join fabric together."@en ;
+  dcterms:modified "2026-06-07T15:30:29.426178Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27659-2
+  a curric:KeyLearningPoint ;
+  rdfs:label "Weave fabric is a good material to practice a running stitch."@en ;
+  dcterms:modified "2026-06-07T15:30:29.426183Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27659-3
+  a curric:KeyLearningPoint ;
+  rdfs:label "When starting to sew, a needle has to be threaded."@en ;
+  dcterms:modified "2026-06-07T15:30:29.426187Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27667-1
+  a curric:KeyLearningPoint ;
+  rdfs:label "Card is made of different layers of paper and comes from trees."@en ;
+  dcterms:modified "2026-06-07T15:30:29.426366Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27667-2
+  a curric:KeyLearningPoint ;
+  rdfs:label """Card is used to make greetings cards because it is strong, sturdy, not too expensive
+  and easy to decorate."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.426370Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27667-3
+  a curric:KeyLearningPoint ;
+  rdfs:label """Final designs consider users, materials and equipment to organise product
+  design."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.426374Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27668-1
+  a curric:KeyLearningPoint ;
+  rdfs:label "Greetings cards can be folded landscape or portrait."@en ;
+  dcterms:modified "2026-06-07T15:30:29.426403Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27668-2
+  a curric:KeyLearningPoint ;
+  rdfs:label "Mechanisms need be accurately cut and formed."@en ;
+  dcterms:modified "2026-06-07T15:30:29.426408Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27668-3
+  a curric:KeyLearningPoint ;
+  rdfs:label "Testing the mechanisms during the making process improves the product."@en ;
+  dcterms:modified "2026-06-07T15:30:29.426412Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27668-4
+  a curric:KeyLearningPoint ;
+  rdfs:label "Design problems can be solved during the making process."@en ;
+  dcterms:modified "2026-06-07T15:30:29.426416Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27678-1
+  a curric:KeyLearningPoint ;
+  rdfs:label """A design specification can help a designer to design and make a vehicle for a
+  specific use."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.426541Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27678-2
+  a curric:KeyLearningPoint ;
+  rdfs:label """Right-angled card triangles (triangulation method) can be used to make a frame or
+  joint more stable and stronger."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.426545Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27678-3
+  a curric:KeyLearningPoint ;
+  rdfs:label "Different joining methods can be used to secure a joint."@en ;
+  dcterms:modified "2026-06-07T15:30:29.426549Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27688-1
+  a curric:KeyLearningPoint ;
+  rdfs:label """Final designers or mock-ups /prototypes can be tested against the success
+  criteria."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.426556Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27688-2
+  a curric:KeyLearningPoint ;
+  rdfs:label """Tablets have a video record function which can record a tour of the features of the
+  playground structure."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.426560Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27688-3
+  a curric:KeyLearningPoint ;
+  rdfs:label "Feedback can be given and shared."@en ;
+  dcterms:modified "2026-06-07T15:30:29.426564Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27688-4
+  a curric:KeyLearningPoint ;
+  rdfs:label "Structures can be tested to see how strong and stable they are."@en ;
+  dcterms:modified "2026-06-07T15:30:29.426568Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27688-5
+  a curric:KeyLearningPoint ;
+  rdfs:label "Final products can be displayed with toy figures using the play structures."@en ;
+  dcterms:modified "2026-06-07T15:30:29.426572Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27655-1
+  a curric:KeyLearningPoint ;
+  rdfs:label "Testing a windmill can be completed inside or outside."@en ;
+  dcterms:modified "2026-06-07T15:30:29.427098Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27655-2
+  a curric:KeyLearningPoint ;
+  rdfs:label "A successful windmill will stand on its own."@en ;
+  dcterms:modified "2026-06-07T15:30:29.427102Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27655-3
+  a curric:KeyLearningPoint ;
+  rdfs:label "A successful windmill will have sails that rotate."@en ;
+  dcterms:modified "2026-06-07T15:30:29.427106Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27655-4
+  a curric:KeyLearningPoint ;
+  rdfs:label "Testing is an important way to check that the windmill works."@en ;
+  dcterms:modified "2026-06-07T15:30:29.427110Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27664-1
+  a curric:KeyLearningPoint ;
+  rdfs:label "Puppets can be used to create a performance."@en ;
+  dcterms:modified "2026-06-07T15:30:29.427114Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27664-2
+  a curric:KeyLearningPoint ;
+  rdfs:label "Feedback is where other people say something about our design."@en ;
+  dcterms:modified "2026-06-07T15:30:29.427119Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27664-3
+  a curric:KeyLearningPoint ;
+  rdfs:label "Feedback can be given and received."@en ;
+  dcterms:modified "2026-06-07T15:30:29.427123Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27680-1
+  a curric:KeyLearningPoint ;
+  rdfs:label "The success of a project can be measured against the design criteria."@en ;
+  dcterms:modified "2026-06-07T15:30:29.429702Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27680-2
+  a curric:KeyLearningPoint ;
+  rdfs:label "A good vehicle travels in a straight line."@en ;
+  dcterms:modified "2026-06-07T15:30:29.429706Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27680-3
+  a curric:KeyLearningPoint ;
+  rdfs:label "A good vehicle travels a long distance."@en ;
+  dcterms:modified "2026-06-07T15:30:29.429710Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27680-4
+  a curric:KeyLearningPoint ;
+  rdfs:label "I can test and evaluate my vehicle against my design specification."@en ;
+  dcterms:modified "2026-06-07T15:30:29.429714Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27662-1
+  a curric:KeyLearningPoint ;
+  rdfs:label "Fabrics are joined together using a running stitch."@en ;
+  dcterms:modified "2026-06-07T15:30:29.429718Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27662-2
+  a curric:KeyLearningPoint ;
+  rdfs:label "Fixing the start and end of a running stitch holds the thread in place."@en ;
+  dcterms:modified "2026-06-07T15:30:29.429722Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27662-3
+  a curric:KeyLearningPoint ;
+  rdfs:label "A running stitch creates a seam to join the templates together."@en ;
+  dcterms:modified "2026-06-07T15:30:29.429726Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27662-4
+  a curric:KeyLearningPoint ;
+  rdfs:label "Turning the puppet inside out allows the seam to be on the inside."@en ;
+  dcterms:modified "2026-06-07T15:30:29.429730Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27684-1
+  a curric:KeyLearningPoint ;
+  rdfs:label "Different joining techniques can be used, such as masking tape and glue."@en ;
+  dcterms:modified "2026-06-07T15:30:29.430146Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27684-2
+  a curric:KeyLearningPoint ;
+  rdfs:label """Adding bracing, anchors and wider bases to structures adds support to freestanding
+  structures."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.430150Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27684-3
+  a curric:KeyLearningPoint ;
+  rdfs:label "Straws can be reinforced with pipe cleaners to add strength."@en ;
+  dcterms:modified "2026-06-07T15:30:29.430154Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27684-4
+  a curric:KeyLearningPoint ;
+  rdfs:label "Cardboard boxes are assembled with tabs."@en ;
+  dcterms:modified "2026-06-07T15:30:29.430158Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27653-1
+  a curric:KeyLearningPoint ;
+  rdfs:label "Windmill structures can be made from different mixed materials."@en ;
+  dcterms:modified "2026-06-07T15:30:29.430182Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27653-2
+  a curric:KeyLearningPoint ;
+  rdfs:label "Consider the right shape and size when choosing the windmill material."@en ;
+  dcterms:modified "2026-06-07T15:30:29.430186Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27653-3
+  a curric:KeyLearningPoint ;
+  rdfs:label "Adding ballast or base support can make structures stable."@en ;
+  dcterms:modified "2026-06-07T15:30:29.430189Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27653-4
+  a curric:KeyLearningPoint ;
+  rdfs:label "Finished windmills are decorated."@en ;
+  dcterms:modified "2026-06-07T15:30:29.430194Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27657-1
+  a curric:KeyLearningPoint ;
+  rdfs:label "There are many different designs of puppets for different purposes."@en ;
+  dcterms:modified "2026-06-07T15:30:29.430781Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27657-2
+  a curric:KeyLearningPoint ;
+  rdfs:label "Disassembling puppets allows designers to look at the stitching techniques."@en ;
+  dcterms:modified "2026-06-07T15:30:29.430786Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27651-1
+  a curric:KeyLearningPoint ;
+  rdfs:label "Wind sails are designed to catch wind."@en ;
+  dcterms:modified "2026-06-07T15:30:29.431021Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27651-2
+  a curric:KeyLearningPoint ;
+  rdfs:label "Wind sail models show how wind sails work."@en ;
+  dcterms:modified "2026-06-07T15:30:29.431025Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27651-3
+  a curric:KeyLearningPoint ;
+  rdfs:label "By making simple models, designs can be quickly tested."@en ;
+  dcterms:modified "2026-06-07T15:30:29.431029Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27685-1
+  a curric:KeyLearningPoint ;
+  rdfs:label "Simple sketch models create different designs."@en ;
+  dcterms:modified "2026-06-07T15:30:29.431295Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27685-2
+  a curric:KeyLearningPoint ;
+  rdfs:label "A sketch model is a model that is useful for trying out ideas."@en ;
+  dcterms:modified "2026-06-07T15:30:29.431299Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27685-3
+  a curric:KeyLearningPoint ;
+  rdfs:label """A sketch model size can be determined by the use of toy figures, modelling dough
+  figures or cardboard cutouts."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.431303Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27685-4
+  a curric:KeyLearningPoint ;
+  rdfs:label "A sketch model shows key design features."@en ;
+  dcterms:modified "2026-06-07T15:30:29.431307Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27656-1
+  a curric:KeyLearningPoint ;
+  rdfs:label "The final design can be shared with photos."@en ;
+  dcterms:modified "2026-06-07T15:30:29.431312Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27656-2
+  a curric:KeyLearningPoint ;
+  rdfs:label "The final design can be shared with a simple drawing."@en ;
+  dcterms:modified "2026-06-07T15:30:29.431316Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27656-3
+  a curric:KeyLearningPoint ;
+  rdfs:label """The final design can be labelled to show the main parts of the windmill and how they
+  work."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.431320Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27649-1
+  a curric:KeyLearningPoint ;
+  rdfs:label "Rotary motion is where something is turned (rotated)."@en ;
+  dcterms:modified "2026-06-07T15:30:29.431324Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27649-2
+  a curric:KeyLearningPoint ;
+  rdfs:label "Water wells get water from deep underground."@en ;
+  dcterms:modified "2026-06-07T15:30:29.431328Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27649-3
+  a curric:KeyLearningPoint ;
+  rdfs:label """A water well has a rotary mechanism that is used to lift a bucket from a well by
+  turning the handle."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.431332Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27649-4
+  a curric:KeyLearningPoint ;
+  rdfs:label "Water wheels can be used to produce electricity."@en ;
+  dcterms:modified "2026-06-07T15:30:29.431338Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27682-1
+  a curric:KeyLearningPoint ;
+  rdfs:label "Morag Myerscough designs are fun and bright outdoor spaces."@en ;
+  dcterms:modified "2026-06-07T15:30:29.431558Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27682-2
+  a curric:KeyLearningPoint ;
+  rdfs:label "Construction kits can be used to make quick mock-ups of structures."@en ;
+  dcterms:modified "2026-06-07T15:30:29.431563Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27671-1
+  a curric:KeyLearningPoint ;
+  rdfs:label "Card and paper can be used to add effects to a moving card."@en ;
+  dcterms:modified "2026-06-07T15:30:29.431707Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27671-2
+  a curric:KeyLearningPoint ;
+  rdfs:label "Materials other than card and paper can add effects to a moving card."@en ;
+  dcterms:modified "2026-06-07T15:30:29.431713Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27671-3
+  a curric:KeyLearningPoint ;
+  rdfs:label "Joining different materials may need different techniques."@en ;
+  dcterms:modified "2026-06-07T15:30:29.431717Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27665-1
+  a curric:KeyLearningPoint ;
+  rdfs:label "Mechanisms are systems that make something move and can include levers."@en ;
+  dcterms:modified "2026-06-07T15:30:29.431881Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27665-2
+  a curric:KeyLearningPoint ;
+  rdfs:label "Levers are rigid bars that help lift or move things by turning on a pivot point."@en ;
+  dcterms:modified "2026-06-07T15:30:29.431885Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27665-3
+  a curric:KeyLearningPoint ;
+  rdfs:label "Levers can be made using card and split pins."@en ;
+  dcterms:modified "2026-06-07T15:30:29.431889Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27669-1
+  a curric:KeyLearningPoint ;
+  rdfs:label "Some greetings cards have levers and sliders in them to create movement."@en ;
+  dcterms:modified "2026-06-07T15:30:29.432036Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27669-2
+  a curric:KeyLearningPoint ;
+  rdfs:label """Disassembling greetings cards with moving parts develops knowledge of how they are
+  constructed."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.432041Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27669-3
+  a curric:KeyLearningPoint ;
+  rdfs:label "Identifying end users of greetings cards helps create the design specification."@en ;
+  dcterms:modified "2026-06-07T15:30:29.432047Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27669-4
+  a curric:KeyLearningPoint ;
+  rdfs:label """Identifying how levers and sliders work in greetings cards helps create the design
+  specification."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.432051Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27670-1
+  a curric:KeyLearningPoint ;
+  rdfs:label "Feedback from our peers can help us improve our projects."@en ;
+  dcterms:modified "2026-06-07T15:30:29.432056Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27670-2
+  a curric:KeyLearningPoint ;
+  rdfs:label "Evaluating our work can help us improve future projects."@en ;
+  dcterms:modified "2026-06-07T15:30:29.432060Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27641-1
+  a curric:KeyLearningPoint ;
+  rdfs:label "Bridges are built for different purposes."@en ;
+  dcterms:modified "2026-06-07T15:30:29.432298Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27641-2
+  a curric:KeyLearningPoint ;
+  rdfs:label "Bridges are built and designed by engineers."@en ;
+  dcterms:modified "2026-06-07T15:30:29.432302Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27641-3
+  a curric:KeyLearningPoint ;
+  rdfs:label "Bridges have different shapes within their structure."@en ;
+  dcterms:modified "2026-06-07T15:30:29.432306Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27641-4
+  a curric:KeyLearningPoint ;
+  rdfs:label "Sketching helps us to spot details and features."@en ;
+  dcterms:modified "2026-06-07T15:30:29.432310Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27654-1
+  a curric:KeyLearningPoint ;
+  rdfs:label "Pre-cut wooden dowel makes an effective axle."@en ;
+  dcterms:modified "2026-06-07T15:30:29.432557Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27654-2
+  a curric:KeyLearningPoint ;
+  rdfs:label "The dowel axle will need to spin freely and not be fixed."@en ;
+  dcterms:modified "2026-06-07T15:30:29.432562Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27654-3
+  a curric:KeyLearningPoint ;
+  rdfs:label "Attaching sails to the axle may need different joining techniques."@en ;
+  dcterms:modified "2026-06-07T15:30:29.432566Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27677-1
+  a curric:KeyLearningPoint ;
+  rdfs:label "Axles must be parallel to each other."@en ;
+  dcterms:modified "2026-06-07T15:30:29.432570Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27677-2
+  a curric:KeyLearningPoint ;
+  rdfs:label "Different materials can be used to make wheels, axles and axle holders."@en ;
+  dcterms:modified "2026-06-07T15:30:29.432576Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27677-3
+  a curric:KeyLearningPoint ;
+  rdfs:label """Exploring different wheels, axles and axle holders allows the right ones to be
+  chosen for a vehicle."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.432580Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27677-4
+  a curric:KeyLearningPoint ;
+  rdfs:label "Materials should be chosen based on their properties and suitability."@en ;
+  dcterms:modified "2026-06-07T15:30:29.432584Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27686-1
+  a curric:KeyLearningPoint ;
+  rdfs:label "A mock-up uses card techniques learnt so far."@en ;
+  dcterms:modified "2026-06-07T15:30:29.433570Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27686-2
+  a curric:KeyLearningPoint ;
+  rdfs:label "A mock-up is a model that is useful for trying out ideas."@en ;
+  dcterms:modified "2026-06-07T15:30:29.433574Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27686-3
+  a curric:KeyLearningPoint ;
+  rdfs:label "Different joining techniques can be used such as masking tape and glue."@en ;
+  dcterms:modified "2026-06-07T15:30:29.433578Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27686-4
+  a curric:KeyLearningPoint ;
+  rdfs:label """Adding bracing, anchors and wider bases to structures adds support to freestanding
+  structures."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.433582Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27686-5
+  a curric:KeyLearningPoint ;
+  rdfs:label "Straws can be reinforced with pipe cleaners to add strength."@en ;
+  dcterms:modified "2026-06-07T15:30:29.433586Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27652-1
+  a curric:KeyLearningPoint ;
+  rdfs:label "Wind sails can be made of different materials."@en ;
+  dcterms:modified "2026-06-07T15:30:29.433609Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27652-2
+  a curric:KeyLearningPoint ;
+  rdfs:label "By testing materials, the most suitable can be selected."@en ;
+  dcterms:modified "2026-06-07T15:30:29.433613Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27652-3
+  a curric:KeyLearningPoint ;
+  rdfs:label "Discussing the results of test can help us select the correct materials."@en ;
+  dcterms:modified "2026-06-07T15:30:29.433617Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27642-1
+  a curric:KeyLearningPoint ;
+  rdfs:label "Experimenting with mock-ups helps develop designs."@en ;
+  dcterms:modified "2026-06-07T15:30:29.434301Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27642-2
+  a curric:KeyLearningPoint ;
+  rdfs:label "Construction kit blocks can be used to create bridge mock-ups."@en ;
+  dcterms:modified "2026-06-07T15:30:29.434306Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27642-3
+  a curric:KeyLearningPoint ;
+  rdfs:label "Bridges are made of different shapes."@en ;
+  dcterms:modified "2026-06-07T15:30:29.434312Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27642-4
+  a curric:KeyLearningPoint ;
+  rdfs:label """Construction kits can be used to make and test triangles and arches for strength and
+  stability."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.434317Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27642-5
+  a curric:KeyLearningPoint ;
+  rdfs:label "A design brief explains the problem we need to solve."@en ;
+  dcterms:modified "2026-06-07T15:30:29.434323Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27663-1
+  a curric:KeyLearningPoint ;
+  rdfs:label "Appliqué is a way to decorate fabric by adding other pieces of fabric."@en ;
+  dcterms:modified "2026-06-07T15:30:29.434410Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27663-2
+  a curric:KeyLearningPoint ;
+  rdfs:label "Appliqué can be added using stitching effects, glue or staples."@en ;
+  dcterms:modified "2026-06-07T15:30:29.434415Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27663-3
+  a curric:KeyLearningPoint ;
+  rdfs:label """There are different ways to join materials together, some are more effective than
+  others."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.434419Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27663-4
+  a curric:KeyLearningPoint ;
+  rdfs:label """Finishing techniques are a way to add detail and features to hand puppets so that
+  users can tell what the puppet is."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.434423Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27666-1
+  a curric:KeyLearningPoint ;
+  rdfs:label "Mechanisms are systems that make something move and include sliders."@en ;
+  dcterms:modified "2026-06-07T15:30:29.434471Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27666-2
+  a curric:KeyLearningPoint ;
+  rdfs:label "Sliders are rigid bars which move backwards and forwards along a straight line."@en ;
+  dcterms:modified "2026-06-07T15:30:29.434475Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27666-3
+  a curric:KeyLearningPoint ;
+  rdfs:label "Sliders have a guide, which is used to keep it in place."@en ;
+  dcterms:modified "2026-06-07T15:30:29.434479Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27666-4
+  a curric:KeyLearningPoint ;
+  rdfs:label "When constructing sliders, it is important to cut and measure accurately."@en ;
+  dcterms:modified "2026-06-07T15:30:29.434483Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27643-1
+  a curric:KeyLearningPoint ;
+  rdfs:label "Bridges have different shapes within their structure."@en ;
+  dcterms:modified "2026-06-07T15:30:29.434987Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27643-2
+  a curric:KeyLearningPoint ;
+  rdfs:label "Bridges are built from different materials"@en ;
+  dcterms:modified "2026-06-07T15:30:29.434991Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27643-3
+  a curric:KeyLearningPoint ;
+  rdfs:label "Scissors must be used carefully to keep everyone safe."@en ;
+  dcterms:modified "2026-06-07T15:30:29.434996Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27643-4
+  a curric:KeyLearningPoint ;
+  rdfs:label "Cutting skills can create a bridge collage."@en ;
+  dcterms:modified "2026-06-07T15:30:29.434999Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27643-5
+  a curric:KeyLearningPoint ;
+  rdfs:label "Scissors can cut straight & curved lines, and use a shearing action to cut."@en ;
+  dcterms:modified "2026-06-07T15:30:29.435004Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27644-1
+  a curric:KeyLearningPoint ;
+  rdfs:label "Paper and card can be folded in different ways to form structures."@en ;
+  dcterms:modified "2026-06-07T15:30:29.435886Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27644-2
+  a curric:KeyLearningPoint ;
+  rdfs:label "Folded triangle shapes are strong."@en ;
+  dcterms:modified "2026-06-07T15:30:29.435891Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27644-3
+  a curric:KeyLearningPoint ;
+  rdfs:label "A ruler can fold paper or card neatly and accurately to increase strength."@en ;
+  dcterms:modified "2026-06-07T15:30:29.435895Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27674-1
+  a curric:KeyLearningPoint ;
+  rdfs:label "A car has a chassis, body, wheels, axles, axle holders and an engine or motor."@en ;
+  dcterms:modified "2026-06-07T15:30:29.613582Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27674-2
+  a curric:KeyLearningPoint ;
+  rdfs:label """Creating a design specification for a vehicle will help to design and make a
+  finished product."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.613586Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-27674-3
+  a curric:KeyLearningPoint ;
+  rdfs:label """The design specification might include - travels in a straight line, has four
+  wheels, wheels run freely."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.613590Z"^^xsd:dateTime .
+
+# ----------------------------------------------------------------------
+# Pupil Lesson Outcomes
+# ----------------------------------------------------------------------
+
+oakcurric:pupillessonoutcome-lesson-27650
+  a curric:PupilLessonOutcome ;
+  rdfs:label "I can describe how wind  is useful."@en ;
+  dcterms:modified "2026-06-07T15:30:41.105413Z"^^xsd:dateTime .
+
+oakcurric:pupillessonoutcome-lesson-27672
+  a curric:PupilLessonOutcome ;
+  rdfs:label "I can use paper folding techniques to create an envelope."@en ;
+  dcterms:modified "2026-06-07T15:30:41.105429Z"^^xsd:dateTime .
+
+oakcurric:pupillessonoutcome-lesson-27646
+  a curric:PupilLessonOutcome ;
+  rdfs:label "I can make mock-ups of structures using different shapes and joining techniques."@en ;
+  dcterms:modified "2026-06-07T15:30:41.105445Z"^^xsd:dateTime .
+
+oakcurric:pupillessonoutcome-lesson-27645
+  a curric:PupilLessonOutcome ;
+  rdfs:label "I can generate ideas by talking and drawing."@en ;
+  dcterms:modified "2026-06-07T15:30:41.105462Z"^^xsd:dateTime .
+
+oakcurric:pupillessonoutcome-lesson-27648
+  a curric:PupilLessonOutcome ;
+  rdfs:label "I can test a bridge structure to determine its strength."@en ;
+  dcterms:modified "2026-06-07T15:30:41.105466Z"^^xsd:dateTime .
+
+oakcurric:pupillessonoutcome-lesson-27661
+  a curric:PupilLessonOutcome ;
+  rdfs:label "I can make fabric templates to create a hand puppet."@en ;
+  dcterms:modified "2026-06-07T15:30:41.105470Z"^^xsd:dateTime .
+
+oakcurric:pupillessonoutcome-lesson-27679
+  a curric:PupilLessonOutcome ;
+  rdfs:label """I can build and finish my vehicle using a range of different materials and
+  strategies."""@en ;
+  dcterms:modified "2026-06-07T15:30:41.105474Z"^^xsd:dateTime .
+
+oakcurric:pupillessonoutcome-lesson-27676
+  a curric:PupilLessonOutcome ;
+  rdfs:label "I can mark out, cut and join sections of card."@en ;
+  dcterms:modified "2026-06-07T15:30:41.105486Z"^^xsd:dateTime .
+
+oakcurric:pupillessonoutcome-lesson-27673
+  a curric:PupilLessonOutcome ;
+  rdfs:label "I can identify wheels and axles in a car."@en ;
+  dcterms:modified "2026-06-07T15:30:41.105544Z"^^xsd:dateTime .
+
+oakcurric:pupillessonoutcome-lesson-27660
+  a curric:PupilLessonOutcome ;
+  rdfs:label "I can use a design specification to design a puppet."@en ;
+  dcterms:modified "2026-06-07T15:30:41.105556Z"^^xsd:dateTime .
+
+oakcurric:pupillessonoutcome-lesson-27647
+  a curric:PupilLessonOutcome ;
+  rdfs:label "I can finish my bridge using a range of materials and decoration techniques."@en ;
+  dcterms:modified "2026-06-07T15:30:41.105560Z"^^xsd:dateTime .
+
+oakcurric:pupillessonoutcome-lesson-27687
+  a curric:PupilLessonOutcome ;
+  rdfs:label "I can complete a mock-up of a playground structure."@en ;
+  dcterms:modified "2026-06-07T15:30:41.105565Z"^^xsd:dateTime .
+
+oakcurric:pupillessonoutcome-lesson-27681
+  a curric:PupilLessonOutcome ;
+  rdfs:label "I can investigate the shapes and materials used in playground structures."@en ;
+  dcterms:modified "2026-06-07T15:30:41.105573Z"^^xsd:dateTime .
+
+oakcurric:pupillessonoutcome-lesson-27675
+  a curric:PupilLessonOutcome ;
+  rdfs:label """I can describe the properties of card and talk about the use of card in
+  packaging."""@en ;
+  dcterms:modified "2026-06-07T15:30:41.105598Z"^^xsd:dateTime .
+
+oakcurric:pupillessonoutcome-lesson-27683
+  a curric:PupilLessonOutcome ;
+  rdfs:label "I can explore and create structures using paper and card."@en ;
+  dcterms:modified "2026-06-07T15:30:41.105677Z"^^xsd:dateTime .
+
+oakcurric:pupillessonoutcome-lesson-27658
+  a curric:PupilLessonOutcome ;
+  rdfs:label "I can explore fabrics and their properties."@en ;
+  dcterms:modified "2026-06-07T15:30:41.105710Z"^^xsd:dateTime .
+
+oakcurric:pupillessonoutcome-lesson-27659
+  a curric:PupilLessonOutcome ;
+  rdfs:label "I know how to do a running stitch."@en ;
+  dcterms:modified "2026-06-07T15:30:41.105756Z"^^xsd:dateTime .
+
+oakcurric:pupillessonoutcome-lesson-27667
+  a curric:PupilLessonOutcome ;
+  rdfs:label "I can describe simple properties of paper and card in my designs."@en ;
+  dcterms:modified "2026-06-07T15:30:41.105802Z"^^xsd:dateTime .
+
+oakcurric:pupillessonoutcome-lesson-27668
+  a curric:PupilLessonOutcome ;
+  rdfs:label "I can make a mechanism in a moving card."@en ;
+  dcterms:modified "2026-06-07T15:30:41.105815Z"^^xsd:dateTime .
+
+oakcurric:pupillessonoutcome-lesson-27678
+  a curric:PupilLessonOutcome ;
+  rdfs:label "I can design a vehicle and create the chassis."@en ;
+  dcterms:modified "2026-06-07T15:30:41.105848Z"^^xsd:dateTime .
+
+oakcurric:pupillessonoutcome-lesson-27688
+  a curric:PupilLessonOutcome ;
+  rdfs:label """I can test my playground structure to see how strong it is and talk about the
+  results."""@en ;
+  dcterms:modified "2026-06-07T15:30:41.105852Z"^^xsd:dateTime .
+
+oakcurric:pupillessonoutcome-lesson-27655
+  a curric:PupilLessonOutcome ;
+  rdfs:label "I can finish and test my windmill."@en ;
+  dcterms:modified "2026-06-07T15:30:41.105931Z"^^xsd:dateTime .
+
+oakcurric:pupillessonoutcome-lesson-27664
+  a curric:PupilLessonOutcome ;
+  rdfs:label "I can give and receive feedback."@en ;
+  dcterms:modified "2026-06-07T15:30:41.105935Z"^^xsd:dateTime .
+
+oakcurric:pupillessonoutcome-lesson-27680
+  a curric:PupilLessonOutcome ;
+  rdfs:label "I can test and evaluate my vehicle."@en ;
+  dcterms:modified "2026-06-07T15:30:41.106542Z"^^xsd:dateTime .
+
+oakcurric:pupillessonoutcome-lesson-27662
+  a curric:PupilLessonOutcome ;
+  rdfs:label "I can join fabric together with a simple running stitch."@en ;
+  dcterms:modified "2026-06-07T15:30:41.106547Z"^^xsd:dateTime .
+
+oakcurric:pupillessonoutcome-lesson-27684
+  a curric:PupilLessonOutcome ;
+  rdfs:label """I can make different structures and explain how to make them stronger and more
+  stable."""@en ;
+  dcterms:modified "2026-06-07T15:30:41.106630Z"^^xsd:dateTime .
+
+oakcurric:pupillessonoutcome-lesson-27653
+  a curric:PupilLessonOutcome ;
+  rdfs:label "I can make my windmill freestanding."@en ;
+  dcterms:modified "2026-06-07T15:30:41.106638Z"^^xsd:dateTime .
+
+oakcurric:pupillessonoutcome-lesson-27657
+  a curric:PupilLessonOutcome ;
+  rdfs:label "I can identify different types of puppets and how they are made."@en ;
+  dcterms:modified "2026-06-07T15:30:41.106771Z"^^xsd:dateTime .
+
+oakcurric:pupillessonoutcome-lesson-27651
+  a curric:PupilLessonOutcome ;
+  rdfs:label "I can test wind sail designs to decide which is most effective."@en ;
+  dcterms:modified "2026-06-07T15:30:41.106827Z"^^xsd:dateTime .
+
+oakcurric:pupillessonoutcome-lesson-27685
+  a curric:PupilLessonOutcome ;
+  rdfs:label "I can plan and design playground structures."@en ;
+  dcterms:modified "2026-06-07T15:30:41.106887Z"^^xsd:dateTime .
+
+oakcurric:pupillessonoutcome-lesson-27656
+  a curric:PupilLessonOutcome ;
+  rdfs:label "I can share my final product design."@en ;
+  dcterms:modified "2026-06-07T15:30:41.106892Z"^^xsd:dateTime .
+
+oakcurric:pupillessonoutcome-lesson-27649
+  a curric:PupilLessonOutcome ;
+  rdfs:label "I can describe rotary motion."@en ;
+  dcterms:modified "2026-06-07T15:30:41.106896Z"^^xsd:dateTime .
+
+oakcurric:pupillessonoutcome-lesson-27682
+  a curric:PupilLessonOutcome ;
+  rdfs:label "I can explore and create playground structures using construction kits."@en ;
+  dcterms:modified "2026-06-07T15:30:41.106948Z"^^xsd:dateTime .
+
+oakcurric:pupillessonoutcome-lesson-27671
+  a curric:PupilLessonOutcome ;
+  rdfs:label "I can use different techniques to finish my moving card effectively."@en ;
+  dcterms:modified "2026-06-07T15:30:41.106991Z"^^xsd:dateTime .
+
+oakcurric:pupillessonoutcome-lesson-27665
+  a curric:PupilLessonOutcome ;
+  rdfs:label "I can explore and create lever mechanisms using paper and card."@en ;
+  dcterms:modified "2026-06-07T15:30:41.107033Z"^^xsd:dateTime .
+
+oakcurric:pupillessonoutcome-lesson-27669
+  a curric:PupilLessonOutcome ;
+  rdfs:label "I can disassemble products to create a design specification."@en ;
+  dcterms:modified "2026-06-07T15:30:41.107073Z"^^xsd:dateTime .
+
+oakcurric:pupillessonoutcome-lesson-27670
+  a curric:PupilLessonOutcome ;
+  rdfs:label "I can test and improve my moving greetings card."@en ;
+  dcterms:modified "2026-06-07T15:30:41.107077Z"^^xsd:dateTime .
+
+oakcurric:pupillessonoutcome-lesson-27641
+  a curric:PupilLessonOutcome ;
+  rdfs:label """I know what bridges are used for and can spot some important features in their
+  design."""@en ;
+  dcterms:modified "2026-06-07T15:30:41.107130Z"^^xsd:dateTime .
+
+oakcurric:pupillessonoutcome-lesson-27654
+  a curric:PupilLessonOutcome ;
+  rdfs:label "I can make, test and choose an axle for my windmill."@en ;
+  dcterms:modified "2026-06-07T15:30:41.107191Z"^^xsd:dateTime .
+
+oakcurric:pupillessonoutcome-lesson-27677
+  a curric:PupilLessonOutcome ;
+  rdfs:label """I can explore and test wheels, axles and axle holders and choose the right one for
+  my vehicle."""@en ;
+  dcterms:modified "2026-06-07T15:30:41.107195Z"^^xsd:dateTime .
+
+oakcurric:pupillessonoutcome-lesson-27686
+  a curric:PupilLessonOutcome ;
+  rdfs:label "I can use my knowledge of structure to make a playground mock-up."@en ;
+  dcterms:modified "2026-06-07T15:30:41.107470Z"^^xsd:dateTime .
+
+oakcurric:pupillessonoutcome-lesson-27652
+  a curric:PupilLessonOutcome ;
+  rdfs:label "I can choose materials that will work best for my sails."@en ;
+  dcterms:modified "2026-06-07T15:30:41.107479Z"^^xsd:dateTime .
+
+oakcurric:pupillessonoutcome-lesson-27642
+  a curric:PupilLessonOutcome ;
+  rdfs:label "I can explore making mock-ups of bridges, using a range of construction methods."@en ;
+  dcterms:modified "2026-06-07T15:30:41.107667Z"^^xsd:dateTime .
+
+oakcurric:pupillessonoutcome-lesson-27663
+  a curric:PupilLessonOutcome ;
+  rdfs:label "I can add applique details to my hand puppet."@en ;
+  dcterms:modified "2026-06-07T15:30:41.107685Z"^^xsd:dateTime .
+
+oakcurric:pupillessonoutcome-lesson-27666
+  a curric:PupilLessonOutcome ;
+  rdfs:label "I can explore and create slider mechanisms using paper and card."@en ;
+  dcterms:modified "2026-06-07T15:30:41.107703Z"^^xsd:dateTime .
+
+oakcurric:pupillessonoutcome-lesson-27643
+  a curric:PupilLessonOutcome ;
+  rdfs:label "I can cut paper and card carefully to form a bridge design."@en ;
+  dcterms:modified "2026-06-07T15:30:41.107800Z"^^xsd:dateTime .
+
+oakcurric:pupillessonoutcome-lesson-27644
+  a curric:PupilLessonOutcome ;
+  rdfs:label "I can add strength to reusable materials to create a structure."@en ;
+  dcterms:modified "2026-06-07T15:30:41.107995Z"^^xsd:dateTime .
+
+oakcurric:pupillessonoutcome-lesson-27674
+  a curric:PupilLessonOutcome ;
+  rdfs:label "I can explore a vehicle and create a design specification for a vehicle."@en ;
+  dcterms:modified "2026-06-07T15:30:41.114708Z"^^xsd:dateTime .
+
+# ----------------------------------------------------------------------
+# Keywords
+# ----------------------------------------------------------------------
+
+oakcurric:keyword-evaluate
+  a curric:Keyword ;
+  schema:name "evaluate"@en ;
+  schema:description """to examine something closely and make a judgement about its
+  effectiveness"""@en ;
+  dcterms:modified "2026-06-07T15:30:02.347900Z"^^xsd:dateTime .
+
+oakcurric:keyword-disassembly
+  a curric:Keyword ;
+  schema:name "disassembly"@en ;
+  schema:description "taking something apart to see how it works"@en ;
+  dcterms:modified "2026-06-07T15:30:02.347952Z"^^xsd:dateTime .
+
+oakcurric:keyword-testing
+  a curric:Keyword ;
+  schema:name "testing"@en ;
+  schema:description "trying something out to see if it works well"@en ;
+  dcterms:modified "2026-06-07T15:30:02.348277Z"^^xsd:dateTime .
+
+oakcurric:keyword-user
+  a curric:Keyword ;
+  schema:name "user"@en ;
+  schema:description "who you are designing for"@en ;
+  dcterms:modified "2026-06-07T15:30:02.348282Z"^^xsd:dateTime .
+
+oakcurric:keyword-join
+  a curric:Keyword ;
+  schema:name "join"@en ;
+  schema:description "how the letters are connected together"@en ;
+  dcterms:modified "2026-06-07T15:30:02.348441Z"^^xsd:dateTime .
+
+oakcurric:keyword-landscape
+  a curric:Keyword ;
+  schema:name "landscape"@en ;
+  schema:description """all the visible features of an area of land, often considered in terms of
+  their visual appeal"""@en ;
+  dcterms:modified "2026-06-07T15:30:02.348586Z"^^xsd:dateTime .
+
+oakcurric:keyword-natural
+  a curric:Keyword ;
+  schema:name "natural"@en ;
+  schema:description """the natural symbol is used to show a note in the bar has returned to the
+  normal pitch"""@en ;
+  dcterms:modified "2026-06-07T15:30:02.348642Z"^^xsd:dateTime .
+
+oakcurric:keyword-structure
+  a curric:Keyword ;
+  schema:name "structure"@en ;
+  schema:description "how a piece of writing is sequenced"@en ;
+  dcterms:modified "2026-06-07T15:30:02.349052Z"^^xsd:dateTime .
+
+oakcurric:keyword-accurate
+  a curric:Keyword ;
+  schema:name "accurate"@en ;
+  schema:description "Accurate measurements are those that are close to the true value."@en ;
+  dcterms:modified "2026-06-07T15:30:02.350302Z"^^xsd:dateTime .
+
+oakcurric:keyword-texture
+  a curric:Keyword ;
+  schema:name "texture"@en ;
+  schema:description "how something feels when it is touched"@en ;
+  dcterms:modified "2026-06-07T15:30:02.350854Z"^^xsd:dateTime .
+
+oakcurric:keyword-features
+  a curric:Keyword ;
+  schema:name "features"@en ;
+  schema:description "the parts or characteristics that make something unique"@en ;
+  dcterms:modified "2026-06-07T15:30:02.351067Z"^^xsd:dateTime .
+
+oakcurric:keyword-sustainable
+  a curric:Keyword ;
+  schema:name "sustainable"@en ;
+  schema:description """development that meets the needs of people today without damaging the
+  environment or reducing resources for future generations"""@en ;
+  dcterms:modified "2026-06-07T15:30:02.352314Z"^^xsd:dateTime .
+
+oakcurric:keyword-technique
+  a curric:Keyword ;
+  schema:name "technique"@en ;
+  schema:description "the method we use to perform a task"@en ;
+  dcterms:modified "2026-06-07T15:30:02.352540Z"^^xsd:dateTime .
+
+oakcurric:keyword-feedback
+  a curric:Keyword ;
+  schema:name "feedback"@en ;
+  schema:description """information and guidance provided to the athlete to help them improve their
+  technique"""@en ;
+  dcterms:modified "2026-06-07T15:30:02.352657Z"^^xsd:dateTime .
+
+oakcurric:keyword-sketching
+  a curric:Keyword ;
+  schema:name "sketching"@en ;
+  schema:description "quick, freehand drawing of ideas or concepts, often as a rough outline"@en ;
+  dcterms:modified "2026-06-07T15:30:02.354474Z"^^xsd:dateTime .
+
+oakcurric:keyword-construct
+  a curric:Keyword ;
+  schema:name "construct"@en ;
+  schema:description "to create or build an image or understanding of something"@en ;
+  dcterms:modified "2026-06-07T15:30:02.354608Z"^^xsd:dateTime .
+
+oakcurric:keyword-model
+  a curric:Keyword ;
+  schema:name "model"@en ;
+  schema:description """Scientists use models as simpler representations of complex things and
+  ideas."""@en ;
+  dcterms:modified "2026-06-07T15:30:02.354826Z"^^xsd:dateTime .
+
+oakcurric:keyword-unique
+  a curric:Keyword ;
+  schema:name "unique"@en ;
+  schema:description "being one of a kind or unlike anything else"@en ;
+  dcterms:modified "2026-06-07T15:30:02.354890Z"^^xsd:dateTime .
+
+oakcurric:keyword-detail
+  a curric:Keyword ;
+  schema:name "Detail"@en ;
+  schema:description "A small part of something that adds to its overall appearance."@en ;
+  dcterms:modified "2026-06-07T15:30:02.355330Z"^^xsd:dateTime .
+
+oakcurric:keyword-performance
+  a curric:Keyword ;
+  schema:name "performance"@en ;
+  schema:description """the act of executing the skill to the best of your ability, especially when
+  it counts"""@en ;
+  dcterms:modified "2026-06-07T15:30:02.355489Z"^^xsd:dateTime .
+
+oakcurric:keyword-ideas
+  a curric:Keyword ;
+  schema:name "ideas"@en ;
+  schema:description "thoughts or plans about how to do or create something"@en ;
+  dcterms:modified "2026-06-07T15:30:02.356066Z"^^xsd:dateTime .
+
+oakcurric:keyword-lever
+  a curric:Keyword ;
+  schema:name "lever"@en ;
+  schema:description """a lever arm (bone) that rotates or pivots around a fixed point (fulcrum)
+  when a force (effort) is applied to move a resistance (load)"""@en ;
+  dcterms:modified "2026-06-07T15:30:02.356453Z"^^xsd:dateTime .
+
+oakcurric:keyword-material
+  a curric:Keyword ;
+  schema:name "material"@en ;
+  schema:description """A material is what an object is made from. An object can be made from more
+  than one material."""@en ;
+  dcterms:modified "2026-06-07T15:30:02.358135Z"^^xsd:dateTime .
+
+oakcurric:keyword-sketch
+  a curric:Keyword ;
+  schema:name "sketch"@en ;
+  schema:description "making quick and simple drawings to show ideas or the things we see"@en ;
+  dcterms:modified "2026-06-07T15:30:02.358165Z"^^xsd:dateTime .
+
+oakcurric:keyword-appearance
+  a curric:Keyword ;
+  schema:name "appearance"@en ;
+  schema:description "what someone or something looks like"@en ;
+  dcterms:modified "2026-06-07T15:30:02.360396Z"^^xsd:dateTime .
+
+oakcurric:keyword-materials
+  a curric:Keyword ;
+  schema:name "materials"@en ;
+  schema:description "the physical substances or tools an artist uses to create their work"@en ;
+  dcterms:modified "2026-06-07T15:30:02.360914Z"^^xsd:dateTime .
+
+oakcurric:keyword-foreground
+  a curric:Keyword ;
+  schema:name "foreground"@en ;
+  schema:description "the part of the scene closest to the viewer"@en ;
+  dcterms:modified "2026-06-07T15:30:02.360965Z"^^xsd:dateTime .
+
+oakcurric:keyword-background
+  a curric:Keyword ;
+  schema:name "background"@en ;
+  schema:description "the part of the scene that appears furthest away"@en ;
+  dcterms:modified "2026-06-07T15:30:02.360972Z"^^xsd:dateTime .
+
+oakcurric:keyword-produce
+  a curric:Keyword ;
+  schema:name "produce"@en ;
+  schema:description """produce is something that people have made, created or grown; it also means
+  to make something"""@en ;
+  dcterms:modified "2026-06-07T15:30:02.363754Z"^^xsd:dateTime .
+
+oakcurric:keyword-explain
+  a curric:Keyword ;
+  schema:name "explain"@en ;
+  schema:description """to make something clear or easy to understand by describing or giving
+  information about it"""@en ;
+  dcterms:modified "2026-06-07T15:30:02.363949Z"^^xsd:dateTime .
+
+oakcurric:keyword-stable
+  a curric:Keyword ;
+  schema:name "stable"@en ;
+  schema:description """Something stable is secure or solid. It is the opposite of something
+  precarious."""@en ;
+  dcterms:modified "2026-06-07T15:30:02.363986Z"^^xsd:dateTime .
+
+oakcurric:keyword-design
+  a curric:Keyword ;
+  schema:name "design"@en ;
+  schema:description "A design is a drawing or plan of something before it is made or built."@en ;
+  dcterms:modified "2026-06-07T15:30:02.364149Z"^^xsd:dateTime .
+
+oakcurric:keyword-thread
+  a curric:Keyword ;
+  schema:name "thread"@en ;
+  schema:description """a thin strand of fibre, like string or cotton, used for weaving, sewing, or
+  tying materials together"""@en ;
+  dcterms:modified "2026-06-07T15:30:02.364443Z"^^xsd:dateTime .
+
+oakcurric:keyword-joint
+  a curric:Keyword ;
+  schema:name "joint"@en ;
+  schema:description "the place where two materials are joined together"@en ;
+  dcterms:modified "2026-06-07T15:30:02.364928Z"^^xsd:dateTime .
+
+oakcurric:keyword-equipment
+  a curric:Keyword ;
+  schema:name "equipment"@en ;
+  schema:description "utensils used to prepare and cook food"@en ;
+  dcterms:modified "2026-06-07T15:30:02.366144Z"^^xsd:dateTime .
+
+oakcurric:keyword-collage
+  a curric:Keyword ;
+  schema:name "collage"@en ;
+  schema:description "arranging different materials and sticking them together on a surface."@en ;
+  dcterms:modified "2026-06-07T15:30:02.366759Z"^^xsd:dateTime .
+
+oakcurric:keyword-protect
+  a curric:Keyword ;
+  schema:name "protect"@en ;
+  schema:description "To protect something is to keep it safe from harm."@en ;
+  dcterms:modified "2026-06-07T15:30:02.366866Z"^^xsd:dateTime .
+
+oakcurric:keyword-marking-out
+  a curric:Keyword ;
+  schema:name "Marking out"@en ;
+  schema:description "the process of measuring and drawing on a material before manufacture"@en ;
+  dcterms:modified "2026-06-07T15:30:02.367608Z"^^xsd:dateTime .
+
+oakcurric:keyword-font
+  a curric:Keyword ;
+  schema:name "font"@en ;
+  schema:description "the style in which text is presented"@en ;
+  dcterms:modified "2026-06-07T15:30:02.368833Z"^^xsd:dateTime .
+
+oakcurric:keyword-test
+  a curric:Keyword ;
+  schema:name "test"@en ;
+  schema:description "to run a program to check it is working as planned"@en ;
+  dcterms:modified "2026-06-07T15:30:02.368838Z"^^xsd:dateTime .
+
+oakcurric:keyword-portrait
+  a curric:Keyword ;
+  schema:name "portrait"@en ;
+  schema:description "a layout where the height is greater than the width"@en ;
+  dcterms:modified "2026-06-07T15:30:02.370375Z"^^xsd:dateTime .
+
+oakcurric:keyword-seam
+  a curric:Keyword ;
+  schema:name "seam"@en ;
+  schema:description "a line of stitching that joins pieces of fabric together"@en ;
+  dcterms:modified "2026-06-07T15:30:02.371011Z"^^xsd:dateTime .
+
+oakcurric:keyword-vehicle
+  a curric:Keyword ;
+  schema:name "vehicle"@en ;
+  schema:description "a machine used for transporting people or goods"@en ;
+  dcterms:modified "2026-06-07T15:30:02.371021Z"^^xsd:dateTime .
+
+oakcurric:keyword-template
+  a curric:Keyword ;
+  schema:name "template"@en ;
+  schema:description "premade layout of a document"@en ;
+  dcterms:modified "2026-06-07T15:30:02.373369Z"^^xsd:dateTime .
+
+oakcurric:keyword-rotate
+  a curric:Keyword ;
+  schema:name "rotate"@en ;
+  schema:description "to turn around an axis"@en ;
+  dcterms:modified "2026-06-07T15:30:02.374750Z"^^xsd:dateTime .
+
+oakcurric:keyword-evaluation
+  a curric:Keyword ;
+  schema:name "evaluation"@en ;
+  schema:description "making a judgement or comment about something"@en ;
+  dcterms:modified "2026-06-07T15:30:02.375391Z"^^xsd:dateTime .
+
+oakcurric:keyword-appliqu
+  a curric:Keyword ;
+  schema:name "appliqué"@en ;
+  schema:description "attaching fabric shapes onto a background to make a design."@en ;
+  dcterms:modified "2026-06-07T15:30:02.376665Z"^^xsd:dateTime .
+
+oakcurric:keyword-properties
+  a curric:Keyword ;
+  schema:name "Properties"@en ;
+  schema:description "A character or quality that something has."@en ;
+  dcterms:modified "2026-06-07T15:30:02.377236Z"^^xsd:dateTime .
+
+oakcurric:keyword-design-specification
+  a curric:Keyword ;
+  schema:name "design specification"@en ;
+  schema:description "a list of things a product must have or do"@en ;
+  dcterms:modified "2026-06-07T15:30:02.377901Z"^^xsd:dateTime .
+
+oakcurric:keyword-reinforce
+  a curric:Keyword ;
+  schema:name "reinforce"@en ;
+  schema:description "to make something stronger"@en ;
+  dcterms:modified "2026-06-07T15:30:02.377998Z"^^xsd:dateTime .
+
+oakcurric:keyword-bridge
+  a curric:Keyword ;
+  schema:name "Bridge"@en ;
+  schema:description """A strategy that involves using a multiple of ten as a 'bridge' so numbers
+  can be partitioned to make use of bonds to ten and calculate efficiently."""@en ;
+  dcterms:modified "2026-06-07T15:30:02.378302Z"^^xsd:dateTime .
+
+oakcurric:keyword-effects
+  a curric:Keyword ;
+  schema:name "effects"@en ;
+  schema:description """changes you can add to an image to create a certain look or style, like
+  making it black and white or adding contrast"""@en ;
+  dcterms:modified "2026-06-07T15:30:02.378450Z"^^xsd:dateTime .
+
+oakcurric:keyword-building
+  a curric:Keyword ;
+  schema:name "building"@en ;
+  schema:description "a structure with a roof and walls, such as a house or factory"@en ;
+  dcterms:modified "2026-06-07T15:30:02.378641Z"^^xsd:dateTime .
+
+oakcurric:keyword-axle
+  a curric:Keyword ;
+  schema:name "axle"@en ;
+  schema:description """An axle is a rod that goes through the centre of the wheel to help it move
+  and stay in place."""@en ;
+  dcterms:modified "2026-06-07T15:30:02.379223Z"^^xsd:dateTime .
+
+oakcurric:keyword-strong
+  a curric:Keyword ;
+  schema:name "strong"@en ;
+  schema:description "strong and loud are both words we use to describe a louder dynamic"@en ;
+  dcterms:modified "2026-06-07T15:30:02.380089Z"^^xsd:dateTime .
+
+oakcurric:keyword-success-criteria
+  a curric:Keyword ;
+  schema:name "success criteria"@en ;
+  schema:description """specific, measurable and realistic benchmarks used to determine if a
+  project, task or outcome has been accomplished successfully"""@en ;
+  dcterms:modified "2026-06-07T15:30:02.382066Z"^^xsd:dateTime .
+
+oakcurric:keyword-parallel
+  a curric:Keyword ;
+  schema:name "parallel"@en ;
+  schema:description "side by side alignment of the feet on landing"@en ;
+  dcterms:modified "2026-06-07T15:30:02.382525Z"^^xsd:dateTime .
+
+oakcurric:keyword-pivot
+  a curric:Keyword ;
+  schema:name "pivot"@en ;
+  schema:description "The pivot is the fixed point where a lever turns."@en ;
+  dcterms:modified "2026-06-07T15:30:02.382694Z"^^xsd:dateTime .
+
+oakcurric:keyword-constructive
+  a curric:Keyword ;
+  schema:name "constructive"@en ;
+  schema:description "helping to improve or develop something in a positive way"@en ;
+  dcterms:modified "2026-06-07T15:30:02.382784Z"^^xsd:dateTime .
+
+oakcurric:keyword-joining
+  a curric:Keyword ;
+  schema:name "joining"@en ;
+  schema:description """connecting two or more parts of a sculpture or structure using glue, tape,
+  staples or other methods"""@en ;
+  dcterms:modified "2026-06-07T15:30:02.384586Z"^^xsd:dateTime .
+
+oakcurric:keyword-puppet
+  a curric:Keyword ;
+  schema:name "puppet"@en ;
+  schema:description """a hand-made figure, human, animal, or abstract form, that is controlled by a
+  person"""@en ;
+  dcterms:modified "2026-06-07T15:30:02.384602Z"^^xsd:dateTime .
+
+oakcurric:keyword-chassis
+  a curric:Keyword ;
+  schema:name "chassis"@en ;
+  schema:description "the frame or base on which a vehicle is built"@en ;
+  dcterms:modified "2026-06-07T15:30:02.384689Z"^^xsd:dateTime .
+
+oakcurric:keyword-axle-holder
+  a curric:Keyword ;
+  schema:name "axle holder"@en ;
+  schema:description "a device which holds an axle in place"@en ;
+  dcterms:modified "2026-06-07T15:30:02.384693Z"^^xsd:dateTime .
+
+oakcurric:keyword-fabric
+  a curric:Keyword ;
+  schema:name "fabric"@en ;
+  schema:description "a material used to make clothes, blankets, curtains, etc."@en ;
+  dcterms:modified "2026-06-07T15:30:02.385768Z"^^xsd:dateTime .
+
+oakcurric:keyword-engineer
+  a curric:Keyword ;
+  schema:name "engineer"@en ;
+  schema:description "An engineer is a person who designs and builds things."@en ;
+  dcterms:modified "2026-06-07T15:30:02.385882Z"^^xsd:dateTime .
+
+oakcurric:keyword-body
+  a curric:Keyword ;
+  schema:name "body"@en ;
+  schema:description "a single continuous shape"@en ;
+  dcterms:modified "2026-06-07T15:30:02.387701Z"^^xsd:dateTime .
+
+oakcurric:keyword-sail
+  a curric:Keyword ;
+  schema:name "sail"@en ;
+  schema:description """a sail is a large piece of cloth attached to a boat that uses the wind to
+  help the boat move"""@en ;
+  dcterms:modified "2026-06-07T15:30:02.390886Z"^^xsd:dateTime .
+
+oakcurric:keyword-joining-techniques
+  a curric:Keyword ;
+  schema:name "joining techniques"@en ;
+  schema:description "the methods used to connect two or more materials or parts together"@en ;
+  dcterms:modified "2026-06-07T15:30:02.392822Z"^^xsd:dateTime .
+
+oakcurric:keyword-freestanding
+  a curric:Keyword ;
+  schema:name "freestanding"@en ;
+  schema:description """a structure that stays upright without support from walls or other
+  objects"""@en ;
+  dcterms:modified "2026-06-07T15:30:02.393064Z"^^xsd:dateTime .
+
+oakcurric:keyword-mechanism
+  a curric:Keyword ;
+  schema:name "mechanism"@en ;
+  schema:description "a set of moving parts that make something happen"@en ;
+  dcterms:modified "2026-06-07T15:30:02.395124Z"^^xsd:dateTime .
+
+oakcurric:keyword-rotary-motion
+  a curric:Keyword ;
+  schema:name "rotary motion"@en ;
+  schema:description "something that turns around in circles"@en ;
+  dcterms:modified "2026-06-07T15:30:02.410536Z"^^xsd:dateTime .
+
+oakcurric:keyword-sails
+  a curric:Keyword ;
+  schema:name "sails"@en ;
+  schema:description "parts of a windmill that turn in the wind"@en ;
+  dcterms:modified "2026-06-07T15:30:02.410541Z"^^xsd:dateTime .
+
+oakcurric:keyword-blades
+  a curric:Keyword ;
+  schema:name "blades"@en ;
+  schema:description "parts of a wind turbine that turn in the wind"@en ;
+  dcterms:modified "2026-06-07T15:30:02.410546Z"^^xsd:dateTime .
+
+oakcurric:keyword-millstone
+  a curric:Keyword ;
+  schema:name "millstone"@en ;
+  schema:description "a heavy stone that grinds grain to make flour"@en ;
+  dcterms:modified "2026-06-07T15:30:02.410554Z"^^xsd:dateTime .
+
+oakcurric:keyword-disassemble
+  a curric:Keyword ;
+  schema:name "disassemble"@en ;
+  schema:description "to take something apart and to see how it works"@en ;
+  dcterms:modified "2026-06-07T15:30:02.410571Z"^^xsd:dateTime .
+
+oakcurric:keyword-famous-landmarks
+  a curric:Keyword ;
+  schema:name "famous landmarks"@en ;
+  schema:description "special place that is well known to others"@en ;
+  dcterms:modified "2026-06-07T15:30:02.410610Z"^^xsd:dateTime .
+
+oakcurric:keyword-designing
+  a curric:Keyword ;
+  schema:name "designing"@en ;
+  schema:description "the process of creating a plan for a product or structure"@en ;
+  dcterms:modified "2026-06-07T15:30:02.410618Z"^^xsd:dateTime .
+
+oakcurric:keyword-wheel
+  a curric:Keyword ;
+  schema:name "wheel"@en ;
+  schema:description "a circular object that turns on an axle"@en ;
+  dcterms:modified "2026-06-07T15:30:02.410682Z"^^xsd:dateTime .
+
+oakcurric:keyword-playground-equipment
+  a curric:Keyword ;
+  schema:name "playground equipment"@en ;
+  schema:description """structure that you can play on within a playground, such as swings
+  or slides"""@en ;
+  dcterms:modified "2026-06-07T15:30:02.410687Z"^^xsd:dateTime .
+
+oakcurric:keyword-corrugated
+  a curric:Keyword ;
+  schema:name "corrugated"@en ;
+  schema:description "a type of card with wavy layers for strength"@en ;
+  dcterms:modified "2026-06-07T15:30:02.410709Z"^^xsd:dateTime .
+
+oakcurric:keyword-measuring-with-a-ruler
+  a curric:Keyword ;
+  schema:name "measuring (with a ruler)"@en ;
+  schema:description "to find a number that shows the size of something"@en ;
+  dcterms:modified "2026-06-07T15:30:02.410850Z"^^xsd:dateTime .
+
+oakcurric:keyword-man-made
+  a curric:Keyword ;
+  schema:name "man-made"@en ;
+  schema:description "materials that come from sources made by humans, such as plastic"@en ;
+  dcterms:modified "2026-06-07T15:30:02.410896Z"^^xsd:dateTime .
+
+oakcurric:keyword-sewing
+  a curric:Keyword ;
+  schema:name "sewing"@en ;
+  schema:description "to make stiches in fabric using a needle and thread"@en ;
+  dcterms:modified "2026-06-07T15:30:02.410920Z"^^xsd:dateTime .
+
+oakcurric:keyword-stitches
+  a curric:Keyword ;
+  schema:name "stitches"@en ;
+  schema:description "a loop of thread made using a needle"@en ;
+  dcterms:modified "2026-06-07T15:30:02.410928Z"^^xsd:dateTime .
+
+oakcurric:keyword-sturdy
+  a curric:Keyword ;
+  schema:name "sturdy"@en ;
+  schema:description "strong and hard wearing"@en ;
+  dcterms:modified "2026-06-07T15:30:02.410976Z"^^xsd:dateTime .
+
+oakcurric:keyword-fray
+  a curric:Keyword ;
+  schema:name "fray"@en ;
+  schema:description "to unravel or become worn at the edges"@en ;
+  dcterms:modified "2026-06-07T15:30:02.411809Z"^^xsd:dateTime .
+
+oakcurric:keyword-mark-out
+  a curric:Keyword ;
+  schema:name "mark out"@en ;
+  schema:description "making marks on something to show how it needs to go together"@en ;
+  dcterms:modified "2026-06-07T15:30:02.411816Z"^^xsd:dateTime .
+
+oakcurric:keyword-designer
+  a curric:Keyword ;
+  schema:name "designer"@en ;
+  schema:description """someone who imagines how something will look or work by drawing and
+  planning"""@en ;
+  dcterms:modified "2026-06-07T15:30:02.411822Z"^^xsd:dateTime .
+
+oakcurric:keyword-frame-structures
+  a curric:Keyword ;
+  schema:name "frame structures"@en ;
+  schema:description "a 3d shape which holds the outline of the shape, just like a skeleton"@en ;
+  dcterms:modified "2026-06-07T15:30:02.411918Z"^^xsd:dateTime .
+
+oakcurric:keyword-shell-structures
+  a curric:Keyword ;
+  schema:name "shell structures"@en ;
+  schema:description "a hollow structure with a thin outer covering"@en ;
+  dcterms:modified "2026-06-07T15:30:02.411924Z"^^xsd:dateTime .
+
+oakcurric:keyword-brick-bonding
+  a curric:Keyword ;
+  schema:name "brick bonding"@en ;
+  schema:description "a pattern in which bricks are laid to make a wall strong and stable"@en ;
+  dcterms:modified "2026-06-07T15:30:02.411929Z"^^xsd:dateTime .
+
+oakcurric:keyword-bracing
+  a curric:Keyword ;
+  schema:name "bracing"@en ;
+  schema:description """extra supports added to a structure to keep it strong and help it to keep
+  it’s shape"""@en ;
+  dcterms:modified "2026-06-07T15:30:02.411997Z"^^xsd:dateTime .
+
+oakcurric:keyword-ballast
+  a curric:Keyword ;
+  schema:name "ballast"@en ;
+  schema:description "a heavy material used to keep something upright or in position"@en ;
+  dcterms:modified "2026-06-07T15:30:02.412004Z"^^xsd:dateTime .
+
+oakcurric:keyword-sketch-model
+  a curric:Keyword ;
+  schema:name "sketch model"@en ;
+  schema:description "a quick, low cost way to 3d model an idea or design"@en ;
+  dcterms:modified "2026-06-07T15:30:02.412355Z"^^xsd:dateTime .
+
+oakcurric:keyword-ordering
+  a curric:Keyword ;
+  schema:name "ordering"@en ;
+  schema:description """putting things in the correct sequence, often using words like first, next
+  and then"""@en ;
+  dcterms:modified "2026-06-07T15:30:02.412363Z"^^xsd:dateTime .
+
+oakcurric:keyword-water-wheel
+  a curric:Keyword ;
+  schema:name "water wheel"@en ;
+  schema:description "a large wheel driven by flowing water"@en ;
+  dcterms:modified "2026-06-07T15:30:02.412369Z"^^xsd:dateTime .
+
+oakcurric:keyword-water-well
+  a curric:Keyword ;
+  schema:name "water well"@en ;
+  schema:description "a hole used to get water from deep underground"@en ;
+  dcterms:modified "2026-06-07T15:30:02.412374Z"^^xsd:dateTime .
+
+oakcurric:keyword-mock-up
+  a curric:Keyword ;
+  schema:name "mock-up"@en ;
+  schema:description "making an example of something to test or to learn new skills"@en ;
+  dcterms:modified "2026-06-07T15:30:02.412408Z"^^xsd:dateTime .
+
+oakcurric:keyword-rigid
+  a curric:Keyword ;
+  schema:name "rigid"@en ;
+  schema:description "unable to bend or be forced out of shape"@en ;
+  dcterms:modified "2026-06-07T15:30:02.412432Z"^^xsd:dateTime .
+
+oakcurric:keyword-greetings-card
+  a curric:Keyword ;
+  schema:name "greetings card"@en ;
+  schema:description "a card that shares a special message"@en ;
+  dcterms:modified "2026-06-07T15:30:02.412471Z"^^xsd:dateTime .
+
+oakcurric:keyword-choose
+  a curric:Keyword ;
+  schema:name "choose"@en ;
+  schema:description "to make a decision"@en ;
+  dcterms:modified "2026-06-07T15:30:02.412604Z"^^xsd:dateTime .
+
+oakcurric:keyword-thickness
+  a curric:Keyword ;
+  schema:name "thickness"@en ;
+  schema:description "the size through an object and thick is the opposite of thin"@en ;
+  dcterms:modified "2026-06-07T15:30:02.412845Z"^^xsd:dateTime .
+
+oakcurric:keyword-shell-structure
+  a curric:Keyword ;
+  schema:name "shell structure"@en ;
+  schema:description "a hollow structure with a thin outer covering."@en ;
+  dcterms:modified "2026-06-07T15:30:02.413052Z"^^xsd:dateTime .
+
+oakcurric:keyword-slider
+  a curric:Keyword ;
+  schema:name "slider"@en ;
+  schema:description "a bar which moves backwards and forwards along a straight line"@en ;
+  dcterms:modified "2026-06-07T15:30:02.413063Z"^^xsd:dateTime .
+
+oakcurric:keyword-guide
+  a curric:Keyword ;
+  schema:name "guide"@en ;
+  schema:description """a piece of material used to keep mechanisms in place and control
+  movement"""@en ;
+  dcterms:modified "2026-06-07T15:30:02.413071Z"^^xsd:dateTime .
+
+oakcurric:keyword-slot
+  a curric:Keyword ;
+  schema:name "slot"@en ;
+  schema:description "the hole through which a lever or slider is placed to enable movement"@en ;
+  dcterms:modified "2026-06-07T15:30:02.413076Z"^^xsd:dateTime .
+
+oakcurric:keyword-reinforcing
+  a curric:Keyword ;
+  schema:name "reinforcing"@en ;
+  schema:description "to strengthen or support an object or structure"@en ;
+  dcterms:modified "2026-06-07T15:30:02.413326Z"^^xsd:dateTime .
+
+oakcurric:keyword-engine
+  a curric:Keyword ;
+  schema:name "engine"@en ;
+  schema:description "a machine that helps a vehicle to move"@en ;
+  dcterms:modified "2026-06-07T15:30:02.422753Z"^^xsd:dateTime .
+
+oakcurric:keyword-axel-holder
+  a curric:Keyword ;
+  schema:name "axel holder"@en ;
+  schema:description """the part where the axle goes through to hold it in place but still allow it
+  to rotate"""@en ;
+  dcterms:modified "2026-06-07T15:30:02.422758Z"^^xsd:dateTime .
+
+# ----------------------------------------------------------------------
+# Misconceptions
+# ----------------------------------------------------------------------
+
+oakcurric:misconception-windmills-create-wind-rather-moved
+  a curric:Misconception ;
+  curric:statement "Windmills create wind, rather than being moved by it."@en ;
+  curric:correction "The wind pushes the windmill's blades to make them turn."@en ;
+  dcterms:modified "2026-06-07T15:30:15.150116Z"^^xsd:dateTime .
+
+oakcurric:misconception-envelopes-exactly-same-size-card
+  a curric:Misconception ;
+  curric:statement """Envelopes have to be exactly the same size as the card that will go
+  inside it."""@en ;
+  curric:correction "A folded envelope needs to be slightly larger than the card."@en ;
+  dcterms:modified "2026-06-07T15:30:15.150142Z"^^xsd:dateTime .
+
+oakcurric:misconception-testing-needs-completed-end-making
+  a curric:Misconception ;
+  curric:statement "Testing needs to be completed at the end of the making task."@en ;
+  curric:correction """Through testing throughout the making process, any issues and changes can be
+  addressed. This will make the product more successful."""@en ;
+  dcterms:modified "2026-06-07T15:30:15.150165Z"^^xsd:dateTime .
+
+oakcurric:misconception-designs-need-decided-upon-followed
+  a curric:Misconception ;
+  curric:statement "Designs need to be decided upon and followed."@en ;
+  curric:correction """Final designs can be adapted and changed, even during the making process.
+  This is because it is always good to be reflective throughout the making process."""@en ;
+  dcterms:modified "2026-06-07T15:30:15.150197Z"^^xsd:dateTime .
+
+oakcurric:misconception-testing-happens-end-making-process
+  a curric:Misconception ;
+  curric:statement "Testing only happens at the end of the making process."@en ;
+  curric:correction """Testing should happen throughout the making process. This allows the
+  designers and engineers to change / alter and improve any aspects as they move through the
+  making process."""@en ;
+  dcterms:modified "2026-06-07T15:30:15.150203Z"^^xsd:dateTime .
+
+oakcurric:misconception-detail-puppet-needs-added-template
+  a curric:Misconception ;
+  curric:statement "All of the detail of the puppet needs to be added to the template."@en ;
+  curric:correction """The template is the basic outline of the puppet. The extra detail, such as
+  ears, can be added later."""@en ;
+  dcterms:modified "2026-06-07T15:30:15.150208Z"^^xsd:dateTime .
+
+oakcurric:misconception-vehicle-chassis
+  a curric:Misconception ;
+  curric:statement "A vehicle only has a chassis."@en ;
+  curric:correction "A vehicle has a chassis and a body."@en ;
+  dcterms:modified "2026-06-07T15:30:15.150214Z"^^xsd:dateTime .
+
+oakcurric:misconception-glue-way-join-card-sections
+  a curric:Misconception ;
+  curric:statement "Glue is the only way to join card sections."@en ;
+  curric:correction """Pupils might think that glue is the only joining technique. This lesson will
+  explore other methods."""@en ;
+  dcterms:modified "2026-06-07T15:30:15.150242Z"^^xsd:dateTime .
+
+oakcurric:misconception-cars-wheels-axles
+  a curric:Misconception ;
+  curric:statement "Only cars have wheels and axles."@en ;
+  curric:correction """Highlight that many vehicles, including bicycles and toy cars, use wheels and
+  axles."""@en ;
+  dcterms:modified "2026-06-07T15:30:15.150297Z"^^xsd:dateTime .
+
+oakcurric:misconception-design-ideas-cannot-changed
+  a curric:Misconception ;
+  curric:statement "Design ideas cannot be changed."@en ;
+  curric:correction """Design ideas can be changed during the final design and the making tasks.
+  Designs might be changed because something does not work, there are other ideas which will
+  work better or testing shows problems with part of a design."""@en ;
+  dcterms:modified "2026-06-07T15:30:15.150320Z"^^xsd:dateTime .
+
+oakcurric:misconception-bridges-look-same
+  a curric:Misconception ;
+  curric:statement "All bridges look the same."@en ;
+  curric:correction """All bridges are different. They use different materials, look unique (look
+  different) and made by different designers and engineers."""@en ;
+  dcterms:modified "2026-06-07T15:30:15.150326Z"^^xsd:dateTime .
+
+oakcurric:misconception-decorations-used-make-look-pretty
+  a curric:Misconception ;
+  curric:statement "Decorations used are to make it look pretty."@en ;
+  curric:correction """As well as appearance, we need to consider usability and safety when choosing
+  finishing touches."""@en ;
+  dcterms:modified "2026-06-07T15:30:15.150332Z"^^xsd:dateTime .
+
+oakcurric:misconception-play-areas-follow-similar-design
+  a curric:Misconception ;
+  curric:statement "All play areas follow a similar design."@en ;
+  curric:correction """There are a wide variety of play area designs for different users that use
+  different materials and shapes."""@en ;
+  dcterms:modified "2026-06-07T15:30:15.150349Z"^^xsd:dateTime .
+
+oakcurric:misconception-card-paper-same
+  a curric:Misconception ;
+  curric:statement "Card and paper are the same."@en ;
+  curric:correction """Card is thicker and more durable than paper. Explain the differences in
+  characteristics and uses."""@en ;
+  dcterms:modified "2026-06-07T15:30:15.150378Z"^^xsd:dateTime .
+
+oakcurric:misconception-buttresses-bracing-anchors-wider-bases
+  a curric:Misconception ;
+  curric:statement """Buttresses, bracing, anchors, wider bases and reinforced sides need to be on
+  every single mock-up model for it to be freestanding."""@en ;
+  curric:correction """Not all structures need a buttress, bracing, anchors, wider bases or
+  reinforcing, it depends on the materials that are being used, the size, height and what
+  the object is going to do."""@en ;
+  dcterms:modified "2026-06-07T15:30:15.150491Z"^^xsd:dateTime .
+
+oakcurric:misconception-fabrics-same
+  a curric:Misconception ;
+  curric:statement "All fabrics are the same."@en ;
+  curric:correction """There are lots of differnet types of fabrics, some are man-made and others
+  are natural."""@en ;
+  dcterms:modified "2026-06-07T15:30:15.150532Z"^^xsd:dateTime .
+
+oakcurric:misconception-children-use-cotton-sew
+  a curric:Misconception ;
+  curric:statement "Children should use cotton to sew."@en ;
+  curric:correction """Using embroidery thread means that it is easier for smaller hands to use and
+  it is also more resilient. It can be used with larger eyed needles too."""@en ;
+  dcterms:modified "2026-06-07T15:30:15.150593Z"^^xsd:dateTime .
+
+oakcurric:misconception-paper-card-comes-trees
+  a curric:Misconception ;
+  curric:statement "All paper and card comes from trees."@en ;
+  curric:correction "Some paper and card can be from recyclable materials"@en ;
+  dcterms:modified "2026-06-07T15:30:15.150651Z"^^xsd:dateTime .
+
+oakcurric:misconception-help-split-pin-turn-create
+  a curric:Misconception ;
+  curric:statement "To help the split pin to turn, create a bigger hole."@en ;
+  curric:correction """If the hole is too big, this will allow the split pin to wobble and cause the
+  mechanism to not work accurately. Use a standard pencil and turn the split pin when it is
+  in place and this will help it the lever to move smoothly."""@en ;
+  dcterms:modified "2026-06-07T15:30:15.150665Z"^^xsd:dateTime .
+
+oakcurric:misconception-vehicles-made-same-materials
+  a curric:Misconception ;
+  curric:statement "All vehicles are made from the same materials."@en ;
+  curric:correction """Discuss the diversity of materials used in vehicle construction and why
+  different vehicles require different materials."""@en ;
+  dcterms:modified "2026-06-07T15:30:15.150714Z"^^xsd:dateTime .
+
+oakcurric:misconception-feedback-testing-completed-once-object
+  a curric:Misconception ;
+  curric:statement """Feedback and testing can only be completed once the object is made and
+  finished."""@en ;
+  curric:correction """Testing and feedback can be a continuous process through the making and
+  designing process. Pupils may reflect on the positives and negatives of any changes made
+  in their final evaluation and feedback."""@en ;
+  dcterms:modified "2026-06-07T15:30:15.150719Z"^^xsd:dateTime .
+
+oakcurric:misconception-windmill-tested-inside
+  a curric:Misconception ;
+  curric:statement "Windmill have to be tested inside"@en ;
+  curric:correction """The windmill can be tested inside or outside depending upon the conditions
+  and supervision."""@en ;
+  dcterms:modified "2026-06-07T15:30:15.150812Z"^^xsd:dateTime .
+
+oakcurric:misconception-feedback-got-positive
+  a curric:Misconception ;
+  curric:statement "Feedback has got to be positive."@en ;
+  curric:correction """Feedback can be positive or negative and aims to help the designer to improve
+  on their design."""@en ;
+  dcterms:modified "2026-06-07T15:30:15.150821Z"^^xsd:dateTime .
+
+oakcurric:misconception-completed-vehicles-finished-therefore-need
+  a curric:Misconception ;
+  curric:statement """Completed vehicles are finished and therefore will not need any changes or
+  alterations neeeded to them."""@en ;
+  curric:correction """Testing and feedback is a good way to spot any problems with the vehicles and
+  therefore time to correct, adapt and alter specific parts of the finished product and
+  demonstrates that products always need reviewing and adapting to make them work."""@en ;
+  dcterms:modified "2026-06-07T15:30:15.151653Z"^^xsd:dateTime .
+
+oakcurric:misconception-whole-puppet-needs-stitched
+  a curric:Misconception ;
+  curric:statement "The whole puppet needs to be stitched."@en ;
+  curric:correction """There are other joining technqiues that can be used to join the felt
+  together. The running stitch is one which is advised for this unit, however, staples or
+  fabric glue / PVA can be used as an alternative."""@en ;
+  dcterms:modified "2026-06-07T15:30:15.151659Z"^^xsd:dateTime .
+
+oakcurric:misconception-structures-same
+  a curric:Misconception ;
+  curric:statement "Structures are all the same."@en ;
+  curric:correction """There are different types of structures - frame, shell and brick bonding
+  structures. They are all used for different effects, purposes and reasons."""@en ;
+  dcterms:modified "2026-06-07T15:30:15.151764Z"^^xsd:dateTime .
+
+oakcurric:misconception-windmills-need-wide-base-stand
+  a curric:Misconception ;
+  curric:statement "Windmills just need a wide base to stand by themselves."@en ;
+  curric:correction """When the wind catches them, they move or fall - windmills need ballast to
+  secure them."""@en ;
+  dcterms:modified "2026-06-07T15:30:15.151775Z"^^xsd:dateTime .
+
+oakcurric:misconception-puppets-made-same-way-using
+  a curric:Misconception ;
+  curric:statement "All puppets are made the same way using the same materials."@en ;
+  curric:correction """Puppets can have different purposes/uses. Some use lollipop sticks, others
+  have strings move each part. Puppets are used for storytimes, playtimes, concerts and on
+  TV. Some talk with help from their puppeteers."""@en ;
+  dcterms:modified "2026-06-07T15:30:15.151959Z"^^xsd:dateTime .
+
+oakcurric:misconception-models-need-work-first-time
+  a curric:Misconception ;
+  curric:statement "Models need to work first time."@en ;
+  curric:correction """Through testing and repeat testing, models can be tried and adapted
+  to work."""@en ;
+  dcterms:modified "2026-06-07T15:30:15.152025Z"^^xsd:dateTime .
+
+oakcurric:misconception-designers-plan-follow-their-planning
+  a curric:Misconception ;
+  curric:statement "Designers plan and follow their planning in the making stage."@en ;
+  curric:correction """Designers use their design brief to create a plan. This plan is important but
+  changable depending on success of the project, alongside tools, skills and testing points
+  along the way."""@en ;
+  dcterms:modified "2026-06-07T15:30:15.152100Z"^^xsd:dateTime .
+
+oakcurric:misconception-one-strategy-making-moving-windmill
+  a curric:Misconception ;
+  curric:statement "There is only one strategy to making a moving windmill."@en ;
+  curric:correction """There are multiple ways to make the windmill turn. It can be made using
+  different materials - such as wood, card, straws, split pins and pins"""@en ;
+  dcterms:modified "2026-06-07T15:30:15.152106Z"^^xsd:dateTime .
+
+oakcurric:misconception-rotary-motion-produces-electricity
+  a curric:Misconception ;
+  curric:statement "Rotary motion always produces electricity."@en ;
+  curric:correction """Rotary motion can be designed to lift objects, grind objects or produce
+  electricity."""@en ;
+  dcterms:modified "2026-06-07T15:30:15.152112Z"^^xsd:dateTime .
+
+oakcurric:misconception-structures-anchored-freestanding
+  a curric:Misconception ;
+  curric:statement "Structures that are anchored down are not freestanding."@en ;
+  curric:correction """Structures which are anchored down can be freestanding, such as play
+  equipment. A structure which is joined to another structure, such as a radiator joined to
+  a wall, is not freestanding."""@en ;
+  dcterms:modified "2026-06-07T15:30:15.152185Z"^^xsd:dateTime .
+
+oakcurric:misconception-common-mistake-understanding-different-joining
+  a curric:Misconception ;
+  curric:statement """A common mistake is not understanding that different joining methods need to
+  be used for different materials and reasons."""@en ;
+  curric:correction """Some joining techniques such as PVA can be more messy and cause colours in
+  materials to run, for example. Through adding PVA to the object being attached, this
+  usually causes a neater, better presented outcome."""@en ;
+  dcterms:modified "2026-06-07T15:30:15.152235Z"^^xsd:dateTime .
+
+oakcurric:misconception-lever-seesaw-mechanism-moves
+  a curric:Misconception ;
+  curric:statement "A lever is just a seesaw mechanism and only moves up and down."@en ;
+  curric:correction """Levers move up and down and the end of the lever moves in a curved direction.
+  Levers can be turned for different effects."""@en ;
+  dcterms:modified "2026-06-07T15:30:15.152291Z"^^xsd:dateTime .
+
+oakcurric:misconception-disassembly-same-evaluation
+  a curric:Misconception ;
+  curric:statement "A disassembly is the same as an evaluation."@en ;
+  curric:correction """A disassembly focuses on the different parts and workings of the product. The
+  evaluation focuses on views of what people like and dislike."""@en ;
+  dcterms:modified "2026-06-07T15:30:15.152348Z"^^xsd:dateTime .
+
+oakcurric:misconception-bridges-found-water
+  a curric:Misconception ;
+  curric:statement "Bridges are only found over water."@en ;
+  curric:correction """There are different types of bridges, some carry people (footbridge), others
+  allow vehicles to cross over water, roads or railways, some bridges carry trains and
+  others carry boats (aqueduct)."""@en ;
+  dcterms:modified "2026-06-07T15:30:15.152422Z"^^xsd:dateTime .
+
+oakcurric:misconception-axle-needs-fixed
+  a curric:Misconception ;
+  curric:statement "An axle needs to be fixed."@en ;
+  curric:correction """An axle needs to be free moving, able to turn. The sails turn on the
+  axle."""@en ;
+  dcterms:modified "2026-06-07T15:30:15.152514Z"^^xsd:dateTime .
+
+oakcurric:misconception-axle-holders-placed-angle
+  a curric:Misconception ;
+  curric:statement "Axle holders can be placed at any angle."@en ;
+  curric:correction "Clarify that axles need to be parallel to ensure proper wheel function."@en ;
+  dcterms:modified "2026-06-07T15:30:15.152520Z"^^xsd:dateTime .
+
+oakcurric:misconception-wind-sails-made-wood
+  a curric:Misconception ;
+  curric:statement "Wind sails are always made of wood."@en ;
+  curric:correction """Wind sail structures may be made of wood, but will have fabric to catch the
+  wind."""@en ;
+  dcterms:modified "2026-06-07T15:30:15.152837Z"^^xsd:dateTime .
+
+oakcurric:misconception-designers-make-plan-follow-plan
+  a curric:Misconception ;
+  curric:statement "Designers make a plan and follow this plan in the making stage."@en ;
+  curric:correction """Designers use their design brief to create a plan. This plan is important but
+  changable depending on success of the project, alongside tools, skills and testing points
+  along the way."""@en ;
+  dcterms:modified "2026-06-07T15:30:15.153107Z"^^xsd:dateTime .
+
+oakcurric:misconception-pupils-need-follow-their-design
+  a curric:Misconception ;
+  curric:statement "Pupils need to follow their design idea and chosen materials."@en ;
+  curric:correction """Please remind pupils that they can change their ideas and use alternative
+  finishing techniques and joining techniques in their work. Designers are continuously
+  reviewing and editing their designs to make sure that they meet the users' needs."""@en ;
+  dcterms:modified "2026-06-07T15:30:15.153136Z"^^xsd:dateTime .
+
+oakcurric:misconception-slider-mechanisms-pivot-points
+  a curric:Misconception ;
+  curric:statement "Slider mechanisms have a pivot points."@en ;
+  curric:correction """Slider mechanisms do not have pivot points and therefore do not use split
+  pins. Slider mechanisms use a guide and a slot. They move in a straight line, rather than
+  turning or pivoting."""@en ;
+  dcterms:modified "2026-06-07T15:30:15.153212Z"^^xsd:dateTime .
+
+oakcurric:misconception-gluing-put-glue-object-glued
+  a curric:Misconception ;
+  curric:statement "When gluing, always put the glue on the object that is being glued down."@en ;
+  curric:correction """By adding the glue to the backing instead of the object being glued down, it
+  will prevent mess and reduce excess glue from being used. Additionally, use the a small
+  amount of glue first as you can always add more glue."""@en ;
+  dcterms:modified "2026-06-07T15:30:15.153493Z"^^xsd:dateTime .
+
+oakcurric:misconception-strongest-materials-make-best-bridges
+  a curric:Misconception ;
+  curric:statement "The strongest materials make the best bridges."@en ;
+  curric:correction """Rather than using the strongest materials, sometimes it's better use
+  materials the bend a little. This is important in case it is windy or the ground shakes."""@en ;
+  dcterms:modified "2026-06-07T15:30:15.153750Z"^^xsd:dateTime .
+
+oakcurric:misconception-axle-hold-two-wheels
+  a curric:Misconception ;
+  curric:statement "An axle must hold two wheels."@en ;
+  curric:correction "The axle might hold one or two wheels. The axle can turn with the wheel."@en ;
+  dcterms:modified "2026-06-07T15:30:15.163189Z"^^xsd:dateTime .

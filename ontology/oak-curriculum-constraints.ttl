@@ -26,8 +26,8 @@
   dc:title "Oak Curriculum Ontology - SHACL Constraints"@en ;
   rdfs:comment "SHACL validation constraints for the Oak Curriculum Ontology."@en ;
 
-  owl:versionInfo "0.1.0" ;
-  owl:versionIRI <https://w3id.org/uk/oak/curriculum/ontology/shapes/0.1.0> ;
+  owl:versionInfo "0.1.1" ;
+  owl:versionIRI <https://w3id.org/uk/oak/curriculum/ontology/shapes/0.1.1> ;
 
   dcterms:description """These SHACL constraints represent current rules and policies that may
   evolve over time, separate from the core ontology definitions."""@en ;
@@ -40,8 +40,10 @@
   dcterms:license <http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/> ;
   dcterms:rights "Copyright © 2026 Oak National Academy."@en ;
 
+  rdfs:seeAlso <https://thenational.academy/curriculum-ontology> ;
   vann:preferredNamespacePrefix "shapes" ;
   vann:preferredNamespaceUri "https://w3id.org/uk/oak/curriculum/ontology/shapes/" .
+
 
 # ----------------------------------------------------------------------
 # Shape: Phase
@@ -60,6 +62,17 @@ shapes:PhaseShape
     sh:name "label" ;
     sh:description "Every phase must have exactly one rdfs:label." ;
     sh:message "Phases must have exactly one rdfs:label with English language tag." ;
+  ] ;
+
+  sh:property [
+    sh:path rdfs:comment ;
+    sh:datatype rdf:langString ;
+    sh:languageIn ( "en" ) ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:name "comment" ;
+    sh:description "Every phase must have exactly one rdfs:comment." ;
+    sh:message "Phases must have exactly one rdfs:comment with English language tag." ;
   ] ;
 
   sh:property [
@@ -123,6 +136,17 @@ shapes:KeyStageShape
     sh:name "label" ;
     sh:description "Every key stage must have exactly one rdfs:label." ;
     sh:message "Key stages must have exactly one rdfs:label with English language tag." ;
+  ] ;
+
+  sh:property [
+    sh:path rdfs:comment ;
+    sh:datatype rdf:langString ;
+    sh:languageIn ( "en" ) ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:name "comment" ;
+    sh:description "Every key stage must have exactly one rdfs:comment." ;
+    sh:message "Key stages must have exactly one rdfs:comment with English language tag." ;
   ] ;
 
   sh:property [
@@ -201,6 +225,17 @@ shapes:YearGroupShape
     sh:name "label" ;
     sh:description "Every year group must have exactly one rdfs:label." ;
     sh:message "Year groups must have exactly one rdfs:label with English language tag." ;
+  ] ;
+
+  sh:property [
+    sh:path rdfs:comment ;
+    sh:datatype rdf:langString ;
+    sh:languageIn ( "en" ) ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:name "comment" ;
+    sh:description "Every year group must have exactly one rdfs:comment." ;
+    sh:message "Year groups must have exactly one rdfs:comment with English language tag." ;
   ] ;
 
   sh:property [
@@ -308,10 +343,13 @@ shapes:SubjectGroupShape
         FILTER (?subjectGroupLabel != ?disciplineLabel)
       }
     """ ;
-  ] ;
+  ] .
 
+shapes:SubjectGroupOrphanWarningShape
+  a sh:NodeShape ;
+  sh:targetClass curric:SubjectGroup ;
+  sh:severity sh:Warning ;
   sh:sparql [
-    sh:severity sh:Warning ;
     sh:message "Subject group is not used in any subject (WARNING - orphaned)" ;
     sh:select """
       PREFIX curric: <https://w3id.org/uk/oak/curriculum/ontology/>
@@ -345,22 +383,13 @@ shapes:SubjectShape
   ] ;
 
   sh:property [
-    sh:path curric:aims ;
+    sh:path curric:hasAim ;
+    sh:class curric:Aim ;
     sh:minCount 1 ;
-    sh:maxCount 1 ;
-    sh:name "aims" ;
-    sh:description "Every subject must have an ordered list of aims." ;
-    sh:message "Subjects must have exactly one ordered list of aims with language-tagged string values." ;
-    sh:node [
-      sh:property [
-        sh:path ( [ sh:zeroOrMorePath rdf:rest ] rdf:first ) ;
-        sh:datatype rdf:langString ;
-        sh:languageIn ( "en" ) ;
-        sh:minCount 1 ;
-        sh:description "Each aim in the list must be a language-tagged string." ;
-        sh:message "The aims list must contain at least one language-tagged string value with English language tag." ;
-      ]
-    ]
+    sh:severity sh:Warning ;
+    sh:name "has aim" ;
+    sh:description "Every subject should have at least one aim." ;
+    sh:message "Subject should have at least one curric:Aim via curric:hasAim (WARNING)." ;
   ] ;
 
   sh:property [
@@ -381,10 +410,13 @@ shapes:SubjectShape
     sh:name "covers strand" ;
     sh:description "Every subject should cover at least one strand." ;
     sh:message "Subject should cover at least one strand (WARNING)." ;
-  ] ;
+  ] .
 
+shapes:SubjectOrphanWarningShape
+  a sh:NodeShape ;
+  sh:targetClass curric:Subject ;
+  sh:severity sh:Warning ;
   sh:sparql [
-    sh:severity sh:Warning ;
     sh:message "Subject is not used in any scheme (WARNING - orphaned)" ;
     sh:select """
       PREFIX curric: <https://w3id.org/uk/oak/curriculum/ontology/>
@@ -393,6 +425,43 @@ shapes:SubjectShape
         FILTER NOT EXISTS {
           ?scheme a curric:Scheme ;
                   curric:isSchemeOf $this .
+        }
+      }
+    """ ;
+  ] .
+
+# ----------------------------------------------------------------------
+# Shape: Aim
+# ----------------------------------------------------------------------
+
+shapes:AimShape
+  a sh:NodeShape ;
+  sh:targetClass curric:Aim ;
+
+  sh:property [
+    sh:path rdfs:label ;
+    sh:datatype rdf:langString ;
+    sh:languageIn ( "en" ) ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:name "label" ;
+    sh:description "Every aim must have exactly one rdfs:label." ;
+    sh:message "Aims must have exactly one rdfs:label with English language tag." ;
+  ] .
+
+shapes:AimOrphanWarningShape
+  a sh:NodeShape ;
+  sh:targetClass curric:Aim ;
+  sh:severity sh:Warning ;
+  sh:sparql [
+    sh:message "Aim is not linked to any subject via curric:hasAim (WARNING - orphaned)" ;
+    sh:select """
+      PREFIX curric: <https://w3id.org/uk/oak/curriculum/ontology/>
+      SELECT $this WHERE {
+        $this a curric:Aim .
+        FILTER NOT EXISTS {
+          ?subject a curric:Subject ;
+                   curric:hasAim $this .
         }
       }
     """ ;
@@ -437,6 +506,24 @@ shapes:SchemeShape
     sh:message "Schemes must specify exactly which key stage they cover." ;
   ] .
 
+shapes:SchemeOrphanWarningShape
+  a sh:NodeShape ;
+  sh:targetClass curric:Scheme ;
+  sh:severity sh:Warning ;
+  sh:sparql [
+    sh:message "Scheme is not used in any progression (WARNING - orphaned)" ;
+    sh:select """
+      PREFIX curric: <https://w3id.org/uk/oak/curriculum/ontology/>
+      SELECT $this WHERE {
+        $this a curric:Scheme .
+        FILTER NOT EXISTS {
+          ?progression a curric:Progression ;
+                  curric:isProgressionOf $this .
+        }
+      }
+    """ ;
+  ] .
+
 # ----------------------------------------------------------------------
 # Shape: Progression
 # ----------------------------------------------------------------------
@@ -467,7 +554,27 @@ shapes:ProgressionShape
   ] ;
 
   sh:property [
-    sh:path curric:coversContent ;
+    sh:path curric:coversYearGroup ;
+    sh:class curric:YearGroup ;
+    sh:minCount 0 ;
+    sh:maxCount 1 ;
+    sh:name "covers year group" ;
+    sh:description "A scheme may cover exactly one year group." ;
+    sh:message "Progressions may specify a year group that they cover." ;
+  ] ;
+
+  sh:property [
+    sh:path curric:coversSubStrand ;
+    sh:class curric:SubStrand ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:name "covers sub-strand" ;
+    sh:description "Every progression must cover exactly one sub-strand." ;
+    sh:message "Progressions must specify exactly which sub-strand they cover." ;
+  ] ;
+
+  sh:property [
+    sh:path curric:includesContentDescriptor ;
     sh:class curric:ContentDescriptor ;
     sh:minCount 1 ;
     sh:severity sh:Warning ;
@@ -477,32 +584,60 @@ shapes:ProgressionShape
   ] .
 
 # ----------------------------------------------------------------------
-# Shape: ConceptScheme
+# Shape: KnowledgeTaxonomy
 # ----------------------------------------------------------------------
 
-shapes:ConceptSchemeShape
-  a sh:NodeShape ;
-  sh:targetClass skos:ConceptScheme ;
+shapes:KnowledgeTaxonomyShape                                                                                                                     
+  a sh:NodeShape ;                                                                                                                                   
+  sh:targetClass curric:KnowledgeTaxonomy ;
+                                                                                                                                                      
+  sh:property [                                                                                                                                      
+    sh:path skos:prefLabel ;
+    sh:datatype rdf:langString ;                                                                                                                     
+    sh:languageIn ( "en" ) ;                                                                                                                       
+    sh:minCount 1 ;                                                                                                                                  
+    sh:maxCount 1 ;
+    sh:name "preferred label" ;                                                                                                                      
+    sh:description "Every knowledge taxonomy must have exactly one skos:prefLabel." ;                                                                
+    sh:message "Knowledge taxonomies must have exactly one skos:prefLabel with English language tag." ;
+  ] ;                                                                                                                                                
+                                                                                                                                                    
+  sh:property [                                                                                                                                      
+    sh:path skos:hasTopConcept ;                                                                                                                   
+    sh:class curric:Discipline ;                                                                                                                  
+    sh:minCount 1 ;                                                                                                                                
+    sh:name "has top concept" ;
+    sh:description "Every knowledge taxonomy must have at least one Discipline as its top concept." ;                                                
+    sh:message "Knowledge taxonomies must have at least one Discipline via skos:hasTopConcept." ;
+  ] .
+
+# ----------------------------------------------------------------------
+# Shape: ThemesTaxonomy
+# ----------------------------------------------------------------------
+
+shapes:ThemesTaxonomyShape                                                                                                                        
+  a sh:NodeShape ;                                                                                                                                 
+  sh:targetClass curric:ThemesTaxonomy ;
 
   sh:property [
     sh:path skos:prefLabel ;
-    sh:datatype rdf:langString ;
+    sh:datatype rdf:langString ;                                                                                                                     
     sh:languageIn ( "en" ) ;
-    sh:minCount 1 ;
-    sh:maxCount 1 ;
+    sh:minCount 1 ;                                                                                                                                  
+    sh:maxCount 1 ;                                                                                                                                
     sh:name "preferred label" ;
-    sh:description "Every concept scheme must have exactly one skos:prefLabel." ;
-    sh:message "Concept schemes must have exactly one skos:prefLabel for SKOS taxonomy with English language tag." ;
+    sh:description "Every themes taxonomy must have exactly one skos:prefLabel." ;
+    sh:message "Themes taxonomies must have exactly one skos:prefLabel with English language tag." ;                                                 
   ] ;
-
-  sh:property [
-      sh:path skos:hasTopConcept ;
-      sh:class skos:Concept ;
-      sh:minCount 1 ;
-      sh:name "has top concept" ;
-      sh:description "Every concept scheme must reference at least one skos:Concept." ;
-      sh:message "ConceptScheme must have at least one hasTopConcept, and each must reference a valid skos:Concept" ;
-    ] .
+                                                                                                                                                      
+  sh:property [                                                                                                                                    
+    sh:path skos:hasTopConcept ;
+    sh:class curric:Theme ;
+    sh:minCount 1 ;                                                                                                                                  
+    sh:name "has top concept" ;
+    sh:description "Every themes taxonomy must have at least one Theme as its top concept." ;                                                        
+    sh:message "Themes taxonomies must have at least one Theme via skos:hasTopConcept." ;                                                          
+  ] .
 
 # ----------------------------------------------------------------------
 # Shape: Discipline
@@ -562,27 +697,6 @@ shapes:StrandShape
   ] ;
 
   sh:property [
-    sh:path skos:definition ;
-    sh:datatype rdf:langString ;
-    sh:languageIn ( "en" ) ;
-    sh:minCount 1 ;
-    sh:maxCount 1 ;
-    sh:name "definition" ;
-    sh:description "Every strand must have exactly one skos:definition." ;
-    sh:message "Strands must have exactly one skos:definition with English language tag." ;
-  ] ;
-
-  sh:property [
-    sh:path curric:displayOrder ;
-    sh:datatype xsd:positiveInteger ;
-    sh:minCount 1 ;
-    sh:maxCount 1 ;
-    sh:name "display order" ;
-    sh:description "Every strand must have a numeric display order." ;
-    sh:message "Strands must have exactly one positive integer display order value." ;
-  ] ;
-
-  sh:property [
     sh:path skos:inScheme ;
     sh:class skos:ConceptScheme ;
     sh:minCount 1 ;
@@ -608,11 +722,30 @@ shapes:StrandShape
     sh:minCount 1 ;
     sh:name "narrower" ;
     sh:description "A strand must have at least one child sub-strand." ;
-    sh:message "Strands must have at least one sub-strand." ;
+    sh:message "Strands must have at least one sub-strand via skos:narrower." ;
   ] ;
 
   sh:sparql [
-    sh:severity sh:Warning ;
+    sh:message "When a Strand is covered by more than one Subject, all those Subjects must belong to the same SubjectGroup." ;
+    sh:select """
+      PREFIX curric: <https://w3id.org/uk/oak/curriculum/ontology/>
+      SELECT $this WHERE {
+        ?subject1 a curric:Subject ;
+                  curric:coversStrand $this ;
+                  curric:isSubjectOf ?group1 .
+        ?subject2 a curric:Subject ;
+                  curric:coversStrand $this ;
+                  curric:isSubjectOf ?group2 .
+        FILTER (?subject1 != ?subject2 && ?group1 != ?group2)
+      }
+    """ ;
+  ] .
+
+shapes:StrandOrphanWarningShape
+  a sh:NodeShape ;
+  sh:targetClass curric:Strand ;
+  sh:severity sh:Warning ;
+  sh:sparql [
     sh:message "Strand is not referenced by any subject (WARNING - orphaned)" ;
     sh:select """
       PREFIX curric: <https://w3id.org/uk/oak/curriculum/ontology/>
@@ -620,23 +753,7 @@ shapes:StrandShape
         $this a curric:Strand .
         FILTER NOT EXISTS {
           ?subject a curric:Subject ;
-                      curric:coversStrand $this .
-        }
-      }
-    """ ;
-  ] ;
-
-  sh:sparql [
-    sh:severity sh:Warning ;
-    sh:message "Strand is not referenced by any discipline via skos:narrower (WARNING - orphaned)" ;
-    sh:select """
-      PREFIX curric: <https://w3id.org/uk/oak/curriculum/ontology/>
-      PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
-      SELECT $this WHERE {
-        $this a curric:Strand .
-        FILTER NOT EXISTS {
-          ?discipline a curric:Discipline ;
-                      skos:narrower $this .
+                   curric:coversStrand $this .
         }
       }
     """ ;
@@ -659,27 +776,6 @@ shapes:SubStrandShape
     sh:name "preferred label" ;
     sh:description "Every sub-strand must have exactly one skos:prefLabel." ;
     sh:message "Sub-strands must have exactly one skos:prefLabel for SKOS taxonomy with English language tag." ;
-  ] ;
-
-  sh:property [
-    sh:path skos:definition ;
-    sh:datatype rdf:langString ;
-    sh:languageIn ( "en" ) ;
-    sh:minCount 1 ;
-    sh:maxCount 1 ;
-    sh:name "definition" ;
-    sh:description "Every sub-strand must have exactly one skos:definition." ;
-    sh:message "Sub-strands must have exactly one skos:definition with English language tag." ;
-  ] ;
-
-  sh:property [
-    sh:path curric:displayOrder ;
-    sh:datatype xsd:positiveInteger ;
-    sh:minCount 1 ;
-    sh:maxCount 1 ;
-    sh:name "display order" ;
-    sh:description "Every sub-strand must have a numeric display order." ;
-    sh:message "Sub-strands must have exactly one positive integer display order value." ;
   ] ;
 
   sh:property [
@@ -709,22 +805,6 @@ shapes:SubStrandShape
     sh:name "narrower" ;
     sh:description "A sub-strand must have at least one child content descriptor." ;
     sh:message "Sub-strands must have at least one content descriptor." ;
-  ] ;
-
-  sh:sparql [
-    sh:severity sh:Warning ;
-    sh:message "Sub-strand is not referenced by any strand via skos:narrower (WARNING - orphaned)" ;
-    sh:select """
-      PREFIX curric: <https://w3id.org/uk/oak/curriculum/ontology/>
-      PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
-      SELECT $this WHERE {
-        $this a curric:SubStrand .
-        FILTER NOT EXISTS {
-          ?strand a curric:Strand ;
-                  skos:narrower $this .
-        }
-      }
-    """ ;
   ] .
 
 # ----------------------------------------------------------------------
@@ -747,13 +827,14 @@ shapes:ContentDescriptorShape
   ] ;
 
   sh:property [
-    sh:path curric:displayOrder ;
-    sh:datatype xsd:positiveInteger ;
-    sh:minCount 1 ;
+    sh:path curric:supportingGuidance ;
+    sh:datatype rdf:langString ;
+    sh:languageIn ( "en" ) ;
+    sh:minCount 0 ;
     sh:maxCount 1 ;
-    sh:name "display order" ;
-    sh:description "Every content descriptor must have a numeric display order." ;
-    sh:message "Content descriptors must have exactly one positive integer display order value." ;
+    sh:name "supporting guidance" ;
+    sh:description "Every content descriptor may have supporting guidance." ;
+    sh:message "Content descriptors may have supporting guidance with English language tag." ;
   ] ;
 
   sh:property [
@@ -776,24 +857,20 @@ shapes:ContentDescriptorShape
     sh:message "Content descriptors must specify which sub-strand they belong to via skos:broader." ;
   ] ;
 
-  sh:sparql [
-    sh:severity sh:Warning ;
-    sh:message "Content descriptor is not referenced by any sub-strand via skos:narrower (WARNING - orphaned)" ;
-    sh:select """
-      PREFIX curric: <https://w3id.org/uk/oak/curriculum/ontology/>
-      PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
-      SELECT $this WHERE {
-        $this a curric:ContentDescriptor .
-        FILTER NOT EXISTS {
-          ?substrand a curric:SubStrand ;
-                     skos:narrower $this .
-        }
-      }
-    """ ;
-  ] ;
+  sh:property [
+    sh:path skos:narrower ;
+    sh:class curric:SubContentDescriptor ;
+    sh:minCount 1 ;
+    sh:name "narrower" ;
+    sh:description "A content descriptor must have at least one child sub-content descriptor." ;
+    sh:message "Content descriptors must have at least one sub-content descriptor via skos:narrower." ;
+  ] .
 
+shapes:ContentDescriptorOrphanWarningShape
+  a sh:NodeShape ;
+  sh:targetClass curric:ContentDescriptor ;
+  sh:severity sh:Warning ;
   sh:sparql [
-    sh:severity sh:Warning ;
     sh:message "Content descriptor is not used in any progression (WARNING - orphaned)" ;
     sh:select """
       PREFIX curric: <https://w3id.org/uk/oak/curriculum/ontology/>
@@ -801,12 +878,62 @@ shapes:ContentDescriptorShape
         $this a curric:ContentDescriptor .
         FILTER NOT EXISTS {
           ?progression a curric:Progression ;
-                  curric:coversContent $this .
+                  curric:includesContentDescriptor $this .
         }
       }
     """ ;
   ] .
 
+# ----------------------------------------------------------------------
+# Shape: SubContentDescriptor
+# ----------------------------------------------------------------------
+
+shapes:SubContentDescriptorShape
+  a sh:NodeShape ;
+  sh:targetClass curric:SubContentDescriptor ;
+
+  sh:property [
+    sh:path skos:prefLabel ;
+    sh:datatype rdf:langString ;
+    sh:languageIn ( "en" ) ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:name "preferred label" ;
+    sh:description "Every sub-content descriptor must have exactly one skos:prefLabel." ;
+    sh:message "Sub-content descriptors must have exactly one skos:prefLabel for SKOS taxonomy." ;
+  ] ;
+
+  sh:property [
+    sh:path curric:supportingGuidance ;
+    sh:datatype rdf:langString ;
+    sh:languageIn ( "en" ) ;
+    sh:minCount 0 ;
+    sh:maxCount 1 ;
+    sh:name "supporting guidance" ;
+    sh:description "Every sub-content descriptor may have supporting guidance." ;
+    sh:message "Sub-content descriptors may have supporting guidance with English language tag." ;
+  ] ;
+
+  sh:property [
+    sh:path skos:inScheme ;
+    sh:class skos:ConceptScheme ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:name "in scheme" ;
+    sh:description "Every sub-content descriptor must be part of exactly one concept scheme." ;
+    sh:message "Sub-content descriptors must specify which concept scheme they belong to." ;
+  ] ;
+
+  sh:property [
+    sh:path skos:broader ;
+    sh:class curric:ContentDescriptor ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:name "broader" ;
+    sh:description "Every sub-content descriptor must belong to exactly one content descriptor." ;
+    sh:message "Sub-content descriptors must specify which content descriptor they belong to via skos:broader." ;
+  ] .
+  
 # ----------------------------------------------------------------------
 # Shape: Programme
 # ----------------------------------------------------------------------
@@ -819,10 +946,9 @@ shapes:ProgrammeShape
     sh:path curric:coversYearGroup ;
     sh:class curric:YearGroup ;
     sh:minCount 1 ;
-    sh:maxCount 1 ;
     sh:name "covers year group" ;
-    sh:description "A programme must cover exactly one year group." ;
-    sh:message "Every programme must specify exactly one year group." ;
+    sh:description "A programme must cover at least one year group." ;
+    sh:message "Every programme must specify at least one year group." ;
   ] ;
 
   sh:property [
@@ -891,9 +1017,8 @@ shapes:ProgrammeShape
     sh:path curric:isProgrammeOf ;
     sh:class curric:Scheme ;
     sh:minCount 1 ;
-    sh:maxCount 1 ;
     sh:name "is programme of" ;
-    sh:description "Every programme must be part of exactly one scheme (subject/key stage)." ;
+    sh:description "Every programme must be part of at least one scheme." ;
     sh:message "Programmes must specify which scheme (e.g., English Key Stage 2) they belong to." ;
   ] ;
 
@@ -1064,13 +1189,23 @@ shapes:UnitShape
   ] ;
 
   sh:property [
-    sh:path curric:unitPriorKnowledgeRequirements ;
+    sh:path curric:hasPriorKnowledgeRequirement ;
+    sh:class curric:PriorKnowledgeRequirement ;
+    sh:minCount 1 ;
+    sh:severity sh:Warning ;
+    sh:name "has prior knowledge requirement" ;
+    sh:description "Every unit should have at least one prior knowledge requirement." ;
+    sh:message "Unit has no prior knowledge requirements (data may be missing upstream)." ;
+  ] ;
+
+  sh:property [
+    sh:path curric:slug ;
     sh:datatype xsd:string ;
     sh:minCount 1 ;
     sh:maxCount 1 ;
-    sh:name "unit prior knowledge requirements" ;
-    sh:description "Every unit must specify its prior knowledge requirements." ;
-    sh:message "Units must include a 'unit prior knowledge requirements' description." ;
+    sh:name "slug" ;
+    sh:description "Every unit must have exactly one URL-safe application slug." ;
+    sh:message "Units must have exactly one curric:slug as a string." ;
   ] ;
 
   sh:sparql [
@@ -1614,6 +1749,38 @@ shapes:PupilLessonOutcomeShape
   ] .
 
 # ----------------------------------------------------------------------
+# Shape: PriorKnowledgeRequirement
+# ----------------------------------------------------------------------
+
+shapes:PriorKnowledgeRequirementShape
+  a sh:NodeShape ;
+  sh:targetClass curric:PriorKnowledgeRequirement ;
+
+  sh:property [
+    sh:path rdfs:label ;
+    sh:datatype rdf:langString ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:name "label" ;
+    sh:description "Every prior knowledge requirement must have exactly one rdfs:label." ;
+    sh:message "Prior knowledge requirements must have exactly one rdfs:label." ;
+  ] ;
+
+  sh:sparql [
+    sh:severity sh:Warning ;
+    sh:message "Prior knowledge requirement is not referenced by any unit (WARNING - orphaned)" ;
+    sh:select """
+      PREFIX curric: <https://w3id.org/uk/oak/curriculum/ontology/>
+      SELECT $this WHERE {
+        $this a curric:PriorKnowledgeRequirement .
+        FILTER NOT EXISTS {
+          ?unit curric:hasPriorKnowledgeRequirement $this .
+        }
+      }
+    """ ;
+  ] .
+
+# ----------------------------------------------------------------------
 # Shape: Lesson
 # ----------------------------------------------------------------------
 
@@ -1640,6 +1807,16 @@ shapes:LessonShape
     sh:name "identifier" ;
     sh:description "Every lesson must have exactly one numeric identifier." ;
     sh:message "Lessons must have exactly one curric:id as a positive integer." ;
+  ] ;
+
+  sh:property [
+    sh:path curric:slug ;
+    sh:datatype xsd:string ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:name "slug" ;
+    sh:description "Every lesson must have exactly one URL-safe application slug." ;
+    sh:message "Lessons must have exactly one curric:slug as a string." ;
   ] ;
 
   sh:property [

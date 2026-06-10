@@ -22,21 +22,24 @@
 
   rdfs:label "National Curriculum for England - Geography Programme Structure"@en ;
   dc:title "National Curriculum for England - Geography Programme Structure"@en ;
-  rdfs:comment """Geography programme structure that specifies schemes and progressions, and a 
-  mapping to strands and content descriptors within the knowledge taxonomy."""@en ;
+  rdfs:comment """Geography programme structure that specifies schemes and progressions, and a
+  mapping to strands, sub-strands and content descriptors within the knowledge taxonomy."""@en ;
 
-  owl:versionInfo "0.1.0" ;
-  owl:versionIRI <https://w3id.org/uk/oak/curriculum/nationalcurriculum/geography-programme-structure/0.1.0> ;
-  
-  dcterms:description """Geography programme structure that specifies schemes and progressions, and a 
-  mapping to strands and content descriptors within the knowledge taxonomy"""@en ;
-  dcterms:created "2025-11-24T12:33:32Z"^^xsd:dateTime ;
-  dcterms:modified "2025-12-03T12:33:32Z"^^xsd:dateTime ;
-  dcterms:issued "2025-12-03T12:33:32Z"^^xsd:dateTime ;
-  
+  owl:versionInfo "0.1.1" ;
+  owl:versionIRI <https://w3id.org/uk/oak/curriculum/nationalcurriculum/geography-programme-structure/0.1.1> ;
+
+  dcterms:description """Geography programme structure that specifies schemes and progressions, and
+  a mapping to strands, sub-strands and content descriptors within the knowledge taxonomy."""@en ;
+  dc:creator "Department for Education" ;
+  dcterms:created "2026-05-05T15:38:32Z"^^xsd:dateTime ;
+  dcterms:modified "2026-05-05T15:38:32Z"^^xsd:dateTime ;
+  dcterms:issued "2026-05-05T15:38:32Z"^^xsd:dateTime ;
+
   # OGL 3.0 License
   dcterms:license <http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/> ;
   dcterms:rights "Crown Copyright"@en ;
+
+  rdfs:seeAlso <https://w3id.org/uk/oak/curriculum/ontology> ;
 
   vann:preferredNamespacePrefix "natcurric" ;
   vann:preferredNamespaceUri "https://w3id.org/uk/oak/curriculum/nationalcurriculum/" ;
@@ -52,50 +55,74 @@
 natcurric:subjectgroup-geography
   a curric:SubjectGroup ;
   rdfs:label "Geography"@en ;
-  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  dcterms:modified "2026-05-05T15:38:32Z"^^xsd:dateTime ;
   curric:coversDiscipline natcurric:discipline-geography .
-  
+
 # ----------------------------------------------------------------------
-# Subject
+# Subjects
 # ----------------------------------------------------------------------
 
 natcurric:subject-geography
   a curric:Subject ;
   rdfs:label "Geography"@en ;
-  curric:aims (
-    """Develop contextual knowledge of the location of globally significant places – both 
-    terrestrial and marine – including their defining physical and human characteristics and how 
-    these provide a geographical context for understanding the actions of processes."""@en
-    """Understand the processes that give rise to key physical and human geographical features of 
-    the world, how these are interdependent and how they bring about spatial variation and change 
-    over time."""@en
-    """Are competent in the geographical skills needed to collect, analyse and communicate with a 
-    range of data gathered through experiences of fieldwork that deepen their understanding of 
-    geographical processes."""@en
-    """Are competent in the geographical skills needed to interpret a range of sources of 
-    geographical information, including maps, diagrams, globes, aerial photographs and Geographical 
-    Information Systems (GIS)."""@en
-    """Are competent in the geographical skills needed to communicate geographical information in a 
-    variety of ways, including through maps, numerical and quantitative skills and writing at 
-    length."""@en
-  ) ;
-  curric:rationale """A high-quality geography education should inspire in pupils a curiosity and 
-  fascination about the world and its people that will remain with them for the rest of their 
+  curric:rationale """A high-quality geography education should inspire in pupils a curiosity 
+  and fascination about the world and its people that will remain with them for the rest of their 
   lives. Teaching should equip pupils with knowledge about diverse places, people, resources and 
   natural and human environments, together with a deep understanding of the Earth’s key physical 
   and human processes. As pupils progress, their growing knowledge about the world should help them 
   to deepen their understanding of the interaction between physical and human processes, and of the 
   formation and use of landscapes and environments. Geographical knowledge, understanding and 
-  skills provide the framework and approaches that explain how the Earth’s features at different 
+  skills provide the frameworks and approaches that explain how the Earth’s features at different 
   scales are shaped, interconnected and change over time."""@en ;
-  curric:structure "Text for structure..."@en ;
-  curric:schoolCurriculum "Text for school curriculum..."@en ;
-  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  curric:hasAim
+    natcurric:aim-geography-location-of-globally-significant-places ,
+    natcurric:aim-geography-physical-and-human-geographical-features ,
+    natcurric:aim-geography-collect-analyse-communicate-fieldwork-data ,
+    natcurric:aim-geography-interpret-sources-of-geographical-information ,
+    natcurric:aim-geography-communicate-geographical-information ;
+  dcterms:modified "2026-05-05T15:38:32Z"^^xsd:dateTime ;
   curric:isSubjectOf natcurric:subjectgroup-geography ;
-  curric:coversStrand 
-    natcurric:strand-geography-substantive-knowledge ,
-    natcurric:strand-geography-disciplinary-knowledge .
-  
+  curric:coversStrand natcurric:strand-geography .
+
+# ----------------------------------------------------------------------
+# Aims
+# ----------------------------------------------------------------------
+
+natcurric:aim-geography-location-of-globally-significant-places
+  a curric:Aim ;
+  rdfs:label """Develop contextual knowledge of the location of globally significant places – both 
+  terrestrial and marine – including their defining physical and human characteristics and how 
+  these provide a geographical context for understanding the actions of processes."""@en ;
+  dcterms:modified "2026-05-05T15:38:32Z"^^xsd:dateTime .
+
+natcurric:aim-geography-physical-and-human-geographical-features
+  a curric:Aim ;
+  rdfs:label """Understand the processes that give rise to key physical and human geographical 
+  features of the world, how these are interdependent and how they bring about spatial variation 
+  and change over time."""@en ;
+  dcterms:modified "2026-05-05T15:38:32Z"^^xsd:dateTime .
+
+natcurric:aim-geography-collect-analyse-communicate-fieldwork-data
+  a curric:Aim ;
+  rdfs:label """Are competent in the geographical skills needed to collect, analyse and communicate 
+  with a range of data gathered through experiences of fieldwork that deepen their understanding of 
+  geographical processes."""@en ;
+  dcterms:modified "2026-05-05T15:38:32Z"^^xsd:dateTime .
+
+natcurric:aim-geography-interpret-sources-of-geographical-information
+  a curric:Aim ;
+  rdfs:label """Are competent in the geographical skills needed to interpret a range of sources of 
+  geographical information, including maps, diagrams, globes, aerial photographs and Geographical 
+  Information Systems (GIS)."""@en ;
+  dcterms:modified "2026-05-05T15:38:32Z"^^xsd:dateTime .
+
+natcurric:aim-geography-communicate-geographical-information
+  a curric:Aim ;
+  rdfs:label """Are competent in the geographical skills needed to communicate geographical 
+  information in a variety of ways, including through maps, numerical and quantitative skills and 
+  writing at length."""@en ;
+  dcterms:modified "2026-05-05T15:38:32Z"^^xsd:dateTime .
+
 # ----------------------------------------------------------------------
 # Schemes
 # ----------------------------------------------------------------------
@@ -107,7 +134,7 @@ natcurric:scheme-geography-key-stage-1
   their locality. They should understand basic subject-specific vocabulary relating to human and 
   physical geography and begin to use geographical skills, including first-hand observation, to 
   enhance their locational awareness."""@en ;
-  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  dcterms:modified "2026-05-05T15:38:32Z"^^xsd:dateTime ;
   curric:isSchemeOf natcurric:subject-geography ;
   curric:coversKeyStage natcurric:key-stage-1 .
 
@@ -119,7 +146,7 @@ natcurric:scheme-geography-key-stage-2
   location and characteristics of a range of the world’s most significant human and physical 
   features. They should develop their use of geographical knowledge, understanding and skills to 
   enhance their locational and place knowledge."""@en ;
-  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  dcterms:modified "2026-05-05T15:38:32Z"^^xsd:dateTime ;
   curric:isSchemeOf natcurric:subject-geography ;
   curric:coversKeyStage natcurric:key-stage-2 .
 
@@ -134,7 +161,7 @@ natcurric:scheme-geography-key-stage-3
   and concepts [such as models and theories] and geographical skills in analysing and interpreting 
   different data sources. In this way pupils will continue to enrich their locational knowledge and 
   spatial and environmental understanding."""@en ;
-  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  dcterms:modified "2026-05-05T15:38:32Z"^^xsd:dateTime ;
   curric:isSchemeOf natcurric:subject-geography ;
   curric:coversKeyStage natcurric:key-stage-3 .
 
@@ -144,140 +171,124 @@ natcurric:scheme-geography-key-stage-3
 
 natcurric:progression-geography-key-stage-1-locational-knowledge
   a curric:Progression ;
-  rdfs:label "Geography Key Stage 1 Locational Knowledge"@en ;
-  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  rdfs:label "Geography Key Stage 1 Locational knowledge"@en ;
+  dcterms:modified "2026-05-05T15:38:32Z"^^xsd:dateTime ;
   curric:isProgressionOf natcurric:scheme-geography-key-stage-1 ;
-  curric:coversContent
-    natcurric:contentdescriptor-locate-continents-oceans ,
-    natcurric:contentdescriptor-countries-capitals-united-kingdom .
+  curric:coversSubStrand natcurric:substrand-locational-knowledge ;
+  curric:includesContentDescriptor
+    natcurric:contentdescriptor-name-locate-world-seven-continents ,
+    natcurric:contentdescriptor-name-locate-identify-characteristics-four .
 
 natcurric:progression-geography-key-stage-1-place-knowledge
   a curric:Progression ;
-  rdfs:label "Geography Key Stage 1 Place Knowledge"@en ;
-  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  rdfs:label "Geography Key Stage 1 Place knowledge"@en ;
+  dcterms:modified "2026-05-05T15:38:32Z"^^xsd:dateTime ;
   curric:isProgressionOf natcurric:scheme-geography-key-stage-1 ;
-  curric:coversContent
-    natcurric:contentdescriptor-uk-and-contrasting-non-european-areas .
+  curric:coversSubStrand natcurric:substrand-place-knowledge ;
+  curric:includesContentDescriptor
+    natcurric:contentdescriptor-geographical-similarities-differences-studying-human .
 
 natcurric:progression-geography-key-stage-1-human-and-physical-geography
   a curric:Progression ;
-  rdfs:label "Geography Key Stage 1 Human and Physical Geography"@en ;
-  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  rdfs:label "Geography Key Stage 1 Human and physical geography"@en ;
+  dcterms:modified "2026-05-05T15:38:32Z"^^xsd:dateTime ;
   curric:isProgressionOf natcurric:scheme-geography-key-stage-1 ;
-  curric:coversContent
-    natcurric:contentdescriptor-weather-patterns-hot-cold-areas ,
-    natcurric:contentdescriptor-key-features-physical-geography ,
-    natcurric:contentdescriptor-key-features-human-geography .
+  curric:coversSubStrand natcurric:substrand-human-and-physical-geography ;
+  curric:includesContentDescriptor
+    natcurric:contentdescriptor-identify-seasonal-daily-weather-patterns ,
+    natcurric:contentdescriptor-basic-geographical-vocabulary-physical-features ,
+    natcurric:contentdescriptor-basic-geographical-vocabulary-human-features .
 
-natcurric:progression-geography-key-stage-1-geographical-skills
+natcurric:progression-geography-key-stage-1-geographical-skills-and-fieldwork
   a curric:Progression ;
-  rdfs:label "Geography Key Stage 1 Geographical Skills"@en ;
-  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  rdfs:label "Geography Key Stage 1 Geographical skills and fieldwork"@en ;
+  dcterms:modified "2026-05-05T15:38:32Z"^^xsd:dateTime ;
   curric:isProgressionOf natcurric:scheme-geography-key-stage-1 ;
-  curric:coversContent
-    natcurric:contentdescriptor-world-maps-atlases-globes ,
-    natcurric:contentdescriptor-simple-compass-directions ,
-    natcurric:contentdescriptor-aerial-photographs-and-plan-perspectives .
-
-natcurric:progression-geography-key-stage-1-fieldwork
-  a curric:Progression ;
-  rdfs:label "Geography Key Stage 1 Fieldwork"@en ;
-  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
-  curric:isProgressionOf natcurric:scheme-geography-key-stage-1 ;
-  curric:coversContent
-    natcurric:contentdescriptor-simple-fieldwork-and-observational-skills .
+  curric:coversSubStrand natcurric:substrand-geographical-skills-and-fieldwork ;
+  curric:includesContentDescriptor
+    natcurric:contentdescriptor-world-maps-atlases-globes-identify ,
+    natcurric:contentdescriptor-simple-compass-directions-north-south ,
+    natcurric:contentdescriptor-aerial-photographs-plan-perspectives-landmarks ,
+    natcurric:contentdescriptor-simple-fieldwork-observational-skills-study .
 
 natcurric:progression-geography-key-stage-2-locational-knowledge
   a curric:Progression ;
-  rdfs:label "Geography Key Stage 2 Locational Knowledge"@en ;
-  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  rdfs:label "Geography Key Stage 2 Locational knowledge"@en ;
+  dcterms:modified "2026-05-05T15:38:32Z"^^xsd:dateTime ;
   curric:isProgressionOf natcurric:scheme-geography-key-stage-2 ;
-  curric:coversContent
-    natcurric:contentdescriptor-locate-worlds-countries ,
-    natcurric:contentdescriptor-locate-counties-cities-of-uk ,
-    natcurric:contentdescriptor-latitude-longitude-time-zones .
+  curric:coversSubStrand natcurric:substrand-locational-knowledge ;
+  curric:includesContentDescriptor
+    natcurric:contentdescriptor-locate-world-countries-maps-focus ,
+    natcurric:contentdescriptor-name-locate-counties-cities-united ,
+    natcurric:contentdescriptor-identify-position-significance-latitude-longitude .
 
 natcurric:progression-geography-key-stage-2-place-knowledge
   a curric:Progression ;
-  rdfs:label "Geography Key Stage 2 Place Knowledge"@en ;
-  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  rdfs:label "Geography Key Stage 2 Place knowledge"@en ;
+  dcterms:modified "2026-05-05T15:38:32Z"^^xsd:dateTime ;
   curric:isProgressionOf natcurric:scheme-geography-key-stage-2 ;
-  curric:coversContent
-    natcurric:contentdescriptor-uk-european-america-regions .
+  curric:coversSubStrand natcurric:substrand-place-knowledge ;
+  curric:includesContentDescriptor 
+    natcurric:contentdescriptor-geographical-similarities-differences-study-human .
 
 natcurric:progression-geography-key-stage-2-human-and-physical-geography
   a curric:Progression ;
-  rdfs:label "Geography Key Stage 2 Human and Physical Geography"@en ;
-  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  rdfs:label "Geography Key Stage 2 Human and physical geography"@en ;
+  dcterms:modified "2026-05-05T15:38:32Z"^^xsd:dateTime ;
   curric:isProgressionOf natcurric:scheme-geography-key-stage-2 ;
-  curric:coversContent
-    natcurric:contentdescriptor-key-aspects-physical-geography ,
-    natcurric:contentdescriptor-key-aspects-human-geography .
+  curric:coversSubStrand natcurric:substrand-human-and-physical-geography ;
+  curric:includesContentDescriptor
+    natcurric:contentdescriptor-describe-key-aspects-physical-geography ,
+    natcurric:contentdescriptor-describe-key-aspects-human-geography .
 
-natcurric:progression-geography-key-stage-2-geographical-skills
+natcurric:progression-geography-key-stage-2-geographical-skills-and-fieldwork
   a curric:Progression ;
-  rdfs:label "Geography Key Stage 2 Geographical Skills"@en ;
-  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  rdfs:label "Geography Key Stage 2 Geographical skills and fieldwork"@en ;
+  dcterms:modified "2026-05-05T15:38:32Z"^^xsd:dateTime ;
   curric:isProgressionOf natcurric:scheme-geography-key-stage-2 ;
-  curric:coversContent
-    natcurric:contentdescriptor-maps-digital-computer-mapping ,
-    natcurric:contentdescriptor-compass-grid-references-symbols-key .
-
-natcurric:progression-geography-key-stage-2-fieldwork
-  a curric:Progression ;
-  rdfs:label "Geography Key Stage 2 Fieldwork"@en ;
-  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
-  curric:isProgressionOf natcurric:scheme-geography-key-stage-2 ;
-  curric:coversContent
-    natcurric:contentdescriptor-measure-record-human-physical-features .
+  curric:coversSubStrand natcurric:substrand-geographical-skills-and-fieldwork ;
+  curric:includesContentDescriptor
+    natcurric:contentdescriptor-maps-atlases-globes-digital-computer ,
+    natcurric:contentdescriptor-eight-points-compass-four-six ,
+    natcurric:contentdescriptor-fieldwork-observe-measure-record-present .
 
 natcurric:progression-geography-key-stage-3-locational-knowledge
   a curric:Progression ;
-  rdfs:label "Geography Key Stage 3 Locational Knowledge"@en ;
-  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  rdfs:label "Geography Key Stage 3 Locational knowledge"@en ;
+  dcterms:modified "2026-05-05T15:38:32Z"^^xsd:dateTime ;
   curric:isProgressionOf natcurric:scheme-geography-key-stage-3 ;
-  curric:coversContent
-    natcurric:contentdescriptor-deepen-spatial-awareness-worlds-countries .
+  curric:coversSubStrand natcurric:substrand-locational-knowledge ;
+  curric:includesContentDescriptor 
+    natcurric:contentdescriptor-extend-locational-deepen-spatial-awareness .
 
 natcurric:progression-geography-key-stage-3-place-knowledge
   a curric:Progression ;
-  rdfs:label "Geography Key Stage 3 Place Knowledge"@en ;
-  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  rdfs:label "Geography Key Stage 3 Place knowledge"@en ;
+  dcterms:modified "2026-05-05T15:38:32Z"^^xsd:dateTime ;
   curric:isProgressionOf natcurric:scheme-geography-key-stage-3 ;
-  curric:coversContent
-    natcurric:contentdescriptor-africa-asia-regions .
+  curric:coversSubStrand natcurric:substrand-place-knowledge ;
+  curric:includesContentDescriptor 
+    natcurric:contentdescriptor-geographical-similarities-differences-links-places .
 
 natcurric:progression-geography-key-stage-3-human-and-physical-geography
   a curric:Progression ;
-  rdfs:label "Geography Key Stage 3 Human and Physical Geography"@en ;
-  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  rdfs:label "Geography Key Stage 3 Human and physical geography"@en ;
+  dcterms:modified "2026-05-05T15:38:32Z"^^xsd:dateTime ;
   curric:isProgressionOf natcurric:scheme-geography-key-stage-3 ;
-  curric:coversContent
-    natcurric:contentdescriptor-key-processes-physical-geography ,
-    natcurric:contentdescriptor-key-processes-human-geography .
+  curric:coversSubStrand natcurric:substrand-human-and-physical-geography ;
+  curric:includesContentDescriptor
+    natcurric:contentdescriptor-key-processes-in-physical-geography ,
+    natcurric:contentdescriptor-key-processes-in-human-geography ,
+    natcurric:contentdescriptor-human-physical-processes-interact-influence .
 
-natcurric:progression-geography-key-stage-3-concepts
+natcurric:progression-geography-key-stage-3-geographical-skills-and-fieldwork
   a curric:Progression ;
-  rdfs:label "Geography Key Stage 3 Concepts"@en ;
-  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
+  rdfs:label "Geography Key Stage 3 Geographical skills and fieldwork"@en ;
+  dcterms:modified "2026-05-05T15:38:32Z"^^xsd:dateTime ;
   curric:isProgressionOf natcurric:scheme-geography-key-stage-3 ;
-  curric:coversContent
-    natcurric:contentdescriptor-landscapes-environment-climate .
-
-natcurric:progression-geography-key-stage-3-geographical-skills
-  a curric:Progression ;
-  rdfs:label "Geography Key Stage 3 Geographical Skills"@en ;
-  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
-  curric:isProgressionOf natcurric:scheme-geography-key-stage-3 ;
-  curric:coversContent
-    natcurric:contentdescriptor-develop-knowledge-maps-atlases-globes ,
-    natcurric:contentdescriptor-interpret-ordnance-survey-maps ,
-    natcurric:contentdescriptor-geographical-information-systems .
-
-natcurric:progression-geography-key-stage-3-fieldwork
-  a curric:Progression ;
-  rdfs:label "Geography Key Stage 3 Fieldwork"@en ;
-  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime ;
-  curric:isProgressionOf natcurric:scheme-geography-key-stage-3 ;
-  curric:coversContent
-    natcurric:contentdescriptor-analyse-geographical-data .
+  curric:coversSubStrand natcurric:substrand-geographical-skills-and-fieldwork ;
+  curric:includesContentDescriptor
+    natcurric:contentdescriptor-build-globes-maps-atlases-apply ,
+    natcurric:contentdescriptor-interpret-ordnance-survey-maps-classroom ,
+    natcurric:contentdescriptor-geographical-information-systems-gis-view ,
+    natcurric:contentdescriptor-fieldwork-contrasting-locations-collect-analyse .

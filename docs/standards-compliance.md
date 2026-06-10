@@ -125,7 +125,7 @@ The ontology uses SKOS to represent the National Curriculum for England (2014) k
 - Disciplines, Strands, SubStrands, and ContentDescriptors are `skos:Concept` instances
 - Hierarchical relationships use `skos:broader`/`skos:narrower`
 - Labels and definitions use SKOS vocabulary
-- Available subjects: English, Mathematics, Science (Biology, Chemistry, Physics), History, Geography, Citizenship
+- Available subjects: Art and Design, Citizenship, Computing, Design and Technology, English, Geography, History, Languages, Mathematics, Music, Physical Education, and The Sciences
 
 **Example:**
 ```turtle

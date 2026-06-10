@@ -77,7 +77,7 @@ The Oak Curriculum Ontology provides:
 
 **Curriculum Structure** - Formal definitions of programmes, units, lessons, and their relationships
 
-**Knowledge Taxonomy** - Hierarchical subject taxonomies for English, Mathematics, Science, History, Geography, and Citizenship aligned to National Curriculum (2014)
+**Knowledge Taxonomy** - Hierarchical subject taxonomies for Art and Design, Citizenship, Computing, Design and Technology, English, Geography, History, Languages, Mathematics, Music, Physical Education, and The Sciences aligned to National Curriculum (2014)
 
 **Validation Rules** - SHACL constraints ensuring data quality and completeness
 
@@ -117,7 +117,7 @@ oakcurric:programme-mathematics-year-7
 
 ✅ **26 ontology classes** defining curriculum structure (Programme, Unit, Lesson, Discipline, Strand, etc).  
 ✅ **26 SHACL validation shapes** ensuring data integrity.  
-✅ **8 subject areas** with full knowledge taxonomies.  
+✅ **12 subject areas** with full knowledge taxonomies.
 ✅ **National Curriculum alignment** linking Oak content to statutory requirements.  
 ✅ **Automated validation** via GitHub Actions CI/CD.  
 ✅ **Multi-format distributions** (Turtle, JSON-LD, RDF/XML, N-Triples).  
@@ -146,12 +146,18 @@ Discipline (e.g., Science)
 ```
 
 **Current subject coverage:**
-- **English** - Programme structure and knowledge taxonomy
-- **Mathematics** - Programme structure and knowledge taxonomy
-- **Science** - Subdivided into Biology, Chemistry, Physics with separate knowledge taxonomies
-- **History** - Programme structure and knowledge taxonomy
-- **Geography** - Programme structure and knowledge taxonomy
+- **Art and Design** - Programme structure and knowledge taxonomy
 - **Citizenship** - Programme structure and knowledge taxonomy
+- **Computing** - Programme structure and knowledge taxonomy
+- **Design and Technology** - Programme structure and knowledge taxonomy (including Food and Nutrition)
+- **English** - Programme structure and knowledge taxonomy
+- **Geography** - Programme structure and knowledge taxonomy
+- **History** - Programme structure and knowledge taxonomy
+- **Languages** - Programme structure and knowledge taxonomy (French, German, Spanish)
+- **Mathematics** - Programme structure and knowledge taxonomy
+- **Music** - Programme structure and knowledge taxonomy
+- **Physical Education** - Programme structure and knowledge taxonomy
+- **The Sciences** - A unified subject covering Science (KS1–KS3) and separate Biology, Chemistry, Physics, and Combined Science programmes at KS4, with a single consolidated knowledge taxonomy
 
 ### Programme Structure
 How subjects are organized into teaching programmes:
@@ -387,25 +393,43 @@ oak-curriculum-ontology/
 │       │   ├── history-programme-structure.ttl
 │       │   ├── history-knowledge-taxonomy.ttl
 │       │   └── history-key-stage-*.ttl
+│       ├── art-and-design/
+│       │   ├── art-and-design-programme-structure.ttl
+│       │   ├── art-and-design-knowledge-taxonomy.ttl
+│       │   └── art-and-design-key-stage-*.ttl
+│       ├── computing/
+│       │   ├── computing-programme-structure.ttl
+│       │   ├── computing-knowledge-taxonomy.ttl
+│       │   └── computing-key-stage-*.ttl
+│       ├── design-and-technology/
+│       │   ├── design-and-technology-programme-structure.ttl
+│       │   ├── design-and-technology-knowledge-taxonomy.ttl
+│       │   ├── design-and-technology-key-stage-*.ttl
+│       │   └── cooking-nutrition-key-stage-*.ttl
+│       ├── languages/
+│       │   ├── languages-programme-structure.ttl
+│       │   ├── languages-knowledge-taxonomy.ttl
+│       │   └── french/german/spanish-key-stage-*.ttl
 │       ├── mathematics/
 │       │   ├── mathematics-programme-structure.ttl
 │       │   ├── mathematics-knowledge-taxonomy.ttl
 │       │   └── mathematics-key-stage-*.ttl
-│       └── science/
+│       ├── music/
+│       │   ├── music-programme-structure.ttl
+│       │   ├── music-knowledge-taxonomy.ttl
+│       │   └── music-key-stage-*.ttl
+│       ├── physical-education/
+│       │   ├── physical-education-programme-structure.ttl
+│       │   ├── physical-education-knowledge-taxonomy.ttl
+│       │   └── physical-education-key-stage-*.ttl
+│       └── the-sciences/
+│           ├── the-sciences-programme-structure.ttl
+│           ├── the-sciences-knowledge-taxonomy.ttl
+│           ├── science-key-stage-*.ttl
 │           ├── biology-key-stage-4.ttl
-│           ├── biology-knowledge-taxonomy.ttl
-│           ├── biology-programme-structure.ttl
 │           ├── chemistry-key-stage-4.ttl
-│           ├── chemistry-knowledge-taxonomy.ttl
-│           ├── chemistry-programme-structure.ttl
 │           ├── combined-science-key-stage-4.ttl
-│           ├── physics-key-stage-4.ttl
-│           ├── physics-knowledge-taxonomy.ttl
-│           ├── physics-programme-structure.ttl
-│           ├── science-key-stage-1.ttl
-│           ├── science-key-stage-2.ttl
-│           ├── science-key-stage-3.ttl
-│           └── science-programme-structure.ttl
+│           └── physics-key-stage-4.ttl
 │
 ├── docs/
 │   └── standards-compliance.md           # W3C standards documentation
@@ -575,9 +599,7 @@ Alternatively, see [CITATION.cff](CITATION.cff) for machine-readable citation me
 - ✅ Standards compliance documentation
 
 ### Future Plans
-- Additional subjects (Computing, Art, Music, PE, Languages etc.)
 - Public SPARQL endpoint deployment
-- HTTP content negotiation supporting HTML, TTL, JSON-LD, RDF/XML and N-Triples
 - Learning resource integration using LRMI standards (videos, worksheets, assessments etc.)
 - Progression models and learning pathways
 - Enhanced documentation

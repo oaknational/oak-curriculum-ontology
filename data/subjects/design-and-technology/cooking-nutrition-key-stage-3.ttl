@@ -1,0 +1,4342 @@
+@prefix curric: <https://w3id.org/uk/oak/curriculum/ontology/> .
+@prefix oakcurric: <https://w3id.org/uk/oak/curriculum/oakcurriculum/> .
+@prefix natcurric: <https://w3id.org/uk/oak/curriculum/nationalcurriculum/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix schema: <http://schema.org/> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ======================================================================
+# Oak Curriculum Data - Cooking Nutrition Key Stage 3 Instance Data
+# ======================================================================
+
+# ----------------------------------------------------------------------
+# Ontology Declaration
+# ----------------------------------------------------------------------
+
+<https://w3id.org/uk/oak/curriculum/oakcurriculum/cooking-nutrition-key-stage-3>
+  rdf:type owl:Ontology ;
+
+  rdfs:label "Oak Curriculum Data - Cooking Nutrition Key Stage 3 Instance Data"@en ;
+  dc:title "Oak Curriculum Data - Cooking Nutrition Key Stage 3 Instance Data"@en ;
+  rdfs:comment """Instance data defining the Oak National Academy Curriculum
+  programmes for Cooking Nutrition Key Stage 3."""@en ;
+
+  owl:versionInfo "0.1.1" ;
+  owl:versionIRI <https://w3id.org/uk/oak/curriculum/oakcurriculum/cooking-nutrition-key-stage-3/0.1.1> ;
+
+  dcterms:description """This file contains Programme, Unit, Unit Variant, and Lesson instances for
+  Cooking Nutrition Key Stage 3, including exam board-specific unit variants and lesson sequences."""@en ;
+  dc:creator "Oak National Academy" ;
+  dcterms:created "2026-05-25T00:00:00Z"^^xsd:dateTime ;
+  dcterms:modified "2026-06-07T15:30:47.414162Z"^^xsd:dateTime ;
+  dcterms:issued "2026-05-25T00:00:00Z"^^xsd:dateTime ;
+
+  # OGL 3.0 License
+  dcterms:license <http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/> ;
+  dcterms:rights "Copyright © 2026 Oak National Academy."@en ;
+
+  rdfs:seeAlso <https://thenational.academy> ;
+  vann:preferredNamespacePrefix "oakcurric" ;
+  vann:preferredNamespaceUri "https://w3id.org/uk/oak/curriculum/oakcurriculum/" ;
+
+  owl:imports <https://w3id.org/uk/oak/curriculum/ontology> ,
+            <https://w3id.org/uk/oak/curriculum/oakcurriculum/programme-structure> ,
+            <https://w3id.org/uk/oak/curriculum/oakcurriculum/threads> ,
+            <https://w3id.org/uk/oak/curriculum/nationalcurriculum/cooking-nutrition-programme-structure> .
+
+
+# ----------------------------------------------------------------------
+# Programmes
+# ----------------------------------------------------------------------
+
+oakcurric:programme-cooking-nutrition-year-group-9
+  a curric:Programme ;
+  rdfs:label "Cooking And Nutrition Year Group 9"@en ;
+  curric:isNationalCurriculum true ;
+  curric:isRequired true ;
+  curric:isExamined false ;
+  dcterms:modified "2026-06-07T15:29:23.024691Z"^^xsd:dateTime ;
+  curric:isProgrammeOf
+    natcurric:scheme-food-and-nutrition-key-stage-3 ;
+  curric:coversYearGroup
+    natcurric:year-group-9 ;
+  curric:hasUnitVariantInclusion
+    oakcurric:inclusion-programme-cooking-nutrition-year-group-9-pos-1 ,
+    oakcurric:inclusion-programme-cooking-nutrition-year-group-9-pos-2 ,
+    oakcurric:inclusion-programme-cooking-nutrition-year-group-9-pos-3 ,
+    oakcurric:inclusion-programme-cooking-nutrition-year-group-9-pos-4 .
+
+oakcurric:programme-cooking-nutrition-year-group-7
+  a curric:Programme ;
+  rdfs:label "Cooking And Nutrition Year Group 7"@en ;
+  curric:isNationalCurriculum true ;
+  curric:isRequired true ;
+  curric:isExamined false ;
+  dcterms:modified "2026-06-07T15:29:23.028203Z"^^xsd:dateTime ;
+  curric:isProgrammeOf
+    natcurric:scheme-food-and-nutrition-key-stage-3 ;
+  curric:coversYearGroup
+    natcurric:year-group-7 ;
+  curric:hasUnitVariantInclusion
+    oakcurric:inclusion-programme-cooking-nutrition-year-group-7-pos-1 ,
+    oakcurric:inclusion-programme-cooking-nutrition-year-group-7-pos-2 ,
+    oakcurric:inclusion-programme-cooking-nutrition-year-group-7-pos-3 ,
+    oakcurric:inclusion-programme-cooking-nutrition-year-group-7-pos-4 .
+
+oakcurric:programme-cooking-nutrition-year-group-8
+  a curric:Programme ;
+  rdfs:label "Cooking And Nutrition Year Group 8"@en ;
+  curric:isNationalCurriculum true ;
+  curric:isRequired true ;
+  curric:isExamined false ;
+  dcterms:modified "2026-06-07T15:29:23.032574Z"^^xsd:dateTime ;
+  curric:isProgrammeOf
+    natcurric:scheme-food-and-nutrition-key-stage-3 ;
+  curric:coversYearGroup
+    natcurric:year-group-8 ;
+  curric:hasUnitVariantInclusion
+    oakcurric:inclusion-programme-cooking-nutrition-year-group-8-pos-1 ,
+    oakcurric:inclusion-programme-cooking-nutrition-year-group-8-pos-2 ,
+    oakcurric:inclusion-programme-cooking-nutrition-year-group-8-pos-3 ,
+    oakcurric:inclusion-programme-cooking-nutrition-year-group-8-pos-4 .
+
+# ----------------------------------------------------------------------
+# Units
+# ----------------------------------------------------------------------
+
+oakcurric:unit-3409
+  a curric:Unit ;
+  rdfs:label "Accurate and precise cooking"@en ;
+  curric:slug "accurate-and-precise-cooking" ;
+  rdfs:comment """Through three recipes, the emphasis of this unit is on accurate and precise use of
+  a range of food skills, and independent working. High standards of food safety are
+  embedded, and pupils modify recipes for health and explore food science in action and the
+  cost of ingredients."""@en ;
+  curric:whyThisWhyNow """Cooking independently provides pupils with the confidence and transferable
+  skills to cook at home and apply their learning life long. Accuracy and precision are
+  refined, based on previous work in Years 7 and 8 of becoming more proficient in a range of
+  food skills, and employing strategies to keep safe and hygienic. Pupils continue to secure
+  and fine-tune their food skills in Year 9, preparing, cooking and presenting a range of
+  dishes, while embedding food safety and hygiene, and deepening the application of food
+  science.""" ;
+  curric:hasPriorKnowledgeRequirement
+    oakcurric:priorknowledge-3409-1 ,
+    oakcurric:priorknowledge-3409-2 ,
+    oakcurric:priorknowledge-3409-3 ,
+    oakcurric:priorknowledge-3409-4 ,
+    oakcurric:priorknowledge-3409-5 ;
+  curric:id "3409"^^xsd:positiveInteger;
+  dcterms:modified "2026-06-07T15:29:24.900557Z"^^xsd:dateTime ;
+  curric:isUnitOf
+    natcurric:scheme-food-and-nutrition-key-stage-3 ;
+  curric:includesThread
+    oakcurric:thread-food-origins-and-provenance ,
+    oakcurric:thread-the-science-of-food ,
+    oakcurric:thread-food-preparation-and-cooking ,
+    oakcurric:thread-healthy-eating-and-nutrition ,
+    oakcurric:thread-food-hygiene-and-safety ,
+    oakcurric:thread-sensory-evaluation .
+
+oakcurric:unit-3411
+  a curric:Unit ;
+  rdfs:label "Global food challenges"@en ;
+  curric:slug "global-food-challenges" ;
+  rdfs:comment """This unit investigates the pressure on food systems, caused by climate change and
+  a growing population. Pupils critique these challenges and explore principles of more
+  sustainable diets, balancing the needs of the planet and human health. Practical work
+  reinforces these principles in action."""@en ;
+  curric:whyThisWhyNow """Climate change and a growing population present real challenges to our
+  global food systems. Examining these challenges enables us to be better informed about the
+  decisions we make as consumers. The application of previous learning in Year 8, around
+  strategies to create healthier and more sustainable diets, and consider the needs of people,
+  are built upon and expanded. This learning provides pupils with a firm foundation to be
+  better informed consumers, making good decisions based on their needs and beliefs.""" ;
+  curric:hasPriorKnowledgeRequirement
+    oakcurric:priorknowledge-3411-1 ,
+    oakcurric:priorknowledge-3411-2 ,
+    oakcurric:priorknowledge-3411-3 ,
+    oakcurric:priorknowledge-3411-4 ,
+    oakcurric:priorknowledge-3411-5 ;
+  curric:id "3411"^^xsd:positiveInteger;
+  dcterms:modified "2026-06-07T15:29:24.902558Z"^^xsd:dateTime ;
+  curric:isUnitOf
+    natcurric:scheme-food-and-nutrition-key-stage-3 ;
+  curric:includesThread
+    oakcurric:thread-sustainability-and-climate-change ,
+    oakcurric:thread-food-origins-and-provenance ,
+    oakcurric:thread-the-science-of-food ,
+    oakcurric:thread-consumer-awareness ,
+    oakcurric:thread-food-preparation-and-cooking ,
+    oakcurric:thread-food-hygiene-and-safety ,
+    oakcurric:thread-sensory-evaluation .
+
+oakcurric:unit-3404
+  a curric:Unit ;
+  rdfs:label "Informed food choices"@en ;
+  curric:slug "informed-food-choices" ;
+  rdfs:comment """This unit develops pupils' knowledge of food choice, and how occasion and location
+  can have an influence. Food skills and nutrition understanding are further developed
+  through practical work, and the use of components are explored."""@en ;
+  curric:whyThisWhyNow """Throughout life, a variety of factors affect the food and drink we choose,
+  some of which are personal preferences, while others are cultural, linked to occasion, and
+  where we are and who we are with. Building on previous work around Food culture and Consumer
+  awareness in Year 6, pupils critique choices and suggest alternatives. Looking forward to
+  Year 8, pupils address the influence of ingredient availability, cuisine, cooking technique,
+  and equipment on food choice locally and around the world.""" ;
+  curric:hasPriorKnowledgeRequirement
+    oakcurric:priorknowledge-3404-1 ,
+    oakcurric:priorknowledge-3404-2 ,
+    oakcurric:priorknowledge-3404-3 ,
+    oakcurric:priorknowledge-3404-4 ;
+  curric:id "3404"^^xsd:positiveInteger;
+  dcterms:modified "2026-06-07T15:29:25.025830Z"^^xsd:dateTime ;
+  curric:isUnitOf
+    natcurric:scheme-food-and-nutrition-key-stage-3 ;
+  curric:includesThread
+    oakcurric:thread-the-science-of-food ,
+    oakcurric:thread-consumer-awareness ,
+    oakcurric:thread-food-culture ,
+    oakcurric:thread-food-preparation-and-cooking ,
+    oakcurric:thread-healthy-eating-and-nutrition ,
+    oakcurric:thread-food-hygiene-and-safety ,
+    oakcurric:thread-sensory-evaluation .
+
+oakcurric:unit-3407
+  a curric:Unit ;
+  rdfs:label "More sustainable diets"@en ;
+  curric:slug "more-sustainable-diets" ;
+  rdfs:comment """In this unit pupils identify ways in which a diet can be healthier and more
+  sustainable. Pupils suggest practical ways in which a range of strategies could be
+  implemented. Through cooking two dishes, pupils apply this learning, giving them tools to
+  adapt recipes in the future."""@en ;
+  curric:whyThisWhyNow """There are a number of strategies that can be employed to create healthier,
+  more sustainable diets. Practical strategies allow consumers to make a difference to their
+  health and the planet, such as including more fruit and vegetables, and having a greater
+  diversity of protein sources. This builds on the threads Food origins and provenance, and
+  Sustainability. In Year 9, pupils investigate global food challenges, further exploring the
+  principles of how diets can be more sustainable.""" ;
+  curric:hasPriorKnowledgeRequirement
+    oakcurric:priorknowledge-3407-1 ,
+    oakcurric:priorknowledge-3407-2 ,
+    oakcurric:priorknowledge-3407-3 ,
+    oakcurric:priorknowledge-3407-4 ;
+  curric:id "3407"^^xsd:positiveInteger;
+  dcterms:modified "2026-06-07T15:29:25.216476Z"^^xsd:dateTime ;
+  curric:isUnitOf
+    natcurric:scheme-food-and-nutrition-key-stage-3 ;
+  curric:includesThread
+    oakcurric:thread-sustainability-and-climate-change ,
+    oakcurric:thread-food-origins-and-provenance ,
+    oakcurric:thread-the-science-of-food ,
+    oakcurric:thread-consumer-awareness ,
+    oakcurric:thread-food-preparation-and-cooking ,
+    oakcurric:thread-healthy-eating-and-nutrition ,
+    oakcurric:thread-food-hygiene-and-safety .
+
+oakcurric:unit-3410
+  a curric:Unit ;
+  rdfs:label "Health and dietary needs"@en ;
+  curric:slug "health-and-dietary-needs" ;
+  rdfs:comment """In this unit pupils explore key nutritional needs throughout life, and allergies,
+  food labelling, portion size and health conditions. They plan dishes and menus, and
+  describe how diets can be changed for health to meet the needs of different groups of
+  people."""@en ;
+  curric:whyThisWhyNow """Dietary and nutritional needs change throughout life, and being able to
+  plan diets for the needs of different people is important to minimise any potential
+  consequences of poor diet. This builds on work in Year 8 around the name, source and function
+  of different nutrients, and the application of healthy eating guidelines. Going forward,
+  pupils will have the knowledge, skills and strategies to plan diets and make meals for
+  themselves and others, now and in the future.""" ;
+  curric:hasPriorKnowledgeRequirement
+    oakcurric:priorknowledge-3410-1 ,
+    oakcurric:priorknowledge-3410-2 ,
+    oakcurric:priorknowledge-3410-3 ,
+    oakcurric:priorknowledge-3410-4 ,
+    oakcurric:priorknowledge-3410-5 ;
+  curric:id "3410"^^xsd:positiveInteger;
+  dcterms:modified "2026-06-07T15:29:25.277402Z"^^xsd:dateTime ;
+  curric:isUnitOf
+    natcurric:scheme-food-and-nutrition-key-stage-3 ;
+  curric:includesThread
+    oakcurric:thread-the-science-of-food ,
+    oakcurric:thread-consumer-awareness ,
+    oakcurric:thread-food-preparation-and-cooking ,
+    oakcurric:thread-healthy-eating-and-nutrition ,
+    oakcurric:thread-food-hygiene-and-safety .
+
+oakcurric:unit-3405
+  a curric:Unit ;
+  rdfs:label "Cooking techniques and proficiency"@en ;
+  curric:slug "cooking-techniques-and-proficiency" ;
+  rdfs:comment """This unit extends pupils' cooking techniques, focusing on their food skill
+  proficiency. Pupils develop food skills and apply their nutrition understanding. Recipe
+  modification is undertaken, through nutritional analysis, and the functional properties of
+  key ingredients are analysed."""@en ;
+  curric:whyThisWhyNow """Being proficient with a range of food skills enables us to prepare and
+  cook more complex recipes, extending our repertoire. This confidence also enables us to
+  successfully modify recipes for health, variety and preference. Progressing from Year 7,
+  through the thread of Food preparation and cooking, pupils continue to refine their food
+  skills, embedding The science of food, and Sensory evaluation learning, leading to more
+  independent work. In Year 9 the focus is on greater precision and accuracy in preparation and
+  cooking, and the exploration of food science in practice.""" ;
+  curric:hasPriorKnowledgeRequirement
+    oakcurric:priorknowledge-3405-1 ,
+    oakcurric:priorknowledge-3405-2 ,
+    oakcurric:priorknowledge-3405-3 ,
+    oakcurric:priorknowledge-3405-4 ,
+    oakcurric:priorknowledge-3405-5 ;
+  curric:id "3405"^^xsd:positiveInteger;
+  dcterms:modified "2026-06-07T15:29:25.475101Z"^^xsd:dateTime ;
+  curric:isUnitOf
+    natcurric:scheme-food-and-nutrition-key-stage-3 ;
+  curric:includesThread
+    oakcurric:thread-the-science-of-food ,
+    oakcurric:thread-food-origins-and-provenance ,
+    oakcurric:thread-food-preparation-and-cooking ,
+    oakcurric:thread-healthy-eating-and-nutrition ,
+    oakcurric:thread-food-hygiene-and-safety .
+
+oakcurric:unit-3403
+  a curric:Unit ;
+  rdfs:label "Food origins"@en ;
+  curric:slug "food-origins" ;
+  rdfs:comment """Pupils describe the origins of different foods, identifying how they have been
+  produced, processed and sold. Food labels are used to investigate ingredient origins.
+  Pupils cook two dishes, investigating ingredient source, as well as functional properties."""@en ;
+  curric:whyThisWhyNow """Understanding the origin of ingredients allows informed decisions to be
+  made, such as location, farming practice or ethics. Food labels and other information
+  indicates origins. This builds on from previous work in Year 5 around Food origins and
+  provenance, and safe and edible food in Year 6. In Year 8, pupils investigate Sustainability
+  and further their learning around Consumer awareness factors, such as food choice, suggesting
+  practical strategies that could be implemented for healthier and more sustainable diets.""" ;
+  curric:hasPriorKnowledgeRequirement
+    oakcurric:priorknowledge-3403-1 ,
+    oakcurric:priorknowledge-3403-2 ,
+    oakcurric:priorknowledge-3403-3 ,
+    oakcurric:priorknowledge-3403-4 ;
+  curric:id "3403"^^xsd:positiveInteger;
+  dcterms:modified "2026-06-07T15:29:25.582695Z"^^xsd:dateTime ;
+  curric:isUnitOf
+    natcurric:scheme-food-and-nutrition-key-stage-3 ;
+  curric:includesThread
+    oakcurric:thread-food-origins-and-provenance ,
+    oakcurric:thread-the-science-of-food ,
+    oakcurric:thread-consumer-awareness ,
+    oakcurric:thread-food-preparation-and-cooking ,
+    oakcurric:thread-food-hygiene-and-safety ,
+    oakcurric:thread-sensory-evaluation .
+
+oakcurric:unit-3412
+  a curric:Unit ;
+  rdfs:label "Food culture and custom"@en ;
+  curric:slug "food-culture-and-custom" ;
+  rdfs:comment """This unit concludes pupils' food learning journey in Key Stage 3. Pupils reflect
+  on food culture, looking at how food is deeply rooted in identity, heritage, tradition,
+  custom and celebration. Two dishes are prepared, highlighting different cooking styles and
+  histories, and traceability is explored."""@en ;
+  curric:whyThisWhyNow """Throughout history, the food that has been eaten has been defined by a
+  number of factors, such as location, food availability, cultural heritage, custom and
+  tradition. Examining food culture enables us to have greater awareness of diversity, and
+  appreciate its role and place in society. This progresses work from Year 8 around
+  international cuisine and cultural factors affecting food choice. In the future, pupils will
+  continue to recognise the importance and significance of food in their lives, not just for
+  health, but for greater human connection and joy.""" ;
+  curric:hasPriorKnowledgeRequirement
+    oakcurric:priorknowledge-3412-1 ,
+    oakcurric:priorknowledge-3412-2 ,
+    oakcurric:priorknowledge-3412-3 ,
+    oakcurric:priorknowledge-3412-4 ;
+  curric:id "3412"^^xsd:positiveInteger;
+  dcterms:modified "2026-06-07T15:29:25.936212Z"^^xsd:dateTime ;
+  curric:isUnitOf
+    natcurric:scheme-food-and-nutrition-key-stage-3 ;
+  curric:includesThread
+    oakcurric:thread-food-origins-and-provenance ,
+    oakcurric:thread-consumer-awareness ,
+    oakcurric:thread-food-culture ,
+    oakcurric:thread-food-preparation-and-cooking ,
+    oakcurric:thread-healthy-eating-and-nutrition ,
+    oakcurric:thread-food-hygiene-and-safety .
+
+oakcurric:unit-3402
+  a curric:Unit ;
+  rdfs:label "The Eatwell Guide: meals and diets"@en ;
+  curric:slug "the-eatwell-guide-meals-and-diets" ;
+  rdfs:comment """In this unit pupils use the Eatwell Guide, the 8 tips for healthy eating, and
+  portion guidance to plan healthy meals and evaluate diets. They also use food labels to
+  help make better food and drink choices."""@en ;
+  curric:whyThisWhyNow """Throughout life, a variety of factors affect the food and drink we choose,
+  some of which are personal preferences, while others are cultural, linked to occasion, and
+  where we are and who we are with. Building on previous work of Consumer awareness and Food
+  culture threads in Year 6, pupils critique food choices and suggest alternatives. Looking
+  forward to Year 8, pupils address the influence of ingredient availability, cooking technique
+  and equipment on healthy eating, and explore the source and function of nutrients.""" ;
+  curric:hasPriorKnowledgeRequirement
+    oakcurric:priorknowledge-3402-1 ,
+    oakcurric:priorknowledge-3402-2 ,
+    oakcurric:priorknowledge-3402-3 ,
+    oakcurric:priorknowledge-3402-4 ,
+    oakcurric:priorknowledge-3402-5 ;
+  curric:id "3402"^^xsd:positiveInteger;
+  dcterms:modified "2026-06-07T15:29:26.270518Z"^^xsd:dateTime ;
+  curric:isUnitOf
+    natcurric:scheme-food-and-nutrition-key-stage-3 ;
+  curric:includesThread
+    oakcurric:thread-the-science-of-food ,
+    oakcurric:thread-food-preparation-and-cooking ,
+    oakcurric:thread-healthy-eating-and-nutrition ,
+    oakcurric:thread-food-hygiene-and-safety ,
+    oakcurric:thread-sensory-evaluation .
+
+oakcurric:unit-3401
+  a curric:Unit ;
+  rdfs:label "Independent and confident cooking"@en ;
+  curric:slug "independent-and-confident-cooking" ;
+  rdfs:comment """This unit introduces pupils to working in a different environment, learning new
+  skills and procedures, and using a range of equipment. The focus is on establishing
+  hygiene and safety procedures, and the food skills measuring, peeling, cutting and using
+  the hob. Sensory work is undertaken."""@en ;
+  curric:whyThisWhyNow """Learning how to prepare and cook food safely in unfamiliar environments
+  builds confidence, engagement and adherence to procedures for health. Transitioning from Year
+  6, pupils' prior food experiences progress in terms of food skill accuracy, and range of
+  ingredients and equipment used, via the threads of Food preparation and cooking, Food hygiene
+  and safety, and Sensory evaluation. This lays the foundation for more complex and independent
+  cooking, and investigating The science of food during Year 7. In Year 8, Food preparation and
+  cooking progresses, with a focus on technique and proficiency.""" ;
+  curric:hasPriorKnowledgeRequirement
+    oakcurric:priorknowledge-3401-1 ,
+    oakcurric:priorknowledge-3401-2 ,
+    oakcurric:priorknowledge-3401-3 ,
+    oakcurric:priorknowledge-3401-4 ,
+    oakcurric:priorknowledge-3401-5 ;
+  curric:id "3401"^^xsd:positiveInteger;
+  dcterms:modified "2026-06-07T15:29:26.281532Z"^^xsd:dateTime ;
+  curric:isUnitOf
+    natcurric:scheme-food-and-nutrition-key-stage-3 ;
+  curric:includesThread
+    oakcurric:thread-food-preparation-and-cooking ,
+    oakcurric:thread-healthy-eating-and-nutrition ,
+    oakcurric:thread-food-hygiene-and-safety ,
+    oakcurric:thread-sensory-evaluation .
+
+oakcurric:unit-3408
+  a curric:Unit ;
+  rdfs:label "Local food to worldwide cuisine"@en ;
+  curric:slug "local-food-to-worldwide-cuisine" ;
+  rdfs:comment """This unit focuses on the wide range of cuisines, ingredients, cooking techniques
+  and equipment that are used around the world. Pupils explore food imports, food produced
+  in the UK, and food waste. They cook two dishes to highlight cuisine differences,
+  undertaking different types of evaluation."""@en ;
+  curric:whyThisWhyNow """Cuisines are a set of cooking traditions and techniques, associated with a
+  specific culture, region and ingredients. This recognition provides insight into cooking and
+  recipe choice, fulfilling consumer tastes for more international cuisines, while honouring
+  traditional UK dishes. This work builds on previous learning in Year 7 around the threads of
+  Food culture, Consumer awareness, and Food origins and provenance. During Year 9, pupils
+  further reflect on food culture, and how food forms part of our identity, heritage,
+  tradition, custom and celebration.""" ;
+  curric:hasPriorKnowledgeRequirement
+    oakcurric:priorknowledge-3408-1 ,
+    oakcurric:priorknowledge-3408-2 ,
+    oakcurric:priorknowledge-3408-3 ,
+    oakcurric:priorknowledge-3408-4 ,
+    oakcurric:priorknowledge-3408-5 ;
+  curric:id "3408"^^xsd:positiveInteger;
+  dcterms:modified "2026-06-07T15:29:26.296405Z"^^xsd:dateTime ;
+  curric:isUnitOf
+    natcurric:scheme-food-and-nutrition-key-stage-3 ;
+  curric:includesThread
+    oakcurric:thread-sustainability-and-climate-change ,
+    oakcurric:thread-food-origins-and-provenance ,
+    oakcurric:thread-consumer-awareness ,
+    oakcurric:thread-food-culture ,
+    oakcurric:thread-food-preparation-and-cooking ,
+    oakcurric:thread-food-hygiene-and-safety ,
+    oakcurric:thread-sensory-evaluation .
+
+oakcurric:unit-3406
+  a curric:Unit ;
+  rdfs:label "Energy and nutrients: source and function"@en ;
+  curric:slug "energy-and-nutrients-source-and-function" ;
+  rdfs:comment """Pupils describe the source and function of macro and micro nutrients, as well as
+  fibre and water in the diet for health. The concept of energy balance is reviewed, and
+  pupils undertake nutritional analysis of recipes."""@en ;
+  curric:whyThisWhyNow """Energy, nutrients, fibre and water are needed in different amounts, are
+  from a range of sources, and have specific functions for health. This builds on previous
+  Eatwell Guide learning, food groups and proportions in Year 8, enabling pupils to apply
+  nutritional knowledge when making healthier choices and modifying recipes, through linking
+  food source and function. In Year 9, pupils explore changing nutritional needs throughout
+  life, as well as allergies and health conditions.""" ;
+  curric:hasPriorKnowledgeRequirement
+    oakcurric:priorknowledge-3406-1 ,
+    oakcurric:priorknowledge-3406-2 ,
+    oakcurric:priorknowledge-3406-3 ,
+    oakcurric:priorknowledge-3406-4 ,
+    oakcurric:priorknowledge-3406-5 ;
+  curric:id "3406"^^xsd:positiveInteger;
+  dcterms:modified "2026-06-07T15:29:26.329713Z"^^xsd:dateTime ;
+  curric:isUnitOf
+    natcurric:scheme-food-and-nutrition-key-stage-3 ;
+  curric:includesThread
+    oakcurric:thread-food-origins-and-provenance ,
+    oakcurric:thread-the-science-of-food ,
+    oakcurric:thread-food-preparation-and-cooking ,
+    oakcurric:thread-healthy-eating-and-nutrition ,
+    oakcurric:thread-food-hygiene-and-safety .
+
+# ----------------------------------------------------------------------
+# Unit Variant Inclusion
+# ----------------------------------------------------------------------
+
+oakcurric:inclusion-programme-cooking-nutrition-year-group-9-pos-1
+  a curric:UnitVariantInclusion ;
+  curric:includesUnitVariant oakcurric:unitvariant-4107 ;
+  curric:sequencePosition "1"^^xsd:positiveInteger .
+
+oakcurric:inclusion-programme-cooking-nutrition-year-group-9-pos-2
+  a curric:UnitVariantInclusion ;
+  curric:includesUnitVariant oakcurric:unitvariant-4108 ;
+  curric:sequencePosition "2"^^xsd:positiveInteger .
+
+oakcurric:inclusion-programme-cooking-nutrition-year-group-9-pos-3
+  a curric:UnitVariantInclusion ;
+  curric:includesUnitVariant oakcurric:unitvariant-4109 ;
+  curric:sequencePosition "3"^^xsd:positiveInteger .
+
+oakcurric:inclusion-programme-cooking-nutrition-year-group-9-pos-4
+  a curric:UnitVariantInclusion ;
+  curric:includesUnitVariant oakcurric:unitvariant-4110 ;
+  curric:sequencePosition "4"^^xsd:positiveInteger .
+
+oakcurric:inclusion-programme-cooking-nutrition-year-group-7-pos-1
+  a curric:UnitVariantInclusion ;
+  curric:includesUnitVariant oakcurric:unitvariant-4099 ;
+  curric:sequencePosition "1"^^xsd:positiveInteger .
+
+oakcurric:inclusion-programme-cooking-nutrition-year-group-7-pos-2
+  a curric:UnitVariantInclusion ;
+  curric:includesUnitVariant oakcurric:unitvariant-4100 ;
+  curric:sequencePosition "2"^^xsd:positiveInteger .
+
+oakcurric:inclusion-programme-cooking-nutrition-year-group-7-pos-3
+  a curric:UnitVariantInclusion ;
+  curric:includesUnitVariant oakcurric:unitvariant-4101 ;
+  curric:sequencePosition "3"^^xsd:positiveInteger .
+
+oakcurric:inclusion-programme-cooking-nutrition-year-group-7-pos-4
+  a curric:UnitVariantInclusion ;
+  curric:includesUnitVariant oakcurric:unitvariant-4102 ;
+  curric:sequencePosition "4"^^xsd:positiveInteger .
+
+oakcurric:inclusion-programme-cooking-nutrition-year-group-8-pos-1
+  a curric:UnitVariantInclusion ;
+  curric:includesUnitVariant oakcurric:unitvariant-4103 ;
+  curric:sequencePosition "1"^^xsd:positiveInteger .
+
+oakcurric:inclusion-programme-cooking-nutrition-year-group-8-pos-2
+  a curric:UnitVariantInclusion ;
+  curric:includesUnitVariant oakcurric:unitvariant-4104 ;
+  curric:sequencePosition "2"^^xsd:positiveInteger .
+
+oakcurric:inclusion-programme-cooking-nutrition-year-group-8-pos-3
+  a curric:UnitVariantInclusion ;
+  curric:includesUnitVariant oakcurric:unitvariant-4105 ;
+  curric:sequencePosition "3"^^xsd:positiveInteger .
+
+oakcurric:inclusion-programme-cooking-nutrition-year-group-8-pos-4
+  a curric:UnitVariantInclusion ;
+  curric:includesUnitVariant oakcurric:unitvariant-4106 ;
+  curric:sequencePosition "4"^^xsd:positiveInteger .
+
+# ----------------------------------------------------------------------
+# Unit Variant Choices
+# ----------------------------------------------------------------------
+
+# No Unit Variant Choices
+
+# ----------------------------------------------------------------------
+# Prior Knowledge Requirements
+# ----------------------------------------------------------------------
+
+oakcurric:priorknowledge-3409-1
+  a curric:PriorKnowledgeRequirement ;
+  rdfs:label """Pupils can maintain high standards of good personal hygiene and food safety,
+  explaining its rationale."""@en ;
+  dcterms:modified "2026-06-07T15:29:24.900495Z"^^xsd:dateTime .
+
+oakcurric:priorknowledge-3409-2
+  a curric:PriorKnowledgeRequirement ;
+  rdfs:label """Pupils can use a wide range of equipment and demonstrate a variety of food
+  skills."""@en ;
+  dcterms:modified "2026-06-07T15:29:24.900509Z"^^xsd:dateTime .
+
+oakcurric:priorknowledge-3409-3
+  a curric:PriorKnowledgeRequirement ;
+  rdfs:label """Pupils can use healthy eating messages to suggest changes to the ingredients and
+  cooking method in a recipe."""@en ;
+  dcterms:modified "2026-06-07T15:29:24.900515Z"^^xsd:dateTime .
+
+oakcurric:priorknowledge-3409-4
+  a curric:PriorKnowledgeRequirement ;
+  rdfs:label "Pupils can talk about yeast producing carbon dioxide, which helps bread to rise."@en ;
+  dcterms:modified "2026-06-07T15:29:24.900520Z"^^xsd:dateTime .
+
+oakcurric:priorknowledge-3409-5
+  a curric:PriorKnowledgeRequirement ;
+  rdfs:label """Pupils know that home-cooked dishes can be compared to shop-bought for a number of
+  factors."""@en ;
+  dcterms:modified "2026-06-07T15:29:24.900525Z"^^xsd:dateTime .
+
+oakcurric:priorknowledge-3411-1
+  a curric:PriorKnowledgeRequirement ;
+  rdfs:label "Pupil can identify ways diets can be healthier and more sustainable."@en ;
+  dcterms:modified "2026-06-07T15:29:24.902503Z"^^xsd:dateTime .
+
+oakcurric:priorknowledge-3411-2
+  a curric:PriorKnowledgeRequirement ;
+  rdfs:label """Pupils can explain why the Eatwell Guide has a 32% lower environmental footprint
+  than the current national diet."""@en ;
+  dcterms:modified "2026-06-07T15:29:24.902515Z"^^xsd:dateTime .
+
+oakcurric:priorknowledge-3411-3
+  a curric:PriorKnowledgeRequirement ;
+  rdfs:label "Pupils can modify recipes and diets to be healthier and more sustainable."@en ;
+  dcterms:modified "2026-06-07T15:29:24.902521Z"^^xsd:dateTime .
+
+oakcurric:priorknowledge-3411-4
+  a curric:PriorKnowledgeRequirement ;
+  rdfs:label """Pupils know that we should all follow the Eatwell Guide, eat more fruit and
+  vegetables and diversify sources of protein."""@en ;
+  dcterms:modified "2026-06-07T15:29:24.902526Z"^^xsd:dateTime .
+
+oakcurric:priorknowledge-3411-5
+  a curric:PriorKnowledgeRequirement ;
+  rdfs:label """Pupils can talk about the climate and how conditions affect when and where food is
+  produced."""@en ;
+  dcterms:modified "2026-06-07T15:29:24.902531Z"^^xsd:dateTime .
+
+oakcurric:priorknowledge-3404-1
+  a curric:PriorKnowledgeRequirement ;
+  rdfs:label "Pupils will know that different people eat different foods."@en ;
+  dcterms:modified "2026-06-07T15:29:25.025762Z"^^xsd:dateTime .
+
+oakcurric:priorknowledge-3404-2
+  a curric:PriorKnowledgeRequirement ;
+  rdfs:label "Pupils can list some factors that affect food choice."@en ;
+  dcterms:modified "2026-06-07T15:29:25.025778Z"^^xsd:dateTime .
+
+oakcurric:priorknowledge-3404-3
+  a curric:PriorKnowledgeRequirement ;
+  rdfs:label """Pupils will know that we eat different food on different occasions and
+  celebrations."""@en ;
+  dcterms:modified "2026-06-07T15:29:25.025786Z"^^xsd:dateTime .
+
+oakcurric:priorknowledge-3404-4
+  a curric:PriorKnowledgeRequirement ;
+  rdfs:label "Pupils can identify the key nutrients provided by a selection of foods."@en ;
+  dcterms:modified "2026-06-07T15:29:25.025795Z"^^xsd:dateTime .
+
+oakcurric:priorknowledge-3407-1
+  a curric:PriorKnowledgeRequirement ;
+  rdfs:label "Pupils can describe the food origins of ingredients in dishes and meals."@en ;
+  dcterms:modified "2026-06-07T15:29:25.214360Z"^^xsd:dateTime .
+
+oakcurric:priorknowledge-3407-2
+  a curric:PriorKnowledgeRequirement ;
+  rdfs:label "Pupils can name the origin of foods grown, reared or caught for consumption."@en ;
+  dcterms:modified "2026-06-07T15:29:25.214372Z"^^xsd:dateTime .
+
+oakcurric:priorknowledge-3407-3
+  a curric:PriorKnowledgeRequirement ;
+  rdfs:label """Pupils can talk about how food is sourced, processed and sold in different ways,
+  helping to ensure it is edible and safe to eat."""@en ;
+  dcterms:modified "2026-06-07T15:29:25.216413Z"^^xsd:dateTime .
+
+oakcurric:priorknowledge-3407-4
+  a curric:PriorKnowledgeRequirement ;
+  rdfs:label """Pupils can describe the healthy eating messages of the Eatwell Guide and list its
+  food groups."""@en ;
+  dcterms:modified "2026-06-07T15:29:25.216428Z"^^xsd:dateTime .
+
+oakcurric:priorknowledge-3410-1
+  a curric:PriorKnowledgeRequirement ;
+  rdfs:label """Pupils can describe the energy and nutrients provided by food and drinks, and their
+  important functions for health."""@en ;
+  dcterms:modified "2026-06-07T15:29:25.277346Z"^^xsd:dateTime .
+
+oakcurric:priorknowledge-3410-2
+  a curric:PriorKnowledgeRequirement ;
+  rdfs:label """Pupils can modify recipes and cooking methods to help meet current healthy eating
+  messages."""@en ;
+  dcterms:modified "2026-06-07T15:29:25.277357Z"^^xsd:dateTime .
+
+oakcurric:priorknowledge-3410-3
+  a curric:PriorKnowledgeRequirement ;
+  rdfs:label """Pupils can use the Eatwell Guide, food portion and size, and 8 tips to evaluate and
+  justify healthier changes to a diet."""@en ;
+  dcterms:modified "2026-06-07T15:29:25.277363Z"^^xsd:dateTime .
+
+oakcurric:priorknowledge-3410-4
+  a curric:PriorKnowledgeRequirement ;
+  rdfs:label "Pupils can read food labels, choosing those lower in fat, salt and sugars."@en ;
+  dcterms:modified "2026-06-07T15:29:25.277368Z"^^xsd:dateTime .
+
+oakcurric:priorknowledge-3410-5
+  a curric:PriorKnowledgeRequirement ;
+  rdfs:label """Pupils will know that people have an allergy to specific ingredients, such as wheat
+  flour, nuts and milk."""@en ;
+  dcterms:modified "2026-06-07T15:29:25.277377Z"^^xsd:dateTime .
+
+oakcurric:priorknowledge-3405-1
+  a curric:PriorKnowledgeRequirement ;
+  rdfs:label """Pupils can follow set procedures to ensure safe and hygienic preparation and
+  cooking."""@en ;
+  dcterms:modified "2026-06-07T15:29:25.475039Z"^^xsd:dateTime .
+
+oakcurric:priorknowledge-3405-2
+  a curric:PriorKnowledgeRequirement ;
+  rdfs:label "Pupils can wash-up and wipe work surfaces, to prevent bacteria from spreading."@en ;
+  dcterms:modified "2026-06-07T15:29:25.475052Z"^^xsd:dateTime .
+
+oakcurric:priorknowledge-3405-3
+  a curric:PriorKnowledgeRequirement ;
+  rdfs:label "Pupils can set up and undertake different sensory evaluation tests."@en ;
+  dcterms:modified "2026-06-07T15:29:25.475059Z"^^xsd:dateTime .
+
+oakcurric:priorknowledge-3405-4
+  a curric:PriorKnowledgeRequirement ;
+  rdfs:label "Pupils can use the 'bridge hold' and 'claw grip' knife techniques."@en ;
+  dcterms:modified "2026-06-07T15:29:25.475065Z"^^xsd:dateTime .
+
+oakcurric:priorknowledge-3405-5
+  a curric:PriorKnowledgeRequirement ;
+  rdfs:label "Pupils can use the hob and oven, using oven gloves."@en ;
+  dcterms:modified "2026-06-07T15:29:25.475071Z"^^xsd:dateTime .
+
+oakcurric:priorknowledge-3403-1
+  a curric:PriorKnowledgeRequirement ;
+  rdfs:label """Pupils can sort foods into plant and animal origin, and name some 'farm to fork'
+  chain steps."""@en ;
+  dcterms:modified "2026-06-07T15:29:25.582649Z"^^xsd:dateTime .
+
+oakcurric:priorknowledge-3403-2
+  a curric:PriorKnowledgeRequirement ;
+  rdfs:label "Pupils can name the stages of producing some foods."@en ;
+  dcterms:modified "2026-06-07T15:29:25.582660Z"^^xsd:dateTime .
+
+oakcurric:priorknowledge-3403-3
+  a curric:PriorKnowledgeRequirement ;
+  rdfs:label "Pupils can explain why and how some food is processed."@en ;
+  dcterms:modified "2026-06-07T15:29:25.582666Z"^^xsd:dateTime .
+
+oakcurric:priorknowledge-3403-4
+  a curric:PriorKnowledgeRequirement ;
+  rdfs:label "Pupils will know that labels provide a variety of information about a food."@en ;
+  dcterms:modified "2026-06-07T15:29:25.582671Z"^^xsd:dateTime .
+
+oakcurric:priorknowledge-3412-1
+  a curric:PriorKnowledgeRequirement ;
+  rdfs:label """Pupils can describe a wide range of cuisines, ingredients, cooking techniques and
+  equipment used around the world."""@en ;
+  dcterms:modified "2026-06-07T15:29:25.936169Z"^^xsd:dateTime .
+
+oakcurric:priorknowledge-3412-2
+  a curric:PriorKnowledgeRequirement ;
+  rdfs:label """Pupils can examine the range of factors affecting food choice, including preference,
+  religion, health, location, culture and money."""@en ;
+  dcterms:modified "2026-06-07T15:29:25.936179Z"^^xsd:dateTime .
+
+oakcurric:priorknowledge-3412-3
+  a curric:PriorKnowledgeRequirement ;
+  rdfs:label """Pupils can appraise how eating occasion and location, as well as who we eat with,
+  can change our food choices."""@en ;
+  dcterms:modified "2026-06-07T15:29:25.936184Z"^^xsd:dateTime .
+
+oakcurric:priorknowledge-3412-4
+  a curric:PriorKnowledgeRequirement ;
+  rdfs:label """Pupils can use food labels to locate the origins of a food and quality
+  assurances."""@en ;
+  dcterms:modified "2026-06-07T15:29:25.936189Z"^^xsd:dateTime .
+
+oakcurric:priorknowledge-3402-1
+  a curric:PriorKnowledgeRequirement ;
+  rdfs:label "Pupils are able to talk about the Eatwell Guide."@en ;
+  dcterms:modified "2026-06-07T15:29:26.270468Z"^^xsd:dateTime .
+
+oakcurric:priorknowledge-3402-2
+  a curric:PriorKnowledgeRequirement ;
+  rdfs:label "Pupils can name the main food groups of the Eatwell Guide."@en ;
+  dcterms:modified "2026-06-07T15:29:26.270479Z"^^xsd:dateTime .
+
+oakcurric:priorknowledge-3402-3
+  a curric:PriorKnowledgeRequirement ;
+  rdfs:label "Pupils will know the names of the main nutrients needed for health."@en ;
+  dcterms:modified "2026-06-07T15:29:26.270484Z"^^xsd:dateTime .
+
+oakcurric:priorknowledge-3402-4
+  a curric:PriorKnowledgeRequirement ;
+  rdfs:label "Pupils are able to explain how meals could be modified for health."@en ;
+  dcterms:modified "2026-06-07T15:29:26.270489Z"^^xsd:dateTime .
+
+oakcurric:priorknowledge-3402-5
+  a curric:PriorKnowledgeRequirement ;
+  rdfs:label "Pupils can identify the key nutrients provided by a selection of foods."@en ;
+  dcterms:modified "2026-06-07T15:29:26.270493Z"^^xsd:dateTime .
+
+oakcurric:priorknowledge-3401-1
+  a curric:PriorKnowledgeRequirement ;
+  rdfs:label "Pupils can use a range of food skills, with help."@en ;
+  dcterms:modified "2026-06-07T15:29:26.281482Z"^^xsd:dateTime .
+
+oakcurric:priorknowledge-3401-2
+  a curric:PriorKnowledgeRequirement ;
+  rdfs:label "Pupils will be able to get ready to cook, so that they are safe and hygienic."@en ;
+  dcterms:modified "2026-06-07T15:29:26.281493Z"^^xsd:dateTime .
+
+oakcurric:priorknowledge-3401-3
+  a curric:PriorKnowledgeRequirement ;
+  rdfs:label """Pupils will be able to demonstrate the 'bridge hold' and 'claw grip' techniques when
+  cutting, slicing and dicing."""@en ;
+  dcterms:modified "2026-06-07T15:29:26.281499Z"^^xsd:dateTime .
+
+oakcurric:priorknowledge-3401-4
+  a curric:PriorKnowledgeRequirement ;
+  rdfs:label "Pupils will know that the hob is used for boiling and frying food in pans."@en ;
+  dcterms:modified "2026-06-07T15:29:26.281503Z"^^xsd:dateTime .
+
+oakcurric:priorknowledge-3401-5
+  a curric:PriorKnowledgeRequirement ;
+  rdfs:label "Pupils will be able to describe the sensory attributes of a dish."@en ;
+  dcterms:modified "2026-06-07T15:29:26.281508Z"^^xsd:dateTime .
+
+oakcurric:priorknowledge-3408-1
+  a curric:PriorKnowledgeRequirement ;
+  rdfs:label "Pupils can identify and explain the different factors that affect food choice."@en ;
+  dcterms:modified "2026-06-07T15:29:26.296355Z"^^xsd:dateTime .
+
+oakcurric:priorknowledge-3408-2
+  a curric:PriorKnowledgeRequirement ;
+  rdfs:label "Pupils can list a range of factors that affect food choice."@en ;
+  dcterms:modified "2026-06-07T15:29:26.296366Z"^^xsd:dateTime .
+
+oakcurric:priorknowledge-3408-3
+  a curric:PriorKnowledgeRequirement ;
+  rdfs:label """Pupils know that communities have different needs, based on age, nutritional need,
+  preferences, culture, faith and belief."""@en ;
+  dcterms:modified "2026-06-07T15:29:26.296371Z"^^xsd:dateTime .
+
+oakcurric:priorknowledge-3408-4
+  a curric:PriorKnowledgeRequirement ;
+  rdfs:label """Pupils can describe a range of different ingredients used to flavour dishes from
+  around the world."""@en ;
+  dcterms:modified "2026-06-07T15:29:26.296376Z"^^xsd:dateTime .
+
+oakcurric:priorknowledge-3408-5
+  a curric:PriorKnowledgeRequirement ;
+  rdfs:label """Pupils can explain how food is part of different customs, traditions and
+  celebrations."""@en ;
+  dcterms:modified "2026-06-07T15:29:26.296380Z"^^xsd:dateTime .
+
+oakcurric:priorknowledge-3406-1
+  a curric:PriorKnowledgeRequirement ;
+  rdfs:label """Pupils know that the Eatwell Guide depicts the food and drinks required for a
+  healthy, balanced diet."""@en ;
+  dcterms:modified "2026-06-07T15:29:26.329663Z"^^xsd:dateTime .
+
+oakcurric:priorknowledge-3406-2
+  a curric:PriorKnowledgeRequirement ;
+  rdfs:label "Pupils can list foods in each food group and name key nutrients provided."@en ;
+  dcterms:modified "2026-06-07T15:29:26.329674Z"^^xsd:dateTime .
+
+oakcurric:priorknowledge-3406-3
+  a curric:PriorKnowledgeRequirement ;
+  rdfs:label "Pupils can name the food source of some nutrients."@en ;
+  dcterms:modified "2026-06-07T15:29:26.329679Z"^^xsd:dateTime .
+
+oakcurric:priorknowledge-3406-4
+  a curric:PriorKnowledgeRequirement ;
+  rdfs:label """Pupils know that a diet is the food and drink that a person usually eats over a
+  period of time."""@en ;
+  dcterms:modified "2026-06-07T15:29:26.329684Z"^^xsd:dateTime .
+
+oakcurric:priorknowledge-3406-5
+  a curric:PriorKnowledgeRequirement ;
+  rdfs:label "Pupils know that portion sizes are an amount of food eaten."@en ;
+  dcterms:modified "2026-06-07T15:29:26.329688Z"^^xsd:dateTime .
+
+# ----------------------------------------------------------------------
+# Unit Variants
+# ----------------------------------------------------------------------
+
+oakcurric:unitvariant-4107
+  a curric:UnitVariant ;
+  rdfs:label "Accurate and precise cooking"@en ;
+  curric:id "4107"^^xsd:positiveInteger;
+  dcterms:modified "2026-06-07T15:29:28.914940Z"^^xsd:dateTime ;
+  curric:isUnitVariantOf oakcurric:unit-3409 ;
+  curric:hasLessonInclusion
+    oakcurric:inclusion-unitvariant-4107-lesson-25026 ,
+    oakcurric:inclusion-unitvariant-4107-lesson-25027 ,
+    oakcurric:inclusion-unitvariant-4107-lesson-25028 .
+
+oakcurric:unitvariant-4109
+  a curric:UnitVariant ;
+  rdfs:label "Global food challenges"@en ;
+  curric:id "4109"^^xsd:positiveInteger;
+  dcterms:modified "2026-06-07T15:29:28.918435Z"^^xsd:dateTime ;
+  curric:isUnitVariantOf oakcurric:unit-3411 ;
+  curric:hasLessonInclusion
+    oakcurric:inclusion-unitvariant-4109-lesson-25032 ,
+    oakcurric:inclusion-unitvariant-4109-lesson-25033 ,
+    oakcurric:inclusion-unitvariant-4109-lesson-25034 .
+
+oakcurric:unitvariant-4102
+  a curric:UnitVariant ;
+  rdfs:label "Informed food choices"@en ;
+  curric:id "4102"^^xsd:positiveInteger;
+  dcterms:modified "2026-06-07T15:29:29.068361Z"^^xsd:dateTime ;
+  curric:isUnitVariantOf oakcurric:unit-3404 ;
+  curric:hasLessonInclusion
+    oakcurric:inclusion-unitvariant-4102-lesson-25011 ,
+    oakcurric:inclusion-unitvariant-4102-lesson-25012 ,
+    oakcurric:inclusion-unitvariant-4102-lesson-25013 .
+
+oakcurric:unitvariant-4105
+  a curric:UnitVariant ;
+  rdfs:label "More sustainable diets"@en ;
+  curric:id "4105"^^xsd:positiveInteger;
+  dcterms:modified "2026-06-07T15:29:29.360604Z"^^xsd:dateTime ;
+  curric:isUnitVariantOf oakcurric:unit-3407 ;
+  curric:hasLessonInclusion
+    oakcurric:inclusion-unitvariant-4105-lesson-25020 ,
+    oakcurric:inclusion-unitvariant-4105-lesson-25021 ,
+    oakcurric:inclusion-unitvariant-4105-lesson-25022 .
+
+oakcurric:unitvariant-4108
+  a curric:UnitVariant ;
+  rdfs:label "Health and dietary needs"@en ;
+  curric:id "4108"^^xsd:positiveInteger;
+  dcterms:modified "2026-06-07T15:29:29.484666Z"^^xsd:dateTime ;
+  curric:isUnitVariantOf oakcurric:unit-3410 ;
+  curric:hasLessonInclusion
+    oakcurric:inclusion-unitvariant-4108-lesson-25029 ,
+    oakcurric:inclusion-unitvariant-4108-lesson-25030 ,
+    oakcurric:inclusion-unitvariant-4108-lesson-25031 .
+
+oakcurric:unitvariant-4103
+  a curric:UnitVariant ;
+  rdfs:label "Cooking techniques and proficiency"@en ;
+  curric:id "4103"^^xsd:positiveInteger;
+  dcterms:modified "2026-06-07T15:29:29.990030Z"^^xsd:dateTime ;
+  curric:isUnitVariantOf oakcurric:unit-3405 ;
+  curric:hasLessonInclusion
+    oakcurric:inclusion-unitvariant-4103-lesson-25014 ,
+    oakcurric:inclusion-unitvariant-4103-lesson-25015 ,
+    oakcurric:inclusion-unitvariant-4103-lesson-25016 .
+
+oakcurric:unitvariant-4101
+  a curric:UnitVariant ;
+  rdfs:label "Food origins"@en ;
+  curric:id "4101"^^xsd:positiveInteger;
+  dcterms:modified "2026-06-07T15:29:30.225864Z"^^xsd:dateTime ;
+  curric:isUnitVariantOf oakcurric:unit-3403 ;
+  curric:hasLessonInclusion
+    oakcurric:inclusion-unitvariant-4101-lesson-25008 ,
+    oakcurric:inclusion-unitvariant-4101-lesson-25009 ,
+    oakcurric:inclusion-unitvariant-4101-lesson-25010 .
+
+oakcurric:unitvariant-4110
+  a curric:UnitVariant ;
+  rdfs:label "Food culture and custom"@en ;
+  curric:id "4110"^^xsd:positiveInteger;
+  dcterms:modified "2026-06-07T15:29:30.855055Z"^^xsd:dateTime ;
+  curric:isUnitVariantOf oakcurric:unit-3412 ;
+  curric:hasLessonInclusion
+    oakcurric:inclusion-unitvariant-4110-lesson-25035 ,
+    oakcurric:inclusion-unitvariant-4110-lesson-25036 ,
+    oakcurric:inclusion-unitvariant-4110-lesson-25037 .
+
+oakcurric:unitvariant-4100
+  a curric:UnitVariant ;
+  rdfs:label "The Eatwell Guide: meals and diets"@en ;
+  curric:id "4100"^^xsd:positiveInteger;
+  dcterms:modified "2026-06-07T15:29:31.613269Z"^^xsd:dateTime ;
+  curric:isUnitVariantOf oakcurric:unit-3402 ;
+  curric:hasLessonInclusion
+    oakcurric:inclusion-unitvariant-4100-lesson-25005 ,
+    oakcurric:inclusion-unitvariant-4100-lesson-25006 ,
+    oakcurric:inclusion-unitvariant-4100-lesson-25007 .
+
+oakcurric:unitvariant-4099
+  a curric:UnitVariant ;
+  rdfs:label "Independent and confident cooking"@en ;
+  curric:id "4099"^^xsd:positiveInteger;
+  dcterms:modified "2026-06-07T15:29:31.642920Z"^^xsd:dateTime ;
+  curric:isUnitVariantOf oakcurric:unit-3401 ;
+  curric:hasLessonInclusion
+    oakcurric:inclusion-unitvariant-4099-lesson-25002 ,
+    oakcurric:inclusion-unitvariant-4099-lesson-25003 ,
+    oakcurric:inclusion-unitvariant-4099-lesson-25004 .
+
+oakcurric:unitvariant-4106
+  a curric:UnitVariant ;
+  rdfs:label "Local food to worldwide cuisine"@en ;
+  curric:id "4106"^^xsd:positiveInteger;
+  dcterms:modified "2026-06-07T15:29:31.684510Z"^^xsd:dateTime ;
+  curric:isUnitVariantOf oakcurric:unit-3408 ;
+  curric:hasLessonInclusion
+    oakcurric:inclusion-unitvariant-4106-lesson-25023 ,
+    oakcurric:inclusion-unitvariant-4106-lesson-25024 ,
+    oakcurric:inclusion-unitvariant-4106-lesson-25025 .
+
+oakcurric:unitvariant-4104
+  a curric:UnitVariant ;
+  rdfs:label "Energy and nutrients: source and function"@en ;
+  curric:id "4104"^^xsd:positiveInteger;
+  dcterms:modified "2026-06-07T15:29:31.771025Z"^^xsd:dateTime ;
+  curric:isUnitVariantOf oakcurric:unit-3406 ;
+  curric:hasLessonInclusion
+    oakcurric:inclusion-unitvariant-4104-lesson-25017 ,
+    oakcurric:inclusion-unitvariant-4104-lesson-25018 ,
+    oakcurric:inclusion-unitvariant-4104-lesson-25019 .
+
+# ----------------------------------------------------------------------
+# Lesson Inclusions
+# ----------------------------------------------------------------------
+
+oakcurric:inclusion-unitvariant-4107-lesson-25028
+  a curric:LessonInclusion ;
+  curric:includesLesson oakcurric:lesson-25028 ;
+  curric:sequencePosition "3"^^xsd:positiveInteger .
+
+oakcurric:inclusion-unitvariant-4107-lesson-25026
+  a curric:LessonInclusion ;
+  curric:includesLesson oakcurric:lesson-25026 ;
+  curric:sequencePosition "1"^^xsd:positiveInteger .
+
+oakcurric:inclusion-unitvariant-4107-lesson-25027
+  a curric:LessonInclusion ;
+  curric:includesLesson oakcurric:lesson-25027 ;
+  curric:sequencePosition "2"^^xsd:positiveInteger .
+
+oakcurric:inclusion-unitvariant-4109-lesson-25034
+  a curric:LessonInclusion ;
+  curric:includesLesson oakcurric:lesson-25034 ;
+  curric:sequencePosition "3"^^xsd:positiveInteger .
+
+oakcurric:inclusion-unitvariant-4109-lesson-25032
+  a curric:LessonInclusion ;
+  curric:includesLesson oakcurric:lesson-25032 ;
+  curric:sequencePosition "1"^^xsd:positiveInteger .
+
+oakcurric:inclusion-unitvariant-4109-lesson-25033
+  a curric:LessonInclusion ;
+  curric:includesLesson oakcurric:lesson-25033 ;
+  curric:sequencePosition "2"^^xsd:positiveInteger .
+
+oakcurric:inclusion-unitvariant-4102-lesson-25011
+  a curric:LessonInclusion ;
+  curric:includesLesson oakcurric:lesson-25011 ;
+  curric:sequencePosition "1"^^xsd:positiveInteger .
+
+oakcurric:inclusion-unitvariant-4102-lesson-25012
+  a curric:LessonInclusion ;
+  curric:includesLesson oakcurric:lesson-25012 ;
+  curric:sequencePosition "2"^^xsd:positiveInteger .
+
+oakcurric:inclusion-unitvariant-4102-lesson-25013
+  a curric:LessonInclusion ;
+  curric:includesLesson oakcurric:lesson-25013 ;
+  curric:sequencePosition "3"^^xsd:positiveInteger .
+
+oakcurric:inclusion-unitvariant-4105-lesson-25021
+  a curric:LessonInclusion ;
+  curric:includesLesson oakcurric:lesson-25021 ;
+  curric:sequencePosition "2"^^xsd:positiveInteger .
+
+oakcurric:inclusion-unitvariant-4105-lesson-25022
+  a curric:LessonInclusion ;
+  curric:includesLesson oakcurric:lesson-25022 ;
+  curric:sequencePosition "3"^^xsd:positiveInteger .
+
+oakcurric:inclusion-unitvariant-4105-lesson-25020
+  a curric:LessonInclusion ;
+  curric:includesLesson oakcurric:lesson-25020 ;
+  curric:sequencePosition "1"^^xsd:positiveInteger .
+
+oakcurric:inclusion-unitvariant-4108-lesson-25030
+  a curric:LessonInclusion ;
+  curric:includesLesson oakcurric:lesson-25030 ;
+  curric:sequencePosition "2"^^xsd:positiveInteger .
+
+oakcurric:inclusion-unitvariant-4108-lesson-25031
+  a curric:LessonInclusion ;
+  curric:includesLesson oakcurric:lesson-25031 ;
+  curric:sequencePosition "3"^^xsd:positiveInteger .
+
+oakcurric:inclusion-unitvariant-4108-lesson-25029
+  a curric:LessonInclusion ;
+  curric:includesLesson oakcurric:lesson-25029 ;
+  curric:sequencePosition "1"^^xsd:positiveInteger .
+
+oakcurric:inclusion-unitvariant-4103-lesson-25015
+  a curric:LessonInclusion ;
+  curric:includesLesson oakcurric:lesson-25015 ;
+  curric:sequencePosition "2"^^xsd:positiveInteger .
+
+oakcurric:inclusion-unitvariant-4103-lesson-25016
+  a curric:LessonInclusion ;
+  curric:includesLesson oakcurric:lesson-25016 ;
+  curric:sequencePosition "3"^^xsd:positiveInteger .
+
+oakcurric:inclusion-unitvariant-4103-lesson-25014
+  a curric:LessonInclusion ;
+  curric:includesLesson oakcurric:lesson-25014 ;
+  curric:sequencePosition "1"^^xsd:positiveInteger .
+
+oakcurric:inclusion-unitvariant-4101-lesson-25009
+  a curric:LessonInclusion ;
+  curric:includesLesson oakcurric:lesson-25009 ;
+  curric:sequencePosition "2"^^xsd:positiveInteger .
+
+oakcurric:inclusion-unitvariant-4101-lesson-25010
+  a curric:LessonInclusion ;
+  curric:includesLesson oakcurric:lesson-25010 ;
+  curric:sequencePosition "3"^^xsd:positiveInteger .
+
+oakcurric:inclusion-unitvariant-4101-lesson-25008
+  a curric:LessonInclusion ;
+  curric:includesLesson oakcurric:lesson-25008 ;
+  curric:sequencePosition "1"^^xsd:positiveInteger .
+
+oakcurric:inclusion-unitvariant-4110-lesson-25037
+  a curric:LessonInclusion ;
+  curric:includesLesson oakcurric:lesson-25037 ;
+  curric:sequencePosition "3"^^xsd:positiveInteger .
+
+oakcurric:inclusion-unitvariant-4110-lesson-25036
+  a curric:LessonInclusion ;
+  curric:includesLesson oakcurric:lesson-25036 ;
+  curric:sequencePosition "2"^^xsd:positiveInteger .
+
+oakcurric:inclusion-unitvariant-4110-lesson-25035
+  a curric:LessonInclusion ;
+  curric:includesLesson oakcurric:lesson-25035 ;
+  curric:sequencePosition "1"^^xsd:positiveInteger .
+
+oakcurric:inclusion-unitvariant-4100-lesson-25007
+  a curric:LessonInclusion ;
+  curric:includesLesson oakcurric:lesson-25007 ;
+  curric:sequencePosition "3"^^xsd:positiveInteger .
+
+oakcurric:inclusion-unitvariant-4100-lesson-25006
+  a curric:LessonInclusion ;
+  curric:includesLesson oakcurric:lesson-25006 ;
+  curric:sequencePosition "2"^^xsd:positiveInteger .
+
+oakcurric:inclusion-unitvariant-4100-lesson-25005
+  a curric:LessonInclusion ;
+  curric:includesLesson oakcurric:lesson-25005 ;
+  curric:sequencePosition "1"^^xsd:positiveInteger .
+
+oakcurric:inclusion-unitvariant-4099-lesson-25003
+  a curric:LessonInclusion ;
+  curric:includesLesson oakcurric:lesson-25003 ;
+  curric:sequencePosition "2"^^xsd:positiveInteger .
+
+oakcurric:inclusion-unitvariant-4099-lesson-25002
+  a curric:LessonInclusion ;
+  curric:includesLesson oakcurric:lesson-25002 ;
+  curric:sequencePosition "1"^^xsd:positiveInteger .
+
+oakcurric:inclusion-unitvariant-4099-lesson-25004
+  a curric:LessonInclusion ;
+  curric:includesLesson oakcurric:lesson-25004 ;
+  curric:sequencePosition "3"^^xsd:positiveInteger .
+
+oakcurric:inclusion-unitvariant-4106-lesson-25023
+  a curric:LessonInclusion ;
+  curric:includesLesson oakcurric:lesson-25023 ;
+  curric:sequencePosition "1"^^xsd:positiveInteger .
+
+oakcurric:inclusion-unitvariant-4106-lesson-25024
+  a curric:LessonInclusion ;
+  curric:includesLesson oakcurric:lesson-25024 ;
+  curric:sequencePosition "2"^^xsd:positiveInteger .
+
+oakcurric:inclusion-unitvariant-4106-lesson-25025
+  a curric:LessonInclusion ;
+  curric:includesLesson oakcurric:lesson-25025 ;
+  curric:sequencePosition "3"^^xsd:positiveInteger .
+
+oakcurric:inclusion-unitvariant-4104-lesson-25017
+  a curric:LessonInclusion ;
+  curric:includesLesson oakcurric:lesson-25017 ;
+  curric:sequencePosition "1"^^xsd:positiveInteger .
+
+oakcurric:inclusion-unitvariant-4104-lesson-25019
+  a curric:LessonInclusion ;
+  curric:includesLesson oakcurric:lesson-25019 ;
+  curric:sequencePosition "3"^^xsd:positiveInteger .
+
+oakcurric:inclusion-unitvariant-4104-lesson-25018
+  a curric:LessonInclusion ;
+  curric:includesLesson oakcurric:lesson-25018 ;
+  curric:sequencePosition "2"^^xsd:positiveInteger .
+
+# ----------------------------------------------------------------------
+# Lessons
+# ----------------------------------------------------------------------
+
+oakcurric:lesson-25028
+  a curric:Lesson ;
+  rdfs:label "Making a sweet & sour fakeaway"@en ;
+  curric:slug "making-a-sweet-and-sour-fakeaway" ;
+  curric:id "25028"^^xsd:positiveInteger ;
+  curric:hasKeyLearningPoint
+    oakcurric:keylearningpoint-lesson-25028-1 ,
+    oakcurric:keylearningpoint-lesson-25028-2 ,
+    oakcurric:keylearningpoint-lesson-25028-3 ,
+    oakcurric:keylearningpoint-lesson-25028-4 ,
+    oakcurric:keylearningpoint-lesson-25028-5 ;
+  curric:hasKeyword
+    oakcurric:keyword-fakeaway ,
+    oakcurric:keyword-cornflour ,
+    oakcurric:keyword-4cs ,
+    oakcurric:keyword-gelatinisation ;
+  curric:hasPupilLessonOutcome oakcurric:pupillessonoutcome-lesson-25028 ;
+  curric:hasMisconception
+    oakcurric:misconception-food-hygiene-clean-preparing-cooking ;
+  dcterms:modified "2026-06-07T15:29:35.019532Z"^^xsd:dateTime .
+
+oakcurric:lesson-25034
+  a curric:Lesson ;
+  rdfs:label "Making bang bang veg, with an Asian slaw!"@en ;
+  curric:slug "making-bang-bang-veg-with-an-asian-slaw" ;
+  curric:id "25034"^^xsd:positiveInteger ;
+  curric:hasKeyLearningPoint
+    oakcurric:keylearningpoint-lesson-25034-1 ,
+    oakcurric:keylearningpoint-lesson-25034-2 ,
+    oakcurric:keylearningpoint-lesson-25034-3 ,
+    oakcurric:keylearningpoint-lesson-25034-4 ,
+    oakcurric:keylearningpoint-lesson-25034-5 ;
+  curric:hasKeyword
+    oakcurric:keyword-sichuan ,
+    oakcurric:keyword-florets ,
+    oakcurric:keyword-preference-tests ,
+    oakcurric:keyword-discrimination-tests ,
+    oakcurric:keyword-membrane ;
+  curric:hasPupilLessonOutcome oakcurric:pupillessonoutcome-lesson-25034 ;
+  curric:hasMisconception
+    oakcurric:misconception-following-eatwell-guide-eating-healthily ;
+  dcterms:modified "2026-06-07T15:29:35.023069Z"^^xsd:dateTime .
+
+oakcurric:lesson-25011
+  a curric:Lesson ;
+  rdfs:label "Factors affecting food choice"@en ;
+  curric:slug "factors-affecting-food-choice" ;
+  curric:id "25011"^^xsd:positiveInteger ;
+  curric:hasKeyLearningPoint
+    oakcurric:keylearningpoint-lesson-25011-1 ,
+    oakcurric:keylearningpoint-lesson-25011-2 ,
+    oakcurric:keylearningpoint-lesson-25011-3 ,
+    oakcurric:keylearningpoint-lesson-25011-4 ,
+    oakcurric:keylearningpoint-lesson-25011-5 ;
+  curric:hasKeyword
+    oakcurric:keyword-factors ,
+    oakcurric:keyword-food-choice ,
+    oakcurric:keyword-informed ;
+  curric:hasPupilLessonOutcome oakcurric:pupillessonoutcome-lesson-25011 ;
+  curric:hasMisconception
+    oakcurric:misconception-make-conscious-food-choices-food ;
+  dcterms:modified "2026-06-07T15:29:35.145895Z"^^xsd:dateTime .
+
+oakcurric:lesson-25021
+  a curric:Lesson ;
+  rdfs:label "Making mushroom bean burgers, with flatbreads"@en ;
+  curric:slug "making-mushroom-bean-burgers-with-flatbreads" ;
+  curric:id "25021"^^xsd:positiveInteger ;
+  curric:hasKeyLearningPoint
+    oakcurric:keylearningpoint-lesson-25021-1 ,
+    oakcurric:keylearningpoint-lesson-25021-2 ,
+    oakcurric:keylearningpoint-lesson-25021-3 ,
+    oakcurric:keylearningpoint-lesson-25021-4 ,
+    oakcurric:keylearningpoint-lesson-25021-5 ;
+  curric:hasKeyword
+    oakcurric:keyword-nutrition-information ,
+    oakcurric:keyword-informed-choice ,
+    oakcurric:keyword-dovetailing ;
+  curric:hasPupilLessonOutcome oakcurric:pupillessonoutcome-lesson-25021 ;
+  curric:hasMisconception
+    oakcurric:misconception-making-two-recipes-same-time ;
+  dcterms:modified "2026-06-07T15:29:35.410407Z"^^xsd:dateTime .
+
+oakcurric:lesson-25030
+  a curric:Lesson ;
+  rdfs:label "Health conditions"@en ;
+  curric:slug "health-conditions" ;
+  curric:id "25030"^^xsd:positiveInteger ;
+  curric:hasKeyLearningPoint
+    oakcurric:keylearningpoint-lesson-25030-1 ,
+    oakcurric:keylearningpoint-lesson-25030-2 ,
+    oakcurric:keylearningpoint-lesson-25030-3 ;
+  curric:hasKeyword
+    oakcurric:keyword-malnutrition ,
+    oakcurric:keyword-undernutrition ,
+    oakcurric:keyword-overnutrition ,
+    oakcurric:keyword-coronary-heart-disease ,
+    oakcurric:keyword-obesity ;
+  curric:hasPupilLessonOutcome oakcurric:pupillessonoutcome-lesson-25030 ;
+  curric:hasMisconception
+    oakcurric:misconception-one-form-malnutrition-intakes-energy ;
+  dcterms:modified "2026-06-07T15:29:35.509130Z"^^xsd:dateTime .
+
+oakcurric:lesson-25015
+  a curric:Lesson ;
+  rdfs:label "Making herby focaccia"@en ;
+  curric:slug "making-herby-focaccia" ;
+  curric:id "25015"^^xsd:positiveInteger ;
+  curric:hasKeyLearningPoint
+    oakcurric:keylearningpoint-lesson-25015-1 ,
+    oakcurric:keylearningpoint-lesson-25015-2 ,
+    oakcurric:keylearningpoint-lesson-25015-3 ,
+    oakcurric:keylearningpoint-lesson-25015-4 ,
+    oakcurric:keylearningpoint-lesson-25015-5 ;
+  curric:hasKeyword
+    oakcurric:keyword-focaccia ,
+    oakcurric:keyword-yeast ,
+    oakcurric:keyword-carbon-dioxide ,
+    oakcurric:keyword-knead ,
+    oakcurric:keyword-coeliac-disease ;
+  curric:hasPupilLessonOutcome oakcurric:pupillessonoutcome-lesson-25015 ;
+  curric:hasMisconception
+    oakcurric:misconception-coeliac-disease-caused-reaction-gluten ;
+  dcterms:modified "2026-06-07T15:29:35.934534Z"^^xsd:dateTime .
+
+oakcurric:lesson-25009
+  a curric:Lesson ;
+  rdfs:label "Making veggie tarts"@en ;
+  curric:slug "making-veggie-tarts" ;
+  curric:id "25009"^^xsd:positiveInteger ;
+  curric:hasKeyLearningPoint
+    oakcurric:keylearningpoint-lesson-25009-1 ,
+    oakcurric:keylearningpoint-lesson-25009-2 ,
+    oakcurric:keylearningpoint-lesson-25009-3 ,
+    oakcurric:keylearningpoint-lesson-25009-4 ,
+    oakcurric:keylearningpoint-lesson-25009-5 ;
+  curric:hasKeyword
+    oakcurric:keyword-quiche ,
+    oakcurric:keyword-shortcrust ,
+    oakcurric:keyword-coagulation ,
+    oakcurric:keyword-criteria ;
+  curric:hasPupilLessonOutcome oakcurric:pupillessonoutcome-lesson-25009 ;
+  curric:hasMisconception
+    oakcurric:misconception-think-shortcrust-pastry-works-best ;
+  dcterms:modified "2026-06-07T15:29:36.287594Z"^^xsd:dateTime .
+
+oakcurric:lesson-25026
+  a curric:Lesson ;
+  rdfs:label "Making sweet potato katsu curry"@en ;
+  curric:slug "making-sweet-potato-katsu-curry" ;
+  curric:id "25026"^^xsd:positiveInteger ;
+  curric:hasKeyLearningPoint
+    oakcurric:keylearningpoint-lesson-25026-1 ,
+    oakcurric:keylearningpoint-lesson-25026-2 ,
+    oakcurric:keylearningpoint-lesson-25026-3 ,
+    oakcurric:keylearningpoint-lesson-25026-4 ,
+    oakcurric:keylearningpoint-lesson-25026-5 ;
+  curric:hasKeyword
+    oakcurric:keyword-katsu ,
+    oakcurric:keyword-plant-rich ,
+    oakcurric:keyword-personal-hygiene ,
+    oakcurric:keyword-budget ;
+  curric:hasPupilLessonOutcome oakcurric:pupillessonoutcome-lesson-25026 ;
+  curric:hasMisconception
+    oakcurric:misconception-recipes-cannot-modified-different-budgets ;
+  dcterms:modified "2026-06-07T15:29:36.930646Z"^^xsd:dateTime .
+
+oakcurric:lesson-25037
+  a curric:Lesson ;
+  rdfs:label "Making Jerk veg and black bean curry, with rice & peas"@en ;
+  curric:slug "making-jerk-veg-and-black-bean-curry-with-rice-and-peas" ;
+  curric:id "25037"^^xsd:positiveInteger ;
+  curric:hasKeyLearningPoint
+    oakcurric:keylearningpoint-lesson-25037-1 ,
+    oakcurric:keylearningpoint-lesson-25037-2 ,
+    oakcurric:keylearningpoint-lesson-25037-3 ,
+    oakcurric:keylearningpoint-lesson-25037-4 ,
+    oakcurric:keylearningpoint-lesson-25037-5 ;
+  curric:hasKeyword
+    oakcurric:keyword-jerk ,
+    oakcurric:keyword-saut ,
+    oakcurric:keyword-timeplan ;
+  curric:hasPupilLessonOutcome oakcurric:pupillessonoutcome-lesson-25037 ;
+  curric:hasMisconception
+    oakcurric:misconception-dishes-cook-eat-serve-along ;
+  dcterms:modified "2026-06-07T15:29:37.448363Z"^^xsd:dateTime .
+
+oakcurric:lesson-25027
+  a curric:Lesson ;
+  rdfs:label "Making Chelsea buns"@en ;
+  curric:slug "making-chelsea-buns" ;
+  curric:id "25027"^^xsd:positiveInteger ;
+  curric:hasKeyLearningPoint
+    oakcurric:keylearningpoint-lesson-25027-1 ,
+    oakcurric:keylearningpoint-lesson-25027-2 ,
+    oakcurric:keylearningpoint-lesson-25027-3 ,
+    oakcurric:keylearningpoint-lesson-25027-4 ,
+    oakcurric:keylearningpoint-lesson-25027-5 ;
+  curric:hasKeyword
+    oakcurric:keyword-chelsea-buns ,
+    oakcurric:keyword-kneading ,
+    oakcurric:keyword-gluten ,
+    oakcurric:keyword-heat-transfer ,
+    oakcurric:keyword-success-criteria ;
+  curric:hasPupilLessonOutcome oakcurric:pupillessonoutcome-lesson-25027 ;
+  curric:hasMisconception
+    oakcurric:misconception-flour-used-make-bread-like ;
+  dcterms:modified "2026-06-07T15:29:39.607920Z"^^xsd:dateTime .
+
+oakcurric:lesson-25010
+  a curric:Lesson ;
+  rdfs:label "Making mini carrot & orange cakes"@en ;
+  curric:slug "making-mini-carrot-and-orange-cakes" ;
+  curric:id "25010"^^xsd:positiveInteger ;
+  curric:hasKeyLearningPoint
+    oakcurric:keylearningpoint-lesson-25010-1 ,
+    oakcurric:keylearningpoint-lesson-25010-2 ,
+    oakcurric:keylearningpoint-lesson-25010-3 ,
+    oakcurric:keylearningpoint-lesson-25010-4 ,
+    oakcurric:keylearningpoint-lesson-25010-5 ;
+  curric:hasKeyword
+    oakcurric:keyword-zesting ,
+    oakcurric:keyword-all-in-one ,
+    oakcurric:keyword-self-raising-flour ,
+    oakcurric:keyword-convection ;
+  curric:hasPupilLessonOutcome oakcurric:pupillessonoutcome-lesson-25010 ;
+  curric:hasMisconception
+    oakcurric:misconception-one-method-produces-poor-results ;
+  dcterms:modified "2026-06-07T15:29:39.873917Z"^^xsd:dateTime .
+
+oakcurric:lesson-25007
+  a curric:Lesson ;
+  rdfs:label "Making aloo gobi"@en ;
+  curric:slug "making-aloo-gobi" ;
+  curric:id "25007"^^xsd:positiveInteger ;
+  curric:hasKeyLearningPoint
+    oakcurric:keylearningpoint-lesson-25007-1 ,
+    oakcurric:keylearningpoint-lesson-25007-2 ,
+    oakcurric:keylearningpoint-lesson-25007-3 ,
+    oakcurric:keylearningpoint-lesson-25007-4 ,
+    oakcurric:keylearningpoint-lesson-25007-5 ;
+  curric:hasKeyword
+    oakcurric:keyword-aloo-gobi ,
+    oakcurric:keyword-spices ,
+    oakcurric:keyword-heat-control ;
+  curric:hasPupilLessonOutcome oakcurric:pupillessonoutcome-lesson-25007 ;
+  curric:hasMisconception
+    oakcurric:misconception-potatoes-form-part-our-5 ;
+  dcterms:modified "2026-06-07T15:29:39.997842Z"^^xsd:dateTime .
+
+oakcurric:lesson-25003
+  a curric:Lesson ;
+  rdfs:label "Making leek and potato soup"@en ;
+  curric:slug "making-leek-and-potato-soup" ;
+  curric:id "25003"^^xsd:positiveInteger ;
+  curric:hasKeyLearningPoint
+    oakcurric:keylearningpoint-lesson-25003-1 ,
+    oakcurric:keylearningpoint-lesson-25003-2 ,
+    oakcurric:keylearningpoint-lesson-25003-3 ,
+    oakcurric:keylearningpoint-lesson-25003-4 ,
+    oakcurric:keylearningpoint-lesson-25003-5 ;
+  curric:hasKeyword
+    oakcurric:keyword-recipe ,
+    oakcurric:keyword-blender ,
+    oakcurric:keyword-heat-transfer ,
+    oakcurric:keyword-conduction ,
+    oakcurric:keyword-convection ;
+  curric:hasPupilLessonOutcome oakcurric:pupillessonoutcome-lesson-25003 ;
+  curric:hasMisconception
+    oakcurric:misconception-vegetables-fruit-need-washed-use ;
+  dcterms:modified "2026-06-07T15:29:40.128823Z"^^xsd:dateTime .
+
+oakcurric:lesson-25002
+  a curric:Lesson ;
+  rdfs:label "Making a mini deli salad"@en ;
+  curric:slug "making-a-mini-deli-salad" ;
+  curric:id "25002"^^xsd:positiveInteger ;
+  curric:hasKeyLearningPoint
+    oakcurric:keylearningpoint-lesson-25002-1 ,
+    oakcurric:keylearningpoint-lesson-25002-2 ,
+    oakcurric:keylearningpoint-lesson-25002-3 ,
+    oakcurric:keylearningpoint-lesson-25002-4 ,
+    oakcurric:keylearningpoint-lesson-25002-5 ;
+  curric:hasKeyword
+    oakcurric:keyword-culture ,
+    oakcurric:keyword-hygienic ,
+    oakcurric:keyword-bacteria ,
+    oakcurric:keyword-claw-grip ,
+    oakcurric:keyword-bridge-hold ;
+  curric:hasPupilLessonOutcome oakcurric:pupillessonoutcome-lesson-25002 ;
+  curric:hasMisconception
+    oakcurric:misconception-food-lessons-cooking ;
+  dcterms:modified "2026-06-07T15:29:40.133860Z"^^xsd:dateTime .
+
+oakcurric:lesson-25016
+  a curric:Lesson ;
+  rdfs:label "Making green mac & cheese"@en ;
+  curric:slug "making-green-mac-and-cheese" ;
+  curric:id "25016"^^xsd:positiveInteger ;
+  curric:hasKeyLearningPoint
+    oakcurric:keylearningpoint-lesson-25016-1 ,
+    oakcurric:keylearningpoint-lesson-25016-2 ,
+    oakcurric:keylearningpoint-lesson-25016-3 ,
+    oakcurric:keylearningpoint-lesson-25016-4 ,
+    oakcurric:keylearningpoint-lesson-25016-5 ;
+  curric:hasKeyword
+    oakcurric:keyword-macaroni ,
+    oakcurric:keyword-gelatinisation ,
+    oakcurric:keyword-roux-sauce ;
+  curric:hasPupilLessonOutcome oakcurric:pupillessonoutcome-lesson-25016 ;
+  curric:hasMisconception
+    oakcurric:misconception-roux-sauce-liquid-milk-added ;
+  dcterms:modified "2026-06-07T15:29:40.141367Z"^^xsd:dateTime .
+
+oakcurric:lesson-25023
+  a curric:Lesson ;
+  rdfs:label "Eat local to taste the world"@en ;
+  curric:slug "eat-local-to-taste-the-world" ;
+  curric:id "25023"^^xsd:positiveInteger ;
+  curric:hasKeyLearningPoint
+    oakcurric:keylearningpoint-lesson-25023-1 ,
+    oakcurric:keylearningpoint-lesson-25023-2 ,
+    oakcurric:keylearningpoint-lesson-25023-3 ,
+    oakcurric:keylearningpoint-lesson-25023-4 ,
+    oakcurric:keylearningpoint-lesson-25023-5 ;
+  curric:hasKeyword
+    oakcurric:keyword-cuisine ,
+    oakcurric:keyword-import ,
+    oakcurric:keyword-export ,
+    oakcurric:keyword-cooking-technique ;
+  curric:hasPupilLessonOutcome oakcurric:pupillessonoutcome-lesson-25023 ;
+  curric:hasMisconception
+    oakcurric:misconception-uk-produces-its-own-food ;
+  dcterms:modified "2026-06-07T15:29:40.295484Z"^^xsd:dateTime .
+
+oakcurric:lesson-25012
+  a curric:Lesson ;
+  rdfs:label "Making a Chicago style pizza"@en ;
+  curric:slug "making-a-chicago-style-pizza" ;
+  curric:id "25012"^^xsd:positiveInteger ;
+  curric:hasKeyLearningPoint
+    oakcurric:keylearningpoint-lesson-25012-1 ,
+    oakcurric:keylearningpoint-lesson-25012-2 ,
+    oakcurric:keylearningpoint-lesson-25012-3 ,
+    oakcurric:keylearningpoint-lesson-25012-4 ,
+    oakcurric:keylearningpoint-lesson-25012-5 ;
+  curric:hasKeyword
+    oakcurric:keyword-chicago ,
+    oakcurric:keyword-dough ,
+    oakcurric:keyword-component ,
+    oakcurric:keyword-lining ;
+  curric:hasPupilLessonOutcome oakcurric:pupillessonoutcome-lesson-25012 ;
+  curric:hasMisconception
+    oakcurric:misconception-baking-tins-need-greased-lined ;
+  dcterms:modified "2026-06-07T15:29:40.565010Z"^^xsd:dateTime .
+
+oakcurric:lesson-25004
+  a curric:Lesson ;
+  rdfs:label "Making yakisoba noodles"@en ;
+  curric:slug "making-yakisoba-noodles" ;
+  curric:id "25004"^^xsd:positiveInteger ;
+  curric:hasKeyLearningPoint
+    oakcurric:keylearningpoint-lesson-25004-1 ,
+    oakcurric:keylearningpoint-lesson-25004-2 ,
+    oakcurric:keylearningpoint-lesson-25004-3 ,
+    oakcurric:keylearningpoint-lesson-25004-4 ,
+    oakcurric:keylearningpoint-lesson-25004-5 ;
+  curric:hasKeyword
+    oakcurric:keyword-yakisoba ,
+    oakcurric:keyword-food-poisoning ,
+    oakcurric:keyword-sensory-evaluation ;
+  curric:hasPupilLessonOutcome oakcurric:pupillessonoutcome-lesson-25004 ;
+  curric:hasMisconception
+    oakcurric:misconception-sushi-raw-fish-common-food ;
+  dcterms:modified "2026-06-07T15:29:40.569198Z"^^xsd:dateTime .
+
+oakcurric:lesson-25014
+  a curric:Lesson ;
+  rdfs:label "Making cheesy bean burritos"@en ;
+  curric:slug "making-cheesy-bean-burritos" ;
+  curric:id "25014"^^xsd:positiveInteger ;
+  curric:hasKeyLearningPoint
+    oakcurric:keylearningpoint-lesson-25014-1 ,
+    oakcurric:keylearningpoint-lesson-25014-2 ,
+    oakcurric:keylearningpoint-lesson-25014-3 ,
+    oakcurric:keylearningpoint-lesson-25014-4 ,
+    oakcurric:keylearningpoint-lesson-25014-5 ;
+  curric:hasKeyword
+    oakcurric:keyword-burrito ,
+    oakcurric:keyword-beans ,
+    oakcurric:keyword-nutritional-analysis ,
+    oakcurric:keyword-cross-contamination ;
+  curric:hasPupilLessonOutcome oakcurric:pupillessonoutcome-lesson-25014 ;
+  curric:hasMisconception
+    oakcurric:misconception-beans-count-many-portions-towards ;
+  dcterms:modified "2026-06-07T15:29:40.572838Z"^^xsd:dateTime .
+
+oakcurric:lesson-25017
+  a curric:Lesson ;
+  rdfs:label "Macronutrients, fibre and water"@en ;
+  curric:slug "macronutrients-fibre-and-water" ;
+  curric:id "25017"^^xsd:positiveInteger ;
+  curric:hasKeyLearningPoint
+    oakcurric:keylearningpoint-lesson-25017-1 ,
+    oakcurric:keylearningpoint-lesson-25017-2 ,
+    oakcurric:keylearningpoint-lesson-25017-3 ,
+    oakcurric:keylearningpoint-lesson-25017-4 ,
+    oakcurric:keylearningpoint-lesson-25017-5 ;
+  curric:hasKeyword
+    oakcurric:keyword-energy ,
+    oakcurric:keyword-macronutrients ,
+    oakcurric:keyword-fibre ,
+    oakcurric:keyword-water ;
+  curric:hasPupilLessonOutcome oakcurric:pupillessonoutcome-lesson-25017 ;
+  curric:hasMisconception
+    oakcurric:misconception-eat-less-starchy-foods-fattening ;
+  dcterms:modified "2026-06-07T15:29:40.790643Z"^^xsd:dateTime .
+
+oakcurric:lesson-25031
+  a curric:Lesson ;
+  rdfs:label "Making pea and mint falafel, with tzatziki"@en ;
+  curric:slug "making-pea-and-mint-falafel-with-tzatziki" ;
+  curric:id "25031"^^xsd:positiveInteger ;
+  curric:hasKeyLearningPoint
+    oakcurric:keylearningpoint-lesson-25031-1 ,
+    oakcurric:keylearningpoint-lesson-25031-2 ,
+    oakcurric:keylearningpoint-lesson-25031-3 ,
+    oakcurric:keylearningpoint-lesson-25031-4 ,
+    oakcurric:keylearningpoint-lesson-25031-5 ;
+  curric:hasKeyword
+    oakcurric:keyword-middle-eastern ,
+    oakcurric:keyword-falafel ,
+    oakcurric:keyword-chickpeas ,
+    oakcurric:keyword-food-processor ,
+    oakcurric:keyword-tzatziki ;
+  curric:hasPupilLessonOutcome oakcurric:pupillessonoutcome-lesson-25031 ;
+  curric:hasMisconception
+    oakcurric:misconception-traditional-fried-falafel-healthy-made ;
+  dcterms:modified "2026-06-07T15:29:40.863223Z"^^xsd:dateTime .
+
+oakcurric:lesson-25032
+  a curric:Lesson ;
+  rdfs:label "One planet"@en ;
+  curric:slug "one-planet" ;
+  curric:id "25032"^^xsd:positiveInteger ;
+  curric:hasKeyLearningPoint
+    oakcurric:keylearningpoint-lesson-25032-1 ,
+    oakcurric:keylearningpoint-lesson-25032-2 ,
+    oakcurric:keylearningpoint-lesson-25032-3 ,
+    oakcurric:keylearningpoint-lesson-25032-4 ,
+    oakcurric:keylearningpoint-lesson-25032-5 ;
+  curric:hasKeyword
+    oakcurric:keyword-greenhouse-gas-emissions ,
+    oakcurric:keyword-food-systems ,
+    oakcurric:keyword-climate-change ,
+    oakcurric:keyword-socio-economic ,
+    oakcurric:keyword-food-security ;
+  curric:hasPupilLessonOutcome oakcurric:pupillessonoutcome-lesson-25032 ;
+  curric:hasMisconception
+    oakcurric:misconception-biodiversity-important-growing-food-plants ;
+  dcterms:modified "2026-06-07T15:29:40.977940Z"^^xsd:dateTime .
+
+oakcurric:lesson-25033
+  a curric:Lesson ;
+  rdfs:label "Fish strips street wraps"@en ;
+  curric:slug "fish-strips-street-wraps" ;
+  curric:id "25033"^^xsd:positiveInteger ;
+  curric:hasKeyLearningPoint
+    oakcurric:keylearningpoint-lesson-25033-1 ,
+    oakcurric:keylearningpoint-lesson-25033-2 ,
+    oakcurric:keylearningpoint-lesson-25033-3 ,
+    oakcurric:keylearningpoint-lesson-25033-4 ,
+    oakcurric:keylearningpoint-lesson-25033-5 ;
+  curric:hasKeyword
+    oakcurric:keyword-species ,
+    oakcurric:keyword-coagulate ,
+    oakcurric:keyword-street-food ,
+    oakcurric:keyword-assurance-marks ,
+    oakcurric:keyword-sustainable ;
+  curric:hasPupilLessonOutcome oakcurric:pupillessonoutcome-lesson-25033 ;
+  curric:hasMisconception
+    oakcurric:misconception-eating-limited-range-fish-sustainable ;
+  dcterms:modified "2026-06-07T15:29:42.261043Z"^^xsd:dateTime .
+
+oakcurric:lesson-25022
+  a curric:Lesson ;
+  rdfs:label "Making beef and lentil cottage pie"@en ;
+  curric:slug "making-beef-and-lentil-cottage-pie" ;
+  curric:id "25022"^^xsd:positiveInteger ;
+  curric:hasKeyLearningPoint
+    oakcurric:keylearningpoint-lesson-25022-1 ,
+    oakcurric:keylearningpoint-lesson-25022-2 ,
+    oakcurric:keylearningpoint-lesson-25022-3 ,
+    oakcurric:keylearningpoint-lesson-25022-4 ,
+    oakcurric:keylearningpoint-lesson-25022-5 ;
+  curric:hasKeyword
+    oakcurric:keyword-pulses ,
+    oakcurric:keyword-bacteria ,
+    oakcurric:keyword-contamination ,
+    oakcurric:keyword-piping ;
+  curric:hasPupilLessonOutcome oakcurric:pupillessonoutcome-lesson-25022 ;
+  curric:hasMisconception
+    oakcurric:misconception-leftovers-still-safe-eat-3 ;
+  dcterms:modified "2026-06-07T15:29:42.408166Z"^^xsd:dateTime .
+
+oakcurric:lesson-25024
+  a curric:Lesson ;
+  rdfs:label "Making mini Victoria sponges"@en ;
+  curric:slug "making-mini-victoria-sponges" ;
+  curric:id "25024"^^xsd:positiveInteger ;
+  curric:hasKeyLearningPoint
+    oakcurric:keylearningpoint-lesson-25024-1 ,
+    oakcurric:keylearningpoint-lesson-25024-2 ,
+    oakcurric:keylearningpoint-lesson-25024-3 ,
+    oakcurric:keylearningpoint-lesson-25024-4 ,
+    oakcurric:keylearningpoint-lesson-25024-5 ;
+  curric:hasKeyword
+    oakcurric:keyword-queen-victoria ,
+    oakcurric:keyword-discrimination-tests ,
+    oakcurric:keyword-sponge ,
+    oakcurric:keyword-folding ,
+    oakcurric:keyword-creaming ;
+  curric:hasPupilLessonOutcome oakcurric:pupillessonoutcome-lesson-25024 ;
+  curric:hasMisconception
+    oakcurric:misconception-sponge-cake-same ;
+  dcterms:modified "2026-06-07T15:29:43.083108Z"^^xsd:dateTime .
+
+oakcurric:lesson-25013
+  a curric:Lesson ;
+  rdfs:label "Making Jollof rice"@en ;
+  curric:slug "making-jollof-rice" ;
+  curric:id "25013"^^xsd:positiveInteger ;
+  curric:hasKeyLearningPoint
+    oakcurric:keylearningpoint-lesson-25013-1 ,
+    oakcurric:keylearningpoint-lesson-25013-2 ,
+    oakcurric:keylearningpoint-lesson-25013-3 ,
+    oakcurric:keylearningpoint-lesson-25013-4 ;
+  curric:hasKeyword
+    oakcurric:keyword-west-africa ,
+    oakcurric:keyword-jollof ,
+    oakcurric:keyword-absorb ,
+    oakcurric:keyword-preference-test ;
+  curric:hasPupilLessonOutcome oakcurric:pupillessonoutcome-lesson-25013 ;
+  curric:hasMisconception
+    oakcurric:misconception-rice-stirred-cooked-ensure-covered ;
+  dcterms:modified "2026-06-07T15:29:43.084671Z"^^xsd:dateTime .
+
+oakcurric:lesson-25019
+  a curric:Lesson ;
+  rdfs:label "Making toad in the hole"@en ;
+  curric:slug "making-toad-in-the-hole" ;
+  curric:id "25019"^^xsd:positiveInteger ;
+  curric:hasKeyLearningPoint
+    oakcurric:keylearningpoint-lesson-25019-1 ,
+    oakcurric:keylearningpoint-lesson-25019-2 ,
+    oakcurric:keylearningpoint-lesson-25019-3 ,
+    oakcurric:keylearningpoint-lesson-25019-4 ;
+  curric:hasKeyword
+    oakcurric:keyword-toad-in-the-hole ,
+    oakcurric:keyword-batter ,
+    oakcurric:keyword-whisking ,
+    oakcurric:keyword-emulsifier ;
+  curric:hasPupilLessonOutcome oakcurric:pupillessonoutcome-lesson-25019 ;
+  curric:hasMisconception
+    oakcurric:misconception-eatwell-guide-recommends-plant-rich ;
+  dcterms:modified "2026-06-07T15:29:43.087052Z"^^xsd:dateTime .
+
+oakcurric:lesson-25036
+  a curric:Lesson ;
+  rdfs:label "Making Scotch eggs, with a dipping sauce"@en ;
+  curric:slug "making-scotch-eggs-with-a-dipping-sauce" ;
+  curric:id "25036"^^xsd:positiveInteger ;
+  curric:hasKeyLearningPoint
+    oakcurric:keylearningpoint-lesson-25036-1 ,
+    oakcurric:keylearningpoint-lesson-25036-2 ,
+    oakcurric:keylearningpoint-lesson-25036-3 ,
+    oakcurric:keylearningpoint-lesson-25036-4 ,
+    oakcurric:keylearningpoint-lesson-25036-5 ;
+  curric:hasKeyword
+    oakcurric:keyword-scotch-egg ,
+    oakcurric:keyword-forming ,
+    oakcurric:keyword-coating ,
+    oakcurric:keyword-traceability ,
+    oakcurric:keyword-animal-welfare ;
+  curric:hasPupilLessonOutcome oakcurric:pupillessonoutcome-lesson-25036 ;
+  curric:hasMisconception
+    oakcurric:misconception-scotch-eggs-originate-scotland ;
+  dcterms:modified "2026-06-07T15:29:43.439478Z"^^xsd:dateTime .
+
+oakcurric:lesson-25025
+  a curric:Lesson ;
+  rdfs:label "Making a Thai curry"@en ;
+  curric:slug "making-a-thai-curry" ;
+  curric:id "25025"^^xsd:positiveInteger ;
+  curric:hasKeyLearningPoint
+    oakcurric:keylearningpoint-lesson-25025-1 ,
+    oakcurric:keylearningpoint-lesson-25025-2 ,
+    oakcurric:keylearningpoint-lesson-25025-3 ,
+    oakcurric:keylearningpoint-lesson-25025-4 ,
+    oakcurric:keylearningpoint-lesson-25025-5 ;
+  curric:hasKeyword
+    oakcurric:keyword-thai ,
+    oakcurric:keyword-curry-paste ,
+    oakcurric:keyword-proficiency ;
+  curric:hasPupilLessonOutcome oakcurric:pupillessonoutcome-lesson-25025 ;
+  curric:hasMisconception
+    oakcurric:misconception-food-placed-fridge-need-covered ;
+  dcterms:modified "2026-06-07T15:29:43.543591Z"^^xsd:dateTime .
+
+oakcurric:lesson-25029
+  a curric:Lesson ;
+  rdfs:label "Nutritional needs throughout life"@en ;
+  curric:slug "nutritional-needs-throughout-life" ;
+  curric:id "25029"^^xsd:positiveInteger ;
+  curric:hasKeyLearningPoint
+    oakcurric:keylearningpoint-lesson-25029-1 ,
+    oakcurric:keylearningpoint-lesson-25029-2 ,
+    oakcurric:keylearningpoint-lesson-25029-3 ,
+    oakcurric:keylearningpoint-lesson-25029-4 ;
+  curric:hasKeyword
+    oakcurric:keyword-drvs ,
+    oakcurric:keyword-ears ,
+    oakcurric:keyword-rnis ,
+    oakcurric:keyword-lrnis ;
+  curric:hasPupilLessonOutcome oakcurric:pupillessonoutcome-lesson-25029 ;
+  curric:hasMisconception
+    oakcurric:misconception-dietary-reference-values-drvs-nutritional ;
+  dcterms:modified "2026-06-07T15:29:44.446575Z"^^xsd:dateTime .
+
+oakcurric:lesson-25006
+  a curric:Lesson ;
+  rdfs:label "Making better food and drink choices"@en ;
+  curric:slug "making-better-food-and-drink-choices" ;
+  curric:id "25006"^^xsd:positiveInteger ;
+  curric:hasKeyLearningPoint
+    oakcurric:keylearningpoint-lesson-25006-1 ,
+    oakcurric:keylearningpoint-lesson-25006-2 ,
+    oakcurric:keylearningpoint-lesson-25006-3 ,
+    oakcurric:keylearningpoint-lesson-25006-4 ,
+    oakcurric:keylearningpoint-lesson-25006-5 ;
+  curric:hasKeyword
+    oakcurric:keyword-8-tips-for-healthy-eating ,
+    oakcurric:keyword-portions ,
+    oakcurric:keyword-portion-size ,
+    oakcurric:keyword-diet ;
+  curric:hasPupilLessonOutcome oakcurric:pupillessonoutcome-lesson-25006 ;
+  curric:hasMisconception
+    oakcurric:misconception-everyone-needs-same-amount-portion ;
+  dcterms:modified "2026-06-07T15:29:44.602043Z"^^xsd:dateTime .
+
+oakcurric:lesson-25020
+  a curric:Lesson ;
+  rdfs:label "Plant-rich and diverse"@en ;
+  curric:slug "plant-rich-and-diverse" ;
+  curric:id "25020"^^xsd:positiveInteger ;
+  curric:hasKeyLearningPoint
+    oakcurric:keylearningpoint-lesson-25020-1 ,
+    oakcurric:keylearningpoint-lesson-25020-2 ,
+    oakcurric:keylearningpoint-lesson-25020-3 ,
+    oakcurric:keylearningpoint-lesson-25020-4 ,
+    oakcurric:keylearningpoint-lesson-25020-5 ;
+  curric:hasKeyword
+    oakcurric:keyword-plant-rich ,
+    oakcurric:keyword-diverse ,
+    oakcurric:keyword-sustainable ,
+    oakcurric:keyword-food-system ;
+  curric:hasPupilLessonOutcome oakcurric:pupillessonoutcome-lesson-25020 ;
+  curric:hasMisconception
+    oakcurric:misconception-plant-rich-means-eat-meat ;
+  dcterms:modified "2026-06-07T15:29:44.759204Z"^^xsd:dateTime .
+
+oakcurric:lesson-25008
+  a curric:Lesson ;
+  rdfs:label "Growing, rearing and catching our food"@en ;
+  curric:slug "growing-rearing-and-catching-our-food" ;
+  curric:id "25008"^^xsd:positiveInteger ;
+  curric:hasKeyLearningPoint
+    oakcurric:keylearningpoint-lesson-25008-1 ,
+    oakcurric:keylearningpoint-lesson-25008-2 ,
+    oakcurric:keylearningpoint-lesson-25008-3 ,
+    oakcurric:keylearningpoint-lesson-25008-4 ,
+    oakcurric:keylearningpoint-lesson-25008-5 ;
+  curric:hasKeyword
+    oakcurric:keyword-produced ,
+    oakcurric:keyword-processed ,
+    oakcurric:keyword-certification-and-assurance ;
+  curric:hasPupilLessonOutcome oakcurric:pupillessonoutcome-lesson-25008 ;
+  curric:hasMisconception
+    oakcurric:misconception-food-eat-produced-uk ;
+  dcterms:modified "2026-06-07T15:29:44.823211Z"^^xsd:dateTime .
+
+oakcurric:lesson-25018
+  a curric:Lesson ;
+  rdfs:label "Micronutrients"@en ;
+  curric:slug "micronutrients" ;
+  curric:id "25018"^^xsd:positiveInteger ;
+  curric:hasKeyLearningPoint
+    oakcurric:keylearningpoint-lesson-25018-1 ,
+    oakcurric:keylearningpoint-lesson-25018-2 ,
+    oakcurric:keylearningpoint-lesson-25018-3 ,
+    oakcurric:keylearningpoint-lesson-25018-4 ;
+  curric:hasKeyword
+    oakcurric:keyword-micronutrients ,
+    oakcurric:keyword-vitamins ,
+    oakcurric:keyword-minerals ,
+    oakcurric:keyword-food-source ,
+    oakcurric:keyword-function ;
+  curric:hasPupilLessonOutcome oakcurric:pupillessonoutcome-lesson-25018 ;
+  curric:hasMisconception
+    oakcurric:misconception-adequate-intake-micronutrients-possible-eating ;
+  dcterms:modified "2026-06-07T15:29:46.844832Z"^^xsd:dateTime .
+
+oakcurric:lesson-25035
+  a curric:Lesson ;
+  rdfs:label "Our dynamic food culture"@en ;
+  curric:slug "our-dynamic-food-culture" ;
+  curric:id "25035"^^xsd:positiveInteger ;
+  curric:hasKeyLearningPoint
+    oakcurric:keylearningpoint-lesson-25035-1 ,
+    oakcurric:keylearningpoint-lesson-25035-2 ,
+    oakcurric:keylearningpoint-lesson-25035-3 ,
+    oakcurric:keylearningpoint-lesson-25035-4 ,
+    oakcurric:keylearningpoint-lesson-25035-5 ;
+  curric:hasKeyword
+    oakcurric:keyword-cultural-identity ,
+    oakcurric:keyword-intangible-cultural-heritage ,
+    oakcurric:keyword-cultural-appropriation ;
+  curric:hasPupilLessonOutcome oakcurric:pupillessonoutcome-lesson-25035 ;
+  curric:hasMisconception
+    oakcurric:misconception-cultural-appropriation-appreciation-admiration-other ;
+  dcterms:modified "2026-06-07T15:29:47.064800Z"^^xsd:dateTime .
+
+oakcurric:lesson-25005
+  a curric:Lesson ;
+  rdfs:label "Eat well now"@en ;
+  curric:slug "eat-well-now" ;
+  curric:id "25005"^^xsd:positiveInteger ;
+  curric:hasKeyLearningPoint
+    oakcurric:keylearningpoint-lesson-25005-1 ,
+    oakcurric:keylearningpoint-lesson-25005-2 ,
+    oakcurric:keylearningpoint-lesson-25005-3 ,
+    oakcurric:keylearningpoint-lesson-25005-4 ;
+  curric:hasKeyword
+    oakcurric:keyword-macronutrients ,
+    oakcurric:keyword-micronutrients ,
+    oakcurric:keyword-hydration ,
+    oakcurric:keyword-food-labels ;
+  curric:hasPupilLessonOutcome oakcurric:pupillessonoutcome-lesson-25005 ;
+  curric:hasMisconception
+    oakcurric:misconception-pupils-believe-name-food-group ;
+  dcterms:modified "2026-06-07T15:29:47.655166Z"^^xsd:dateTime .
+
+# ----------------------------------------------------------------------
+# Key Learning Points
+# ----------------------------------------------------------------------
+
+oakcurric:keylearningpoint-lesson-25028-1
+  a curric:KeyLearningPoint ;
+  rdfs:label """Sweet and sour dishes originated in China, then the UK. London had its first Chinese
+  restaurant in 1907."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.274299Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25028-2
+  a curric:KeyLearningPoint ;
+  rdfs:label """The food skills used to make sweet & sour are measuring, slicing, chopping, peeling,
+  mixing and using the hob."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.274303Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25028-3
+  a curric:KeyLearningPoint ;
+  rdfs:label """Cornflour, a starch from maize, thickens the sauce through the action of heat and
+  liquid (gelatinisation)."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.274306Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25028-4
+  a curric:KeyLearningPoint ;
+  rdfs:label """The 4Cs of food hygiene are cleaning, cooking, chilling, and
+  cross-contamination."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.274310Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25028-5
+  a curric:KeyLearningPoint ;
+  rdfs:label """Compared to takeaways, cooking from scratch is often cheaper and the levels of fat,
+  salt and sugars can be controlled."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.274314Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25034-1
+  a curric:KeyLearningPoint ;
+  rdfs:label """Bang bang chicken originates in the street food of Sichuan. Other types of meat and
+  vegetables can be used."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.274357Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25034-2
+  a curric:KeyLearningPoint ;
+  rdfs:label """Care should be taken when preparing fresh chillies as the membrane and seeds are hot
+  and may burn. Always wash hands."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.274361Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25034-3
+  a curric:KeyLearningPoint ;
+  rdfs:label """Diets should have more, and a wider range of, fruit, vegetables, beans, lentils and
+  legumes for more sustainable living."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.274364Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25034-4
+  a curric:KeyLearningPoint ;
+  rdfs:label """The food skills used to make bang bang veg include measuring, slicing, mixing,
+  coating, threading and using the oven."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.274368Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25034-5
+  a curric:KeyLearningPoint ;
+  rdfs:label """There are a range of sensory tests; the results can be used to justify changes to a
+  recipe."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.274372Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25011-1
+  a curric:KeyLearningPoint ;
+  rdfs:label """There are a range of factors affecting food choice, including preference, religion,
+  health, location, culture and money."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.276194Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25011-2
+  a curric:KeyLearningPoint ;
+  rdfs:label """Food choice depends on many personal and lifestyle factors, such as body image and
+  role models, as well advertising."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.276198Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25011-3
+  a curric:KeyLearningPoint ;
+  rdfs:label """The eating occasion and location, as well as who we eat with, can change our food
+  choices."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.276202Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25011-4
+  a curric:KeyLearningPoint ;
+  rdfs:label """Food labels can be used to make informed food choices, such as nutrition and allergy
+  labelling."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.276206Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25011-5
+  a curric:KeyLearningPoint ;
+  rdfs:label """When planning to cook, the time available, cost of ingredients, and food skill
+  experience should be considered."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.276209Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25021-1
+  a curric:KeyLearningPoint ;
+  rdfs:label """There are many different types of beans, cultivated around the world. They are a
+  source of protein and fibre."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.280635Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25021-2
+  a curric:KeyLearningPoint ;
+  rdfs:label """When making two dishes, read both recipes to ensure efficient use of time via
+  dovetailing tasks."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.280639Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25021-3
+  a curric:KeyLearningPoint ;
+  rdfs:label """The food skills used for bean burgers include measuring, mashing, dicing, mixing,
+  shaping and using the hob and grill."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.280642Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25021-4
+  a curric:KeyLearningPoint ;
+  rdfs:label """Cooking from scratch allows the amount of fat, salt and sugars to be controlled,
+  compared to shop bought."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.280646Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25021-5
+  a curric:KeyLearningPoint ;
+  rdfs:label """Front and back of pack nutrition information, and ingredient lists, allows consumers
+  to make informed food choices."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.280650Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25030-1
+  a curric:KeyLearningPoint ;
+  rdfs:label """Health implications are caused by poor diet (dietary excess or deficiency), e.g.
+  obesity, bone health, heart disease."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.282460Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25030-2
+  a curric:KeyLearningPoint ;
+  rdfs:label """Nutrition, ingredient and allergy information on food labels help us to make
+  informed food and drink choices."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.282464Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25030-3
+  a curric:KeyLearningPoint ;
+  rdfs:label """Meals and diets can be planned and evaluated for the needs of different groups of
+  people."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.282468Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25015-1
+  a curric:KeyLearningPoint ;
+  rdfs:label """Focaccia is an Italian bread flavoured with olive oil and herbs, and sometimes
+  olives and sundried tomatoes."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.288479Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25015-2
+  a curric:KeyLearningPoint ;
+  rdfs:label """There are many types of bread which can form the basis for other dishes, such as
+  pizza bases, Chelsea buns and pretzels."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.288483Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25015-3
+  a curric:KeyLearningPoint ;
+  rdfs:label """The food skills used to make focaccia are measuring, mixing, kneading, shaping and
+  using the oven (baking)."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.288487Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25015-4
+  a curric:KeyLearningPoint ;
+  rdfs:label """Yeast produces carbon dioxide which helps the bread to rise. The gas is held in the
+  dough when baked."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.288490Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25015-5
+  a curric:KeyLearningPoint ;
+  rdfs:label """Some people have an allergy to specific ingredients, such as wheat flour, nuts and
+  milk."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.288494Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25009-1
+  a curric:KeyLearningPoint ;
+  rdfs:label """Quiches are savoury tarts, comprising a pastry crust and a filling of eggs and milk
+  and/or cream, with roots in France."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.293806Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25009-2
+  a curric:KeyLearningPoint ;
+  rdfs:label """During cooking, the pastry becomes crisp (due to the fat in the flour) and the egg
+  mixture sets (known as coagulation)."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.293810Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25009-3
+  a curric:KeyLearningPoint ;
+  rdfs:label """Eggs that have the British Lion mark have been produced to ensure high levels of
+  food safety and traceability."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.293816Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25009-4
+  a curric:KeyLearningPoint ;
+  rdfs:label """The food skills used to make tarts are measuring, rubbing-in, rolling-out, forming,
+  cutting, lining and using the oven."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.293822Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25009-5
+  a curric:KeyLearningPoint ;
+  rdfs:label "The outcome of a final dish can be judged by a set of criteria."@en ;
+  dcterms:modified "2026-06-07T15:30:29.293828Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25026-1
+  a curric:KeyLearningPoint ;
+  rdfs:label """Katsu curry is a traditional Japanese dish of a pork cutlet (tonkatsu), served with
+  rice and curry sauce."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.304738Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25026-2
+  a curric:KeyLearningPoint ;
+  rdfs:label """In line with the Eatwell Guide, we should have a plant-rich, diverse and balanced
+  diet."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.304742Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25026-3
+  a curric:KeyLearningPoint ;
+  rdfs:label """Food skills used to make katsu curry include measuring, mixing, peeling, slicing,
+  coating, and using the hob and oven."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.304746Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25026-4
+  a curric:KeyLearningPoint ;
+  rdfs:label """High standards of personal hygiene and safe food handling must be demonstrated at
+  all times."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.304750Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25026-5
+  a curric:KeyLearningPoint ;
+  rdfs:label """Recipes and cooking methods can be modified to help meet current healthy eating
+  messages and different budgets."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.304754Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25037-1
+  a curric:KeyLearningPoint ;
+  rdfs:label """Cooking with jerk spice (jerking) originated from indigenous people from
+  Jamaica."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.311662Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25037-2
+  a curric:KeyLearningPoint ;
+  rdfs:label """The dishes we cook, eat and serve, along with our food experiences, continues to
+  evolve due to a variety of factors."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.311666Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25037-3
+  a curric:KeyLearningPoint ;
+  rdfs:label """Creating a timeplan ensures more efficient use of time when preparaing a dish or
+  meal."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.311670Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25037-4
+  a curric:KeyLearningPoint ;
+  rdfs:label """The food skills used to make jerk veg curry are measuring, peeling, slicing,
+  draining, mixing and using the hob."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.311676Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25037-5
+  a curric:KeyLearningPoint ;
+  rdfs:label """Food skills can be assessed for accuracy and precision, highlighting areas of
+  further development."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.311680Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25027-1
+  a curric:KeyLearningPoint ;
+  rdfs:label """Chelsea buns date back to the 18th century and were created in the Chelsea area of
+  London by the Chelsea Bun House."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.345284Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25027-2
+  a curric:KeyLearningPoint ;
+  rdfs:label """Gluten, a protein, is formed from flour when liquid is added and the dough is
+  kneaded, making it elastic."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.345290Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25027-3
+  a curric:KeyLearningPoint ;
+  rdfs:label """The food skills used to make Chelsea buns include measuring, mixing, kneading,
+  rolling, cutting and using the oven."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.345295Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25027-4
+  a curric:KeyLearningPoint ;
+  rdfs:label """There are three main forms of heat transfer, which affect food in different
+  ways."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.345299Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25027-5
+  a curric:KeyLearningPoint ;
+  rdfs:label """A final dish can be judged by a set of success criteria, including sensory
+  attributes, cost and nutrition."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.345305Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25010-1
+  a curric:KeyLearningPoint ;
+  rdfs:label """The origins of carrot cake are from medieval cooking of puddings. It was revived due
+  to rationing in World War II."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.349445Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25010-2
+  a curric:KeyLearningPoint ;
+  rdfs:label """Cakes rise due to self-raising flour (chemical raising agent) and beaten eggs, with
+  the action of whisking (adding air)."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.349451Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25010-3
+  a curric:KeyLearningPoint ;
+  rdfs:label """Cakes cook in an oven via convection (circulation of hot air) and conduction (the
+  cake mix touching the metal tin)."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.349455Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25010-4
+  a curric:KeyLearningPoint ;
+  rdfs:label """The food skills used to make mini carrot cakes are measuring, grating, zesting,
+  juicing and using the oven (baking)."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.349461Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25010-5
+  a curric:KeyLearningPoint ;
+  rdfs:label """Ingredients in a recipe can be traced to their origins, such as flour from UK wheat,
+  or oranges from Spain."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.349466Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25007-1
+  a curric:KeyLearningPoint ;
+  rdfs:label """Aloo gobi is a vegetarian dish originating from India, comprising potato,
+  cauliflower and spices."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.351263Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25007-2
+  a curric:KeyLearningPoint ;
+  rdfs:label "The Eatwell Guide recommends to have a plant rich diet."@en ;
+  dcterms:modified "2026-06-07T15:30:29.351267Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25007-3
+  a curric:KeyLearningPoint ;
+  rdfs:label """UK cauliflower is grown and harvested all year. Frozen cauliflower could be used, as
+  this is often cheaper."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.351271Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25007-4
+  a curric:KeyLearningPoint ;
+  rdfs:label """The food skills used to make aloo gobi are measuring, peeling, cutting, stirring,
+  and using the hob (heat control)."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.351275Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25007-5
+  a curric:KeyLearningPoint ;
+  rdfs:label """The results from sensory tests and other feedback helps to justify future changes to
+  a recipe."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.351279Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25003-1
+  a curric:KeyLearningPoint ;
+  rdfs:label """Leeks are the national emblem of Wales, and are in season from September to March.
+  The soup is called Cawl Cennin."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.353726Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25003-2
+  a curric:KeyLearningPoint ;
+  rdfs:label """A recipe gives instructions of how to make a dish. It usually lists title,
+  ingredients, equipment and method."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.353731Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25003-3
+  a curric:KeyLearningPoint ;
+  rdfs:label """A blender purees the pieces of potato and leek into a smooth soup. Care must be
+  taken as the blades are sharp."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.353737Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25003-4
+  a curric:KeyLearningPoint ;
+  rdfs:label """The potatoes and leeks cook in the soup through the transfer of heat from the
+  liquid, known as convection."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.353741Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25003-5
+  a curric:KeyLearningPoint ;
+  rdfs:label """The food skills used to make a leek and potato soup are measuring, peeling, slicing,
+  using the hob and blending."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.353745Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25002-1
+  a curric:KeyLearningPoint ;
+  rdfs:label """Food is deeply ingrained in our cultural heritage by an ingredient, a national dish,
+  or traditions and celebrations."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.353802Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25002-2
+  a curric:KeyLearningPoint ;
+  rdfs:label """In specialist food rooms there are procedures that must be followed to ensure safe
+  and hygienic preparation and cooking."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.353806Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25002-3
+  a curric:KeyLearningPoint ;
+  rdfs:label """There are many different pieces of equipment available in specialist food rooms.
+  Some have specific functions and uses."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.353810Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25002-4
+  a curric:KeyLearningPoint ;
+  rdfs:label """The food skills used to make a mini deli salad are cutting (bridge hold and claw
+  grip techniques), grating and layering."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.353814Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25002-5
+  a curric:KeyLearningPoint ;
+  rdfs:label """Washing up and wiping work surfaces, prevents bacteria from spreading that could
+  cause food poisoning."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.353818Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25016-1
+  a curric:KeyLearningPoint ;
+  rdfs:label """Different pasta, vegetables and cheeses can be used. Cheese is made from milk, which
+  can be from a cow, sheep or goat."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.353922Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25016-2
+  a curric:KeyLearningPoint ;
+  rdfs:label """Recipes can be modified to help meet healthy eating messages, such as using reduced
+  fat cheese and adding extra veg."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.353925Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25016-3
+  a curric:KeyLearningPoint ;
+  rdfs:label """Starch granules in flour swell and thicken when in liquid and heated, a process
+  called gelatinisation."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.353929Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25016-4
+  a curric:KeyLearningPoint ;
+  rdfs:label """The food skills used to make mac & cheese are measuring, grating, slicing, using the
+  hob and grill and draining."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.353933Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25016-5
+  a curric:KeyLearningPoint ;
+  rdfs:label """Home-cooked and shop-bought dishes can be compared, such as cost, food skills,
+  convenience, taste and health."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.353937Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25023-1
+  a curric:KeyLearningPoint ;
+  rdfs:label """There are a wide range of cuisines, ingredients, cooking techniques and equipment
+  used around the world."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.356089Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25023-2
+  a curric:KeyLearningPoint ;
+  rdfs:label """58% of food consumption comes from the UK, 23% from the EU and 19% worldwide, due to
+  season, cost, climate and variety."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.356093Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25023-3
+  a curric:KeyLearningPoint ;
+  rdfs:label """Ingredients produced in the UK can be used to prepare a range of dishes, although
+  some ingredients need to be imported."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.356097Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25023-4
+  a curric:KeyLearningPoint ;
+  rdfs:label """There are advantages to buying food locally and seasonally in the UK, such as
+  reduced environmental impact and cost."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.356101Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25023-5
+  a curric:KeyLearningPoint ;
+  rdfs:label """Reducing the amount of food wasted at each stage of the farm to fork journey has
+  financial and environmental benefits."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.356105Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25012-1
+  a curric:KeyLearningPoint ;
+  rdfs:label """Uniquely, a Chicago pizza has a deep-dish crust, allowing for extra sauce and
+  toppings. It appeared in the USA in 1943."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.361527Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25012-2
+  a curric:KeyLearningPoint ;
+  rdfs:label """The baking dish or tin should be greased with oil and/or lined, acting as a barrier
+  to prevent sticking."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.361539Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25012-3
+  a curric:KeyLearningPoint ;
+  rdfs:label """The food skills used to make a Chicago style pizza are measuring, rubbing-in,
+  forming a dough, and using an oven."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.361543Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25012-4
+  a curric:KeyLearningPoint ;
+  rdfs:label """To make a dish more quickly, ready-made components can be used, e.g. ready grated
+  cheese, tomato topping, pizza base."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.361547Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25012-5
+  a curric:KeyLearningPoint ;
+  rdfs:label """We can judge independent and confident use of food skills when cooking and suggest
+  improvements for the future."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.361551Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25004-1
+  a curric:KeyLearningPoint ;
+  rdfs:label """Originating from China, yakisoba is now a staple in Japan. It is a popular street
+  food. 'Yaki' means cooked over heat."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.361608Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25004-2
+  a curric:KeyLearningPoint ;
+  rdfs:label "Good food hygiene is essential to reduce the risk of food poisoning."@en ;
+  dcterms:modified "2026-06-07T15:30:29.361614Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25004-3
+  a curric:KeyLearningPoint ;
+  rdfs:label """The food skills to make yakisoba are measuring, peeling, slicing, mixing and using
+  the hob (stir-frying)."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.361618Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25004-4
+  a curric:KeyLearningPoint ;
+  rdfs:label """Vegetables need to be cut to the same size to ensure even cooking (via conduction in
+  the frying pan or wok)."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.361622Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25004-5
+  a curric:KeyLearningPoint ;
+  rdfs:label """Sensory evaluation provides feedback about the appearance, odour, taste and texture
+  of a final dish."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.361625Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25014-1
+  a curric:KeyLearningPoint ;
+  rdfs:label """Burritos are from Mexico. Enchiladas are similar, different wrap and covered spicy
+  sauce, and chimichangas are fried."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.361675Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25014-2
+  a curric:KeyLearningPoint ;
+  rdfs:label """Beans form part of 5 A DAY, counting as a maximum of 1 portion, no matter how much
+  is eaten. A portion is 3 tablespoons."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.361679Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25014-3
+  a curric:KeyLearningPoint ;
+  rdfs:label """The food skills used to make cheesy bean burritos are measuring, grating, cutting,
+  mixing, folding and using the hob."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.361683Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25014-4
+  a curric:KeyLearningPoint ;
+  rdfs:label """Cross-contamination of bacteria, spread between food, surfaces, hands and/or
+  equipment, must be avoided."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.361687Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25014-5
+  a curric:KeyLearningPoint ;
+  rdfs:label """The energy and nutrients provided by a recipe can be calculated, and suggestions for
+  improvements made."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.361693Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25017-1
+  a curric:KeyLearningPoint ;
+  rdfs:label """Food and drinks provide energy and nutrients in different amounts, and have
+  important functions for health."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.364225Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25017-2
+  a curric:KeyLearningPoint ;
+  rdfs:label """Carbohydrate, protein and fat are macronutrients and have different functions and
+  sources. They provide energy."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.364229Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25017-3
+  a curric:KeyLearningPoint ;
+  rdfs:label """To maintain body weight we need to balance energy intake (from food and drink) with
+  energy expenditure (from activity)."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.364233Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25017-4
+  a curric:KeyLearningPoint ;
+  rdfs:label """Fibre is needed to keep our digestive system healthy. It is important to eat a
+  variety of fibre-containing foods."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.364237Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25017-5
+  a curric:KeyLearningPoint ;
+  rdfs:label """We need water for a variety of functions, such as regulating body temperature and
+  being physically active."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.364252Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25031-1
+  a curric:KeyLearningPoint ;
+  rdfs:label """The origins of falafel can be traced back to Egypt. They feature in Middle Eastern
+  cuisine and are based on chickpeas."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.364991Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25031-2
+  a curric:KeyLearningPoint ;
+  rdfs:label """Recipes and cooking methods can be modified to help meet current healthy eating
+  messages."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.364995Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25031-3
+  a curric:KeyLearningPoint ;
+  rdfs:label """The food skills used to make falafel include measuring, draining, using a food
+  processor and grill, and dividing."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.365004Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25031-4
+  a curric:KeyLearningPoint ;
+  rdfs:label """Any food allergy or intolerances must be considered, with recipes and ingredients
+  being adjusted accordingly."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.365008Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25031-5
+  a curric:KeyLearningPoint ;
+  rdfs:label """Food processors can chop, slice and grate large quantities of food quickly. Care
+  must be taken as the blades are sharp."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.365012Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25032-1
+  a curric:KeyLearningPoint ;
+  rdfs:label """Globally, food production produces around one-third of all greenhouse gas
+  emissions."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.366634Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25032-2
+  a curric:KeyLearningPoint ;
+  rdfs:label """The global population is expected to reach 10 billion by 2050, putting additional
+  pressure on food systems."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.366639Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25032-3
+  a curric:KeyLearningPoint ;
+  rdfs:label """Climate change can cause extreme or unusual weather, which can affect food
+  production and impact food security."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.366646Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25032-4
+  a curric:KeyLearningPoint ;
+  rdfs:label """The environmental impact of food varies, but there are principles that can be
+  followed for more sustainable diets."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.366650Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25032-5
+  a curric:KeyLearningPoint ;
+  rdfs:label """Sustainable diets are good for the planet and health, balancing nutrition,
+  environment and socio-economic factors."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.366654Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25033-1
+  a curric:KeyLearningPoint ;
+  rdfs:label """Street foods are world-wide, offering regional and international foods for immediate
+  consumption."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.385372Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25033-2
+  a curric:KeyLearningPoint ;
+  rdfs:label """80% of the fish consumed in the UK is from five species. We should have a wider
+  variety, including fish from UK waters."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.385376Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25033-3
+  a curric:KeyLearningPoint ;
+  rdfs:label "There are different quality assurance marks to help inform decisions, e.g. MSC."@en ;
+  dcterms:modified "2026-06-07T15:30:29.385380Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25033-4
+  a curric:KeyLearningPoint ;
+  rdfs:label """The food skills used to make fish wraps include measuring, mixing, coating, using
+  the oven and presenting."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.385384Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25033-5
+  a curric:KeyLearningPoint ;
+  rdfs:label """Fish is dipped in flour, egg and breadcrumbs to form a coat. Cooking coagulates the
+  egg adhering the crumbs to the fish."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.385388Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25022-1
+  a curric:KeyLearningPoint ;
+  rdfs:label """Cottage pie is usually made with beef and topped with potato, and dates to the 18th
+  century. Shepherd's pie uses lamb."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.387223Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25022-2
+  a curric:KeyLearningPoint ;
+  rdfs:label """To diversify protein sources, a mix of meat and beans, pulses and/or legumes can be
+  used. This also increases fibre."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.387227Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25022-3
+  a curric:KeyLearningPoint ;
+  rdfs:label """Bacteria can quickly spread betwee raw meat and hands. Before and after handling raw
+  meat, hands must be washed."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.387231Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25022-4
+  a curric:KeyLearningPoint ;
+  rdfs:label """The food skills used to make cottage pie include measuring, peeling, dicing,
+  mashing, piping, and using the hob/grill."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.387235Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25022-5
+  a curric:KeyLearningPoint ;
+  rdfs:label """There are a number potential sources of food safety/poisoning contamination when
+  storing, preparing and cooking food."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.387239Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25024-1
+  a curric:KeyLearningPoint ;
+  rdfs:label """The Victoria sponge, also known as cake, was named after Queen Victoria, and was
+  popular with afternoon tea."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.395961Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25024-2
+  a curric:KeyLearningPoint ;
+  rdfs:label """Cakes rise due to the action of creaming butter and sugar together, and the use of
+  self-raising flour and beaten eggs."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.395965Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25024-3
+  a curric:KeyLearningPoint ;
+  rdfs:label """The food skills used to make a cake are measuring, creaming, folding, portioning,
+  using an oven and spreading."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.395969Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25024-4
+  a curric:KeyLearningPoint ;
+  rdfs:label """Cakes baked in smaller tins and cases cook more quickly as the heat can transfer
+  more easily."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.395972Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25024-5
+  a curric:KeyLearningPoint ;
+  rdfs:label """Discrimination tests rate the intensity of sensory attributes and can be used to
+  compare similar dishes."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.395976Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25013-1
+  a curric:KeyLearningPoint ;
+  rdfs:label """Jollof rice is a popular rice dish from West Africa. There are regional variations,
+  such as from Nigeria and Ghana."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.395980Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25013-2
+  a curric:KeyLearningPoint ;
+  rdfs:label """Heat from the stock (water) cooks and softens the rice. The rice grains absorb water
+  and swell, making it soft to eat."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.396005Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25013-3
+  a curric:KeyLearningPoint ;
+  rdfs:label """The food skills used to make Jollof rice include: measuring, peeling, deseeding,
+  cutting, blending and using the hob."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.396061Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25013-4
+  a curric:KeyLearningPoint ;
+  rdfs:label """Sensory preference tests are used to evaluate food, highlighting likes and dislikes.
+  This can be used to improve work."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.396066Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25019-1
+  a curric:KeyLearningPoint ;
+  rdfs:label """Toad in the hole is a traditional English dish of sausages in Yorkshire pudding,
+  dating back to the 18th Century."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.396087Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25019-2
+  a curric:KeyLearningPoint ;
+  rdfs:label """The food skills used to make toad in the hole are measuring, cutting, whisking and
+  using the oven."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.396091Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25019-3
+  a curric:KeyLearningPoint ;
+  rdfs:label """The Eatwell Guide recommends choosing lean cuts of meat and to eat less processed
+  meat, like bacon, sausages and salami."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.396095Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25019-4
+  a curric:KeyLearningPoint ;
+  rdfs:label """Steam from milk and eggs makes the batter rise. The egg acts as an emulsifier,
+  binding the ingredients together."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.396099Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25036-1
+  a curric:KeyLearningPoint ;
+  rdfs:label """The origin of a Scotch egg are mixed: inspired by Indian koftas; invented for
+  travellers; and originating in London."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.400890Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25036-2
+  a curric:KeyLearningPoint ;
+  rdfs:label """Food is sometimes eaten on specific occasions, such as snacks, starters and picnics.
+  This might change over time."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.400894Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25036-3
+  a curric:KeyLearningPoint ;
+  rdfs:label """We should try to choose a range of protein foods, such as beans and pulses, as well
+  as meat."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.400899Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25036-4
+  a curric:KeyLearningPoint ;
+  rdfs:label """The food skills used to make Scotch eggs include measuring, using the hob and oven,
+  mixing, forming and coating."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.400903Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25036-5
+  a curric:KeyLearningPoint ;
+  rdfs:label """Consumers can appraise food labelling information for ingredients used, food
+  traceability, and animal welfare."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.400909Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25025-1
+  a curric:KeyLearningPoint ;
+  rdfs:label """Thai curry is a dish in Thai cuisine made from curry paste, coconut milk or water,
+  meat or fish, and vegetables."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.402276Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25025-2
+  a curric:KeyLearningPoint ;
+  rdfs:label "Food leftovers can be used in recipes safely, helping to reduce food waste."@en ;
+  dcterms:modified "2026-06-07T15:30:29.402280Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25025-3
+  a curric:KeyLearningPoint ;
+  rdfs:label """The food skills used to make a Thai curry are measuring, peeling, slicing, mixing,
+  using the hob and presenting."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.402286Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25025-4
+  a curric:KeyLearningPoint ;
+  rdfs:label """Ambient, fresh and frozen foods should be stored, cooked, chilled and/or reheated
+  properly to ensure food safety."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.402291Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25025-5
+  a curric:KeyLearningPoint ;
+  rdfs:label """Cooking technique and proficiency can be rated, allowing for improvements in the
+  future."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.402295Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25029-1
+  a curric:KeyLearningPoint ;
+  rdfs:label "Dietary needs change at key age and life stages."@en ;
+  dcterms:modified "2026-06-07T15:30:29.416325Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25029-2
+  a curric:KeyLearningPoint ;
+  rdfs:label """Some people have an allergy or intolerance to specific foods. 14 major allergens are
+  listed on food packaging."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.416329Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25029-3
+  a curric:KeyLearningPoint ;
+  rdfs:label """Portion sizes change through life. There are consequences of excess (servings of
+  food and their portion size)."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.416333Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25029-4
+  a curric:KeyLearningPoint ;
+  rdfs:label "Recipes and meals can be adapted for different dietary requirements."@en ;
+  dcterms:modified "2026-06-07T15:30:29.416337Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25006-1
+  a curric:KeyLearningPoint ;
+  rdfs:label "A diet is the food and drink that a person usually eats over a period of time."@en ;
+  dcterms:modified "2026-06-07T15:30:29.418971Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25006-2
+  a curric:KeyLearningPoint ;
+  rdfs:label """The Eatwell Guide and the 8 tips for healthy eating set out the principles for a
+  varied, balanced diet."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.418976Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25006-3
+  a curric:KeyLearningPoint ;
+  rdfs:label """There is a suggested number of daily portions needed from each Eatwell Guide food
+  group."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.418980Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25006-4
+  a curric:KeyLearningPoint ;
+  rdfs:label """Portion size is an amount of food eaten. While the types of food we need are
+  similar, the amount we needed varies."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.418984Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25006-5
+  a curric:KeyLearningPoint ;
+  rdfs:label """The Eatwell Guide, 8 tips, and food portion and size, can be used to evaluate and
+  justify healthier changes to a diet."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.418988Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25020-1
+  a curric:KeyLearningPoint ;
+  rdfs:label """The Eatwell Guide has a 32% lower environmental footprint than the current national
+  diet."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.421888Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25020-2
+  a curric:KeyLearningPoint ;
+  rdfs:label "Recipes can be modified to support healthier and more sustainable diets."@en ;
+  dcterms:modified "2026-06-07T15:30:29.421892Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25020-3
+  a curric:KeyLearningPoint ;
+  rdfs:label """We should all follow the Eatwell Guide, have a more plant-rich diet, and diversify
+  sources of protein."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.421896Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25020-4
+  a curric:KeyLearningPoint ;
+  rdfs:label """We should limit foods high in fat, salt and sugar; choose sustainable fish; and
+  waste less food and drink."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.421900Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25020-5
+  a curric:KeyLearningPoint ;
+  rdfs:label """Reducing the amount of food waste at each stage of the 'farm to fork' journey has
+  financial and environmental benefits."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.421905Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25008-1
+  a curric:KeyLearningPoint ;
+  rdfs:label """All food produced, processed and consumed around the world must be grown, reared or
+  caught."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.423047Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25008-2
+  a curric:KeyLearningPoint ;
+  rdfs:label """Food is sourced, processed and sold in different ways, helping to ensure it is
+  edible and safe to eat."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.423051Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25008-3
+  a curric:KeyLearningPoint ;
+  rdfs:label """Dishes and meals can be traced back to their food origins, including geographic
+  location and season."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.423056Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25008-4
+  a curric:KeyLearningPoint ;
+  rdfs:label """Food labels must show where the food originates. Other labels may be added for
+  additional assurances, e.g. Red Tractor."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.423060Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25008-5
+  a curric:KeyLearningPoint ;
+  rdfs:label """Ingredients in a recipe can be modified for origin, such as location, farming
+  practice and ethics."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.423064Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25018-1
+  a curric:KeyLearningPoint ;
+  rdfs:label """Vitamins and minerals are known as micronutrients. They are needed in small amounts
+  compared to macronutrients."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.602176Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25018-2
+  a curric:KeyLearningPoint ;
+  rdfs:label """Our diet provides vitamins and minerals, except vitamin D, which we make in our skin
+  when exposed to sunlight."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.602180Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25018-3
+  a curric:KeyLearningPoint ;
+  rdfs:label """Vitamins include A, C and D, and the minerals include calcium and iron. They have
+  different functions and food sources."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.602184Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25018-4
+  a curric:KeyLearningPoint ;
+  rdfs:label """Energy and nutrients provided by a recipe can be calculated, and changes can be made
+  to improve health."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.602188Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25035-1
+  a curric:KeyLearningPoint ;
+  rdfs:label """Food is deeply ingrained in cultural identity, passing on intangible cultural
+  heritage from generation to generation."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.606174Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25035-2
+  a curric:KeyLearningPoint ;
+  rdfs:label """Food culture is the set of beliefs, attitudes, and practices related to producing
+  and consuming food, which can change."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.606179Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25035-3
+  a curric:KeyLearningPoint ;
+  rdfs:label """Traditional food, cooking and customs form cultural identity, representing our
+  heritage, history and values."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.606185Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25035-4
+  a curric:KeyLearningPoint ;
+  rdfs:label """Food plays a significant role in social interactions and rituals, often being
+  associated to celebrations and gatherings."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.606189Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25035-5
+  a curric:KeyLearningPoint ;
+  rdfs:label """Chefs and others take inspiration from their own food culture, and others, creating
+  dishes and honouring heritage."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.606193Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25005-1
+  a curric:KeyLearningPoint ;
+  rdfs:label """The Eatwell Guide depicts the food and drinks required for a healthy, balanced diet,
+  as well as foods to restrict."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.616761Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25005-2
+  a curric:KeyLearningPoint ;
+  rdfs:label """We need a variety of foods in each food group to provide a range of nutrients which
+  have different functions."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.616765Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25005-3
+  a curric:KeyLearningPoint ;
+  rdfs:label """When choosing food and drinks, current healthy eating and drinking guidelines should
+  be followed."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.616769Z"^^xsd:dateTime .
+
+oakcurric:keylearningpoint-lesson-25005-4
+  a curric:KeyLearningPoint ;
+  rdfs:label """Food labels on packaged foods should be checked, choosing those lower in fat, salt
+  and sugars."""@en ;
+  dcterms:modified "2026-06-07T15:30:29.616774Z"^^xsd:dateTime .
+
+# ----------------------------------------------------------------------
+# Pupil Lesson Outcomes
+# ----------------------------------------------------------------------
+
+oakcurric:pupillessonoutcome-lesson-25028
+  a curric:PupilLessonOutcome ;
+  rdfs:label "I can use food skills to make sweet & sour fakeaway."@en ;
+  dcterms:modified "2026-06-07T15:30:41.069598Z"^^xsd:dateTime .
+
+oakcurric:pupillessonoutcome-lesson-25034
+  a curric:PupilLessonOutcome ;
+  rdfs:label "I can use food skills to make bang bang veg, with an Asian slaw!"@en ;
+  dcterms:modified "2026-06-07T15:30:41.069610Z"^^xsd:dateTime .
+
+oakcurric:pupillessonoutcome-lesson-25011
+  a curric:PupilLessonOutcome ;
+  rdfs:label "I can identify and explain the different factors that affect food choice."@en ;
+  dcterms:modified "2026-06-07T15:30:41.070060Z"^^xsd:dateTime .
+
+oakcurric:pupillessonoutcome-lesson-25021
+  a curric:PupilLessonOutcome ;
+  rdfs:label "I can use food skills to make mushroom bean burgers, with flatbreads."@en ;
+  dcterms:modified "2026-06-07T15:30:41.070973Z"^^xsd:dateTime .
+
+oakcurric:pupillessonoutcome-lesson-25030
+  a curric:PupilLessonOutcome ;
+  rdfs:label "I can describe how diets can be changed for health."@en ;
+  dcterms:modified "2026-06-07T15:30:41.071391Z"^^xsd:dateTime .
+
+oakcurric:pupillessonoutcome-lesson-25015
+  a curric:PupilLessonOutcome ;
+  rdfs:label "I can use food skills to make herby focaccia."@en ;
+  dcterms:modified "2026-06-07T15:30:41.072692Z"^^xsd:dateTime .
+
+oakcurric:pupillessonoutcome-lesson-25009
+  a curric:PupilLessonOutcome ;
+  rdfs:label "I can use food skills to make veggie tarts."@en ;
+  dcterms:modified "2026-06-07T15:30:41.073793Z"^^xsd:dateTime .
+
+oakcurric:pupillessonoutcome-lesson-25026
+  a curric:PupilLessonOutcome ;
+  rdfs:label "I can use food skills to make a sweet potato katsu curry."@en ;
+  dcterms:modified "2026-06-07T15:30:41.076320Z"^^xsd:dateTime .
+
+oakcurric:pupillessonoutcome-lesson-25037
+  a curric:PupilLessonOutcome ;
+  rdfs:label "I can use food skills to make jerk veg and black bean curry, with rice and peas."@en ;
+  dcterms:modified "2026-06-07T15:30:41.077922Z"^^xsd:dateTime .
+
+oakcurric:pupillessonoutcome-lesson-25027
+  a curric:PupilLessonOutcome ;
+  rdfs:label "I can use food skills to make Chelsea buns."@en ;
+  dcterms:modified "2026-06-07T15:30:41.085624Z"^^xsd:dateTime .
+
+oakcurric:pupillessonoutcome-lesson-25010
+  a curric:PupilLessonOutcome ;
+  rdfs:label """I can use food skills to make mini carrot & orange cakes, using the all-in-one
+  method."""@en ;
+  dcterms:modified "2026-06-07T15:30:41.086539Z"^^xsd:dateTime .
+
+oakcurric:pupillessonoutcome-lesson-25007
+  a curric:PupilLessonOutcome ;
+  rdfs:label "I can use food skills to make aloo gobi."@en ;
+  dcterms:modified "2026-06-07T15:30:41.086960Z"^^xsd:dateTime .
+
+oakcurric:pupillessonoutcome-lesson-25003
+  a curric:PupilLessonOutcome ;
+  rdfs:label "I can use food skills to make leek and potato soup."@en ;
+  dcterms:modified "2026-06-07T15:30:41.087419Z"^^xsd:dateTime .
+
+oakcurric:pupillessonoutcome-lesson-25002
+  a curric:PupilLessonOutcome ;
+  rdfs:label "I can make a mini deli salad in my new food room."@en ;
+  dcterms:modified "2026-06-07T15:30:41.087437Z"^^xsd:dateTime .
+
+oakcurric:pupillessonoutcome-lesson-25016
+  a curric:PupilLessonOutcome ;
+  rdfs:label "I can use food skills to make green mac & cheese, making a roux sauce."@en ;
+  dcterms:modified "2026-06-07T15:30:41.087462Z"^^xsd:dateTime .
+
+oakcurric:pupillessonoutcome-lesson-25023
+  a curric:PupilLessonOutcome ;
+  rdfs:label "I can locate the origin of ingredients for different worldwide cuisines."@en ;
+  dcterms:modified "2026-06-07T15:30:41.087988Z"^^xsd:dateTime .
+
+oakcurric:pupillessonoutcome-lesson-25012
+  a curric:PupilLessonOutcome ;
+  rdfs:label "I can use food skills to make a Chicago style pizza, using a scone based dough."@en ;
+  dcterms:modified "2026-06-07T15:30:41.089067Z"^^xsd:dateTime .
+
+oakcurric:pupillessonoutcome-lesson-25004
+  a curric:PupilLessonOutcome ;
+  rdfs:label "I can use food skills to make yakisoba noodles."@en ;
+  dcterms:modified "2026-06-07T15:30:41.089083Z"^^xsd:dateTime .
+
+oakcurric:pupillessonoutcome-lesson-25014
+  a curric:PupilLessonOutcome ;
+  rdfs:label "I can use food skills to make cheesy bean burritos."@en ;
+  dcterms:modified "2026-06-07T15:30:41.089095Z"^^xsd:dateTime .
+
+oakcurric:pupillessonoutcome-lesson-25017
+  a curric:PupilLessonOutcome ;
+  rdfs:label "I can explain why macronutrients, fibre and water are needed for health."@en ;
+  dcterms:modified "2026-06-07T15:30:41.089696Z"^^xsd:dateTime .
+
+oakcurric:pupillessonoutcome-lesson-25031
+  a curric:PupilLessonOutcome ;
+  rdfs:label "I can use food skills to make pea and mint falafel, and tzatziki."@en ;
+  dcterms:modified "2026-06-07T15:30:41.089918Z"^^xsd:dateTime .
+
+oakcurric:pupillessonoutcome-lesson-25032
+  a curric:PupilLessonOutcome ;
+  rdfs:label "I can critique the global food challenges we all face."@en ;
+  dcterms:modified "2026-06-07T15:30:41.090238Z"^^xsd:dateTime .
+
+oakcurric:pupillessonoutcome-lesson-25033
+  a curric:PupilLessonOutcome ;
+  rdfs:label "I can use food skills to make fish strips street wraps."@en ;
+  dcterms:modified "2026-06-07T15:30:41.095184Z"^^xsd:dateTime .
+
+oakcurric:pupillessonoutcome-lesson-25022
+  a curric:PupilLessonOutcome ;
+  rdfs:label "I can use food skills to make a beef and lentil cottage pie."@en ;
+  dcterms:modified "2026-06-07T15:30:41.095677Z"^^xsd:dateTime .
+
+oakcurric:pupillessonoutcome-lesson-25024
+  a curric:PupilLessonOutcome ;
+  rdfs:label "I can use food skills to make mini Victoria sponges."@en ;
+  dcterms:modified "2026-06-07T15:30:41.098008Z"^^xsd:dateTime .
+
+oakcurric:pupillessonoutcome-lesson-25013
+  a curric:PupilLessonOutcome ;
+  rdfs:label "I can use food skills to make Jollof rice."@en ;
+  dcterms:modified "2026-06-07T15:30:41.098030Z"^^xsd:dateTime .
+
+oakcurric:pupillessonoutcome-lesson-25019
+  a curric:PupilLessonOutcome ;
+  rdfs:label "I can use food skills to make toad in the hole."@en ;
+  dcterms:modified "2026-06-07T15:30:41.098038Z"^^xsd:dateTime .
+
+oakcurric:pupillessonoutcome-lesson-25036
+  a curric:PupilLessonOutcome ;
+  rdfs:label "I can use food skills to make Scotch eggs, with a dipping sauce."@en ;
+  dcterms:modified "2026-06-07T15:30:41.099231Z"^^xsd:dateTime .
+
+oakcurric:pupillessonoutcome-lesson-25025
+  a curric:PupilLessonOutcome ;
+  rdfs:label "I can use food skills to make a Thai curry."@en ;
+  dcterms:modified "2026-06-07T15:30:41.099613Z"^^xsd:dateTime .
+
+oakcurric:pupillessonoutcome-lesson-25029
+  a curric:PupilLessonOutcome ;
+  rdfs:label "I can plan meals for different dietary requirements, with justification."@en ;
+  dcterms:modified "2026-06-07T15:30:41.103103Z"^^xsd:dateTime .
+
+oakcurric:pupillessonoutcome-lesson-25006
+  a curric:PupilLessonOutcome ;
+  rdfs:label "I can evaluate a diet and justify changes for health."@en ;
+  dcterms:modified "2026-06-07T15:30:41.104263Z"^^xsd:dateTime .
+
+oakcurric:pupillessonoutcome-lesson-25020
+  a curric:PupilLessonOutcome ;
+  rdfs:label "I can identify ways diets can be healthier and more sustainable."@en ;
+  dcterms:modified "2026-06-07T15:30:41.104864Z"^^xsd:dateTime .
+
+oakcurric:pupillessonoutcome-lesson-25008
+  a curric:PupilLessonOutcome ;
+  rdfs:label "I can describe the food origins of ingredients in dishes and meals."@en ;
+  dcterms:modified "2026-06-07T15:30:41.105110Z"^^xsd:dateTime .
+
+oakcurric:pupillessonoutcome-lesson-25018
+  a curric:PupilLessonOutcome ;
+  rdfs:label "I can name different micronutrients and explain their function and food sources."@en ;
+  dcterms:modified "2026-06-07T15:30:41.112281Z"^^xsd:dateTime .
+
+oakcurric:pupillessonoutcome-lesson-25035
+  a curric:PupilLessonOutcome ;
+  rdfs:label "I can describe a range of food cultures and customs."@en ;
+  dcterms:modified "2026-06-07T15:30:41.113114Z"^^xsd:dateTime .
+
+oakcurric:pupillessonoutcome-lesson-25005
+  a curric:PupilLessonOutcome ;
+  rdfs:label "I can use the Eatwell Guide and food labels to plan healthy meals."@en ;
+  dcterms:modified "2026-06-07T15:30:41.115365Z"^^xsd:dateTime .
+
+# ----------------------------------------------------------------------
+# Keywords
+# ----------------------------------------------------------------------
+
+oakcurric:keyword-criteria
+  a curric:Keyword ;
+  schema:name "criteria"@en ;
+  schema:description "the rules or guidelines used to judge or decide something"@en ;
+  dcterms:modified "2026-06-07T15:30:02.347905Z"^^xsd:dateTime .
+
+oakcurric:keyword-bacteria
+  a curric:Keyword ;
+  schema:name "bacteria"@en ;
+  schema:description "Bacteria are single-celled prokaryotes."@en ;
+  dcterms:modified "2026-06-07T15:30:02.349433Z"^^xsd:dateTime .
+
+oakcurric:keyword-climate-change
+  a curric:Keyword ;
+  schema:name "climate change"@en ;
+  schema:description "a long-term change in Earth’s climate patterns"@en ;
+  dcterms:modified "2026-06-07T15:30:02.350396Z"^^xsd:dateTime .
+
+oakcurric:keyword-sustainable
+  a curric:Keyword ;
+  schema:name "sustainable"@en ;
+  schema:description """development that meets the needs of people today without damaging the
+  environment or reducing resources for future generations"""@en ;
+  dcterms:modified "2026-06-07T15:30:02.352314Z"^^xsd:dateTime .
+
+oakcurric:keyword-component
+  a curric:Keyword ;
+  schema:name "component"@en ;
+  schema:description "A component refers to a part of something, e.g. a tyre on a car."@en ;
+  dcterms:modified "2026-06-07T15:30:02.353929Z"^^xsd:dateTime .
+
+oakcurric:keyword-function
+  a curric:Keyword ;
+  schema:name "function"@en ;
+  schema:description "the purpose of the product"@en ;
+  dcterms:modified "2026-06-07T15:30:02.354479Z"^^xsd:dateTime .
+
+oakcurric:keyword-food-security
+  a curric:Keyword ;
+  schema:name "food security"@en ;
+  schema:description """when people lack secure access to sufficient amounts of safe and nutritious
+  food for normal growth and development and an active and healthy life"""@en ;
+  dcterms:modified "2026-06-07T15:30:02.357146Z"^^xsd:dateTime .
+
+oakcurric:keyword-carbon-dioxide
+  a curric:Keyword ;
+  schema:name "carbon dioxide"@en ;
+  schema:description """a compound with molecules that each contain one carbon atom and two oxygen
+  atoms"""@en ;
+  dcterms:modified "2026-06-07T15:30:02.358478Z"^^xsd:dateTime .
+
+oakcurric:keyword-energy
+  a curric:Keyword ;
+  schema:name "energy"@en ;
+  schema:description "the ability to perform activities and sustain effort"@en ;
+  dcterms:modified "2026-06-07T15:30:02.358670Z"^^xsd:dateTime .
+
+oakcurric:keyword-hydration
+  a curric:Keyword ;
+  schema:name "hydration"@en ;
+  schema:description """having the appropriate level of water in the body for it to function
+  optimally, when this level of water falls below optimal levels it is referred to as
+  dehydration"""@en ;
+  dcterms:modified "2026-06-07T15:30:02.358675Z"^^xsd:dateTime .
+
+oakcurric:keyword-import
+  a curric:Keyword ;
+  schema:name "import"@en ;
+  schema:description "goods and services brought in from another country"@en ;
+  dcterms:modified "2026-06-07T15:30:02.361160Z"^^xsd:dateTime .
+
+oakcurric:keyword-export
+  a curric:Keyword ;
+  schema:name "export"@en ;
+  schema:description "goods and services sold to another country"@en ;
+  dcterms:modified "2026-06-07T15:30:02.361164Z"^^xsd:dateTime .
+
+oakcurric:keyword-convection
+  a curric:Keyword ;
+  schema:name "convection"@en ;
+  schema:description """the transfer of heat through the movement of fluids: warmer, less dense
+  material rises and cooler, denser material sinks, creating a circular flow"""@en ;
+  dcterms:modified "2026-06-07T15:30:02.363039Z"^^xsd:dateTime .
+
+oakcurric:keyword-culture
+  a curric:Keyword ;
+  schema:name "culture"@en ;
+  schema:description "the shared ideas, customs, and art of a group of people"@en ;
+  dcterms:modified "2026-06-07T15:30:02.364173Z"^^xsd:dateTime .
+
+oakcurric:keyword-cuisine
+  a curric:Keyword ;
+  schema:name "cuisine"@en ;
+  schema:description "a style or method of cooking in a certain country or region"@en ;
+  dcterms:modified "2026-06-07T15:30:02.364698Z"^^xsd:dateTime .
+
+oakcurric:keyword-diet
+  a curric:Keyword ;
+  schema:name "diet"@en ;
+  schema:description "all the food and drink we consume"@en ;
+  dcterms:modified "2026-06-07T15:30:02.364710Z"^^xsd:dateTime .
+
+oakcurric:keyword-fakeaway
+  a curric:Keyword ;
+  schema:name "fakeaway"@en ;
+  schema:description "a meal that looks and tastes like a takeaway, but is made at home"@en ;
+  dcterms:modified "2026-06-07T15:30:02.364874Z"^^xsd:dateTime .
+
+oakcurric:keyword-cornflour
+  a curric:Keyword ;
+  schema:name "cornflour"@en ;
+  schema:description "finely ground maize, used for thickening sauces"@en ;
+  dcterms:modified "2026-06-07T15:30:02.364879Z"^^xsd:dateTime .
+
+oakcurric:keyword-4cs
+  a curric:Keyword ;
+  schema:name "4Cs"@en ;
+  schema:description """an acronym that highlights fours areas of food hygiene: cleaning, cooking,
+  chilling and cross-contamination"""@en ;
+  dcterms:modified "2026-06-07T15:30:02.364884Z"^^xsd:dateTime .
+
+oakcurric:keyword-gelatinisation
+  a curric:Keyword ;
+  schema:name "gelatinisation"@en ;
+  schema:description """the process of starch absorbing liquid and swelling, causing a sauce to
+  thicken"""@en ;
+  dcterms:modified "2026-06-07T15:30:02.364888Z"^^xsd:dateTime .
+
+oakcurric:keyword-sichuan
+  a curric:Keyword ;
+  schema:name "Sichuan"@en ;
+  schema:description "a province in Southwestern China"@en ;
+  dcterms:modified "2026-06-07T15:30:02.364905Z"^^xsd:dateTime .
+
+oakcurric:keyword-florets
+  a curric:Keyword ;
+  schema:name "florets"@en ;
+  schema:description "flowering stems that make up a head of cauliflower or broccoli"@en ;
+  dcterms:modified "2026-06-07T15:30:02.364909Z"^^xsd:dateTime .
+
+oakcurric:keyword-preference-tests
+  a curric:Keyword ;
+  schema:name "preference tests"@en ;
+  schema:description "tests that supply information about people's likes and dislikes of foods"@en ;
+  dcterms:modified "2026-06-07T15:30:02.364914Z"^^xsd:dateTime .
+
+oakcurric:keyword-discrimination-tests
+  a curric:Keyword ;
+  schema:name "discrimination tests"@en ;
+  schema:description """tests aim to evaluate specific sensory attributes of foods, e.g.
+  crunchiness"""@en ;
+  dcterms:modified "2026-06-07T15:30:02.364919Z"^^xsd:dateTime .
+
+oakcurric:keyword-membrane
+  a curric:Keyword ;
+  schema:name "membrane"@en ;
+  schema:description "a thin sheet of tissue or layer of cells acting as a lining or partition"@en ;
+  dcterms:modified "2026-06-07T15:30:02.364923Z"^^xsd:dateTime .
+
+oakcurric:keyword-factors
+  a curric:Keyword ;
+  schema:name "factors"@en ;
+  schema:description """a fact or influence that affects what food people decide to buy, cook and/or
+  eat"""@en ;
+  dcterms:modified "2026-06-07T15:30:02.366200Z"^^xsd:dateTime .
+
+oakcurric:keyword-food-choice
+  a curric:Keyword ;
+  schema:name "food choice"@en ;
+  schema:description "what food people decide to buy, cook and/or eat"@en ;
+  dcterms:modified "2026-06-07T15:30:02.366205Z"^^xsd:dateTime .
+
+oakcurric:keyword-informed
+  a curric:Keyword ;
+  schema:name "informed"@en ;
+  schema:description "to make a decision based on having knowledge of a subject"@en ;
+  dcterms:modified "2026-06-07T15:30:02.366209Z"^^xsd:dateTime .
+
+oakcurric:keyword-obesity
+  a curric:Keyword ;
+  schema:name "obesity"@en ;
+  schema:description """people with large fat content, a body mass index (BMI) of over 30 or over
+  20% weight for height ratio"""@en ;
+  dcterms:modified "2026-06-07T15:30:02.366242Z"^^xsd:dateTime .
+
+oakcurric:keyword-nutrition-information
+  a curric:Keyword ;
+  schema:name "nutrition information"@en ;
+  schema:description "information about the energy and nutrients provided by a food"@en ;
+  dcterms:modified "2026-06-07T15:30:02.368282Z"^^xsd:dateTime .
+
+oakcurric:keyword-informed-choice
+  a curric:Keyword ;
+  schema:name "informed choice"@en ;
+  schema:description """making a decision, based on your needs, when you have the information or
+  knowledge to guide you"""@en ;
+  dcterms:modified "2026-06-07T15:30:02.368287Z"^^xsd:dateTime .
+
+oakcurric:keyword-dovetailing
+  a curric:Keyword ;
+  schema:name "dovetailing"@en ;
+  schema:description "tasks fit together easily, resulting in a better use of time"@en ;
+  dcterms:modified "2026-06-07T15:30:02.368291Z"^^xsd:dateTime .
+
+oakcurric:keyword-creaming
+  a curric:Keyword ;
+  schema:name "creaming"@en ;
+  schema:description "to mix fat (baking spread) and sugar together to add air"@en ;
+  dcterms:modified "2026-06-07T15:30:02.368308Z"^^xsd:dateTime .
+
+oakcurric:keyword-recipe
+  a curric:Keyword ;
+  schema:name "recipe"@en ;
+  schema:description "a set of instructions for preparing a particular dish"@en ;
+  dcterms:modified "2026-06-07T15:30:02.368581Z"^^xsd:dateTime .
+
+oakcurric:keyword-malnutrition
+  a curric:Keyword ;
+  schema:name "malnutrition"@en ;
+  schema:description """intakes of energy and/or nutrients below or in excess of needs for long
+  periods of time"""@en ;
+  dcterms:modified "2026-06-07T15:30:02.369053Z"^^xsd:dateTime .
+
+oakcurric:keyword-undernutrition
+  a curric:Keyword ;
+  schema:name "undernutrition"@en ;
+  schema:description "having an intake of energy and/or nutrients below what is needed"@en ;
+  dcterms:modified "2026-06-07T15:30:02.369058Z"^^xsd:dateTime .
+
+oakcurric:keyword-overnutrition
+  a curric:Keyword ;
+  schema:name "overnutrition"@en ;
+  schema:description "having an intake of energy above what is needed"@en ;
+  dcterms:modified "2026-06-07T15:30:02.369062Z"^^xsd:dateTime .
+
+oakcurric:keyword-coronary-heart-disease
+  a curric:Keyword ;
+  schema:name "coronary heart disease"@en ;
+  schema:description """a health condition caused by the narrowing of the blood vessels to
+  the heart"""@en ;
+  dcterms:modified "2026-06-07T15:30:02.369067Z"^^xsd:dateTime .
+
+oakcurric:keyword-species
+  a curric:Keyword ;
+  schema:name "species"@en ;
+  schema:description """A species is a group of animals or plants that are similar and can have
+  babies together."""@en ;
+  dcterms:modified "2026-06-07T15:30:02.369570Z"^^xsd:dateTime .
+
+oakcurric:keyword-minerals
+  a curric:Keyword ;
+  schema:name "minerals"@en ;
+  schema:description "Plants need chemicals called minerals to stay healthy and grow."@en ;
+  dcterms:modified "2026-06-07T15:30:02.370861Z"^^xsd:dateTime .
+
+oakcurric:keyword-produced
+  a curric:Keyword ;
+  schema:name "produced"@en ;
+  schema:description "the process of growing, rearing or catching of food"@en ;
+  dcterms:modified "2026-06-07T15:30:02.370959Z"^^xsd:dateTime .
+
+oakcurric:keyword-processed
+  a curric:Keyword ;
+  schema:name "processed"@en ;
+  schema:description "foods that have been changed into ingredients or dishes"@en ;
+  dcterms:modified "2026-06-07T15:30:02.370963Z"^^xsd:dateTime .
+
+oakcurric:keyword-absorb
+  a curric:Keyword ;
+  schema:name "absorb"@en ;
+  schema:description "To absorb is to soak something up."@en ;
+  dcterms:modified "2026-06-07T15:30:02.371316Z"^^xsd:dateTime .
+
+oakcurric:keyword-focaccia
+  a curric:Keyword ;
+  schema:name "focaccia"@en ;
+  schema:description "a traditional bread from Italy"@en ;
+  dcterms:modified "2026-06-07T15:30:02.371469Z"^^xsd:dateTime .
+
+oakcurric:keyword-yeast
+  a curric:Keyword ;
+  schema:name "yeast"@en ;
+  schema:description "a microorganism that can produce carbon dioxide"@en ;
+  dcterms:modified "2026-06-07T15:30:02.371476Z"^^xsd:dateTime .
+
+oakcurric:keyword-knead
+  a curric:Keyword ;
+  schema:name "knead"@en ;
+  schema:description "to mix a bread dough until it is smooth and elastic"@en ;
+  dcterms:modified "2026-06-07T15:30:02.371481Z"^^xsd:dateTime .
+
+oakcurric:keyword-coeliac-disease
+  a curric:Keyword ;
+  schema:name "coeliac disease"@en ;
+  schema:description """a reaction to gluten (a protein), which is found in wheat, barley
+  and rye"""@en ;
+  dcterms:modified "2026-06-07T15:30:02.371488Z"^^xsd:dateTime .
+
+oakcurric:keyword-dough
+  a curric:Keyword ;
+  schema:name "dough"@en ;
+  schema:description "a mix of flour and water or milk"@en ;
+  dcterms:modified "2026-06-07T15:30:02.372607Z"^^xsd:dateTime .
+
+oakcurric:keyword-diverse
+  a curric:Keyword ;
+  schema:name "diverse"@en ;
+  schema:description """when a group has people with different backgrounds, experiences &
+  perspectives; this can be differences in nationality, ethnicity, culture, religion,
+  language, ability, identity, interests & skills"""@en ;
+  dcterms:modified "2026-06-07T15:30:02.373258Z"^^xsd:dateTime .
+
+oakcurric:keyword-cooking-technique
+  a curric:Keyword ;
+  schema:name "cooking technique"@en ;
+  schema:description """a method or procedure used to prepare and cook food to make it edible and
+  safe"""@en ;
+  dcterms:modified "2026-06-07T15:30:02.374268Z"^^xsd:dateTime .
+
+oakcurric:keyword-quiche
+  a curric:Keyword ;
+  schema:name "quiche"@en ;
+  schema:description "a savoury tart; a pastry crust and a savoury egg/cream filling"@en ;
+  dcterms:modified "2026-06-07T15:30:02.374275Z"^^xsd:dateTime .
+
+oakcurric:keyword-shortcrust
+  a curric:Keyword ;
+  schema:name "shortcrust"@en ;
+  schema:description "a type of traditional pastry used for tarts, pies and flans"@en ;
+  dcterms:modified "2026-06-07T15:30:02.374280Z"^^xsd:dateTime .
+
+oakcurric:keyword-coagulation
+  a curric:Keyword ;
+  schema:name "coagulation"@en ;
+  schema:description "the process of changing a liquid to a solid"@en ;
+  dcterms:modified "2026-06-07T15:30:02.374285Z"^^xsd:dateTime .
+
+oakcurric:keyword-budget
+  a curric:Keyword ;
+  schema:name "budget"@en ;
+  schema:description "an amount of money planned to be spent"@en ;
+  dcterms:modified "2026-06-07T15:30:02.374741Z"^^xsd:dateTime .
+
+oakcurric:keyword-macronutrients
+  a curric:Keyword ;
+  schema:name "macronutrients"@en ;
+  schema:description """the nutrients needed in large amounts by the body, including carbohydrates,
+  proteins and fats"""@en ;
+  dcterms:modified "2026-06-07T15:30:02.375737Z"^^xsd:dateTime .
+
+oakcurric:keyword-micronutrients
+  a curric:Keyword ;
+  schema:name "micronutrients"@en ;
+  schema:description "the vitamins and minerals needed by the body in small amounts"@en ;
+  dcterms:modified "2026-06-07T15:30:02.375741Z"^^xsd:dateTime .
+
+oakcurric:keyword-cross-contamination
+  a curric:Keyword ;
+  schema:name "cross-contamination"@en ;
+  schema:description "the process by which bacteria are transferred from one place to another"@en ;
+  dcterms:modified "2026-06-07T15:30:02.377377Z"^^xsd:dateTime .
+
+oakcurric:keyword-katsu
+  a curric:Keyword ;
+  schema:name "katsu"@en ;
+  schema:description """an abbreviation for the word of a pork ‘cutlet’ in Japanese (katsuretsu,
+  カツレツ)"""@en ;
+  dcterms:modified "2026-06-07T15:30:02.378517Z"^^xsd:dateTime .
+
+oakcurric:keyword-plant-rich
+  a curric:Keyword ;
+  schema:name "plant rich"@en ;
+  schema:description """a diet that comprises lots of fruit, vegetables, cereals, beans, legumes,
+  seeds and nuts"""@en ;
+  dcterms:modified "2026-06-07T15:30:02.378524Z"^^xsd:dateTime .
+
+oakcurric:keyword-personal-hygiene
+  a curric:Keyword ;
+  schema:name "personal hygiene"@en ;
+  schema:description """steps taken to prevent cross-contamination and reduce the risk of food
+  poisoning"""@en ;
+  dcterms:modified "2026-06-07T15:30:02.378529Z"^^xsd:dateTime .
+
+oakcurric:keyword-kneading
+  a curric:Keyword ;
+  schema:name "kneading"@en ;
+  schema:description "the process of pulling, folding and stretching the dough"@en ;
+  dcterms:modified "2026-06-07T15:30:02.380580Z"^^xsd:dateTime .
+
+oakcurric:keyword-jerk
+  a curric:Keyword ;
+  schema:name "jerk"@en ;
+  schema:description """a cooking style from the Taíno people, the indigenous (original) people of
+  Jamaica"""@en ;
+  dcterms:modified "2026-06-07T15:30:02.380633Z"^^xsd:dateTime .
+
+oakcurric:keyword-saut
+  a curric:Keyword ;
+  schema:name "sauté"@en ;
+  schema:description """a type of frying, a way of cooking food quickly in a small amount of oil in
+  a shallow pan (over a medium to high heat)"""@en ;
+  dcterms:modified "2026-06-07T15:30:02.380639Z"^^xsd:dateTime .
+
+oakcurric:keyword-timeplan
+  a curric:Keyword ;
+  schema:name "timeplan"@en ;
+  schema:description """a schedule that outlines a sequence of events or tasks with specific time
+  allocations"""@en ;
+  dcterms:modified "2026-06-07T15:30:02.380644Z"^^xsd:dateTime .
+
+oakcurric:keyword-success-criteria
+  a curric:Keyword ;
+  schema:name "success criteria"@en ;
+  schema:description """specific, measurable and realistic benchmarks used to determine if a
+  project, task or outcome has been accomplished successfully"""@en ;
+  dcterms:modified "2026-06-07T15:30:02.382066Z"^^xsd:dateTime .
+
+oakcurric:keyword-bridge-hold
+  a curric:Keyword ;
+  schema:name "bridge hold"@en ;
+  schema:description "a safe way to cut food in half or quarters"@en ;
+  dcterms:modified "2026-06-07T15:30:02.382179Z"^^xsd:dateTime .
+
+oakcurric:keyword-claw-grip
+  a curric:Keyword ;
+  schema:name "claw grip"@en ;
+  schema:description "a safe way to slice food"@en ;
+  dcterms:modified "2026-06-07T15:30:02.382187Z"^^xsd:dateTime .
+
+oakcurric:keyword-fibre
+  a curric:Keyword ;
+  schema:name "fibre"@en ;
+  schema:description """Fibre bulks up food so it can be moved through the digestive system more
+  easily."""@en ;
+  dcterms:modified "2026-06-07T15:30:02.384597Z"^^xsd:dateTime .
+
+oakcurric:keyword-water
+  a curric:Keyword ;
+  schema:name "water"@en ;
+  schema:description "All living things need water to stay alive."@en ;
+  dcterms:modified "2026-06-07T15:30:02.390627Z"^^xsd:dateTime .
+
+oakcurric:keyword-coating
+  a curric:Keyword ;
+  schema:name "coating"@en ;
+  schema:description "to cover the surface of a food"@en ;
+  dcterms:modified "2026-06-07T15:30:02.391484Z"^^xsd:dateTime .
+
+oakcurric:keyword-chelsea-buns
+  a curric:Keyword ;
+  schema:name "Chelsea buns"@en ;
+  schema:description """a sweet bun dough, rolled-up with a mixture of dried fruit, sugar
+  and spices"""@en ;
+  dcterms:modified "2026-06-07T15:30:02.391502Z"^^xsd:dateTime .
+
+oakcurric:keyword-gluten
+  a curric:Keyword ;
+  schema:name "gluten"@en ;
+  schema:description "a protein found mainly in flour milled from wheat"@en ;
+  dcterms:modified "2026-06-07T15:30:02.391506Z"^^xsd:dateTime .
+
+oakcurric:keyword-heat-transfer
+  a curric:Keyword ;
+  schema:name "heat transfer"@en ;
+  schema:description "the exchange of heat between two objects"@en ;
+  dcterms:modified "2026-06-07T15:30:02.391513Z"^^xsd:dateTime .
+
+oakcurric:keyword-zesting
+  a curric:Keyword ;
+  schema:name "zesting"@en ;
+  schema:description "remove the peel from a citrus fruit"@en ;
+  dcterms:modified "2026-06-07T15:30:02.392466Z"^^xsd:dateTime .
+
+oakcurric:keyword-all-in-one
+  a curric:Keyword ;
+  schema:name "all-in-one"@en ;
+  schema:description "a quick method of making, incorporating all ingredients at the same time"@en ;
+  dcterms:modified "2026-06-07T15:30:02.392472Z"^^xsd:dateTime .
+
+oakcurric:keyword-self-raising-flour
+  a curric:Keyword ;
+  schema:name "self-raising flour"@en ;
+  schema:description "flour with a raising agent already added"@en ;
+  dcterms:modified "2026-06-07T15:30:02.392479Z"^^xsd:dateTime .
+
+oakcurric:keyword-aloo-gobi
+  a curric:Keyword ;
+  schema:name "aloo gobi"@en ;
+  schema:description "a vegetarian dish originating from India"@en ;
+  dcterms:modified "2026-06-07T15:30:02.392836Z"^^xsd:dateTime .
+
+oakcurric:keyword-spices
+  a curric:Keyword ;
+  schema:name "spices"@en ;
+  schema:description "dried parts of a plant"@en ;
+  dcterms:modified "2026-06-07T15:30:02.392845Z"^^xsd:dateTime .
+
+oakcurric:keyword-heat-control
+  a curric:Keyword ;
+  schema:name "heat control"@en ;
+  schema:description "adjusting the heat using the controls on the hob"@en ;
+  dcterms:modified "2026-06-07T15:30:02.392850Z"^^xsd:dateTime .
+
+oakcurric:keyword-blender
+  a curric:Keyword ;
+  schema:name "blender"@en ;
+  schema:description "an electrical piece of equipment that purees food"@en ;
+  dcterms:modified "2026-06-07T15:30:02.393512Z"^^xsd:dateTime .
+
+oakcurric:keyword-conduction
+  a curric:Keyword ;
+  schema:name "conduction"@en ;
+  schema:description "heat transferred via physical contact"@en ;
+  dcterms:modified "2026-06-07T15:30:02.393517Z"^^xsd:dateTime .
+
+oakcurric:keyword-hygienic
+  a curric:Keyword ;
+  schema:name "hygienic"@en ;
+  schema:description "keeping yourself, equipment and area clean"@en ;
+  dcterms:modified "2026-06-07T15:30:02.393527Z"^^xsd:dateTime .
+
+oakcurric:keyword-macaroni
+  a curric:Keyword ;
+  schema:name "macaroni"@en ;
+  schema:description "a type of pasta, sometimes shortened to ‘mac’"@en ;
+  dcterms:modified "2026-06-07T15:30:02.393542Z"^^xsd:dateTime .
+
+oakcurric:keyword-roux-sauce
+  a curric:Keyword ;
+  schema:name "roux sauce"@en ;
+  schema:description "a classic French sauce, made with butter, flour and milk"@en ;
+  dcterms:modified "2026-06-07T15:30:02.393551Z"^^xsd:dateTime .
+
+oakcurric:keyword-chicago
+  a curric:Keyword ;
+  schema:name "Chicago"@en ;
+  schema:description "the capital city of the state Illinois, in the USA"@en ;
+  dcterms:modified "2026-06-07T15:30:02.395165Z"^^xsd:dateTime .
+
+oakcurric:keyword-lining
+  a curric:Keyword ;
+  schema:name "lining"@en ;
+  schema:description "to place greaseproof paper or lay dough/pastry in a baking tin"@en ;
+  dcterms:modified "2026-06-07T15:30:02.395170Z"^^xsd:dateTime .
+
+oakcurric:keyword-yakisoba
+  a curric:Keyword ;
+  schema:name "Yakisoba"@en ;
+  schema:description "a Japanese dish of fried noodles, vegetables, and sometimes meat or fish"@en ;
+  dcterms:modified "2026-06-07T15:30:02.395185Z"^^xsd:dateTime .
+
+oakcurric:keyword-food-poisoning
+  a curric:Keyword ;
+  schema:name "food poisoning"@en ;
+  schema:description "illness caused by eating something contaminated with bacteria"@en ;
+  dcterms:modified "2026-06-07T15:30:02.395193Z"^^xsd:dateTime .
+
+oakcurric:keyword-sensory-evaluation
+  a curric:Keyword ;
+  schema:name "sensory evaluation"@en ;
+  schema:description "the use of our senses to assess a food or drink"@en ;
+  dcterms:modified "2026-06-07T15:30:02.395198Z"^^xsd:dateTime .
+
+oakcurric:keyword-burrito
+  a curric:Keyword ;
+  schema:name "burrito"@en ;
+  schema:description "a tortilla wrap, with different fillings, originally from Mexico"@en ;
+  dcterms:modified "2026-06-07T15:30:02.395207Z"^^xsd:dateTime .
+
+oakcurric:keyword-beans
+  a curric:Keyword ;
+  schema:name "beans"@en ;
+  schema:description "the edible seeds of a plant"@en ;
+  dcterms:modified "2026-06-07T15:30:02.395212Z"^^xsd:dateTime .
+
+oakcurric:keyword-nutritional-analysis
+  a curric:Keyword ;
+  schema:name "nutritional analysis"@en ;
+  schema:description "the process of calculating energy and nutrients of food"@en ;
+  dcterms:modified "2026-06-07T15:30:02.395217Z"^^xsd:dateTime .
+
+oakcurric:keyword-chickpeas
+  a curric:Keyword ;
+  schema:name "chickpeas"@en ;
+  schema:description "edible yellow seeds from a plant"@en ;
+  dcterms:modified "2026-06-07T15:30:02.395259Z"^^xsd:dateTime .
+
+oakcurric:keyword-middle-eastern
+  a curric:Keyword ;
+  schema:name "Middle Eastern"@en ;
+  schema:description """relating to or characteristic of the Middle East - the area from the eastern
+  Mediterranean to Iran"""@en ;
+  dcterms:modified "2026-06-07T15:30:02.396199Z"^^xsd:dateTime .
+
+oakcurric:keyword-falafel
+  a curric:Keyword ;
+  schema:name "falafel"@en ;
+  schema:description """a Middle Eastern dish of spiced mashed chickpeas or other pulses formed into
+  balls"""@en ;
+  dcterms:modified "2026-06-07T15:30:02.396204Z"^^xsd:dateTime .
+
+oakcurric:keyword-food-processor
+  a curric:Keyword ;
+  schema:name "food processor"@en ;
+  schema:description """an electric kitchen appliance for grating, chopping, mixing or blending
+  foods"""@en ;
+  dcterms:modified "2026-06-07T15:30:02.396212Z"^^xsd:dateTime .
+
+oakcurric:keyword-tzatziki
+  a curric:Keyword ;
+  schema:name "tzatziki"@en ;
+  schema:description "a Greek side dish, made with yogurt, cucumber, garlic and mint"@en ;
+  dcterms:modified "2026-06-07T15:30:02.396217Z"^^xsd:dateTime .
+
+oakcurric:keyword-greenhouse-gas-emissions
+  a curric:Keyword ;
+  schema:name "greenhouse gas emissions"@en ;
+  schema:description """gases in the earth's atmosphere that trap heat, leading to climate
+  change"""@en ;
+  dcterms:modified "2026-06-07T15:30:02.396686Z"^^xsd:dateTime .
+
+oakcurric:keyword-food-systems
+  a curric:Keyword ;
+  schema:name "food systems"@en ;
+  schema:description """a complex web of activities involving the production, processing, transport,
+  and consumption of our food"""@en ;
+  dcterms:modified "2026-06-07T15:30:02.396691Z"^^xsd:dateTime .
+
+oakcurric:keyword-socio-economic
+  a curric:Keyword ;
+  schema:name "Socio-economic"@en ;
+  schema:description """the interaction between the social and economic habits of a group of
+  people"""@en ;
+  dcterms:modified "2026-06-07T15:30:02.396696Z"^^xsd:dateTime .
+
+oakcurric:keyword-coagulate
+  a curric:Keyword ;
+  schema:name "coagulate"@en ;
+  schema:description """the irreversible change of protein molecules, e.g. when liquid egg turns to
+  solid during cooking"""@en ;
+  dcterms:modified "2026-06-07T15:30:02.401327Z"^^xsd:dateTime .
+
+oakcurric:keyword-street-food
+  a curric:Keyword ;
+  schema:name "street food"@en ;
+  schema:description """ready-to-eat food or drink that is sold by vendors or small businesses on
+  the streets or in public places"""@en ;
+  dcterms:modified "2026-06-07T15:30:02.401332Z"^^xsd:dateTime .
+
+oakcurric:keyword-assurance-marks
+  a curric:Keyword ;
+  schema:name "assurance marks"@en ;
+  schema:description """ensure food is produced and processed to high standards for food safety and
+  animal welfare"""@en ;
+  dcterms:modified "2026-06-07T15:30:02.401337Z"^^xsd:dateTime .
+
+oakcurric:keyword-pulses
+  a curric:Keyword ;
+  schema:name "pulses"@en ;
+  schema:description "edible seeds from a plant"@en ;
+  dcterms:modified "2026-06-07T15:30:02.401763Z"^^xsd:dateTime .
+
+oakcurric:keyword-contamination
+  a curric:Keyword ;
+  schema:name "contamination"@en ;
+  schema:description "the process by which bacteria are transferred from one area to another"@en ;
+  dcterms:modified "2026-06-07T15:30:02.401769Z"^^xsd:dateTime .
+
+oakcurric:keyword-piping
+  a curric:Keyword ;
+  schema:name "piping"@en ;
+  schema:description "to push food through a bag or tube to produce a line or pattern"@en ;
+  dcterms:modified "2026-06-07T15:30:02.401774Z"^^xsd:dateTime .
+
+oakcurric:keyword-proficiency
+  a curric:Keyword ;
+  schema:name "proficiency"@en ;
+  schema:description """the skill or ability to do something well, gained through practice and
+  experience"""@en ;
+  dcterms:modified "2026-06-07T15:30:02.402033Z"^^xsd:dateTime .
+
+oakcurric:keyword-folding
+  a curric:Keyword ;
+  schema:name "folding"@en ;
+  schema:description "to make the wrap into a pocket to keep the food inside"@en ;
+  dcterms:modified "2026-06-07T15:30:02.402141Z"^^xsd:dateTime .
+
+oakcurric:keyword-whisking
+  a curric:Keyword ;
+  schema:name "whisking"@en ;
+  schema:description "to stir rapidly, using a whisk or fork"@en ;
+  dcterms:modified "2026-06-07T15:30:02.402674Z"^^xsd:dateTime .
+
+oakcurric:keyword-queen-victoria
+  a curric:Keyword ;
+  schema:name "Queen Victoria"@en ;
+  schema:description "queen of the UK from 1837 to 1901"@en ;
+  dcterms:modified "2026-06-07T15:30:02.403834Z"^^xsd:dateTime .
+
+oakcurric:keyword-sponge
+  a curric:Keyword ;
+  schema:name "sponge"@en ;
+  schema:description """a sweet, soft baked food, usually made with sugar, butter, flour and
+  eggs"""@en ;
+  dcterms:modified "2026-06-07T15:30:02.403839Z"^^xsd:dateTime .
+
+oakcurric:keyword-west-africa
+  a curric:Keyword ;
+  schema:name "West Africa"@en ;
+  schema:description "the western region of Africa"@en ;
+  dcterms:modified "2026-06-07T15:30:02.403845Z"^^xsd:dateTime .
+
+oakcurric:keyword-jollof
+  a curric:Keyword ;
+  schema:name "Jollof"@en ;
+  schema:description "a popular rice dish originating from West Africa"@en ;
+  dcterms:modified "2026-06-07T15:30:02.403850Z"^^xsd:dateTime .
+
+oakcurric:keyword-preference-test
+  a curric:Keyword ;
+  schema:name "preference test"@en ;
+  schema:description "a test to find out whether people like or dislike a dish"@en ;
+  dcterms:modified "2026-06-07T15:30:02.403855Z"^^xsd:dateTime .
+
+oakcurric:keyword-toad-in-the-hole
+  a curric:Keyword ;
+  schema:name "toad in the hole"@en ;
+  schema:description "a traditional English dish, comprising sausages in batter"@en ;
+  dcterms:modified "2026-06-07T15:30:02.403866Z"^^xsd:dateTime .
+
+oakcurric:keyword-batter
+  a curric:Keyword ;
+  schema:name "batter"@en ;
+  schema:description "a liquid mixture of egg, milk and flour e.g. Yorkshire pudding"@en ;
+  dcterms:modified "2026-06-07T15:30:02.403874Z"^^xsd:dateTime .
+
+oakcurric:keyword-emulsifier
+  a curric:Keyword ;
+  schema:name "emulsifier"@en ;
+  schema:description """prevents ingredients from separating and binds them together e.g. eggs in
+  batters and mayonnaise"""@en ;
+  dcterms:modified "2026-06-07T15:30:02.403880Z"^^xsd:dateTime .
+
+oakcurric:keyword-scotch-egg
+  a curric:Keyword ;
+  schema:name "Scotch egg"@en ;
+  schema:description """traditionally, a hard-boiled egg enclosed in sausage meat, rolled in
+  breadcrumbs, and fried"""@en ;
+  dcterms:modified "2026-06-07T15:30:02.404704Z"^^xsd:dateTime .
+
+oakcurric:keyword-forming
+  a curric:Keyword ;
+  schema:name "forming"@en ;
+  schema:description "the process of shaping or molding food into shapes or forms"@en ;
+  dcterms:modified "2026-06-07T15:30:02.404710Z"^^xsd:dateTime .
+
+oakcurric:keyword-traceability
+  a curric:Keyword ;
+  schema:name "traceability"@en ;
+  schema:description """to track a food and its ingredients through all stages of the ‘farm to fork’
+  food chain"""@en ;
+  dcterms:modified "2026-06-07T15:30:02.404715Z"^^xsd:dateTime .
+
+oakcurric:keyword-animal-welfare
+  a curric:Keyword ;
+  schema:name "animal welfare"@en ;
+  schema:description "ensuring animals have a good quality of life"@en ;
+  dcterms:modified "2026-06-07T15:30:02.404723Z"^^xsd:dateTime .
+
+oakcurric:keyword-thai
+  a curric:Keyword ;
+  schema:name "Thai"@en ;
+  schema:description "the people and cuisine of Thailand"@en ;
+  dcterms:modified "2026-06-07T15:30:02.404901Z"^^xsd:dateTime .
+
+oakcurric:keyword-curry-paste
+  a curric:Keyword ;
+  schema:name "curry paste"@en ;
+  schema:description "a mixture of ingredients pounded into a paste"@en ;
+  dcterms:modified "2026-06-07T15:30:02.404907Z"^^xsd:dateTime .
+
+oakcurric:keyword-drvs
+  a curric:Keyword ;
+  schema:name "DRVs"@en ;
+  schema:description """dietary reference values - energy and nutritional requirements for different
+  groups of healthy people in the UK population"""@en ;
+  dcterms:modified "2026-06-07T15:30:02.408711Z"^^xsd:dateTime .
+
+oakcurric:keyword-ears
+  a curric:Keyword ;
+  schema:name "EARs"@en ;
+  schema:description """estimated average requirements - an estimate of the average requirement of
+  energy, or a nutrient, needed by a group of people"""@en ;
+  dcterms:modified "2026-06-07T15:30:02.408717Z"^^xsd:dateTime .
+
+oakcurric:keyword-rnis
+  a curric:Keyword ;
+  schema:name "RNIs"@en ;
+  schema:description """reference nutrient intakes - the amount of a nutrient that is enough to
+  ensure that the needs of nearly all people in a group are being met"""@en ;
+  dcterms:modified "2026-06-07T15:30:02.408725Z"^^xsd:dateTime .
+
+oakcurric:keyword-lrnis
+  a curric:Keyword ;
+  schema:name "LRNIs"@en ;
+  schema:description """lower reference nutrient intakes - the amount of a nutrient that is enough
+  for only a small number of people in a group who have low requirements"""@en ;
+  dcterms:modified "2026-06-07T15:30:02.408730Z"^^xsd:dateTime .
+
+oakcurric:keyword-8-tips-for-healthy-eating
+  a curric:Keyword ;
+  schema:name "8 tips for healthy eating"@en ;
+  schema:description "practical tips for healthy eating"@en ;
+  dcterms:modified "2026-06-07T15:30:02.409252Z"^^xsd:dateTime .
+
+oakcurric:keyword-portions
+  a curric:Keyword ;
+  schema:name "portions"@en ;
+  schema:description "number of servings of a food"@en ;
+  dcterms:modified "2026-06-07T15:30:02.409260Z"^^xsd:dateTime .
+
+oakcurric:keyword-portion-size
+  a curric:Keyword ;
+  schema:name "portion size"@en ;
+  schema:description "the amount of food per portion"@en ;
+  dcterms:modified "2026-06-07T15:30:02.409266Z"^^xsd:dateTime .
+
+oakcurric:keyword-food-system
+  a curric:Keyword ;
+  schema:name "food system"@en ;
+  schema:description """a complex web of activities involving the production, processing, transport,
+  and consumption of our food"""@en ;
+  dcterms:modified "2026-06-07T15:30:02.409928Z"^^xsd:dateTime .
+
+oakcurric:keyword-certification-and-assurance
+  a curric:Keyword ;
+  schema:name "certification and assurance"@en ;
+  schema:description """ensure food is produced and processed to high standards for food safety and
+  animal welfare"""@en ;
+  dcterms:modified "2026-06-07T15:30:02.410176Z"^^xsd:dateTime .
+
+oakcurric:keyword-cultural-identity
+  a curric:Keyword ;
+  schema:name "cultural identity"@en ;
+  schema:description """A part of a person’s identity, that can be grounded in their nationality,
+  ethnicity, religion, social class or generation."""@en ;
+  dcterms:modified "2026-06-07T15:30:02.418008Z"^^xsd:dateTime .
+
+oakcurric:keyword-vitamins
+  a curric:Keyword ;
+  schema:name "vitamins"@en ;
+  schema:description "organic micronutrients that are essential for the human body"@en ;
+  dcterms:modified "2026-06-07T15:30:02.419605Z"^^xsd:dateTime .
+
+oakcurric:keyword-food-source
+  a curric:Keyword ;
+  schema:name "food source"@en ;
+  schema:description "food and drinks that provide specifi nutrients"@en ;
+  dcterms:modified "2026-06-07T15:30:02.419611Z"^^xsd:dateTime .
+
+oakcurric:keyword-intangible-cultural-heritage
+  a curric:Keyword ;
+  schema:name "intangible cultural heritage"@en ;
+  schema:description "a tradition, practice, or living expression of a group or community"@en ;
+  dcterms:modified "2026-06-07T15:30:02.420641Z"^^xsd:dateTime .
+
+oakcurric:keyword-cultural-appropriation
+  a curric:Keyword ;
+  schema:name "cultural appropriation"@en ;
+  schema:description """the unacknowledged or inappropriate adoption or use of elements of a
+  minority culture by members of the dominant culture, often in a way that is disrespectful,
+  stereotypical, or exploitative"""@en ;
+  dcterms:modified "2026-06-07T15:30:02.420646Z"^^xsd:dateTime .
+
+oakcurric:keyword-food-labels
+  a curric:Keyword ;
+  schema:name "food labels"@en ;
+  schema:description "information that is provided on packaged food"@en ;
+  dcterms:modified "2026-06-07T15:30:02.423613Z"^^xsd:dateTime .
+
+# ----------------------------------------------------------------------
+# Misconceptions
+# ----------------------------------------------------------------------
+
+oakcurric:misconception-food-hygiene-clean-preparing-cooking
+  a curric:Misconception ;
+  curric:statement """Food hygiene is only about being clean when preparing, cooking and storing
+  food."""@en ;
+  curric:correction """Food hygiene is necessary in order to prepare and cook food which is safe to
+  eat. It involves the 4Cs: cleaning (including personal hygiene), cooking, chilling and
+  preventing cross-contamination."""@en ;
+  dcterms:modified "2026-06-07T15:30:15.093413Z"^^xsd:dateTime .
+
+oakcurric:misconception-following-eatwell-guide-eating-healthily
+  a curric:Misconception ;
+  curric:statement "Following the Eatwell Guide is only about eating more healthily."@en ;
+  curric:correction """While following the Eatwell Guide will help people eat more healthily, it
+  also has a 32% lower environmental footprint, compared to the current national diet, so
+  can help us eat more sustainably too."""@en ;
+  dcterms:modified "2026-06-07T15:30:15.093497Z"^^xsd:dateTime .
+
+oakcurric:misconception-make-conscious-food-choices-food
+  a curric:Misconception ;
+  curric:statement """We only make conscious food choices about what food we buy, cook and eat,
+  based on a range of factors."""@en ;
+  curric:correction """We make conscious and unconscious food choices about the food we buy, cook
+  and eat."""@en ;
+  dcterms:modified "2026-06-07T15:30:15.094146Z"^^xsd:dateTime .
+
+oakcurric:misconception-making-two-recipes-same-time
+  a curric:Misconception ;
+  curric:statement """When making two recipes at the same time, you should cook them separately in
+  order. This takes longer, but the recipes are made well."""@en ;
+  curric:correction """When making two dishes at the same time, read both recipes first to decide
+  which order to complete the steps in each recipe - this is known as dovetailing.
+  Dovetailing results in a better use of time, where tasks fit together easily."""@en ;
+  dcterms:modified "2026-06-07T15:30:15.095532Z"^^xsd:dateTime .
+
+oakcurric:misconception-one-form-malnutrition-intakes-energy
+  a curric:Misconception ;
+  curric:statement """There is one form of malnutrition, intakes of energy and/or nutrients being
+  below what is required."""@en ;
+  curric:correction """There are two forms of malnutrition: undernutrition (intakes below what is
+  required) and overnutrition (intakes above what is required)."""@en ;
+  dcterms:modified "2026-06-07T15:30:15.096100Z"^^xsd:dateTime .
+
+oakcurric:misconception-coeliac-disease-caused-reaction-gluten
+  a curric:Misconception ;
+  curric:statement "Coeliac disease is caused by a reaction to gluten in wheat flour only."@en ;
+  curric:correction """Coeliac disease is caused by a reaction to gluten (a protein), which is found
+  in flours from wheat, barley and rye."""@en ;
+  dcterms:modified "2026-06-07T15:30:15.097990Z"^^xsd:dateTime .
+
+oakcurric:misconception-think-shortcrust-pastry-works-best
+  a curric:Misconception ;
+  curric:statement """Some might think that shortcrust pastry works best when the butter (or baking
+  fat) and water used are warm, not cold."""@en ;
+  curric:correction """Make sure the butter or baking fat is cold, and that pupils use cold water,
+  this helps to ensure that the pastry works better. When rubbing-in the fat to the flour,
+  use fingertips only, as less heat is passed from the hands to the fat."""@en ;
+  dcterms:modified "2026-06-07T15:30:15.099737Z"^^xsd:dateTime .
+
+oakcurric:misconception-recipes-cannot-modified-different-budgets
+  a curric:Misconception ;
+  curric:statement """Recipes cannot be modified for different budgets, as the stated ingredients
+  must always be used."""@en ;
+  curric:correction """Recipes can be modified for different budgets, using a number of strategies,
+  such as comparing costs, buying own-brand items, and using seasonal fruit and vegetables."""@en ;
+  dcterms:modified "2026-06-07T15:30:15.104726Z"^^xsd:dateTime .
+
+oakcurric:misconception-dishes-cook-eat-serve-along
+  a curric:Misconception ;
+  curric:statement """The dishes we cook, eat and serve, along with our food experiences, have
+  stayed the same over time."""@en ;
+  curric:correction """The dishes we cook, eat and serve, along with our food experiences, continue
+  to evolve (change over time) due to a variety of factors, such as history, culture, social
+  media and health."""@en ;
+  dcterms:modified "2026-06-07T15:30:15.107048Z"^^xsd:dateTime .
+
+oakcurric:misconception-flour-used-make-bread-like
+  a curric:Misconception ;
+  curric:statement "Any flour can be used to make a bread-like dough."@en ;
+  curric:correction """Although most flours will produce a dough, a strong flour is recommended as
+  it is high in protein (gluten), which is needed to help trap the air and form the bread
+  structure when baked."""@en ;
+  dcterms:modified "2026-06-07T15:30:15.117942Z"^^xsd:dateTime .
+
+oakcurric:misconception-one-method-produces-poor-results
+  a curric:Misconception ;
+  curric:statement """The 'all-in-one' method produces poor results, as the ingredients are not
+  creamed together and/or whisked."""@en ;
+  curric:correction """The 'all-in-one method' is a quicker cake making method, producing good
+  results. Using self-raising flour and mixing throughly ensure the cakes rise well."""@en ;
+  dcterms:modified "2026-06-07T15:30:15.119190Z"^^xsd:dateTime .
+
+oakcurric:misconception-potatoes-form-part-our-5
+  a curric:Misconception ;
+  curric:statement "Potatoes can form part of our 5 A DAY."@en ;
+  curric:correction """Potatoes do not count towards our 5 A DAY. They are a starchy carbohydrate in
+  the Eatwell Guide."""@en ;
+  dcterms:modified "2026-06-07T15:30:15.119866Z"^^xsd:dateTime .
+
+oakcurric:misconception-vegetables-fruit-need-washed-use
+  a curric:Misconception ;
+  curric:statement """Vegetables and fruit do not need to be washed before use as they look clean or
+  have been taken from a packet."""@en ;
+  curric:correction """Vegetables and fruit should be washed thoroughly before use. This removes
+  dirt (soil/grit), insects and bacteria which could cause food poisoning."""@en ;
+  dcterms:modified "2026-06-07T15:30:15.120598Z"^^xsd:dateTime .
+
+oakcurric:misconception-food-lessons-cooking
+  a curric:Misconception ;
+  curric:statement "Food lessons are just cooking."@en ;
+  curric:correction """Food lessons include cooking, which is important, but also applying healthy
+  eating, where food comes from, safety (preventing accidents) and hygiene (making sure food
+  is safe to eat), science, and consumer and food culture. Food is who we are."""@en ;
+  dcterms:modified "2026-06-07T15:30:15.120680Z"^^xsd:dateTime .
+
+oakcurric:misconception-roux-sauce-liquid-milk-added
+  a curric:Misconception ;
+  curric:statement """A roux sauce can have all the liquid (milk) added at the same time, and
+  whisked occasionally."""@en ;
+  curric:correction """A roux sauce must have the liquid (milk) added gradually, and the sauce
+  should be whisked continually to prevent lumps."""@en ;
+  dcterms:modified "2026-06-07T15:30:15.120732Z"^^xsd:dateTime .
+
+oakcurric:misconception-uk-produces-its-own-food
+  a curric:Misconception ;
+  curric:statement "The UK produces all of its own food."@en ;
+  curric:correction """The UK produces 58% of the food it consumes, 42% is imported from other
+  countries. This is due to season, cost, climate, and to add variety to the diet."""@en ;
+  dcterms:modified "2026-06-07T15:30:15.122932Z"^^xsd:dateTime .
+
+oakcurric:misconception-baking-tins-need-greased-lined
+  a curric:Misconception ;
+  curric:statement "Baking tins do not need to be greased and/or lined."@en ;
+  curric:correction """It is important to grease (with oil) or line (with greaseproof paper) a
+  baking tin, as this acts as a barrier and prevents the food from sticking."""@en ;
+  dcterms:modified "2026-06-07T15:30:15.124118Z"^^xsd:dateTime .
+
+oakcurric:misconception-sushi-raw-fish-common-food
+  a curric:Misconception ;
+  curric:statement "Sushi, raw fish, is the only common food eaten in Japan."@en ;
+  curric:correction """Japan has huge range of foods and dishes, of which sushi is one important
+  aspect. There is a range of cooked dishes, including yakisoba (noodles), teriyaki (grilled
+  with a glaze), yakiniku (grilled meat), and tempura (battered fried foods)."""@en ;
+  dcterms:modified "2026-06-07T15:30:15.124129Z"^^xsd:dateTime .
+
+oakcurric:misconception-beans-count-many-portions-towards
+  a curric:Misconception ;
+  curric:statement """Beans can count as many portions towards 5 A DAY, depending on the number of
+  portions eaten."""@en ;
+  curric:correction """Beans count as a maximum of one portion of 5 A DAY, no matter how much is
+  eaten."""@en ;
+  dcterms:modified "2026-06-07T15:30:15.124201Z"^^xsd:dateTime .
+
+oakcurric:misconception-eat-less-starchy-foods-fattening
+  a curric:Misconception ;
+  curric:statement """We should eat less starchy foods, as these are 'fattening' in the diet and
+  provide little else."""@en ;
+  curric:correction """Starchy foods should make up just over a third of the diet, as they are an
+  important source of energy, fibre and micronutrients."""@en ;
+  dcterms:modified "2026-06-07T15:30:15.125007Z"^^xsd:dateTime .
+
+oakcurric:misconception-traditional-fried-falafel-healthy-made
+  a curric:Misconception ;
+  curric:statement "Traditional fried falafel is healthy, as it is made from chickpeas."@en ;
+  curric:correction """While the chickpeas are a healthy choice, falafel is usually deep-fried, so
+  less healthy. Alternative cooking methods could be used which use less oil, such as
+  grilling, baking, or air-frying."""@en ;
+  dcterms:modified "2026-06-07T15:30:15.125253Z"^^xsd:dateTime .
+
+oakcurric:misconception-biodiversity-important-growing-food-plants
+  a curric:Misconception ;
+  curric:statement """Biodiversity is not important in growing food, only the plants growing are
+  important."""@en ;
+  curric:correction """Biodiversity is important in growing food by promoting a healthy and balanced
+  ecosystem, e.g. encouraging insects and birds to live near fields can help keep pests
+  under control."""@en ;
+  dcterms:modified "2026-06-07T15:30:15.125787Z"^^xsd:dateTime .
+
+oakcurric:misconception-eating-limited-range-fish-sustainable
+  a curric:Misconception ;
+  curric:statement """Eating a limited range of fish is sustainable, as fewer species are
+  caught."""@en ;
+  curric:correction """80% of the fish we eat comes from five species, which puts pressure on these
+  fish stocks. We should eat a wider variety of fish to ensure more sustainable supplies."""@en ;
+  dcterms:modified "2026-06-07T15:30:15.134244Z"^^xsd:dateTime .
+
+oakcurric:misconception-leftovers-still-safe-eat-3
+  a curric:Misconception ;
+  curric:statement """Leftovers will still be safe to eat after 3 - 4 days, as they still
+  look good."""@en ;
+  curric:correction """Leftovers should be used within 48 hours from when it was made (24 hours for
+  rice dishes). Longer periods of time increase the risk of food poisoning bacteria
+  multiplying."""@en ;
+  dcterms:modified "2026-06-07T15:30:15.134956Z"^^xsd:dateTime .
+
+oakcurric:misconception-sponge-cake-same
+  a curric:Misconception ;
+  curric:statement "A sponge and cake are the same."@en ;
+  curric:correction """Often the term ‘sponge’ and ‘cake’ are used interchangeably. However, sponges
+  are traditionally made from eggs, flour and sugar (no butter), e.g. Swiss roll, and cakes
+  are made from eggs, flour, sugar and butter, e.g. lemon drizzle cake."""@en ;
+  dcterms:modified "2026-06-07T15:30:15.138997Z"^^xsd:dateTime .
+
+oakcurric:misconception-rice-stirred-cooked-ensure-covered
+  a curric:Misconception ;
+  curric:statement "Rice should be stirred when cooked, so ensure it is covered in liquid."@en ;
+  curric:correction """It is best not to stir most rice dishes. Stirring breaks the rice and
+  releases starch, making the rice feel mushy and ‘over cooked’. Risotto is stirred though,
+  as the starch helps the dish have a creamy texture."""@en ;
+  dcterms:modified "2026-06-07T15:30:15.139005Z"^^xsd:dateTime .
+
+oakcurric:misconception-eatwell-guide-recommends-plant-rich
+  a curric:Misconception ;
+  curric:statement "The Eatwell Guide recommends a plant-rich, non-meat diet."@en ;
+  curric:correction """The Eatwell Guide recommends that we should have a plant-rich diet and reduce
+  the amount of red and processed meat, if we eat too much."""@en ;
+  dcterms:modified "2026-06-07T15:30:15.139017Z"^^xsd:dateTime .
+
+oakcurric:misconception-scotch-eggs-originate-scotland
+  a curric:Misconception ;
+  curric:statement "Scotch eggs originate from Scotland."@en ;
+  curric:correction """While its name may sound Scottish, the Scotch egg has origins in 1738 London
+  (a snack for travellers), India (nargisi kofta), and Yorkshire (a fish version)."""@en ;
+  dcterms:modified "2026-06-07T15:30:15.140567Z"^^xsd:dateTime .
+
+oakcurric:misconception-food-placed-fridge-need-covered
+  a curric:Misconception ;
+  curric:statement """If a food is placed in the fridge, there is no need for it to be covered or
+  placed in a container, as the fridge is a cold and safe storage area."""@en ;
+  curric:correction """All food placed in the fridge must be covered or placed in a container to
+  prevent cross contamination with other foods, preventing food poisoning. It also helps to
+  stop the food drying out."""@en ;
+  dcterms:modified "2026-06-07T15:30:15.141032Z"^^xsd:dateTime .
+
+oakcurric:misconception-dietary-reference-values-drvs-nutritional
+  a curric:Misconception ;
+  curric:statement """Dietary Reference Values (DRVs), nutritional requirements, are intended for
+  individual healthy people."""@en ;
+  curric:correction """Dietary Reference Values (DRVs), nutritional requirements, are intended for
+  different groups of healthy people. They are a series of estimates of the energy and
+  nutrients required."""@en ;
+  dcterms:modified "2026-06-07T15:30:15.147361Z"^^xsd:dateTime .
+
+oakcurric:misconception-everyone-needs-same-amount-portion
+  a curric:Misconception ;
+  curric:statement "Everyone needs the same amount, or portion, of food."@en ;
+  curric:correction """Everyone needs slightly different amounts of food, depending on their age and
+  activity levels."""@en ;
+  dcterms:modified "2026-06-07T15:30:15.148225Z"^^xsd:dateTime .
+
+oakcurric:misconception-plant-rich-means-eat-meat
+  a curric:Misconception ;
+  curric:statement """Plant-rich means that we should not eat meat or dairy foods for healthier and
+  more sustainable diets."""@en ;
+  curric:correction """It is not necessary to cut out meat or dairy from our diet completely for
+  healthier and more sustainable diets. Follow the Eatwell Guide: have plenty of fruit and
+  veg; diversify sources of protein; and limit foods high in fat, salt and sugars."""@en ;
+  dcterms:modified "2026-06-07T15:30:15.149261Z"^^xsd:dateTime .
+
+oakcurric:misconception-food-eat-produced-uk
+  a curric:Misconception ;
+  curric:statement "Most of the food we eat is produced in the UK."@en ;
+  curric:correction """About 54% of the food on our plates is produced in the UK, the rest is
+  imported from other countries."""@en ;
+  dcterms:modified "2026-06-07T15:30:15.149632Z"^^xsd:dateTime .
+
+oakcurric:misconception-adequate-intake-micronutrients-possible-eating
+  a curric:Misconception ;
+  curric:statement """An adequate intake of micronutrients is possible by always eating the same
+  types of foods."""@en ;
+  curric:correction """To ensure an adequate intake of micronutrients, it is important to have a
+  varied diet. This is because different foods provide different types and amounts of
+  vitamins and minerals."""@en ;
+  dcterms:modified "2026-06-07T15:30:15.159608Z"^^xsd:dateTime .
+
+oakcurric:misconception-cultural-appropriation-appreciation-admiration-other
+  a curric:Misconception ;
+  curric:statement """Cultural appropriation is just appreciation and admiration of other
+  cultures."""@en ;
+  curric:correction """Cultural appropriation can be the unacknowledged or inappropriate adoption or
+  use of elements of a minority culture by members of the dominant culture, often in a way
+  that is disrespectful, stereotypical, or exploitative."""@en ;
+  dcterms:modified "2026-06-07T15:30:15.160827Z"^^xsd:dateTime .
+
+oakcurric:misconception-pupils-believe-name-food-group
+  a curric:Misconception ;
+  curric:statement """Pupils often believe that the name of a food group from the Eatwell Guide is
+  also the name of a nutrient."""@en ;
+  curric:correction """A food group from the Eatwell Guide includes foods that contain various
+  nutrients."""@en ;
+  dcterms:modified "2026-06-07T15:30:15.164274Z"^^xsd:dateTime .

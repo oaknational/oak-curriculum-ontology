@@ -25,8 +25,8 @@
   rdfs:comment """Temporal structure defining the organizational framework of education 
   in England: phases, key stages, and year groups."""@en ;
 
-  owl:versionInfo "0.1.0" ;
-  owl:versionIRI <https://w3id.org/uk/oak/curriculum/nationalcurriculum/temporal-structure/0.1.0> ;
+  owl:versionInfo "0.1.1" ;
+  owl:versionIRI <https://w3id.org/uk/oak/curriculum/nationalcurriculum/temporal-structure/0.1.1> ;
   
   dcterms:description """This ontology defines the organizational structure of education in 
   England, including phases (Primary, Secondary), key stages (KS1-4), and year groups (Year 1 - 
@@ -144,6 +144,15 @@ natcurric:year-group-4
   curric:isYearGroupOf natcurric:key-stage-2 ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
 
+natcurric:year-group-3-4
+  a curric:YearGroup ;
+  rdfs:label "Year Groups 3 and 4"@en ;
+  rdfs:comment "Year Groups 3 and 4 (age 7-9)."@en ;
+  curric:lowerAgeBoundary "7"^^xsd:nonNegativeInteger ;
+  curric:upperAgeBoundary "9"^^xsd:positiveInteger ;
+  curric:isYearGroupOf natcurric:key-stage-2 ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
 natcurric:year-group-5
   a curric:YearGroup ;
   rdfs:label "Year Group 5"@en ;
@@ -158,6 +167,15 @@ natcurric:year-group-6
   rdfs:label "Year Group 6"@en ;
   rdfs:comment "Year Group 6 (age 10-11)."@en ;
   curric:lowerAgeBoundary "10"^^xsd:nonNegativeInteger ;
+  curric:upperAgeBoundary "11"^^xsd:positiveInteger ;
+  curric:isYearGroupOf natcurric:key-stage-2 ;
+  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+
+natcurric:year-group-5-6
+  a curric:YearGroup ;
+  rdfs:label "Year Groups 5 and 6"@en ;
+  rdfs:comment "Year Groups 5 and 6 (age 9-11)."@en ;
+  curric:lowerAgeBoundary "9"^^xsd:nonNegativeInteger ;
   curric:upperAgeBoundary "11"^^xsd:positiveInteger ;
   curric:isYearGroupOf natcurric:key-stage-2 ;
   dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .

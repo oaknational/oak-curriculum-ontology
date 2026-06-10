@@ -1,0 +1,569 @@
+@prefix curric: <https://w3id.org/uk/oak/curriculum/ontology/> .
+@prefix natcurric: <https://w3id.org/uk/oak/curriculum/nationalcurriculum/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# ======================================================================
+# National Curriculum for England - Languages Knowledge Taxonomy
+# ======================================================================
+
+# ----------------------------------------------------------------------
+# Ontology Declaration
+# ----------------------------------------------------------------------
+
+<https://w3id.org/uk/oak/curriculum/nationalcurriculum/languages-knowledge-taxonomy>
+  rdf:type owl:Ontology ;
+
+  rdfs:label "National Curriculum for England - Languages Knowledge Taxonomy"@en ;
+  dc:title "National Curriculum for England - Languages Knowledge Taxonomy"@en ;
+  rdfs:comment """Languages knowledge taxonomy defining the hierarchical organisation of content
+  from strands through to sub-content descriptors."""@en ;
+
+  owl:versionInfo "0.1.1" ;
+  owl:versionIRI <https://w3id.org/uk/oak/curriculum/nationalcurriculum/languages-knowledge-taxonomy/0.1.1> ;
+
+  dcterms:description """This file defines the Languages knowledge taxonomy for the National
+  Curriculum in England, organising content through strands, sub-strands, content
+  descriptors, and sub-content descriptors."""@en ;
+  dc:creator "Department for Education" ;
+  dcterms:created "2026-05-06T11:12:00Z"^^xsd:dateTime ;
+  dcterms:modified "2026-05-06T11:12:00Z"^^xsd:dateTime ;
+  dcterms:issued "2026-05-06T11:12:00Z"^^xsd:dateTime ;
+
+  # OGL 3.0 License
+  dcterms:license <http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/> ;
+  dcterms:rights "Crown Copyright"@en ;
+
+  rdfs:seeAlso <https://w3id.org/uk/oak/curriculum/ontology> ;
+
+  vann:preferredNamespacePrefix "natcurric" ;
+  vann:preferredNamespaceUri "https://w3id.org/uk/oak/curriculum/nationalcurriculum/" ;
+
+  owl:imports <https://w3id.org/uk/oak/curriculum/ontology> ;
+  owl:imports <https://w3id.org/uk/oak/curriculum/nationalcurriculum/languages-programme-structure> .
+
+# ----------------------------------------------------------------------
+# Knowledge Taxonomy
+# ----------------------------------------------------------------------
+
+natcurric:knowledge-taxonomy
+  a skos:ConceptScheme ;
+  skos:prefLabel "National Curriculum for England Knowledge Taxonomy"@en ;
+  skos:hasTopConcept natcurric:discipline-languages ;
+  dcterms:modified "2026-05-06T11:12:00Z"^^xsd:dateTime .
+
+# ----------------------------------------------------------------------
+# Disciplines
+# ----------------------------------------------------------------------
+
+natcurric:discipline-languages
+  a skos:Concept, curric:Discipline ;
+  skos:prefLabel "Languages"@en ;
+  skos:topConceptOf natcurric:knowledge-taxonomy ;
+  skos:narrower
+    natcurric:strand-foreign-language ,
+    natcurric:strand-modern-foreign-language ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-06T11:12:00Z"^^xsd:dateTime .
+
+# ----------------------------------------------------------------------
+# Strands
+# ----------------------------------------------------------------------
+
+natcurric:strand-foreign-language
+  a skos:Concept, curric:Strand ;
+  skos:prefLabel "Foreign language"@en ;
+  skos:definition "Description of strand..."@en ;
+  skos:broader natcurric:discipline-languages ;
+  skos:narrower natcurric:substrand-foreign-language ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-06T11:12:00Z"^^xsd:dateTime .
+
+natcurric:strand-modern-foreign-language
+  a skos:Concept, curric:Strand ;
+  skos:prefLabel "Modern foreign language"@en ;
+  skos:definition "Description of strand..."@en ;
+  skos:broader natcurric:discipline-languages ;
+  skos:narrower
+    natcurric:substrand-grammar-and-vocabulary ,
+    natcurric:substrand-linguistic-competence ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-06T11:12:00Z"^^xsd:dateTime .
+
+# ----------------------------------------------------------------------
+# Sub-Strands
+# ----------------------------------------------------------------------
+
+natcurric:substrand-foreign-language
+  a skos:Concept, curric:SubStrand ;
+  skos:prefLabel "Foreign language"@en ;
+  skos:broader natcurric:strand-foreign-language ;
+  skos:narrower
+    natcurric:contentdescriptor-listen-spoken-language-joining-responding ,
+    natcurric:contentdescriptor-patterns-sounds-language-songs-rhymes ,
+    natcurric:contentdescriptor-engage-conversations-ask-answer-questions ,
+    natcurric:contentdescriptor-speak-sentences-familiar-vocabulary-phrases ,
+    natcurric:contentdescriptor-accurate-pronunciation-intonation-others-reading ,
+    natcurric:contentdescriptor-present-ideas-information-range-audiences ,
+    natcurric:contentdescriptor-read-words-phrases-simple-writing ,
+    natcurric:contentdescriptor-appreciate-stories-songs-poems-rhymes ,
+    natcurric:contentdescriptor-broaden-vocabulary-ability-new-words ,
+    natcurric:contentdescriptor-write-phrases-memory-adapt-create ,
+    natcurric:contentdescriptor-describe-people-places-things-actions ,
+    natcurric:contentdescriptor-basic-grammar-appropriate-language-studied ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-06T11:12:00Z"^^xsd:dateTime .
+
+natcurric:substrand-grammar-and-vocabulary
+  a skos:Concept, curric:SubStrand ;
+  skos:prefLabel "Grammar and vocabulary"@en ;
+  skos:broader natcurric:strand-modern-foreign-language ;
+  skos:narrower
+    natcurric:contentdescriptor-identify-tenses-other-structures-convey ,
+    natcurric:contentdescriptor-manipulate-variety-key-grammatical-structures ,
+    natcurric:contentdescriptor-ranging-deepening-vocabulary-goes-immediate ,
+    natcurric:contentdescriptor-accurate-grammar-spelling-punctuation ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-06T11:12:00Z"^^xsd:dateTime .
+
+natcurric:substrand-linguistic-competence
+  a skos:Concept, curric:SubStrand ;
+  skos:prefLabel "Linguistic competence"@en ;
+  skos:broader natcurric:strand-modern-foreign-language ;
+  skos:narrower
+    natcurric:contentdescriptor-listen-variety-forms-spoken-language ,
+    natcurric:contentdescriptor-transcribe-words-short-sentences-hear ,
+    natcurric:contentdescriptor-initiate-conversations-coping-unfamiliar-language ,
+    natcurric:contentdescriptor-express-ideas-increasing-accuracy-writing ,
+    natcurric:contentdescriptor-speak-accurate-pronunciation-intonation ,
+    natcurric:contentdescriptor-read-comprehension-original-adapted-materials ,
+    natcurric:contentdescriptor-read-literary-texts-language-such ,
+    natcurric:contentdescriptor-write-prose-wide-range-grammar ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-06T11:12:00Z"^^xsd:dateTime .
+
+# ----------------------------------------------------------------------
+# Content Descriptors
+# ----------------------------------------------------------------------
+
+natcurric:contentdescriptor-listen-spoken-language-joining-responding
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Listen attentively to spoken language and show understanding by joining in and
+  responding."""@en ;
+  skos:broader natcurric:substrand-foreign-language ;
+  skos:narrower natcurric:subcontentdescriptor-listen-spoken-language-joining-responding ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-06T11:12:00Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-patterns-sounds-language-songs-rhymes
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Explore the patterns and sounds of language through songs and rhymes and link
+  the spelling, sound and meaning of words."""@en ;
+  skos:broader natcurric:substrand-foreign-language ;
+  skos:narrower natcurric:subcontentdescriptor-patterns-sounds-language-songs-rhymes ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-06T11:12:00Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-engage-conversations-ask-answer-questions
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Engage in conversations; ask and answer questions; express opinions and respond
+  to those of others; seek clarification and help."""@en ;
+  skos:broader natcurric:substrand-foreign-language ;
+  skos:narrower natcurric:subcontentdescriptor-engage-conversations-ask-answer-questions ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-06T11:12:00Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-speak-sentences-familiar-vocabulary-phrases
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Speak in sentences, using familiar vocabulary, phrases and basic language
+  structures."""@en ;
+  skos:broader natcurric:substrand-foreign-language ;
+  skos:narrower natcurric:subcontentdescriptor-speak-sentences-familiar-vocabulary-phrases ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-06T11:12:00Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-accurate-pronunciation-intonation-others-reading
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Develop accurate pronunciation and intonation so that others understand when
+  they are reading aloud or using familiar words and phrases."""@en ;
+  skos:broader natcurric:substrand-foreign-language ;
+  skos:narrower natcurric:subcontentdescriptor-accurate-pronunciation-intonation-others-reading ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-06T11:12:00Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-present-ideas-information-range-audiences
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Present ideas and information orally to a range of audiences."@en ;
+  skos:broader natcurric:substrand-foreign-language ;
+  skos:narrower natcurric:subcontentdescriptor-present-ideas-information-range-audiences ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-06T11:12:00Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-read-words-phrases-simple-writing
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Read carefully and show understanding of words, phrases and simple writing."@en ;
+  skos:broader natcurric:substrand-foreign-language ;
+  skos:narrower natcurric:subcontentdescriptor-read-words-phrases-simple-writing ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-06T11:12:00Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-appreciate-stories-songs-poems-rhymes
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Appreciate stories, songs, poems and rhymes in the language."@en ;
+  skos:broader natcurric:substrand-foreign-language ;
+  skos:narrower natcurric:subcontentdescriptor-appreciate-stories-songs-poems-rhymes ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-06T11:12:00Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-broaden-vocabulary-ability-new-words
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Broaden their vocabulary and develop their ability to understand new words that
+  are introduced into familiar written material, including through using a dictionary."""@en ;
+  skos:broader natcurric:substrand-foreign-language ;
+  skos:narrower natcurric:subcontentdescriptor-broaden-vocabulary-ability-new-words ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-06T11:12:00Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-write-phrases-memory-adapt-create
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Write phrases from memory, and adapt these to create new sentences, to express
+  ideas clearly."""@en ;
+  skos:broader natcurric:substrand-foreign-language ;
+  skos:narrower natcurric:subcontentdescriptor-write-phrases-memory-adapt-create ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-06T11:12:00Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-describe-people-places-things-actions
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Describe people, places, things and actions orally and in writing."@en ;
+  skos:broader natcurric:substrand-foreign-language ;
+  skos:narrower natcurric:subcontentdescriptor-describe-people-places-things-actions ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-06T11:12:00Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-basic-grammar-appropriate-language-studied
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Understand basic grammar appropriate to the language being studied, including
+  (where relevant): feminine, masculine and neuter forms and the conjugation of
+  high-frequency verbs; key features and patterns of the language; how to apply these, for
+  instance, to build sentences; and how these differ from or are similar to English."""@en ;
+  skos:broader natcurric:substrand-foreign-language ;
+  skos:narrower natcurric:subcontentdescriptor-basic-grammar-appropriate-language-studied ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-06T11:12:00Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-identify-tenses-other-structures-convey
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Identify and use tenses or other structures which convey the present, past, and
+  future as appropriate to the language being studied."""@en ;
+  skos:broader natcurric:substrand-grammar-and-vocabulary ;
+  skos:narrower natcurric:subcontentdescriptor-identify-tenses-other-structures-convey ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-06T11:12:00Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-manipulate-variety-key-grammatical-structures
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Use and manipulate a variety of key grammatical structures and patterns,
+  including voices and moods, as appropriate."""@en ;
+  skos:broader natcurric:substrand-grammar-and-vocabulary ;
+  skos:narrower natcurric:subcontentdescriptor-manipulate-variety-key-grammatical-structures ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-06T11:12:00Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-ranging-deepening-vocabulary-goes-immediate
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Develop and use a wide-ranging and deepening vocabulary that goes beyond their
+  immediate needs and interests, allowing them to give and justify opinions and take part in
+  discussion about wider issues."""@en ;
+  skos:broader natcurric:substrand-grammar-and-vocabulary ;
+  skos:narrower natcurric:subcontentdescriptor-ranging-deepening-vocabulary-goes-immediate ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-06T11:12:00Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-accurate-grammar-spelling-punctuation
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel "Use accurate grammar, spelling and punctuation."@en ;
+  skos:broader natcurric:substrand-grammar-and-vocabulary ;
+  skos:narrower natcurric:subcontentdescriptor-accurate-grammar-spelling-punctuation ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-06T11:12:00Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-listen-variety-forms-spoken-language
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Listen to a variety of forms of spoken language to obtain information and
+  respond appropriately."""@en ;
+  skos:broader natcurric:substrand-linguistic-competence ;
+  skos:narrower natcurric:subcontentdescriptor-listen-variety-forms-spoken-language ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-06T11:12:00Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-transcribe-words-short-sentences-hear
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Transcribe words and short sentences that they hear with increasing
+  accuracy."""@en ;
+  skos:broader natcurric:substrand-linguistic-competence ;
+  skos:narrower natcurric:subcontentdescriptor-transcribe-words-short-sentences-hear ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-06T11:12:00Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-initiate-conversations-coping-unfamiliar-language
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Initiate and develop conversations, coping with unfamiliar language and
+  unexpected responses, making use of important social conventions such as formal modes of
+  address."""@en ;
+  skos:broader natcurric:substrand-linguistic-competence ;
+  skos:narrower natcurric:subcontentdescriptor-initiate-conversations-coping-unfamiliar-language ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-06T11:12:00Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-express-ideas-increasing-accuracy-writing
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Express and develop ideas clearly and with increasing accuracy, both orally and
+  in writing."""@en ;
+  skos:broader natcurric:substrand-linguistic-competence ;
+  skos:narrower natcurric:subcontentdescriptor-express-ideas-increasing-accuracy-writing ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-06T11:12:00Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-speak-accurate-pronunciation-intonation
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Speak coherently and confidently, with increasingly accurate pronunciation and
+  intonation."""@en ;
+  skos:broader natcurric:substrand-linguistic-competence ;
+  skos:narrower natcurric:subcontentdescriptor-speak-accurate-pronunciation-intonation ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-06T11:12:00Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-read-comprehension-original-adapted-materials
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Read and show comprehension of original and adapted materials from a range of
+  different sources, understanding the purpose, important ideas and details, and provide an
+  accurate English translation of short, suitable material."""@en ;
+  skos:broader natcurric:substrand-linguistic-competence ;
+  skos:narrower natcurric:subcontentdescriptor-read-comprehension-original-adapted-materials ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-06T11:12:00Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-read-literary-texts-language-such
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Read literary texts in the language [such as stories, songs, poems and letters],
+  to stimulate ideas, develop creative expression and expand understanding of the language
+  and culture."""@en ;
+  skos:broader natcurric:substrand-linguistic-competence ;
+  skos:narrower natcurric:subcontentdescriptor-read-literary-texts-language-such ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-06T11:12:00Z"^^xsd:dateTime .
+
+natcurric:contentdescriptor-write-prose-wide-range-grammar
+  a skos:Concept, curric:ContentDescriptor ;
+  skos:prefLabel """Write prose using an increasingly wide range of grammar and vocabulary, write
+  creatively to express their own ideas and opinions, and translate short written text
+  accurately into the foreign language."""@en ;
+  skos:broader natcurric:substrand-linguistic-competence ;
+  skos:narrower natcurric:subcontentdescriptor-write-prose-wide-range-grammar ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-06T11:12:00Z"^^xsd:dateTime .
+
+# ----------------------------------------------------------------------
+# Sub-Content Descriptors
+# ----------------------------------------------------------------------
+
+natcurric:subcontentdescriptor-listen-spoken-language-joining-responding
+  a skos:Concept, curric:SubContentDescriptor ;
+  skos:prefLabel """Listen attentively to spoken language and show understanding by joining in and
+  responding."""@en ;
+  skos:broader natcurric:contentdescriptor-listen-spoken-language-joining-responding ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-06T11:12:00Z"^^xsd:dateTime .
+
+natcurric:subcontentdescriptor-patterns-sounds-language-songs-rhymes
+  a skos:Concept, curric:SubContentDescriptor ;
+  skos:prefLabel """Explore the patterns and sounds of language through songs and rhymes and link
+  the spelling, sound and meaning of words."""@en ;
+  skos:broader natcurric:contentdescriptor-patterns-sounds-language-songs-rhymes ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-06T11:12:00Z"^^xsd:dateTime .
+
+natcurric:subcontentdescriptor-engage-conversations-ask-answer-questions
+  a skos:Concept, curric:SubContentDescriptor ;
+  skos:prefLabel """Engage in conversations; ask and answer questions; express opinions and respond
+  to those of others; seek clarification and help."""@en ;
+  skos:broader natcurric:contentdescriptor-engage-conversations-ask-answer-questions ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-06T11:12:00Z"^^xsd:dateTime .
+
+natcurric:subcontentdescriptor-speak-sentences-familiar-vocabulary-phrases
+  a skos:Concept, curric:SubContentDescriptor ;
+  skos:prefLabel """Speak in sentences, using familiar vocabulary, phrases and basic language
+  structures."""@en ;
+  skos:broader natcurric:contentdescriptor-speak-sentences-familiar-vocabulary-phrases ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-06T11:12:00Z"^^xsd:dateTime .
+
+natcurric:subcontentdescriptor-accurate-pronunciation-intonation-others-reading
+  a skos:Concept, curric:SubContentDescriptor ;
+  skos:prefLabel """Develop accurate pronunciation and intonation so that others understand when
+  they are reading aloud or using familiar words and phrases."""@en ;
+  skos:broader natcurric:contentdescriptor-accurate-pronunciation-intonation-others-reading ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-06T11:12:00Z"^^xsd:dateTime .
+
+natcurric:subcontentdescriptor-present-ideas-information-range-audiences
+  a skos:Concept, curric:SubContentDescriptor ;
+  skos:prefLabel "Present ideas and information orally to a range of audiences."@en ;
+  skos:broader natcurric:contentdescriptor-present-ideas-information-range-audiences ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-06T11:12:00Z"^^xsd:dateTime .
+
+natcurric:subcontentdescriptor-read-words-phrases-simple-writing
+  a skos:Concept, curric:SubContentDescriptor ;
+  skos:prefLabel "Read carefully and show understanding of words, phrases and simple writing."@en ;
+  skos:broader natcurric:contentdescriptor-read-words-phrases-simple-writing ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-06T11:12:00Z"^^xsd:dateTime .
+
+natcurric:subcontentdescriptor-appreciate-stories-songs-poems-rhymes
+  a skos:Concept, curric:SubContentDescriptor ;
+  skos:prefLabel "Appreciate stories, songs, poems and rhymes in the language."@en ;
+  skos:broader natcurric:contentdescriptor-appreciate-stories-songs-poems-rhymes ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-06T11:12:00Z"^^xsd:dateTime .
+
+natcurric:subcontentdescriptor-broaden-vocabulary-ability-new-words
+  a skos:Concept, curric:SubContentDescriptor ;
+  skos:prefLabel """Broaden their vocabulary and develop their ability to understand new words that
+  are introduced into familiar written material, including through using a dictionary."""@en ;
+  skos:broader natcurric:contentdescriptor-broaden-vocabulary-ability-new-words ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-06T11:12:00Z"^^xsd:dateTime .
+
+natcurric:subcontentdescriptor-write-phrases-memory-adapt-create
+  a skos:Concept, curric:SubContentDescriptor ;
+  skos:prefLabel """Write phrases from memory, and adapt these to create new sentences, to express
+  ideas clearly."""@en ;
+  skos:broader natcurric:contentdescriptor-write-phrases-memory-adapt-create ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-06T11:12:00Z"^^xsd:dateTime .
+
+natcurric:subcontentdescriptor-describe-people-places-things-actions
+  a skos:Concept, curric:SubContentDescriptor ;
+  skos:prefLabel "Describe people, places, things and actions orally and in writing."@en ;
+  skos:broader natcurric:contentdescriptor-describe-people-places-things-actions ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-06T11:12:00Z"^^xsd:dateTime .
+
+natcurric:subcontentdescriptor-basic-grammar-appropriate-language-studied
+  a skos:Concept, curric:SubContentDescriptor ;
+  skos:prefLabel """Understand basic grammar appropriate to the language being studied, including
+  (where relevant): feminine, masculine and neuter forms and the conjugation of
+  high-frequency verbs; key features and patterns of the language; how to apply these, for
+  instance, to build sentences; and how these differ from or are similar to English."""@en ;
+  skos:broader natcurric:contentdescriptor-basic-grammar-appropriate-language-studied ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-06T11:12:00Z"^^xsd:dateTime .
+
+natcurric:subcontentdescriptor-identify-tenses-other-structures-convey
+  a skos:Concept, curric:SubContentDescriptor ;
+  skos:prefLabel """Identify and use tenses or other structures which convey the present, past, and
+  future as appropriate to the language being studied."""@en ;
+  skos:broader natcurric:contentdescriptor-identify-tenses-other-structures-convey ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-06T11:12:00Z"^^xsd:dateTime .
+
+natcurric:subcontentdescriptor-manipulate-variety-key-grammatical-structures
+  a skos:Concept, curric:SubContentDescriptor ;
+  skos:prefLabel """Use and manipulate a variety of key grammatical structures and patterns,
+  including voices and moods, as appropriate."""@en ;
+  skos:broader natcurric:contentdescriptor-manipulate-variety-key-grammatical-structures ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-06T11:12:00Z"^^xsd:dateTime .
+
+natcurric:subcontentdescriptor-ranging-deepening-vocabulary-goes-immediate
+  a skos:Concept, curric:SubContentDescriptor ;
+  skos:prefLabel """Develop and use a wide-ranging and deepening vocabulary that goes beyond their
+  immediate needs and interests, allowing them to give and justify opinions and take part in
+  discussion about wider issues."""@en ;
+  skos:broader natcurric:contentdescriptor-ranging-deepening-vocabulary-goes-immediate ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-06T11:12:00Z"^^xsd:dateTime .
+
+natcurric:subcontentdescriptor-accurate-grammar-spelling-punctuation
+  a skos:Concept, curric:SubContentDescriptor ;
+  skos:prefLabel "Use accurate grammar, spelling and punctuation."@en ;
+  skos:broader natcurric:contentdescriptor-accurate-grammar-spelling-punctuation ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-06T11:12:00Z"^^xsd:dateTime .
+
+natcurric:subcontentdescriptor-listen-variety-forms-spoken-language
+  a skos:Concept, curric:SubContentDescriptor ;
+  skos:prefLabel """Listen to a variety of forms of spoken language to obtain information and
+  respond appropriately."""@en ;
+  skos:broader natcurric:contentdescriptor-listen-variety-forms-spoken-language ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-06T11:12:00Z"^^xsd:dateTime .
+
+natcurric:subcontentdescriptor-transcribe-words-short-sentences-hear
+  a skos:Concept, curric:SubContentDescriptor ;
+  skos:prefLabel """Transcribe words and short sentences that they hear with increasing
+  accuracy."""@en ;
+  skos:broader natcurric:contentdescriptor-transcribe-words-short-sentences-hear ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-06T11:12:00Z"^^xsd:dateTime .
+
+natcurric:subcontentdescriptor-initiate-conversations-coping-unfamiliar-language
+  a skos:Concept, curric:SubContentDescriptor ;
+  skos:prefLabel """Initiate and develop conversations, coping with unfamiliar language and
+  unexpected responses, making use of important social conventions such as formal modes of
+  address."""@en ;
+  skos:broader natcurric:contentdescriptor-initiate-conversations-coping-unfamiliar-language ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-06T11:12:00Z"^^xsd:dateTime .
+
+natcurric:subcontentdescriptor-express-ideas-increasing-accuracy-writing
+  a skos:Concept, curric:SubContentDescriptor ;
+  skos:prefLabel """Express and develop ideas clearly and with increasing accuracy, both orally and
+  in writing."""@en ;
+  skos:broader natcurric:contentdescriptor-express-ideas-increasing-accuracy-writing ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-06T11:12:00Z"^^xsd:dateTime .
+
+natcurric:subcontentdescriptor-speak-accurate-pronunciation-intonation
+  a skos:Concept, curric:SubContentDescriptor ;
+  skos:prefLabel """Speak coherently and confidently, with increasingly accurate pronunciation and
+  intonation."""@en ;
+  skos:broader natcurric:contentdescriptor-speak-accurate-pronunciation-intonation ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-06T11:12:00Z"^^xsd:dateTime .
+
+natcurric:subcontentdescriptor-read-comprehension-original-adapted-materials
+  a skos:Concept, curric:SubContentDescriptor ;
+  skos:prefLabel """Read and show comprehension of original and adapted materials from a range of
+  different sources, understanding the purpose, important ideas and details, and provide an
+  accurate English translation of short, suitable material."""@en ;
+  skos:broader natcurric:contentdescriptor-read-comprehension-original-adapted-materials ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-06T11:12:00Z"^^xsd:dateTime .
+
+natcurric:subcontentdescriptor-read-literary-texts-language-such
+  a skos:Concept, curric:SubContentDescriptor ;
+  skos:prefLabel """Read literary texts in the language [such as stories, songs, poems and letters],
+  to stimulate ideas, develop creative expression and expand understanding of the language
+  and culture."""@en ;
+  skos:broader natcurric:contentdescriptor-read-literary-texts-language-such ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-06T11:12:00Z"^^xsd:dateTime .
+
+natcurric:subcontentdescriptor-write-prose-wide-range-grammar
+  a skos:Concept, curric:SubContentDescriptor ;
+  skos:prefLabel """Write prose using an increasingly wide range of grammar and vocabulary, write
+  creatively to express their own ideas and opinions, and translate short written text
+  accurately into the foreign language."""@en ;
+  skos:broader natcurric:contentdescriptor-write-prose-wide-range-grammar ;
+  skos:inScheme natcurric:knowledge-taxonomy ;
+  dcterms:modified "2026-05-06T11:12:00Z"^^xsd:dateTime .

@@ -1,5 +1,6 @@
 @prefix curric: <https://w3id.org/uk/oak/curriculum/ontology/> .
 @prefix oakcurric: <https://w3id.org/uk/oak/curriculum/oakcurriculum/> .
+@prefix natcurric: <https://w3id.org/uk/oak/curriculum/nationalcurriculum/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
@@ -9,7 +10,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 # ======================================================================
-# Oak Curriculum Data - Programme Structure Instance Data 
+# Oak Curriculum Data - Programme Structure Instance Data
 # ======================================================================
 
 # ----------------------------------------------------------------------
@@ -19,29 +20,104 @@
 <https://w3id.org/uk/oak/curriculum/oakcurriculum/programme-structure>
   rdf:type owl:Ontology ;
 
-  rdfs:label "Oak Curriculum Ontology - Programme Structure Instance Data"@en ;
-  dc:title "Oak Curriculum Ontology - Programme Structure Instance Data"@en ;
-  rdfs:comment """Instance data defining the exam boards and tiers used in Oak National Academy 
+  rdfs:label "Oak Curriculum Data - Programme Structure Instance Data"@en ;
+  dc:title "Oak Curriculum Data - Programme Structure Instance Data"@en ;
+  rdfs:comment """Instance data defining the exam boards and tiers used in Oak National Academy
   curriculum programmes."""@en ;
 
-  owl:versionInfo "0.1.0" ;
-  owl:versionIRI <https://w3id.org/uk/oak/curriculum/oakcurriculum/programme-structure/0.1.0> ;
+  owl:versionInfo "0.1.1" ;
+  owl:versionIRI <https://w3id.org/uk/oak/curriculum/oakcurriculum/programme-structure/0.1.1> ;
 
-  dcterms:description """This file contains instances of ExamBoard and Tier classes defined in the 
-  Oak Curriculum Ontology."""@en ;
+  dcterms:description """Instance data defining the exam boards and tiers used in Oak National Academy
+  curriculum programmes."""@en ;
   dc:creator "Oak National Academy" ;
-  dcterms:created "2025-12-01T12:33:32Z"^^xsd:dateTime ;
-  dcterms:modified "2025-12-01T12:33:32Z"^^xsd:dateTime ;
-  dcterms:issued "2025-12-01T12:33:32Z"^^xsd:dateTime ;
+  dcterms:created "2026-06-07T15:30:51.696992Z"^^xsd:dateTime ;
+  dcterms:modified "2026-06-07T15:30:51.696992Z"^^xsd:dateTime ;
+  dcterms:issued "2026-06-07T15:30:51.696992Z"^^xsd:dateTime ;
 
   # OGL 3.0 License
   dcterms:license <http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/> ;
   dcterms:rights "Copyright © 2026 Oak National Academy."@en ;
-  
-  vann:preferredNamespacePrefix "oakcurric" ; 
+
+  rdfs:seeAlso <https://thenational.academy> ;
+  vann:preferredNamespacePrefix "oakcurric" ;
   vann:preferredNamespaceUri "https://w3id.org/uk/oak/curriculum/oakcurriculum/" ;
 
   owl:imports <https://w3id.org/uk/oak/curriculum/ontology> .
+
+# ----------------------------------------------------------------------
+# Schemes
+# ----------------------------------------------------------------------
+
+oakcurric:scheme-art-and-design-key-stage-4
+  a curric:Scheme ;
+  rdfs:label "Art and design Key Stage 4"@en ;
+  dcterms:modified "2026-05-26T17:33:40.000000Z"^^xsd:dateTime ;
+  curric:isSchemeOf
+    natcurric:subject-art-and-design ;
+  curric:coversKeyStage
+    natcurric:key-stage-4 .
+
+oakcurric:scheme-design-and-technology-key-stage-4
+  a curric:Scheme ;
+  rdfs:label "Design and technology Key Stage 4"@en ;
+  dcterms:modified "2026-05-26T17:33:40.000000Z"^^xsd:dateTime ;
+  curric:isSchemeOf
+    natcurric:subject-design-and-technology ;
+  curric:coversKeyStage
+    natcurric:key-stage-4 .
+
+oakcurric:scheme-geography-key-stage-4
+  a curric:Scheme ;
+  rdfs:label "Geography Key Stage 4"@en ;
+  dcterms:modified "2026-05-26T17:33:40.000000Z"^^xsd:dateTime ;
+  curric:isSchemeOf
+    natcurric:subject-geography ;
+  curric:coversKeyStage
+    natcurric:key-stage-4 .
+
+oakcurric:scheme-history-key-stage-4
+  a curric:Scheme ;
+  rdfs:label "History Key Stage 4"@en ;
+  dcterms:modified "2026-05-26T17:33:40.000000Z"^^xsd:dateTime ;
+  curric:isSchemeOf
+    natcurric:subject-history ;
+  curric:coversKeyStage
+    natcurric:key-stage-4 .
+
+oakcurric:scheme-languages-key-stage-4
+  a curric:Scheme ;
+  rdfs:label "Languages Key Stage 4"@en ;
+  dcterms:modified "2026-05-26T17:33:40.000000Z"^^xsd:dateTime ;
+  curric:isSchemeOf
+    natcurric:subject-languages ;
+  curric:coversKeyStage
+    natcurric:key-stage-4 .
+
+oakcurric:scheme-music-key-stage-4
+  a curric:Scheme ;
+  rdfs:label "Music Key Stage 4"@en ;
+  dcterms:modified "2026-05-26T17:33:40.000000Z"^^xsd:dateTime ;
+  curric:isSchemeOf
+    natcurric:subject-music ;
+  curric:coversKeyStage
+    natcurric:key-stage-4 .
+
+# ----------------------------------------------------------------------
+# Tiers
+# ----------------------------------------------------------------------
+
+oakcurric:tier-foundation
+  a curric:Tier ;
+  rdfs:label "Foundation"@en ;
+  rdfs:comment "Foundation tier"@en ;
+  dcterms:modified "2026-06-07T15:30:45.787614Z"^^xsd:dateTime .
+
+oakcurric:tier-higher
+  a curric:Tier ;
+  rdfs:label "Higher"@en ;
+  rdfs:comment "Higher tier"@en ;
+  dcterms:modified "2026-06-07T15:30:45.793421Z"^^xsd:dateTime .
 
 # ----------------------------------------------------------------------
 # Exam Boards
@@ -50,45 +126,29 @@
 oakcurric:examboard-aqa
   a curric:ExamBoard ;
   rdfs:label "AQA"@en ;
-  rdfs:comment "Assessment and Qualifications Alliance"@en ;
-  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
+  rdfs:comment "AQA"@en ;
+  dcterms:modified "2026-06-07T15:30:45.753337Z"^^xsd:dateTime .
 
 oakcurric:examboard-edexcel
   a curric:ExamBoard ;
   rdfs:label "Edexcel"@en ;
   rdfs:comment "Edexcel"@en ;
-  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
-
-oakcurric:examboard-ocr
-  a curric:ExamBoard ;
-  rdfs:label "OCR"@en ;
-  rdfs:comment "Oxford, Cambridge and RSA Examinations"@en ;
-  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
-
-# ----------------------------------------------------------------------
-# Tiers 
-# ----------------------------------------------------------------------
-
-oakcurric:tier-foundation
-  a curric:Tier ;
-  rdfs:label "Foundation"@en ;
-  rdfs:comment "Foundation level of study at key stage 4: covers grades 1-5"@en ;
-  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
-
-oakcurric:tier-higher
-  a curric:Tier ;
-  rdfs:label "Higher"@en ;
-  rdfs:comment "Higher level of study at key stage 4: covers grades 4-9"@en ;
-  dcterms:modified "2025-12-18T12:33:32Z"^^xsd:dateTime .
-
-oakcurric:examboard-eduqas
-  a curric:ExamBoard ;
-  rdfs:label "Eduqas"@en ;
-  rdfs:comment "Eduqas"@en ;
-  dcterms:modified "2026-01-19T21:16:32.274175Z"^^xsd:dateTime .
+  dcterms:modified "2026-06-07T15:30:45.761149Z"^^xsd:dateTime .
 
 oakcurric:examboard-edexcelb
   a curric:ExamBoard ;
   rdfs:label "Edexcel B"@en ;
   rdfs:comment "Edexcel B"@en ;
-  dcterms:modified "2026-01-19T21:36:15.252847Z"^^xsd:dateTime .
+  dcterms:modified "2026-06-07T15:30:45.766266Z"^^xsd:dateTime .
+
+oakcurric:examboard-eduqas
+  a curric:ExamBoard ;
+  rdfs:label "Eduqas"@en ;
+  rdfs:comment "Eduqas"@en ;
+  dcterms:modified "2026-06-07T15:30:45.772597Z"^^xsd:dateTime .
+
+oakcurric:examboard-ocr
+  a curric:ExamBoard ;
+  rdfs:label "OCR"@en ;
+  rdfs:comment "OCR"@en ;
+  dcterms:modified "2026-06-07T15:30:45.778325Z"^^xsd:dateTime .
