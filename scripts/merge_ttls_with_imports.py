@@ -175,8 +175,8 @@ class TTLMerger:
             self.seen_files.add(resolved_path)
             try:
                 self.graph.parse(str(resolved_path), format="turtle")
-            except Exception as e:
-                logger.error("Error parsing %s: %s", resolved_path, e)
+            except Exception:
+                logger.exception("Error parsing %s", resolved_path)
             return
 
         # Remote URL - fetch and parse
@@ -185,10 +185,10 @@ class TTLMerger:
         try:
             with urllib.request.urlopen(resolved, timeout=30) as response:
                 self.graph.parse(data=response.read(), format="turtle")
-        except urllib.error.URLError as e:
-            logger.error("Error fetching %s: %s", resolved, e)
-        except Exception as e:
-            logger.error("Error parsing %s: %s", resolved, e)
+        except urllib.error.URLError:
+            logger.exception("Error fetching %s", resolved)
+        except Exception:
+            logger.exception("Error parsing %s", resolved)
 
     def _process_imports(self, current_file: Path | URIRef | str) -> None:
         """Process owl:imports from the current graph state."""
@@ -282,7 +282,7 @@ def main() -> int:
         merger.save(args.output)
         return 0
     except Exception as e:
-        logger.error("Failed to merge TTL files: %s", e)
+        logger.exception("Failed to merge TTL files: %s", e)
         return 1
 
 
