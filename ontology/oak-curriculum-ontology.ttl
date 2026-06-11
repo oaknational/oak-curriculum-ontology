@@ -30,7 +30,7 @@
   owl:versionInfo "0.1.1" ;
   owl:versionIRI <https://w3id.org/uk/oak/curriculum/ontology/0.1.1> ;
 
-  bibo:status "Oak Curriculum Ontology" ;
+  bibo:status "Published" ;
   dcterms:abstract """This ontology defines the structure of programmes, units, unit variants, and 
   lessons for the Oak Curriculum. It provides a framework for representing curriculum sequencing, 
   optionality, and exam board variations."""@en ;
