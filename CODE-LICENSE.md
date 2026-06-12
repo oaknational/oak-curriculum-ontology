@@ -25,10 +25,12 @@ SOFTWARE.
 All Python scripts, GitHub Actions workflows, and software tools are licensed under this MIT License.
 
 **Applies to:**
+
 - `scripts/` - Python utilities
 - `.github/workflows/` - CI/CD automation
 
 **What you can do:**
+
 - ✅ Use, modify, and redistribute freely
 - ✅ Use in commercial projects
 - ✅ Minimal restrictions

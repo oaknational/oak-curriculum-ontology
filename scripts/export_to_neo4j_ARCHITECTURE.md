@@ -5,6 +5,7 @@
 The `export_to_neo4j.py` script exports RDF/TTL curriculum data to Neo4j AuraDB with extensive transformations to optimize the graph structure for querying and traversal.
 
 **Key Features:**
+
 - Config-driven (reusable for other RDF repositories)
 - Strategy pattern for extensible transformations
 - Batched processing for performance
@@ -15,7 +16,7 @@ The `export_to_neo4j.py` script exports RDF/TTL curriculum data to Neo4j AuraDB 
 
 ## Architecture Diagram
 
-```
+```text
 ┌─────────────────────────────────────────────────────────────────┐
 │                         MAIN PIPELINE                            │
 └─────────────────────────────────────────────────────────────────┘
@@ -124,6 +125,7 @@ The `export_to_neo4j.py` script exports RDF/TTL curriculum data to Neo4j AuraDB 
 **Purpose:** Config-driven design makes the script reusable for different RDF repositories.
 
 **Key Sections:**
+
 - `rdf_source` - TTL file discovery, namespaces, filters
 - `neo4j_connection` - Connection settings, batch sizes
 - `label_mapping` - Transform labels (e.g., Resource → NatCurric)
@@ -145,11 +147,13 @@ The `export_to_neo4j.py` script exports RDF/TTL curriculum data to Neo4j AuraDB 
 **Key Methods:**
 
 #### `discover_files() -> list[Path]`
+
 - Finds TTL files using glob patterns
 - Respects include/exclude patterns
 - Returns files in discovery order
 
 #### `load_and_filter(ttl_file) -> FilteredGraphResult`
+
 - Parses TTL file into RDF graph
 - Extracts metadata BEFORE filtering:
   - Multi-valued properties (RDF lists)
@@ -163,12 +167,14 @@ The `export_to_neo4j.py` script exports RDF/TTL curriculum data to Neo4j AuraDB 
   - By predicate globally
 - Returns structured FilteredGraphResult dataclass
 
-#### Filtering Methods:
+#### Filtering Methods
+
 - `_filter_by_entity_type()` - Remove subjects of specific types
 - `_filter_properties_by_type()` - Remove properties from specific types
 - `_filter_predicates_globally()` - Remove predicates everywhere
 
-#### Extraction Methods:
+#### Extraction Methods
+
 - `_extract_multi_valued_properties()` - RDF lists → Python lists
 - `_extract_slugs()` - Last URI segment → property
 - `_extract_object_uri_properties()` - Object URIs → properties
@@ -195,22 +201,26 @@ class Transformation(ABC):
     def execute(session, config, main_labels, data) -> int: ...
 ```
 
-#### Key Transformations:
+#### Key Transformations
 
 **LabelMappingTransformation**
+
 - Replaces generic labels with domain-specific ones
 - Example: Resource → NatCurric (for National Curriculum nodes)
 
 **InclusionFlatteningTransformation**
+
 - Flattens reified relationships into direct edges with properties
 - Example: (Unit)-[inclusion]->(Lesson) → (Unit)-[HAS_LESSON{lessonOrder}]->(Lesson)
 - Optimizes graph for Neo4j traversals
 
 **PropertyMappingTransformation**
+
 - Renames properties based on node type
 - Example: Phase.label → Phase.phaseTitle
 
 **ExternalRelationshipsTransformation**
+
 - Creates relationships to external nodes
 - Pre-caches target labels to avoid N+1 queries
 
@@ -219,6 +229,7 @@ class Transformation(ABC):
 ### 4. Error Handling & Retry Logic
 
 **Retry Function:** `retry_on_transient_error()`
+
 - Exponential backoff (2s → 4s → 8s)
 - Max 3 retries
 - Only retries transient errors:
@@ -229,6 +240,7 @@ class Transformation(ABC):
   - `CypherSyntaxError` (bug in script)
 
 **Error Types Handled:**
+
 - **Config errors:** FileNotFoundError, JSON parsing, validation
 - **TTL parsing:** File not found, permission denied, malformed TTL
 - **Neo4j connection:** ServiceUnavailable, AuthError
@@ -239,21 +251,25 @@ class Transformation(ABC):
 ### 5. Performance Optimizations
 
 #### Batching
+
 - **Import:** 5000 triples per batch (configurable)
 - **Deletion:** 1000 nodes per batch
 - **Relationships:** UNWIND batching for bulk creation
 
 #### Indexing
+
 - Creates index on `uri` property for all main labels
 - CRITICAL for performance (O(1) vs O(n) lookups)
 - Waits for index to be online (300s timeout)
 
 #### Pre-caching
+
 - Caches target node labels before creating relationships
 - Avoids N+1 query problem
 - Example: 1000 relationships = 1 cache query instead of 1000 lookups
 
 #### Progress Tracking
+
 - `tqdm` progress bars for file processing
 - Real-time feedback on long operations
 
@@ -262,6 +278,7 @@ class Transformation(ABC):
 ## Data Flow
 
 ### Input: TTL Files
+
 ```turtle
 # Example: subjects/mathematics/ks1-mathematics-programme-structure.ttl
 natcurric:ks1-mathematics-programme a curric:Programme ;
@@ -270,11 +287,13 @@ natcurric:ks1-mathematics-programme a curric:Programme ;
 ```
 
 ### Stage 1: Loaded into RDF Graph
+
 - Parse with rdflib
 - Extract metadata (aims list, slug, etc.)
 - Filter ontology declarations
 
 ### Stage 2: Import to Neo4j
+
 ```cypher
 // Initial state (via rdflib-neo4j)
 (:Resource {
@@ -284,6 +303,7 @@ natcurric:ks1-mathematics-programme a curric:Programme ;
 ```
 
 ### Stage 3: Transformed
+
 ```cypher
 // After transformations
 (:NatCurric:Programme {
@@ -300,26 +320,31 @@ natcurric:ks1-mathematics-programme a curric:Programme ;
 ## CLI Usage
 
 ### Basic Export
+
 ```bash
 python scripts/export_to_neo4j.py --config scripts/export_to_neo4j_config.json
 ```
 
 ### Clear Database First
+
 ```bash
 python scripts/export_to_neo4j.py --config scripts/export_to_neo4j_config.json --clear
 ```
 
 ### Dry Run (Validation)
+
 ```bash
 python scripts/export_to_neo4j.py --config scripts/export_to_neo4j_config.json --dry-run
 ```
 
 ### List Files
+
 ```bash
 python scripts/export_to_neo4j.py --config scripts/export_to_neo4j_config.json --list-files
 ```
 
 ### Verbose Logging
+
 ```bash
 python scripts/export_to_neo4j.py --config scripts/export_to_neo4j_config.json --verbose
 ```
@@ -344,6 +369,7 @@ The script is designed to be reusable across different RDF domains.
 ## Dependencies
 
 **Runtime:**
+
 - `rdflib>=7.5.0` - RDF parsing and manipulation
 - `rdflib-neo4j>=0.6.0` - Neo4j store for rdflib
 - `neo4j>=5.0.0` - Neo4j Python driver
@@ -352,6 +378,7 @@ The script is designed to be reusable across different RDF domains.
 - `tqdm>=4.66.0` - Progress bars
 
 **Development:**
+
 - `mypy>=1.8.0` - Static type checking
 - `ruff>=0.2.0` - Linting and formatting
 
@@ -381,6 +408,7 @@ class MyNewTransformation(Transformation):
         return count
 ```
 
+<!-- markdownlint-disable-next-line MD029 -->
 2. Add to pipeline in `apply_transformations()`:
 
 ```python
@@ -393,6 +421,7 @@ transformations=[
 ### Modifying Configuration
 
 Update both:
+
 1. `export_to_neo4j_config.json` - The actual config
 2. Pydantic models in script - For validation
 
@@ -403,18 +432,22 @@ Update both:
 ### Common Issues
 
 **"Neo4j authentication failed"**
+
 - Check `.env` file exists
 - Verify `NEO4J_PASSWORD` is correct
 
 **"TTL parsing failed"**
+
 - Check TTL file is valid Turtle format
 - Run: `rapper -i turtle file.ttl` to validate
 
 **"Transient error"**
+
 - Script will retry automatically (3 attempts)
 - If persists, check Neo4j is running and responsive
 
 **"Index creation timeout"**
+
 - Large datasets may need more time
 - Increase `INDEX_AWAIT_TIMEOUT_SECONDS` constant
 
@@ -423,6 +456,7 @@ Update both:
 ## Performance Tuning
 
 ### Batch Sizes
+
 ```python
 # Adjust in config or constants
 DEFAULT_BATCH_SIZE = 5000  # Increase for faster import
@@ -430,6 +464,7 @@ DELETE_BATCH_SIZE = 1000   # Increase for faster deletion
 ```
 
 ### Retry Configuration
+
 ```python
 MAX_RETRIES = 3                  # Number of retry attempts
 RETRY_DELAY_SECONDS = 2          # Initial delay
@@ -437,6 +472,7 @@ RETRY_BACKOFF_MULTIPLIER = 2     # Exponential backoff
 ```
 
 ### Index Wait Time
+
 ```python
 INDEX_AWAIT_TIMEOUT_SECONDS = 300  # 5 minutes
 ```
@@ -446,6 +482,7 @@ INDEX_AWAIT_TIMEOUT_SECONDS = 300  # 5 minutes
 ## Code Quality
 
 **Strengths:**
+
 - ✅ Clean architecture (Strategy pattern, SRP)
 - ✅ Type-safe (modern type hints, Pydantic)
 - ✅ Well-documented (docstrings, comments)
@@ -458,6 +495,7 @@ INDEX_AWAIT_TIMEOUT_SECONDS = 300  # 5 minutes
 ## Version History
 
 **v0.1.0** (Current)
+
 - Initial refactored version
 - Modern Python 3.11+ type hints
 - Strategy pattern for transformations

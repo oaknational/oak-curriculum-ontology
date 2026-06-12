@@ -31,7 +31,8 @@ We value your input! Please share:
 
 **We are not accepting pull requests during this early release phase.**
 
-Why? During v0.1.0, we are:
+Why? During v0.1.x, we are:
+
 - Actively refining the ontology structure
 - Establishing governance processes
 - Validating the data model
@@ -42,6 +43,7 @@ Why? During v0.1.0, we are:
 ### Data Quality Issues
 
 Examples:
+
 - "The Mathematics KS3 content descriptor for 'Fractions' has incorrect URI pattern"
 - "Programme X references a year group that doesn't exist"
 - "SHACL validation fails on valid data in biology-key-stage-4.ttl"
@@ -49,6 +51,7 @@ Examples:
 ### Ontology Structure
 
 Examples:
+
 - "The relationship between Unit and Lesson is unclear"
 - "Missing property to link Programmes to Exam Boards"
 - "Ambiguity in how Threads relate to Units"
@@ -56,6 +59,7 @@ Examples:
 ### Documentation
 
 Examples:
+
 - "SPARQL example on line 235 of README doesn't work"
 - "File structure diagram is outdated"
 - "Standards compliance doc mentions wrong filename"
@@ -63,6 +67,7 @@ Examples:
 ### Use Case Requirements
 
 Examples:
+
 - "We need a property to track prerequisite units"
 - "Missing metadata for tracking last updated timestamps"
 
@@ -75,6 +80,7 @@ Examples:
 ## Code of Conduct
 
 We expect all contributors to:
+
 - Be respectful and constructive
 - Focus on the technical merits of suggestions
 - Assume good faith in discussions

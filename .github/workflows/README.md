@@ -15,7 +15,7 @@ This directory contains automated CI/CD workflows for the Oak Curriculum Ontolog
 - [Security](#security)
 - [Performance](#performance)
 - [Troubleshooting](#troubleshooting)
-- [Contributing](#contributing)
+- [Contributing](../../CONTRIBUTING.md)
 
 ---
 
@@ -90,7 +90,7 @@ Validates the ontology structure and curriculum data against SHACL constraints t
 
 #### Example Output
 
-```
+```text
 ✅ Merged Turtle syntax is valid
 ✅ Validation passed
    Triple count: 45,231
@@ -155,9 +155,10 @@ Generates comprehensive HTML documentation from the ontology and deploys it to G
 
 #### Generated Documentation
 
-**URL:** https://oaknational.github.io/oak-curriculum-ontology/
+**URL:** <https://oaknational.github.io/oak-curriculum-ontology/>
 
 **Includes:**
+
 - 📖 Complete ontology documentation
 - 🎨 WebVOWL interactive graph visualization
 - 📊 Class and property definitions
@@ -369,7 +370,6 @@ All external downloads are verified:
 | Generate Documentation | 2-3 min |
 | Generate Distributions | 5-7 min |
 
-
 ### Concurrency Control
 
 Prevents resource waste from duplicate runs:
@@ -389,12 +389,14 @@ concurrency:
 **Problem:** SHACL validation fails with constraint violations
 
 **Solution:**
+
 1. Check the uploaded validation report artifact
 2. Review the violation count in the step summary
 3. Fix data issues in the relevant TTL files
 4. Re-run validation
 
 **Common Issues:**
+
 - Missing required properties (rdfs:label, skos:definition)
 - Non-consecutive display orders
 - Invalid data types or language tags
@@ -404,6 +406,7 @@ concurrency:
 **Problem:** Widoco fails to generate documentation
 
 **Solution:**
+
 1. Check that `ontology/oak-curriculum-ontology.ttl` exists and is valid
 2. Verify Docker is running properly
 3. Check for syntax errors in the ontology file
@@ -414,6 +417,7 @@ concurrency:
 **Problem:** RDF format validation fails
 
 **Solution:**
+
 1. Check which format failed (Turtle, JSON-LD, RDF/XML, N-Triples)
 2. Review the Apache Jena riot output
 3. Verify source TTL files are syntactically correct
@@ -428,10 +432,12 @@ concurrency:
 ## Additional Resources
 
 ### GitHub Actions Documentation
+
 - [Workflow Syntax](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions)
 - [Security Hardening](https://docs.github.com/en/actions/security-guides/security-hardening-for-github-actions)
 
 ### Tools & Technologies
+
 - [uv Package Manager](https://github.com/astral-sh/uv)
 - [Apache Jena](https://jena.apache.org/)
 - [Widoco](https://github.com/dgarijo/Widoco)
@@ -439,6 +445,7 @@ concurrency:
 - [rdflib](https://github.com/RDFLib/rdflib)
 
 ### Semantic Web Standards
+
 - [RDF 1.1 Concepts](https://www.w3.org/TR/rdf11-concepts/)
 - [OWL 2 Overview](https://www.w3.org/TR/owl2-overview/)
 - [SHACL](https://www.w3.org/TR/shacl/)

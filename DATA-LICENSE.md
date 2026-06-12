@@ -2,7 +2,7 @@
 
 You are encouraged to use and re-use the information in this publication freely. This work is made available under the Open Government Licence v3.0.
 
-To view this licence, visit https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/
+To view this licence, visit <https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/>
 
 ### Using this information
 
@@ -43,12 +43,12 @@ This licence is governed by the laws of England and Wales.
 The curriculum ontology, vocabulary definitions, and curriculum data are licensed under this Open Government Licence v3.0.
 
 **Applies to:**
-- `ontology/` - OWL/SKOS ontology files
-- `data/` - Curriculum instance data
-- `docs/` - Documentation
+* `ontology/` - OWL/SKOS ontology files
+* `data/` - Curriculum instance data
+* `docs/` - Documentation
 
 **What you can do:**
-- ✅ Use for any purpose (commercial or non-commercial)
-- ✅ Copy, modify, and redistribute
-- ✅ Build applications and services
-- ⚠️ Must provide attribution: "Oak National Academy"
+* ✅ Use for any purpose (commercial or non-commercial)
+* ✅ Copy, modify, and redistribute
+* ✅ Build applications and services
+* ⚠️ Must provide attribution: "Oak National Academy"

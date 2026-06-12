@@ -39,6 +39,7 @@ The foundational W3C standard for representing information as a graph of linked 
 
 **Why we use it:**
 RDF is the fundamental building block of the Semantic Web. It enables:
+
 - **Universal data model**: Any system understanding RDF can process our data
 - **Graph-based relationships**: Naturally represents complex curriculum connections
 - **Extensibility**: New properties and classes can be added without breaking existing data
@@ -48,6 +49,7 @@ RDF is the fundamental building block of the Semantic Web. It enables:
 Every curriculum element (programmes, units, lessons, content descriptors) is represented as an RDF resource with a unique URI. Relationships between elements use RDF properties.
 
 **Example:**
+
 ```turtle
 oakcurric:examboard-aqa
   rdf:type curric:ExamBoard ;
@@ -56,6 +58,7 @@ oakcurric:examboard-aqa
 ```
 
 **Benefits:**
+
 - Data can be loaded into any RDF triple store (Apache Jena, GraphDB, Blazegraph)
 - Standard SPARQL queries work across all implementations
 - RDF tooling ecosystem (parsers, validators, visualizers) is mature and widely supported
@@ -72,6 +75,7 @@ W3C standard for defining formal ontologies with rich semantics. OWL extends RDF
 
 **Why we use it:**
 OWL enables formal modeling of curriculum structure with:
+
 - **Class hierarchies**: Define relationships between curriculum entity types
 - **Property definitions**: Specify domains, ranges, and characteristics of relationships
 - **Inverse properties**: Bidirectional navigation through the curriculum graph
@@ -82,6 +86,7 @@ OWL enables formal modeling of curriculum structure with:
 The ontology defines 26 core classes (Programme, Unit, UnitVariant, Lesson, Discipline, Strand, ContentDescriptor, etc.) and 40+ properties with formal OWL semantics.
 
 **Example:**
+
 ```turtle
 curric:Programme
   rdf:type owl:Class ;
@@ -97,6 +102,7 @@ curric:hasUnitVariantInclusion
 ```
 
 **Benefits:**
+
 - Formal semantics enable automated reasoning and inference
 - Clear specifications prevent misinterpretation of data structure
 - Tools can validate that data conforms to the ontology structure
@@ -114,6 +120,7 @@ W3C standard for representing taxonomies, classification schemes, and controlled
 
 **Why we use it:**
 SKOS provides established patterns for organising hierarchical knowledge:
+
 - **Concept schemes**: organise related concepts into coherent taxonomies
 - **Hierarchical relationships**: `skos:broader` and `skos:narrower` for parent-child relationships
 - **Preferred labels**: Multi-lingual support with `skos:prefLabel`
@@ -122,12 +129,14 @@ SKOS provides established patterns for organising hierarchical knowledge:
 
 **How we use it:**
 The ontology uses SKOS to represent the National Curriculum for England (2014) knowledge taxonomy:
+
 - Disciplines, Strands, SubStrands, and ContentDescriptors are `skos:Concept` instances
 - Hierarchical relationships use `skos:broader`/`skos:narrower`
 - Labels and definitions use SKOS vocabulary
 - Available subjects: Art and Design, Citizenship, Computing, Design and Technology, English, Geography, History, Languages, Mathematics, Music, Physical Education, and The Sciences
 
 **Example:**
+
 ```turtle
 natcurric:discipline-mathematics
   a skos:Concept, curric:Discipline ;
@@ -141,6 +150,7 @@ natcurric:discipline-mathematics
 ```
 
 **Benefits:**
+
 - Standard vocabulary for taxonomies is widely understood
 - Tools designed for SKOS can process curriculum taxonomies
 - Enables alignment with other SKOS-based educational standards
@@ -158,6 +168,7 @@ W3C standard for validating RDF data against a set of defined constraints (shape
 
 **Why we use it:**
 SHACL ensures data quality by validating that:
+
 - Required properties are present
 - Properties have correct data types and value ranges
 - Cardinality constraints are satisfied (e.g., "exactly one", "at least one")
@@ -166,12 +177,14 @@ SHACL ensures data quality by validating that:
 
 **How we use it:**
 The ontology includes comprehensive SHACL shapes (`oak-curriculum-constraints.ttl`) with 26 validation shapes covering:
+
 - Programme structure validation
 - Sequencing constraints (unique sequence positions)
 - Exam board and tier consistency
 - Required relationships between entities
 
 **Example:**
+
 ```turtle
 curric:ProgrammeShape
   a sh:NodeShape ;
@@ -186,6 +199,7 @@ curric:ProgrammeShape
 ```
 
 **Benefits:**
+
 - Automated data quality validation before publication
 - Clear error messages help data creators fix issues
 - Validates complex business rules (e.g., "programmes with tiers must have exam boards")
@@ -204,6 +218,7 @@ International standard for resource metadata, providing a core vocabulary for de
 
 **Why we use it:**
 Dublin Core provides widely-recognized properties for:
+
 - **Provenance**: Creator, publisher, creation date
 - **Rights management**: License, copyright
 - **Versioning**: Created, modified, issued dates
@@ -213,6 +228,7 @@ Dublin Core provides widely-recognized properties for:
 Every ontology file includes comprehensive Dublin Core metadata:
 
 **Example:**
+
 ```turtle
 <https://w3id.org/uk/oak/curriculum/ontology>
   dcterms:title "Oak Curriculum Ontology"@en ;
@@ -225,6 +241,7 @@ Every ontology file includes comprehensive Dublin Core metadata:
 ```
 
 **Benefits:**
+
 - Standard metadata recognized by libraries, archives, and data catalogs
 - Clear provenance and licensing for legal compliance
 - Version tracking for change management
@@ -242,6 +259,7 @@ Community standard, [schema.org](https://schema.org/) (developed 2011-present)
 
 **Why we use it:**
 Schema.org enables:
+
 - **Web discoverability**: Search engines understand educational content
 - **Learning Resource Metadata Initiative (LRMI)**: Standard properties for describing educational resources
 - **Curriculum alignment**: `AlignmentObject` connects resources to curriculum standards
@@ -249,11 +267,13 @@ Schema.org enables:
 
 **How we use it:**
 Oak extends its teaching resource classes to be compatible with Schema.org types. When Oak adds teaching resources (videos, worksheets, quizzes), they will be:
+
 - Subclasses of schema.org types (`schema:VideoObject`, `schema:Article`, `schema:Quiz`)
 - Use schema.org properties (`schema:url`, `schema:name`, `schema:duration`)
 - Support LRMI curriculum alignment via `schema:educationalAlignment`
 
 **Future example:**
+
 ```turtle
 @prefix schema: <http://schema.org/> .
 
@@ -273,6 +293,7 @@ oakcurric:resource-video-introduction-to-cells
 ```
 
 **Benefits:**
+
 - Resources discoverable through Google Search and Google for Education
 - Compatible with major educational platforms (Khan Academy, Coursera, OER Commons)
 - Standard vocabulary for describing educational characteristics (age range, difficulty, type)
@@ -290,6 +311,7 @@ Community best practice, [w3id.org](https://w3id.org/)
 
 **Why we use it:**
 Persistent identifiers ensure:
+
 - **Long-term stability**: URIs work indefinitely, regardless of hosting changes
 - **Content negotiation**: Same URI serves different formats (HTML for humans, RDF for machines)
 - **Professional trust**: Signals production-ready, professionally maintained data
@@ -297,6 +319,7 @@ Persistent identifiers ensure:
 
 **How we use it:**
 All curriculum URIs use the w3id.org namespace:
+
 - Ontology: `https://w3id.org/uk/oak/curriculum/ontology/`
 - National Curriculum Data: `https://w3id.org/uk/oak/curriculum/nationalcurriculum/`
 - Oak Curriculum Data: `https://w3id.org/uk/oak/curriculum/oakcurriculum/`
@@ -304,7 +327,8 @@ All curriculum URIs use the w3id.org namespace:
 w3id.org redirects these to the actual GitHub repository via HTTP 303 redirects.
 
 **Example:**
-```
+
+```text
 User requests: https://w3id.org/uk/oak/curriculum/ontology/Programme
        ↓
 w3id.org redirects (HTTP 303) to:
@@ -313,6 +337,7 @@ GitHub: https://raw.githubusercontent.com/oaknational/oak-curriculum-ontology/ma
 ```
 
 **Benefits:**
+
 - URIs remain valid even if Oak changes hosting providers
 - Repository can move without breaking external references
 - Content negotiation supports multiple formats from single URI
@@ -330,6 +355,7 @@ Community standard, [semver.org](https://semver.org/)
 
 **Why we use it:**
 Semantic versioning provides clear signals about:
+
 - **Breaking changes** (MAJOR): Incompatible changes requiring consumer updates
 - **New features** (MINOR): Backward-compatible additions
 - **Bug fixes** (PATCH): Backward-compatible corrections
@@ -338,11 +364,13 @@ Semantic versioning provides clear signals about:
 Current version: **0.1.0**
 
 Version information is tracked through:
+
 - Version IRIs in ontology metadata
 - Git tags and releases
 - CHANGELOG.md documenting changes between versions
 
 **Example:**
+
 ```turtle
 <https://w3id.org/uk/oak/curriculum/ontology/>
   owl:versionInfo "0.1.0" ;
@@ -350,6 +378,7 @@ Version information is tracked through:
 ```
 
 **Benefits:**
+
 - Consumers know when updates will break their applications
 - Clear change communication through CHANGELOG.md
 - Aligns with software development best practices
@@ -361,10 +390,12 @@ Version information is tracked through:
 
 **What it is:**
 This repository uses dual licensing to appropriately cover different types of content:
+
 - **Ontology and Data**: Open Government Licence v3.0 (OGL 3.0)
 - **Code**: MIT License
 
 **Standard Status:**
+
 - OGL v3.0: UK government standard, [OGL v3.0](http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/)
 - MIT License: OSI-approved open source license, [MIT License](https://opensource.org/licenses/MIT)
 
@@ -372,23 +403,27 @@ This repository uses dual licensing to appropriately cover different types of co
 
 **For Ontology and Data (OGL 3.0):**
 The Open Government Licence ensures:
+
 - **Free use**: Anyone can use the curriculum data for any purpose
 - **Reuse**: Data can be copied, adapted, and built upon
 - **Redistribution**: Modified versions can be shared
 - **Attribution**: Requires acknowledgment of "Oak National Academy"
 
 Applies to:
+
 - `ontology/` - OWL/SKOS ontology files
 - `data/` - Curriculum instance data
 - This document and other documentation
 
 **For Code (MIT License):**
 The MIT License provides:
+
 - **Permissive use**: Minimal restrictions on software reuse
 - **Commercial compatibility**: No copyleft requirements
 - **Liability protection**: Standard software warranty disclaimers
 
 Applies to:
+
 - `scripts/` - Python utilities
 - `.github/workflows/` - CI/CD automation
 
@@ -402,6 +437,7 @@ All ontology files include OGL licensing metadata:
 ```
 
 **Benefits:**
+
 - Legal clarity for both data consumers and software developers
 - Appropriate licensing for different content types
 - Encourages widespread adoption and innovation
@@ -417,27 +453,32 @@ All ontology files include OGL licensing metadata:
 The combination of these standards enables the Oak Curriculum Ontology to achieve interoperability:
 
 ### 1. Cross-Platform Compatibility
+
 - **RDF triple stores**: Apache Jena, GraphDB, Blazegraph, Virtuoso
 - **SPARQL endpoints**: Standard query interface for any application
 - **RDF libraries**: Python (rdflib), JavaScript (rdflib.js), Java (Jena API)
 
 ### 2. Tool Ecosystem Support
+
 - **Ontology editors**: Protégé, TopBraid Composer
 - **Validators**: Apache Jena SHACL, TopBraid SHACL API
 - **Visualizers**: WebVOWL, Ontospy, Protégé Graph View
 - **Converters**: Any RDF format (Turtle, JSON-LD, RDF/XML, N-Triples)
 
 ### 3. Search Engine Integration
+
 - **Schema.org markup**: Google, Bing, Yahoo, Yandex understand educational properties
 - **LRMI alignment**: Resources can reference Oak curriculum URIs for discoverability
 - **Structured data**: Web pages with curriculum references become searchable
 
 ### 4. Educational Platform Integration
+
 - **Learning Management Systems**: Moodle, Canvas, Blackboard (via IMS standards)
 - **OER repositories**: OER Commons, OpenStax (via LRMI alignment)
 - **EdTech platforms**: Any system supporting RDF/SPARQL can query curriculum data
 
 ### 5. Government Data Infrastructure
+
 - **UK Government Linked Data**: Compatible with data.gov.uk standards
 - **Open Government Licence**: Legal framework for public sector reuse
 - **Persistent identifiers**: w3id.org aligns with UK government URI patterns
@@ -469,16 +510,19 @@ This makes the Oak Curriculum Ontology part of the global **Web of Data**, not j
 The ontology implements multiple quality assurance mechanisms:
 
 ### Automated Validation
+
 - **SHACL constraints**: 25+ validation rules ensure structural integrity
 - **RDF syntax validation**: Turtle files validated against RDF 1.1 specification
 - **OWL consistency checking**: Reasoners verify logical consistency
 
 ### Version Control
+
 - **Git repository**: Full change history with commit messages
 - **Semantic versioning**: Clear communication of change impact
 - **Git tags**: Version snapshots for reproducibility
 
 ### Documentation
+
 - **Inline comments**: Every class and property documented in RDF
 - **Markdown guides**: Human-readable documentation for developers
 
@@ -501,17 +545,17 @@ This foundation enables Oak National Academy and the broader educational communi
 
 ## References
 
-- RDF 1.1 Primer: https://www.w3.org/TR/rdf11-primer/
-- OWL 2 Overview: https://www.w3.org/TR/owl2-overview/
-- SKOS Reference: https://www.w3.org/TR/skos-reference/
-- SHACL Specification: https://www.w3.org/TR/shacl/
-- Dublin Core Metadata Terms: https://www.dublincore.org/specifications/dublin-core/dcmi-terms/
-- Schema.org: https://schema.org/
-- LRMI Specification: https://www.dublincore.org/specifications/lrmi/
-- w3id.org: https://w3id.org/
-- Semantic Versioning: https://semver.org/
-- Open Government Licence v3.0: http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/
-- Linked Data Principles: https://www.w3.org/DesignIssues/LinkedData.html
+- RDF 1.1 Primer: <https://www.w3.org/TR/rdf11-primer/>
+- OWL 2 Overview: <https://www.w3.org/TR/owl2-overview/>
+- SKOS Reference: <https://www.w3.org/TR/skos-reference/>
+- SHACL Specification: <https://www.w3.org/TR/shacl/>
+- Dublin Core Metadata Terms: <https://www.dublincore.org/specifications/dublin-core/dcmi-terms/>
+- Schema.org: <https://schema.org/>
+- LRMI Specification: <https://www.dublincore.org/specifications/lrmi/>
+- w3id.org: <https://w3id.org/>
+- Semantic Versioning: <https://semver.org/>
+- Open Government Licence v3.0: <http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/>
+- Linked Data Principles: <https://www.w3.org/DesignIssues/LinkedData.html>
 
 ---
 
