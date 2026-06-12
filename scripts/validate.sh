@@ -23,54 +23,44 @@ if [[ ! -f "ontology/oak-curriculum-ontology.ttl" ]]; then
     exit 1
 fi
 
-COMBINED_TTL="/tmp/combined-data.ttl"
+# N-Triples: faster to write and re-parse than Turtle. The merge itself
+# parses every source file, so it doubles as the syntax check — pyshacl's
+# own parse covers the merged output.
+COMBINED_DATA="/tmp/combined-data.nt"
 
 echo "Step 1: Merge TTL files and resolve imports..."
 if command -v uv &> /dev/null; then
-    uv run python3 scripts/merge_ttls_with_imports.py -o "$COMBINED_TTL"
+    uv run python3 scripts/merge_ttls_with_imports.py -o "$COMBINED_DATA"
 else
-    python3 scripts/merge_ttls_with_imports.py -o "$COMBINED_TTL"
+    python3 scripts/merge_ttls_with_imports.py -o "$COMBINED_DATA"
 fi
 
 # Verify merge output exists
-if [[ ! -f "$COMBINED_TTL" ]]; then
-    echo "❌ Error: Merge script did not produce $COMBINED_TTL" >&2
+if [[ ! -f "$COMBINED_DATA" ]]; then
+    echo "❌ Error: Merge script did not produce $COMBINED_DATA" >&2
     exit 1
 fi
 
 echo ""
-echo "Step 2: Check Turtle syntax..."
-
-# Run syntax check using rdflib
-SYNTAX_CHECK_SCRIPT="
-from rdflib import Graph
-try:
-    g = Graph()
-    g.parse('$COMBINED_TTL', format='turtle')
-    print('✅ Merged Turtle syntax is valid')
-except Exception as e:
-    print(f'❌ Turtle syntax error: {e}')
-    exit(1)
-"
-
-if command -v uv &> /dev/null; then
-    uv run python3 -c "$SYNTAX_CHECK_SCRIPT"
-else
-    python3 -c "$SYNTAX_CHECK_SCRIPT"
-fi
-
-echo ""
-echo "Step 3: Run SHACL validation..."
+echo "Step 2: Run SHACL validation (takes a few minutes on the full graph)..."
 
 SHACL_OUTPUT="/tmp/shacl-output.txt"
 
+# Inference is deliberately "none": all entities carry explicit rdf:type and
+# shapes target concrete classes, so RDFS inference adds nothing the shapes
+# need — and it both dominated the runtime and masked genuine warnings by
+# inferring the very type/property facts the shapes check for.
+# Known issue: --abort stops evaluation at the first failing shape, so the
+# report can be truncated when shapes fail. Removing it gives the complete
+# result set but full evaluation currently takes >10 minutes; per-shape
+# profiling is needed before --abort can go.
 PYSHACL_ARGS=(
     --shacl ontology/oak-curriculum-constraints.ttl
     --ont-graph ontology/oak-curriculum-ontology.ttl
-    --inference rdfs
+    --inference none
     --abort
     --format human
-    "$COMBINED_TTL"
+    "$COMBINED_DATA"
 )
 
 # Run pyshacl - prefer uv, then venv, then system; capture exit code without aborting script

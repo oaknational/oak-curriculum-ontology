@@ -1,0 +1,19 @@
+version: 2
+updates:
+  # Keep pinned action SHAs current
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+
+  # Lint tooling (commitlint, markdownlint, husky, lint-staged)
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+
+  # Python dependencies (pyproject.toml)
+  - package-ecosystem: pip
+    directory: /
+    schedule:
+      interval: weekly

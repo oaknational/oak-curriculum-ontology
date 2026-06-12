@@ -23,10 +23,10 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10  # v6.0.3
 
       - name: Set up Java 21
-        uses: actions/setup-java@v4
+        uses: actions/setup-java@c1e323688fd81a25caa38c78aa6df2d33d3e20d9  # v4
         with:
           distribution: 'temurin'
           java-version: '21'
@@ -51,9 +51,14 @@ jobs:
           echo "$PWD/apache-jena-${{ env.JENA_VERSION }}/bin" >> $GITHUB_PATH
 
       - name: Set up uv
-        uses: astral-sh/setup-uv@e58605a9b6da7c637471fab8847a5e5a6b8df081  # v5
+        uses: astral-sh/setup-uv@fac544c07dec837d0ccb6301d7b5580bf5edae39  # v8.2.0
         with:
           python-version: '3.12'
+
+      - name: Check version strings match the release tag
+        if: github.event_name == 'release'
+        run: |
+          uv run python scripts/check_version_consistency.py --tag "${GITHUB_REF_NAME}"
 
       - name: Generate distribution files
         run: ./scripts/build_static_data.sh
@@ -63,6 +68,7 @@ jobs:
         run: |
           echo "Validating generated RDF files..."
           echo ""
+          FORMAT_COUNTS=""
 
           # Validate all formats in a single loop and count triples
           for ext in ttl jsonld rdf nt; do
@@ -84,6 +90,7 @@ jobs:
                   if [[ "$(basename $file)" == "oak-curriculum-full.$ext" ]]; then
                     TRIPLE_COUNT=$(riot --count "$file" 2>&1 | grep -i 'Triples' | grep -oP '[\d,]+' | tr -d ',' || echo "0")
                     echo "    📊 Triple count: $TRIPLE_COUNT"
+                    FORMAT_COUNTS="$FORMAT_COUNTS $ext=$TRIPLE_COUNT"
                     echo "triple_count=$TRIPLE_COUNT" >> $GITHUB_OUTPUT
                   fi
                 else
@@ -94,6 +101,15 @@ jobs:
             done
             echo ""
           done
+
+          # Cross-format invariant: every serialization must contain the
+          # same number of triples
+          echo "Cross-format triple counts:$FORMAT_COUNTS"
+          UNIQUE_COUNTS=$(echo "$FORMAT_COUNTS" | tr ' ' '\n' | cut -d= -f2 | grep . | sort -u | wc -l | tr -d ' ')
+          if [ "$UNIQUE_COUNTS" -ne 1 ]; then
+            echo "❌ Triple counts differ across formats:$FORMAT_COUNTS"
+            exit 1
+          fi
 
           echo "✅ All distribution files validated successfully!"
 
@@ -111,6 +127,21 @@ jobs:
           echo ""
           echo "✅ JSONL smoke test passed!"
 
+      - name: Verify SQLite distribution integrity
+        run: |
+          uv run python - <<'EOF'
+          import sqlite3
+          con = sqlite3.connect("distributions/oak-curriculum.sqlite")
+          assert con.execute("PRAGMA integrity_check").fetchone()[0] == "ok"
+          tables = [r[0] for r in con.execute(
+              "SELECT name FROM sqlite_master WHERE type='table'")]
+          assert tables, "no tables in SQLite distribution"
+          total = sum(con.execute(f'SELECT COUNT(*) FROM "{t}"').fetchone()[0]
+                      for t in tables)
+          print(f"SQLite OK: {len(tables)} tables, {total:,} rows")
+          assert total > 0, "SQLite distribution is empty"
+          EOF
+
       - name: Generate checksums, metadata and step summary
         run: |
           uv run python scripts/generate_distribution_summary.py \
@@ -119,7 +150,7 @@ jobs:
             --ref ${{ github.ref }}
 
       - name: Upload distribution artifacts
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a  # v7.0.1
         with:
           name: oak-curriculum-distributions-${{ github.sha }}
           path: distributions/
