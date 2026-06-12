@@ -1,7 +1,7 @@
 # Oak Curriculum Ontology
 
 <!-- Version and Status Badges -->
-![Version](https://img.shields.io/badge/version-0.1.0-orange)
+![Version](https://img.shields.io/badge/version-0.1.3-orange)
 ![Status](https://img.shields.io/badge/status-early_release-yellow)
 ![License: MIT + OGL-3.0](https://img.shields.io/badge/License-MIT%20%2B%20OGL--UK--3.0-lightgrey.svg)
 ![Python](https://img.shields.io/badge/python-3.12+-blue.svg)
@@ -20,7 +20,7 @@
 
 > **A formal semantic representation of the Oak National Academy Curriculum and its alignment to the National Curriculum for England (2014).**
 
-Machine-readable curriculum data in W3C-standard formats (RDF, OWL, SKOS, SHACL) enabling interoperability, semantic queries, and data-driven educational tools. This repository is an Oak-developed representation and does not constitute an official DfE National Curriculum publication.
+Machine-readable curriculum data in W3C-standard formats (RDF, OWL, SKOS, SHACL) enabling interoperability, semantic queries, and data-driven educational tools — including grounded curriculum knowledge for AI systems. This repository is an Oak-developed representation and does not constitute an official DfE National Curriculum publication.
 
 This repository contains public sector information licensed under the [Open Government Licence v3.0](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/).
 
@@ -37,6 +37,8 @@ Developed by [Oak National Academy](https://thenational.academy)
 - [⚠️ Early Release Notice](#️-early-release-notice)
 - [What Is This?](#what-is-this)
 - [Quick Start](#quick-start)
+- [Grounding AI in the Curriculum](#grounding-ai-in-the-curriculum)
+- [Supporting the Curriculum Transition](#supporting-the-curriculum-transition)
 - [Key Features](#key-features)
 - [Core Concepts](#core-concepts)
 - [Use Cases](#use-cases)
@@ -62,9 +64,10 @@ The ontology structure, URIs, and data are under active development and **subjec
 - 🔄 Data validation and refinement ongoing
 - 📝 Feedback and suggestions are welcome!
 
-> **Data Notice:** National Curriculum (2014) data is included to demonstrate machine-readable formats ahead of the 2027 revision. As the 2014 curriculum was not designed as structured data, mappings may be incomplete. For educational purposes, use [official sources](https://www.gov.uk/government/collections/national-curriculum).
+> **Data Notice:** All National Curriculum data in this repository models the **National Curriculum for England (2014)** — the statutory curriculum until the revised National Curriculum (expected to be published in 2027 and first taught from 2028) takes effect. As the 2014 curriculum was not designed as structured data, mappings may be incomplete. For educational purposes, use [official sources](https://www.gov.uk/government/collections/national-curriculum). See [Supporting the Curriculum Transition](#supporting-the-curriculum-transition).
 
 **We welcome:**
+
 - 🐛 Bug reports (structure, data, documentation)
 - 💡 Feature requests and suggestions
 - ❓ Questions and feedback (see [CONTRIBUTING.md](CONTRIBUTING.md))
@@ -78,6 +81,8 @@ The Oak Curriculum Ontology provides:
 **Curriculum Structure** - Formal definitions of programmes, units, lessons, and their relationships
 
 **Knowledge Taxonomy** - Hierarchical subject taxonomies for Art and Design, Citizenship, Computing, Design and Technology, English, Geography, History, Languages, Mathematics, Music, Physical Education, and The Sciences aligned to National Curriculum (2014)
+
+**Teaching Knowledge** - Lesson-level data that bakes in learning science and Oak's curriculum principles: misconceptions with corrections, prior knowledge requirements, key learning points, pupil outcomes, and cross-curricular threads (see [Grounding AI in the Curriculum](#grounding-ai-in-the-curriculum))
 
 **Validation Rules** - SHACL constraints ensuring data quality and completeness
 
@@ -97,30 +102,88 @@ In this version, our knowledge taxonomy is being applied to the knowledge specif
 @prefix oakcurric: <https://w3id.org/uk/oak/curriculum/oakcurriculum/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
-# Access a Year 7 Mathematics programme
-oakcurric:programme-mathematics-year-7
+# A Year 7 Mathematics programme, as published in this repository
+oakcurric:programme-mathematics-year-group-7
   a curric:Programme ;
-  rdfs:label "Mathematics Year 7"@en ;
-  curric:hasYearGroup natcurric:year-group-7 ;
-  curric:hasSubject natcurric:subject-mathematics ;
-  curric:hasUnitVariantInclusion oakcurric:unit-variant-inclusion-1 .
+  rdfs:label "Mathematics Year Group 7"@en ;
+  curric:isProgrammeOf natcurric:scheme-mathematics-key-stage-3 ;
+  curric:coversYearGroup natcurric:year-group-7 ;
+  curric:hasUnitVariantInclusion oakcurric:inclusion-programme-mathematics-year-group-7-pos-1 .
 ```
 
 **Namespace URIs:**
+
 - `https://w3id.org/uk/oak/curriculum/ontology/` - Ontology classes and properties
 - `https://w3id.org/uk/oak/curriculum/nationalcurriculum/` - National Curriculum (2014) data
 - `https://w3id.org/uk/oak/curriculum/oakcurriculum/` - Oak curriculum programmes
 
 ---
 
+## Grounding AI in the Curriculum
+
+AI tools that plan lessons, tutor pupils, or generate teaching materials need curriculum knowledge that is structured, validated, and citable — not scraped. This repository is that grounding layer: every entity has a persistent URI, every relationship is typed, and every release is SHACL-validated in CI.
+
+The National Curriculum (2014) mapping provides the structural baseline. On top of it sits Oak's **teaching knowledge** — lesson-level data informed by learning science and Oak's curriculum principles:
+
+| Asset | Instances | What it gives an AI system |
+| ----- | --------: | -------------------------- |
+| Misconceptions | 11,207 | Common pupil errors with paired corrections, attached to each lesson — diagnosis and remediation |
+| Prior knowledge requirements | 7,432 | What each unit assumes pupils already know — readiness checks and adaptive sequencing |
+| Key learning points | 50,948 | Granular learning objectives for content alignment and evaluation |
+| Pupil lesson outcomes | 12,517 | What a pupil should be able to do after each lesson |
+| Keywords | 13,012 | Subject vocabulary attached to each lesson |
+| Threads | 160 | Cross-unit conceptual progressions linking 1,530 units across year groups |
+| Lesson sequencing | 15,257 | Explicit teaching-order positions from programme to unit to lesson |
+
+For example, the misconceptions an AI tutor should anticipate when teaching negative numbers:
+
+```sparql
+PREFIX curric: <https://w3id.org/uk/oak/curriculum/ontology/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT ?lessonLabel ?statement ?correction WHERE {
+  ?lesson a curric:Lesson ;
+          rdfs:label ?lessonLabel ;
+          curric:hasMisconception ?misconception .
+  ?misconception curric:statement ?statement ;
+                 curric:correction ?correction .
+  FILTER(CONTAINS(LCASE(STR(?lessonLabel)), "negative number"))
+}
+ORDER BY ?lessonLabel
+```
+
+This returns pairs such as the misconception *"That addition will always make the result bigger"* alongside the correction teachers use to address it.
+
+### How AI systems consume this data
+
+1. **Oak Curriculum MCP server** — Oak is piloting a Model Context Protocol server exposing this curriculum as live tools for AI agents and assistants (curriculum search, lesson summaries, quizzes, misconception and prior-knowledge graphs), built on [Oak's Open API](https://open-api.thenational.academy/docs). This ontology is the formal model of the same curriculum; making it the canonical substrate of the MCP server is on the [roadmap](#roadmap).
+2. **AI-ready distributions** — each [release](https://github.com/oaknational/oak-curriculum-ontology/releases) ships a SQLite database (`oak-curriculum.sqlite`) and property-graph JSONL files (`nodes.jsonl`, `relationships.jsonl`) alongside the RDF formats, so agent tools and RAG pipelines can consume the graph without an RDF stack. See [property-graph-format.md](docs/property-graph-format.md).
+3. **Neo4j export** — `scripts/export_to_neo4j.py` loads the full graph into Neo4j for traversal and GraphRAG.
+4. **SPARQL** — query the merged Turtle locally today; a public SPARQL endpoint is on the [roadmap](#roadmap).
+
+---
+
+## Supporting the Curriculum Transition
+
+England's National Curriculum is being revised: the new curriculum is expected to be published in 2027 and first taught from 2028. This repository is deliberately structured to support — and make visible — that transition:
+
+- **Clear version labelling** — every National Curriculum entity in this repository models the 2014 curriculum, and is labelled as such. Nothing here describes the revised curriculum yet.
+- **A version-agnostic model** — the ontology (Scheme, Strand, ContentDescriptor, etc.) encodes no 2014 assumptions, and the `nationalcurriculum` namespace is deliberately not year-pinned. Whether the revised curriculum fits the same structure won't be known until it is published — where it differs, we will model and map the differences rather than force a fit.
+- **Transition mapping** — publishing both curricula in one graph will allow explicit relationships between 2014 and revised content (what moved, what changed, what is new), so schools and edtech tools can plan the transition rather than diff documents by hand.
+
+During the transition years, teachers and tools will need to work with both curricula at once. A single queryable graph holding both, with mappings between them, is the infrastructure that makes that practical.
+
+---
+
 ## Key Features
 
-✅ **26 ontology classes** defining curriculum structure (Programme, Unit, Lesson, Discipline, Strand, etc).  
-✅ **26 SHACL validation shapes** ensuring data integrity.  
+✅ **31 ontology classes** defining curriculum structure (Programme, Unit, Lesson, Discipline, Strand, etc).  
+✅ **36 SHACL validation shapes** ensuring data integrity.  
 ✅ **12 subject areas** with full knowledge taxonomies.
+✅ **Teaching knowledge** — 11,207 misconceptions, 7,432 prior knowledge requirements, 50,948 key learning points, and 160 cross-curricular threads.  
 ✅ **National Curriculum alignment** linking Oak content to statutory requirements.  
 ✅ **Automated validation** via GitHub Actions CI/CD.  
-✅ **Multi-format distributions** (Turtle, JSON-LD, RDF/XML, N-Triples).  
+✅ **Multi-format distributions** (Turtle, JSON-LD, RDF/XML, N-Triples, SQLite, property-graph JSONL).  
 ✅ **Standards-compliant** (RDF 1.1, OWL 2, SKOS, SHACL, Dublin Core).  
 ✅ **Open data** (OGL 3.0 license for ontology/data, MIT for code).  
 
@@ -129,16 +192,20 @@ oakcurric:programme-mathematics-year-7
 ## Core Concepts
 
 ### Temporal Hierarchy
+
 How curriculum is organized by age and phase:
-```
+
+```text
 Phase (Primary, Secondary)
   └─ Key Stage (KS1, KS2, KS3, KS4)
       └─ Year Group (Year 1-11)
 ```
 
 ### Knowledge Taxonomy
+
 How subject content is organized hierarchically (SKOS):
-```
+
+```text
 Discipline (e.g., Science)
   └─ Strand (e.g., "Structure and function of living organisms")
       └─ SubStrand (e.g., "Cells and organisation")
@@ -146,6 +213,7 @@ Discipline (e.g., Science)
 ```
 
 **Current subject coverage:**
+
 - **Art and Design** - Programme structure and knowledge taxonomy
 - **Citizenship** - Programme structure and knowledge taxonomy
 - **Computing** - Programme structure and knowledge taxonomy
@@ -160,8 +228,10 @@ Discipline (e.g., Science)
 - **The Sciences** - A unified subject covering Science (KS1–KS3) and separate Biology, Chemistry, Physics, and Combined Science programmes at KS4, with a single consolidated knowledge taxonomy
 
 ### Programme Structure
+
 How subjects are organized into teaching programmes:
-```
+
+```text
 Subject (e.g., Mathematics)
   └─ Programme (e.g., Mathematics Year 7)
       └─ Unit (coherent topic, e.g., "Fractions")
@@ -180,6 +250,12 @@ Subject (e.g., Mathematics)
 **Lesson**: A single teaching session with learning activities, resources, and formative assessment.
 
 **Thread**: A conceptual thread that weaves through multiple units, representing recurring themes or skills (e.g., "Systems Thinking", "Scale and Magnitude").
+
+**Misconception**: A common pupil error attached to a lesson, expressed as a paired statement and correction — what pupils typically get wrong and how teachers address it.
+
+**PriorKnowledgeRequirement**: The prerequisite knowledge a unit assumes, enabling readiness checks and adaptive sequencing.
+
+**KeyLearningPoint**, **PupilLessonOutcome**, **Keyword**: Lesson-level learning objectives, intended pupil outcomes, and subject vocabulary.
 
 **ExamBoard**: An awarding organization (AQA, Edexcel, OCR) that creates and assesses qualifications.
 
@@ -200,6 +276,7 @@ Subject (e.g., Mathematics)
 ### National Curriculum Integration
 
 Oak units reference National Curriculum content via:
+
 - `curric:isProgrammeOf` - Links a programme to a National Curriculum scheme
 - `curric:isUnitOf` - Links a unit to a National Curriculum scheme
 - `curric:includesContent` - Links a unit to specific National Curriculum content descriptors
@@ -210,9 +287,10 @@ Oak units reference National Curriculum content via:
 
 ## Use Cases
 
+**AI Assistants & Tutors** - Ground lesson planning, tutoring, and assessment tools in validated curriculum knowledge.  
+**RAG & Knowledge Graphs** - Load AI-ready distributions into retrieval pipelines and graph databases.  
 **Educational Platforms** - Load curriculum data into learning management systems.  
 **Curriculum Analysis** - Query relationships between subjects, key stages, and topics.  
-**AI/ML Training** - Use structured curriculum data for educational AI models.  
 **Research** - Analyze curriculum structure, progression, and coverage.  
 **Data Integration** - Link to other educational datasets via persistent URIs.  
 **Quality Assurance** - Validate custom curriculum data against standard shapes.  
@@ -229,23 +307,33 @@ Pre-generated RDF files in multiple formats available from [GitHub Releases](htt
 
 ```bash
 # Download Turtle (compact, human-readable)
-curl -L -O https://github.com/oaknational/oak-curriculum-ontology/releases/download/v0.1.0/oak-curriculum-full.ttl
+curl -L -O https://github.com/oaknational/oak-curriculum-ontology/releases/latest/download/oak-curriculum-full.ttl
 
 # Download JSON-LD (for web apps)
-curl -L -O https://github.com/oaknational/oak-curriculum-ontology/releases/download/v0.1.0/oak-curriculum-full.jsonld
+curl -L -O https://github.com/oaknational/oak-curriculum-ontology/releases/latest/download/oak-curriculum-full.jsonld
 
 # Download RDF/XML (for legacy tools)
-curl -L -O https://github.com/oaknational/oak-curriculum-ontology/releases/download/v0.1.0/oak-curriculum-full.rdf
+curl -L -O https://github.com/oaknational/oak-curriculum-ontology/releases/latest/download/oak-curriculum-full.rdf
 
 # Download N-Triples (for streaming/line-based processing)
-curl -L -O https://github.com/oaknational/oak-curriculum-ontology/releases/download/v0.1.0/oak-curriculum-full.nt
+curl -L -O https://github.com/oaknational/oak-curriculum-ontology/releases/latest/download/oak-curriculum-full.nt
+
+# Download SQLite database (for direct programmatic and AI use, no RDF stack needed)
+curl -L -O https://github.com/oaknational/oak-curriculum-ontology/releases/latest/download/oak-curriculum.sqlite
+
+# Download property-graph JSONL (nodes and relationships, for graph databases and agent tooling)
+curl -L -O https://github.com/oaknational/oak-curriculum-ontology/releases/latest/download/nodes.jsonl
+curl -L -O https://github.com/oaknational/oak-curriculum-ontology/releases/latest/download/relationships.jsonl
 ```
 
 **Available formats:**
+
 - `.ttl` (Turtle) - Compact, human-readable
 - `.jsonld` (JSON-LD) - JSON-based RDF for web apps
 - `.rdf` (RDF/XML) - XML-based RDF for legacy tools
 - `.nt` (N-Triples) - Line-based format for streaming
+- `.sqlite` (SQLite) - Relational database for direct programmatic and AI use
+- `.jsonl` (Property graph) - `nodes.jsonl` and `relationships.jsonl`, see [property-graph-format.md](docs/property-graph-format.md)
 
 ### Option 2: Load into Triple Store
 
@@ -348,7 +436,7 @@ SELECT ?subject ?subjectLabel ?programme ?programmeLabel WHERE {
 ORDER BY ?subjectLabel ?programmeLabel
 ```
 
-### Find all Key Stage 3 Science content
+### Find all content in The Sciences taxonomy
 
 ```sparql
 PREFIX curric: <https://w3id.org/uk/oak/curriculum/ontology/>
@@ -356,7 +444,7 @@ PREFIX natcurric: <https://w3id.org/uk/oak/curriculum/nationalcurriculum/>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 
 SELECT DISTINCT ?content ?label WHERE {
-  natcurric:discipline-science skos:narrower+ ?content .
+  natcurric:discipline-the-sciences skos:narrower+ ?content .
   ?content skos:prefLabel ?label .
 }
 ORDER BY ?label
@@ -366,11 +454,11 @@ ORDER BY ?label
 
 ## File Structure
 
-```
+```text
 oak-curriculum-ontology/
 ├── ontology/
-│   ├── oak-curriculum-ontology.ttl       # Core classes & properties (26 classes)
-│   └── oak-curriculum-constraints.ttl    # SHACL validation shapes (26 shapes)
+│   ├── oak-curriculum-ontology.ttl       # Core classes & properties (31 classes)
+│   └── oak-curriculum-constraints.ttl    # SHACL validation shapes (36 shapes)
 │
 ├── data/
 │   ├── temporal-structure.ttl            # Phases, Key Stages, Year Groups
@@ -432,10 +520,12 @@ oak-curriculum-ontology/
 │           └── physics-key-stage-4.ttl
 │
 ├── docs/
+│   ├── property-graph-format.md          # Property graph (Neo4j) format documentation
 │   └── standards-compliance.md           # W3C standards documentation
 │
 ├── scripts/
 │   ├── build_static_data.sh              # Generate distribution files (for releases)
+│   ├── check_readme_examples.py          # Check README examples and counts against the data
 │   ├── export_to_neo4j_ARCHITECTURE.md   # Neo4j export architecture documentation
 │   ├── export_to_neo4j_config.json       # Neo4j export configuration
 │   ├── export_to_neo4j.py                # Export to Neo4j with transformations
@@ -469,9 +559,9 @@ This ontology achieves compliance with W3C Recommendations and international sta
 ### W3C Standards
 
 - **RDF 1.1** ([W3C Recommendation](https://www.w3.org/TR/rdf11-primer/)) - Universal data model for linked data
-- **OWL 2** ([W3C Recommendation](https://www.w3.org/TR/owl2-overview/)) - Formal ontology with 26 classes and 40+ properties
+- **OWL 2** ([W3C Recommendation](https://www.w3.org/TR/owl2-overview/)) - Formal ontology with 31 classes and 75 properties
 - **SKOS** ([W3C Recommendation](https://www.w3.org/TR/skos-reference/)) - Knowledge taxonomy with hierarchical relationships
-- **SHACL** ([W3C Recommendation](https://www.w3.org/TR/shacl/)) - 26 validation shapes for data quality
+- **SHACL** ([W3C Recommendation](https://www.w3.org/TR/shacl/)) - 36 validation shapes for data quality
 
 ### Metadata Standards
 
@@ -488,12 +578,13 @@ This ontology achieves compliance with W3C Recommendations and international sta
 ### Validation & Quality
 
 - **Automated CI/CD** - GitHub Actions validate every commit
-- **SHACL Constraints** - 26 shapes ensure structural integrity
+- **SHACL Constraints** - 36 shapes ensure structural integrity
 - **Test Coverage** - Validation shapes cover all major classes
 
 📋 **[Read full standards compliance documentation →](docs/standards-compliance.md)**
 
 This document explains:
+
 - How each W3C standard is implemented
 - Examples of standard usage in the ontology
 - Benefits of standards compliance
@@ -510,6 +601,7 @@ Complete HTML documentation with class hierarchies, properties, and visualizatio
 📘 **[Browse Full Documentation](https://oaknational.github.io/oak-curriculum-ontology/)**
 
 Generated automatically via WIDOCO on each release, includes:
+
 - Complete class and property definitions
 - Domain and range specifications
 - Visual diagrams and WebVOWL visualization
@@ -529,18 +621,20 @@ Generated automatically via WIDOCO on each release, includes:
 
 We welcome feedback and suggestions from the community!
 
-**During this early release (v0.1.0), we welcome:**
+**During this early release (v0.1.x), we welcome:**
+
 - 🐛 Bug reports - Issues with data quality, structure, or documentation
 - 💡 Feature suggestions - Ideas for improvements or additions
 - 📝 Documentation feedback - Clarifications, corrections, or enhancements
 - ❓ Questions - About the ontology, data model, or usage
 
 **How to contribute:**
+
 1. Read [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines
 2. [Open an issue](https://github.com/oaknational/oak-curriculum-ontology/issues) to share your feedback
 3. Provide clear context and examples
 
-**Note:** We are not accepting pull requests during v0.1.0 while we refine the ontology structure and establish governance processes. See [CONTRIBUTING.md](CONTRIBUTING.md) for details.
+**Note:** We are not accepting pull requests during v0.1.x while we refine the ontology structure and establish governance processes. See [CONTRIBUTING.md](CONTRIBUTING.md) for details.
 
 ---
 
@@ -553,11 +647,13 @@ This repository uses **dual licensing** to appropriately cover different types o
 The curriculum ontology, vocabulary definitions, and curriculum data are licensed under [Open Government Licence v3.0 (OGL 3.0)](DATA-LICENSE.md).
 
 **Applies to:**
+
 - `ontology/` - OWL/SKOS ontology files
 - `data/` - Curriculum instance data
 - `docs/` - Documentation
 
 **What you can do:**
+
 - ✅ Use for any purpose (commercial or non-commercial)
 - ✅ Copy, modify, and redistribute
 - ✅ Build applications and services
@@ -568,10 +664,12 @@ The curriculum ontology, vocabulary definitions, and curriculum data are license
 All Python scripts, GitHub Actions workflows, and software tools are licensed under the [MIT License](CODE-LICENSE.md).
 
 **Applies to:**
+
 - `scripts/` - Scripts and Python code
 - `.github/workflows/` - CI/CD automation
 
 **What you can do:**
+
 - ✅ Use, modify, and redistribute freely
 - ✅ Use in commercial projects
 - ✅ Minimal restrictions
@@ -589,16 +687,20 @@ Alternatively, see [CITATION.cff](CITATION.cff) for machine-readable citation me
 
 ## Roadmap
 
-### v0.1.0 (Current - February 2026)
-- ✅ Core ontology structure (26 classes, 40+ properties)
-- ✅ 8 subjects with knowledge taxonomies
-- ✅ SHACL validation (26 shapes)
+### v0.1.3 (Current - June 2026)
+
+- ✅ Core ontology structure (31 classes, 75 properties)
+- ✅ 12 subjects with knowledge taxonomies
+- ✅ SHACL validation (36 shapes)
 - ✅ Automated CI/CD pipelines
 - ✅ Multi-format distributions (Turtle, JSON-LD, RDF/XML, N-Triples)
 - ✅ Neo4j export tooling
 - ✅ Standards compliance documentation
 
 ### Future Plans
+
+- Make this ontology the canonical substrate for Oak's Curriculum MCP server, so AI agents and the published knowledge graph share one model
+- Publish the revised National Curriculum (expected publication 2027, first teaching from 2028) alongside the 2014 data, with explicit mappings between the two to support transition planning
 - Public SPARQL endpoint deployment
 - Learning resource integration using LRMI standards (videos, worksheets, assessments etc.)
 - Progression models and learning pathways
@@ -621,6 +723,7 @@ Alternatively, see [CITATION.cff](CITATION.cff) for machine-readable citation me
 ## Acknowledgments
 
 This ontology was developed by Oak National Academy with input from:
+
 - Educational domain experts
 - Semantic web practitioners
 - UK curriculum specialists
@@ -628,7 +731,7 @@ This ontology was developed by Oak National Academy with input from:
 
 Special thanks to the broader semantic web and open education communities for their tools, standards, and best practices. In particular, our knowledge taxonomy has been inspired by the following work:
 
-- [Australian Curriculum](https://www.bbc.co.uk/ontologies/curriculum) published by the Australian Curriculum, Assessment and Reporting Authority (ACARA).  
+- [Australian Curriculum](https://www.australiancurriculum.edu.au/) published by the Australian Curriculum, Assessment and Reporting Authority (ACARA).  
 - [BBC Curriculum Ontology](https://www.bbc.co.uk/ontologies/curriculum) published by the BBC, for describing the National Curricula within the UK.
 
 ---

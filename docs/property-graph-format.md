@@ -37,7 +37,7 @@ This is **not** the same as the bespoke Neo4j export (`export-to-neo4j.yml`), wh
 
 ```json
 {
-  "id": "https://w3id.org/uk/curriculum/oak-data/programme-mathematics-year-group-1",
+  "id": "https://w3id.org/uk/oak/curriculum/oakcurriculum/programme-mathematics-year-group-1",
   "labels": ["Programme"],
   "properties": {
     "name": "Mathematics Year Group 1",
@@ -82,8 +82,8 @@ This is **not** the same as the bespoke Neo4j export (`export-to-neo4j.yml`), wh
 ```json
 {
   "type": "hasUnitVariantInclusion",
-  "startNodeId": "https://w3id.org/uk/curriculum/oak-data/programme-mathematics-year-group-1",
-  "endNodeId": "https://w3id.org/uk/curriculum/oak-data/inclusion-programme-mathematics-year-group-1-pos-1",
+  "startNodeId": "https://w3id.org/uk/oak/curriculum/oakcurriculum/programme-mathematics-year-group-1",
+  "endNodeId": "https://w3id.org/uk/oak/curriculum/oakcurriculum/inclusion-programme-mathematics-year-group-1-pos-1",
   "properties": {}
 }
 ```
@@ -92,7 +92,7 @@ This is **not** the same as the bespoke Neo4j export (`export-to-neo4j.yml`), wh
 
 The following predicates are not written as relationships (they are either captured as node labels, represent RDF/OWL infrastructure, or are ontology metadata):
 
-```
+```text
 rdf:type            captured as node labels
 rdf:first           rdf:List infrastructure
 rdf:rest            rdf:List infrastructure
@@ -198,11 +198,11 @@ A curriculum vocabulary item.
 
 ### ExternalReference
 
-A stub node representing a URI from the national curriculum repository that is referenced by Oak data but whose full definition lives in a separate repository.
+A stub node representing a URI that is referenced in the data but whose full definition is not present in this repository.
 
 | Property | Type | Description |
 |---|---|---|
-| `namespace` | string | Either `"nat-data-2014"` or `"nat-data-2028"` |
+| `namespace` | string | The namespace segment of the stub's URI (e.g. `"nationalcurriculum"`) |
 
 See [ExternalReference Stubs](#externalreference-stubs) below.
 
@@ -214,7 +214,7 @@ See [ExternalReference Stubs](#externalreference-stubs) below.
 
 For example, a `Programme` does not simply `hasLesson` a `Lesson`. It `hasUnitVariantInclusion` an `UnitVariantInclusion` node, which in turn `includesUnitVariant` a `UnitVariant`, which `hasLessonInclusion` a `LessonInclusion` node, which `includesLesson` a `Lesson`. The `sequencePosition` on each inclusion node records the ordering.
 
-```
+```text
 Programme
   --[hasUnitVariantInclusion]--> UnitVariantInclusion {sequencePosition: 1}
     --[includesUnitVariant]--> UnitVariant
@@ -230,15 +230,15 @@ This structure is preserved faithfully in the JSONL format. If you want a flatte
 
 ### Background
 
-The national curriculum data (`nat-data-2014`, `nat-data-2028`) lives in a separate repository. The Oak Curriculum data references these URIs (e.g. a `Programme` `coversYearGroup` a national curriculum `YearGroup`), but the full definitions of those nodes are not present in this repository.
+Some URIs are referenced in the data without being fully defined in this repository — for example ontology document URIs, version IRIs, and terms from external vocabularies. The same mechanism will cover entities from datasets published separately in future, such as the revised National Curriculum (expected to be published in 2027 and first taught from 2028) alongside the current 2014 data.
 
-Property graph databases require both endpoints of a relationship to exist as nodes. To preserve these edges, the JSONL export includes stub nodes for all referenced national curriculum URIs:
+Property graph databases require both endpoints of a relationship to exist as nodes. To preserve these edges, the JSONL export includes stub nodes for all referenced but undefined URIs:
 
 ```json
 {
-  "id": "https://w3id.org/uk/curriculum/nat-data-2014/year-group-1",
+  "id": "https://w3id.org/uk/oak/curriculum/nationalcurriculum/year-group-1",
   "labels": ["ExternalReference"],
-  "properties": {"namespace": "nat-data-2014"}
+  "properties": {"namespace": "nationalcurriculum"}
 }
 ```
 
@@ -299,8 +299,8 @@ jq 'select(.labels | contains(["Programme"]))' distributions/nodes.jsonl
 # All hasUnitVariantInclusion relationships
 jq 'select(.type == "hasUnitVariantInclusion")' distributions/relationships.jsonl
 
-# All ExternalReference stubs from nat-data-2014
-jq 'select(.labels == ["ExternalReference"] and .properties.namespace == "nat-data-2014")' distributions/nodes.jsonl
+# All ExternalReference stubs from the nationalcurriculum namespace
+jq 'select(.labels == ["ExternalReference"] and .properties.namespace == "nationalcurriculum")' distributions/nodes.jsonl
 
 # Count nodes by label (first label only)
 jq -r '.labels[0]' distributions/nodes.jsonl | sort | uniq -c | sort -rn
