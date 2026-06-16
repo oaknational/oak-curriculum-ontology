@@ -83,7 +83,7 @@ OWL enables formal modeling of curriculum structure with:
 - **Cardinality constraints**: Enforce structural rules (e.g., "every programme has exactly one year group")
 
 **How we use it:**
-The ontology defines 26 core classes (Programme, Unit, UnitVariant, Lesson, Discipline, Strand, ContentDescriptor, etc.) and 40+ properties with formal OWL semantics.
+The ontology defines 31 core classes (Programme, Unit, UnitVariant, Lesson, Discipline, Strand, ContentDescriptor, etc.) and 75 properties with formal OWL semantics.
 
 **Example:**
 
@@ -176,7 +176,7 @@ SHACL ensures data quality by validating that:
 - Structural integrity is maintained
 
 **How we use it:**
-The ontology includes comprehensive SHACL shapes (`oak-curriculum-constraints.ttl`) with 26 validation shapes covering:
+The ontology includes comprehensive SHACL shapes (`oak-curriculum-constraints.ttl`) with 36 validation shapes covering:
 
 - Programme structure validation
 - Sequencing constraints (unique sequence positions)
