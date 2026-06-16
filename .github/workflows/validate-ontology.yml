@@ -104,8 +104,9 @@ jobs:
       - name: Generate and smoke-test property-graph JSONL
         run: |
           mkdir -p /tmp/pg-dist
+
           uv run python scripts/generate_pg_jsonl.py /tmp/combined-data.nt /tmp/pg-dist
-          python scripts/test_pg_jsonl.py /tmp/pg-dist
+          uv run python scripts/test_pg_jsonl.py /tmp/pg-dist
 
       - name: Upload validation report
         if: always()
