@@ -2,9 +2,9 @@
 
 Thank you for your interest in the Oak Curriculum Ontology!
 
-## Current Status: Early Release (v0.1.0)
+## Current Status: Early Release (v0.1.3)
 
-This is an **early public release** (v0.1.0) for evaluation and community feedback. The ontology structure, URIs, and data are under active development.
+This is an **early public release** (v0.1.3) for evaluation and community feedback. The ontology structure, URIs, and data are under active development.
 
 ## How to Contribute
 

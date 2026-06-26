@@ -126,19 +126,19 @@ For detailed documentation on the script architecture, transformations, and conf
 
 ```bash
 # Merge data/ directory (default)
-python scripts/merge_ttls_with_imports.py
+uv run python scripts/merge_ttls_with_imports.py
 
 # Merge specific paths
-python scripts/merge_ttls_with_imports.py ontology/ data/
+uv run python scripts/merge_ttls_with_imports.py ontology/ data/
 
 # Custom output file
-python scripts/merge_ttls_with_imports.py -o /tmp/my-output.ttl
+uv run python scripts/merge_ttls_with_imports.py -o /tmp/my-output.ttl
 
 # Verbose logging
-python scripts/merge_ttls_with_imports.py -v
+uv run python scripts/merge_ttls_with_imports.py -v
 
 # Quiet mode (warnings/errors only)
-python scripts/merge_ttls_with_imports.py -q
+uv run python scripts/merge_ttls_with_imports.py -q
 ```
 
 **What it does:**
@@ -333,10 +333,10 @@ Python dependencies are managed in `pyproject.toml`:
 
 ```bash
 # Install runtime dependencies
-uv pip install -e .
+uv sync
 
-# Install dev dependencies (includes mypy, ruff)
-uv pip install -e ".[dev]"
+# Install dev dependencies (includes mypy, ruff, pre-commit, commitizen, pymarkdown)
+uv sync --extra dev
 ```
 
 ---
