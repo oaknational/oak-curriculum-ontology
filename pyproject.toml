@@ -98,6 +98,8 @@ plugins.no-inline-html.enabled = false
 plugins.no-duplicate-header.allow_different_nesting = true
 # Bold run-in labels are an intentional documentation style
 plugins.no-emphasis-as-heading.enabled = false
+# Numbered lists interrupted by code blocks are valid; linter cannot track continuation
+plugins.ol-prefix.enabled = false
 
 [tool.setuptools]
 packages = []
