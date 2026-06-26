@@ -209,7 +209,7 @@ def _write_nodes(nodes: dict[str, dict], output_dir: Path) -> tuple[int, int]:
     """Pass 5: write nodes.jsonl; return (node_count, stub_count)."""
     node_count = 0
     stub_count = 0
-    with open(output_dir / "nodes.jsonl", "w", encoding="utf-8") as f:
+    with open((output_dir / "nodes.jsonl").resolve(), "w", encoding="utf-8") as f:
         for uri, data in nodes.items():
             if data["stub"]:
                 labels = ["ExternalReference"]
@@ -230,7 +230,7 @@ def _write_nodes(nodes: dict[str, dict], output_dir: Path) -> tuple[int, int]:
 def _write_relationships(g: Graph, nodes: dict[str, dict], output_dir: Path) -> int:
     """Pass 6: write relationships.jsonl; return relationship count."""
     rel_count = 0
-    with open(output_dir / "relationships.jsonl", "w", encoding="utf-8") as f:
+    with open((output_dir / "relationships.jsonl").resolve(), "w", encoding="utf-8") as f:
         for subj, pred, obj in g:
             if isinstance(subj, BNode) or isinstance(obj, BNode):
                 continue
@@ -281,8 +281,16 @@ def main() -> None:
         print(f"Usage: {sys.argv[0]} <input.ttl> <output_dir>", file=sys.stderr)
         sys.exit(1)
 
-    input_ttl = Path(sys.argv[1])
-    output_dir = Path(sys.argv[2])
+    cwd = Path.cwd().resolve()
+    input_ttl = Path(sys.argv[1]).resolve()
+    output_dir = Path(sys.argv[2]).resolve()
+
+    try:
+        input_ttl.relative_to(cwd)
+        output_dir.relative_to(cwd)
+    except ValueError as exc:
+        print(f"Error: paths must be within the working directory: {exc}", file=sys.stderr)
+        sys.exit(1)
 
     if not input_ttl.exists():
         print(f"Error: {input_ttl} not found", file=sys.stderr)

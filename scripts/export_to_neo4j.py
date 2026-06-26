@@ -240,9 +240,18 @@ class ExportConfig:
         # Load environment
         load_dotenv(self.env_path)
 
+        # Validate config path is within the working directory to prevent path traversal
+        resolved_config = config_path.resolve()
+        try:
+            resolved_config.relative_to(Path.cwd().resolve())
+        except ValueError as exc:
+            raise ValueError(
+                f"Configuration file must be within the working directory: {config_path}"
+            ) from exc
+
         # Load and validate config
         try:
-            with open(config_path, 'r', encoding='utf-8') as f:
+            with open(resolved_config, 'r', encoding='utf-8') as f:
                 config_dict = json.load(f)
         except FileNotFoundError:
             raise FileNotFoundError(f"Configuration file not found: {config_path}") from None
