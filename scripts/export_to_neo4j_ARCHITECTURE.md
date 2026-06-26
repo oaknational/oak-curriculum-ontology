@@ -408,7 +408,6 @@ class MyNewTransformation(Transformation):
         return count
 ```
 
-<!-- markdownlint-disable-next-line MD029 -->
 2. Add to pipeline in `apply_transformations()`:
 
 ```python

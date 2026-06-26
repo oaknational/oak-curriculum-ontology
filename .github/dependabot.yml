@@ -6,12 +6,6 @@ updates:
     schedule:
       interval: weekly
 
-  # Lint tooling (commitlint, markdownlint, husky, lint-staged)
-  - package-ecosystem: npm
-    directory: /
-    schedule:
-      interval: weekly
-
   # Python dependencies (pyproject.toml)
   - package-ecosystem: pip
     directory: /

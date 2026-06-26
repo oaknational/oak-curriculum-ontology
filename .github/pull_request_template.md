@@ -14,7 +14,7 @@ Fixes #
 
 1. `./scripts/validate.sh` — SHACL validation passes
 2. `uv run --extra dev --extra export pytest` — tests pass
-3. `pnpm lint:md` — markdown clean
+3. `uv run pre-commit run --all-files` — markdown and hooks clean
 
 ## Checklist
 

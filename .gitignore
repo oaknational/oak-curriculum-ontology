@@ -41,5 +41,3 @@ build/
 # Distribution files (published via GitHub Releases)
 distributions/
 
-# Node tooling (linting)
-node_modules/
