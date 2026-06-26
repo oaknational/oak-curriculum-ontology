@@ -11,6 +11,7 @@ This directory contains automated CI/CD workflows for the Oak Curriculum Ontolog
   - [1. Validate Ontology](#1-validate-ontology)
   - [2. Generate Documentation](#2-generate-documentation)
   - [3. Generate Distributions](#3-generate-distributions)
+  - [4. Lint](#4-lint)
 - [Workflow Features](#workflow-features)
 - [Security](#security)
 - [Performance](#performance)
@@ -284,6 +285,52 @@ env:
 
 ---
 
+### 4. Lint
+
+**File:** [`lint.yml`](./lint.yml)
+
+#### Purpose
+
+Enforces code quality, markdown standards, and conventional commit format on every push and pull request.
+
+#### Triggers
+
+- **Push** to `main` branch
+- **Pull Request** to `main` branch
+- **Manual dispatch** via GitHub Actions UI
+
+#### Jobs
+
+**`pre-commit`** — Markdown linting
+
+- Runs `pymarkdown` via `pre-commit` against all `.md` files
+- Configuration in `pyproject.toml` under `[tool.pymarkdown]`
+
+**`python`** — Python quality checks
+
+- Lints all Python scripts with `ruff`
+- Runs the full test suite with `pytest`
+- Type-checks key scripts with `mypy --strict`
+
+**`commitizen`** *(pull requests only)* — Commit message linting
+
+- Checks all commits in the PR conform to conventional commit format
+- Allowed types: `build`, `chore`, `ci`, `data`, `docs`, `feat`, `fix`, `perf`, `refactor`, `revert`, `style`, `test`, `wip`
+- Configuration in `pyproject.toml` under `[tool.commitizen]`
+
+#### Configuration
+
+```yaml
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+```
+
+---
+
 ## Workflow Features
 
 ### Security Best Practices
@@ -453,6 +500,6 @@ concurrency:
 
 ---
 
-**Last Updated:** 2026-02-15
+**Last Updated:** 2026-06-26
 **Workflow Version:** 1.0
 **Documentation Version:** 1.0
