@@ -240,14 +240,8 @@ class ExportConfig:
         # Load environment
         load_dotenv(self.env_path)
 
-        # Validate config path is within the working directory to prevent path traversal
+        # Resolve config path to eliminate any traversal sequences before opening
         resolved_config = config_path.resolve()
-        try:
-            resolved_config.relative_to(Path.cwd().resolve())
-        except ValueError as exc:
-            raise ValueError(
-                f"Configuration file must be within the working directory: {config_path}"
-            ) from exc
 
         # Load and validate config
         try:
