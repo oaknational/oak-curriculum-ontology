@@ -39,6 +39,9 @@ dev = [
     "ruff>=0.2.0",
     "mypy>=1.8.0",
     "pytest>=8.0",
+    "pre-commit>=3.7.0",
+    "commitizen>=3.29.0",
+    "pymarkdownlnt>=0.9.0",
 ]
 
 [tool.ruff]
@@ -63,6 +66,38 @@ ignore_missing_imports = true
 [[tool.mypy.overrides]]
 module = ["tqdm", "tqdm.*"]
 ignore_missing_imports = true
+
+[tool.commitizen]
+name = "cz_conventional_commits"
+tag_format = "v$version"
+version_scheme = "semver"
+version_provider = "pep621"
+update_changelog_on_bump = false
+allowed_prefixes = [
+    "build",
+    "chore",
+    "ci",
+    "data",
+    "docs",
+    "feat",
+    "fix",
+    "perf",
+    "refactor",
+    "revert",
+    "style",
+    "test",
+    "wip",
+]
+
+[tool.pymarkdown]
+# Long lines are fine in prose, tables, and URLs
+plugins.line-length.enabled = false
+# Inline HTML is used for badges and anchors
+plugins.no-inline-html.enabled = false
+# Allow duplicate headings in sibling sections (e.g. "Usage" per script)
+plugins.no-duplicate-header.allow_different_nesting = true
+# Bold run-in labels are an intentional documentation style
+plugins.no-emphasis-as-heading.enabled = false
 
 [tool.setuptools]
 packages = []
