@@ -92,9 +92,12 @@ def create_schema(
         re.DOTALL | re.IGNORECASE,
     )
 
-    # Matches: colname [NOT NULL] REFERENCES table(col) [ON DELETE action]
+    # Matches: colname INTEGER [NOT NULL] REFERENCES table(col) [ON DELETE action]
+    # group 1 = column name, 2 = optional NOT NULL, 3/4 = referenced table/column.
+    # Each \s+ is bounded by a non-space token so there is no ambiguous
+    # whitespace matching (and therefore no super-linear backtracking).
     fk_pattern = re.compile(
-        r"(\w+)\s+INTEGER\s*(?:NOT\s+NULL\s*)?REFERENCES\s+(\w+)\((\w+)\)"
+        r"(\w+)\s+INTEGER\s+(NOT\s+NULL\s+)?REFERENCES\s+(\w+)\((\w+)\)"
         r"(?:\s+ON\s+DELETE\s+\w+)?",
         re.IGNORECASE,
     )
@@ -110,16 +113,15 @@ def create_schema(
         clean_stmt = stmt
         for m in fk_pattern.finditer(stmt):
             matched_text = m.group(0)
-            stripped = re.sub(
-                r"\s*REFERENCES\s+\w+\(\w+\)(?:\s+ON\s+DELETE\s+\w+)?",
-                "",
-                matched_text,
-            )
-            clean_stmt = clean_stmt.replace(matched_text, stripped)
+            # Rebuild the column definition without the inline REFERENCES
+            # clause, reusing the groups fk_pattern already captured. This
+            # avoids a second, backtracking-prone regex pass per column.
+            kept = f"{m.group(1)} INTEGER" + (" NOT NULL" if m.group(2) else "")
+            clean_stmt = clean_stmt.replace(matched_text, kept)
             alter_stmts.append(
                 f"ALTER TABLE {table_name}"
                 f" ADD FOREIGN KEY ({m.group(1)})"
-                f" REFERENCES {m.group(2)}({m.group(3)}) ON DELETE RESTRICT;"
+                f" REFERENCES {m.group(3)}({m.group(4)}) ON DELETE RESTRICT;"
             )
 
         cur.execute(clean_stmt)
