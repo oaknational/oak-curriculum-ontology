@@ -1303,48 +1303,9 @@ shapes:UnitVariantInclusionShape
     sh:message "A unit variant inclusion must specify exactly one sequence position as a positive integer." ;
   ] ;
 
-  sh:sparql [
-    sh:message "Sequence positions must be unique within a programme" ;
-    sh:select """
-      PREFIX curric: <https://w3id.org/uk/oak/curriculum/ontology/>
-      SELECT $this WHERE {
-        $this curric:sequencePosition ?pos .
-
-        # Find the programme that contains this inclusion
-        ?programme curric:hasUnitVariantInclusion $this .
-
-        # Check if another inclusion in the same programme has the same position
-        ?programme curric:hasUnitVariantInclusion ?other .
-        ?other curric:sequencePosition ?pos .
-
-        FILTER ($this != ?other)
-      }
-    """ ;
-  ] ;
-
-  sh:sparql [
-    sh:message "Sequence positions must be consecutive within a programme (no gaps allowed)" ;
-    sh:select """
-      PREFIX curric: <https://w3id.org/uk/oak/curriculum/ontology/>
-      SELECT $this WHERE {
-        # Find the programme that contains this inclusion
-        ?programme curric:hasUnitVariantInclusion $this .
-
-        # Get all positions for this programme
-        {
-          SELECT $this ?programme (MIN(?pos) as ?minPos) (MAX(?pos) as ?maxPos) (COUNT(DISTINCT ?pos) as ?count) WHERE {
-            ?programme curric:hasUnitVariantInclusion $this .
-            ?programme curric:hasUnitVariantInclusion ?inclusion .
-            ?inclusion curric:sequencePosition ?pos .
-          }
-          GROUP BY $this ?programme
-        }
-
-        # Check if count equals max-min+1 (i.e., consecutive sequence)
-        FILTER (?count != (?maxPos - ?minPos + 1))
-      }
-    """ ;
-  ] ;
+  # Sequence-position checks (unique + consecutive) are evaluated per programme
+  # in shapes:ProgrammeSequenceShape rather than once per inclusion here — same
+  # detection, far fewer focus nodes and no redundant per-sibling re-computation.
 
   sh:property [
     sh:path curric:minChoices ;
@@ -1498,49 +1459,9 @@ shapes:LessonInclusionShape
     sh:message "A lesson inclusion must specify exactly one sequence position as a positive integer." ;
   ] ;
 
-  sh:sparql [
-    sh:message "Sequence positions must be unique within a unit variant" ;
-    sh:select """
-      PREFIX curric: <https://w3id.org/uk/oak/curriculum/ontology/>
-      SELECT $this WHERE {
-        $this curric:includesLesson ?lesson ;
-            curric:sequencePosition ?pos .
-
-        # Find the unit variant that contains this inclusion
-        ?unitvariant curric:hasLessonInclusion $this .
-
-        # Check if another inclusion in the same unit variant has the same position
-        ?unitvariant curric:hasLessonInclusion ?other .
-        ?other curric:sequencePosition ?pos .
-
-        FILTER ($this != ?other)
-      }
-    """ ;
-  ] ;
-
-  sh:sparql [
-    sh:message "Sequence positions must be consecutive within a unit variant (no gaps allowed)" ;
-    sh:select """
-      PREFIX curric: <https://w3id.org/uk/oak/curriculum/ontology/>
-      SELECT $this WHERE {
-        # Find the unit variant that contains this inclusion
-        ?unitvariant curric:hasLessonInclusion $this .
-
-        # Get all positions for this unit variant
-        {
-          SELECT $this ?unitvariant (MIN(?pos) as ?minPos) (MAX(?pos) as ?maxPos) (COUNT(DISTINCT ?pos) as ?count) WHERE {
-            ?unitvariant curric:hasLessonInclusion $this .
-            ?unitvariant curric:hasLessonInclusion ?inclusion .
-            ?inclusion curric:sequencePosition ?pos .
-          }
-          GROUP BY $this ?unitvariant
-        }
-
-        # Check if count equals max-min+1 (i.e., consecutive sequence)
-        FILTER (?count != (?maxPos - ?minPos + 1))
-      }
-    """ ;
-  ] ;
+  # Sequence-position checks (unique + consecutive) are evaluated per unit
+  # variant in shapes:UnitVariantSequenceShape rather than once per inclusion
+  # here — same detection, far fewer focus nodes and no redundant re-computation.
 
   # Orphan check as native inverse-path minCount (was
   # FILTER NOT EXISTS { ?unitvariant curric:hasLessonInclusion $this }).
@@ -1836,4 +1757,86 @@ shapes:LessonShape
     sh:name "referenced by a lesson inclusion" ;
     sh:description "A lesson must be referenced by at least one lesson inclusion." ;
     sh:message "Lesson is not referenced by any lesson inclusion (orphaned resource)" ;
+  ] .
+
+# ----------------------------------------------------------------------
+# Shape: UnitVariant sequence positions (container-scoped)
+# ----------------------------------------------------------------------
+# These checks are relational (they compare sibling inclusions), so they stay
+# in SPARQL — but they are evaluated once per unit variant (the container),
+# not once per lesson inclusion. This cuts focus nodes from ~15k inclusions to
+# ~2k variants and removes the redundant re-scan of a variant once per sibling.
+
+shapes:UnitVariantSequenceShape
+  a sh:NodeShape ;
+  sh:targetClass curric:UnitVariant ;
+
+  sh:sparql [
+    sh:message "Sequence positions must be unique within a unit variant" ;
+    sh:select """
+      PREFIX curric: <https://w3id.org/uk/oak/curriculum/ontology/>
+      SELECT $this WHERE {
+        $this curric:hasLessonInclusion ?a, ?b .
+        ?a curric:sequencePosition ?pos .
+        ?b curric:sequencePosition ?pos .
+        FILTER (?a != ?b)
+      }
+    """ ;
+  ] ;
+
+  sh:sparql [
+    sh:message "Sequence positions must be consecutive within a unit variant (no gaps allowed)" ;
+    sh:select """
+      PREFIX curric: <https://w3id.org/uk/oak/curriculum/ontology/>
+      SELECT $this WHERE {
+        {
+          SELECT $this (MIN(?pos) AS ?minPos) (MAX(?pos) AS ?maxPos) (COUNT(DISTINCT ?pos) AS ?count) WHERE {
+            $this curric:hasLessonInclusion ?inclusion .
+            ?inclusion curric:sequencePosition ?pos .
+          }
+          GROUP BY $this
+        }
+        FILTER (?count != (?maxPos - ?minPos + 1))
+      }
+    """ ;
+  ] .
+
+# ----------------------------------------------------------------------
+# Shape: Programme sequence positions (container-scoped)
+# ----------------------------------------------------------------------
+# As above, evaluated once per programme rather than once per unit variant
+# inclusion.
+
+shapes:ProgrammeSequenceShape
+  a sh:NodeShape ;
+  sh:targetClass curric:Programme ;
+
+  sh:sparql [
+    sh:message "Sequence positions must be unique within a programme" ;
+    sh:select """
+      PREFIX curric: <https://w3id.org/uk/oak/curriculum/ontology/>
+      SELECT $this WHERE {
+        $this curric:hasUnitVariantInclusion ?a, ?b .
+        ?a curric:sequencePosition ?pos .
+        ?b curric:sequencePosition ?pos .
+        FILTER (?a != ?b)
+      }
+    """ ;
+  ] ;
+
+  sh:sparql [
+    sh:message "Sequence positions must be consecutive within a programme (no gaps allowed)" ;
+    sh:select """
+      PREFIX curric: <https://w3id.org/uk/oak/curriculum/ontology/>
+      SELECT $this WHERE {
+        {
+          SELECT $this (MIN(?pos) AS ?minPos) (MAX(?pos) AS ?maxPos) (COUNT(DISTINCT ?pos) AS ?count) WHERE {
+            $this curric:hasUnitVariantInclusion ?inclusion .
+            ?inclusion curric:sequencePosition ?pos .
+          }
+          GROUP BY $this
+        }
+        FILTER (?count != (?maxPos - ?minPos + 1))
+      }
+    """ ;
   ] .
