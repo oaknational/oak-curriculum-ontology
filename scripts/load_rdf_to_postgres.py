@@ -7,10 +7,13 @@ a PostgreSQL database using oak-curriculum-schema-postgres.sql.
 
 Usage:
     uv run scripts/load_rdf_to_postgres.py
-    uv run scripts/load_rdf_to_postgres.py --dsn "postgresql://user:pass@localhost:5432/oak_curriculum"
-    uv run scripts/load_rdf_to_postgres.py --schema distributions/oak-curriculum-schema-postgres.sql
 
-Environment variables (used when --dsn is not provided):
+Connection details come only from the PG* environment variables below. A DSN
+cannot be supplied on the command line, and the schema path is fixed to
+<repo>/distributions/. This prevents a caller from redirecting the database
+connection or executing an arbitrary schema file as DDL.
+
+Environment variables:
     PGHOST      (default: localhost)
     PGPORT      (default: 5432)
     PGDATABASE  (default: oak_curriculum)
@@ -22,7 +25,6 @@ Each run drops and recreates all tables, so re-runs are idempotent.
 
 from __future__ import annotations
 
-import argparse
 import logging
 import os
 import re
@@ -39,10 +41,8 @@ from rdf_loader import PostgresAdapter, load_data, parse_ttl_files, print_counts
 log = logging.getLogger(__name__)
 
 
-def connect_db(dsn: str | None) -> "psycopg2.extensions.connection":
-    """Connect to PostgreSQL using a DSN or PG* environment variables."""
-    if dsn:
-        return psycopg2.connect(dsn)
+def connect_db() -> "psycopg2.extensions.connection":
+    """Connect to PostgreSQL using the PG* environment variables."""
     return psycopg2.connect(
         host=os.environ.get("PGHOST", "localhost"),
         port=int(os.environ.get("PGPORT", "5432")),
@@ -52,15 +52,32 @@ def connect_db(dsn: str | None) -> "psycopg2.extensions.connection":
     )
 
 
+def _ensure_within(path: Path, allowed_dir: Path) -> Path:
+    """Resolve *path* and confirm it is contained within *allowed_dir*.
+
+    Raises ValueError if the resolved path escapes the allowed directory, so
+    the DDL that gets executed can only ever come from the distributions
+    directory.
+    """
+    resolved = path.resolve()
+    allowed = allowed_dir.resolve()
+    if resolved != allowed and allowed not in resolved.parents:
+        raise ValueError(f"Refusing to use path outside {allowed}: {resolved}")
+    return resolved
+
+
 def create_schema(
-    conn: "psycopg2.extensions.connection", schema_path: Path
+    conn: "psycopg2.extensions.connection", schema_path: Path, allowed_dir: Path
 ) -> None:
     """Drop existing tables and recreate from the schema DDL.
+
+    *schema_path* must live inside *allowed_dir*.
 
     The DDL contains inline REFERENCES which can fail if tables are created
     out of FK-dependency order. We strip inline REFERENCES, create all tables
     first, then add FK constraints via ALTER TABLE.
     """
+    schema_path = _ensure_within(schema_path, allowed_dir)
     ddl = schema_path.read_text(encoding="utf-8")
     cur = conn.cursor()
 
@@ -75,9 +92,12 @@ def create_schema(
         re.DOTALL | re.IGNORECASE,
     )
 
-    # Matches: colname [NOT NULL] REFERENCES table(col) [ON DELETE action]
+    # Matches: colname INTEGER [NOT NULL] REFERENCES table(col) [ON DELETE action]
+    # group 1 = column name, 2 = optional NOT NULL, 3/4 = referenced table/column.
+    # Each \s+ is bounded by a non-space token so there is no ambiguous
+    # whitespace matching (and therefore no super-linear backtracking).
     fk_pattern = re.compile(
-        r"(\w+)\s+INTEGER\s*(?:NOT\s+NULL\s*)?REFERENCES\s+(\w+)\((\w+)\)"
+        r"(\w+)\s+INTEGER\s+(NOT\s+NULL\s+)?REFERENCES\s+(\w+)\((\w+)\)"
         r"(?:\s+ON\s+DELETE\s+\w+)?",
         re.IGNORECASE,
     )
@@ -93,16 +113,15 @@ def create_schema(
         clean_stmt = stmt
         for m in fk_pattern.finditer(stmt):
             matched_text = m.group(0)
-            stripped = re.sub(
-                r"\s*REFERENCES\s+\w+\(\w+\)(?:\s+ON\s+DELETE\s+\w+)?",
-                "",
-                matched_text,
-            )
-            clean_stmt = clean_stmt.replace(matched_text, stripped)
+            # Rebuild the column definition without the inline REFERENCES
+            # clause, reusing the groups fk_pattern already captured. This
+            # avoids a second, backtracking-prone regex pass per column.
+            kept = f"{m.group(1)} INTEGER" + (" NOT NULL" if m.group(2) else "")
+            clean_stmt = clean_stmt.replace(matched_text, kept)
             alter_stmts.append(
                 f"ALTER TABLE {table_name}"
                 f" ADD FOREIGN KEY ({m.group(1)})"
-                f" REFERENCES {m.group(2)}({m.group(3)}) ON DELETE RESTRICT;"
+                f" REFERENCES {m.group(3)}({m.group(4)}) ON DELETE RESTRICT;"
             )
 
         cur.execute(clean_stmt)
@@ -115,38 +134,22 @@ def create_schema(
 
 def main() -> None:
     logging.basicConfig(level=logging.INFO, format="%(levelname)s %(message)s")
-    parser = argparse.ArgumentParser(
-        description="Load Oak Curriculum RDF data into PostgreSQL"
-    )
-    parser.add_argument(
-        "--schema", type=Path, default=None,
-        help="Path to PostgreSQL schema SQL file"
-        " (default: <repo>/distributions/oak-curriculum-schema-postgres.sql)",
-    )
-    parser.add_argument(
-        "--dsn", default=None,
-        help="PostgreSQL connection string (default: use PG* environment variables)",
-    )
-    args = parser.parse_args()
 
     repo_root = Path(__file__).resolve().parent.parent
-    schema_path = (
-        args.schema
-        if args.schema
-        else repo_root / "distributions" / "oak-curriculum-schema-postgres.sql"
-    )
+    dist_dir = repo_root / "distributions"
+    schema_path = dist_dir / "oak-curriculum-schema-postgres.sql"
 
     if not schema_path.exists():
         sys.exit(f"Schema file not found: {schema_path}")
 
     log.info("Schema:  %s", schema_path)
-    log.info("DSN:     %s", args.dsn or "(from PG* environment variables)")
+    log.info("Connection: PG* environment variables")
 
     g = parse_ttl_files(repo_root)
-    conn = connect_db(args.dsn)
+    conn = connect_db()
     adapter = PostgresAdapter()
     try:
-        create_schema(conn, schema_path)
+        create_schema(conn, schema_path, dist_dir)
         cur = conn.cursor()
         load_data(g, cur, adapter)
         conn.commit()

@@ -7,13 +7,15 @@ a SQLite database using oak-curriculum-schema-sqlite.sql.
 
 Usage:
     uv run scripts/load_rdf_to_sqlite.py
-    uv run scripts/load_rdf_to_sqlite.py --db /path/to/output.sqlite
-    uv run scripts/load_rdf_to_sqlite.py --schema distributions/oak-curriculum-schema-sqlite.sql
+
+The database and schema paths are fixed to <repo>/distributions/ and are
+deliberately not exposed on the command line. This prevents a caller from
+redirecting the database connection, executing an arbitrary schema file, or
+triggering the destructive unlink against an arbitrary filesystem location.
 """
 
 from __future__ import annotations
 
-import argparse
 import logging
 import sqlite3
 import sys
@@ -24,8 +26,29 @@ from rdf_loader import SQLiteAdapter, load_data, parse_ttl_files, print_counts
 log = logging.getLogger(__name__)
 
 
-def create_database(db_path: Path, schema_path: Path) -> sqlite3.Connection:
-    """Create a fresh SQLite database from the schema DDL."""
+def _ensure_within(path: Path, allowed_dir: Path) -> Path:
+    """Resolve *path* and confirm it is contained within *allowed_dir*.
+
+    Raises ValueError if the resolved path escapes the allowed directory, so
+    the connection and the destructive unlink can only ever touch files under
+    the distributions directory.
+    """
+    resolved = path.resolve()
+    allowed = allowed_dir.resolve()
+    if resolved != allowed and allowed not in resolved.parents:
+        raise ValueError(f"Refusing to use path outside {allowed}: {resolved}")
+    return resolved
+
+
+def create_database(
+    db_path: Path, schema_path: Path, allowed_dir: Path
+) -> sqlite3.Connection:
+    """Create a fresh SQLite database from the schema DDL.
+
+    Both *db_path* and *schema_path* must live inside *allowed_dir*.
+    """
+    db_path = _ensure_within(db_path, allowed_dir)
+    schema_path = _ensure_within(schema_path, allowed_dir)
     if db_path.exists():
         db_path.unlink()
     conn = sqlite3.connect(str(db_path))
@@ -36,32 +59,11 @@ def create_database(db_path: Path, schema_path: Path) -> sqlite3.Connection:
 
 def main() -> None:
     logging.basicConfig(level=logging.INFO, format="%(levelname)s %(message)s")
-    parser = argparse.ArgumentParser(
-        description="Load Oak Curriculum RDF data into SQLite"
-    )
-    parser.add_argument(
-        "--schema", type=Path, default=None,
-        help="Path to SQLite schema SQL file"
-        " (default: <repo>/distributions/oak-curriculum-schema-sqlite.sql)",
-    )
-    parser.add_argument(
-        "--db", type=Path, default=None,
-        help="Output SQLite database path"
-        " (default: <repo>/distributions/oak-curriculum.sqlite)",
-    )
-    args = parser.parse_args()
 
     repo_root = Path(__file__).resolve().parent.parent
-    schema_path = (
-        args.schema
-        if args.schema
-        else repo_root / "distributions" / "oak-curriculum-schema-sqlite.sql"
-    )
-    db_path = (
-        args.db
-        if args.db
-        else repo_root / "distributions" / "oak-curriculum.sqlite"
-    )
+    dist_dir = repo_root / "distributions"
+    schema_path = dist_dir / "oak-curriculum-schema-sqlite.sql"
+    db_path = dist_dir / "oak-curriculum.sqlite"
 
     if not schema_path.exists():
         sys.exit(f"Schema file not found: {schema_path}")
@@ -70,7 +72,7 @@ def main() -> None:
     log.info("Output:  %s", db_path)
 
     g = parse_ttl_files(repo_root)
-    conn = create_database(db_path, schema_path)
+    conn = create_database(db_path, schema_path, dist_dir)
     adapter = SQLiteAdapter()
     try:
         cur = conn.cursor()

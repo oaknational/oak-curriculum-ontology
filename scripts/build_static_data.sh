@@ -100,7 +100,9 @@ echo "    Created oak-curriculum-schema-sqlite.sql"
 
 # Generate SQLite database
 echo "  Generating SQLite database (.sqlite)..."
-uv run python scripts/load_rdf_to_sqlite.py --db "$OUTPUT_DIR/oak-curriculum.sqlite" --schema "$OUTPUT_DIR/oak-curriculum-schema-sqlite.sql"
+# Paths are fixed inside the script (<repo>/distributions/); they are
+# intentionally not passed as CLI args so the DB connection cannot be redirected.
+uv run python scripts/load_rdf_to_sqlite.py
 echo "    Created oak-curriculum.sqlite"
 
 echo ""
