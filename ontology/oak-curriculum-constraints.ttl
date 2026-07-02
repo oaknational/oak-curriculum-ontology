@@ -729,7 +729,7 @@ shapes:StrandShape
     sh:message "When a Strand is covered by more than one Subject, all those Subjects must belong to the same SubjectGroup." ;
     sh:select """
       PREFIX curric: <https://w3id.org/uk/oak/curriculum/ontology/>
-      SELECT $this WHERE {
+      SELECT DISTINCT $this WHERE {
         ?subject1 a curric:Subject ;
                   curric:coversStrand $this ;
                   curric:isSubjectOf ?group1 .
@@ -1212,7 +1212,7 @@ shapes:UnitShape
     sh:message "Unit is not used in any programme (all its unit variants are orphaned)" ;
     sh:select """
       PREFIX curric: <https://w3id.org/uk/oak/curriculum/ontology/>
-      SELECT $this WHERE {
+      SELECT DISTINCT $this WHERE {
         $this curric:hasUnitVariant ?unitvariant .
         FILTER NOT EXISTS {
           {
@@ -1251,21 +1251,20 @@ shapes:UnitVariantShape
     sh:message "Every unit variant must include at least one lesson to be teachable." ;
   ] ;
 
-  sh:sparql [
+  # Orphan check as a native constraint: at least one incoming reference via
+  # either includesUnitVariant or hasUnitVariantOption. Equivalent to the
+  # previous NOT EXISTS { ... UNION ... }, without a per-node SPARQL query.
+  sh:property [
+    sh:path [
+      sh:alternativePath (
+        [ sh:inversePath curric:includesUnitVariant ]
+        [ sh:inversePath curric:hasUnitVariantOption ]
+      )
+    ] ;
+    sh:minCount 1 ;
+    sh:name "referenced by a programme" ;
+    sh:description "A unit variant must be referenced by a unit variant inclusion or choice." ;
     sh:message "Unit variant is not used in any programme (not referenced by UnitVariantInclusion or UnitVariantChoice)" ;
-    sh:select """
-      PREFIX curric: <https://w3id.org/uk/oak/curriculum/ontology/>
-      SELECT $this WHERE {
-        $this a curric:UnitVariant .
-        FILTER NOT EXISTS {
-          {
-            ?inclusion curric:includesUnitVariant $this .
-          } UNION {
-            ?choice curric:hasUnitVariantOption $this .
-          }
-        }
-      }
-    """ ;
   ] .
 
 # ----------------------------------------------------------------------
@@ -1304,48 +1303,9 @@ shapes:UnitVariantInclusionShape
     sh:message "A unit variant inclusion must specify exactly one sequence position as a positive integer." ;
   ] ;
 
-  sh:sparql [
-    sh:message "Sequence positions must be unique within a programme" ;
-    sh:select """
-      PREFIX curric: <https://w3id.org/uk/oak/curriculum/ontology/>
-      SELECT $this WHERE {
-        $this curric:sequencePosition ?pos .
-
-        # Find the programme that contains this inclusion
-        ?programme curric:hasUnitVariantInclusion $this .
-
-        # Check if another inclusion in the same programme has the same position
-        ?programme curric:hasUnitVariantInclusion ?other .
-        ?other curric:sequencePosition ?pos .
-
-        FILTER ($this != ?other)
-      }
-    """ ;
-  ] ;
-
-  sh:sparql [
-    sh:message "Sequence positions must be consecutive within a programme (no gaps allowed)" ;
-    sh:select """
-      PREFIX curric: <https://w3id.org/uk/oak/curriculum/ontology/>
-      SELECT $this WHERE {
-        # Find the programme that contains this inclusion
-        ?programme curric:hasUnitVariantInclusion $this .
-
-        # Get all positions for this programme
-        {
-          SELECT $this ?programme (MIN(?pos) as ?minPos) (MAX(?pos) as ?maxPos) (COUNT(DISTINCT ?pos) as ?count) WHERE {
-            ?programme curric:hasUnitVariantInclusion $this .
-            ?programme curric:hasUnitVariantInclusion ?inclusion .
-            ?inclusion curric:sequencePosition ?pos .
-          }
-          GROUP BY $this ?programme
-        }
-
-        # Check if count equals max-min+1 (i.e., consecutive sequence)
-        FILTER (?count != (?maxPos - ?minPos + 1))
-      }
-    """ ;
-  ] ;
+  # Sequence-position checks (unique + consecutive) are evaluated per programme
+  # in shapes:ProgrammeSequenceShape rather than once per inclusion here — same
+  # detection, far fewer focus nodes and no redundant per-sibling re-computation.
 
   sh:property [
     sh:path curric:minChoices ;
@@ -1461,17 +1421,14 @@ shapes:UnitVariantInclusionShape
     """ ;
   ] ;
 
-  sh:sparql [
+  # Orphan check as native inverse-path minCount (was
+  # FILTER NOT EXISTS { ?programme curric:hasUnitVariantInclusion $this }).
+  sh:property [
+    sh:path [ sh:inversePath curric:hasUnitVariantInclusion ] ;
+    sh:minCount 1 ;
+    sh:name "used by a programme" ;
+    sh:description "A unit variant inclusion must be used by at least one programme." ;
     sh:message "Unit variant inclusion is not used in any programme (orphaned)" ;
-    sh:select """
-      PREFIX curric: <https://w3id.org/uk/oak/curriculum/ontology/>
-      SELECT $this WHERE {
-        $this a curric:UnitVariantInclusion .
-        FILTER NOT EXISTS {
-          ?programme curric:hasUnitVariantInclusion $this .
-        }
-      }
-    """ ;
   ] .
 
 # ----------------------------------------------------------------------
@@ -1502,61 +1459,18 @@ shapes:LessonInclusionShape
     sh:message "A lesson inclusion must specify exactly one sequence position as a positive integer." ;
   ] ;
 
-  sh:sparql [
-    sh:message "Sequence positions must be unique within a unit variant" ;
-    sh:select """
-      PREFIX curric: <https://w3id.org/uk/oak/curriculum/ontology/>
-      SELECT $this WHERE {
-        $this curric:includesLesson ?lesson ;
-            curric:sequencePosition ?pos .
+  # Sequence-position checks (unique + consecutive) are evaluated per unit
+  # variant in shapes:UnitVariantSequenceShape rather than once per inclusion
+  # here — same detection, far fewer focus nodes and no redundant re-computation.
 
-        # Find the unit variant that contains this inclusion
-        ?unitvariant curric:hasLessonInclusion $this .
-
-        # Check if another inclusion in the same unit variant has the same position
-        ?unitvariant curric:hasLessonInclusion ?other .
-        ?other curric:sequencePosition ?pos .
-
-        FILTER ($this != ?other)
-      }
-    """ ;
-  ] ;
-
-  sh:sparql [
-    sh:message "Sequence positions must be consecutive within a unit variant (no gaps allowed)" ;
-    sh:select """
-      PREFIX curric: <https://w3id.org/uk/oak/curriculum/ontology/>
-      SELECT $this WHERE {
-        # Find the unit variant that contains this inclusion
-        ?unitvariant curric:hasLessonInclusion $this .
-
-        # Get all positions for this unit variant
-        {
-          SELECT $this ?unitvariant (MIN(?pos) as ?minPos) (MAX(?pos) as ?maxPos) (COUNT(DISTINCT ?pos) as ?count) WHERE {
-            ?unitvariant curric:hasLessonInclusion $this .
-            ?unitvariant curric:hasLessonInclusion ?inclusion .
-            ?inclusion curric:sequencePosition ?pos .
-          }
-          GROUP BY $this ?unitvariant
-        }
-
-        # Check if count equals max-min+1 (i.e., consecutive sequence)
-        FILTER (?count != (?maxPos - ?minPos + 1))
-      }
-    """ ;
-  ] ;
-
-  sh:sparql [
+  # Orphan check as native inverse-path minCount (was
+  # FILTER NOT EXISTS { ?unitvariant curric:hasLessonInclusion $this }).
+  sh:property [
+    sh:path [ sh:inversePath curric:hasLessonInclusion ] ;
+    sh:minCount 1 ;
+    sh:name "used by a unit variant" ;
+    sh:description "A lesson inclusion must be used by at least one unit variant." ;
     sh:message "Lesson inclusion is not used in any unit variant (orphaned)" ;
-    sh:select """
-      PREFIX curric: <https://w3id.org/uk/oak/curriculum/ontology/>
-      SELECT $this WHERE {
-        $this a curric:LessonInclusion .
-        FILTER NOT EXISTS {
-          ?unitvariant curric:hasLessonInclusion $this .
-        }
-      }
-    """ ;
   ] .
 
 # ----------------------------------------------------------------------
@@ -1576,17 +1490,14 @@ shapes:UnitVariantChoiceShape
     sh:message "A unit variant choice must provide at least two options for selection." ;
   ] ;
 
-  sh:sparql [
+  # Orphan check as native inverse-path minCount (was
+  # FILTER NOT EXISTS { ?inclusion curric:includesUnitVariantChoice $this }).
+  sh:property [
+    sh:path [ sh:inversePath curric:includesUnitVariantChoice ] ;
+    sh:minCount 1 ;
+    sh:name "used by a unit variant inclusion" ;
+    sh:description "A unit variant choice must be used by at least one unit variant inclusion." ;
     sh:message "Unit variant choice is not used in any unit variant inclusion (orphaned)" ;
-    sh:select """
-      PREFIX curric: <https://w3id.org/uk/oak/curriculum/ontology/>
-      SELECT $this WHERE {
-        $this a curric:UnitVariantChoice .
-        FILTER NOT EXISTS {
-          ?inclusion curric:includesUnitVariantChoice $this .
-        }
-      }
-    """ ;
   ] .
 
 # ----------------------------------------------------------------------
@@ -1597,17 +1508,14 @@ shapes:ThreadShape
   a sh:NodeShape ;
   sh:targetClass curric:Thread ;
 
-  sh:sparql [
+  # Orphan check as native inverse-path minCount (was
+  # FILTER NOT EXISTS { ?unit curric:includesThread $this }).
+  sh:property [
+    sh:path [ sh:inversePath curric:includesThread ] ;
+    sh:minCount 1 ;
+    sh:name "included by a unit" ;
+    sh:description "A thread must be included by at least one unit." ;
     sh:message "Thread is not included by any unit (orphaned resource)" ;
-    sh:select """
-      PREFIX curric: <https://w3id.org/uk/oak/curriculum/ontology/>
-      SELECT $this WHERE {
-        $this a curric:Thread .
-        FILTER NOT EXISTS {
-          ?unit curric:includesThread $this
-        }
-      }
-    """ ;
   ] .
 
 # ----------------------------------------------------------------------
@@ -1628,18 +1536,15 @@ shapes:KeywordShape
     sh:message "Keywords must have exactly one schema:name with a language tag." ;
   ] ;
 
-  sh:sparql [
+  # Orphan check as native inverse-path minCount (was
+  # FILTER NOT EXISTS { ?lesson curric:hasKeyword $this }).
+  sh:property [
+    sh:path [ sh:inversePath curric:hasKeyword ] ;
+    sh:minCount 1 ;
     sh:severity sh:Warning ;
+    sh:name "referenced by a lesson" ;
+    sh:description "A keyword should be referenced by at least one lesson." ;
     sh:message "Keyword is not referenced by any lesson (WARNING - orphaned)" ;
-    sh:select """
-      PREFIX curric: <https://w3id.org/uk/oak/curriculum/ontology/>
-      SELECT $this WHERE {
-        $this a curric:Keyword .
-        FILTER NOT EXISTS {
-          ?lesson curric:hasKeyword $this .
-        }
-      }
-    """ ;
   ] .
 
 # ----------------------------------------------------------------------
@@ -1670,18 +1575,15 @@ shapes:MisconceptionShape
     sh:message "Misconceptions must have exactly one correction explaining the correct understanding." ;
   ] ;
 
-  sh:sparql [
+  # Orphan check as native inverse-path minCount (was
+  # FILTER NOT EXISTS { ?lesson curric:hasMisconception $this }).
+  sh:property [
+    sh:path [ sh:inversePath curric:hasMisconception ] ;
+    sh:minCount 1 ;
     sh:severity sh:Warning ;
+    sh:name "referenced by a lesson" ;
+    sh:description "A misconception should be referenced by at least one lesson." ;
     sh:message "Misconception is not referenced by any lesson (WARNING - orphaned)" ;
-    sh:select """
-      PREFIX curric: <https://w3id.org/uk/oak/curriculum/ontology/>
-      SELECT $this WHERE {
-        $this a curric:Misconception .
-        FILTER NOT EXISTS {
-          ?lesson curric:hasMisconception $this .
-        }
-      }
-    """ ;
   ] .
 
 # ----------------------------------------------------------------------
@@ -1702,18 +1604,16 @@ shapes:KeyLearningPointShape
     sh:message "Key learning points must have exactly one rdfs:label." ;
   ] ;
 
-  sh:sparql [
+  # Orphan check as native inverse-path minCount: one index pass instead of a
+  # SPARQL query per focus node. Equivalent to the previous
+  # FILTER NOT EXISTS { ?lesson curric:hasKeyLearningPoint $this }.
+  sh:property [
+    sh:path [ sh:inversePath curric:hasKeyLearningPoint ] ;
+    sh:minCount 1 ;
     sh:severity sh:Warning ;
+    sh:name "referenced by a lesson" ;
+    sh:description "A key learning point should be referenced by at least one lesson." ;
     sh:message "Key learning point is not referenced by any lesson (WARNING - orphaned)" ;
-    sh:select """
-      PREFIX curric: <https://w3id.org/uk/oak/curriculum/ontology/>
-      SELECT $this WHERE {
-        $this a curric:KeyLearningPoint .
-        FILTER NOT EXISTS {
-          ?lesson curric:hasKeyLearningPoint $this .
-        }
-      }
-    """ ;
   ] .
 
 # ----------------------------------------------------------------------
@@ -1734,18 +1634,15 @@ shapes:PupilLessonOutcomeShape
     sh:message "Pupil lesson outcomes must have exactly one rdfs:label." ;
   ] ;
 
-  sh:sparql [
+  # Orphan check as native inverse-path minCount (was
+  # FILTER NOT EXISTS { ?lesson curric:hasPupilLessonOutcome $this }).
+  sh:property [
+    sh:path [ sh:inversePath curric:hasPupilLessonOutcome ] ;
+    sh:minCount 1 ;
     sh:severity sh:Warning ;
+    sh:name "referenced by a lesson" ;
+    sh:description "A pupil lesson outcome should be referenced by at least one lesson." ;
     sh:message "Pupil lesson outcome is not referenced by any lesson (WARNING - orphaned)" ;
-    sh:select """
-      PREFIX curric: <https://w3id.org/uk/oak/curriculum/ontology/>
-      SELECT $this WHERE {
-        $this a curric:PupilLessonOutcome .
-        FILTER NOT EXISTS {
-          ?lesson curric:hasPupilLessonOutcome $this .
-        }
-      }
-    """ ;
   ] .
 
 # ----------------------------------------------------------------------
@@ -1766,18 +1663,15 @@ shapes:PriorKnowledgeRequirementShape
     sh:message "Prior knowledge requirements must have exactly one rdfs:label." ;
   ] ;
 
-  sh:sparql [
+  # Orphan check as native inverse-path minCount (was
+  # FILTER NOT EXISTS { ?unit curric:hasPriorKnowledgeRequirement $this }).
+  sh:property [
+    sh:path [ sh:inversePath curric:hasPriorKnowledgeRequirement ] ;
+    sh:minCount 1 ;
     sh:severity sh:Warning ;
+    sh:name "referenced by a unit" ;
+    sh:description "A prior knowledge requirement should be referenced by at least one unit." ;
     sh:message "Prior knowledge requirement is not referenced by any unit (WARNING - orphaned)" ;
-    sh:select """
-      PREFIX curric: <https://w3id.org/uk/oak/curriculum/ontology/>
-      SELECT $this WHERE {
-        $this a curric:PriorKnowledgeRequirement .
-        FILTER NOT EXISTS {
-          ?unit curric:hasPriorKnowledgeRequirement $this .
-        }
-      }
-    """ ;
   ] .
 
 # ----------------------------------------------------------------------
@@ -1855,15 +1749,94 @@ shapes:LessonShape
     sh:message "Lessons must have at least one pupil lesson outcome." ;
   ] ;
 
-  sh:sparql [
+  # Orphan check as native inverse-path minCount (was
+  # FILTER NOT EXISTS { ?inclusion curric:includesLesson $this }).
+  sh:property [
+    sh:path [ sh:inversePath curric:includesLesson ] ;
+    sh:minCount 1 ;
+    sh:name "referenced by a lesson inclusion" ;
+    sh:description "A lesson must be referenced by at least one lesson inclusion." ;
     sh:message "Lesson is not referenced by any lesson inclusion (orphaned resource)" ;
+  ] .
+
+# ----------------------------------------------------------------------
+# Shape: UnitVariant sequence positions (container-scoped)
+# ----------------------------------------------------------------------
+# These checks are relational (they compare sibling inclusions), so they stay
+# in SPARQL — but they are evaluated once per unit variant (the container),
+# not once per lesson inclusion. This cuts focus nodes from ~15k inclusions to
+# ~2k variants and removes the redundant re-scan of a variant once per sibling.
+
+shapes:UnitVariantSequenceShape
+  a sh:NodeShape ;
+  sh:targetClass curric:UnitVariant ;
+
+  sh:sparql [
+    sh:message "Sequence positions must be unique within a unit variant" ;
+    sh:select """
+      PREFIX curric: <https://w3id.org/uk/oak/curriculum/ontology/>
+      SELECT DISTINCT $this WHERE {
+        $this curric:hasLessonInclusion ?a, ?b .
+        ?a curric:sequencePosition ?pos .
+        ?b curric:sequencePosition ?pos .
+        FILTER (?a != ?b)
+      }
+    """ ;
+  ] ;
+
+  sh:sparql [
+    sh:message "Sequence positions must be consecutive within a unit variant (no gaps allowed)" ;
     sh:select """
       PREFIX curric: <https://w3id.org/uk/oak/curriculum/ontology/>
       SELECT $this WHERE {
-        $this a curric:Lesson .
-        FILTER NOT EXISTS {
-          ?inclusion curric:includesLesson $this
+        {
+          SELECT $this (MIN(?pos) AS ?minPos) (MAX(?pos) AS ?maxPos) (COUNT(DISTINCT ?pos) AS ?count) WHERE {
+            $this curric:hasLessonInclusion ?inclusion .
+            ?inclusion curric:sequencePosition ?pos .
+          }
+          GROUP BY $this
         }
+        FILTER (?count != (?maxPos - ?minPos + 1))
+      }
+    """ ;
+  ] .
+
+# ----------------------------------------------------------------------
+# Shape: Programme sequence positions (container-scoped)
+# ----------------------------------------------------------------------
+# As above, evaluated once per programme rather than once per unit variant
+# inclusion.
+
+shapes:ProgrammeSequenceShape
+  a sh:NodeShape ;
+  sh:targetClass curric:Programme ;
+
+  sh:sparql [
+    sh:message "Sequence positions must be unique within a programme" ;
+    sh:select """
+      PREFIX curric: <https://w3id.org/uk/oak/curriculum/ontology/>
+      SELECT DISTINCT $this WHERE {
+        $this curric:hasUnitVariantInclusion ?a, ?b .
+        ?a curric:sequencePosition ?pos .
+        ?b curric:sequencePosition ?pos .
+        FILTER (?a != ?b)
+      }
+    """ ;
+  ] ;
+
+  sh:sparql [
+    sh:message "Sequence positions must be consecutive within a programme (no gaps allowed)" ;
+    sh:select """
+      PREFIX curric: <https://w3id.org/uk/oak/curriculum/ontology/>
+      SELECT $this WHERE {
+        {
+          SELECT $this (MIN(?pos) AS ?minPos) (MAX(?pos) AS ?maxPos) (COUNT(DISTINCT ?pos) AS ?count) WHERE {
+            $this curric:hasUnitVariantInclusion ?inclusion .
+            ?inclusion curric:sequencePosition ?pos .
+          }
+          GROUP BY $this
+        }
+        FILTER (?count != (?maxPos - ?minPos + 1))
       }
     """ ;
   ] .

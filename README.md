@@ -178,7 +178,7 @@ During the transition years, teachers and tools will need to work with both curr
 ## Key Features
 
 ✅ **31 ontology classes** defining curriculum structure (Programme, Unit, Lesson, Discipline, Strand, etc).  
-✅ **36 SHACL validation shapes** ensuring data integrity.  
+✅ **38 SHACL validation shapes** ensuring data integrity.  
 ✅ **12 subject areas** with full knowledge taxonomies.
 ✅ **Teaching knowledge** — 11,207 misconceptions, 7,432 prior knowledge requirements, 50,948 key learning points, and 160 cross-curricular threads.  
 ✅ **National Curriculum alignment** linking Oak content to statutory requirements.  
@@ -458,7 +458,7 @@ ORDER BY ?label
 oak-curriculum-ontology/
 ├── ontology/
 │   ├── oak-curriculum-ontology.ttl       # Core classes & properties (31 classes)
-│   └── oak-curriculum-constraints.ttl    # SHACL validation shapes (36 shapes)
+│   └── oak-curriculum-constraints.ttl    # SHACL validation shapes (38 shapes)
 │
 ├── data/
 │   ├── temporal-structure.ttl            # Phases, Key Stages, Year Groups
@@ -561,7 +561,7 @@ This ontology achieves compliance with W3C Recommendations and international sta
 - **RDF 1.1** ([W3C Recommendation](https://www.w3.org/TR/rdf11-primer/)) - Universal data model for linked data
 - **OWL 2** ([W3C Recommendation](https://www.w3.org/TR/owl2-overview/)) - Formal ontology with 31 classes and 75 properties
 - **SKOS** ([W3C Recommendation](https://www.w3.org/TR/skos-reference/)) - Knowledge taxonomy with hierarchical relationships
-- **SHACL** ([W3C Recommendation](https://www.w3.org/TR/shacl/)) - 36 validation shapes for data quality
+- **SHACL** ([W3C Recommendation](https://www.w3.org/TR/shacl/)) - 38 validation shapes for data quality
 
 ### Metadata Standards
 
@@ -578,7 +578,7 @@ This ontology achieves compliance with W3C Recommendations and international sta
 ### Validation & Quality
 
 - **Automated CI/CD** - GitHub Actions validate every commit
-- **SHACL Constraints** - 36 shapes ensure structural integrity
+- **SHACL Constraints** - 38 shapes ensure structural integrity
 - **Test Coverage** - Validation shapes cover all major classes
 
 📋 **[Read full standards compliance documentation →](docs/standards-compliance.md)**
@@ -691,7 +691,7 @@ Alternatively, see [CITATION.cff](CITATION.cff) for machine-readable citation me
 
 - ✅ Core ontology structure (31 classes, 75 properties)
 - ✅ 12 subjects with knowledge taxonomies
-- ✅ SHACL validation (36 shapes)
+- ✅ SHACL validation (38 shapes)
 - ✅ Automated CI/CD pipelines
 - ✅ Multi-format distributions (Turtle, JSON-LD, RDF/XML, N-Triples)
 - ✅ Neo4j export tooling
