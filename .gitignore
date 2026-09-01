@@ -41,3 +41,6 @@ build/
 # Distribution files (published via GitHub Releases)
 distributions/
 
+# Local files
+CHECKLIST*.md
+

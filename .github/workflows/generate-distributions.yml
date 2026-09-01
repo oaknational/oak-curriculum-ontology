@@ -26,7 +26,7 @@ jobs:
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v7.0.1
 
       - name: Set up Java 21
-        uses: actions/setup-java@1bcf9fb12cf4aa7d266a90ae39939e61372fe520  # v5.4.0
+        uses: actions/setup-java@dd06d9cba3e5552c54d9f8ea23572deb30010f7c  # v6.0.0
         with:
           distribution: 'temurin'
           java-version: '21'
@@ -34,8 +34,12 @@ jobs:
       - name: Download and verify Apache Jena
         run: |
           echo "Downloading Apache Jena ${{ env.JENA_VERSION }}..."
-          wget -q "https://dlcdn.apache.org/jena/binaries/apache-jena-${{ env.JENA_VERSION }}.tar.gz"
-          wget -q "https://dlcdn.apache.org/jena/binaries/apache-jena-${{ env.JENA_VERSION }}.tar.gz.sha512"
+          # archive.apache.org serves every release directly, so redirects can
+          # be refused outright. dlcdn.apache.org 302s to the archive anyway
+          # (even for current releases) and would need redirects enabled.
+          JENA_BASE="https://archive.apache.org/dist/jena/binaries"
+          wget -q --max-redirect=0 "${JENA_BASE}/apache-jena-${{ env.JENA_VERSION }}.tar.gz"
+          wget -q --max-redirect=0 "${JENA_BASE}/apache-jena-${{ env.JENA_VERSION }}.tar.gz.sha512"
 
           echo "Verifying checksum..."
           sha512sum -c "apache-jena-${{ env.JENA_VERSION }}.tar.gz.sha512"
@@ -51,14 +55,22 @@ jobs:
           echo "$PWD/apache-jena-${{ env.JENA_VERSION }}/bin" >> $GITHUB_PATH
 
       - name: Set up uv
-        uses: astral-sh/setup-uv@fac544c07dec837d0ccb6301d7b5580bf5edae39  # v8.2.0
+        uses: astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d  # v10.0.1
         with:
           python-version: '3.12'
+
+      # --no-install-project is safe because [tool.setuptools] packages is
+      # empty: the project contributes no importable modules, only its
+      # dependency set. Skipping it is what lets --no-build be used, since the
+      # editable install is the only source distribution in this dependency
+      # set. Later steps use --no-sync against the environment built here.
+      - name: Install dependencies
+        run: uv sync --locked --no-build --no-install-project
 
       - name: Check version strings match the release tag
         if: github.event_name == 'release'
         run: |
-          uv run python scripts/check_version_consistency.py --tag "${GITHUB_REF_NAME}"
+          uv run --no-sync --no-build python scripts/check_version_consistency.py --tag "${GITHUB_REF_NAME}"
 
       - name: Generate distribution files
         run: ./scripts/build_static_data.sh
@@ -116,20 +128,20 @@ jobs:
       - name: Validate Property Graph JSONL outputs
         run: |
           echo "Validating Property Graph JSONL files..."
-          uv run python scripts/validate_pg_jsonl.py distributions
+          uv run --no-sync --no-build python scripts/validate_pg_jsonl.py distributions
           echo ""
           echo "✅ JSONL distribution files validated successfully!"
 
       - name: Smoke test Property Graph JSONL outputs
         run: |
           echo "Smoke testing Property Graph JSONL files..."
-          uv run python scripts/test_pg_jsonl.py distributions
+          uv run --no-sync --no-build python scripts/test_pg_jsonl.py distributions
           echo ""
           echo "✅ JSONL smoke test passed!"
 
       - name: Verify SQLite distribution integrity
         run: |
-          uv run python - <<'EOF'
+          uv run --no-sync --no-build python - <<'EOF'
           import sqlite3
           con = sqlite3.connect("distributions/oak-curriculum.sqlite")
           assert con.execute("PRAGMA integrity_check").fetchone()[0] == "ok"
@@ -144,7 +156,7 @@ jobs:
 
       - name: Generate checksums, metadata and step summary
         run: |
-          uv run python scripts/generate_distribution_summary.py \
+          uv run --no-sync --no-build python scripts/generate_distribution_summary.py \
             --triple-count ${{ steps.validate.outputs.triple_count }} \
             --commit-sha ${{ github.sha }} \
             --ref ${{ github.ref }}

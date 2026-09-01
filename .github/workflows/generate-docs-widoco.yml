@@ -25,18 +25,20 @@ jobs:
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v7.0.1
 
       - name: Prepare output directory
-        run: |
-          mkdir -p docs-output
-          chmod 777 docs-output
+        run: mkdir -p docs-output
 
+      # Widoco runs as its own "widoco" user and writes LODE temp files into
+      # its working directory, so it cannot run as the runner's UID. Rather
+      # than make a bind mount world-writable so that user can write to it,
+      # the output is written inside the container and copied out afterwards.
+      # docker cp leaves the copied files owned by the runner.
       - name: Generate documentation with Widoco
         run: |
-          docker run --rm \
+          docker run --name widoco \
             -v ${{ github.workspace }}/ontology:/data/ontology:ro \
-            -v ${{ github.workspace }}/docs-output:/data/docs-output \
             ghcr.io/dgarijo/widoco:v1.4.25 \
             -ontFile /data/ontology/oak-curriculum-ontology.ttl \
-            -outFolder /data/docs-output \
+            -outFolder /usr/local/widoco/docs-output \
             -htaccess \
             -uniteSections \
             -includeAnnotationProperties \
@@ -45,8 +47,12 @@ jobs:
             -excludeProvenance \
             -rewriteAll
 
-      - name: Fix output directory permissions
-        run: sudo chown -R $(id -u):$(id -g) docs-output
+      - name: Copy documentation out of the container
+        run: docker cp widoco:/usr/local/widoco/docs-output/. docs-output/
+
+      - name: Remove the Widoco container
+        if: always()
+        run: docker rm -f widoco || true
 
       - name: Validate generated documentation
         run: |
@@ -104,8 +110,12 @@ jobs:
         with:
           path: './docs-output/doc'
 
+      # Publish only from a release or from main. Manual dispatches on a
+      # branch still build and validate the docs, so the workflow can be
+      # tested without pushing anything to the live Pages site.
       - name: Deploy to GitHub Pages
         id: deployment
+        if: github.event_name == 'release' || github.ref == 'refs/heads/main'
         uses: actions/deploy-pages@cd2ce8fcbc39b97be8ca5fce6e763baed58fa128  # v5.0.0
 
       - name: Display summary

@@ -514,12 +514,14 @@ dev = [
 ]
 export = [
     { name = "neo4j" },
-    { name = "owlready2" },
     { name = "psycopg2-binary" },
     { name = "pydantic" },
     { name = "python-dotenv" },
     { name = "rdflib-neo4j" },
     { name = "tqdm" },
+]
+sql = [
+    { name = "owlready2" },
 ]
 
 [package.metadata]
@@ -527,7 +529,7 @@ requires-dist = [
     { name = "commitizen", marker = "extra == 'dev'", specifier = ">=3.29.0" },
     { name = "mypy", marker = "extra == 'dev'", specifier = ">=1.8.0" },
     { name = "neo4j", marker = "extra == 'export'", specifier = ">=5.0.0" },
-    { name = "owlready2", marker = "extra == 'export'", specifier = ">=0.47" },
+    { name = "owlready2", marker = "extra == 'sql'", specifier = ">=0.47" },
     { name = "pre-commit", marker = "extra == 'dev'", specifier = ">=3.7.0" },
     { name = "psycopg2-binary", marker = "extra == 'export'", specifier = ">=2.9.0" },
     { name = "pydantic", marker = "extra == 'export'", specifier = ">=2.0.0" },
@@ -540,7 +542,7 @@ requires-dist = [
     { name = "ruff", marker = "extra == 'dev'", specifier = ">=0.2.0" },
     { name = "tqdm", marker = "extra == 'export'", specifier = ">=4.66.0" },
 ]
-provides-extras = ["export", "dev"]
+provides-extras = ["export", "sql", "dev"]
 
 [[package]]
 name = "owlready2"
