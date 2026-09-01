@@ -59,12 +59,16 @@ jobs:
       - name: Run unit tests
         run: uv run --no-sync --no-build pytest
 
+      # The export extra is needed so mypy can resolve neo4j/pydantic imports.
+      # It no longer pulls owlready2, so --no-build applies here too.
+      - name: Install type-checking dependencies
+        run: uv sync --locked --no-build --no-install-project --extra dev --extra export
+
       # Strict type-checking is enforced file-by-file as scripts are brought
       # into compliance; add scripts here once they pass mypy --strict.
-      # The export extra is needed so mypy can resolve neo4j/pydantic imports
       - name: Type-check Python (mypy strict)
         run: |
-          uv run --locked --extra dev --extra export mypy \
+          uv run --no-sync --no-build mypy \
             scripts/check_readme_examples.py \
             scripts/check_version_consistency.py \
             scripts/merge_ttls_with_imports.py \

@@ -10,8 +10,8 @@ Uses OWLready2 for ontology introspection and rdflib to handle Turtle parsing
 (OWLready2 only supports RDF/XML and NTriples natively).
 
 Usage:
-    uv run scripts/generate_sql_schema.py --dialect postgres -o distributions/oak-curriculum-schema-postgres.sql
-    uv run scripts/generate_sql_schema.py --dialect sqlite -o distributions/oak-curriculum-schema-sqlite.sql
+    uv run --extra sql scripts/generate_sql_schema.py --dialect postgres -o distributions/oak-curriculum-schema-postgres.sql
+    uv run --extra sql scripts/generate_sql_schema.py --dialect sqlite -o distributions/oak-curriculum-schema-sqlite.sql
 """
 
 from __future__ import annotations
