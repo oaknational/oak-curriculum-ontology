@@ -117,6 +117,9 @@ jobs:
 
           echo "✅ All distribution files validated successfully!"
 
+      # --locked pins resolution to uv.lock. --no-build is deliberately not
+      # used: owlready2 ships no wheel, so it cannot be installed without
+      # building a source distribution. See .sonarcloud.properties.
       - name: Validate Property Graph JSONL outputs
         run: |
           echo "Validating Property Graph JSONL files..."
