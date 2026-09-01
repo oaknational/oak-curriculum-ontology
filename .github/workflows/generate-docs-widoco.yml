@@ -27,20 +27,18 @@ jobs:
       - name: Prepare output directory
         run: mkdir -p docs-output
 
+      # Widoco runs as its own "widoco" user and writes LODE temp files into
+      # its working directory, so it cannot run as the runner's UID. Rather
+      # than make a bind mount world-writable so that user can write to it,
+      # the output is written inside the container and copied out afterwards.
+      # docker cp leaves the copied files owned by the runner.
       - name: Generate documentation with Widoco
         run: |
-          # The image's default user is "widoco", whose UID does not match the
-          # runner's, so it could only write to the bind mount when the mount
-          # was world-writable. Running as the runner instead keeps the mount
-          # at default permissions and leaves the output runner-owned, so no
-          # follow-up chown is needed.
-          docker run --rm \
-            --user "$(id -u):$(id -g)" \
+          docker run --name widoco \
             -v ${{ github.workspace }}/ontology:/data/ontology:ro \
-            -v ${{ github.workspace }}/docs-output:/data/docs-output \
             ghcr.io/dgarijo/widoco:v1.4.25 \
             -ontFile /data/ontology/oak-curriculum-ontology.ttl \
-            -outFolder /data/docs-output \
+            -outFolder /usr/local/widoco/docs-output \
             -htaccess \
             -uniteSections \
             -includeAnnotationProperties \
@@ -48,6 +46,13 @@ jobs:
             -noPlaceHolderText \
             -excludeProvenance \
             -rewriteAll
+
+      - name: Copy documentation out of the container
+        run: docker cp widoco:/usr/local/widoco/docs-output/. docs-output/
+
+      - name: Remove the Widoco container
+        if: always()
+        run: docker rm -f widoco || true
 
       - name: Validate generated documentation
         run: |
