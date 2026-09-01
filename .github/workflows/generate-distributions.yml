@@ -117,9 +117,10 @@ jobs:
 
           echo "✅ All distribution files validated successfully!"
 
-      # --locked pins resolution to uv.lock. --no-build is deliberately not
-      # used: owlready2 ships no wheel, so it cannot be installed without
-      # building a source distribution. See .sonarcloud.properties.
+      # The uv invocations below pin resolution with --locked. --no-build is
+      # deliberately not used: owlready2 ships no wheel, so it cannot be
+      # installed without building a source distribution. See
+      # .sonarcloud.properties for the full rationale.
       - name: Validate Property Graph JSONL outputs
         run: |
           echo "Validating Property Graph JSONL files..."
@@ -129,6 +130,7 @@ jobs:
 
       - name: Smoke test Property Graph JSONL outputs
         run: |
+          # --no-build unavailable; see the note above.
           echo "Smoke testing Property Graph JSONL files..."
           uv run --locked python scripts/test_pg_jsonl.py distributions
           echo ""
@@ -136,6 +138,7 @@ jobs:
 
       - name: Verify SQLite distribution integrity
         run: |
+          # --no-build unavailable; see the note above.
           uv run --locked python - <<'EOF'
           import sqlite3
           con = sqlite3.connect("distributions/oak-curriculum.sqlite")
