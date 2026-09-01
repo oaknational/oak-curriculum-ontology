@@ -38,15 +38,19 @@ jobs:
       - name: Set up Python 3.12
         run: uv python install 3.12
 
+      # --no-install-project is safe: [tool.setuptools] packages is empty, so
+      # the project contributes no importable modules. Skipping it removes the
+      # only source distribution in this dependency set, which is what allows
+      # --no-build. Later steps use --no-sync against this environment.
       - name: Create virtual environment and install dependencies
         run: |
-          uv sync --locked
+          uv sync --locked --no-build --no-install-project
       
       # The merge parses every source file (syntax check) and emits
       # N-Triples, which pyshacl re-parses much faster than Turtle
       - name: Merge TTLs and resolve owl:imports (exclude "versions")
         run: |
-          uv run --locked python scripts/merge_ttls_with_imports.py -o /tmp/combined-data.nt
+          uv run --no-sync --no-build python scripts/merge_ttls_with_imports.py -o /tmp/combined-data.nt
 
       - name: Run SHACL validation
         id: shacl-validation
@@ -58,7 +62,7 @@ jobs:
           # concrete classes; RDFS inference dominated runtime and masked
           # genuine warnings. --abort keeps this fast but can truncate the
           # report at the first failing shape (see scripts/validate.sh)
-          if uv run --locked pyshacl \
+          if uv run --no-sync --no-build pyshacl \
             --shacl ontology/oak-curriculum-constraints.ttl \
             --ont-graph ontology/oak-curriculum-ontology.ttl \
             --inference none \
@@ -91,22 +95,22 @@ jobs:
 
       - name: Check README examples and counts against the data
         run: |
-          uv run --locked python scripts/check_readme_examples.py
+          uv run --no-sync --no-build python scripts/check_readme_examples.py
 
       - name: Check version strings agree across the repository
         run: |
-          uv run --locked python scripts/check_version_consistency.py
+          uv run --no-sync --no-build python scripts/check_version_consistency.py
 
       - name: Run SPARQL query tests
         run: |
-          uv run --locked python scripts/test_sparql_queries.py
+          uv run --no-sync --no-build python scripts/test_sparql_queries.py
 
       - name: Generate and smoke-test property-graph JSONL
         run: |
           mkdir -p /tmp/pg-dist
 
-          uv run --locked python scripts/generate_pg_jsonl.py /tmp/combined-data.nt /tmp/pg-dist
-          uv run --locked python scripts/test_pg_jsonl.py /tmp/pg-dist
+          uv run --no-sync --no-build python scripts/generate_pg_jsonl.py /tmp/combined-data.nt /tmp/pg-dist
+          uv run --no-sync --no-build python scripts/test_pg_jsonl.py /tmp/pg-dist
 
       - name: Upload validation report
         if: always()

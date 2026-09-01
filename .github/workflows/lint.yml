@@ -28,8 +28,14 @@ jobs:
         with:
           python-version: '3.12'
 
+      # --no-install-project is a uv sync flag, so the environment is built
+      # here and the run step consumes it with --no-sync. See
+      # .sonarcloud.properties for why the project install has to be skipped.
+      - name: Install dependencies
+        run: uv sync --locked --no-build --no-install-project --extra dev
+
       - name: Lint markdown (pymarkdown)
-        run: uv run --locked --extra dev pre-commit run pymarkdown --all-files
+        run: uv run --no-sync --no-build pre-commit run pymarkdown --all-files
 
   python:
     runs-on: ubuntu-latest

@@ -59,10 +59,18 @@ jobs:
         with:
           python-version: '3.12'
 
+      # --no-install-project is safe because [tool.setuptools] packages is
+      # empty: the project contributes no importable modules, only its
+      # dependency set. Skipping it is what lets --no-build be used, since the
+      # editable install is the only source distribution in this dependency
+      # set. Later steps use --no-sync against the environment built here.
+      - name: Install dependencies
+        run: uv sync --locked --no-build --no-install-project
+
       - name: Check version strings match the release tag
         if: github.event_name == 'release'
         run: |
-          uv run --locked python scripts/check_version_consistency.py --tag "${GITHUB_REF_NAME}"
+          uv run --no-sync --no-build python scripts/check_version_consistency.py --tag "${GITHUB_REF_NAME}"
 
       - name: Generate distribution files
         run: ./scripts/build_static_data.sh
@@ -117,27 +125,23 @@ jobs:
 
           echo "✅ All distribution files validated successfully!"
 
-      # The uv invocations below pin resolution with --locked. --no-build is
-      # deliberately not used: owlready2 ships no wheel, so it cannot be
-      # installed without building a source distribution. See
-      # .sonarcloud.properties for the full rationale.
       - name: Validate Property Graph JSONL outputs
         run: |
           echo "Validating Property Graph JSONL files..."
-          uv run --locked python scripts/validate_pg_jsonl.py distributions
+          uv run --no-sync --no-build python scripts/validate_pg_jsonl.py distributions
           echo ""
           echo "✅ JSONL distribution files validated successfully!"
 
       - name: Smoke test Property Graph JSONL outputs
         run: |
           echo "Smoke testing Property Graph JSONL files..."
-          uv run --locked python scripts/test_pg_jsonl.py distributions
+          uv run --no-sync --no-build python scripts/test_pg_jsonl.py distributions
           echo ""
           echo "✅ JSONL smoke test passed!"
 
       - name: Verify SQLite distribution integrity
         run: |
-          uv run --locked python - <<'EOF'
+          uv run --no-sync --no-build python - <<'EOF'
           import sqlite3
           con = sqlite3.connect("distributions/oak-curriculum.sqlite")
           assert con.execute("PRAGMA integrity_check").fetchone()[0] == "ok"
@@ -152,7 +156,7 @@ jobs:
 
       - name: Generate checksums, metadata and step summary
         run: |
-          uv run --locked python scripts/generate_distribution_summary.py \
+          uv run --no-sync --no-build python scripts/generate_distribution_summary.py \
             --triple-count ${{ steps.validate.outputs.triple_count }} \
             --commit-sha ${{ github.sha }} \
             --ref ${{ github.ref }}
