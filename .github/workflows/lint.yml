@@ -48,11 +48,16 @@ jobs:
         with:
           python-version: '3.12'
 
+      # ruff and pytest need only the dev extra; the export extra is what
+      # blocks --no-build, because owlready2 publishes no wheel.
+      - name: Install dependencies
+        run: uv sync --locked --no-build --no-install-project --extra dev
+
       - name: Lint Python (ruff)
-        run: uv run --locked --extra dev --extra export ruff check scripts/ tests/ conftest.py
+        run: uv run --no-sync --no-build ruff check scripts/ tests/ conftest.py
 
       - name: Run unit tests
-        run: uv run --locked --extra dev --extra export pytest
+        run: uv run --no-sync --no-build pytest
 
       # Strict type-checking is enforced file-by-file as scripts are brought
       # into compliance; add scripts here once they pass mypy --strict.
