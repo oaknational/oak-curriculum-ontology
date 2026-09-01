@@ -130,7 +130,6 @@ jobs:
 
       - name: Smoke test Property Graph JSONL outputs
         run: |
-          # --no-build unavailable; see the note above.
           echo "Smoke testing Property Graph JSONL files..."
           uv run --locked python scripts/test_pg_jsonl.py distributions
           echo ""
@@ -138,7 +137,6 @@ jobs:
 
       - name: Verify SQLite distribution integrity
         run: |
-          # --no-build unavailable; see the note above.
           uv run --locked python - <<'EOF'
           import sqlite3
           con = sqlite3.connect("distributions/oak-curriculum.sqlite")
