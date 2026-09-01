@@ -647,8 +647,12 @@ def main() -> None:
     ddl = generate_ddl(args.ontology, args.dialect)
 
     if args.output:
+        # Validated twice: once by argparse via contained_path_arg, and again
+        # here at the point of use. contained_path resolves symlinks and ".."
+        # before checking containment, but Sonar's taint engine does not model
+        # Path.is_relative_to as a sanitiser, so it still reports S8707.
         safe_output = contained_path(args.output)
-        safe_output.write_text(ddl, encoding="utf-8")
+        safe_output.write_text(ddl, encoding="utf-8")  # NOSONAR
         log.info("Schema written to %s", safe_output)
     else:
         print(ddl)

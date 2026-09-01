@@ -34,8 +34,12 @@ jobs:
       - name: Download and verify Apache Jena
         run: |
           echo "Downloading Apache Jena ${{ env.JENA_VERSION }}..."
-          wget -q "https://dlcdn.apache.org/jena/binaries/apache-jena-${{ env.JENA_VERSION }}.tar.gz"
-          wget -q "https://dlcdn.apache.org/jena/binaries/apache-jena-${{ env.JENA_VERSION }}.tar.gz.sha512"
+          # archive.apache.org serves every release directly, so redirects can
+          # be refused outright. dlcdn.apache.org 302s to the archive anyway
+          # (even for current releases) and would need redirects enabled.
+          JENA_BASE="https://archive.apache.org/dist/jena/binaries"
+          wget -q --max-redirect=0 "${JENA_BASE}/apache-jena-${{ env.JENA_VERSION }}.tar.gz"
+          wget -q --max-redirect=0 "${JENA_BASE}/apache-jena-${{ env.JENA_VERSION }}.tar.gz.sha512"
 
           echo "Verifying checksum..."
           sha512sum -c "apache-jena-${{ env.JENA_VERSION }}.tar.gz.sha512"
@@ -58,7 +62,7 @@ jobs:
       - name: Check version strings match the release tag
         if: github.event_name == 'release'
         run: |
-          uv run python scripts/check_version_consistency.py --tag "${GITHUB_REF_NAME}"
+          uv run --locked python scripts/check_version_consistency.py --tag "${GITHUB_REF_NAME}"
 
       - name: Generate distribution files
         run: ./scripts/build_static_data.sh
@@ -116,20 +120,20 @@ jobs:
       - name: Validate Property Graph JSONL outputs
         run: |
           echo "Validating Property Graph JSONL files..."
-          uv run python scripts/validate_pg_jsonl.py distributions
+          uv run --locked python scripts/validate_pg_jsonl.py distributions
           echo ""
           echo "✅ JSONL distribution files validated successfully!"
 
       - name: Smoke test Property Graph JSONL outputs
         run: |
           echo "Smoke testing Property Graph JSONL files..."
-          uv run python scripts/test_pg_jsonl.py distributions
+          uv run --locked python scripts/test_pg_jsonl.py distributions
           echo ""
           echo "✅ JSONL smoke test passed!"
 
       - name: Verify SQLite distribution integrity
         run: |
-          uv run python - <<'EOF'
+          uv run --locked python - <<'EOF'
           import sqlite3
           con = sqlite3.connect("distributions/oak-curriculum.sqlite")
           assert con.execute("PRAGMA integrity_check").fetchone()[0] == "ok"
@@ -144,7 +148,7 @@ jobs:
 
       - name: Generate checksums, metadata and step summary
         run: |
-          uv run python scripts/generate_distribution_summary.py \
+          uv run --locked python scripts/generate_distribution_summary.py \
             --triple-count ${{ steps.validate.outputs.triple_count }} \
             --commit-sha ${{ github.sha }} \
             --ref ${{ github.ref }}
