@@ -25,13 +25,17 @@ jobs:
         uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0  # v7.0.0
 
       - name: Prepare output directory
-        run: |
-          mkdir -p docs-output
-          chmod 777 docs-output
+        run: mkdir -p docs-output
 
       - name: Generate documentation with Widoco
         run: |
+          # The image's default user is "widoco", whose UID does not match the
+          # runner's, so it could only write to the bind mount when the mount
+          # was world-writable. Running as the runner instead keeps the mount
+          # at default permissions and leaves the output runner-owned, so no
+          # follow-up chown is needed.
           docker run --rm \
+            --user "$(id -u):$(id -g)" \
             -v ${{ github.workspace }}/ontology:/data/ontology:ro \
             -v ${{ github.workspace }}/docs-output:/data/docs-output \
             ghcr.io/dgarijo/widoco:v1.4.25 \
@@ -44,9 +48,6 @@ jobs:
             -noPlaceHolderText \
             -excludeProvenance \
             -rewriteAll
-
-      - name: Fix output directory permissions
-        run: sudo chown -R $(id -u):$(id -g) docs-output
 
       - name: Validate generated documentation
         run: |

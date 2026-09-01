@@ -28,8 +28,14 @@ jobs:
         with:
           python-version: '3.12'
 
+      # --no-install-project is a uv sync flag, so the environment is built
+      # here and the run step consumes it with --no-sync. See
+      # .sonarcloud.properties for why the project install has to be skipped.
+      - name: Install dependencies
+        run: uv sync --locked --no-build --no-install-project --extra dev
+
       - name: Lint markdown (pymarkdown)
-        run: uv run --extra dev pre-commit run pymarkdown --all-files
+        run: uv run --no-sync --no-build pre-commit run pymarkdown --all-files
 
   python:
     runs-on: ubuntu-latest
@@ -42,18 +48,27 @@ jobs:
         with:
           python-version: '3.12'
 
+      # ruff and pytest need only the dev extra; the export extra is what
+      # blocks --no-build, because owlready2 publishes no wheel.
+      - name: Install dependencies
+        run: uv sync --locked --no-build --no-install-project --extra dev
+
       - name: Lint Python (ruff)
-        run: uv run --extra dev --extra export ruff check scripts/ tests/ conftest.py
+        run: uv run --no-sync --no-build ruff check scripts/ tests/ conftest.py
 
       - name: Run unit tests
-        run: uv run --extra dev --extra export pytest
+        run: uv run --no-sync --no-build pytest
+
+      # The export extra is needed so mypy can resolve neo4j/pydantic imports.
+      # It no longer pulls owlready2, so --no-build applies here too.
+      - name: Install type-checking dependencies
+        run: uv sync --locked --no-build --no-install-project --extra dev --extra export
 
       # Strict type-checking is enforced file-by-file as scripts are brought
       # into compliance; add scripts here once they pass mypy --strict.
-      # The export extra is needed so mypy can resolve neo4j/pydantic imports
       - name: Type-check Python (mypy strict)
         run: |
-          uv run --extra dev --extra export mypy \
+          uv run --no-sync --no-build mypy \
             scripts/check_readme_examples.py \
             scripts/check_version_consistency.py \
             scripts/merge_ttls_with_imports.py \
@@ -75,5 +90,5 @@ jobs:
 
       - name: Lint commit messages (commitizen)
         run: >-
-          uv run --extra dev cz check
+          uv run --locked --extra dev cz check
           --rev-range ${{ github.event.pull_request.base.sha }}..${{ github.event.pull_request.head.sha }}

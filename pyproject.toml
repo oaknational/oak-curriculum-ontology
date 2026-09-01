@@ -18,8 +18,9 @@ classifiers = [
 ]
 
 # Core dependencies cover validation and distribution generation; the Neo4j
-# and SQL export stack lives in the "export" extra so CI validation installs
-# stay small (owlready2 in particular builds from source).
+# export stack lives in the "export" extra so CI validation installs stay
+# small. owlready2 is isolated in its own "sql" extra because it publishes no
+# wheel: keeping it out of "export" lets every other install use --no-build.
 dependencies = [
     "rdflib>=7.5.0",
     "pyshacl>=0.31.0",
@@ -32,8 +33,12 @@ export = [
     "pydantic>=2.0.0",
     "python-dotenv>=1.0.0",
     "tqdm>=4.66.0",
-    "owlready2>=0.47",
     "psycopg2-binary>=2.9.0",
+]
+# Only scripts/generate_sql_schema.py needs this. owlready2 is sdist-only, so
+# anything installing this extra has to build from source.
+sql = [
+    "owlready2>=0.47",
 ]
 dev = [
     "ruff>=0.2.0",

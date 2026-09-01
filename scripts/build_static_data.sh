@@ -93,8 +93,8 @@ uv run python scripts/generate_pg_jsonl.py "$OUTPUT_DIR/oak-curriculum-full.ttl"
 
 # Generate SQL schemas
 echo "  Generating SQL schemas..."
-uv run python scripts/generate_sql_schema.py --dialect postgres -o "$OUTPUT_DIR/oak-curriculum-schema-postgres.sql"
-uv run python scripts/generate_sql_schema.py --dialect sqlite -o "$OUTPUT_DIR/oak-curriculum-schema-sqlite.sql"
+uv run --extra sql python scripts/generate_sql_schema.py --dialect postgres -o "$OUTPUT_DIR/oak-curriculum-schema-postgres.sql"
+uv run --extra sql python scripts/generate_sql_schema.py --dialect sqlite -o "$OUTPUT_DIR/oak-curriculum-schema-sqlite.sql"
 echo "    Created oak-curriculum-schema-postgres.sql"
 echo "    Created oak-curriculum-schema-sqlite.sql"
 
