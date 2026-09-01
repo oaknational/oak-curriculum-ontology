@@ -40,18 +40,31 @@ Summarise as a table of `rule | file:line | message` before changing anything.
 
 ## Step 3 — fix
 
-Group the work by rule, and prefer a real fix over a suppression.
+Group the work by rule. Strongly prefer a real fix over a suppression: Sonar's
+suggested fix is usually correct, and when it looks impossible the obstacle is
+more often our own setup than the rule.
 
-Before applying a fix repo-wide, **verify it actually works locally** — several
-Sonar suggestions do not hold here:
+Verify each fix locally before applying it repo-wide — and verify it against
+the *exact* dependency set the failing command uses. Testing with heavier
+extras than a command needs will make a workable fix look impossible.
 
-- `uv run --locked` / `uv sync --locked` is correct and is already used
-  everywhere. Keep it.
-- `--no-build` (S8541) **breaks the build**: it refuses to build this project's
-  own editable install. It is suppressed in `.sonarcloud.properties` with a
-  rationale. Do not "fix" these by adding the flag.
+Established patterns here:
+
+- `--locked` on every `uv` call. Already in place; keep it.
+- `--no-build` (S8541) works as a two-step: `uv sync --locked --no-build
+  --no-install-project` to build the environment, then `uv run --no-sync
+  --no-build` to use it. `--no-install-project` skips this project's own
+  editable install, which is safe because `[tool.setuptools] packages` is
+  empty. It is a `uv sync` flag only — `uv run` rejects it.
+- `owlready2` publishes no wheel, so any install pulling it cannot use
+  `--no-build`. It is isolated in the `sql` extra for that reason; keep it out
+  of `dev` and `export`.
 - `wget` must download from `archive.apache.org`, not `dlcdn.apache.org`, so
   that `--max-redirect=0` (S6506) can be used. dlcdn 302s to the archive.
+- Container permission findings (S2612): do not make a bind mount
+  world-writable. Prefer writing inside the container and `docker cp`-ing the
+  result out. Running the container as the runner's UID is not safe in general
+  — Widoco writes to its own working directory and fails that way.
 
 Run the checks CI runs before concluding:
 
@@ -61,10 +74,15 @@ uv run --locked --extra dev --extra export pytest
 ```
 
 If a finding is a false positive, add `# NOSONAR` with a comment explaining
-why — that convention is already used in `scripts/cli_paths.py`. If a rule is
-unachievable for a structural reason, add a documented
+why — that convention is already used in `scripts/cli_paths.py`. Note it
+silences every rule on that line, not just the one you meant.
+
+If a rule is genuinely unachievable, add a documented
 `sonar.issue.ignore.multicriteria` entry to `.sonarcloud.properties` rather
 than silencing it in the SonarCloud UI, so the reasoning stays in the repo.
+Be warned that these entries have repeatedly failed to take effect under
+Automatic Analysis: do not assume adding one clears a finding, always re-check
+the gate afterwards, and treat it as a last resort rather than a quick escape.
 
 ## Step 4 — report
 
