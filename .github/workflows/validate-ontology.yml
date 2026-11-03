@@ -35,8 +35,8 @@ jobs:
       - name: Install uv
         uses: astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d  # v10.0.1
 
-      - name: Set up Python 3.12
-        run: uv python install 3.12
+      - name: Set up Python (version from .python-version)
+        run: uv python install
 
       # --no-install-project is safe: [tool.setuptools] packages is empty, so
       # the project contributes no importable modules. Skipping it removes the
@@ -125,7 +125,7 @@ jobs:
         run: |
           echo "### SHACL Validation Results" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
-          echo "**Python Version:** 3.12" >> $GITHUB_STEP_SUMMARY
+          echo "**Python Version:** $(cat .python-version)" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "Validates all curriculum data instances against the ontology schema:" >> $GITHUB_STEP_SUMMARY
           echo "- Required properties and cardinalities" >> $GITHUB_STEP_SUMMARY
