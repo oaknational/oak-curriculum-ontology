@@ -25,8 +25,6 @@ jobs:
 
       - name: Set up uv
         uses: astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d  # v10.0.1
-        with:
-          python-version: '3.12'
 
       # --no-install-project is a uv sync flag, so the environment is built
       # here and the run step consumes it with --no-sync. See
@@ -45,8 +43,6 @@ jobs:
 
       - name: Set up uv
         uses: astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d  # v10.0.1
-        with:
-          python-version: '3.12'
 
       # ruff and pytest need only the dev extra; the export extra is what
       # blocks --no-build, because owlready2 publishes no wheel.
@@ -85,8 +81,6 @@ jobs:
 
       - name: Set up uv
         uses: astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d  # v10.0.1
-        with:
-          python-version: '3.12'
 
       - name: Lint commit messages (commitizen)
         run: >-

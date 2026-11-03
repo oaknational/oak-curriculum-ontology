@@ -4,7 +4,6 @@ __pycache__/
 *$py.class
 .venv/
 venv/
-.python-version
 
 # Environment variables (secrets)
 .env

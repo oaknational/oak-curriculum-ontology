@@ -50,7 +50,7 @@ Validates the ontology structure and curriculum data against SHACL constraints t
 #### What It Does
 
 1. **Sets up environment**
-   - Installs Python 3.12 (matches pyproject.toml)
+   - Installs the Python version pinned in `.python-version` (a patched 3.12 release)
    - Uses `uv` package manager for fast dependency installation
    - Creates virtual environment with `uv venv`
    - Installs `rdflib` and `pyshacl` dependencies
@@ -359,7 +359,7 @@ All workflows implement:
 
 | Feature | Description |
 |---------|-------------|
-| **Python 3.12** | Tests on Python 3.12 (matches pyproject.toml) |
+| **Pinned Python** | Tests on the Python version in `.python-version` |
 | **Violation Counting** | Tracks SHACL constraint violations |
 | **Triple Counting** | Reports RDF dataset size |
 | **Artifact Retention** | 400-day validation reports, 30-day distributions |

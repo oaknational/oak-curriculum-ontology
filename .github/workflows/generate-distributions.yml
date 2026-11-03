@@ -56,8 +56,6 @@ jobs:
 
       - name: Set up uv
         uses: astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d  # v10.0.1
-        with:
-          python-version: '3.12'
 
       # --no-install-project is safe because [tool.setuptools] packages is
       # empty: the project contributes no importable modules, only its
