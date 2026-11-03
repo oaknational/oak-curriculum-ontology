@@ -87,6 +87,7 @@ jobs:
               jsonld) FORMAT="JSON-LD" ;;
               rdf) FORMAT="RDF/XML" ;;
               nt) FORMAT="N-Triples" ;;
+              *) echo "❌ Unknown format extension: $ext"; exit 1 ;;
             esac
 
             echo "Checking $FORMAT files (.$ext)..."
